@@ -38,7 +38,7 @@ interface Column {
   itemIndices: number[]
 }
 
-export function maxBy<T>(array: T[], transform: (element: T) => number): T | undefined {
+function maxBy<T>(array: T[], transform: (element: T) => number): T | undefined {
   if (array.length === 0) {
     return undefined
   }
