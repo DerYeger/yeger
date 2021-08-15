@@ -101,5 +101,8 @@
       "path": "./dist/*.js",
       "maxSize": "5kb"
     }
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }
