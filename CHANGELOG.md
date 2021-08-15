@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/DerYeger/vue-masonry-wall/compare/v1.0.2...v1.0.3) (2021-08-15)
+
+
+### Bug Fixes
+
+* enable css extraction ([cddf809](https://github.com/DerYeger/vue-masonry-wall/commit/cddf809a745eb609f9093314c5ad78e5320052b6))
+
 ## [1.0.2](https://github.com/DerYeger/vue-masonry-wall/compare/v1.0.1...v1.0.2) (2021-08-15)
 
 
