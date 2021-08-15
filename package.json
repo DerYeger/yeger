@@ -28,7 +28,6 @@
     "dist/*",
     "src/**/*.vue"
   ],
-  "sideEffects": false,
   "scripts": {
     "demo:serve": "vue-cli-service serve demo/serve.ts",
     "demo:build": "vue-cli-service build demo/serve.ts --dest=demo-dist",

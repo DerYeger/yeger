@@ -67,12 +67,7 @@ export default defineComponent({
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-body {
-  margin: 0;
-}
-
 .item {
-  background: red;
   display: flex;
   justify-content: center;
   align-items: center;
