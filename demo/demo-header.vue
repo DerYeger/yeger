@@ -37,7 +37,7 @@
         <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/@yeger/vue-masonry-wall/peer/vue" />
       </a>
       <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
-        <img alt="MIT" src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=#4DC71F" />
+        <img alt="MIT" src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=%234DC71F">
       </a>
       <a href="https://bundlephobia.com/package/@yeger/vue-masonry-wall" target="_blank" rel="noopener">
         <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@yeger/vue-masonry-wall" />
