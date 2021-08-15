@@ -1,0 +1,41 @@
+name: CD
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build-demo:
+    name: Build demo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Setup node env
+        uses: actions/setup-node@v2.4.0
+        with:
+          node-version: 14
+      - name: Cache node modules
+        id: node-cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
+        run: yarn install
+      - name: Generate files
+        run: yarn demo:build
+      - name: Create 404.html file
+        run: cp ./demo-dist/index.html ./demo-dist/404.html
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: ./demo-dist
+          clean: true
+          single-commit: true
+          git-config-name: Jan Müller
+          git-config-email: janmueller3698@gmail.com
