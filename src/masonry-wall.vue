@@ -23,8 +23,8 @@
 <template>
   <div class="masonry-wall" ref="wall" :class="{ ready }">
     <div class="masonry-column" v-for="(column, columnIndex) in columns" :key="columnIndex">
-      <div class="masonry-item" v-for="row in column.itemIndices" :key="row">
-        <slot :item="items[row]" :index="row">{{ items[row] }}</slot>
+      <div class="masonry-item" v-for="itemIndex in column.itemIndices" :key="itemIndex">
+        <slot :item="items[itemIndex]" :index="itemIndex">{{ items[itemIndex] }}</slot>
       </div>
       <div class="masonry-column__floor" :data-column="columnIndex" />
     </div>
