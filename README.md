@@ -31,9 +31,9 @@
 
 ## Features
 
-- 📱 **Responsive**: Fully responsive with configurable padding and column width.
+- 📱 **Responsive**: Responsive with configurable padding and column width. Based on `ResizeObserver`.
 - 🔁 **Reactive**: Reacts to property changes.
-- ✨ **Lightweight**: Zero dependencies.
+- 🪶 **Lightweight**: Zero dependencies. Less than 4 kB.
 
 ## Links
 
@@ -51,8 +51,6 @@ $ npm install @yeger/vue-masonry-wall
 ```
 
 ## Usage
-
-### Vue 3
 
 ```typescript
 import { createApp } from 'vue'
