@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/DerYeger/vue-masonry-wall/compare/v2.0.0...v2.0.1) (2021-08-16)
+
+
+### Bug Fixes
+
+* round down when calculating column count ([66aace1](https://github.com/DerYeger/vue-masonry-wall/commit/66aace1c740ecfd83be211db16b890dfc000b27d))
+
 # [2.0.0](https://github.com/DerYeger/vue-masonry-wall/compare/v1.0.3...v2.0.0) (2021-08-16)
 
 
