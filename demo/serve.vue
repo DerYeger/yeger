@@ -5,8 +5,8 @@
       <div id="tools">
         <div class="row">
           <label for="width">Column Width</label>
-          <input id="width" type="range" min="128" max="512" v-model="width" />
-          <span> {{ width }}px</span>
+          <input id="width" type="range" min="128" max="512" v-model="columnWidth" />
+          <span> {{ columnWidth }}px</span>
         </div>
         <div class="row">
           <label for="padding">Padding</label>
@@ -20,7 +20,7 @@
           <button @click="addItem(newItemHeight)">Create Item</button>
         </div>
       </div>
-      <masonry-wall :items="items" :padding="+padding" :width="+width" :ssr-columns="1">
+      <masonry-wall :items="items" :padding="+padding" :columnWidth="+columnWidth" :ssr-columns="1">
         <template #default="{ item, index }">
           <div class="item" :style="`height: ${item}px; background: var(--color-${index % 2 === 0 ? 'primary' : 'accent'})`">
             <span>Index {{ index }}</span>
@@ -52,7 +52,7 @@ export default defineComponent({
       items: [100, 200, 150, 100],
       newItemHeight: 128,
       padding: 16,
-      width: 400,
+      columnWidth: 400,
     }
   },
   methods: {

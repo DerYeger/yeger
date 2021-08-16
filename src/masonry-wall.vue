@@ -60,7 +60,7 @@ export default /*#__PURE__*/ defineComponent({
       type: Number as PropType<number | undefined>,
       default: undefined,
     },
-    width: {
+    columnWidth: {
       type: Number,
       default: 400,
     },
@@ -129,7 +129,7 @@ export default /*#__PURE__*/ defineComponent({
       this.fillColumns()
     },
     columnCount(padding: number): number {
-      const count = Math.round((this.wall.scrollWidth + padding) / (this.width + padding))
+      const count = Math.round((this.wall.scrollWidth + padding) / (this.columnWidth + padding))
       if (count < 1) {
         return 1
       }
@@ -158,7 +158,7 @@ export default /*#__PURE__*/ defineComponent({
     items() {
       this.recreate()
     },
-    width() {
+    columnWidth() {
       this.redraw()
     },
     padding(value: number, oldValue: number) {

@@ -65,7 +65,7 @@ app.use(MasonryWall)
 
 ```vue
 <template>
-  <masonry-wall :items="items" :ssrColumns="1" :width="300" :padding="16">
+  <masonry-wall :items="items" :ssrColumns="1" :columnWidth="300" :padding="16">
     <template #default="{ item, index }">
       <div style="height: 100px">
         <h1>{{ item.title }}</h1>
