@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="secondary">
     <h1 style="margin-bottom: 0.5rem">@yeger/vue-masonry-wall</h1>
     <a href="https://github.com/DerYeger/vue-masonry-wall/" target="_blank" rel="noopener" aria-label="GitHub Repository">
       <svg
@@ -20,7 +20,7 @@
       </svg>
     </a>
     <p id="subtitle" style="margin-top: 0.5rem">Responsive masonry layout with SSR support and zero dependencies for Vue 3.</p>
-    <samp id="install">
+    <samp id="install" class="accent">
       <span>yarn add @yeger/vue-masonry-wall</span>
       <span>npm install @yeger/vue-masonry-wall</span>
     </samp>
@@ -32,7 +32,7 @@
         <img alt="NPM" src="https://img.shields.io/npm/v/@yeger/vue-masonry-wall?logo=npm" />
       </a>
       <a href="https://codecov.io/gh/DerYeger/vue-masonry-wall" target="_blank" rel="noopener">
-        <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg?token=p35W6u2noe" />
+        <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg" />
       </a>
       <a href="https://lgtm.com/projects/g/DerYeger/vue-masonry-wall" target="_blank" rel="noopener">
         <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/vue-masonry-wall?logo=lgtm" />
@@ -51,8 +51,17 @@
 </template>
 
 <style scoped>
+header {
+  padding: 1rem;
+  text-align: center;
+}
+
+#subtitle {
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
 #install {
-  background: var(--color-primary);
   padding: 1em;
   border-radius: 4px;
   display: flex;
@@ -60,11 +69,7 @@
   width: fit-content;
   margin: auto;
   text-align: start;
-}
-
-#subtitle {
-  font-size: 1.25rem;
-  font-style: italic;
+  font-size: 0.9rem;
 }
 
 #install > * + * {
