@@ -38,7 +38,8 @@
 ## Links
 
 - [Demo](https://vue-masonry-wall.yeger.eu/)
-- [vue-masonry-wall for Vue 2](https://github.com/fuxingloh/vue-masonry-wall)
+- [Vue 2 version](https://github.com/DerYeger/vue2-masonry-wall)
+- [vue-masonry-wall by Fuxing Loh](https://github.com/fuxingloh/vue-masonry-wall)
 
 ## Installation
 
@@ -63,7 +64,7 @@ app.use(MasonryWall)
 
 ```vue
 <template>
-  <masonry-wall :items="items" :ssrColumns="1" :columnWidth="300" :padding="16">
+  <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :padding="16">
     <template #default="{ item, index }">
       <div style="height: 100px">
         <h1>{{ item.title }}</h1>
@@ -108,7 +109,7 @@ $ yarn demo:build
 
 ## Disclaimer
 
-This library is based on the Vue 2 component [vue-masonry-wall](https://github.com/fuxingloh/vue-masonry-wall) by [Fuxing Loh](https://github.com/fuxingloh).
+This library is based on [vue-masonry-wall](https://github.com/fuxingloh/vue-masonry-wall) by [Fuxing Loh](https://github.com/fuxingloh).
 
 ## License
 
