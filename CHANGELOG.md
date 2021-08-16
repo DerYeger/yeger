@@ -1,3 +1,27 @@
+# [2.0.0](https://github.com/DerYeger/vue-masonry-wall/compare/v1.0.3...v2.0.0) (2021-08-16)
+
+
+### Bug Fixes
+
+* remove bottom margin of last item in column ([0ac0b80](https://github.com/DerYeger/vue-masonry-wall/commit/0ac0b802e9a5451160a088d37a6e4baa635b5f83))
+
+
+### Code Refactoring
+
+* rename `width` prop to `columnWidth` ([eb699d0](https://github.com/DerYeger/vue-masonry-wall/commit/eb699d0b53a1b53f2bdd9123a8dd9d38340d567b))
+
+
+### Features
+
+* consider padding while calculating column count ([6c4af87](https://github.com/DerYeger/vue-masonry-wall/commit/6c4af8770746639fed47ea12e6a587f52f2f3cc5))
+* support item removal by recreating layout on input change ([6b7d308](https://github.com/DerYeger/vue-masonry-wall/commit/6b7d3086e88c10ef98f1f2bb4cde271d49d2a5c1))
+
+
+### BREAKING CHANGES
+
+* rename `width` prop to `columnWidth`
+* `padding` prop is now of type number
+
 ## [1.0.3](https://github.com/DerYeger/vue-masonry-wall/compare/v1.0.2...v1.0.3) (2021-08-15)
 
 
