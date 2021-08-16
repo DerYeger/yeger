@@ -5,25 +5,27 @@
       <div id="tools">
         <div class="row">
           <label for="width">Column Width</label>
-          <input id="width" type="range" min="64" max="512" v-model="width" />
+          <input id="width" type="range" min="128" max="512" v-model="width" />
           <span> {{ width }}px</span>
         </div>
         <div class="row">
           <label for="padding">Padding</label>
-          <input id="padding" type="range" min="0" max="128" v-model="padding" />
+          <input id="padding" type="range" min="0" max="64" v-model="padding" />
           <span> {{ padding }}px</span>
         </div>
         <div class="row">
           <label for="height">Height</label>
           <input id="height" type="range" min="16" max="512" v-model="newItemHeight" />
           <span> {{ newItemHeight }}px</span>
-          <button @click="items.push(newItemHeight)">Create Item</button>
+          <button @click="addItem(newItemHeight)">Create Item</button>
         </div>
       </div>
       <masonry-wall :items="items" :padding="`${padding}px`" :width="+width" :ssr-columns="1">
         <template #default="{ item, index }">
           <div class="item" :style="`height: ${item}px; background: var(--color-${index % 2 === 0 ? 'primary' : 'accent'})`">
-            {{ item }}
+            <span>Index {{ index }}</span>
+            <span style="text-align: center">Height {{ item }}px</span>
+            <button @click="removeItem(index)">Remove</button>
           </div>
         </template>
       </masonry-wall>
@@ -50,8 +52,17 @@ export default defineComponent({
       items: [100, 200, 150, 100],
       newItemHeight: 128,
       padding: 16,
-      width: 300,
+      width: 400,
     }
+  },
+  methods: {
+    addItem(item: number) {
+      this.items = [...this.items, item]
+    },
+    removeItem(index: number) {
+      this.items.splice(index, 1)
+      this.items = [...this.items]
+    },
   },
   created() {
     document.title = '@yeger/vue-masonry-wall'
@@ -71,6 +82,11 @@ export default defineComponent({
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+}
+
+.item > * + * {
+  margin-top: 0.25rem;
 }
 
 :root {
@@ -108,7 +124,7 @@ footer {
 }
 
 header {
-  background: var(--color-primary);
+  background: var(--color-secondary);
 }
 
 header,
@@ -155,11 +171,6 @@ label + * {
 .row > * {
   margin-left: 0.5rem;
   display: inline-block;
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  font-style: italic;
 }
 
 a {
