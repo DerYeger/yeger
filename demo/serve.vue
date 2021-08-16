@@ -15,12 +15,12 @@
         </div>
         <div class="row">
           <label for="height">Height</label>
-          <input id="height" type="range" min="16" max="512" v-model="newItemHeight" />
+          <input id="height" type="range" min="128" max="512" v-model="newItemHeight" />
           <span> {{ newItemHeight }}px</span>
           <button @click="addItem(newItemHeight)">Create Item</button>
         </div>
       </div>
-      <masonry-wall :items="items" :padding="`${padding}px`" :width="+width" :ssr-columns="1">
+      <masonry-wall :items="items" :padding="+padding" :width="+width" :ssr-columns="1">
         <template #default="{ item, index }">
           <div class="item" :style="`height: ${item}px; background: var(--color-${index % 2 === 0 ? 'primary' : 'accent'})`">
             <span>Index {{ index }}</span>
