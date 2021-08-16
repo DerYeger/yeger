@@ -54,7 +54,7 @@ export default defineComponent({
     }
   },
   created() {
-    document.title = 'vue-masonry-wall'
+    document.title = '@yeger/vue-masonry-wall'
     document.documentElement.setAttribute('lang', 'en')
     const metaElement = document.createElement('meta')
     metaElement.setAttribute('name', 'description')

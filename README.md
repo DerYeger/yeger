@@ -1,4 +1,4 @@
-<h1 align="center">vue-masonry-wall</h1>
+<h1 align="center">@yeger/vue-masonry-wall</h1>
 
 <p align="center">
   <a href="https://github.com/DerYeger/vue-masonry-wall/actions/workflows/ci.yml">
