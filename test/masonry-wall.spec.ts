@@ -82,4 +82,32 @@ describe('MasonryWall', () => {
     const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
     expect(items.length).toEqual(2)
   })
+  it('reacts to item changes', async () => {
+    const wrapper = mount(TestComponent, {
+      global: {
+        plugins: [MasonryWall],
+      },
+      props: {
+        items: [1, 2],
+      },
+    })
+    await flushPromises()
+    const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
+    expect(wall.element).toBeDefined()
+    const columns = wrapper.findAll<HTMLDivElement>('.masonry-column')
+    expect(columns.length).toEqual(1)
+    expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(2)
+    await wrapper
+      .setProps({
+        items: [1, 2, 3],
+      })
+      .then(flushPromises)
+    expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(3)
+    await wrapper
+      .setProps({
+        items: [1],
+      })
+      .then(flushPromises)
+    expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(1)
+  })
 })
