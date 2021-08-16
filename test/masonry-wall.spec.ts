@@ -110,4 +110,20 @@ describe('MasonryWall', () => {
       .then(flushPromises)
     expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(1)
   })
+  it('unobserves the ResizeObserver', async () => {
+    expect(observeMock.mock.calls.length).toEqual(0)
+    const wrapper = mount(TestComponent, {
+      global: {
+        plugins: [MasonryWall],
+      },
+      props: {
+        items: [1, 2],
+      },
+    })
+    await flushPromises()
+    expect(observeMock.mock.calls.length).toEqual(1)
+    expect(unobserveMock.mock.calls.length).toEqual(0)
+    wrapper.unmount()
+    expect(unobserveMock.mock.calls.length).toEqual(1)
+  })
 })
