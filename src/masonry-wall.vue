@@ -129,7 +129,7 @@ export default /*#__PURE__*/ defineComponent({
       this.fillColumns()
     },
     columnCount(padding: number): number {
-      const count = Math.round((this.wall.scrollWidth + padding) / (this.columnWidth + padding))
+      const count = Math.floor((this.wall.scrollWidth + padding) / (this.columnWidth + padding))
       if (count < 1) {
         return 1
       }
