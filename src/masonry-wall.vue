@@ -65,8 +65,8 @@ export default /*#__PURE__*/ defineComponent({
       default: 400,
     },
     padding: {
-      type: String,
-      default: '0px',
+      type: Number,
+      default: 0,
     },
   },
   data() {
@@ -107,6 +107,9 @@ export default /*#__PURE__*/ defineComponent({
     resizeObserver(): ResizeObserver {
       return new ResizeObserver(this.redraw)
     },
+    paddingPx(): string {
+      return `${this.padding}px`
+    },
   },
   methods: {
     recreate() {
@@ -115,18 +118,18 @@ export default /*#__PURE__*/ defineComponent({
       this.redraw()
     },
     redraw() {
-      if (this.columns.length === this.columnCount()) {
+      if (this.columns.length === this.columnCount(this.padding)) {
         return
       }
       this.ready = false
       this.columns.splice(0)
       this.cursor = 0
-      this.columns.push(...createColumns(this.columnCount()))
+      this.columns.push(...createColumns(this.columnCount(this.padding)))
       this.ready = true
       this.fillColumns()
     },
-    columnCount(): number {
-      const count = Math.round(this.wall.scrollWidth / this.width)
+    columnCount(padding: number): number {
+      const count = Math.round((this.wall.scrollWidth + padding) / (this.width + padding))
       if (count < 1) {
         return 1
       }
@@ -158,6 +161,11 @@ export default /*#__PURE__*/ defineComponent({
     width() {
       this.redraw()
     },
+    padding(value: number, oldValue: number) {
+      if (this.columnCount(value) !== this.columnCount(oldValue)) {
+        this.redraw()
+      }
+    },
   },
 })
 </script>
@@ -179,11 +187,11 @@ export default /*#__PURE__*/ defineComponent({
 }
 
 .masonry-column:not(:last-child) {
-  margin-right: v-bind(padding);
+  margin-right: v-bind(paddingPx);
 }
 
 .masonry-item:not(:nth-last-child(2)) {
-  margin-bottom: v-bind(padding);
+  margin-bottom: v-bind(paddingPx);
 }
 
 .masonry-column__floor {
