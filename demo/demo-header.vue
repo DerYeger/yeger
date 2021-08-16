@@ -66,10 +66,15 @@ header {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  font-size: 0.9rem;
   margin: auto;
   text-align: start;
-  font-size: 0.9rem;
+}
+
+#install,
+#install span {
+  width: fit-content;
+  width: -moz-fit-content;
 }
 
 #install > * + * {
