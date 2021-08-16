@@ -109,6 +109,11 @@ export default /*#__PURE__*/ defineComponent({
     },
   },
   methods: {
+    recreate() {
+      this.cursor = 0
+      this.columns = []
+      this.redraw()
+    },
     redraw() {
       if (this.columns.length === this.columnCount()) {
         return
@@ -147,11 +152,8 @@ export default /*#__PURE__*/ defineComponent({
     },
   },
   watch: {
-    items: {
-      handler() {
-        this.fillColumns()
-      },
-      deep: true,
+    items() {
+      this.recreate()
     },
     width() {
       this.redraw()
