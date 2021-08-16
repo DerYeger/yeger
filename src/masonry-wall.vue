@@ -180,7 +180,7 @@ export default /*#__PURE__*/ defineComponent({
   margin-right: v-bind(padding);
 }
 
-.masonry-item:not(:last-of-type) {
+.masonry-item:not(:nth-last-child(2)) {
   margin-bottom: v-bind(padding);
 }
 
