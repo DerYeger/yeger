@@ -27,6 +27,14 @@
             />
             <span> {{ padding }}px</span>
           </div>
+          <div class="row">
+            <label for="rtl">RTL</label>
+            <input
+              id="rtl"
+              type="checkbox"
+              v-model="rtl"
+            />
+          </div>
         </section>
         <section id="item-creation">
           <h2>New Item</h2>
@@ -51,7 +59,10 @@
                 addItem(Math.floor(Math.random() * (512 - 128 + 1)) + 128)
               "
             >
-              Create Random
+              Random
+            </button>
+            <button class="secondary" @click="items = []">
+              Clear
             </button>
           </div>
         </section>
@@ -61,6 +72,7 @@
         :padding="+padding"
         :columnWidth="+columnWidth"
         :ssr-columns="1"
+        :rtl="rtl"
       >
         <template #default="{ item, index }">
           <div
@@ -98,6 +110,7 @@ export default defineComponent({
       newItemHeight: 128,
       padding: 16,
       columnWidth: 400,
+      rtl: false,
     }
   },
   methods: {
@@ -204,6 +217,14 @@ main {
   #tools .row:not(.button-row) {
     flex-direction: column;
     align-items: start;
+  }
+
+  .button-row {
+    margin-top: -0.5rem;
+  }
+
+  .button-row button {
+    margin-top: 0.5rem;
   }
 }
 
