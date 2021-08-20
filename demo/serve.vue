@@ -246,10 +246,6 @@ label + * {
   margin-top: 1rem;
 }
 
-a {
-  text-decoration: none;
-}
-
 a:active,
 a:hover,
 a:link,
