@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/DerYeger/vue-masonry-wall/compare/v2.1.0...v2.2.0) (2021-08-20)
+
+
+### Features
+
+* add support for rtl layouting ([1b85c72](https://github.com/DerYeger/vue-masonry-wall/commit/1b85c7218616ce42ada7e2fe10a088950ece0e87))
+
 # [2.1.0](https://github.com/DerYeger/vue-masonry-wall/compare/v2.0.1...v2.1.0) (2021-08-20)
 
 
