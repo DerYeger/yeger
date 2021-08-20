@@ -7,12 +7,24 @@
           <h2>Settings</h2>
           <div class="row">
             <label for="width">Column Width</label>
-            <input id="width" type="range" min="128" max="512" v-model="columnWidth" />
+            <input
+              id="width"
+              type="range"
+              min="128"
+              max="512"
+              v-model="columnWidth"
+            />
             <span> {{ columnWidth }}px</span>
           </div>
           <div class="row">
             <label for="padding">Padding</label>
-            <input id="padding" type="range" min="0" max="256" v-model="padding" />
+            <input
+              id="padding"
+              type="range"
+              min="0"
+              max="256"
+              v-model="padding"
+            />
             <span> {{ padding }}px</span>
           </div>
         </section>
@@ -20,18 +32,42 @@
           <h2>New Item</h2>
           <div class="row">
             <label for="height">Height</label>
-            <input id="height" type="range" min="128" max="512" v-model="newItemHeight" />
+            <input
+              id="height"
+              type="range"
+              min="128"
+              max="512"
+              v-model="newItemHeight"
+            />
             <span> {{ newItemHeight }}px</span>
           </div>
           <div class="row button-row">
-            <button class="primary" @click="addItem(newItemHeight)">Create</button>
-            <button class="primary" @click="addItem(Math.floor(Math.random() * (512 - 128 + 1)) + 128)">Create Random</button>
+            <button class="primary" @click="addItem(newItemHeight)">
+              Create
+            </button>
+            <button
+              class="primary"
+              @click="
+                addItem(Math.floor(Math.random() * (512 - 128 + 1)) + 128)
+              "
+            >
+              Create Random
+            </button>
           </div>
         </section>
       </div>
-      <masonry-wall :items="items" :padding="+padding" :columnWidth="+columnWidth" :ssr-columns="1">
+      <masonry-wall
+        :items="items"
+        :padding="+padding"
+        :columnWidth="+columnWidth"
+        :ssr-columns="1"
+      >
         <template #default="{ item, index }">
-          <div class="item" :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }" :style="`height: ${item}px;`">
+          <div
+            class="item"
+            :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
+            :style="`height: ${item}px;`"
+          >
             <p>Index {{ index }}</p>
             <p style="text-align: center">Height {{ item }}px</p>
             <button class="primary" @click="removeItem(index)">Remove</button>
@@ -78,7 +114,8 @@ export default defineComponent({
     document.documentElement.setAttribute('lang', 'en')
     const metaElement = document.createElement('meta')
     metaElement.setAttribute('name', 'description')
-    metaElement.content = 'Responsive masonry layout with SSR support and zero dependencies for Vue 3.'
+    metaElement.content =
+      'Responsive masonry layout with SSR support and zero dependencies for Vue 3.'
     document.getElementsByTagName('head')[0].appendChild(metaElement)
   },
 })

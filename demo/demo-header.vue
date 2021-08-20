@@ -1,7 +1,12 @@
 <template>
   <header class="secondary">
     <h1 style="margin-bottom: 0.5rem">@yeger/vue-masonry-wall</h1>
-    <a href="https://github.com/DerYeger/vue-masonry-wall/" target="_blank" rel="noopener" aria-label="GitHub Repository">
+    <a
+      href="https://github.com/DerYeger/vue-masonry-wall/"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub Repository"
+    >
       <svg
         width="38px"
         height="38px"
@@ -19,32 +24,84 @@
         </g>
       </svg>
     </a>
-    <p id="subtitle" style="margin-top: 0.5rem">Responsive masonry layout with SSR support and zero dependencies for Vue 3.</p>
+    <p id="subtitle" style="margin-top: 0.5rem">
+      Responsive masonry layout with SSR support and zero dependencies for Vue
+      3.
+    </p>
     <samp id="install" class="accent">
       <span>yarn add @yeger/vue-masonry-wall</span>
       <span>npm install @yeger/vue-masonry-wall</span>
     </samp>
     <div class="row" style="justify-content: center; margin-top: 1rem">
-      <a href="https://github.com/DerYeger/vue-masonry-wall/actions/workflows/ci.yml" target="_blank" rel="noopener">
-        <img alt="CI" src="https://img.shields.io/github/workflow/status/DerYeger/vue-masonry-wall/CI?label=ci&logo=github&color=#4DC71F" />
+      <a
+        href="https://github.com/DerYeger/vue-masonry-wall/actions/workflows/ci.yml"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="CI"
+          src="https://img.shields.io/github/workflow/status/DerYeger/vue-masonry-wall/CI?label=ci&logo=github&color=#4DC71F"
+        />
       </a>
-      <a href="https://www.npmjs.com/package/@yeger/vue-masonry-wall" target="_blank" rel="noopener">
-        <img alt="NPM" src="https://img.shields.io/npm/v/@yeger/vue-masonry-wall?logo=npm" />
+      <a
+        href="https://www.npmjs.com/package/@yeger/vue-masonry-wall"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="NPM"
+          src="https://img.shields.io/npm/v/@yeger/vue-masonry-wall?logo=npm"
+        />
       </a>
-      <a href="https://codecov.io/gh/DerYeger/vue-masonry-wall" target="_blank" rel="noopener">
-        <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg" />
+      <a
+        href="https://codecov.io/gh/DerYeger/vue-masonry-wall"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="Coverage"
+          src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg"
+        />
       </a>
-      <a href="https://lgtm.com/projects/g/DerYeger/vue-masonry-wall" target="_blank" rel="noopener">
-        <img alt="LGTM Grade" src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/vue-masonry-wall?logo=lgtm" />
+      <a
+        href="https://lgtm.com/projects/g/DerYeger/vue-masonry-wall"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="LGTM Grade"
+          src="https://img.shields.io/lgtm/grade/javascript/github/DerYeger/vue-masonry-wall?logo=lgtm"
+        />
       </a>
-      <a href="https://www.npmjs.com/package/vue" target="_blank" rel="noopener">
-        <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/@yeger/vue-masonry-wall/peer/vue" />
+      <a
+        href="https://www.npmjs.com/package/vue"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="npm peer dependency version"
+          src="https://img.shields.io/npm/dependency-version/@yeger/vue-masonry-wall/peer/vue"
+        />
       </a>
-      <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
-        <img alt="MIT" src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=%234DC71F" />
+      <a
+        href="https://opensource.org/licenses/MIT"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="MIT"
+          src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=%234DC71F"
+        />
       </a>
-      <a href="https://bundlephobia.com/package/@yeger/vue-masonry-wall" target="_blank" rel="noopener">
-        <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@yeger/vue-masonry-wall" />
+      <a
+        href="https://bundlephobia.com/package/@yeger/vue-masonry-wall"
+        target="_blank"
+        rel="noopener"
+      >
+        <img
+          alt="npm bundle size"
+          src="https://img.shields.io/bundlephobia/min/@yeger/vue-masonry-wall"
+        />
       </a>
     </div>
   </header>

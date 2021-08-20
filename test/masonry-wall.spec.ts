@@ -4,6 +4,7 @@
 
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
+import { defineComponent, PropType } from 'vue'
 import MasonryWall from '@/entry'
 
 let observeMock = jest.fn()
@@ -20,7 +21,7 @@ function mockResizeObserver() {
   window.ResizeObserver = window.ResizeObserver || resizeObserverMock
 }
 
-const TestComponent = {
+const TestComponent = defineComponent({
   template: `
     <masonry-wall :items="items" :ssrColumns="ssrColumns" :width="1">
       <template #default="{ item }">
@@ -31,15 +32,15 @@ const TestComponent = {
     </masonry-wall>`,
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<number[]>,
       default: () => [1, 2, 3],
     },
     ssrColumns: {
-      type: Number,
+      type: Number as PropType<number | undefined>,
       default: undefined,
     },
   },
-}
+})
 
 describe('MasonryWall', () => {
   beforeAll(() => {

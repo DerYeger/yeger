@@ -90,7 +90,7 @@
     "vue-jest": "5.0.0-alpha.10"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.0.0"
   },
   "engines": {
     "node": ">=12"

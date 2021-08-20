@@ -4,7 +4,9 @@ import { App, Plugin } from 'vue'
 import component from '@/masonry-wall.vue'
 
 // Define typescript interfaces for installable component
-type InstallableComponent = typeof component & { install: Exclude<Plugin['install'], undefined> }
+type InstallableComponent = typeof component & {
+  install: Exclude<Plugin['install'], undefined>
+}
 
 // Default export is installable instance of component.
 // IIFE injects install function into component, allowing component

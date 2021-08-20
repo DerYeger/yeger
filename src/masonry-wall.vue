@@ -22,9 +22,25 @@
 
 <template>
   <div class="masonry-wall" ref="wall" :class="{ ready }">
-    <div class="masonry-column" v-for="(column, columnIndex) in columns" :key="columnIndex">
-      <div class="masonry-item" v-for="itemIndex in column.itemIndices" :key="itemIndex">
-        <slot :item="items[itemIndex]" :index="itemIndex">{{ items[itemIndex] }}</slot>
+    <div
+      class="masonry-column"
+      v-for="(column, columnIndex) in columns"
+      :key="columnIndex"
+      :style="`margin-right: ${
+        columnIndex === columns.length - 1 ? '0' : paddingPx
+      }`"
+    >
+      <div
+        class="masonry-item"
+        v-for="(itemIndex, row) in column.itemIndices"
+        :key="itemIndex"
+        :style="`margin-bottom: ${
+          row === column.itemIndices.length - 1 ? '0' : paddingPx
+        }`"
+      >
+        <slot :item="items[itemIndex]" :index="itemIndex">
+          {{ items[itemIndex] }}
+        </slot>
       </div>
       <div class="masonry-column__floor" :data-column="columnIndex" />
     </div>
@@ -38,11 +54,20 @@ interface Column {
   itemIndices: number[]
 }
 
-function maxBy<T>(array: T[], transform: (element: T) => number): T | undefined {
+function maxBy<T>(
+  array: T[],
+  transform: (element: T) => number
+): T | undefined {
   if (array.length === 0) {
     return undefined
   }
-  return array.slice(1).reduce((previous, current) => (transform(current) > transform(previous) ? current : previous), array[0])
+  return array
+    .slice(1)
+    .reduce(
+      (previous, current) =>
+        transform(current) > transform(previous) ? current : previous,
+      array[0]
+    )
 }
 
 function createColumns(count: number): Column[] {
@@ -53,7 +78,7 @@ export default /*#__PURE__*/ defineComponent({
   name: 'MasonryWall', // vue component name
   props: {
     items: {
-      type: Array,
+      type: Array as PropType<any[]>,
       required: true,
     },
     ssrColumns: {
@@ -129,7 +154,9 @@ export default /*#__PURE__*/ defineComponent({
       this.fillColumns()
     },
     columnCount(padding: number): number {
-      const count = Math.floor((this.wall.scrollWidth + padding) / (this.columnWidth + padding))
+      const count = Math.floor(
+        (this.wall.scrollWidth + padding) / (this.columnWidth + padding)
+      )
       if (count < 1) {
         return 1
       }
@@ -140,8 +167,13 @@ export default /*#__PURE__*/ defineComponent({
         return
       }
       this.$nextTick(() => {
-        const floors = [...this.wall.getElementsByClassName('masonry-column__floor')] as HTMLDivElement[]
-        const floor = maxBy(floors, (spacer: HTMLDivElement) => spacer.clientHeight || 0)
+        const floors = [
+          ...this.wall.getElementsByClassName('masonry-column__floor'),
+        ] as HTMLDivElement[]
+        const floor = maxBy(
+          floors,
+          (spacer: HTMLDivElement) => spacer.clientHeight || 0
+        )
         this.addItem(+(floor?.dataset?.column ?? 0))
         this.fillColumns()
       })
@@ -184,14 +216,6 @@ export default /*#__PURE__*/ defineComponent({
   flex-basis: 0;
   display: flex;
   flex-direction: column;
-}
-
-.masonry-column:not(:last-child) {
-  margin-right: v-bind(paddingPx);
-}
-
-.masonry-item:not(:nth-last-child(2)) {
-  margin-bottom: v-bind(paddingPx);
 }
 
 .masonry-column__floor {
