@@ -93,6 +93,10 @@ export default /*#__PURE__*/ defineComponent({
       type: Number,
       default: 0,
     },
+    rtl: {
+      type: Boolean,
+      default: false,
+    }
   },
   data() {
     const count = this.ssrColumns ?? 0
@@ -170,6 +174,9 @@ export default /*#__PURE__*/ defineComponent({
         const floors = [
           ...this.wall.getElementsByClassName('masonry-column__floor'),
         ] as HTMLDivElement[]
+        if (this.rtl) {
+          floors.reverse()
+        }
         const floor = maxBy(
           floors,
           (spacer: HTMLDivElement) => spacer.clientHeight || 0
@@ -198,6 +205,9 @@ export default /*#__PURE__*/ defineComponent({
         this.redraw()
       }
     },
+    rtl() {
+      this.recreate()
+    }
   },
 })
 </script>
