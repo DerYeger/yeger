@@ -29,11 +29,7 @@
           </div>
           <div class="row">
             <label for="rtl">RTL</label>
-            <input
-              id="rtl"
-              type="checkbox"
-              v-model="rtl"
-            />
+            <input id="rtl" type="checkbox" v-model="rtl" />
           </div>
         </section>
         <section id="item-creation">
@@ -61,9 +57,7 @@
             >
               Random
             </button>
-            <button class="secondary" @click="items = []">
-              Clear
-            </button>
+            <button class="secondary" @click="items = []">Clear</button>
           </div>
         </section>
       </div>
