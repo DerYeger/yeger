@@ -34,6 +34,7 @@
 - 📱 **Responsive**: Responsive with configurable padding and column width. Based on `ResizeObserver`.
 - 🔁 **Reactive**: Reacts to property changes.
 - 🪶 **Lightweight**: Zero dependencies. Less than 4 kB.
+- ⬅️ **RTL**: Supports LTR and RTL layouts.
 
 ## Links
 
@@ -61,6 +62,12 @@ const app = createApp()
 
 app.use(MasonryWall)
 ```
+
+Props:
+- `items`: Array of items.
+- `ssr-columns`: Number of pre-calculated columns for server-side-rendering.
+- `padding`: Spacing between items in `px`.
+- `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts.
 
 ```vue
 <template>
