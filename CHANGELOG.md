@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/DerYeger/vue-masonry-wall/compare/v2.0.1...v2.1.0) (2021-08-20)
+
+
+### Features
+
+* **vue:** remove `v-bind` in `style` to support Vue v3.1 and v3.2 ([bfbd7ed](https://github.com/DerYeger/vue-masonry-wall/commit/bfbd7ed79e78940d93355dd38f5f75439bb6f941))
+
 ## [2.0.1](https://github.com/DerYeger/vue-masonry-wall/compare/v2.0.0...v2.0.1) (2021-08-16)
 
 
