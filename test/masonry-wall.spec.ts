@@ -4,7 +4,7 @@
 
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
-import { defineComponent, PropType } from 'vue'
+import { defineComponent } from 'vue'
 import MasonryWall from '@/entry'
 
 let observeMock = jest.fn()
@@ -22,24 +22,7 @@ function mockResizeObserver() {
 }
 
 const TestComponent = defineComponent({
-  template: `
-    <masonry-wall :items="items" :ssrColumns="ssrColumns" :width="1">
-      <template #default="{ item }">
-        <div style="height: 100px">
-          {{ item }}
-        </div>
-      </template>
-    </masonry-wall>`,
-  props: {
-    items: {
-      type: Array as PropType<number[]>,
-      default: () => [1, 2, 3],
-    },
-    ssrColumns: {
-      type: Number as PropType<number | undefined>,
-      default: undefined,
-    },
-  },
+  template: '<masonry-wall :items="[1, 2, 3]" />',
 })
 
 describe('MasonryWall', () => {
@@ -50,8 +33,9 @@ describe('MasonryWall', () => {
   })
   beforeEach(() => {
     mockResizeObserver()
-    observeMock.mockReset()
-    unobserveMock.mockReset()
+  })
+  afterEach(() => {
+    jest.clearAllMocks()
   })
   it('can be installed', async () => {
     const wrapper = mount(TestComponent, {
@@ -66,10 +50,7 @@ describe('MasonryWall', () => {
     expect(items.length).toEqual(3)
   })
   it('creates SSR columns', async () => {
-    const wrapper = mount(TestComponent, {
-      global: {
-        plugins: [MasonryWall],
-      },
+    const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
         ssrColumns: 1,
@@ -84,10 +65,7 @@ describe('MasonryWall', () => {
     expect(items.length).toEqual(2)
   })
   it('reacts to item changes', async () => {
-    const wrapper = mount(TestComponent, {
-      global: {
-        plugins: [MasonryWall],
-      },
+    const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -113,10 +91,7 @@ describe('MasonryWall', () => {
   })
   it('unobserves the ResizeObserver', async () => {
     expect(observeMock.mock.calls.length).toEqual(0)
-    const wrapper = mount(TestComponent, {
-      global: {
-        plugins: [MasonryWall],
-      },
+    const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -126,5 +101,57 @@ describe('MasonryWall', () => {
     expect(unobserveMock.mock.calls.length).toEqual(0)
     wrapper.unmount()
     expect(unobserveMock.mock.calls.length).toEqual(1)
+  })
+  it('reacts to column-width prop changes', async () => {
+    const wrapper = mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+      },
+    })
+    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
+    const columnCountSpy = jest.spyOn(wrapper.vm, 'columnCount')
+    await flushPromises()
+    expect(redrawSpy.mock.calls.length).toEqual(0)
+    columnCountSpy.mockReturnValueOnce(2).mockReturnValueOnce(3)
+    await wrapper
+      .setProps({
+        columnWidth: 300,
+      })
+      .then(flushPromises)
+    expect(redrawSpy.mock.calls.length).toEqual(1)
+  })
+  it('reacts to padding prop changes', async () => {
+    const wrapper = mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+      },
+    })
+    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
+    const columnCountSpy = jest.spyOn(wrapper.vm, 'columnCount')
+    await flushPromises()
+    expect(redrawSpy.mock.calls.length).toEqual(0)
+    columnCountSpy.mockReturnValueOnce(2).mockReturnValueOnce(3)
+    await wrapper
+      .setProps({
+        padding: 42,
+      })
+      .then(flushPromises)
+    expect(redrawSpy.mock.calls.length).toEqual(1)
+  })
+  it('reacts to rtl prop changes', async () => {
+    const wrapper = mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+      },
+    })
+    const recreateSpy = jest.spyOn(wrapper.vm, 'recreate')
+    await flushPromises()
+    expect(recreateSpy.mock.calls.length).toEqual(0)
+    await wrapper
+      .setProps({
+        rtl: true,
+      })
+      .then(flushPromises)
+    expect(recreateSpy.mock.calls.length).toEqual(1)
   })
 })
