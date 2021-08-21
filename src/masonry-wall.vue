@@ -54,20 +54,11 @@ interface Column {
   itemIndices: number[]
 }
 
-function maxBy<T>(
-  array: T[],
-  transform: (element: T) => number
-): T | undefined {
+function maxBy<T>(array: T[], map: (element: T) => number): T | undefined {
   if (array.length === 0) {
     return undefined
   }
-  return array
-    .slice(1)
-    .reduce(
-      (previous, current) =>
-        transform(current) > transform(previous) ? current : previous,
-      array[0]
-    )
+  return array.reduce((prev, curr) => (map(curr) > map(prev) ? curr : prev))
 }
 
 function createColumns(count: number): Column[] {
