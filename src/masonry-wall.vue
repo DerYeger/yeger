@@ -169,9 +169,8 @@ export default /*#__PURE__*/ defineComponent({
     },
     addItem(index: number) {
       const column = this.columns[index]
-      if (this.items[this.cursor]) {
-        column.itemIndices.push(this.cursor)
-        this.cursor++
+      if (this.items[this.cursor] !== undefined) {
+        column.itemIndices.push(this.cursor++)
       }
     },
   },
