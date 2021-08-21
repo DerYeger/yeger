@@ -132,19 +132,20 @@ export default /*#__PURE__*/ defineComponent({
       this.redraw()
     },
     redraw() {
-      if (this.columns.length === this.columnCount(this.padding)) {
+      if (this.columns.length === this.columnCount()) {
         return
       }
       this.ready = false
       this.columns.splice(0)
       this.cursor = 0
-      this.columns.push(...createColumns(this.columnCount(this.padding)))
+      this.columns.push(...createColumns(this.columnCount()))
       this.ready = true
       this.fillColumns()
     },
-    columnCount(padding: number): number {
+    columnCount(): number {
       const count = Math.floor(
-        (this.wall.scrollWidth + padding) / (this.columnWidth + padding)
+        (this.wall.scrollWidth + this.padding) /
+          (this.columnWidth + this.padding)
       )
       return count > 0 ? count : 1
     },
