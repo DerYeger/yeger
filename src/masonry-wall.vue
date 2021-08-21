@@ -93,9 +93,7 @@ export default /*#__PURE__*/ defineComponent({
     const count = this.ssrColumns ?? 0
     if (count > 0) {
       const columns = createColumns(count)
-      for (let i = 0; i < this.items.length; i++) {
-        columns[i % count].itemIndices.push(i)
-      }
+      this.items.forEach((_, i) => columns[i % count].itemIndices.push(i))
       return {
         columns: columns,
         cursor: this.items.length,
@@ -110,11 +108,7 @@ export default /*#__PURE__*/ defineComponent({
   },
   mounted() {
     this.redraw()
-
-    if (!this.ready) {
-      this.ready = true
-    }
-
+    this.ready = true
     this.resizeObserver.observe(this.wall)
   },
   beforeUnmount() {
@@ -152,10 +146,7 @@ export default /*#__PURE__*/ defineComponent({
       const count = Math.floor(
         (this.wall.scrollWidth + padding) / (this.columnWidth + padding)
       )
-      if (count < 1) {
-        return 1
-      }
-      return count
+      return count > 0 ? count : 1
     },
     fillColumns() {
       if (!this.ready || this.cursor >= this.items.length) {
@@ -165,11 +156,9 @@ export default /*#__PURE__*/ defineComponent({
         const floors = [
           ...this.wall.getElementsByClassName('masonry-column__floor'),
         ] as HTMLDivElement[]
-
         if (this.rtl) {
           floors.reverse()
         }
-
         const floor = maxBy(
           floors,
           (spacer: HTMLDivElement) => spacer.clientHeight || 0
