@@ -42,6 +42,9 @@
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
     "prepublishOnly": "yarn build"
   },
+  "sideEffects": [
+    "demo/*.vue"
+  ],
   "devDependencies": {
     "@babel/core": "7.15.0",
     "@babel/eslint-parser": "7.15.0",
