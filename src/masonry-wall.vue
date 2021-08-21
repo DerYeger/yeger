@@ -181,10 +181,8 @@ export default /*#__PURE__*/ defineComponent({
     columnWidth() {
       this.redraw()
     },
-    padding(value: number, oldValue: number) {
-      if (this.columnCount(value) !== this.columnCount(oldValue)) {
-        this.redraw()
-      }
+    padding() {
+      this.redraw()
     },
     rtl() {
       this.recreate()
