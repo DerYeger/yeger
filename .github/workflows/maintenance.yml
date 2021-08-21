@@ -20,9 +20,13 @@ jobs:
     name: Stale
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v4
+      - name: Close stale issues
+        uses: actions/stale@v4
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          stale-issue-message: 'This issue is stale because it has been open 28 days with no activity. Remove stale label or comment or this will be closed in 3 days'
-          days-before-stale: 28
+          stale-issue-message: 'This issue has been marked stale because there was no activity for 21 days. Without further action, it will be closed in 3 days.'
+          days-before-stale: 21
           days-before-close: 3
+          exempt-assignees: DerYeger
+          exempt-issue-labels: bug, dependencies, enhancement, renovate
+          exempt-pr-labels: bug, dependencies, enhancement, renovate
