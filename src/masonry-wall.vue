@@ -66,10 +66,10 @@ function createColumns(count: number): Column[] {
 }
 
 export default /*#__PURE__*/ defineComponent({
-  name: 'MasonryWall', // vue component name
+  name: 'MasonryWall',
   props: {
     items: {
-      type: Array as PropType<any[]>,
+      type: Array as PropType<unknown[]>,
       required: true,
     },
     ssrColumns: {
