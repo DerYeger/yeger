@@ -1,7 +1,7 @@
 <template>
   <header class="secondary">
     <div class="row">
-      <h1>@yeger/vue-masonry-wall</h1>
+      <h1 id="title">@yeger/vue-masonry-wall</h1>
       <github-logo />
     </div>
     <p id="subtitle">
@@ -28,10 +28,10 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
-import Badges from './badges'
-import GithubLogo from './github-logo'
+import Badges from './badges.vue'
+import GithubLogo from './github-logo.vue'
 
 export default defineComponent({
   components: { Badges, GithubLogo },
@@ -47,20 +47,21 @@ header {
 header .row:first-child {
   align-items: center;
   justify-content: center;
-}
-
-header .row:first-child > * {
-  margin-bottom: 0.5rem;
+  margin-top: -0.5rem;
 }
 
 header h1 {
   margin: 0;
 }
 
+header .row:first-child > * {
+  margin-top: 0.5rem;
+}
+
 #subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-style: italic;
-  margin-top: 0;
+  margin-top: 0.5rem;
 }
 
 #install {
@@ -81,5 +82,19 @@ header h1 {
 
 #install > * + * {
   margin-top: 0.25rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #title {
+    font-size: 1.5rem;
+  }
+
+  #subtitle {
+    font-size: 1rem;
+  }
+
+  #install {
+    font-size: 0.75rem;
+  }
 }
 </style>

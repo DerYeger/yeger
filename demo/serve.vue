@@ -11,8 +11,8 @@
       />
       <masonry-wall
         :items="items"
-        :padding="+padding"
-        :columnWidth="+columnWidth"
+        :padding="padding"
+        :columnWidth="columnWidth"
         :ssr-columns="1"
         :rtl="rtl"
       >
@@ -51,7 +51,6 @@ export default defineComponent({
   data() {
     return {
       items: [128, 256, 128],
-      newItemHeight: 128,
       padding: 16,
       columnWidth: 400,
       rtl: false,
@@ -117,6 +116,10 @@ body {
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 #app {
