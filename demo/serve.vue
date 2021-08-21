@@ -2,65 +2,13 @@
   <div id="app">
     <demo-header />
     <main>
-      <div id="tools">
-        <section id="settings">
-          <h2>Settings</h2>
-          <div class="row">
-            <label for="width">Column Width</label>
-            <input
-              id="width"
-              type="range"
-              min="128"
-              max="512"
-              v-model="columnWidth"
-            />
-            <span> {{ columnWidth }}px</span>
-          </div>
-          <div class="row">
-            <label for="padding">Padding</label>
-            <input
-              id="padding"
-              type="range"
-              min="0"
-              max="256"
-              v-model="padding"
-            />
-            <span> {{ padding }}px</span>
-          </div>
-          <div class="row">
-            <label for="rtl">RTL</label>
-            <input id="rtl" type="checkbox" v-model="rtl" />
-          </div>
-        </section>
-        <section id="item-creation">
-          <h2>New Item</h2>
-          <div class="row">
-            <label for="height">Height</label>
-            <input
-              id="height"
-              type="range"
-              min="128"
-              max="512"
-              v-model="newItemHeight"
-            />
-            <span> {{ newItemHeight }}px</span>
-          </div>
-          <div class="row button-row">
-            <button class="primary" @click="addItem(newItemHeight)">
-              Create
-            </button>
-            <button
-              class="primary"
-              @click="
-                addItem(Math.floor(Math.random() * (512 - 128 + 1)) + 128)
-              "
-            >
-              Random
-            </button>
-            <button class="secondary" @click="items = []">Clear</button>
-          </div>
-        </section>
-      </div>
+      <tools
+        v-model:padding="padding"
+        v-model:column-width="columnWidth"
+        v-model:rtl="rtl"
+        @create-item="addItem($event)"
+        @clear-items="items = []"
+      />
       <masonry-wall
         :items="items"
         :padding="+padding"
@@ -89,6 +37,7 @@
 import { defineComponent } from 'vue'
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
+import Tools from './tools.vue'
 import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
@@ -97,6 +46,7 @@ export default defineComponent({
     DemoHeader,
     DemoFooter,
     MasonryWall,
+    Tools,
   },
   data() {
     return {
@@ -182,52 +132,8 @@ main {
   padding: 1rem;
 }
 
-#tools {
-  display: flex;
-  flex-direction: column;
-}
-
-#tools h2 {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-
-#tools > section + section {
-  margin-top: 1rem;
-}
-
-@media only screen and (min-width: 601px) {
-  #tools {
-    flex-direction: row;
-  }
-
-  #tools > section + section {
-    margin-top: 0;
-    margin-left: 2rem;
-  }
-}
-
-@media only screen and (max-width: 369px) {
-  #tools .row:not(.button-row) {
-    flex-direction: column;
-    align-items: start;
-  }
-
-  .button-row {
-    margin-top: -0.5rem;
-  }
-
-  .button-row button {
-    margin-top: 0.5rem;
-  }
-}
-
 main > * + div {
   margin-top: 1rem;
-}
-
-label + * {
-  margin-left: 0.5rem;
 }
 
 .row {
@@ -283,9 +189,5 @@ button:hover {
 .item > p {
   margin-top: 0;
   margin-bottom: 0.25rem;
-}
-
-input[type='range'] {
-  width: 10rem;
 }
 </style>
