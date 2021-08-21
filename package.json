@@ -37,7 +37,7 @@
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/src/entry.d.ts",
+    "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/test ./dist/types/src/entry.d.ts",
     "lint": "eslint --ext \".js,.ts,.vue\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
     "prepublishOnly": "yarn build"
