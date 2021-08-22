@@ -54,10 +54,7 @@ interface Column {
   itemIndices: number[]
 }
 
-function maxBy<T>(array: T[], map: (element: T) => number): T | undefined {
-  if (array.length === 0) {
-    return undefined
-  }
+function maxBy<T>(array: T[], map: (element: T) => number): T {
   return array.reduce((prev, curr) => (map(curr) > map(prev) ? curr : prev))
 }
 
@@ -119,26 +116,20 @@ export default /*#__PURE__*/ defineComponent({
       return this.$refs.wall as HTMLDivElement
     },
     resizeObserver(): ResizeObserver {
-      return new ResizeObserver(this.redraw)
+      return new ResizeObserver(() => this.redraw())
     },
     paddingPx(): string {
       return `${this.padding}px`
     },
   },
   methods: {
-    recreate() {
-      this.cursor = 0
-      this.columns = []
-      this.redraw()
-    },
-    redraw() {
-      if (this.columns.length === this.columnCount()) {
+    redraw(force = false) {
+      if (this.columns.length === this.columnCount() && !force) {
         return
       }
       this.ready = false
-      this.columns.splice(0)
       this.cursor = 0
-      this.columns.push(...createColumns(this.columnCount()))
+      this.columns = createColumns(this.columnCount())
       this.ready = true
       this.fillColumns()
     },
@@ -160,24 +151,15 @@ export default /*#__PURE__*/ defineComponent({
         if (this.rtl) {
           floors.reverse()
         }
-        const floor = maxBy(
-          floors,
-          (spacer: HTMLDivElement) => spacer.clientHeight || 0
-        )
-        this.addItem(+(floor?.dataset?.column ?? 0))
+        const floor = maxBy(floors, (floor) => floor.clientHeight)
+        this.columns[+floor.dataset.column!].itemIndices.push(this.cursor++)
         this.fillColumns()
       })
-    },
-    addItem(index: number) {
-      const column = this.columns[index]
-      if (this.items[this.cursor] !== undefined) {
-        column.itemIndices.push(this.cursor++)
-      }
     },
   },
   watch: {
     items() {
-      this.recreate()
+      this.redraw(true)
     },
     columnWidth() {
       this.redraw()
@@ -186,7 +168,7 @@ export default /*#__PURE__*/ defineComponent({
       this.redraw()
     },
     rtl() {
-      this.recreate()
+      this.redraw(true)
     },
   },
 })
