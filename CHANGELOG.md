@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.3...v2.2.4) (2021-08-22)
+
+
+### Bug Fixes
+
+* reduce bundle size by optimizing code ([fe12558](https://github.com/DerYeger/vue-masonry-wall/commit/fe125586f8fc3f371685384bf509fa1470fd4310))
+
 ## [2.2.3](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.2...v2.2.3) (2021-08-21)
 
 
