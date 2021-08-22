@@ -1,5 +1,4 @@
 # Ignore artifacts
 coverage
-demo-dist
 dist
 node_modules

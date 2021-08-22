@@ -23,7 +23,7 @@
     <img alt="MIT" src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=%234DC71F">
   </a>
   <a href="https://bundlephobia.com/package/@yeger/vue-masonry-wall">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/@yeger/vue-masonry-wall">
+    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@yeger/vue-masonry-wall">
   </a>
 </p>
 
