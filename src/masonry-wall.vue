@@ -26,6 +26,7 @@
       class="masonry-column"
       v-for="(column, columnIndex) in columns"
       :key="columnIndex"
+      :data-index="columnIndex"
       :style="`margin-right: ${
         columnIndex === columns.length - 1 ? '0' : paddingPx
       }`"
@@ -42,7 +43,6 @@
           {{ items[itemIndex] }}
         </slot>
       </div>
-      <div class="masonry-column__floor" :data-column="columnIndex" />
     </div>
   </div>
 </template>
@@ -54,8 +54,8 @@ interface Column {
   itemIndices: number[]
 }
 
-function maxBy<T>(array: T[], map: (element: T) => number): T {
-  return array.reduce((prev, curr) => (map(curr) > map(prev) ? curr : prev))
+function minBy<T>(array: T[], map: (element: T) => number): T {
+  return array.reduce((prev, curr) => (map(curr) < map(prev) ? curr : prev))
 }
 
 function createColumns(count: number): Column[] {
@@ -145,14 +145,17 @@ export default /*#__PURE__*/ defineComponent({
         return
       }
       this.$nextTick(() => {
-        const floors = [
-          ...this.wall.getElementsByClassName('masonry-column__floor'),
+        const columnDivs = [
+          ...this.wall.getElementsByClassName('masonry-column'),
         ] as HTMLDivElement[]
         if (this.rtl) {
-          floors.reverse()
+          columnDivs.reverse()
         }
-        const floor = maxBy(floors, (floor) => floor.clientHeight)
-        this.columns[+floor.dataset.column!].itemIndices.push(this.cursor++)
+        const target = minBy(
+          columnDivs,
+          (column) => column.getBoundingClientRect().height
+        )
+        this.columns[+target.dataset.index!].itemIndices.push(this.cursor++)
         this.fillColumns()
       })
     },
@@ -184,15 +187,10 @@ export default /*#__PURE__*/ defineComponent({
 }
 
 .masonry-column {
-  flex-grow: 1;
-  flex-basis: 0;
   display: flex;
+  flex-basis: 0;
   flex-direction: column;
-}
-
-.masonry-column__floor {
   flex-grow: 1;
-  height: 0;
-  z-index: -1;
+  height: fit-content;
 }
 </style>
