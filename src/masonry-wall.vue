@@ -135,7 +135,7 @@ export default /*#__PURE__*/ defineComponent({
     },
     columnCount(): number {
       const count = Math.floor(
-        (this.wall.scrollWidth + this.padding) /
+        (this.wall.getBoundingClientRect().width + this.padding) /
           (this.columnWidth + this.padding)
       )
       return count > 0 ? count : 1
@@ -192,5 +192,6 @@ export default /*#__PURE__*/ defineComponent({
   flex-direction: column;
   flex-grow: 1;
   height: fit-content;
+  height: -moz-fit-content;
 }
 </style>
