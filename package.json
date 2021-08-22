@@ -29,8 +29,9 @@
     "src/**/*.vue"
   ],
   "scripts": {
-    "demo:serve": "vue-cli-service serve demo/serve.ts",
-    "demo:build": "vue-cli-service build demo/serve.ts --dest=demo-dist",
+    "demo:serve": "vite --config demo/vite.config.ts",
+    "demo:build": "vite --config demo/vite.config.ts build",
+    "demo:preview": "yarn demo:build && vite --config demo/vite.config.ts preview",
     "test": "jest",
     "prebuild": "rimraf ./dist",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
@@ -40,7 +41,8 @@
     "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/test ./dist/types/src/entry.d.ts",
     "lint": "eslint --ext \".js,.ts,.vue\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "ci": "yarn pretty && yarn lint && yarn test && yarn demo:build && yarn build"
   },
   "sideEffects": [
     "*.vue"
@@ -59,9 +61,7 @@
     "@types/resize-observer-browser": "0.1.6",
     "@typescript-eslint/eslint-plugin": "4.29.2",
     "@typescript-eslint/parser": "4.29.2",
-    "@vue/cli-plugin-babel": "4.5.13",
-    "@vue/cli-plugin-typescript": "4.5.13",
-    "@vue/cli-service": "4.5.13",
+    "@vitejs/plugin-vue": "1.4.0",
     "@vue/compiler-sfc": "3.2.4",
     "@vue/test-utils": "2.0.0-rc.12",
     "@zerollup/ts-transform-paths": "1.7.18",
@@ -88,8 +88,10 @@
     "tslib": "2.3.1",
     "ttypescript": "1.5.12",
     "typescript": "4.3.5",
+    "vite": "2.5.0",
     "vue": "3.2.4",
-    "vue-jest": "5.0.0-alpha.10"
+    "vue-jest": "5.0.0-alpha.10",
+    "vue-tsc": "0.3.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -100,7 +102,7 @@
   "bundlesize": [
     {
       "path": "./dist/*.js",
-      "maxSize": "5kb"
+      "maxSize": "3kb"
     }
   ],
   "publishConfig": {

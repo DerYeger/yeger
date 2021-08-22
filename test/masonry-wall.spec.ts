@@ -144,14 +144,14 @@ describe('MasonryWall', () => {
         items: [1, 2],
       },
     })
-    const recreateSpy = jest.spyOn(wrapper.vm, 'recreate')
+    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
     await flushPromises()
-    expect(recreateSpy.mock.calls.length).toEqual(0)
+    expect(redrawSpy.mock.calls.length).toEqual(0)
     await wrapper
       .setProps({
         rtl: true,
       })
       .then(flushPromises)
-    expect(recreateSpy.mock.calls.length).toEqual(1)
+    expect(redrawSpy.mock.calls.length).toEqual(1)
   })
 })
