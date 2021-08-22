@@ -1,3 +1,11 @@
+## [2.2.5](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.4...v2.2.5) (2021-08-22)
+
+
+### Bug Fixes
+
+* remove redundant `masonry-column__floor` elements ([2b1acc4](https://github.com/DerYeger/vue-masonry-wall/commit/2b1acc4a429a446a9e69e10806fa10ec4d685d6e))
+* use `getBoundingClientRect` instead of height properties ([f58c03e](https://github.com/DerYeger/vue-masonry-wall/commit/f58c03eb2ecc9d974a035e2b40be691c617736a2))
+
 ## [2.2.4](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.3...v2.2.4) (2021-08-22)
 
 
