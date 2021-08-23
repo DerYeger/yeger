@@ -1,3 +1,10 @@
+## [2.2.7](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.6...v2.2.7) (2021-08-23)
+
+
+### Bug Fixes
+
+* inline all styles ([31899a5](https://github.com/DerYeger/vue-masonry-wall/commit/31899a5b8c26abda2d967aed38e8eab940f16316))
+
 ## [2.2.6](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.5...v2.2.6) (2021-08-23)
 
 
