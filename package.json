@@ -44,9 +44,7 @@
     "prepublishOnly": "yarn build",
     "ci": "yarn pretty && yarn lint && yarn test && yarn demo:build && yarn build"
   },
-  "sideEffects": [
-    "*.vue"
-  ],
+  "sideEffects": false,
   "devDependencies": {
     "@babel/core": "7.15.0",
     "@babel/eslint-parser": "7.15.0",
