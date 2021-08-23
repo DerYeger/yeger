@@ -29,8 +29,9 @@
     "src/**/*.vue"
   ],
   "scripts": {
-    "demo:serve": "vue-cli-service serve demo/main.ts",
-    "demo:build": "vue-cli-service build demo/main.ts --dest=demo/dist",
+    "demo:build": "yarn demo:build:vite",
+    "demo:serve:cli": "vue-cli-service serve demo/main.ts",
+    "demo:build:cli": "vue-cli-service build demo/main.ts --dest=demo/dist",
     "demo:serve:vite": "vite --config demo/vite.config.ts",
     "demo:build:vite": "vite --config demo/vite.config.ts build",
     "demo:preview:vite": "yarn demo:build:vite && vite --config demo/vite.config.ts preview",
