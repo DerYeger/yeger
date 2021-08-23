@@ -27,17 +27,18 @@
       v-for="(column, columnIndex) in columns"
       :key="columnIndex"
       :data-index="columnIndex"
-      :style="`margin-right: ${
-        columnIndex === columns.length - 1 ? '0' : paddingPx
-      }`"
+      :style="{
+        marginRight: columnIndex === columns.length - 1 ? '0' : `${padding}px`,
+      }"
     >
       <div
         class="masonry-item"
         v-for="(itemIndex, row) in column.itemIndices"
         :key="itemIndex"
-        :style="`margin-bottom: ${
-          row === column.itemIndices.length - 1 ? '0' : paddingPx
-        }`"
+        :style="{
+          marginBottom:
+            row === column.itemIndices.length - 1 ? '0' : `${padding}px`,
+        }"
       >
         <slot :item="items[itemIndex]" :index="itemIndex">
           {{ items[itemIndex] }}
@@ -114,9 +115,6 @@ export default /*#__PURE__*/ defineComponent({
     resizeObserver(): ResizeObserver {
       return new ResizeObserver(() => this.redraw())
     },
-    paddingPx(): string {
-      return `${this.padding}px`
-    },
   },
   methods: {
     redraw(force = false) {
@@ -141,9 +139,7 @@ export default /*#__PURE__*/ defineComponent({
         return
       }
       this.$nextTick(() => {
-        const columnDivs = [
-          ...this.wall.getElementsByClassName('masonry-column'),
-        ] as HTMLDivElement[]
+        const columnDivs = [...this.wall.children] as HTMLDivElement[]
         if (this.rtl) {
           columnDivs.reverse()
         }
