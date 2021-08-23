@@ -21,13 +21,22 @@
 <!--SOFTWARE.-->
 
 <template>
-  <div class="masonry-wall" ref="wall">
+  <div class="masonry-wall" ref="wall" style="display: flex">
     <div
       class="masonry-column"
       v-for="(column, columnIndex) in columns"
       :key="columnIndex"
       :data-index="columnIndex"
+      style="
+         {
+          display: flex;
+          flex-basis: 0;
+          flex-direction: column;
+          flex-grow: 1;
+        }
+      "
       :style="{
+        height: ['-webkit-fit-content', '-moz-fit-content', 'fit-content'],
         marginRight: columnIndex === columns.length - 1 ? '0' : `${padding}px`,
       }"
     >
@@ -162,18 +171,3 @@ export default /*#__PURE__*/ defineComponent({
   },
 })
 </script>
-
-<style scoped>
-.masonry-wall {
-  display: flex;
-}
-
-.masonry-column {
-  display: flex;
-  flex-basis: 0;
-  flex-direction: column;
-  flex-grow: 1;
-  height: fit-content;
-  height: -moz-fit-content;
-}
-</style>
