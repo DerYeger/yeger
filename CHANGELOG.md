@@ -1,3 +1,11 @@
+## [2.2.6](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.5...v2.2.6) (2021-08-23)
+
+
+### Bug Fixes
+
+* remove unused `ready` data ([33d2440](https://github.com/DerYeger/vue-masonry-wall/commit/33d2440119caa4c0ad2ede9f75bbd969bb3752e9))
+* replace `cursor` with recursion parameter ([b7ed516](https://github.com/DerYeger/vue-masonry-wall/commit/b7ed516cf37953fb1c328fd3355030fc491d08c4))
+
 ## [2.2.5](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.4...v2.2.5) (2021-08-22)
 
 
