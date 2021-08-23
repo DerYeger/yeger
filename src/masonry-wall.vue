@@ -90,12 +90,10 @@ export default /*#__PURE__*/ defineComponent({
       this.items.forEach((_, i) => columns[i % count].itemIndices.push(i))
       return {
         columns: columns,
-        cursor: this.items.length,
       }
     }
     return {
       columns: [],
-      cursor: 0,
     }
   },
   mounted() {
@@ -118,9 +116,8 @@ export default /*#__PURE__*/ defineComponent({
       if (this.columns.length === this.columnCount() && !force) {
         return
       }
-      this.cursor = 0
       this.columns = createColumns(this.columnCount())
-      this.fillColumns()
+      this.fillColumns(0)
     },
     columnCount(): number {
       const count = Math.floor(
@@ -129,8 +126,8 @@ export default /*#__PURE__*/ defineComponent({
       )
       return count > 0 ? count : 1
     },
-    fillColumns() {
-      if (this.cursor >= this.items.length) {
+    fillColumns(itemIndex: number) {
+      if (itemIndex >= this.items.length) {
         return
       }
       this.$nextTick(() => {
@@ -144,8 +141,8 @@ export default /*#__PURE__*/ defineComponent({
             ? curr
             : prev
         )
-        this.columns[+target.dataset.index!].itemIndices.push(this.cursor++)
-        this.fillColumns()
+        this.columns[+target.dataset.index!].itemIndices.push(itemIndex)
+        this.fillColumns(itemIndex + 1)
       })
     },
   },
