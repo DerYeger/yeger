@@ -54,10 +54,6 @@ interface Column {
   itemIndices: number[]
 }
 
-function minBy<T>(array: T[], map: (element: T) => number): T {
-  return array.reduce((prev, curr) => (map(curr) < map(prev) ? curr : prev))
-}
-
 function createColumns(count: number): Column[] {
   return [...new Array(count)].map(() => ({ itemIndices: [] }))
 }
@@ -151,9 +147,11 @@ export default /*#__PURE__*/ defineComponent({
         if (this.rtl) {
           columnDivs.reverse()
         }
-        const target = minBy(
-          columnDivs,
-          (column) => column.getBoundingClientRect().height
+        const target = columnDivs.reduce((prev, curr) =>
+          curr.getBoundingClientRect().height <
+          prev.getBoundingClientRect().height
+            ? curr
+            : prev
         )
         this.columns[+target.dataset.index!].itemIndices.push(this.cursor++)
         this.fillColumns()
