@@ -1,3 +1,10 @@
 {
-  "extends": ["github>DerYeger/renovate-config"]
+  "extends": ["github>DerYeger/renovate-config"],
+  "packageRules": [
+    {
+      
+      "matchPackageNames": ["@types/jest", "babel-jest", "jest", "ts-jest"],
+      "allowedVersions": "<27"
+    }
+  ]
 }
