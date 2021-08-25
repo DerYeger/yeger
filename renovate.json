@@ -2,9 +2,10 @@
   "extends": ["github>DerYeger/renovate-config"],
   "packageRules": [
     {
-      
-      "matchPackageNames": ["@types/jest", "babel-jest", "jest", "ts-jest"],
-      "allowedVersions": "<27"
+      "extends": ["monorepo:jest"],
+      "matchPackageNames": ["@types/jest"],
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
     }
   ]
 }
