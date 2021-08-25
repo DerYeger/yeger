@@ -4,8 +4,7 @@
     {
       "extends": ["monorepo:jest"],
       "matchPackageNames": ["@types/jest"],
-      "matchUpdateTypes": ["major"],
-      "dependencyDashboardApproval": true
+      "allowedVersions": "<27"
     }
   ]
 }
