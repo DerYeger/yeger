@@ -7,42 +7,19 @@ jobs:
     name: Prepare
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
-        run: yarn install
+          node-version: 16
   build:
     name: Build
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16
       - name: Build
         run: yarn build
   lint:
@@ -50,20 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16
       - name: Lint
         run: yarn lint
   test:
@@ -71,20 +38,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: prepare
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16
       - name: Test
         run: yarn test
       - name: Upload coverage to Codecov
@@ -97,22 +54,10 @@ jobs:
     needs: [build, lint, test]
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          token: ${{ secrets.PAT }}
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
-        with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: 16
       - name: Semantic release
         uses: cycjimmy/semantic-release-action@v2.5.4
         with:

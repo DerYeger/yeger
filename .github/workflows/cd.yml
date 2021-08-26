@@ -13,23 +13,10 @@ jobs:
     name: Build demo
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
-      - name: Setup node env
-        uses: actions/setup-node@v2.4.0
+      - name: Yarn setup
+        uses: DerYeger/yarn-setup-action@master
         with:
-          node-version: 14
-      - name: Cache node modules
-        id: node-cache
-        uses: actions/cache@v2
-        with:
-          path: ./node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('./package.json', './yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install dependencies
-        if: steps.node-cache.outputs.cache-hit != 'true'
-        run: yarn install
+          node-version: 16
       - name: Generate files
         run: yarn demo:build
       - name: Create 404.html file
