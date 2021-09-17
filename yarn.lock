@@ -6746,10 +6746,10 @@ vendors@^1.0.3:
   resolved "https://registry.yarnpkg.com/vendors/-/vendors-1.0.4.tgz#e2b800a53e7a29b93506c3cf41100d16c4c4ad8e"
   integrity sha512-/juG65kTL4Cy2su4P8HjtkTxk6VmJDiOPBufWniqQ6wknac6jNiXS9vU+hO3wgusiyqWlzTbVHi0dyJqRONg3w==
 
-vite@2.5.7:
-  version "2.5.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.7.tgz#e495be9d8bcbf9d30c7141efdccacde746ee0125"
-  integrity sha512-hyUoWmRPhjN1aI+ZSBqDINKdIq7aokHE2ZXiztOg4YlmtpeQtMwMeyxv6X9YxHZmvGzg/js/eATM9Z1nwyakxg==
+vite@2.5.8:
+  version "2.5.8"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-2.5.8.tgz#e2da21540411e91cb1c4a62e133c652a787cf116"
+  integrity sha512-2GRsLrmMsFI0u31WTtkGbKvEIJO4I9qDltma3QiyDJEk14IzjM35OCElAFHFs2VlL7h2qX5AdHbwfEhnmwhQgw==
   dependencies:
     esbuild "^0.12.17"
     postcss "^8.3.6"
