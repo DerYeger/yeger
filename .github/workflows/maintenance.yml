@@ -30,3 +30,43 @@ jobs:
           exempt-assignees: DerYeger
           exempt-issue-labels: bug, dependencies, enhancement, renovate
           exempt-pr-labels: bug, dependencies, enhancement, renovate
+  analyze-tags:
+    name: Analyze tags
+    runs-on: ubuntu-latest
+    outputs:
+      previous-tag: ${{ steps.previoustag.outputs.tag }}
+      timestamp-diff: ${{ steps.diff.outputs.timestamp-diff }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+      - name: Get previous tag
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+      - name: Get seconds from previous tag to now
+        id: diff
+        shell: bash
+        env:
+          TIMESTAMP_TAG: ${{ steps.previoustag.outputs.timestamp }}
+        run: |
+          echo "::set-output name=timestamp-diff::$(expr $(printf '%(%s)T') - $TIMESTAMP_TAG)"
+  schedule-release:
+    name: Schedule release
+    runs-on: ubuntu-latest
+    needs: analyze-tags
+    if: needs.analyze-tags.outputs.timestamp-diff > 604800 # one week
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          token: ${{ secrets.PAT }}
+      - name: Create commit
+        uses: stefanzweifel/git-auto-commit-action@v4.12.0
+        with:
+          commit_message: 'fix(release): schedule release'
+          commit_options: '--no-verify --allow-empty'
+          commit_user_name: Jan Müller
+          commit_user_email: janmueller3698@gmail.com
+          skip_dirty_check: true
+
