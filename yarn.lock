@@ -1491,10 +1491,10 @@
     "@typescript-eslint/types" "4.31.2"
     eslint-visitor-keys "^2.0.0"
 
-"@vitejs/plugin-vue@1.8.1":
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.8.1.tgz#6cc2a8dfd04201e3c868c239091aaa89aa75f880"
-  integrity sha512-gktQGZ7qfaDdVJhT86fWSkyhP+bdoA81f5S2TQOL5Sbe5q7B36XfLGq8Q0BpHoqhPSflAMe6WwM1IecP1sChRw==
+"@vitejs/plugin-vue@1.9.0":
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/@vitejs/plugin-vue/-/plugin-vue-1.9.0.tgz#ae458a2eaac1d06efac8d71a4427d5d742466d72"
+  integrity sha512-TQB87f8baZsTZO/g7Az/dTCwV8eDxwkrP8hMl8HpwLJz/NKvmXtBqa7bYg8GKWNwqjy+pBRLdgiML+BI3HphOw==
 
 "@volar/code-gen@^0.27.22":
   version "0.27.22"
