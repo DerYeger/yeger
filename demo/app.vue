@@ -3,16 +3,16 @@
     <demo-header />
     <main>
       <tools
-        v-model:padding="padding"
         v-model:column-width="columnWidth"
+        v-model:gap="gap"
         v-model:rtl="rtl"
         @create-item="addItem($event)"
         @clear-items="items = []"
       />
       <masonry-wall
         :items="items"
-        :padding="padding"
         :columnWidth="columnWidth"
+        :gap="gap"
         :rtl="rtl"
       >
         <template #default="{ item, index }">
@@ -49,9 +49,9 @@ export default defineComponent({
   },
   data() {
     return {
-      items: [128, 256, 128],
-      padding: 16,
       columnWidth: 400,
+      gap: 16,
+      items: [128, 256, 128],
       rtl: false,
     }
   },
