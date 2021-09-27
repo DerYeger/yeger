@@ -108,35 +108,33 @@ describe('MasonryWall', () => {
         items: [1, 2],
       },
     })
-    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
-    const columnCountSpy = jest.spyOn(wrapper.vm, 'columnCount')
     await flushPromises()
-    expect(redrawSpy.mock.calls.length).toEqual(0)
-    columnCountSpy.mockReturnValueOnce(2).mockReturnValueOnce(3)
+    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw-skip')).toBeUndefined()
     await wrapper
       .setProps({
         columnWidth: 300,
       })
       .then(flushPromises)
-    expect(redrawSpy.mock.calls.length).toEqual(1)
+    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw-skip')?.length).toEqual(1)
   })
-  it('reacts to padding prop changes', async () => {
+  it('reacts to gap prop changes', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
       },
     })
-    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
-    const columnCountSpy = jest.spyOn(wrapper.vm, 'columnCount')
     await flushPromises()
-    expect(redrawSpy.mock.calls.length).toEqual(0)
-    columnCountSpy.mockReturnValueOnce(2).mockReturnValueOnce(3)
+    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw-skip')).toBeUndefined()
     await wrapper
       .setProps({
-        padding: 42,
+        gap: 42,
       })
       .then(flushPromises)
-    expect(redrawSpy.mock.calls.length).toEqual(1)
+    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw-skip')?.length).toEqual(1)
   })
   it('reacts to rtl prop changes', async () => {
     const wrapper = mount(MasonryWall, {
@@ -144,14 +142,13 @@ describe('MasonryWall', () => {
         items: [1, 2],
       },
     })
-    const redrawSpy = jest.spyOn(wrapper.vm, 'redraw')
     await flushPromises()
-    expect(redrawSpy.mock.calls.length).toEqual(0)
+    expect(wrapper.emitted('redraw')?.length).toEqual(1)
     await wrapper
       .setProps({
         rtl: true,
       })
       .then(flushPromises)
-    expect(redrawSpy.mock.calls.length).toEqual(1)
+    expect(wrapper.emitted('redraw')?.length).toEqual(2)
   })
 })
