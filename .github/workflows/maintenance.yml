@@ -69,4 +69,3 @@ jobs:
           commit_user_name: Jan Müller
           commit_user_email: janmueller3698@gmail.com
           skip_dirty_check: true
-
