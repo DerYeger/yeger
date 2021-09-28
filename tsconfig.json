@@ -22,12 +22,6 @@
     "paths": {
       "@/*": ["src/*"]
     },
-    "plugins": [
-      {
-        "transform": "@zerollup/ts-transform-paths",
-        "exclude": ["*"]
-      }
-    ],
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "exclude": ["node_modules", "dist"]
