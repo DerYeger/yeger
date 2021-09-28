@@ -19,11 +19,11 @@
     "masonry",
     "wall"
   ],
-  "main": "dist/masonry-wall.ssr.js",
-  "browser": "dist/masonry-wall.esm.js",
-  "module": "dist/masonry-wall.esm.js",
-  "unpkg": "dist/masonry-wall.min.js",
-  "types": "dist/types/src/entry.esm.d.ts",
+  "main": "dist/masonry-wall.umd.js",
+  "browser": "dist/masonry-wall.es.js",
+  "module": "dist/masonry-wall.es.js",
+  "unpkg": "dist/masonry-wall.umd.js",
+  "types": "dist/types/src/index.d.ts",
   "files": [
     "dist/*",
     "src/**/*.vue"
@@ -34,11 +34,8 @@
     "demo:preview": "yarn demo:build && vite --config demo/vite.config.ts preview",
     "test": "jest",
     "prebuild": "rimraf ./dist",
-    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
-    "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
-    "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
-    "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
-    "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/test ./dist/types/src/entry.d.ts",
+    "build": "vite build",
+    "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/test ./dist/types/vite.config.d.ts",
     "lint": "eslint --ext \".js,.ts,.vue\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
     "prepublishOnly": "yarn build",
@@ -87,6 +84,7 @@
     "ttypescript": "1.5.12",
     "typescript": "4.4.3",
     "vite": "2.5.10",
+    "vite-plugin-dts": "0.8.1",
     "vue": "3.2.19",
     "vue-jest": "5.0.0-alpha.10",
     "vue-tsc": "0.3.0"
