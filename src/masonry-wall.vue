@@ -40,10 +40,6 @@ import {
 
 type Column = number[]
 
-function createColumns(count: number): Column[] {
-  return [...new Array(count)].map(() => [])
-}
-
 const props = withDefaults(
   defineProps<{
     columnWidth?: number
@@ -60,34 +56,14 @@ const props = withDefaults(
   }
 )
 
+const { columnWidth, items, gap, rtl, ssrColumns } = toRefs(props)
+const columns = ref<Column[]>([])
+const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
+
 const emit = defineEmits<{
   (event: 'redraw'): void
   (event: 'redraw-skip'): void
 }>()
-
-const { columnWidth, items, gap, rtl, ssrColumns } = toRefs(props)
-
-const columns = ref<Column[]>([])
-
-if (ssrColumns.value > 0) {
-  const newColumns = createColumns(ssrColumns.value)
-  items.value.forEach((_: unknown, i: number) =>
-    newColumns[i % ssrColumns.value].push(i)
-  )
-  columns.value = newColumns
-}
-
-const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
-
-function redraw(force = false) {
-  if (columns.value.length === columnCount() && !force) {
-    emit('redraw-skip')
-    return
-  }
-  columns.value = createColumns(columnCount())
-  fillColumns(0)
-  emit('redraw')
-}
 
 function columnCount(): number {
   const count = Math.floor(
@@ -95,6 +71,18 @@ function columnCount(): number {
       (columnWidth.value + gap.value)
   )
   return count > 0 ? count : 1
+}
+
+function createColumns(count: number): Column[] {
+  return [...new Array(count)].map(() => [])
+}
+
+if (ssrColumns.value > 0) {
+  const newColumns = createColumns(ssrColumns.value)
+  items.value.forEach((_: unknown, i: number) =>
+    newColumns[i % ssrColumns.value].push(i)
+  )
+  columns.value = newColumns
 }
 
 function fillColumns(itemIndex: number) {
@@ -114,6 +102,16 @@ function fillColumns(itemIndex: number) {
     columns.value[+target.dataset.index!].push(itemIndex)
     fillColumns(itemIndex + 1)
   })
+}
+
+function redraw(force = false) {
+  if (columns.value.length === columnCount() && !force) {
+    emit('redraw-skip')
+    return
+  }
+  columns.value = createColumns(columnCount())
+  fillColumns(0)
+  emit('redraw')
 }
 
 const resizeObserver = new ResizeObserver(() => redraw())
