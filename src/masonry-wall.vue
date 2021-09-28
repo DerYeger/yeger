@@ -117,7 +117,7 @@ function fillColumns(itemIndex: number) {
         ? curr
         : prev
     )
-    columns.value[+target.dataset.index ?? 0].itemIndices.push(itemIndex)
+    columns.value[+target.dataset.index!].itemIndices.push(itemIndex)
     fillColumns(itemIndex + 1)
   })
 }
