@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.1...v3.0.2) (2021-09-28)
+
+
+### Bug Fixes
+
+* optimize method ordering ([1ab48a5](https://github.com/DerYeger/vue-masonry-wall/commit/1ab48a5a195b9ed98463b95c83553a63a1a93ed0))
+
 ## [3.0.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.0...v3.0.1) (2021-09-28)
 
 
