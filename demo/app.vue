@@ -37,14 +37,12 @@ import { defineComponent } from 'vue'
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 import Tools from './tools.vue'
-import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
   name: 'ServeDev',
   components: {
     DemoHeader,
     DemoFooter,
-    MasonryWall,
     Tools,
   },
   data() {
