@@ -51,7 +51,7 @@
     "@vue/compiler-sfc": "3.2.19",
     "@vue/test-utils": "2.0.0-rc.15",
     "@vue/vue3-jest": "27.0.0-alpha.1",
-    "bundlesize": "0.18.1",
+    "bundlesize2": "0.0.30",
     "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
@@ -74,12 +74,6 @@
   "engines": {
     "node": ">=12"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/*.js",
-      "maxSize": "3kb"
-    }
-  ],
   "publishConfig": {
     "access": "public"
   }
