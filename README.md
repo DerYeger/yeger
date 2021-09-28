@@ -118,7 +118,7 @@ $ yarn demo:build
 
 ## Disclaimer
 
-This library is based on [vue-masonry-wall](https://github.com/fuxingloh/vue-masonry-wall) by [Fuxing Loh](https://github.com/fuxingloh).
+This component originated as a modified version of [vue-masonry-wall](https://github.com/fuxingloh/vue-masonry-wall) by [Fuxing Loh](https://github.com/fuxingloh).
 
 ## License
 
