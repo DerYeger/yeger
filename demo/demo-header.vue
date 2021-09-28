@@ -2,7 +2,7 @@
   <header class="secondary">
     <div class="row">
       <h1 id="title">@yeger/vue-masonry-wall</h1>
-      <github-logo />
+      <GithubLogo />
     </div>
     <p id="subtitle">
       Responsive masonry layout with SSR support and zero dependencies for Vue
@@ -24,7 +24,7 @@
       <span>yarn add @yeger/vue-masonry-wall</span>
       <span>npm install @yeger/vue-masonry-wall</span>
     </samp>
-    <badges />
+    <Badges />
   </header>
 </template>
 
