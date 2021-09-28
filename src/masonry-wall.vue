@@ -18,11 +18,7 @@
         gap: `${gap}px`,
       }"
     >
-      <div
-        v-for="itemIndex in column.itemIndices"
-        :key="itemIndex"
-        class="masonry-item"
-      >
+      <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">
         <slot :item="items[itemIndex]" :index="itemIndex">
           {{ items[itemIndex] }}
         </slot>
@@ -42,12 +38,10 @@ import {
   watch,
 } from 'vue'
 
-function createColumns(count: number): Column[] {
-  return [...new Array(count)].map(() => ({ itemIndices: [] }))
-}
+type Column = number[]
 
-interface Column {
-  itemIndices: number[]
+function createColumns(count: number): Column[] {
+  return [...new Array(count)].map(() => [])
 }
 
 const props = withDefaults(
@@ -78,7 +72,7 @@ const columns = ref<Column[]>([])
 if (ssrColumns.value > 0) {
   const newColumns = createColumns(ssrColumns.value)
   items.value.forEach((_: unknown, i: number) =>
-    newColumns[i % ssrColumns.value].itemIndices.push(i)
+    newColumns[i % ssrColumns.value].push(i)
   )
   columns.value = newColumns
 }
@@ -117,7 +111,7 @@ function fillColumns(itemIndex: number) {
         ? curr
         : prev
     )
-    columns.value[+target.dataset.index!].itemIndices.push(itemIndex)
+    columns.value[+target.dataset.index!].push(itemIndex)
     fillColumns(itemIndex + 1)
   })
 }
