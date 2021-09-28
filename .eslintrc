@@ -10,7 +10,7 @@
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:vue/base"
+    "plugin:vue/vue3-recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
