@@ -1,19 +1,13 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import * as path from 'path'
-import dts from 'vite-plugin-dts'
 import typescript from 'rollup-plugin-typescript2'
-import ttypescript from 'ttypescript'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    dts({
-      logDiagnostics: true,
-    }),
     vue(),
     typescript({
-      typescript: ttypescript,
       useTsconfigDeclarationDir: true,
     }),
   ],
