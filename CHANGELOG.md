@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.9...v3.0.0) (2021-09-28)
+
+
+### Bug Fixes
+
+* remove various linting issues ([903e771](https://github.com/DerYeger/vue-masonry-wall/commit/903e771dc99606b75029c41a55a3e98bfac5989a))
+
+
+### Features
+
+* **vue:** use `setup` script ([c203f78](https://github.com/DerYeger/vue-masonry-wall/commit/c203f7878c6a5c0fb2a1b56cf2ff2455dd65f309))
+
+
+### BREAKING CHANGES
+
+* **vue:** Rename `padding` to `gap`
+
 ## [2.2.9](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.8...v2.2.9) (2021-09-27)
 
 
