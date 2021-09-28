@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.0...v3.0.1) (2021-09-28)
+
+
+### Bug Fixes
+
+* replace `Column` object with `number[]` ([9c2bd61](https://github.com/DerYeger/vue-masonry-wall/commit/9c2bd61b3c21d41e8afabba6d8e1a93d7271a9fe))
+
 # [3.0.0](https://github.com/DerYeger/vue-masonry-wall/compare/v2.2.9...v3.0.0) (2021-09-28)
 
 
