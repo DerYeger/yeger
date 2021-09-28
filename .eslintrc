@@ -12,10 +12,14 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:vue/vue3-recommended"
   ],
-  "parser": "@typescript-eslint/parser",
+  "parser": "vue-eslint-parser",
   "parserOptions": {
     "ecmaVersion": 2020,
+    "parser": "@typescript-eslint/parser",
     "sourceType": "module"
+  },
+  "rules": {
+    "vue/max-attributes-per-line": "off"
   },
   "overrides": [
     {
@@ -24,5 +28,10 @@
         "jest": true
       }
     }
-  ]
+  ],
+  "globals": {
+    "defineProps": "readonly",
+    "defineEmits": "readonly",
+    "withDefaults": "readonly"
+  }
 }
