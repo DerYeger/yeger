@@ -9,6 +9,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,
+    "isolatedModules": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
