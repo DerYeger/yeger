@@ -35,7 +35,7 @@
     "test": "jest",
     "prebuild": "rimraf ./dist",
     "build": "vite build",
-    "postbuild": "bundlesize && rimraf ./dist/types/demo ./dist/types/test ./dist/types/vite.config.d.ts",
+    "postbuild": "bundlesize",
     "lint": "eslint \"./**/*.{js,ts,vue}\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
     "prepublishOnly": "yarn build",
