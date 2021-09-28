@@ -1,17 +1,17 @@
 <template>
   <div id="app">
-    <demo-header />
+    <DemoHeader />
     <main>
-      <tools
+      <Tools
         v-model:column-width="columnWidth"
         v-model:gap="gap"
         v-model:rtl="rtl"
         @create-item="addItem($event)"
         @clear-items="items = []"
       />
-      <masonry-wall
+      <MasonryWall
         :items="items"
-        :columnWidth="columnWidth"
+        :column-width="columnWidth"
         :gap="gap"
         :rtl="rtl"
       >
@@ -26,9 +26,9 @@
             <button class="primary" @click="removeItem(index)">Remove</button>
           </div>
         </template>
-      </masonry-wall>
+      </MasonryWall>
     </main>
-    <demo-footer />
+    <DemoFooter />
   </div>
 </template>
 
@@ -37,10 +37,12 @@ import { defineComponent } from 'vue'
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 import Tools from './tools.vue'
+import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
   name: 'ServeDev',
   components: {
+    MasonryWall,
     DemoHeader,
     DemoFooter,
     Tools,

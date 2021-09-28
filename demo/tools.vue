@@ -42,10 +42,10 @@
         <label for="height">Height</label>
         <input
           id="height"
+          v-model="newItemHeight"
           type="range"
           min="128"
           max="512"
-          v-model="newItemHeight"
         />
         <span>{{ newItemHeight }}px</span>
       </div>
@@ -66,12 +66,28 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'tools',
+  name: 'Tools',
   props: {
-    columnWidth: Number,
-    gap: Number,
-    rtl: Boolean,
+    columnWidth: {
+      type: Number,
+      required: true,
+    },
+    gap: {
+      type: Number,
+      required: true,
+    },
+    rtl: {
+      type: Boolean,
+      required: true,
+    },
   },
+  emits: [
+    'clear-items',
+    'create-item',
+    'update:rtl',
+    'update:gap',
+    'update:columnWidth',
+  ],
   data() {
     return {
       newItemHeight: 128,

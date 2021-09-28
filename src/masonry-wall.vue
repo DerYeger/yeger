@@ -1,13 +1,13 @@
 <template>
   <div
-    class="masonry-wall"
     ref="wall"
+    class="masonry-wall"
     :style="{ display: 'flex', gap: `${gap}px` }"
   >
     <div
-      class="masonry-column"
       v-for="(column, columnIndex) in columns"
       :key="columnIndex"
+      class="masonry-column"
       :data-index="columnIndex"
       :style="{
         display: 'flex',
@@ -19,9 +19,9 @@
       }"
     >
       <div
-        class="masonry-item"
         v-for="itemIndex in column.itemIndices"
         :key="itemIndex"
+        class="masonry-item"
       >
         <slot :item="items[itemIndex]" :index="itemIndex">
           {{ items[itemIndex] }}
@@ -117,7 +117,7 @@ function fillColumns(itemIndex: number) {
         ? curr
         : prev
     )
-    columns.value[+target.dataset.index!].itemIndices.push(itemIndex)
+    columns.value[+target.dataset.index ?? 0].itemIndices.push(itemIndex)
     fillColumns(itemIndex + 1)
   })
 }
