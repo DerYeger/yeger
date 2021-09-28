@@ -9,6 +9,6 @@ module.exports = {
     '~/(.+)$': '<rootDir>/test/$1',
   },
   transform: {
-    '^.+\\.vue$': 'vue-jest',
+    '^.+\\.vue$': '@vue/vue3-jest',
   },
 }
