@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import Dev from './app.vue'
+import App from './app.vue'
 import MasonryWall from '@/index'
 
-createApp(Dev).use(MasonryWall).mount('#app')
+createApp(App).use(MasonryWall).mount('#app')

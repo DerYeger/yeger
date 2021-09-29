@@ -40,7 +40,7 @@ import Tools from './tools.vue'
 import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
-  name: 'ServeDev',
+  name: 'App',
   components: {
     MasonryWall,
     DemoHeader,
