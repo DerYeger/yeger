@@ -68,9 +68,11 @@ app.use(MasonryWall)
 
 Props:
 - `items`: Array of items. Required.
-- `ssr-columns`: Number of pre-calculated columns for server-side-rendering. Optional.
+- `column-width`: Minimal width of columns in `px`.
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
+- `ssr-columns`: Number of server-side-rendered columns. Optional.
+- 
 ```vue
 <template>
   <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
