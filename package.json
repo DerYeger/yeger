@@ -52,7 +52,7 @@
     "@vue/test-utils": "2.0.0-rc.16",
     "@vue/vue3-jest": "27.0.0-alpha.1",
     "bundlesize2": "0.0.31",
-    "eslint": "8.0.1",
+    "eslint": "8.1.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-vue": "7.20.0",
