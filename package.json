@@ -50,7 +50,7 @@
     "@vitejs/plugin-vue": "1.9.4",
     "@vue/compiler-sfc": "3.2.20",
     "@vue/test-utils": "2.0.0-rc.16",
-    "@vue/vue3-jest": "27.0.0-alpha.1",
+    "@vue/vue3-jest": "27.0.0-alpha.3",
     "bundlesize2": "0.0.31",
     "eslint": "8.1.0",
     "eslint-config-prettier": "8.3.0",
