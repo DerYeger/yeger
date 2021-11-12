@@ -33,6 +33,7 @@ describe('MasonryWall', () => {
   })
   beforeEach(() => {
     mockResizeObserver()
+    window.scrollTo = jest.fn()
   })
   afterEach(() => {
     jest.clearAllMocks()
