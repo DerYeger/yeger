@@ -2,7 +2,7 @@
   <div id="app">
     <DemoHeader />
     <main>
-      <Tools
+      <DemoTools
         v-model:column-width="columnWidth"
         v-model:gap="gap"
         v-model:rtl="rtl"
@@ -36,16 +36,16 @@
 import { defineComponent } from 'vue'
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
-import Tools from './tools.vue'
+import DemoTools from './demo-tools.vue'
 import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
   name: 'App',
   components: {
-    MasonryWall,
-    DemoHeader,
     DemoFooter,
-    Tools,
+    DemoHeader,
+    DemoTools,
+    MasonryWall,
   },
   data() {
     return {
