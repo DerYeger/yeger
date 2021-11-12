@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.7...v3.0.8) (2021-11-12)
+
+
+### Bug Fixes
+
+* restore scroll position after redrawing ([28cbe59](https://github.com/DerYeger/vue-masonry-wall/commit/28cbe59327e5d2a94f318ef5d00b2799d8b90e4c))
+
 ## [3.0.7](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.6...v3.0.7) (2021-11-07)
 
 
