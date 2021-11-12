@@ -85,11 +85,11 @@ if (ssrColumns.value > 0) {
   columns.value = newColumns
 }
 
-function fillColumns(itemIndex: number) {
+async function fillColumns(itemIndex: number) {
   if (itemIndex >= items.value.length) {
     return
   }
-  nextTick(() => {
+  await nextTick(async () => {
     const columnDivs = [...wall.value.children] as HTMLDivElement[]
     if (rtl.value) {
       columnDivs.reverse()
@@ -100,17 +100,19 @@ function fillColumns(itemIndex: number) {
         : prev
     )
     columns.value[+target.dataset.index!].push(itemIndex)
-    fillColumns(itemIndex + 1)
+    await fillColumns(itemIndex + 1)
   })
 }
 
-function redraw(force = false) {
+async function redraw(force = false) {
   if (columns.value.length === columnCount() && !force) {
     emit('redraw-skip')
     return
   }
   columns.value = createColumns(columnCount())
-  fillColumns(0)
+  const scrollY = window.scrollY
+  await fillColumns(0)
+  window.scrollTo({ top: scrollY })
   emit('redraw')
 }
 

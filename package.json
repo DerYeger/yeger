@@ -36,7 +36,9 @@
     "prebuild": "rimraf ./dist",
     "build": "vite build",
     "postbuild": "bundlesize",
-    "lint": "eslint \"./**/*.{js,ts,vue}\"",
+    "lint": "yarn lint:prettier && yarn lint:eslint",
+    "lint:prettier": "prettier --check \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
+    "lint:eslint": "eslint \"./**/*.{js,ts,vue}\"",
     "pretty": "prettier --write \"./**/*.{js,json,html,scss,ts,vue,yml}\"",
     "prepublishOnly": "yarn build",
     "ci": "yarn pretty && yarn lint && yarn test && yarn demo:build && yarn build"
