@@ -66,7 +66,7 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'Tools',
+  name: 'DemoTools',
   props: {
     columnWidth: {
       type: Number,

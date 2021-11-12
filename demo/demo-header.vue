@@ -24,17 +24,17 @@
       <span>yarn add @yeger/vue-masonry-wall</span>
       <span>npm install @yeger/vue-masonry-wall</span>
     </samp>
-    <Badges />
+    <BadgeList />
   </header>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import Badges from './badges.vue'
+import BadgeList from './badge-list.vue'
 import GithubLogo from './github-logo.vue'
 
 export default defineComponent({
-  components: { Badges, GithubLogo },
+  components: { BadgeList, GithubLogo },
 })
 </script>
 
