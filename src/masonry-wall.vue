@@ -89,19 +89,18 @@ async function fillColumns(itemIndex: number) {
   if (itemIndex >= items.value.length) {
     return
   }
-  await nextTick(async () => {
-    const columnDivs = [...wall.value.children] as HTMLDivElement[]
-    if (rtl.value) {
-      columnDivs.reverse()
-    }
-    const target = columnDivs.reduce((prev, curr) =>
-      curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
-        ? curr
-        : prev
-    )
-    columns.value[+target.dataset.index!].push(itemIndex)
-    await fillColumns(itemIndex + 1)
-  })
+  await nextTick()
+  const columnDivs = [...wall.value.children] as HTMLDivElement[]
+  if (rtl.value) {
+    columnDivs.reverse()
+  }
+  const target = columnDivs.reduce((prev, curr) =>
+    curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
+      ? curr
+      : prev
+  )
+  columns.value[+target.dataset.index!].push(itemIndex)
+  await fillColumns(itemIndex + 1)
 }
 
 async function redraw(force = false) {
