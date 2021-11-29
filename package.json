@@ -52,7 +52,7 @@
     "@vitejs/plugin-vue": "1.10.1",
     "@vue/compiler-sfc": "3.2.23",
     "@vue/test-utils": "2.0.0-rc.17",
-    "@vue/vue3-jest": "27.0.0-alpha.3",
+    "@vue/vue3-jest": "27.0.0-alpha.4",
     "bundlesize2": "0.0.31",
     "eslint": "8.3.0",
     "eslint-config-prettier": "8.3.0",
