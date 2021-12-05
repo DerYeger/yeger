@@ -60,7 +60,7 @@
     "eslint-plugin-vue": "8.1.1",
     "flush-promises": "1.0.2",
     "jest": "27.4.3",
-    "prettier": "2.5.0",
+    "prettier": "2.5.1",
     "rimraf": "3.0.2",
     "rollup-plugin-typescript2": "0.31.1",
     "ts-jest": "27.0.7",
