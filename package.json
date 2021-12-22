@@ -51,7 +51,7 @@
     "@typescript-eslint/parser": "5.8.0",
     "@vitejs/plugin-vue": "2.0.1",
     "@vue/compiler-sfc": "3.2.26",
-    "@vue/test-utils": "2.0.0-rc.17",
+    "@vue/test-utils": "2.0.0-rc.18",
     "@vue/vue3-jest": "27.0.0-alpha.4",
     "bundlesize2": "0.0.31",
     "eslint": "8.5.0",
