@@ -1,6 +1,6 @@
 {
   "name": "@yeger/vue-masonry-wall",
-  "version": "3.0.14",
+  "version": "3.0.15",
   "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 3.",
   "license": "MIT",
   "repository": "github:DerYeger/vue-masonry-wall",
