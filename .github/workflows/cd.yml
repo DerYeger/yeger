@@ -22,7 +22,7 @@ jobs:
       - name: Create 404.html file
         run: cp ./demo/dist/index.html ./demo/dist/404.html
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@4.2.0
+        uses: JamesIves/github-pages-deploy-action@4.2.1
         with:
           branch: gh-pages
           folder: ./demo/dist
