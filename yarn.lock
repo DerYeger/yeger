@@ -3790,10 +3790,10 @@ v8-to-istanbul@^8.1.0:
     convert-source-map "^1.6.0"
     source-map "^0.7.3"
 
-vite-plugin-dts@0.9.8:
-  version "0.9.8"
-  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-0.9.8.tgz#93b73ce6e28cf134648b25300084b09bfee95c66"
-  integrity sha512-TBjdGgsJfZuifRmrj9OwtSP/rVFUYAdJOaNTkMK/k06QEANrHQ6giGLKN0rXwG0Td/mUdjVI3dRRgW0IzSF3gw==
+vite-plugin-dts@0.9.9:
+  version "0.9.9"
+  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-0.9.9.tgz#e2d263deccc703646c2392c4715fcd64749a3c85"
+  integrity sha512-HzLTCBbsN9gotphtIe97TCigeco6aGLBoeSHdxD9QGGl8prO7uykus0fphLkjWCbFlrerb8Uxp9fu82BfIiaIg==
   dependencies:
     fast-glob "^3.2.7"
     fs-extra "^10.0.0"
