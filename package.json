@@ -68,7 +68,7 @@
     "vite": "2.7.13",
     "vite-plugin-dts": "0.9.9",
     "vue": "3.2.27",
-    "vue-eslint-parser": "8.0.1"
+    "vue-eslint-parser": "8.1.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
