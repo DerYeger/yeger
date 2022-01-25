@@ -3796,10 +3796,10 @@ vite@2.7.13:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-eslint-parser@8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-8.1.0.tgz#0ffc2488ca032043ac36b13a333401c48608bd82"
-  integrity sha512-R8Pl6MSvuU81JKyUguexcABQxfM51Q2ZJVBX0TrKiLltPB+haVLp4hfuR5msiu9oqpsQkaV+TF18r4CBw9c9qg==
+vue-eslint-parser@8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-8.2.0.tgz#8c3990deb901b0d528d99f4d052a831cd1d0284c"
+  integrity sha512-hvl8OVT8imlKk/lQyhkshqwQQChzHETcBd5abiO4ePw7ib7QUZLfW+2TUrJHKUvFOCFRJrDin5KJO9OHzB5bRQ==
   dependencies:
     debug "^4.3.2"
     eslint-scope "^7.0.0"
