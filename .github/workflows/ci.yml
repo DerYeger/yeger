@@ -70,7 +70,7 @@ jobs:
         with:
           node-version: 16
       - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v2.7.0
+        uses: cycjimmy/semantic-release-action@v3.0.0
         with:
           extra_plugins: |
             @semantic-release/changelog
