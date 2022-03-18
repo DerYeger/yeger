@@ -62,7 +62,7 @@ jobs:
         with:
           token: ${{ secrets.PAT }}
       - name: Create commit
-        uses: stefanzweifel/git-auto-commit-action@v4.13.1
+        uses: stefanzweifel/git-auto-commit-action@v4.14.0
         with:
           commit_message: 'fix(release): schedule release'
           commit_options: '--no-verify --allow-empty'
