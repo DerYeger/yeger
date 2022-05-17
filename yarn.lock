@@ -978,10 +978,10 @@
   resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-2.0.0-rc.21.tgz#9ebb0029bafa94ee55e90a6b4eab6d1e7b7a3152"
   integrity sha512-wIJR4e/jISBKVKfiod3DV32BlDsoD744WVCuCaGtaSKvhvTL9gI5vl2AYSy00V51YaM8dCOFi3zcpCON8G1WqA==
 
-"@vue/vue3-jest@27.0.0":
-  version "27.0.0"
-  resolved "https://registry.yarnpkg.com/@vue/vue3-jest/-/vue3-jest-27.0.0.tgz#d28ac56d3cb8c5ac5c46c9caaa83d5419b0abfc7"
-  integrity sha512-VL61CgZBoQqayXfzlZJHHpZuX4lsT8dmdZMJzADhdAJjKu26JBpypHr/2ppevxItljPiuALQW4MKhhCXZRXnLg==
+"@vue/vue3-jest@28.0.0":
+  version "28.0.0"
+  resolved "https://registry.yarnpkg.com/@vue/vue3-jest/-/vue3-jest-28.0.0.tgz#e1b5d37992dd611a798a0fd0e18b4252aa722c47"
+  integrity sha512-X5ZgZuG4d9N6x5lZAWWtTCSo4lO6+ytV5IekoyWVQYC9sKbYenrGUrCvy/kSftK6kPe8K/LeSsYj2VMJAUdeww==
   dependencies:
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
     chalk "^2.1.0"
