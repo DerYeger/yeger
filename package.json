@@ -50,7 +50,7 @@
     "@typescript-eslint/eslint-plugin": "5.25.0",
     "@typescript-eslint/parser": "5.25.0",
     "@vitejs/plugin-vue": "2.3.3",
-    "@vue/compiler-sfc": "3.2.35",
+    "@vue/compiler-sfc": "3.2.36",
     "@vue/test-utils": "2.0.0",
     "@vue/vue3-jest": "27.0.0",
     "bundlesize2": "0.0.31",
@@ -67,7 +67,7 @@
     "typescript": "4.6.4",
     "vite": "2.9.9",
     "vite-plugin-dts": "1.1.1",
-    "vue": "3.2.35",
+    "vue": "3.2.36",
     "vue-eslint-parser": "9.0.2"
   },
   "peerDependencies": {
