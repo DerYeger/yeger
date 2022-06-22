@@ -99,6 +99,26 @@ export default {
 </script>
 ```
 
+### Nuxt 3
+
+Create a plugin (e.g. `plugins/vue-masonry-wall.ts`) with the following code:
+
+```ts
+import MasonryWall from '@yeger/vue-masonry-wall'
+
+export default defineNuxtPlugin((nuxtApp) => {
+  if (typeof global !== 'undefined') {
+    global.ResizeObserver = class ResizeObserver {
+      public constructor() {}
+      public disconnect() {}
+      public observe() {}
+      public unobserve() {}
+    }
+  }
+  nuxtApp.vueApp.use(MasonryWall)
+})
+```
+
 ## Development
 
 ```bash
