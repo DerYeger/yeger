@@ -11,7 +11,7 @@
       :data-index="columnIndex"
       :style="{
         display: 'flex',
-        'flex-basis': '0%',
+        'flex-basis': '0px',
         'flex-direction': 'column',
         'flex-grow': 1,
         height: ['-webkit-max-content', '-moz-max-content', 'max-content'],
