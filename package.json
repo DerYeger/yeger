@@ -56,7 +56,7 @@
     "bundlesize2": "0.0.31",
     "eslint": "8.18.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
+    "eslint-plugin-prettier": "4.1.0",
     "eslint-plugin-vue": "9.1.1",
     "flush-promises": "1.0.2",
     "jest": "27.5.1",
@@ -65,7 +65,7 @@
     "rollup-plugin-typescript2": "0.32.1",
     "ts-jest": "27.1.5",
     "typescript": "4.7.4",
-    "vite": "2.9.12",
+    "vite": "2.9.13",
     "vite-plugin-dts": "1.2.0",
     "vue": "3.2.37",
     "vue-eslint-parser": "9.0.3"
