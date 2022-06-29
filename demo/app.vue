@@ -7,6 +7,7 @@
         v-model:gap="gap"
         v-model:rtl="rtl"
         @create-item="addItem($event)"
+        @create-items="addItems()"
         @clear-items="items = []"
       />
       <MasonryWall
@@ -56,8 +57,26 @@ export default defineComponent({
     }
   },
   methods: {
+    randomHeight(): number {
+      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    },
     addItem(item: number) {
       this.items = [...this.items, item]
+    },
+    addItems() {
+      this.items = [
+        ...this.items,
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+      ]
     },
     removeItem(index: number) {
       this.items.splice(index, 1)

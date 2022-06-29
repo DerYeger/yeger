@@ -56,6 +56,9 @@
         <button class="primary" @click="$emit('create-item', randomHeight())">
           Random
         </button>
+        <button class="primary" @click="$emit('create-items')">
+          Random (10)
+        </button>
         <button class="secondary" @click="$emit('clear-items')">Clear</button>
       </div>
     </section>
@@ -84,6 +87,7 @@ export default defineComponent({
   emits: [
     'clear-items',
     'create-item',
+    'create-items',
     'update:rtl',
     'update:gap',
     'update:columnWidth',

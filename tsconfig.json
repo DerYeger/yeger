@@ -18,6 +18,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "newLine": "lf",
+    "jsx": "preserve",
     "types": ["node", "jest", "vue", "resize-observer-browser"],
     "paths": {
       "@/*": ["src/*"]
