@@ -67,12 +67,14 @@ app.use(MasonryWall)
 ```
 
 Props:
+
 - `items`: Array of items. Required.
 - `column-width`: Minimal width of columns in `px`.
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
-- 
+-
+
 ```vue
 <template>
   <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
@@ -91,13 +93,18 @@ export default {
     return {
       items: [
         { title: 'First', description: 'The first item.' },
-        { title: 'Second', description: 'The second item.'},
-      ]
+        { title: 'Second', description: 'The second item.' },
+      ],
     }
-  }
+  },
 }
 </script>
 ```
+
+### Adding items
+
+To add new items, assign a new value to the `items` property, e.g., `items.value = [...items.value, newItem]`.
+**DO NOT** push items to the array (e.g. `items.value.push(newItem)`), as such mutations will not be detected by the reactivity.
 
 ### Nuxt 3
 
