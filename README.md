@@ -73,7 +73,6 @@ Props:
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
--
 
 ```vue
 <template>
@@ -104,11 +103,20 @@ export default {
 ### Adding items
 
 To add new items, assign a new value to the `items` property, e.g., `items.value = [...items.value, newItem]`.
-**DO NOT** push items to the array (e.g. `items.value.push(newItem)`), as such mutations will not be detected by the reactivity.
+**DO NOT** push items to the array (e.g., `items.value.push(newItem)`), as such mutations will not be detected by the reactivity.
+
+### Limitations
+
+This library intentionally doesn't handle elements with dynamically changing height, as this would cause constant changes of the column distribution.
+As a consequence, the initial height of items is used.
+For images, specyfing aspect ratios can prevent unbalanced distributions.
+
+All columns have the same width, specified by the `column-width` property.
+In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`. 
 
 ### Nuxt 3
 
-Create a plugin (e.g. `plugins/vue-masonry-wall.ts`) with the following code:
+1. Create a plugin (e.g., `plugins/vue-masonry-wall.ts`) with the following code:
 
 ```ts
 import MasonryWall from '@yeger/vue-masonry-wall'
@@ -123,6 +131,18 @@ export default defineNuxtPlugin((nuxtApp) => {
     }
   }
   nuxtApp.vueApp.use(MasonryWall)
+})
+```
+
+2. Configure Nuxt to transpile this library:
+
+```ts
+import { defineNuxtConfig } from 'nuxt'
+
+export default defineNuxtConfig({
+  build: {
+    transpile: ['@yeger/vue-masonry-wall'],
+  },
 })
 ```
 
