@@ -1,3 +1,11 @@
+## [3.0.38](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.37...v3.0.38) (2022-06-30)
+
+
+### Bug Fixes
+
+* add ESM export ([e60917b](https://github.com/DerYeger/vue-masonry-wall/commit/e60917b28327538168c9c0a8c227b1064eff3f39))
+* check if `ResizeObserver` is defined ([e080556](https://github.com/DerYeger/vue-masonry-wall/commit/e0805560a7213f4fa526b8b696dee8cabd397ee2))
+
 ## [3.0.37](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.36...v3.0.37) (2022-06-25)
 
 
