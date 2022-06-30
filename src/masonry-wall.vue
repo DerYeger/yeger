@@ -1,42 +1,6 @@
-<template>
-  <div
-    ref="wall"
-    class="masonry-wall"
-    :style="{ display: 'flex', gap: `${gap}px` }"
-  >
-    <div
-      v-for="(column, columnIndex) in columns"
-      :key="columnIndex"
-      class="masonry-column"
-      :data-index="columnIndex"
-      :style="{
-        display: 'flex',
-        'flex-basis': '0px',
-        'flex-direction': 'column',
-        'flex-grow': 1,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
-        gap: `${gap}px`,
-      }"
-    >
-      <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">
-        <slot :item="items[itemIndex]" :index="itemIndex">
-          {{ items[itemIndex] }}
-        </slot>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import {
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  Ref,
-  ref,
-  toRefs,
-  watch,
-} from 'vue'
+import type { Ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
 type Column = number[]
 
@@ -56,14 +20,14 @@ const props = withDefaults(
   }
 )
 
-const { columnWidth, items, gap, rtl, ssrColumns } = toRefs(props)
-const columns = ref<Column[]>([])
-const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
-
 const emit = defineEmits<{
   (event: 'redraw'): void
   (event: 'redraw-skip'): void
 }>()
+
+const { columnWidth, items, gap, rtl, ssrColumns } = toRefs(props)
+const columns = ref<Column[]>([])
+const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 
 function columnCount(): number {
   const count = Math.floor(
@@ -130,3 +94,32 @@ onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
 watch([items, rtl], () => redraw(true))
 watch([columnWidth, gap], () => redraw())
 </script>
+
+<template>
+  <div
+    ref="wall"
+    class="masonry-wall"
+    :style="{ display: 'flex', gap: `${gap}px` }"
+  >
+    <div
+      v-for="(column, columnIndex) in columns"
+      :key="columnIndex"
+      class="masonry-column"
+      :data-index="columnIndex"
+      :style="{
+        display: 'flex',
+        'flex-basis': '0px',
+        'flex-direction': 'column',
+        'flex-grow': 1,
+        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
+        gap: `${gap}px`,
+      }"
+    >
+      <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">
+        <slot :item="items[itemIndex]" :index="itemIndex">
+          {{ items[itemIndex] }}
+        </slot>
+      </div>
+    </div>
+  </div>
+</template>

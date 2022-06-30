@@ -1,10 +1,11 @@
-import { App, Plugin } from 'vue'
+import type { App, Plugin } from 'vue'
+
 import component from '@/masonry-wall.vue'
 
 type InstallableComponent = typeof component & Plugin
 
 const MasonryWall: InstallableComponent =
-  /*#__PURE__*/ ((): InstallableComponent => {
+  /* #__PURE__ */ ((): InstallableComponent => {
     const installable = component as unknown as InstallableComponent
 
     installable.install = (app: App) => {

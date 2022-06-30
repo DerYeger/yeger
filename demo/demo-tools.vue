@@ -1,3 +1,43 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  name: 'DemoTools',
+  props: {
+    columnWidth: {
+      type: Number,
+      required: true,
+    },
+    gap: {
+      type: Number,
+      required: true,
+    },
+    rtl: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: [
+    'clear-items',
+    'create-item',
+    'create-items',
+    'update:rtl',
+    'update:gap',
+    'update:columnWidth',
+  ],
+  data() {
+    return {
+      newItemHeight: 128,
+    }
+  },
+  methods: {
+    randomHeight(): number {
+      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    },
+  },
+})
+</script>
+
 <template>
   <div id="tools">
     <section id="settings">
@@ -64,46 +104,6 @@
     </section>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'DemoTools',
-  props: {
-    columnWidth: {
-      type: Number,
-      required: true,
-    },
-    gap: {
-      type: Number,
-      required: true,
-    },
-    rtl: {
-      type: Boolean,
-      required: true,
-    },
-  },
-  emits: [
-    'clear-items',
-    'create-item',
-    'create-items',
-    'update:rtl',
-    'update:gap',
-    'update:columnWidth',
-  ],
-  data() {
-    return {
-      newItemHeight: 128,
-    }
-  },
-  methods: {
-    randomHeight(): number {
-      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
-    },
-  },
-})
-</script>
 
 <style scoped>
 #tools {

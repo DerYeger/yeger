@@ -5,6 +5,7 @@
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { defineComponent } from 'vue'
+
 import MasonryWall from '@/index'
 
 let observeMock = jest.fn()
