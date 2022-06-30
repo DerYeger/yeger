@@ -1,40 +1,6 @@
-<template>
-  <div id="app">
-    <DemoHeader />
-    <main>
-      <DemoTools
-        v-model:column-width="columnWidth"
-        v-model:gap="gap"
-        v-model:rtl="rtl"
-        @create-item="addItem($event)"
-        @create-items="addItems()"
-        @clear-items="items = []"
-      />
-      <MasonryWall
-        :items="items"
-        :column-width="columnWidth"
-        :gap="gap"
-        :rtl="rtl"
-      >
-        <template #default="{ item, index }">
-          <div
-            class="item"
-            :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-            :style="`height: ${item}px;`"
-          >
-            <p>Index {{ index }}</p>
-            <p style="text-align: center">Height {{ item }}px</p>
-            <button class="primary" @click="removeItem(index)">Remove</button>
-          </div>
-        </template>
-      </MasonryWall>
-    </main>
-    <DemoFooter />
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
+
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 import DemoTools from './demo-tools.vue'
@@ -83,6 +49,41 @@ export default defineComponent({
   },
 })
 </script>
+
+<template>
+  <div id="app">
+    <DemoHeader />
+    <main>
+      <DemoTools
+        v-model:column-width="columnWidth"
+        v-model:gap="gap"
+        v-model:rtl="rtl"
+        @create-item="addItem($event)"
+        @create-items="addItems()"
+        @clear-items="items = []"
+      />
+      <MasonryWall
+        :items="items"
+        :column-width="columnWidth"
+        :gap="gap"
+        :rtl="rtl"
+      >
+        <template #default="{ item, index }">
+          <div
+            class="item"
+            :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
+            :style="`height: ${item}px;`"
+          >
+            <p>Index {{ index }}</p>
+            <p style="text-align: center">Height {{ item }}px</p>
+            <button class="primary" @click="removeItem(index)">Remove</button>
+          </div>
+        </template>
+      </MasonryWall>
+    </main>
+    <DemoFooter />
+  </div>
+</template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

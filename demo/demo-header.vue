@@ -1,3 +1,14 @@
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+import BadgeList from './badge-list.vue'
+import GithubLogo from './github-logo.vue'
+
+export default defineComponent({
+  components: { BadgeList, GithubLogo },
+})
+</script>
+
 <template>
   <header class="secondary">
     <div class="row">
@@ -27,16 +38,6 @@
     <BadgeList />
   </header>
 </template>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-import BadgeList from './badge-list.vue'
-import GithubLogo from './github-logo.vue'
-
-export default defineComponent({
-  components: { BadgeList, GithubLogo },
-})
-</script>
 
 <style scoped>
 header {

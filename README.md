@@ -75,17 +75,6 @@ Props:
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
 
 ```vue
-<template>
-  <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
-    <template #default="{ item, index }">
-      <div style="height: 100px">
-        <h1>{{ item.title }}</h1>
-        <span>{{ item.description }}</span>
-      </div>
-    </template>
-  </masonry-wall>
-</template>
-
 <script>
 export default {
   data() {
@@ -98,6 +87,17 @@ export default {
   },
 }
 </script>
+
+<template>
+  <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
+    <template #default="{ item, index }">
+      <div style="height: 100px">
+        <h1>{{ item.title }}</h1>
+        <span>{{ item.description }}</span>
+      </div>
+    </template>
+  </masonry-wall>
+</template>
 ```
 
 ### Adding items
