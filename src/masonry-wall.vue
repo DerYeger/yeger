@@ -115,14 +115,17 @@ async function redraw(force = false) {
   emit('redraw')
 }
 
-const resizeObserver = new ResizeObserver(() => redraw())
+const resizeObserver =
+  typeof ResizeObserver === 'undefined'
+    ? undefined
+    : new ResizeObserver(() => redraw())
 
 onMounted(() => {
   redraw()
-  resizeObserver.observe(wall.value)
+  resizeObserver?.observe(wall.value)
 })
 
-onBeforeUnmount(() => resizeObserver.unobserve(wall.value))
+onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
 
 watch([items, rtl], () => redraw(true))
 watch([columnWidth, gap], () => redraw())
