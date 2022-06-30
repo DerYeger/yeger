@@ -38,7 +38,6 @@ import { defineComponent } from 'vue'
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 import DemoTools from './demo-tools.vue'
-import MasonryWall from '@/masonry-wall.vue'
 
 export default defineComponent({
   name: 'App',
@@ -46,7 +45,6 @@ export default defineComponent({
     DemoFooter,
     DemoHeader,
     DemoTools,
-    MasonryWall,
   },
   data() {
     return {

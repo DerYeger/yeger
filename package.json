@@ -36,7 +36,8 @@
   ],
   "scripts": {
     "demo:serve": "vite --config demo/vite.config.ts",
-    "demo:build": "vite --config demo/vite.config.ts build",
+    "demo:typecheck": "vue-tsc --noEmit demo/main.ts",
+    "demo:build": "yarn demo:typecheck && vite --config demo/vite.config.ts build",
     "demo:preview": "yarn demo:build && vite --config demo/vite.config.ts preview",
     "test": "jest",
     "prebuild": "rimraf ./dist",
@@ -59,6 +60,7 @@
     "@vue/compiler-sfc": "3.2.37",
     "@vue/test-utils": "2.0.1",
     "@vue/vue3-jest": "27.0.0",
+    "@yeger/vue-masonry-wall": "link:.",
     "bundlesize2": "0.0.31",
     "eslint": "8.19.0",
     "eslint-config-prettier": "8.5.0",
@@ -74,7 +76,8 @@
     "vite": "2.9.13",
     "vite-plugin-dts": "1.2.0",
     "vue": "3.2.37",
-    "vue-eslint-parser": "9.0.3"
+    "vue-eslint-parser": "9.0.3",
+    "vue-tsc": "0.38.2"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
