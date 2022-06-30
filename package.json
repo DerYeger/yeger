@@ -24,6 +24,12 @@
   "module": "dist/masonry-wall.es.js",
   "unpkg": "dist/masonry-wall.umd.js",
   "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/masonry-wall.es.js",
+      "require": "./dist/masonry-wall.umd.js"
+    }
+  },
   "files": [
     "dist/*",
     "src/**/*.vue"
