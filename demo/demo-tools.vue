@@ -18,9 +18,9 @@ export default defineComponent({
     },
   },
   emits: [
-    'clear-items',
-    'create-item',
-    'create-items',
+    'clearItems',
+    'createItem',
+    'createItems',
     'update:rtl',
     'update:gap',
     'update:columnWidth',
@@ -90,16 +90,16 @@ export default defineComponent({
         <span>{{ newItemHeight }}px</span>
       </div>
       <div class="row button-row">
-        <button class="primary" @click="$emit('create-item', newItemHeight)">
+        <button class="primary" @click="$emit('createItem', newItemHeight)">
           Create
         </button>
-        <button class="primary" @click="$emit('create-item', randomHeight())">
+        <button class="primary" @click="$emit('createItem', randomHeight())">
           Random
         </button>
-        <button class="primary" @click="$emit('create-items')">
+        <button class="primary" @click="$emit('createItems')">
           Random (10)
         </button>
-        <button class="secondary" @click="$emit('clear-items')">Clear</button>
+        <button class="secondary" @click="$emit('clearItems')">Clear</button>
       </div>
     </section>
   </div>

@@ -22,7 +22,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   (event: 'redraw'): void
-  (event: 'redraw-skip'): void
+  (event: 'redrawSkip'): void
 }>()
 
 const { columnWidth, items, gap, rtl, ssrColumns } = toRefs(props)
@@ -69,7 +69,7 @@ async function fillColumns(itemIndex: number) {
 
 async function redraw(force = false) {
   if (columns.value.length === columnCount() && !force) {
-    emit('redraw-skip')
+    emit('redrawSkip')
     return
   }
   columns.value = createColumns(columnCount())
