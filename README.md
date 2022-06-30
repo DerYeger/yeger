@@ -112,7 +112,7 @@ As a consequence, the initial height of items is used.
 For images, specyfing aspect ratios can prevent unbalanced distributions.
 
 All columns have the same width, specified by the `column-width` property.
-In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`. 
+In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`.
 
 ### Nuxt 3
 
@@ -128,9 +128,14 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 ## Development
 
+To serve or build the demo, the library has to be built first using `yarn dev` or `yarn build`.
+
 ```bash
 # install dependencies
 $ yarn install
+
+# build in watch mode
+$ yarn dev
 
 # build for production
 $ yarn build

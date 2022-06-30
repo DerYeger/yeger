@@ -36,8 +36,7 @@
   ],
   "scripts": {
     "demo:serve": "vite --config demo/vite.config.ts",
-    "demo:typecheck": "vue-tsc --noEmit demo/main.ts",
-    "demo:build": "yarn demo:typecheck && vite --config demo/vite.config.ts build",
+    "demo:build": "vue-tsc --noEmit demo/main.ts && vite --config demo/vite.config.ts build",
     "demo:preview": "yarn demo:build && vite --config demo/vite.config.ts preview",
     "test": "jest",
     "prebuild": "rimraf ./dist",
