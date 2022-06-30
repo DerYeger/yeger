@@ -116,33 +116,13 @@ In addition, the elements of items should not set a specific width and instead b
 
 ### Nuxt 3
 
-1. Create a plugin (e.g., `plugins/vue-masonry-wall.ts`) with the following code:
+Create a plugin (e.g., `plugins/vue-masonry-wall.ts`) with the following code:
 
 ```ts
 import MasonryWall from '@yeger/vue-masonry-wall'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  if (typeof global !== 'undefined') {
-    global.ResizeObserver = class ResizeObserver {
-      public constructor() {}
-      public disconnect() {}
-      public observe() {}
-      public unobserve() {}
-    }
-  }
   nuxtApp.vueApp.use(MasonryWall)
-})
-```
-
-2. Configure Nuxt to transpile this library:
-
-```ts
-import { defineNuxtConfig } from 'nuxt'
-
-export default defineNuxtConfig({
-  build: {
-    transpile: ['@yeger/vue-masonry-wall'],
-  },
 })
 ```
 
