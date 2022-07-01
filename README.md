@@ -86,7 +86,6 @@ const items = [
       description: 'The second item.'
     },
   ]
-}
 </script>
 
 <template>

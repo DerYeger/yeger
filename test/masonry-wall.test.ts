@@ -1,21 +1,17 @@
-/**
- * @jest-environment jsdom
- */
-
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { defineComponent } from 'vue'
 
 import MasonryWall from '@/index'
 
-let observeMock = jest.fn()
-let unobserveMock = jest.fn()
+let observeMock = vi.fn()
+let unobserveMock = vi.fn()
 
 function mockResizeObserver() {
-  observeMock = jest.fn()
-  unobserveMock = jest.fn()
-  const resizeObserverMock = jest.fn().mockImplementation(() => ({
-    disconnect: jest.fn(),
+  observeMock = vi.fn()
+  unobserveMock = vi.fn()
+  const resizeObserverMock = vi.fn().mockImplementation(() => ({
+    disconnect: vi.fn(),
     observe: observeMock,
     unobserve: unobserveMock,
   }))
@@ -34,10 +30,10 @@ describe('MasonryWall', () => {
   })
   beforeEach(() => {
     mockResizeObserver()
-    window.scrollTo = jest.fn()
+    window.scrollTo = vi.fn()
   })
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
   it('can be installed', async () => {
     const wrapper = mount(TestComponent, {
@@ -112,14 +108,14 @@ describe('MasonryWall', () => {
     })
     await flushPromises()
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
-    expect(wrapper.emitted('redraw-skip')).toBeUndefined()
+    expect(wrapper.emitted('redrawSkip')).toBeUndefined()
     await wrapper
       .setProps({
         columnWidth: 300,
       })
       .then(flushPromises)
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
-    expect(wrapper.emitted('redraw-skip')?.length).toEqual(1)
+    expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
   it('reacts to gap prop changes', async () => {
     const wrapper = mount(MasonryWall, {
@@ -129,14 +125,14 @@ describe('MasonryWall', () => {
     })
     await flushPromises()
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
-    expect(wrapper.emitted('redraw-skip')).toBeUndefined()
+    expect(wrapper.emitted('redrawSkip')).toBeUndefined()
     await wrapper
       .setProps({
         gap: 42,
       })
       .then(flushPromises)
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
-    expect(wrapper.emitted('redraw-skip')?.length).toEqual(1)
+    expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
   it('reacts to rtl prop changes', async () => {
     const wrapper = mount(MasonryWall, {
