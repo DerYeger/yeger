@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: 16
       - name: Test
-        run: yarn test
+        run: yarn test:ci
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
