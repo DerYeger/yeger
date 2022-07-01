@@ -58,8 +58,6 @@
   },
   "devDependencies": {
     "@types/resize-observer-browser": "0.1.7",
-    "@typescript-eslint/eslint-plugin": "5.30.3",
-    "@typescript-eslint/parser": "5.30.3",
     "@vitejs/plugin-vue": "2.3.3",
     "@vitest/ui": "0.16.0",
     "@vue/compiler-sfc": "3.2.37",
@@ -71,7 +69,6 @@
     "eslint": "8.19.0",
     "flush-promises": "1.0.2",
     "rimraf": "3.0.2",
-    "rollup-plugin-typescript2": "0.32.1",
     "typescript": "4.7.4",
     "vite": "2.9.13",
     "vite-plugin-dts": "1.2.0",
