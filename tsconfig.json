@@ -20,7 +20,7 @@
     "newLine": "lf",
     "jsx": "preserve",
     "skipLibCheck": true,
-    "types": ["node", "jest", "vue", "resize-observer-browser"],
+    "types": ["node", "vue", "resize-observer-browser"],
     "paths": {
       "@/*": ["src/*"]
     },
