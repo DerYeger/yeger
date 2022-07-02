@@ -5,10 +5,4 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   root: 'demo',
   plugins: [vue()],
-  server: {
-    fs: {
-      // Allow serving files from one level up to the project root
-      allow: ['..'],
-    },
-  },
 })
