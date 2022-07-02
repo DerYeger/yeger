@@ -1,3 +1,10 @@
+## [3.0.39](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.38...v3.0.39) (2022-07-02)
+
+
+### Bug Fixes
+
+* export types with valid paths ([1cda85e](https://github.com/DerYeger/vue-masonry-wall/commit/1cda85e9b5a0eff1a5ebaaf55c3cc68404192a6a))
+
 ## [3.0.38](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.37...v3.0.38) (2022-06-30)
 
 
