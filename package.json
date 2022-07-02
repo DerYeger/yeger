@@ -58,12 +58,12 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@babel/types": "7.18.7",
     "@commitlint/cli": "17.0.2",
     "@commitlint/config-conventional": "17.0.2",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "2.3.3",
     "@vitest/ui": "0.16.0",
-    "@vue/compiler-sfc": "3.2.37",
     "@vue/test-utils": "2.0.1",
     "@yeger/eslint-config": "1.4.31",
     "@yeger/vue-masonry-wall": "link:.",
@@ -82,7 +82,6 @@
     "vite-plugin-dts": "1.2.0",
     "vitest": "0.16.0",
     "vue": "3.2.37",
-    "vue-eslint-parser": "9.0.3",
     "vue-tsc": "0.38.2"
   },
   "lint-staged": {
