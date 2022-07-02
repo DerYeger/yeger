@@ -65,7 +65,7 @@
     "@vitejs/plugin-vue": "2.3.3",
     "@vitest/ui": "0.16.0",
     "@vue/test-utils": "2.0.1",
-    "@yeger/eslint-config": "1.4.31",
+    "@yeger/eslint-config": "1.4.32",
     "@yeger/vue-masonry-wall": "link:.",
     "bundlesize2": "0.0.31",
     "c8": "7.11.3",
