@@ -1,3 +1,10 @@
+## [3.0.40](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.39...v3.0.40) (2022-07-04)
+
+
+### Bug Fixes
+
+* use `mjs` for ESM files ([7a730a3](https://github.com/DerYeger/vue-masonry-wall/commit/7a730a3e66bed9ab9b81928594e35d06d5b3428c))
+
 ## [3.0.39](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.38...v3.0.39) (2022-07-02)
 
 
