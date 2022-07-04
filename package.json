@@ -64,7 +64,7 @@
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "2.3.3",
     "@vitest/ui": "0.17.0",
-    "@vue/test-utils": "2.0.1",
+    "@vue/test-utils": "2.0.2",
     "@yeger/eslint-config": "1.4.32",
     "@yeger/vue-masonry-wall": "link:.",
     "bundlesize2": "0.0.31",
