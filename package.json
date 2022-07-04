@@ -23,12 +23,12 @@
   "exports": {
     ".": {
       "require": "./dist/masonry-wall.umd.js",
-      "import": "./dist/masonry-wall.es.js"
+      "import": "./dist/masonry-wall.es.mjs"
     }
   },
   "main": "dist/masonry-wall.umd.js",
-  "browser": "dist/masonry-wall.es.js",
-  "module": "dist/masonry-wall.es.js",
+  "browser": "dist/masonry-wall.es.mjs",
+  "module": "dist/masonry-wall.es.mjs",
   "unpkg": "dist/masonry-wall.umd.js",
   "types": "dist/types/index.d.ts",
   "files": [

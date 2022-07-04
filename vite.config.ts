@@ -28,7 +28,8 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['es', 'umd'],
       name: 'MasonryWall',
-      fileName: (format) => `masonry-wall.${format}.js`,
+      fileName: (format) =>
+        `masonry-wall.${format}.${format === 'es' ? 'mjs' : 'js'}`,
     },
     rollupOptions: {
       external: ['vue'],
