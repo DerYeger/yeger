@@ -5566,10 +5566,10 @@ vfile@^4.0.0:
     unist-util-stringify-position "^2.0.0"
     vfile-message "^2.0.0"
 
-vite-plugin-dts@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-1.2.0.tgz#79dde8fc04d68d3fbc228bcf4c1698f0be6b1627"
-  integrity sha512-dg0x2VKHDnpNQvx0iPKkPpX+aJNBqzusMJv1l7SwzTV8J62eLhIKzE2FKOp4oYkPlN/vi+MqNEDKvv+XE70lzA==
+vite-plugin-dts@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/vite-plugin-dts/-/vite-plugin-dts-1.2.1.tgz#8f813111873f28e51cc8b6ac3284c1df33c1e7a5"
+  integrity sha512-V59rsKQnPI6FTGybh/ED4+dyK3UeSkvC1CJzpuDNoXb7mKNUcWmg66EM0N5Ijoc8xDAfZIXYxQjg675YHIDvFw==
   dependencies:
     "@microsoft/api-extractor" "^7.20.0"
     "@rushstack/node-core-library" "^3.45.1"
