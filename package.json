@@ -63,7 +63,7 @@
     "@commitlint/config-conventional": "17.0.3",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "2.3.3",
-    "@vitest/ui": "0.17.0",
+    "@vitest/ui": "0.17.1",
     "@vue/test-utils": "2.0.2",
     "@yeger/eslint-config": "1.4.32",
     "@yeger/vue-masonry-wall": "link:.",
@@ -80,9 +80,9 @@
     "typescript": "4.7.4",
     "vite": "2.9.13",
     "vite-plugin-dts": "1.2.1",
-    "vitest": "0.17.0",
+    "vitest": "0.17.1",
     "vue": "3.2.37",
-    "vue-tsc": "0.38.2"
+    "vue-tsc": "0.38.3"
   },
   "lint-staged": {
     "*.{js,json,md,ts,vue,yaml,yml}": "eslint --fix"
