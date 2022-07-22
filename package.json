@@ -82,7 +82,7 @@
     "vite-plugin-dts": "1.4.0",
     "vitest": "0.18.1",
     "vue": "3.2.37",
-    "vue-tsc": "0.38.9"
+    "vue-tsc": "0.39.0"
   },
   "lint-staged": {
     "*.{js,json,md,ts,vue,yaml,yml}": "eslint --fix"
