@@ -126,6 +126,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 })
 ```
 
+Also, see https://github.com/DerYeger/vue-masonry-wall/issues/43.
+
 ## Development
 
 To serve or build the demo, the library has to be built first using `yarn dev` or `yarn build`.
