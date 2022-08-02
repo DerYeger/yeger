@@ -58,7 +58,7 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/types": "7.18.9",
+    "@babel/types": "7.18.10",
     "@commitlint/cli": "17.0.3",
     "@commitlint/config-conventional": "17.0.3",
     "@types/resize-observer-browser": "0.1.7",
