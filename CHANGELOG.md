@@ -1,3 +1,10 @@
+## [3.0.44](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.43...v3.0.44) (2022-08-03)
+
+
+### Bug Fixes
+
+* **release:** schedule release ([0305959](https://github.com/DerYeger/vue-masonry-wall/commit/03059597d96df94d63784312544c6102b0f8b5a8))
+
 ## [3.0.43](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.42...v3.0.43) (2022-07-27)
 
 
