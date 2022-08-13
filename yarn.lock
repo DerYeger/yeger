@@ -799,7 +799,6 @@
 
 "@yeger/vue-masonry-wall@link:.":
   version "0.0.0"
-  uid ""
 
 JSONStream@^1.0.4:
   version "1.3.5"
