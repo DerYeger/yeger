@@ -1,9 +1,9 @@
 import * as path from 'path'
 
 import vue from '@vitejs/plugin-vue'
-/// <reference types="vitest" />
-import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+import type { UserConfigExport } from 'vitest/config'
+import { defineConfig } from 'vitest/config'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -49,4 +49,4 @@ export default defineConfig({
       include: ['src/**/*.*'],
     },
   },
-})
+} as UserConfigExport)
