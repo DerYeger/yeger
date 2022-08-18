@@ -63,6 +63,7 @@
     "@commitlint/config-conventional": "17.0.3",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "3.0.3",
+    "@vitest/coverage-c8": "0.22.1",
     "@vitest/ui": "0.21.1",
     "@vue/test-utils": "2.0.2",
     "@yeger/eslint-config": "1.4.36",
