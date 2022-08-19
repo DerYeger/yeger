@@ -1,3 +1,10 @@
+## [3.0.48](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.47...v3.0.48) (2022-08-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vite to v3.0.9 ([eea72bc](https://github.com/DerYeger/vue-masonry-wall/commit/eea72bc65867aca4de06afdd361fefef9e841542))
+
 ## [3.0.47](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.46...v3.0.47) (2022-08-18)
 
 
