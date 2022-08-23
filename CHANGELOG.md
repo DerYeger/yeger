@@ -1,3 +1,10 @@
+## [3.0.49](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.48...v3.0.49) (2022-08-23)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/types to v7.18.13 ([32c3ffd](https://github.com/DerYeger/vue-masonry-wall/commit/32c3ffd48d21726f638574276b5d58d8672b1243))
+
 ## [3.0.48](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.47...v3.0.48) (2022-08-19)
 
 
