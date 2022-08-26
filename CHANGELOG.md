@@ -1,3 +1,10 @@
+## [3.0.50](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.49...v3.0.50) (2022-08-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency typescript to v4.8.2 ([bd62280](https://github.com/DerYeger/vue-masonry-wall/commit/bd6228080c433d036604fe0eb9acf5a007d2e360))
+
 ## [3.0.49](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.48...v3.0.49) (2022-08-23)
 
 
