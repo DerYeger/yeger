@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.51...v3.1.0) (2022-08-31)
+
+
+### Features
+
+* add support for custom scroll container ([a387be9](https://github.com/DerYeger/vue-masonry-wall/commit/a387be982d77b7b5cb763ef950420cf6d7eedcd5))
+
 ## [3.0.51](https://github.com/DerYeger/vue-masonry-wall/compare/v3.0.50...v3.0.51) (2022-08-27)
 
 
