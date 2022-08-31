@@ -16,6 +16,10 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    useScrollContainer: {
+      type: Boolean,
+      required: true,
+    },
   },
   emits: [
     'clearItems',
@@ -24,6 +28,7 @@ export default defineComponent({
     'update:rtl',
     'update:gap',
     'update:columnWidth',
+    'update:useScrollContainer',
   ],
   data() {
     return {
@@ -73,6 +78,15 @@ export default defineComponent({
           type="checkbox"
           :checked="rtl"
           @change="$emit('update:rtl', $event.target.checked)"
+        />
+      </div>
+      <div class="row">
+        <label for="useScrollContainer">Scroll Container</label>
+        <input
+          id="useScrollContainer"
+          type="checkbox"
+          :checked="useScrollContainer"
+          @change="$emit('update:useScrollContainer', $event.target.checked)"
         />
       </div>
     </section>

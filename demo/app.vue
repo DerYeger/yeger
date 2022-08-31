@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
@@ -12,12 +12,19 @@ export default defineComponent({
     DemoHeader,
     DemoTools,
   },
+  setup() {
+    const scrollContainer = ref(null)
+    return {
+      scrollContainer,
+    }
+  },
   data() {
     return {
       columnWidth: 400,
       gap: 16,
       items: [128, 256, 128],
       rtl: false,
+      useScrollContainer: false,
     }
   },
   methods: {
@@ -53,11 +60,15 @@ export default defineComponent({
 <template>
   <div id="app">
     <DemoHeader />
-    <main>
+    <main
+      ref="scrollContainer"
+      :class="{ 'scroll-container': useScrollContainer }"
+    >
       <DemoTools
         v-model:column-width="columnWidth"
         v-model:gap="gap"
         v-model:rtl="rtl"
+        v-model:useScrollContainer="useScrollContainer"
         @create-item="addItem($event)"
         @create-items="addItems()"
         @clear-items="items = []"
@@ -67,6 +78,7 @@ export default defineComponent({
         :column-width="columnWidth"
         :gap="gap"
         :rtl="rtl"
+        :scroll-container="useScrollContainer ? scrollContainer : undefined"
       >
         <template #default="{ item, index }">
           <div
@@ -208,5 +220,9 @@ button:hover {
 .item > p {
   margin-top: 0;
   margin-bottom: 0.25rem;
+}
+
+.scroll-container {
+  overflow-y: auto;
 }
 </style>

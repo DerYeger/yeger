@@ -73,6 +73,7 @@ Props:
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
+- `scroll-container`: Scrolling `HTMLElement` parent element that will be used for restoring scroll position. If omitted, `window` is used.
 
 ```vue
 <script setup lang="ts">
