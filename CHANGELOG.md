@@ -1,3 +1,10 @@
+## [3.1.2](https://github.com/DerYeger/vue-masonry-wall/compare/v3.1.1...v3.1.2) (2022-09-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue to v3.2.38 ([146e908](https://github.com/DerYeger/vue-masonry-wall/commit/146e908db616f46e4fa856a84a3abc5449508b2b))
+
 ## [3.1.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.1.0...v3.1.1) (2022-09-03)
 
 
