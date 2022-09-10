@@ -83,7 +83,7 @@
     "vite": "3.0.9",
     "vite-plugin-dts": "1.4.1",
     "vitest": "0.22.1",
-    "vue": "3.2.38",
+    "vue": "3.2.39",
     "vue-tsc": "0.40.5"
   },
   "lint-staged": {
