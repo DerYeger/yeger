@@ -15,4 +15,5 @@ const MasonryWall: InstallableComponent =
     return installable
   })()
 
+export type Component = typeof component
 export default MasonryWall
