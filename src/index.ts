@@ -2,11 +2,13 @@ import type { App, Plugin } from 'vue'
 
 import component from '@/masonry-wall.vue'
 
-type InstallableComponent = typeof component & Plugin
+export type MasonryWallComponent = typeof component
 
-const MasonryWall: InstallableComponent =
-  /* #__PURE__ */ ((): InstallableComponent => {
-    const installable = component as unknown as InstallableComponent
+type MasonryWallPlugin = MasonryWallComponent & Plugin
+
+const MasonryWall: MasonryWallPlugin =
+  /* #__PURE__ */ ((): MasonryWallPlugin => {
+    const installable = component as unknown as MasonryWallPlugin
 
     installable.install = (app: App) => {
       app.component('MasonryWall', installable)
@@ -15,5 +17,10 @@ const MasonryWall: InstallableComponent =
     return installable
   })()
 
-export type Component = typeof component
+declare module 'vue' {
+  export interface GlobalComponents {
+    MasonryWall: MasonryWallComponent
+  }
+}
+
 export default MasonryWall

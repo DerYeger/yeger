@@ -129,24 +129,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 Also, see https://github.com/DerYeger/vue-masonry-wall/issues/43.
 
-### Typescript
-
-For component's type definitions with volar and vue-ts add this to your `custom.d.ts` file.
-
-```typescript
-// custom.d.ts
-import type { component } from '@yeger/vue-masonry-wall';
-
-declare module 'vue' {
-  export interface GlobalComponents {
-    MasonryWall: typeof component;
-  }
-}
-
-export {};
-
-```
-
 ## Development
 
 To serve or build the demo, the library has to be built first using `yarn dev` or `yarn build`.
