@@ -1,3 +1,10 @@
+## [3.2.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.0...v3.2.1) (2022-09-13)
+
+
+### Bug Fixes
+
+* set default value for `scrollContainer` ([f0e66de](https://github.com/DerYeger/vue-masonry-wall/commit/f0e66debec52f4f09eef16869288ce6c33aca228))
+
 # [3.2.0](https://github.com/DerYeger/vue-masonry-wall/compare/v3.1.4...v3.2.0) (2022-09-13)
 
 
