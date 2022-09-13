@@ -11,13 +11,14 @@ const props = withDefaults(
     gap?: number
     rtl?: boolean
     ssrColumns?: number
-    scrollContainer?: HTMLElement
+    scrollContainer?: HTMLElement | null
   }>(),
   {
     columnWidth: 400,
     gap: 0,
     rtl: false,
     ssrColumns: 0,
+    scrollContainer: null,
   }
 )
 
