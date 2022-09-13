@@ -1,3 +1,11 @@
+# [3.2.0](https://github.com/DerYeger/vue-masonry-wall/compare/v3.1.4...v3.2.0) (2022-09-13)
+
+
+### Features
+
+* declare global component type ([92dd314](https://github.com/DerYeger/vue-masonry-wall/commit/92dd3141b5f89005cfff0066d7e7c16e06bf3e49))
+* export component's types ([b97f5e3](https://github.com/DerYeger/vue-masonry-wall/commit/b97f5e3748122bb5b8cf5262e728b4a9cdd997f3))
+
 ## [3.1.4](https://github.com/DerYeger/vue-masonry-wall/compare/v3.1.3...v3.1.4) (2022-09-10)
 
 
