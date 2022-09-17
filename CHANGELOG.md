@@ -1,3 +1,10 @@
+## [3.2.2](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.1...v3.2.2) (2022-09-17)
+
+
+### Bug Fixes
+
+* **deps:** update all non-major dependencies ([996f832](https://github.com/DerYeger/vue-masonry-wall/commit/996f8329a2291c86c090c3ca8c36236769e2f7dc))
+
 ## [3.2.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.0...v3.2.1) (2022-09-13)
 
 
