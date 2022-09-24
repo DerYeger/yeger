@@ -1,3 +1,10 @@
+## [3.2.5](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.4...v3.2.5) (2022-09-24)
+
+
+### Bug Fixes
+
+* **deps:** update actions/stale action to v6 ([c124626](https://github.com/DerYeger/vue-masonry-wall/commit/c124626481dd167853f0da2ed59a10c15db16208))
+
 ## [3.2.4](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.3...v3.2.4) (2022-09-24)
 
 
