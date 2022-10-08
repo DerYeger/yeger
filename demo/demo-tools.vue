@@ -55,7 +55,7 @@ export default defineComponent({
           min="128"
           max="512"
           :value="columnWidth"
-          @input="$emit('update:columnWidth', +$event.target.value)"
+          @input="$emit('update:columnWidth', +($event.target as any).value)"
         />
         <span>{{ columnWidth }}px</span>
       </div>
@@ -67,7 +67,7 @@ export default defineComponent({
           min="0"
           max="256"
           :value="gap"
-          @input="$emit('update:gap', +$event.target.value)"
+          @input="$emit('update:gap', +($event.target as any).value)"
         />
         <span>{{ gap }}px</span>
       </div>
@@ -77,7 +77,7 @@ export default defineComponent({
           id="rtl"
           type="checkbox"
           :checked="rtl"
-          @change="$emit('update:rtl', $event.target.checked)"
+          @change="$emit('update:rtl', ($event.target as any).checked)"
         />
       </div>
       <div class="row">
@@ -86,7 +86,9 @@ export default defineComponent({
           id="useScrollContainer"
           type="checkbox"
           :checked="useScrollContainer"
-          @change="$emit('update:useScrollContainer', $event.target.checked)"
+          @change="
+            $emit('update:useScrollContainer', ($event.target as any).checked)
+          "
         />
       </div>
     </section>
