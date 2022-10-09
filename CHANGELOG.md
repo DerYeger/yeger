@@ -1,3 +1,10 @@
+## [3.2.10](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.9...v3.2.10) (2022-10-09)
+
+
+### Bug Fixes
+
+* **deps:** update dependency vue-tsc to v1 ([721174a](https://github.com/DerYeger/vue-masonry-wall/commit/721174a87ea48e4109ffda24cbcd138ab54cb09f))
+
 ## [3.2.9](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.8...v3.2.9) (2022-10-08)
 
 
