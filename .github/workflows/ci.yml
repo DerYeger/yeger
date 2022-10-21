@@ -85,7 +85,7 @@ jobs:
           name: dist
           path: dist
       - name: Semantic release
-        uses: cycjimmy/semantic-release-action@v3.1.1
+        uses: cycjimmy/semantic-release-action@v3.1.2
         with:
           extra_plugins: |
             @semantic-release/changelog
