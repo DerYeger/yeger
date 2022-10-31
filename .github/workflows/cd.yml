@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16
       - name: Build
-        run: pnpm build
+        run: pnpm turbo build
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -48,7 +48,7 @@ jobs:
           name: dist
           path: dist
       - name: Generate files
-        run: pnpm demo:build
+        run: pnpm turbo build:demo
       - name: Create 404.html file
         run: cp ./demo/dist/index.html ./demo/dist/404.html
       - name: Deploy
