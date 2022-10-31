@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup
-        uses: DerYeger/yarn-setup-action@master
+        uses: DerYeger/pnpm-setup-action@master
         with:
           node-version: 16
   build:
@@ -23,11 +23,11 @@ jobs:
     needs: prepare
     steps:
       - name: Setup
-        uses: DerYeger/yarn-setup-action@master
+        uses: DerYeger/pnpm-setup-action@master
         with:
           node-version: 16
       - name: Build
-        run: yarn build
+        run: pnpm build
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -39,7 +39,7 @@ jobs:
     needs: build
     steps:
       - name: Setup
-        uses: DerYeger/yarn-setup-action@master
+        uses: DerYeger/pnpm-setup-action@master
         with:
           node-version: 16
       - name: Download
@@ -48,7 +48,7 @@ jobs:
           name: dist
           path: dist
       - name: Generate files
-        run: yarn demo:build
+        run: pnpm demo:build
       - name: Create 404.html file
         run: cp ./demo/dist/index.html ./demo/dist/404.html
       - name: Deploy

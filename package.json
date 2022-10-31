@@ -42,7 +42,7 @@
     "prepare": "is-ci || husky install",
     "demo:serve": "vite --config demo/vite.config.ts",
     "demo:build": "vue-tsc --noEmit demo/main.ts && vite --config demo/vite.config.ts build",
-    "demo:preview": "yarn demo:build && vite --config demo/vite.config.ts preview",
+    "demo:preview": "pnpm demo:build && vite --config demo/vite.config.ts preview",
     "test": "vitest --ui",
     "test:ci": "vitest run --coverage",
     "prebuild": "rimraf ./dist",
@@ -51,8 +51,8 @@
     "postbuild": "bundlesize",
     "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\"",
     "lint:prettier": "prettier --check \"./**/*.{html,js,json,md,scss,ts,vue,yml}\"",
-    "fix": "yarn lint --fix ",
-    "ci": "yarn pretty && yarn lint && yarn test && yarn demo:build && yarn build"
+    "fix": "pnpm lint --fix ",
+    "ci": "pnpm pretty && pnpm lint && pnpm test && pnpm demo:build && pnpm build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -61,6 +61,7 @@
     "@babel/types": "7.20.0",
     "@commitlint/cli": "17.1.2",
     "@commitlint/config-conventional": "17.1.0",
+    "@types/node": "16.18.0",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "3.2.0",
     "@vitest/coverage-c8": "0.24.3",
