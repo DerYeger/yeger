@@ -131,26 +131,26 @@ Also, see https://github.com/DerYeger/vue-masonry-wall/issues/43.
 
 ## Development
 
-To serve or build the demo, the library has to be built first using `yarn dev` or `yarn build`.
+To serve or build the demo, the library has to be built first using `pnpm dev` or `pnpm build`.
 
 ```bash
 # install dependencies
-$ yarn install
+$ pnpm install
 
 # build in watch mode
-$ yarn dev
+$ pnpm dev
 
 # build for production
-$ yarn build
+$ pnpm build
 
 # lint project files
-$ yarn lint
+$ pnpm lint
 
 # serve demo
-$ yarn demo:serve
+$ pnpm demo:serve
 
 # build demo for production
-$ yarn demo:build
+$ pnpm demo:build
 ```
 
 ## Disclaimer
