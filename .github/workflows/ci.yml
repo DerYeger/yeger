@@ -42,7 +42,7 @@ jobs:
           name: dist
           path: dist
       - name: Build
-        run: pnpm demo:build
+        run: pnpm turbo build:demo
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -53,7 +53,7 @@ jobs:
         with:
           node-version: 16
       - name: Lint
-        run: pnpm lint
+        run: pnpm turbo lint
   test:
     name: Test
     runs-on: ubuntu-latest
@@ -64,7 +64,7 @@ jobs:
         with:
           node-version: 16
       - name: Test
-        run: pnpm test:ci
+        run: pnpm turbo test:coverage
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:

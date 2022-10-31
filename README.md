@@ -43,7 +43,6 @@
 
 - [Demo](https://vue-masonry-wall.yeger.eu/)
 - [Vue 2 version](https://github.com/DerYeger/vue2-masonry-wall)
-- [vue-masonry-wall by Fuxing Loh](https://github.com/fuxingloh/vue-masonry-wall)
 
 ## Installation
 
@@ -78,15 +77,15 @@ Props:
 ```vue
 <script setup lang="ts">
 const items = [
-    {
-      title: 'First',
-      description: 'The first item.'
-    },
-    {
-      title: 'Second',
-      description: 'The second item.'
-    },
-  ]
+  {
+    title: 'First',
+    description: 'The first item.',
+  },
+  {
+    title: 'Second',
+    description: 'The second item.',
+  },
+]
 </script>
 
 <template>
@@ -141,16 +140,16 @@ $ pnpm install
 $ pnpm dev
 
 # build for production
-$ pnpm build
+$ pnpm turbo build
 
 # lint project files
-$ pnpm lint
+$ pnpm turbo lint
 
 # serve demo
-$ pnpm demo:serve
+$ pnpm turbo dev:demo
 
 # build demo for production
-$ pnpm demo:build
+$ pnpm turbo build:demo
 ```
 
 ## Disclaimer

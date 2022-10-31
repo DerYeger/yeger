@@ -1,0 +1,32 @@
+{
+  "pipeline": {
+    "typecheck": {
+      "outputs": []
+    },
+    "typecheck:demo": {
+      "dependsOn": ["build"],
+      "outputs": []
+    },
+    "build": {
+      "dependsOn": ["typecheck"],
+      "outputs": ["dist/**"]
+    },
+    "build:demo": {
+      "dependsOn": ["typecheck:demo"],
+      "outputs": ["demo/dist/**"]
+    },
+    "preview:demo": {
+      "dependsOn": ["build:demo"],
+      "cache": false
+    },
+    "test": {
+      "outputs": []
+    },
+    "test:coverage": {
+      "outputs": ["./coverage/**"]
+    },
+    "lint": {
+      "outputs": []
+    }
+  }
+}
