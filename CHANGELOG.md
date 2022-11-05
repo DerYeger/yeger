@@ -1,3 +1,10 @@
+## [3.2.21](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.20...v3.2.21) (2022-11-05)
+
+
+### Bug Fixes
+
+* **deps:** update vitest monorepo to v0.24.5 ([641c7fb](https://github.com/DerYeger/vue-masonry-wall/commit/641c7fb38789b2f77238bb5c1eaf5c4fdbf3f5eb))
+
 ## [3.2.20](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.19...v3.2.20) (2022-11-05)
 
 
