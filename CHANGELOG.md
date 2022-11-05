@@ -1,3 +1,10 @@
+## [3.2.22](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.21...v3.2.22) (2022-11-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @types/node to v18 ([9c642d6](https://github.com/DerYeger/vue-masonry-wall/commit/9c642d61f5f07f5239de2c2140b8c1d87c0d8837))
+
 ## [3.2.21](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.20...v3.2.21) (2022-11-05)
 
 
