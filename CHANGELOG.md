@@ -1,3 +1,10 @@
+## [3.2.27](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.26...v3.2.27) (2022-11-19)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @yeger/eslint-config to v1.4.50 ([0dc8dd1](https://github.com/DerYeger/vue-masonry-wall/commit/0dc8dd1726b18c49c481792c8cf4444d4a891d90))
+
 ## [3.2.26](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.25...v3.2.26) (2022-11-19)
 
 
