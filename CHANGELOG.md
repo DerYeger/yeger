@@ -1,3 +1,10 @@
+## [3.2.26](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.25...v3.2.26) (2022-11-19)
+
+
+### Bug Fixes
+
+* **deps:** update commitlint monorepo to v17.2.0 ([c0dfa8b](https://github.com/DerYeger/vue-masonry-wall/commit/c0dfa8b8d0446c81a6d8573c8775b09235e026f9))
+
 ## [3.2.25](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.24...v3.2.25) (2022-11-19)
 
 
