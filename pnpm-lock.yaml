@@ -2,8 +2,8 @@ lockfileVersion: 5.4
 
 specifiers:
   '@babel/types': 7.20.2
-  '@commitlint/cli': 17.1.2
-  '@commitlint/config-conventional': 17.1.0
+  '@commitlint/cli': 17.2.0
+  '@commitlint/config-conventional': 17.2.0
   '@types/node': 18.11.9
   '@types/resize-observer-browser': 0.1.7
   '@vitejs/plugin-vue': 3.2.0
@@ -14,7 +14,7 @@ specifiers:
   '@yeger/vue-masonry-wall': link:.
   bundlesize2: 0.0.31
   c8: 7.12.0
-  commitlint: 17.1.2
+  commitlint: 17.2.0
   eslint: 8.28.0
   flush-promises: 1.0.2
   husky: 8.0.2
@@ -33,8 +33,8 @@ specifiers:
 
 devDependencies:
   '@babel/types': 7.20.2
-  '@commitlint/cli': 17.1.2
-  '@commitlint/config-conventional': 17.1.0
+  '@commitlint/cli': 17.2.0
+  '@commitlint/config-conventional': 17.2.0
   '@types/node': 18.11.9
   '@types/resize-observer-browser': 0.1.7
   '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
@@ -45,7 +45,7 @@ devDependencies:
   '@yeger/vue-masonry-wall': 'link:'
   bundlesize2: 0.0.31
   c8: 7.12.0
-  commitlint: 17.1.2
+  commitlint: 17.2.0
   eslint: 8.28.0
   flush-promises: 1.0.2
   husky: 8.0.2
@@ -197,8 +197,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@commitlint/cli/17.1.2:
-    resolution: {integrity: sha512-h/4Hlka3bvCLbnxf0Er2ri5A44VMlbMSkdTRp8Adv2tRiklSTRIoPGs7OEXDv3EoDs2AAzILiPookgM4Gi7LOw==}
+  /@commitlint/cli/17.2.0:
+    resolution: {integrity: sha512-kd1zykcrjIKyDRftWW1E1TJqkgzeosEkv1BiYPCdzkb/g/3BrfgwZUHR1vg+HO3qKUb/0dN+jNXArhGGAHpmaQ==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
@@ -217,8 +217,8 @@ packages:
       - '@swc/wasm'
     dev: true
 
-  /@commitlint/config-conventional/17.1.0:
-    resolution: {integrity: sha512-WU2p0c9/jLi8k2q2YrDV96Y8XVswQOceIQ/wyJvQxawJSCasLdRB3kUIYdNjOCJsxkpoUlV/b90ZPxp1MYZDiA==}
+  /@commitlint/config-conventional/17.2.0:
+    resolution: {integrity: sha512-g5hQqRa80f++SYS233dbDSg16YdyounMTAhVcmqtInNeY/GF3aA4st9SVtJxpeGrGmueMrU4L+BBb+6Vs5wrcg==}
     engines: {node: '>=v14'}
     dependencies:
       conventional-changelog-conventionalcommits: 5.0.0
@@ -1496,12 +1496,12 @@ packages:
     engines: {node: ^12.20.0 || >=14}
     dev: true
 
-  /commitlint/17.1.2:
-    resolution: {integrity: sha512-ykPXC3TUfYlL8tqz/VOeaJpTPNrcdKrR4Y7ShxjF6l8SlBN/+4YhBJpomG2dx8Ac43FM9OE5rdn1+h7NxsIcAQ==}
+  /commitlint/17.2.0:
+    resolution: {integrity: sha512-0EWPSQUkAO/cF3uDsxANw4mPzIsrgJs46WOFJybwF5n4yLTYeaGdrzkzsqOIUU2c6Wn0sdYv+xZSFRlCnzIfgw==}
     engines: {node: '>=v14'}
     hasBin: true
     dependencies:
-      '@commitlint/cli': 17.1.2
+      '@commitlint/cli': 17.2.0
       '@commitlint/types': 17.0.0
     transitivePeerDependencies:
       - '@swc/core'
