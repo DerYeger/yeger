@@ -1,3 +1,10 @@
+# [3.3.0](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.27...v3.3.0) (2022-11-22)
+
+
+### Features
+
+* use workspaces ([33d6cb6](https://github.com/DerYeger/vue-masonry-wall/commit/33d6cb6fd55fea2b91c93d63a63d8128c9fdeaaa))
+
 ## [3.2.27](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.26...v3.2.27) (2022-11-19)
 
 
