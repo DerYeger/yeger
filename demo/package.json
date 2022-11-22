@@ -3,7 +3,7 @@
   "private": true,
   "sideEffects": true,
   "scripts": {
-    "dev:demo": "vite --config vite.config.ts",
+    "dev": "vite --config vite.config.ts",
     "typecheck": "vue-tsc --noEmit main.ts",
     "prebuild": "rimraf ./dist",
     "build": "vite --config vite.config.ts build",

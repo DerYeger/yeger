@@ -25,6 +25,10 @@
     "@yeger/vue-masonry-wall#test:coverage": {
       "outputs": ["./coverage/**"]
     },
+    "dev": {
+      "outputs": [],
+      "cache": false
+    },
     "lint": {
       "outputs": []
     },
