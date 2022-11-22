@@ -42,20 +42,15 @@
     "prepare": "is-ci || husky install",
     "turbo": "FORCE_COLOR=1 turbo",
     "dev": "vite build --watch",
-    "dev:demo": "vite --config demo/vite.config.ts",
     "typecheck": "vue-tsc --noEmit",
-    "typecheck:demo": "vue-tsc --noEmit demo/main.ts",
     "prebuild": "rimraf ./dist",
     "build": "vite build",
-    "build:demo": "vite --config demo/vite.config.ts build",
     "postbuild": "bundlesize",
-    "test": "vitest --ui",
+    "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "preview:demo": "vite --config demo/vite.config.ts preview",
     "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\"",
     "lint:prettier": "prettier --check \"./**/*.{html,js,json,md,scss,ts,vue,yml}\"",
-    "fix": "pnpm lint --fix ",
-    "ci": "pnpm fix && pnpm lint && pnpm test && pnpm demo:build && pnpm build"
+    "fix": "pnpm lint --fix "
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -71,7 +66,6 @@
     "@vitest/ui": "0.24.5",
     "@vue/test-utils": "2.2.3",
     "@yeger/eslint-config": "1.4.50",
-    "@yeger/vue-masonry-wall": "link:.",
     "bundlesize2": "0.0.31",
     "c8": "7.12.0",
     "commitlint": "17.2.0",

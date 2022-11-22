@@ -27,7 +27,7 @@ jobs:
         with:
           node-version: 16
       - name: Build
-        run: pnpm turbo build
+        run: pnpm turbo @yeger/vue-masonry-wall#build
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
@@ -48,7 +48,7 @@ jobs:
           name: dist
           path: dist
       - name: Generate files
-        run: pnpm turbo build:demo
+        run: pnpm turbo demo#build
       - name: Create 404.html file
         run: cp ./demo/dist/index.html ./demo/dist/404.html
       - name: Deploy

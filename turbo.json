@@ -1,32 +1,35 @@
 {
   "pipeline": {
-    "typecheck": {
+    "@yeger/vue-masonry-wall#typecheck": {
       "outputs": []
     },
-    "typecheck:demo": {
-      "dependsOn": ["build"],
+    "demo#typecheck": {
+      "dependsOn": ["@yeger/vue-masonry-wall#build"],
       "outputs": []
     },
-    "build": {
-      "dependsOn": ["typecheck"],
+    "@yeger/vue-masonry-wall#build": {
+      "dependsOn": ["@yeger/vue-masonry-wall#typecheck"],
       "outputs": ["dist/**"]
     },
-    "build:demo": {
-      "dependsOn": ["typecheck:demo"],
+    "demo#build": {
+      "dependsOn": ["demo#typecheck"],
       "outputs": ["demo/dist/**"]
     },
-    "preview:demo": {
-      "dependsOn": ["build:demo"],
+    "demo#preview": {
+      "dependsOn": ["demo#build"],
       "cache": false
     },
-    "test": {
+    "@yeger/vue-masonry-wall#test": {
       "outputs": []
     },
-    "test:coverage": {
+    "@yeger/vue-masonry-wall#test:coverage": {
       "outputs": ["./coverage/**"]
     },
     "lint": {
       "outputs": []
+    },
+    "ci": {
+      "dependsOn": []
     }
   }
 }
