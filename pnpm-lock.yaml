@@ -64,7 +64,7 @@ importers:
 
   demo:
     specifiers:
-      '@yeger/vue-masonry-wall': link:..
+      '@yeger/vue-masonry-wall': workspace:*
     dependencies:
       '@yeger/vue-masonry-wall': link:..
 
