@@ -136,20 +136,14 @@ To serve or build the demo, the library has to be built first using `pnpm dev` o
 # install dependencies
 $ pnpm install
 
-# build in watch mode
-$ pnpm dev
+# develop in watch mode
+$ pnpm turbo dev
 
 # build for production
 $ pnpm turbo build
 
 # lint project files
 $ pnpm turbo lint
-
-# serve demo
-$ pnpm turbo dev:demo
-
-# build demo for production
-$ pnpm turbo build:demo
 ```
 
 ## Disclaimer
