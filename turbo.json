@@ -2,22 +2,32 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "@yeger/vue-masonry-wall#typecheck": {
-      "inputs": ["src/**/*.{ts,vue}"],
+      "inputs": [
+        "vite.config.ts",
+        "tsconfig.json",
+        "src/**/*.ts",
+        "src/**/*.vue"
+      ],
       "outputs": []
     },
     "demo#typecheck": {
       "dependsOn": ["@yeger/vue-masonry-wall#build"],
-      "inputs": ["demo/**/*.{ts,vue}"],
+      "inputs": ["tsconfig.json", "demo/**/*.ts", "demo/**/*.vue"],
       "outputs": []
     },
     "@yeger/vue-masonry-wall#build": {
       "dependsOn": ["@yeger/vue-masonry-wall#typecheck"],
-      "inputs": ["src/**/*.{ts,vue}"],
+      "inputs": [
+        "vite.config.ts",
+        "tsconfig.json",
+        "src/**/*.ts",
+        "src/**/*.vue"
+      ],
       "outputs": ["dist/**"]
     },
     "demo#build": {
       "dependsOn": ["demo#typecheck"],
-      "inputs": ["demo/**/*"],
+      "inputs": ["demo/vite.config.ts", "tsconfig.json", "demo/**/*"],
       "outputs": ["demo/dist/**"]
     },
     "demo#preview": {
@@ -25,12 +35,22 @@
       "cache": false
     },
     "@yeger/vue-masonry-wall#test": {
-      "inputs": ["src/**/*.{ts,vue}", "test/**/*.ts"],
+      "inputs": [
+        "vite.config.ts",
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "test/**/*.ts"
+      ],
       "outputs": []
     },
     "@yeger/vue-masonry-wall#test:coverage": {
-      "inputs": ["src/**/*.{ts,vue}", "test/**/*.ts"],
-      "outputs": ["./coverage/**"]
+      "inputs": [
+        "vite.config.ts",
+        "src/**/*.ts",
+        "src/**/*.vue",
+        "test/**/*.ts"
+      ],
+      "outputs": ["coverage/**"]
     },
     "dev": {
       "outputs": [],
