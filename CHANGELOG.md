@@ -1,3 +1,10 @@
+## [3.3.1](https://github.com/DerYeger/vue-masonry-wall/compare/v3.3.0...v3.3.1) (2022-11-23)
+
+
+### Bug Fixes
+
+* prevent visual overflow ([5458f18](https://github.com/DerYeger/vue-masonry-wall/commit/5458f18b318c34b4e58cb94f7c2cee3e7efe28fc))
+
 # [3.3.0](https://github.com/DerYeger/vue-masonry-wall/compare/v3.2.27...v3.3.0) (2022-11-22)
 
 
