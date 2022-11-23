@@ -117,8 +117,9 @@ watch([columnWidth, gap], () => redraw())
         'flex-basis': '0px',
         'flex-direction': 'column',
         'flex-grow': 1,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
         gap: `${gap}px`,
+        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
+        'min-width': 0
       }"
     >
       <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">
