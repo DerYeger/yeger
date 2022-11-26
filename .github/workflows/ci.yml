@@ -21,14 +21,14 @@ jobs:
         with:
           node-version: 16
       - name: Build
-        run: pnpm turbo build --filter=@yeger/vue-masonry-wall
+        run: pnpm turbo build typecheck --filter=@yeger/vue-masonry-wall
       - name: Upload
         uses: actions/upload-artifact@v3
         with:
           name: dist
           path: dist
       - name: Build demo
-        run: pnpm turbo build --filter=demo
+        run: pnpm turbo build typecheck --filter=demo
   lint:
     name: Lint
     runs-on: ubuntu-latest

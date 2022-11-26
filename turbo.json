@@ -1,55 +1,26 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "@yeger/vue-masonry-wall#typecheck": {
-      "inputs": [
-        "vite.config.ts",
-        "tsconfig.json",
-        "src/**/*.ts",
-        "src/**/*.vue"
-      ],
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": ["vite.config.ts", "tsconfig.json", "src/**"],
       "outputs": []
     },
-    "demo#typecheck": {
-      "dependsOn": ["@yeger/vue-masonry-wall#build"],
-      "inputs": ["tsconfig.json", "demo/**/*.ts", "demo/**/*.vue"],
-      "outputs": []
-    },
-    "@yeger/vue-masonry-wall#build": {
-      "dependsOn": ["@yeger/vue-masonry-wall#typecheck"],
-      "inputs": [
-        "vite.config.ts",
-        "tsconfig.json",
-        "src/**/*.ts",
-        "src/**/*.vue"
-      ],
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["vite.config.ts", "tsconfig.json", "src/**"],
       "outputs": ["dist/**"]
     },
-    "demo#build": {
-      "dependsOn": ["demo#typecheck"],
-      "inputs": ["demo/vite.config.ts", "tsconfig.json", "demo/**/*"],
-      "outputs": ["demo/dist/**"]
-    },
-    "demo#preview": {
-      "dependsOn": ["demo#build"],
+    "preview": {
+      "dependsOn": ["build"],
       "cache": false
     },
-    "@yeger/vue-masonry-wall#test": {
-      "inputs": [
-        "vite.config.ts",
-        "src/**/*.ts",
-        "src/**/*.vue",
-        "test/**/*.ts"
-      ],
+    "test": {
+      "inputs": ["vite.config.ts", "src/**", "test/**"],
       "outputs": []
     },
-    "@yeger/vue-masonry-wall#test:coverage": {
-      "inputs": [
-        "vite.config.ts",
-        "src/**/*.ts",
-        "src/**/*.vue",
-        "test/**/*.ts"
-      ],
+    "test:coverage": {
+      "inputs": ["vite.config.ts", "src/**", "test/**"],
       "outputs": ["coverage/**"]
     },
     "dev": {
