@@ -1,0 +1,14 @@
+{
+  "name": "@yeger/tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "files": [
+    "base.json",
+    "lib.json",
+    "web.json"
+  ],
+  "scripts": {
+    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\""
+  }
+}

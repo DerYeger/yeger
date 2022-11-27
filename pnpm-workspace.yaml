@@ -1,3 +1,5 @@
 packages:
-  - demo
-  - .
+  - 'apps/*'
+  - 'docs/*'
+  - 'examples/*'
+  - 'packages/*'

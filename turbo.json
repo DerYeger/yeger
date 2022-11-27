@@ -3,12 +3,18 @@
   "pipeline": {
     "typecheck": {
       "dependsOn": ["^build"],
-      "inputs": ["vite.config.ts", "tsconfig.json", "src/**"],
+      "inputs": [
+        "vite.config.ts",
+        "tsconfig.json",
+        "index.html",
+        "src/**",
+        "test/**"
+      ],
       "outputs": []
     },
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["vite.config.ts", "tsconfig.json", "src/**"],
+      "inputs": ["vite.config.ts", "tsconfig.json", "index.html", "src/**"],
       "outputs": ["dist/**"]
     },
     "preview": {
@@ -17,10 +23,6 @@
     },
     "test": {
       "inputs": ["vite.config.ts", "src/**", "test/**"],
-      "outputs": []
-    },
-    "test:coverage": {
-      "inputs": ["vite.config.ts", "src/**", "test/**"],
       "outputs": ["coverage/**"]
     },
     "dev": {
@@ -28,6 +30,7 @@
       "cache": false
     },
     "lint": {
+      "inputs": ["*"],
       "outputs": []
     }
   }

@@ -1,7 +1,9 @@
+# Project files
 .DS_Store
-node_modules
+.turbo
+coverage
 dist
-
+node_modules
 
 # local env files
 .env.local
@@ -13,9 +15,6 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-# Coverage files
-coverage
-
 # Editor directories and files
 .idea
 .vscode
@@ -24,5 +23,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-
-.turbo
