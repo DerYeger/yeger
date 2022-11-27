@@ -1,5 +1,6 @@
 {
   "name": "@yeger/vue-masonry-wall-docs",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
