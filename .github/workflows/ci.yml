@@ -20,6 +20,18 @@ jobs:
         run: pnpm run turbo build typecheck
       - name: Test
         run: pnpm run test
+      - name: Upload @yeger/vue-masonry-wall coverage
+        uses: codecov/codecov-action@v2
+        with:
+          files: packages/vue-masonry-wall/coverage/coverage-final.json
+          flags: vue-masonry-wall
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload @yeger/vue2-masonry-wall coverage
+        uses: codecov/codecov-action@v2
+        with:
+          files: packages/vue2-masonry-wall/coverage/coverage-final.json
+          flags: vue2-masonry-wall
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
