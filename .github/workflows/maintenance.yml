@@ -6,16 +6,6 @@ on:
     - cron: '0 3 * * *'
 
 jobs:
-  cleanup:
-    name: Cleanup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete assets of old releases
-        uses: dev-drprasad/delete-older-releases@v0.2.0
-        with:
-          keep_latest: 3
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   stale:
     name: Stale
     runs-on: ubuntu-latest
@@ -30,24 +20,3 @@ jobs:
           exempt-assignees: DerYeger
           exempt-issue-labels: bug, dependencies, enhancement, renovate
           exempt-pr-labels: bug, dependencies, enhancement, renovate
-  analyze-tags:
-    name: Analyze tags
-    runs-on: ubuntu-latest
-    outputs:
-      previous-tag: ${{ steps.previoustag.outputs.tag }}
-      timestamp-diff: ${{ steps.diff.outputs.timestamp-diff }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-      - name: Get previous tag
-        id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@v1
-      - name: Get seconds from previous tag to now
-        id: diff
-        shell: bash
-        env:
-          TIMESTAMP_TAG: ${{ steps.previoustag.outputs.timestamp }}
-        run: |
-          echo "::set-output name=timestamp-diff::$(expr $(printf '%(%s)T') - $TIMESTAMP_TAG)"

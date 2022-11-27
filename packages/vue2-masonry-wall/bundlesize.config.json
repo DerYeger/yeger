@@ -1,0 +1,9 @@
+{
+  "files": [
+    {
+      "path": "./dist/*.js",
+      "maxSize": "1.7KB",
+      "compression": "brotli"
+    }
+  ]
+}
