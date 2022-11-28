@@ -55,5 +55,8 @@
   },
   "lint-staged": {
     "*.{js,json,md,ts,vue,yaml,yml}": "eslint --fix"
+  },
+  "volta": {
+    "node": "18.12.1"
   }
 }
