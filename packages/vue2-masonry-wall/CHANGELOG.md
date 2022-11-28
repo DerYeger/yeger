@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 2.2.1
+
+### Patch Changes
+
+- 131e467: update README links
+
 ## 2.2.0
 
 ### Minor Changes

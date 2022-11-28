@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 3.4.2
+
+### Patch Changes
+
+- 131e467: update README links
+
 ## 3.4.1
 
 ### Patch Changes
