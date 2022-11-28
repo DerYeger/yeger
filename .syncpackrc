@@ -1,0 +1,21 @@
+{
+  "peer": false,
+  "source": [
+    "package.json",
+    "docs/*/package.json",
+    "packages/*/package.json"
+  ],
+  "versionGroups": [
+    {
+      "dependencies": [
+        "@vue/test-utils",
+        "vue"
+      ],
+      "packages": [
+        "@yeger/vue2-masonry-wall",
+        "@yeger/vue2-masonry-wall-docs"
+      ]
+    }
+  ],
+  "workspace": false
+}

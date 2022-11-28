@@ -24,6 +24,7 @@
     "install-hooks": "is-ci || husky install",
     "lint": "nr turbo run lint",
     "preview": "nr turbo run preview",
+    "syncpack": "syncpack",
     "test": "nr turbo run test",
     "turbo": "FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run typecheck",
@@ -40,6 +41,7 @@
     "husky": "8.0.2",
     "lint-staged": "13.0.3",
     "semantic-release": "19.0.5",
+    "syncpack": "8.3.9",
     "turbo": "latest"
   },
   "pnpm": {
