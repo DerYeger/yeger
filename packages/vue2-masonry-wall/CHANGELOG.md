@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 2.2.0
+
+### Minor Changes
+
+- 5f5e8d1: update vue to 2.7.14
+
 ## 2.1.1
 
 ### Patch Changes
