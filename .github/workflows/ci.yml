@@ -14,6 +14,8 @@ jobs:
         uses: DerYeger/pnpm-setup-action@master
         with:
           node-version: 16
+      - name: Sync version
+        run: pnpm run syncpack list-mismatches
       - name: Lint
         run: pnpm run lint
       - name: Build
