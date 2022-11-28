@@ -1,7 +1,7 @@
 <h1 align="center">@yeger/vue2-masonry-wall</h1>
 
 <p align="center">
-  <img src="../../docs/vue2-masonry-wall/public/logo.png" alt="Logo" width="48px" height="48px">
+  <img src="https://github.com/DerYeger/yeger/raw/main/docs/vue2-masonry-wall/public/logo.png" alt="Logo" width="48px" height="48px">
 </p>
 
 <p align="center">
@@ -15,8 +15,8 @@
   <a href="https://www.npmjs.com/package/@yeger/vue2-masonry-wall">
     <img alt="NPM" src="https://img.shields.io/npm/v/@yeger/vue2-masonry-wall?logo=npm">
   </a>
-  <a href="https://codecov.io/gh/DerYeger/vue2-masonry-wall">
-    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue2-masonry-wall/branch/master/graph/badge.svg?token=p35W6u2noe">
+  <a href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/vue2-masonry-wall">
+    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=vue2-masonry-wall">
   </a>
   <a href="https://www.npmjs.com/package/vue">
     <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/@yeger/vue2-masonry-wall/peer/vue">
@@ -120,4 +120,4 @@ This component originated as a modified version of [vue-masonry-wall](https://gi
 
 ## License
 
-[MIT](./LICENSE) - Copyright &copy; Fuxing Loh, Jan Müller
+[MIT](https://github.com/DerYeger/yeger/blob/main/packages/vue2-masonry-wall/LICENSE) - Copyright &copy; Fuxing Loh, Jan Müller

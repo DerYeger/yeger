@@ -21,13 +21,13 @@
       />
     </a>
     <a
-      href="https://codecov.io/gh/DerYeger/vue-masonry-wall"
+      href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/vue-masonry-wall"
       target="_blank"
       rel="noopener"
     >
       <img
         alt="Coverage"
-        src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg"
+        src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=vue-masonry-wall"
       />
     </a>
     <a href="https://www.npmjs.com/package/vue" target="_blank" rel="noopener">

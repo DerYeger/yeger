@@ -1,7 +1,7 @@
 <h1 align="center">@yeger/vue-masonry-wall</h1>
 
 <p align="center">
-  <img src="../../docs/vue-masonry-wall/public/logo.png" alt="Logo" width="48px" height="48px">
+  <img src="https://github.com/DerYeger/yeger/raw/main/docs/vue-masonry-wall/public/logo.png" alt="Logo" width="48px" height="48px">
 </p>
 
 <p align="center">
@@ -15,10 +15,10 @@
   <a href="https://www.npmjs.com/package/@yeger/vue-masonry-wall">
     <img alt="NPM" src="https://img.shields.io/npm/v/@yeger/vue-masonry-wall?logo=npm">
   </a>
-  <a href="https://codecov.io/gh/DerYeger/vue-masonry-wall">
-    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/vue-masonry-wall/branch/master/graph/badge.svg?token=p35W6u2noe">
+  <a href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/vue-masonry-wall">
+    <img alt="Coverage" src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=vue-masonry-wall">
   </a>
-   <a href="https://www.npmjs.com/package/vue">
+  <a href="https://www.npmjs.com/package/vue">
     <img alt="npm peer dependency version" src="https://img.shields.io/npm/dependency-version/@yeger/vue-masonry-wall/peer/vue">
   </a>
   <a href="https://opensource.org/licenses/MIT">
@@ -39,7 +39,7 @@
 ## Links
 
 - [Demo](https://vue-masonry-wall.yeger.eu/)
-- [Vue 2 version](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall)
+- [Vue 2 version](https://github.com/DerYeger/yeger/tree/main/packages/vue2-masonry-wall)
 
 ## Installation
 
@@ -123,7 +123,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 })
 ```
 
-Also, see https://github.com/DerYeger/yeger/issues/43.
+Also, see <https://github.com/DerYeger/yeger/issues/43>.
 
 ## Development
 
@@ -152,4 +152,4 @@ This component originated as a modified version of [vue-masonry-wall](https://gi
 
 ## License
 
-[MIT](./LICENSE) - Copyright &copy; Fuxing Loh, Jan Müller
+[MIT](https://github.com/DerYeger/yeger/blob/main/packages/vue-masonry-wall/LICENSE) - Copyright &copy; Fuxing Loh, Jan Müller
