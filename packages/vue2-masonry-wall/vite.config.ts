@@ -1,14 +1,14 @@
 import * as path from 'path'
 
+import vue from '@vitejs/plugin-vue2'
 import type { UserConfigExport } from 'vite'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import { createVuePlugin } from 'vite-plugin-vue2'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    createVuePlugin(),
+    vue(),
     dts({
       cleanVueFileName: true,
       include: 'src/**',
