@@ -28,6 +28,7 @@
     "test": "nr turbo run test",
     "turbo": "FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run typecheck",
+    "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile"
   },
   "devDependencies": {
@@ -42,7 +43,8 @@
     "lint-staged": "13.0.3",
     "semantic-release": "19.0.5",
     "syncpack": "8.3.9",
-    "turbo": "latest"
+    "turbo": "latest",
+    "vercel": "28.5.6"
   },
   "pnpm": {
     "packageExtensions": {
