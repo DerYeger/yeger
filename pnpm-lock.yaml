@@ -34,7 +34,7 @@ importers:
       turbo: 1.6.3
       vercel: 28.5.6
 
-  docs/vue-masonry-wall:
+  docs/vue-masonry-wall-docs:
     specifiers:
       '@vitejs/plugin-vue': 3.2.0
       '@yeger/tsconfig': workspace:*
@@ -53,7 +53,7 @@ importers:
       vue: 3.2.45
       vue-tsc: 1.0.9_mgnvym7yiazkylwwogi5r767ue
 
-  docs/vue2-masonry-wall:
+  docs/vue2-masonry-wall-docs:
     specifiers:
       '@vitejs/plugin-vue2': 2.0.1
       '@yeger/tsconfig': workspace:*

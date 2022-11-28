@@ -1,7 +1,7 @@
 <h1 align="center">@yeger/vue-masonry-wall</h1>
 
 <p align="center">
-  <img src="https://github.com/DerYeger/yeger/raw/main/docs/vue-masonry-wall/public/logo.png" alt="Logo" width="48px" height="48px">
+  <img src="https://github.com/DerYeger/yeger/raw/main/docs/vue-masonry-wall-docs/public/logo.png" alt="Logo" width="48px" height="48px">
 </p>
 
 <p align="center">
