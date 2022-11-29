@@ -127,7 +127,7 @@ importers:
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 3.2.0
       '@vitest/coverage-c8': 0.24.5
-      '@vitest/ui': 0.24.5
+      '@vitest/ui': 0.25.3
       '@vue/test-utils': 2.2.3
       '@yeger/tsconfig': workspace:*
       bundlesize2: 0.0.31
@@ -137,15 +137,15 @@ importers:
       typescript: 4.9.3
       vite: 3.2.4
       vite-plugin-dts: 1.7.1
-      vitest: 0.24.5
+      vitest: 0.25.3
       vue: 3.2.45
       vue-tsc: 1.0.9
     devDependencies:
       '@babel/types': 7.20.2
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
-      '@vitest/coverage-c8': 0.24.5_dof64qmg5cgec6bfb7aeo2w7mu
-      '@vitest/ui': 0.24.5
+      '@vitest/coverage-c8': 0.24.5_ixtiidmpupiysdfspcykw6i65u
+      '@vitest/ui': 0.25.3
       '@vue/test-utils': 2.2.3_vue@3.2.45
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31
@@ -155,7 +155,7 @@ importers:
       typescript: 4.9.3
       vite: 3.2.4
       vite-plugin-dts: 1.7.1_vite@3.2.4
-      vitest: 0.24.5_dof64qmg5cgec6bfb7aeo2w7mu
+      vitest: 0.25.3_ixtiidmpupiysdfspcykw6i65u
       vue: 3.2.45
       vue-tsc: 1.0.9_mgnvym7yiazkylwwogi5r767ue
 
@@ -173,7 +173,7 @@ importers:
       typescript: 4.9.3
       vite: 3.2.4
       vite-plugin-dts: 1.7.1
-      vitest: 0.24.5
+      vitest: 0.25.3
       vue: 2.7.14
       vue-template-compiler: 2.7.14
     devDependencies:
@@ -189,7 +189,7 @@ importers:
       typescript: 4.9.3
       vite: 3.2.4
       vite-plugin-dts: 1.7.1_vite@3.2.4
-      vitest: 0.24.5_jsdom@20.0.2
+      vitest: 0.25.3_jsdom@20.0.2
       vue: 2.7.14
       vue-template-compiler: 2.7.14_vue@2.7.14
 
@@ -1566,11 +1566,11 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.24.5_dof64qmg5cgec6bfb7aeo2w7mu:
+  /@vitest/coverage-c8/0.24.5_ixtiidmpupiysdfspcykw6i65u:
     resolution: {integrity: sha512-955yK/SdSBZPYrSXgXB0F+0JnOX5EY9kSL7ywJ4rNajmkFUhwLjuKm13Xb6YKSyIY/g5WvbBnyowqfNRxBJ3ww==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.24.5_dof64qmg5cgec6bfb7aeo2w7mu
+      vitest: 0.24.5_ixtiidmpupiysdfspcykw6i65u
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -1583,12 +1583,6 @@ packages:
       - sugarss
       - supports-color
       - terser
-    dev: true
-
-  /@vitest/ui/0.24.5:
-    resolution: {integrity: sha512-hdj6cmlrVPt3Mpgn0ITytTqnxQLGB4hRgueFuzlKSrqAG30wUrrxQjrW55krE1NR15r1c2jzUBwjzvIJsyoUwg==}
-    dependencies:
-      sirv: 2.0.2
     dev: true
 
   /@vitest/ui/0.25.3:
@@ -8480,7 +8474,7 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.24.5_dof64qmg5cgec6bfb7aeo2w7mu:
+  /vitest/0.24.5_ixtiidmpupiysdfspcykw6i65u:
     resolution: {integrity: sha512-zw6JhPUHtLILQDe5Q39b/SzoITkG+R7hcFjuthp4xsi6zpmfQPOZcHodZ+3bqoWl4EdGK/p1fuMiEwdxgbGLOA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -8505,50 +8499,7 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.11.9
-      '@vitest/ui': 0.24.5
-      chai: 4.3.7
-      debug: 4.3.4
-      jsdom: 20.0.2
-      local-pkg: 0.4.2
-      strip-literal: 0.4.2
-      tinybench: 2.3.1
-      tinypool: 0.3.0
-      tinyspy: 1.0.2
-      vite: 3.2.4_@types+node@18.11.9
-    transitivePeerDependencies:
-      - less
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-    dev: true
-
-  /vitest/0.24.5_jsdom@20.0.2:
-    resolution: {integrity: sha512-zw6JhPUHtLILQDe5Q39b/SzoITkG+R7hcFjuthp4xsi6zpmfQPOZcHodZ+3bqoWl4EdGK/p1fuMiEwdxgbGLOA==}
-    engines: {node: '>=v14.16.0'}
-    hasBin: true
-    peerDependencies:
-      '@edge-runtime/vm': '*'
-      '@vitest/browser': '*'
-      '@vitest/ui': '*'
-      happy-dom: '*'
-      jsdom: '*'
-    peerDependenciesMeta:
-      '@edge-runtime/vm':
-        optional: true
-      '@vitest/browser':
-        optional: true
-      '@vitest/ui':
-        optional: true
-      happy-dom:
-        optional: true
-      jsdom:
-        optional: true
-    dependencies:
-      '@types/chai': 4.3.4
-      '@types/chai-subset': 1.3.3
-      '@types/node': 18.11.9
+      '@vitest/ui': 0.25.3
       chai: 4.3.7
       debug: 4.3.4
       jsdom: 20.0.2
@@ -8597,6 +8548,99 @@ packages:
       acorn-walk: 8.2.0
       chai: 4.3.7
       debug: 4.3.4
+      local-pkg: 0.4.2
+      source-map: 0.6.1
+      strip-literal: 0.4.2
+      tinybench: 2.3.1
+      tinypool: 0.3.0
+      tinyspy: 1.0.2
+      vite: 3.2.4_@types+node@18.11.9
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest/0.25.3_ixtiidmpupiysdfspcykw6i65u:
+    resolution: {integrity: sha512-/UzHfXIKsELZhL7OaM2xFlRF8HRZgAHtPctacvNK8H4vOcbJJAMEgbWNGSAK7Y9b1NBe5SeM7VTuz2RsTHFJJA==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.11.9
+      '@vitest/ui': 0.25.3
+      acorn: 8.8.1
+      acorn-walk: 8.2.0
+      chai: 4.3.7
+      debug: 4.3.4
+      jsdom: 20.0.2
+      local-pkg: 0.4.2
+      source-map: 0.6.1
+      strip-literal: 0.4.2
+      tinybench: 2.3.1
+      tinypool: 0.3.0
+      tinyspy: 1.0.2
+      vite: 3.2.4_@types+node@18.11.9
+    transitivePeerDependencies:
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest/0.25.3_jsdom@20.0.2:
+    resolution: {integrity: sha512-/UzHfXIKsELZhL7OaM2xFlRF8HRZgAHtPctacvNK8H4vOcbJJAMEgbWNGSAK7Y9b1NBe5SeM7VTuz2RsTHFJJA==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@vitest/browser': '*'
+      '@vitest/ui': '*'
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+    dependencies:
+      '@types/chai': 4.3.4
+      '@types/chai-subset': 1.3.3
+      '@types/node': 18.11.9
+      acorn: 8.8.1
+      acorn-walk: 8.2.0
+      chai: 4.3.7
+      debug: 4.3.4
+      jsdom: 20.0.2
       local-pkg: 0.4.2
       source-map: 0.6.1
       strip-literal: 0.4.2

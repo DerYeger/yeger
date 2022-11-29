@@ -50,7 +50,7 @@
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "3.2.0",
     "@vitest/coverage-c8": "0.24.5",
-    "@vitest/ui": "0.24.5",
+    "@vitest/ui": "0.25.3",
     "@vue/test-utils": "2.2.3",
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "0.0.31",
@@ -60,7 +60,7 @@
     "typescript": "4.9.3",
     "vite": "3.2.4",
     "vite-plugin-dts": "1.7.1",
-    "vitest": "0.24.5",
+    "vitest": "0.25.3",
     "vue": "3.2.45",
     "vue-tsc": "1.0.9"
   }
