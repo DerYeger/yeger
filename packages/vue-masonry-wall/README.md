@@ -106,7 +106,7 @@ To add new items, assign a new value to the `items` property, e.g., `items.value
 
 This library intentionally doesn't handle elements with dynamically changing height, as this would cause constant changes of the column distribution.
 As a consequence, the initial height of items is used.
-For images, specyfing aspect ratios can prevent unbalanced distributions.
+For images, specifying aspect ratios can prevent unbalanced distributions.
 
 All columns have the same width, specified by the `column-width` property.
 In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`.

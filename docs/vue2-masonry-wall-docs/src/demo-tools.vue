@@ -1,7 +1,7 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'DemoTools',
   props: {
     columnWidth: {
@@ -13,6 +13,10 @@ export default Vue.extend({
       required: true,
     },
     rtl: {
+      type: Boolean,
+      required: true,
+    },
+    useScrollContainer: {
       type: Boolean,
       required: true,
     },
@@ -42,7 +46,7 @@ export default Vue.extend({
           min="128"
           max="512"
           :value="columnWidth"
-          @input="$emit('update:columnWidth', +$event.target.value)"
+          @input="$emit('update:column-width', +$event.target.value)"
         />
         <span>{{ columnWidth }}px</span>
       </div>
@@ -67,6 +71,15 @@ export default Vue.extend({
           @change="$emit('update:rtl', $event.target.checked)"
         />
       </div>
+      <div class="row">
+        <label for="useScrollContainer">Scroll Container</label>
+        <input
+          id="useScrollContainer"
+          type="checkbox"
+          :checked="useScrollContainer"
+          @change="$emit('update:use-scroll-container', $event.target.checked)"
+        />
+      </div>
     </section>
     <section id="item-creation">
       <h2>New Item</h2>
@@ -87,6 +100,9 @@ export default Vue.extend({
         </button>
         <button class="primary" @click="$emit('create-item', randomHeight())">
           Random
+        </button>
+        <button class="primary" @click="$emit('create-items')">
+          Random (10)
         </button>
         <button class="secondary" @click="$emit('clear-items')">Clear</button>
       </div>
