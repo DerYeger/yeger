@@ -12,6 +12,7 @@
     "esModuleInterop": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
     "newLine": "lf",
     "jsx": "preserve"

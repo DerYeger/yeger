@@ -2,7 +2,8 @@
   "extends": ["@yeger"],
   "rules": {
     "vue/custom-event-name-casing": "off",
-    "vue/require-explicit-emits": "off"
+    "vue/require-explicit-emits": "off",
+    "no-console": "off"
   },
   "overrides": [
     {
