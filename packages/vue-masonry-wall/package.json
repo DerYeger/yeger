@@ -49,7 +49,7 @@
     "@babel/types": "7.20.2",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "3.2.0",
-    "@vitest/coverage-c8": "0.24.5",
+    "@vitest/coverage-c8": "0.25.3",
     "@vitest/ui": "0.25.3",
     "@vue/test-utils": "2.2.3",
     "@yeger/tsconfig": "workspace:*",
