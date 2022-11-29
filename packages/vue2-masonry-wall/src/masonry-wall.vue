@@ -1,117 +1,104 @@
-<script lang="ts">
-import Vue from 'vue'
+<script setup lang="ts">
+import type { Ref } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
 type Column = number[]
+
+const props = withDefaults(
+  defineProps<{
+    columnWidth?: number
+    items: unknown[]
+    gap?: number
+    rtl?: boolean
+    ssrColumns?: number
+    scrollContainer?: HTMLElement | null
+  }>(),
+  {
+    columnWidth: 400,
+    gap: 0,
+    rtl: false,
+    ssrColumns: 0,
+    scrollContainer: null,
+  }
+)
+
+const emit = defineEmits<{
+  (event: 'redraw'): void
+  (event: 'redraw-skip'): void
+}>()
+
+const { columnWidth, items, gap, rtl, ssrColumns, scrollContainer } =
+  toRefs(props)
+const columns = ref<Column[]>([])
+const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
+
+function columnCount(): number {
+  const count = Math.floor(
+    (wall.value.getBoundingClientRect().width + gap.value) /
+      (columnWidth.value + gap.value)
+  )
+  return count > 0 ? count : 1
+}
 
 function createColumns(count: number): Column[] {
   return [...new Array(count)].map(() => [])
 }
 
-export default /* #__PURE__ */ Vue.extend({
-  name: 'MasonryWall',
-  props: {
-    items: {
-      type: Array as () => unknown[],
-      required: true,
-    },
-    ssrColumns: {
-      type: Number,
-      default: 0,
-    },
-    columnWidth: {
-      type: Number,
-      default: 400,
-    },
-    gap: {
-      type: Number,
-      default: 0,
-    },
-    rtl: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
-    if (this.ssrColumns > 0) {
-      const columns = createColumns(this.ssrColumns)
-      this.items.forEach((_, i) => columns[i % this.ssrColumns].push(i))
-      return {
-        columns,
-      }
-    }
-    return {
-      columns: [],
-    }
-  },
-  computed: {
-    wall(): HTMLDivElement {
-      return this.$refs.wall as HTMLDivElement
-    },
-    resizeObserver(): ResizeObserver {
-      return new ResizeObserver(() => this.redraw())
-    },
-  },
-  watch: {
-    items() {
-      this.redraw(true)
-    },
-    columnWidth() {
-      this.redraw()
-    },
-    gap() {
-      this.redraw()
-    },
-    rtl() {
-      this.redraw(true)
-    },
-  },
-  mounted() {
-    this.redraw()
-    this.resizeObserver.observe(this.wall)
-  },
-  // eslint-disable-next-line vue/no-deprecated-destroyed-lifecycle
-  beforeDestroy() {
-    this.resizeObserver.unobserve(this.wall)
-  },
-  methods: {
-    async redraw(force = false) {
-      if (this.columns.length === this.columnCount() && !force) {
-        this.$emit('redraw-skip')
-        return
-      }
-      this.columns = createColumns(this.columnCount())
-      const scrollY = window.scrollY
-      await this.fillColumns(0)
-      window.scrollTo({ top: scrollY })
-      this.$emit('redraw')
-    },
-    columnCount(): number {
-      const count = Math.floor(
-        (this.wall.getBoundingClientRect().width + this.gap) /
-          (this.columnWidth + this.gap)
-      )
-      return count > 0 ? count : 1
-    },
-    async fillColumns(itemIndex: number) {
-      if (itemIndex >= this.items.length) {
-        return
-      }
-      await this.$nextTick()
-      const columnDivs = [...this.wall.children] as HTMLDivElement[]
-      if (this.rtl) {
-        columnDivs.reverse()
-      }
-      const target = columnDivs.reduce((prev, curr) =>
-        curr.getBoundingClientRect().height <
-        prev.getBoundingClientRect().height
-          ? curr
-          : prev
-      )
-      this.columns[+target.dataset.index!].push(itemIndex)
-      await this.fillColumns(itemIndex + 1)
-    },
-  },
+if (ssrColumns.value > 0) {
+  const newColumns = createColumns(ssrColumns.value)
+  items.value.forEach((_: unknown, i: number) =>
+    newColumns[i % ssrColumns.value].push(i)
+  )
+  columns.value = newColumns
+}
+
+async function fillColumns(itemIndex: number) {
+  if (itemIndex >= items.value.length) {
+    return
+  }
+  await nextTick()
+  const columnDivs = [...wall.value.children] as HTMLDivElement[]
+  if (rtl.value) {
+    columnDivs.reverse()
+  }
+  const target = columnDivs.reduce((prev, curr) =>
+    curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
+      ? curr
+      : prev
+  )
+  columns.value[+target.dataset.index!].push(itemIndex)
+  await fillColumns(itemIndex + 1)
+}
+
+async function redraw(force = false) {
+  if (columns.value.length === columnCount() && !force) {
+    emit('redraw-skip')
+    return
+  }
+  columns.value = createColumns(columnCount())
+  const scrollTarget = scrollContainer?.value
+  const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
+  await fillColumns(0)
+  scrollTarget
+    ? scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
+    : window.scrollTo({ top: scrollY })
+  emit('redraw')
+}
+
+const resizeObserver =
+  typeof ResizeObserver === 'undefined'
+    ? undefined
+    : new ResizeObserver(() => redraw())
+
+onMounted(() => {
+  redraw()
+  resizeObserver?.observe(wall.value)
 })
+
+onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
+
+watch([items, rtl], () => redraw(true))
+watch([columnWidth, gap], () => redraw())
 </script>
 
 <template>
@@ -127,11 +114,12 @@ export default /* #__PURE__ */ Vue.extend({
       :data-index="columnIndex"
       :style="{
         display: 'flex',
-        'flex-basis': 0,
+        'flex-basis': '0px',
         'flex-direction': 'column',
         'flex-grow': 1,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'],
         gap: `${gap}px`,
+        height: ['-webkit-max-content', '-moz-max-content', 'max-content'],
+        'min-width': 0,
       }"
     >
       <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">

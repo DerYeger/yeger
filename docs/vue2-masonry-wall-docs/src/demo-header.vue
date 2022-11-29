@@ -1,10 +1,10 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from 'vue'
 
 import BadgeList from '~/badge-list.vue'
 import GithubLogo from '~/github-logo.vue'
 
-export default Vue.extend({
+export default defineComponent({
   components: { BadgeList, GithubLogo },
 })
 </script>

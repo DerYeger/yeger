@@ -37,14 +37,17 @@ describe('MasonryWall', () => {
       throw message
     }
   })
+
   beforeEach(() => {
     mockResizeObserver()
     // @ts-expect-error Correct typings are not required for mock
     window.scrollTo = vi.fn()
   })
+
   afterEach(() => {
     vi.clearAllMocks()
   })
+
   it('can be installed', async () => {
     const wrapper = mount(TestComponent, {
       global: {
@@ -57,6 +60,7 @@ describe('MasonryWall', () => {
     const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
     expect(items.length).toEqual(3)
   })
+
   it('creates SSR columns', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
@@ -72,6 +76,7 @@ describe('MasonryWall', () => {
     const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
     expect(items.length).toEqual(2)
   })
+
   it('reacts to item changes', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
@@ -97,6 +102,7 @@ describe('MasonryWall', () => {
       .then(flushPromises)
     expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(1)
   })
+
   it('unobserves the ResizeObserver', async () => {
     expect(observeMock.mock.calls.length).toEqual(0)
     const wrapper = mount(MasonryWall, {
@@ -110,6 +116,7 @@ describe('MasonryWall', () => {
     wrapper.unmount()
     expect(unobserveMock.mock.calls.length).toEqual(1)
   })
+
   it('reacts to column-width prop changes', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
@@ -127,6 +134,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
+
   it('reacts to gap prop changes', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
@@ -144,6 +152,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
+
   it('reacts to rtl prop changes', async () => {
     const wrapper = mount(MasonryWall, {
       props: {
@@ -159,6 +168,7 @@ describe('MasonryWall', () => {
       .then(flushPromises)
     expect(wrapper.emitted('redraw')?.length).toEqual(2)
   })
+
   it('adds items to the smallest column', async () => {
     const wrapper = mount(MasonryWall, {
       props: {

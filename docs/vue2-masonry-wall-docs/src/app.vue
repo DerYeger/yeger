@@ -1,16 +1,22 @@
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref } from 'vue'
 
 import DemoFooter from '~/demo-footer.vue'
 import DemoHeader from '~/demo-header.vue'
 import DemoTools from '~/demo-tools.vue'
 
-export default Vue.extend({
+export default defineComponent({
   name: 'App',
   components: {
     DemoFooter,
     DemoHeader,
     DemoTools,
+  },
+  setup() {
+    const scrollContainer = ref(null)
+    return {
+      scrollContainer,
+    }
   },
   data() {
     return {
@@ -18,11 +24,30 @@ export default Vue.extend({
       columnWidth: 400,
       gap: 16,
       rtl: false,
+      useScrollContainer: false,
     }
   },
   methods: {
+    randomHeight(): number {
+      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    },
     addItem(item: number): void {
       this.items = [...this.items, item]
+    },
+    addItems() {
+      this.items = [
+        ...this.items,
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+        this.randomHeight(),
+      ]
     },
     removeItem(index: number): void {
       this.items.splice(index, 1)
@@ -35,12 +60,17 @@ export default Vue.extend({
 <template>
   <div id="app">
     <DemoHeader />
-    <main>
+    <main
+      ref="scrollContainer"
+      :class="{ 'scroll-container': useScrollContainer }"
+    >
       <DemoTools
         :column-width.sync="columnWidth"
         :gap.sync="gap"
         :rtl.sync="rtl"
+        :use-scroll-container.sync="useScrollContainer"
         @create-item="addItem($event)"
+        @create-items="addItems()"
         @clear-items="items = []"
       />
       <MasonryWall
@@ -48,6 +78,7 @@ export default Vue.extend({
         :column-width="columnWidth"
         :gap="gap"
         :rtl="rtl"
+        :scroll-container="useScrollContainer ? scrollContainer : undefined"
       >
         <template #default="{ item, index }">
           <div
@@ -193,5 +224,9 @@ button:hover {
 .item > p {
   margin-top: 0;
   margin-bottom: 0.25rem;
+}
+
+.scroll-container {
+  overflow-y: auto;
 }
 </style>

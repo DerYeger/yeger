@@ -40,7 +40,6 @@
 
 - [Demo](https://vue2-masonry-wall.yeger.eu/)
 - [Vue 3 version](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall)
-- [vue-masonry-wall by Fuxing Loh](https://github.com/fuxingloh/vue-masonry-wall)
 
 ## Installation
 
@@ -68,6 +67,7 @@ Props:
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
+- `scroll-container`: Scrolling `HTMLElement` parent element that will be used for restoring scroll position. If omitted, `window` is used.
 
 ```vue
 <script>
@@ -94,6 +94,20 @@ export default {
   </masonry-wall>
 </template>
 ```
+
+### Adding items
+
+To add new items, assign a new value to the `items` property, e.g., `items.value = [...items.value, newItem]`.
+**DO NOT** push items to the array (e.g., `items.value.push(newItem)`), as such mutations will not be detected by the reactivity.
+
+### Limitations
+
+This library intentionally doesn't handle elements with dynamically changing height, as this would cause constant changes of the column distribution.
+As a consequence, the initial height of items is used.
+For images, specifying aspect ratios can prevent unbalanced distributions.
+
+All columns have the same width, specified by the `column-width` property.
+In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`.
 
 ## Development
 

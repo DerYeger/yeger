@@ -9,7 +9,7 @@ import {
   it,
   vi,
 } from 'vitest'
-import Vue from 'vue'
+import Vue, { defineComponent } from 'vue'
 
 import MasonryWall from '~/index'
 
@@ -29,7 +29,7 @@ function mockResizeObserver() {
 
 type MasonryWallType = InstanceType<typeof MasonryWall>
 
-const TestComponent = Vue.extend({
+const TestComponent = defineComponent({
   template: '<masonry-wall :items="[1, 2, 3]" />',
 })
 
@@ -52,6 +52,7 @@ describe('MasonryWall', () => {
 
   it('can be installed', async () => {
     Vue.use(MasonryWall)
+    // @ts-expect-error Vue 2.7.14 typings
     const wrapper = mount(TestComponent)
     await flushPromises()
     const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
