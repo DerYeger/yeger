@@ -3,11 +3,11 @@
   "version": "1.0.3",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "typecheck": "tsc --noEmit && vue-tsc --noEmit",
     "build": "vite build && cp dist/index.html dist/404.html",
+    "dev": "vite",
+    "lint": "yeger-lint",
     "preview": "vite preview",
-    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\""
+    "typecheck": "tsc --noEmit && vue-tsc --noEmit"
   },
   "dependencies": {
     "@yeger/vue-masonry-wall": "workspace:*"

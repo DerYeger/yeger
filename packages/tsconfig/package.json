@@ -9,6 +9,6 @@
     "web.json"
   ],
   "scripts": {
-    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\""
+    "lint": "yeger-lint"
   }
 }

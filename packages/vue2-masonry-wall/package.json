@@ -56,8 +56,5 @@
     "vitest": "0.25.3",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }
