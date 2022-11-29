@@ -1,5 +1,16 @@
 # @yeger/vue2-masonry-wall-docs
 
+## 1.1.0
+
+### Minor Changes
+
+- 3b4a703: backport features and fixes
+
+### Patch Changes
+
+- Updated dependencies [3b4a703]
+  - @yeger/vue2-masonry-wall@2.3.0
+
 ## 1.0.4
 
 ### Patch Changes

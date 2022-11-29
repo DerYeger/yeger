@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 2.3.0
+
+### Minor Changes
+
+- 3b4a703: backport features and fixes
+
 ## 2.2.1
 
 ### Patch Changes
