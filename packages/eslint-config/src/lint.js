@@ -9,6 +9,9 @@ const { ESLint } = require('eslint')
   const results = await eslint.lintFiles([
     './**/*.{js,json,md,ts,vue,yaml,yml}',
   ])
+  const errors = results.filter(
+    ({ errorCount, fatalErrorCount }) => errorCount || fatalErrorCount
+  )
 
   if (fix) {
     await ESLint.outputFixes(results)
@@ -19,8 +22,9 @@ const { ESLint } = require('eslint')
   const resultText = formatter.format(results)
 
   // 4. Output it.
-  // eslint-disable-next-line no-console
+
   console.log(resultText)
+  process.exitCode = errors.length > 0 ? 1 : 0
 })().catch((error) => {
   process.exitCode = 1
   console.error(error)

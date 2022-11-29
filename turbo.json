@@ -4,9 +4,10 @@
     "typecheck": {
       "dependsOn": ["^build"],
       "inputs": [
-        "vite.config.ts",
-        "tsconfig.json",
         "index.html",
+        "tsconfig.json",
+        "vite.config.ts",
+        "public/**",
         "src/**",
         "test/**"
       ],
@@ -14,7 +15,13 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["vite.config.ts", "tsconfig.json", "index.html", "src/**"],
+      "inputs": [
+        "index.html",
+        "tsconfig.json",
+        "vite.config.ts",
+        "public/**",
+        "src/**"
+      ],
       "outputs": ["dist/**"]
     },
     "preview": {
@@ -22,7 +29,7 @@
       "cache": false
     },
     "test": {
-      "inputs": ["vite.config.ts", "src/**", "test/**"],
+      "inputs": ["tsconfig.json", "vite.config.ts", "src/**", "test/**"],
       "outputs": ["coverage/**"]
     },
     "dev": {

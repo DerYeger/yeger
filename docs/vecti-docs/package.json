@@ -1,0 +1,21 @@
+{
+  "name": "vecti-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vitepress build",
+    "dev": "vitepress dev",
+    "lint": "yeger-lint",
+    "preview": "vitepress serve"
+  },
+  "dependencies": {
+    "vecti": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "3.2.0",
+    "@yeger/tsconfig": "workspace:*",
+    "typescript": "4.9.3",
+    "vite": "3.2.4",
+    "vitepress": "1.0.0-alpha.29"
+  }
+}
