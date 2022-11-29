@@ -1,0 +1,45 @@
+{
+  "name": "@yeger/eslint-config",
+  "version": "1.4.52",
+  "description": "ESLint config preset based on @antfu/eslint-config.",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/eslint-config",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-preset"
+  ],
+  "sideEffects": false,
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\""
+  },
+  "peerDependencies": {
+    "eslint": ">=7.4.0"
+  },
+  "dependencies": {
+    "@antfu/eslint-config": "0.31.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-cypress": "2.12.1",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-markdown": "3.0.0",
+    "eslint-plugin-md": "1.0.19",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-tsdoc": "0.2.17",
+    "eslint-plugin-unused-imports": "2.0.0",
+    "eslint-plugin-yml": "1.2.0",
+    "prettier": "2.8.0",
+    "yaml-eslint-parser": "1.1.0"
+  }
+}

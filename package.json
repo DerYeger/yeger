@@ -37,7 +37,7 @@
     "@commitlint/cli": "17.3.0",
     "@commitlint/config-conventional": "17.3.0",
     "@types/node": "18.11.9",
-    "@yeger/eslint-config": "1.4.52",
+    "@yeger/eslint-config": "workspace:*",
     "eslint": "8.28.0",
     "husky": "8.0.2",
     "lint-staged": "13.0.3",

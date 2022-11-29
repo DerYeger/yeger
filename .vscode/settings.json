@@ -1,4 +1,14 @@
 {
+  "eslint.probe": [
+    "html",
+    "javascript",
+    "javascriptreact",
+    "markdown",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "yaml"
+  ],
   "markdownlint.config": {
     "MD033": false
   }
