@@ -3,5 +3,13 @@
   "rules": {
     "vue/custom-event-name-casing": "off",
     "vue/require-explicit-emits": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["./**/*.md"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
 }

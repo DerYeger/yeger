@@ -1,35 +1,35 @@
 {
-  "name": "@yeger/debounce",
-  "version": "1.0.65",
-  "description": "A tiny TypeScript library for debouncing functions.",
+  "name": "vecti",
+  "version": "2.1.38",
+  "description": "A tiny TypeScript library for 2D vector math.",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
   "license": "MIT",
-  "homepage": "https://github.com/DerYeger",
-  "repository": "github:DerYeger/yeger",
+  "homepage": "https://vecti.yeger.eu",
+  "repository": "github:DerYeger/vecti",
   "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
+    "url": "https://github.com/DerYeger/vecti/issues"
   },
   "keywords": [
-    "debounce",
-    "typescript",
-    "library"
+    "vector",
+    "math",
+    "2d",
+    "typescript"
   ],
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/debounce.umd.js",
-      "import": "./dist/debounce.es.js"
+      "require": "./dist/vecti.umd.js",
+      "import": "./dist/vecti.es.mjs"
     }
   },
-  "main": "./dist/debounce.umd.js",
-  "module": "./dist/debounce.es.js",
-  "types": "dist/types/main.d.ts",
+  "main": "./dist/vecti.umd.js",
+  "module": "./dist/vecti.es.mjs",
+  "types": "dist/types/vecti.d.ts",
   "files": [
-    "dist",
-    "default.css"
+    "dist"
   ],
   "scripts": {
     "build": "vite build",
@@ -39,8 +39,10 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@types/node": "18.11.9",
     "@vitest/coverage-c8": "0.25.3",
     "@vitest/ui": "0.25.3",
+    "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.12.0",
     "typescript": "4.9.3",

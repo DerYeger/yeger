@@ -40,6 +40,12 @@ jobs:
           files: packages/vue2-masonry-wall/coverage/coverage-final.json
           flags: vue2-masonry-wall
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload vecti coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/vecti/coverage/coverage-final.json
+          flags: vecti
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
