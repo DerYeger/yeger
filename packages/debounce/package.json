@@ -1,0 +1,51 @@
+{
+  "name": "@yeger/debounce",
+  "version": "1.0.64",
+  "description": "A tiny TypeScript library for debouncing functions.",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DerYeger",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "debounce",
+    "typescript",
+    "library"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/debounce.umd.js",
+      "import": "./dist/debounce.es.js"
+    }
+  },
+  "main": "./dist/debounce.umd.js",
+  "module": "./dist/debounce.es.js",
+  "types": "dist/types/main.d.ts",
+  "files": [
+    "dist",
+    "default.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\"",
+    "test": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@vitest/coverage-c8": "0.24.5",
+    "@vitest/ui": "0.25.3",
+    "@yeger/tsconfig": "workspace:*",
+    "c8": "7.12.0",
+    "typescript": "4.9.3",
+    "vite": "3.2.4",
+    "vite-plugin-dts": "1.7.1",
+    "vitest": "0.25.3"
+  }
+}

@@ -22,6 +22,12 @@ jobs:
         run: pnpm run turbo build typecheck
       - name: Test
         run: pnpm run test
+      - name: Upload @yeger/debounce coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/debounce/coverage/coverage-final.json
+          flags: debounce
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/vue-masonry-wall coverage
         uses: codecov/codecov-action@v3
         with:
