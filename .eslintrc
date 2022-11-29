@@ -1,5 +1,7 @@
-{ "extends": ["@yeger"],
-"rules": {
-  "vue/custom-event-name-casing": "off",
-  "vue/require-explicit-emits": "off"
-}}
+{
+  "extends": ["@yeger"],
+  "rules": {
+    "vue/custom-event-name-casing": "off",
+    "vue/require-explicit-emits": "off"
+  }
+}
