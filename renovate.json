@@ -1,3 +1,21 @@
 {
-  "extends": ["github>DerYeger/renovate-config"]
+  "extends": ["github>DerYeger/renovate-config"],
+  "packageRules": [
+    {
+      "matchFiles": [
+        "docs/vue2-masonry-wall-docs/package.json",
+        "packages/vue2-masonry-wall/package.json"
+      ],
+      "matchPackageNames": ["vue", "vue-template-compiler"],
+      "allowedVersions": "<3"
+    },
+    {
+      "matchFiles": [
+        "docs/vue2-masonry-wall-docs/package.json",
+        "packages/vue2-masonry-wall/package.json"
+      ],
+      "matchPackageNames": ["@vue/test-utils"],
+      "allowedVersions": "<2"
+    }
+  ]
 }
