@@ -5,7 +5,7 @@
   "scripts": {
     "build": "vite build && cp dist/index.html dist/404.html",
     "dev": "vite",
-    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\"",
+    "lint": "yeger-lint",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit"
   },

@@ -18,12 +18,15 @@
     "eslint-preset"
   ],
   "sideEffects": false,
-  "main": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "yeger-lint": "src/lint.js"
+  },
   "files": [
-    "index.js"
+    "src"
   ],
   "scripts": {
-    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\""
+    "lint": "yeger-lint"
   },
   "peerDependencies": {
     "eslint": ">=7.4.0"

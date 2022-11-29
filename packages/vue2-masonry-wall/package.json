@@ -33,7 +33,7 @@
   "scripts": {
     "build": "vite build && bundlesize",
     "dev": "vite build --watch",
-    "lint": "eslint \"./**/*.{js,json,md,ts,vue,yaml,yml}\"",
+    "lint": "yeger-lint",
     "test": "vitest run --coverage",
     "typecheck": "tsc --noEmit"
   },
