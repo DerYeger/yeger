@@ -22,6 +22,12 @@ jobs:
         run: pnpm run turbo build typecheck
       - name: Test
         run: pnpm run test
+      - name: Upload d3-graph-controller coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/d3-graph-controller/coverage/coverage-final.json
+          flags: d3-graph-controller
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/debounce coverage
         uses: codecov/codecov-action@v3
         with:
