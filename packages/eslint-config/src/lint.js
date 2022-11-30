@@ -7,10 +7,10 @@ const { ESLint } = require('eslint')
 
   // 2. Lint files.
   const results = await eslint.lintFiles([
-    './**/*.{js,json,md,ts,vue,yaml,yml}',
+    './**/*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}',
   ])
-  const errors = results.filter(
-    ({ errorCount, fatalErrorCount }) => errorCount || fatalErrorCount
+  const hasErrors = results.some(
+    ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0
   )
 
   if (fix) {
@@ -23,7 +23,7 @@ const { ESLint } = require('eslint')
 
   // 4. Output it.
   console.log(resultText)
-  process.exitCode = errors.length > 0 ? 1 : 0
+  process.exit(hasErrors > 0 ? 1 : 0)
 })().catch((error) => {
   process.exitCode = 1
   console.error(error)
