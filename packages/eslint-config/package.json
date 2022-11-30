@@ -47,5 +47,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@types/eslint": "8.4.10"
   }
 }

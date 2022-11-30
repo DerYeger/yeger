@@ -22,7 +22,6 @@ const { ESLint } = require('eslint')
   const resultText = formatter.format(results)
 
   // 4. Output it.
-
   console.log(resultText)
   process.exitCode = errors.length > 0 ? 1 : 0
 })().catch((error) => {
