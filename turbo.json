@@ -24,11 +24,22 @@
       ],
       "outputs": ["dist/**"]
     },
+    "@yeger/eslint-config#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**"],
+      "outputs": ["src/**"]
+    },
+    "@yeger/tsconfig#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["base.json", "lib.json", "web.json"],
+      "outputs": ["base.json", "lib.json", "web.json"]
+    },
     "preview": {
       "dependsOn": ["build"],
       "cache": false
     },
     "test": {
+      "dependsOn": ["^build"],
       "inputs": ["tsconfig.json", "vite.config.ts", "src/**", "test/**"],
       "outputs": ["coverage/**"]
     },
@@ -37,11 +48,13 @@
       "cache": false
     },
     "lint": {
+      "dependsOn": ["@yeger/eslint-config#build"],
       "inputs": ["**"],
       "outputs": []
     },
     "//#lint:root": {
-      "inputs": ["*", ".vscode", ".husky", ".github", ".changeset"],
+      "dependsOn": ["^build"],
+      "inputs": ["*", ".vscode/**", ".husky/**", ".github/**", ".changeset/**"],
       "outputs": []
     }
   }
