@@ -8,9 +8,9 @@
   },
   "license": "MIT",
   "homepage": "https://vecti.yeger.eu",
-  "repository": "github:DerYeger/vecti",
+  "repository": "github:DerYeger/yeger",
   "bugs": {
-    "url": "https://github.com/DerYeger/vecti/issues"
+    "url": "https://github.com/DerYeger/yeger/issues"
   },
   "keywords": [
     "vector",
