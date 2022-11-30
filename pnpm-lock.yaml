@@ -110,6 +110,7 @@ importers:
   packages/eslint-config:
     specifiers:
       '@antfu/eslint-config': 0.31.0
+      '@types/eslint': 8.4.10
       eslint-config-prettier: 8.5.0
       eslint-plugin-cypress: 2.12.1
       eslint-plugin-import: 2.26.0
@@ -134,6 +135,8 @@ importers:
       eslint-plugin-yml: 1.2.0
       prettier: 2.8.0
       yaml-eslint-parser: 1.1.0
+    devDependencies:
+      '@types/eslint': 8.4.10
 
   packages/tsconfig:
     specifiers: {}
@@ -1399,6 +1402,13 @@ packages:
 
   /@types/chai/4.3.4:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
+    dev: true
+
+  /@types/eslint/8.4.10:
+    resolution: {integrity: sha512-Sl/HOqN8NKPmhWo2VBEPm0nvHnu2LL3v9vKo8MEq0EtbJ4eVzGPl41VNPvn5E1i5poMk4/XD8UriLHpJvEP/Nw==}
+    dependencies:
+      '@types/estree': 1.0.0
+      '@types/json-schema': 7.0.11
     dev: true
 
   /@types/estree/1.0.0:
