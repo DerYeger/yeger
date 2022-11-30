@@ -2,12 +2,11 @@
   "extends": ["@yeger"],
   "rules": {
     "vue/custom-event-name-casing": "off",
-    "vue/require-explicit-emits": "off",
-    "no-console": "off"
+    "vue/require-explicit-emits": "off"
   },
   "overrides": [
     {
-      "files": ["./**/*.md"],
+      "files": ["docs/vecti-docs/**/*"],
       "rules": {
         "no-console": "off"
       }

@@ -22,6 +22,7 @@ const { ESLint } = require('eslint')
   const resultText = formatter.format(results)
 
   // 4. Output it.
+  // eslint-disable-next-line no-console
   console.log(resultText)
   process.exit(hasErrors > 0 ? 1 : 0)
 })().catch((error) => {
