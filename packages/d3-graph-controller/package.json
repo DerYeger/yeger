@@ -1,0 +1,72 @@
+{
+  "name": "d3-graph-controller",
+  "version": "2.3.28",
+  "description": "A TypeScript library for visualizing and simulating directed, interactive graphs.",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://graph-controller.yeger.eu",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "d3",
+    "graph",
+    "controller"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": "./dist/d3-graph-controller.umd.js",
+      "import": "./dist/d3-graph-controller.es.js"
+    },
+    "./default.css": {
+      "require": "./default.css",
+      "import": "./default.css"
+    }
+  },
+  "main": "./dist/d3-graph-controller.umd.js",
+  "module": "./dist/d3-graph-controller.es.js",
+  "types": "dist/types/main.d.ts",
+  "files": [
+    "dist",
+    "default.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "lint": "yeger-lint",
+    "test": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@yeger/debounce": "workspace:*",
+    "d3-drag": "3.0.0",
+    "d3-force": "3.0.0",
+    "d3-selection": "3.0.0",
+    "d3-zoom": "3.0.0",
+    "vecti": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/d3-drag": "3.0.1",
+    "@types/d3-force": "3.0.3",
+    "@types/d3-selection": "3.0.3",
+    "@types/d3-zoom": "3.0.1",
+    "@types/node": "18.11.9",
+    "@types/resize-observer-browser": "0.1.7",
+    "@vitejs/plugin-vue": "3.2.0",
+    "@vitest/coverage-c8": "0.25.3",
+    "@vitest/ui": "0.25.3",
+    "@yeger/tsconfig": "workspace:*",
+    "c8": "7.12.0",
+    "jsdom": "20.0.2",
+    "ts-deepmerge": "4.0.0",
+    "typescript": "4.9.3",
+    "vite": "3.2.4",
+    "vite-plugin-dts": "1.7.1",
+    "vitest": "0.25.3"
+  }
+}

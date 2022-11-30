@@ -1,0 +1,148 @@
+// Vitest Snapshot v1
+
+exports[`GraphController > matches the snapshot 1`] = `
+<div
+  class="graph"
+>
+  <svg
+    height="100%"
+    style="cursor: grab;"
+    width="100%"
+  >
+    <g
+      transform="translate(0,0)scale(1)"
+    >
+      <g
+        class="links"
+      >
+        <g>
+          <path
+            class="link"
+            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+          />
+          <text
+            class="link__label"
+            opacity="1"
+            style="fill: black; font-size: 1rem;"
+          >
+            aToB
+          </text>
+        </g>
+        <g>
+          <path
+            class="link"
+            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+          />
+          <text
+            class="link__label"
+            opacity="1"
+            style="fill: black; font-size: 1rem;"
+          >
+            bToA
+          </text>
+        </g>
+        <g>
+          <path
+            class="link"
+            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+          />
+          <text
+            class="link__label"
+            opacity="1"
+            style="fill: black; font-size: 1rem;"
+          >
+            bToC
+          </text>
+        </g>
+        <g>
+          <path
+            class="link"
+            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+          />
+          <text
+            class="link__label"
+            opacity="0"
+          />
+        </g>
+      </g>
+      <g
+        class="nodes"
+      >
+        <g>
+          <circle
+            aria-label=""
+            class="node"
+            r="16"
+            style="fill: lightgray;"
+          />
+          <text
+            class="node__label"
+            dy="0.33em"
+            opacity="1"
+            style="fill: black; font-size: 1rem; stroke: none;"
+          />
+        </g>
+        <g>
+          <circle
+            aria-label=""
+            class="node"
+            r="16"
+            style="fill: lightgray;"
+          />
+          <text
+            class="node__label"
+            dy="0.33em"
+            opacity="1"
+            style="fill: black; font-size: 1rem; stroke: none;"
+          />
+        </g>
+        <g>
+          <circle
+            aria-label="c"
+            class="node"
+            r="16"
+            style="fill: lightgray;"
+          />
+          <text
+            class="node__label"
+            dy="0.33em"
+            opacity="1"
+            style="stroke: none;"
+          />
+        </g>
+        <g>
+          <circle
+            aria-label=""
+            class="node"
+            r="16"
+            style="fill: lightgray;"
+          />
+          <text
+            class="node__label"
+            dy="0.33em"
+            opacity="1"
+            style="fill: black; font-size: 1rem; stroke: none;"
+          />
+        </g>
+      </g>
+      <defs>
+        <marker
+          id="link-arrow-gray"
+          markerHeight="16"
+          markerUnits="userSpaceOnUse"
+          markerWidth="16"
+          orient="auto"
+          refX="2"
+          refY="2"
+          style="fill: gray;"
+          viewBox="0,0,4,4"
+        >
+          <path
+            d="M0,0L0,4L4,2"
+          />
+        </marker>
+      </defs>
+    </g>
+  </svg>
+</div>
+`;

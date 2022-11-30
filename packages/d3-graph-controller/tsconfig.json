@@ -1,0 +1,11 @@
+{
+  "extends": "@yeger/tsconfig/lib",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "~/*": ["src/*"],
+      "~test/*": ["test/*"]
+    }
+  },
+  "exclude": ["node_modules", "coverage", "dist"]
+}

@@ -1,0 +1,98 @@
+// Vitest Snapshot v1
+
+exports[`Config > can be defined > using default values 1`] = `
+{
+  "autoResize": false,
+  "callbacks": {},
+  "initial": {
+    "includeUnlinked": true,
+    "linkFilter": [Function],
+    "nodeTypeFilter": undefined,
+    "showLinkLabels": true,
+    "showNodeLabels": true,
+  },
+  "marker": {
+    "padding": [Function],
+    "path": [
+      [
+        0,
+        0,
+      ],
+      [
+        0,
+        4,
+      ],
+      [
+        4,
+        2,
+      ],
+    ],
+    "ref": [
+      2,
+      2,
+    ],
+    "size": 4,
+    "viewBox": "0,0,4,4",
+  },
+  "modifiers": {},
+  "nodeRadius": 16,
+  "positionInitializer": [Function],
+  "simulation": {
+    "alphas": {
+      "drag": {
+        "end": 0,
+        "start": 0.1,
+      },
+      "filter": {
+        "link": 1,
+        "type": 0.1,
+        "unlinked": {
+          "exclude": 0.1,
+          "include": 0.1,
+        },
+      },
+      "focus": {
+        "acquire": [Function],
+        "release": [Function],
+      },
+      "initialize": 1,
+      "labels": {
+        "links": {
+          "hide": 0,
+          "show": 0,
+        },
+        "nodes": {
+          "hide": 0,
+          "show": 0,
+        },
+      },
+      "resize": 0.5,
+    },
+    "forces": {
+      "centering": {
+        "enabled": true,
+        "strength": 0.1,
+      },
+      "charge": {
+        "enabled": true,
+        "strength": -1,
+      },
+      "collision": {
+        "enabled": true,
+        "radiusMultiplier": 2,
+        "strength": 1,
+      },
+      "link": {
+        "enabled": true,
+        "length": 128,
+        "strength": 1,
+      },
+    },
+  },
+  "zoom": {
+    "initial": 1,
+    "max": 2,
+    "min": 0.1,
+  },
+}
+`;

@@ -43,7 +43,7 @@
 
 ## Projects using Vecti
 
-- [d3-graph-controller](https://github.com/DerYeger/d3-graph-controller) - Calculation of graph [edge paths](https://github.com/DerYeger/d3-graph-controller/blob/master/src/lib/paths.ts)
+- [d3-graph-controller](https://github.com/DerYeger/yeger/tree/main/packages/d3-graph-controller) - Calculation of graph [edge paths](https://github.com/DerYeger/yeger/blob/main/packages/d3-graph-controller/src/lib/paths.ts)
 
 ## Installation
 

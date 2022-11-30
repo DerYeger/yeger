@@ -1,0 +1,52 @@
+.graph,
+.graph > svg {
+  display: block;
+}
+
+.graph {
+  height: 100%;
+  touch-action: none;
+  width: 100%;
+}
+
+.graph * {
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+.link {
+  fill: none;
+  stroke-width: 4px;
+}
+
+.node {
+  --color-stroke: var(--color-node-stroke, rgba(0, 0, 0, 0.5));
+
+  cursor: pointer;
+  stroke: none;
+  stroke-width: 2px;
+  transition: filter 0.25s ease, stroke 0.25s ease, stroke-dasharray 0.25s ease;
+}
+
+.node:hover:not(.focused) {
+   filter: brightness(80%);
+   stroke: var(--color-stroke);
+   stroke-dasharray: 4px;
+}
+
+.node.focused {
+   stroke: var(--color-stroke);
+}
+
+.link__label,
+.node__label {
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.grabbed {
+  cursor: grabbing !important;
+}
