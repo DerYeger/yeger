@@ -38,7 +38,7 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
-    "vue": "^2.0.0"
+    "vue": "^2.7.0"
   },
   "devDependencies": {
     "@types/resize-observer-browser": "0.1.7",
