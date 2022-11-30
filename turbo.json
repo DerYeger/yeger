@@ -37,11 +37,11 @@
       "cache": false
     },
     "lint": {
-      "inputs": ["./**"],
+      "inputs": ["**"],
       "outputs": []
     },
     "//#lint:root": {
-      "inputs": ["./*", ".vscode", ".husky", ".github", ".changeset"],
+      "inputs": ["*", ".vscode", ".husky", ".github", ".changeset"],
       "outputs": []
     }
   }

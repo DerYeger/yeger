@@ -10,7 +10,7 @@ export class Vector {
    * @returns The vector.
    */
   public static of([x, y]: [number, number]): Vector {
-    return new Vector(x, y) as any
+    return new Vector(x, y)
   }
 
   /**
