@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 2.3.1
+
+### Patch Changes
+
+- b610eaa: update peerDependency vue to v2.7.0
+
 ## 2.3.0
 
 ### Minor Changes
