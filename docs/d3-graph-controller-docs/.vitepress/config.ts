@@ -1,77 +1,80 @@
 import { defineConfig } from 'vitepress'
 
-import Meta from '../../../packages/vecti/package.json'
+import Package from '../../../packages/d3-graph-controller/package.json'
 
-const name = Meta.name.charAt(0).toUpperCase() + Meta.name.slice(1)
+const ogImage = `${Package.homepage}/logo.png`
 
 export default defineConfig({
   // site config
   lang: 'en-US',
-  title: name,
-  description: Meta.description,
+  title: Package.name,
+  description: Package.description,
   outDir: 'dist',
   head: [
-    ['meta', { property: 'og:title', content: name }],
+    ['meta', { property: 'og:title', content: Package.name }],
     [
       'meta',
       {
         property: 'og:description',
-        content: Meta.description,
+        content: Package.description,
       },
     ],
-    ['meta', { property: 'og:url', content: Meta.homepage }],
+    ['meta', { property: 'og:url', content: Package.homepage }],
     [
       'meta',
       {
         property: 'og:image',
-        content: `${Meta.homepage}/logo.png`,
+        content: ogImage,
       },
     ],
-    ['meta', { name: 'twitter:title', content: name }],
+    ['meta', { name: 'twitter:title', content: Package.name }],
     [
       'meta',
       {
         name: 'twitter:description',
-        content: Meta.description,
+        content: Package.description,
       },
     ],
     [
       'meta',
       {
         name: 'twitter:image',
-        content: `${Meta.homepage}/logo.png`,
+        content: ogImage,
       },
     ],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['link', { rel: 'icon', href: '/logo.svg', type: 'image/svg+xml' }],
   ],
 
-  markdown: {
-    theme: {
-      light: 'vitesse-light',
-      dark: 'vitesse-dark',
-    },
-  },
-
   // theme and its config
   themeConfig: {
-    logo: '/logo.svg',
     editLink: {
       pattern:
-        'https://github.com/DerYeger/yeger/tree/main/docs/vecti-docs/:path',
+        'https://github.com/DerYeger/yeger/tree/main/docs/d3-graph-controller-docs/:path',
       text: 'Suggest changes to this page',
+    },
+
+    logo: '/logo.svg',
+
+    algolia: {
+      appId: 'P6B0O55SU2',
+      apiKey: '8191ba63a5c47585bbc996cd8db4f201',
+      indexName: 'd3-graph-controller',
     },
 
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
+      { text: 'API', link: '/api/' },
+      { text: 'Config', link: '/config/' },
+      { text: 'Demo', link: '/demo/' },
     ],
 
     socialLinks: [
       { icon: 'twitter', link: 'https://twitter.com/DerYeger' },
       {
         icon: 'github',
-        link: 'https://github.com/DerYeger/yeger/tree/main/packages/vecti',
+        link: 'https://github.com/DerYeger/yeger/tree/main/packages/d3-graph-controller',
       },
     ],
 

@@ -139,19 +139,16 @@ For customization of the default theme, the custom CSS property `--color-node-st
 
 ```bash
 # install dependencies
-$ yarn install
+$ pnpm install
 
 # build for production
-$ yarn build
+$ pnpm build
 
 # build in watch mode
-$ yarn dev
+$ pnpm dev
 
 # lint project files
-$ yarn lint
-
-# serve docs
-$ yarn docs:dev
+$ pnpm lint
 ```
 
 ## License

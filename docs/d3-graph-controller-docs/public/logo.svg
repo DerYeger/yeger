@@ -1,0 +1,21 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with UXWing SVG Editor - https://uxwing.com/svg-icon-editor/ -->
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="514" width="514" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <ellipse stroke="#FF0000" transform="rotate(0.13386839628219604 256.0000000000407,256.00000000000244) " ry="220" rx="220" id="svg_1" cy="255.999998" cx="256" stroke-width="0" fill="transparent"/>
+  <text stroke="#FF0000" transform="matrix(12.386791229248047,0,0,4.695582389831543,-2231.811080932617,-708.595724496161) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_8" y="213.453125" x="196" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <text stroke="#FF0000" transform="matrix(5.338973522186279,0,0,2.7474658489227295,-941.5572543144226,-373.51647894054986) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_9" y="235.453125" x="217" stroke-opacity="null" stroke-width="0" fill="#000000"/>
+  <ellipse fill-opacity="0" ry="40" rx="40" id="svg_13" cy="256" cx="256" stroke-width="20" stroke="#aae728"/>
+  <ellipse fill-opacity="0" ry="40" rx="40" id="svg_17" cy="256" cx="256" stroke-width="20" stroke="#729b1b"/>
+  <ellipse fill-opacity="0" ry="100" rx="100" id="svg_18" cy="256" cx="256" stroke-width="15" stroke="#4c6712"/>
+  <ellipse fill-opacity="0" ry="160" rx="160" id="svg_19" cy="256" cx="256" stroke-width="10" stroke="#394e0d"/>
+ </g>
+</svg>

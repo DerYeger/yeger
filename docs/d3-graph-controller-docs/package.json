@@ -1,0 +1,24 @@
+{
+  "name": "d3-graph-controller-docs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "vitepress build",
+    "dev": "vitepress dev",
+    "lint": "yeger-lint",
+    "preview": "vitepress serve"
+  },
+  "dependencies": {
+    "@algolia/client-search": "4.14.2",
+    "d3-graph-controller": "workspace:*",
+    "vue": "3.2.45"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "3.2.0",
+    "@yeger/tsconfig": "workspace:*",
+    "typescript": "4.9.3",
+    "unplugin-vue-components": "0.22.11",
+    "vite": "3.2.4",
+    "vitepress": "1.0.0-alpha.29"
+  }
+}
