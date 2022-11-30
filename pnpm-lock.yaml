@@ -118,6 +118,7 @@ importers:
       eslint-plugin-md: 1.0.19
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-tsdoc: 0.2.17
+      eslint-plugin-turbo: 0.0.4
       eslint-plugin-unused-imports: 2.0.0
       eslint-plugin-yml: 1.2.0
       prettier: 2.8.0
@@ -131,6 +132,7 @@ importers:
       eslint-plugin-md: 1.0.19
       eslint-plugin-prettier: 4.2.1_woggxqa3l645ufel4grhxgids4
       eslint-plugin-tsdoc: 0.2.17
+      eslint-plugin-turbo: 0.0.4
       eslint-plugin-unused-imports: 2.0.0
       eslint-plugin-yml: 1.2.0
       prettier: 2.8.0
@@ -4227,6 +4229,12 @@ packages:
     dependencies:
       '@microsoft/tsdoc': 0.14.2
       '@microsoft/tsdoc-config': 0.16.2
+    dev: false
+
+  /eslint-plugin-turbo/0.0.4:
+    resolution: {integrity: sha512-dfmYE/iPvoJInQq+5E/0mj140y/rYwKtzZkn3uVK8+nvwC5zmWKQ6ehMWrL4bYBkGzSgpOndZM+jOXhPQ2m8Cg==}
+    peerDependencies:
+      eslint: ^7.23.0 || ^8.0.0
     dev: false
 
   /eslint-plugin-unicorn/44.0.2:

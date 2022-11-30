@@ -1,6 +1,5 @@
 {
   "rules": {
-    "vue/custom-event-name-casing": "off",
-    "vue/require-explicit-emits": "off"
+    "vue/custom-event-name-casing": "off"
   }
 }

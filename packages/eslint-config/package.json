@@ -40,6 +40,7 @@
     "eslint-plugin-md": "1.0.19",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-tsdoc": "0.2.17",
+    "eslint-plugin-turbo": "0.0.4",
     "eslint-plugin-unused-imports": "2.0.0",
     "eslint-plugin-yml": "1.2.0",
     "prettier": "2.8.0",

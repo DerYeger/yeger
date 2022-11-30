@@ -54,7 +54,13 @@
     },
     "//#lint:root": {
       "dependsOn": ["^build"],
-      "inputs": ["*", ".vscode/**", ".husky/**", ".github/**", ".changeset/**"],
+      "inputs": [
+        "./*",
+        ".vscode/**",
+        ".husky/**",
+        ".github/**",
+        ".changeset/**"
+      ],
       "outputs": []
     }
   }
