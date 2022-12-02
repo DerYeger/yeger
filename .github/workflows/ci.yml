@@ -16,12 +16,8 @@ jobs:
           node-version: 18
       - name: Lint package versions
         run: pnpm run syncpack list-mismatches && pnpm run syncpack lint-semver-ranges
-      - name: Lint
-        run: pnpm run lint
-      - name: Build
-        run: pnpm run turbo build typecheck
-      - name: Test
-        run: pnpm run test
+      - name: Build, Lint, Test, and Typecheck
+        run: pnpm run ci
       - name: Upload d3-graph-controller coverage
         uses: codecov/codecov-action@v3
         with:
