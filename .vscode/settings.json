@@ -13,5 +13,6 @@
   ],
   "markdownlint.config": {
     "MD033": false
-  }
+  },
+  "vitest.commandLine": "pnpm test --run"
 }
