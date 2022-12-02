@@ -1,4 +1,5 @@
 {
+  "eslint.packageManager": "pnpm",
   "eslint.probe": [
     "html",
     "javascript",

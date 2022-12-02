@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "esnext",
     "module": "esnext",
     "strict": true,
@@ -16,6 +17,11 @@
     "skipLibCheck": false,
     "noImplicitAny": true,
     "newLine": "lf",
-    "jsx": "preserve"
-  }
+    "jsx": "preserve",
+    "paths": {
+      "~/*": ["src/*"],
+      "~test/*": ["test/*"]
+    }
+  },
+  "exclude": ["node_modules", "coverage", "dist"]
 }

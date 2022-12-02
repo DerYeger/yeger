@@ -3,11 +3,6 @@
   "compilerOptions": {
     "baseUrl": "./",
     "types": ["node", "vue"],
-    "paths": {
-      "~/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "dist"]
+  }
 }

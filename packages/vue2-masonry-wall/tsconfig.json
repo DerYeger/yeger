@@ -2,14 +2,9 @@
   "extends": "@yeger/tsconfig/lib",
   "compilerOptions": {
     "baseUrl": "./",
-    "types": ["node", "vue", "resize-observer-browser"],
-    "paths": {
-      "~/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
+    "types": ["node", "vue", "resize-observer-browser"]
   },
   "vueCompilerOptions": {
     "target": 2.7
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
+  }
 }

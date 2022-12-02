@@ -1,15 +1,9 @@
 {
   "extends": "@yeger/tsconfig/web",
   "compilerOptions": {
-    "baseUrl": "./",
     "types": ["node", "vue"],
-    "paths": {
-      "~/*": ["src/*"]
-    },
-    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "skipLibCheck": true
-  },
-  "exclude": ["node_modules", "dist"]
+  }
 }
