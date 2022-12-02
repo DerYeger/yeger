@@ -7,6 +7,7 @@
         "index.html",
         "tsconfig.json",
         "vite.config.ts",
+        "*.d.ts",
         "public/**",
         "src/**",
         "test/**"
@@ -19,6 +20,7 @@
         "index.html",
         "tsconfig.json",
         "vite.config.ts",
+        "*.d.ts",
         "public/**",
         "src/**"
       ],
@@ -40,7 +42,13 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "inputs": ["tsconfig.json", "vite.config.ts", "src/**", "test/**"],
+      "inputs": [
+        "tsconfig.json",
+        "vite.config.ts",
+        "*.d.ts",
+        "src/**",
+        "test/**"
+      ],
       "outputs": ["coverage/**"]
     },
     "dev": {

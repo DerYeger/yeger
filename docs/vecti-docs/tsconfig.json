@@ -2,5 +2,6 @@
   "extends": "@yeger/tsconfig/web",
   "compilerOptions": {
     "types": ["node", "vue"]
-  }
+  },
+  "exclude": ["node_modules", "coverage", "dist"]
 }

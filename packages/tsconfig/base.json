@@ -22,6 +22,5 @@
       "~/*": ["src/*"],
       "~test/*": ["test/*"]
     }
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
+  }
 }

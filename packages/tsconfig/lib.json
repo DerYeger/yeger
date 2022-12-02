@@ -1,8 +1,7 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
-    "declaration": true,
-    "declarationDir": "dist/types",
+    "declaration": false,
     "sourceMap": true,
     "jsx": "preserve"
   }

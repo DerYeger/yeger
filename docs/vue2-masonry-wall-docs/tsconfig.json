@@ -4,6 +4,7 @@
     "baseUrl": "./",
     "types": ["node", "vue"]
   },
+  "exclude": ["node_modules", "coverage", "dist"],
   "vueCompilerOptions": {
     "target": 2.7
   }

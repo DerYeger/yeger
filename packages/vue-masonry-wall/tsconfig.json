@@ -4,5 +4,9 @@
     "baseUrl": "./",
     "types": ["node", "vue", "resize-observer-browser"],
     "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "coverage", "dist"],
+  "vueCompilerOptions": {
+    "target": 3
   }
 }
