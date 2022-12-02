@@ -1,5 +1,29 @@
 {
-  "extends": ["github>DerYeger/renovate-config"],
+  "automerge": true,
+  "automergeType": "branch",
+  "docker": {
+    "major": {
+      "enabled": true
+    },
+    "pinDigests": true
+  },
+  "extends": [
+    "config:base",
+    ":assignee(DerYeger)",
+    ":dependencyDashboard",
+    ":disableRateLimiting",
+    ":enableVulnerabilityAlertsWithLabel(vulnerability)",
+    ":labels(dependencies,renovate)",
+    ":prHourlyLimitNone",
+    ":semanticCommits",
+    "group:monorepos"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "major": {
+    "automerge": false
+  },
   "packageRules": [
     {
       "matchFiles": [
@@ -17,5 +41,7 @@
       "matchPackageNames": ["@vue/test-utils"],
       "allowedVersions": "<2"
     }
-  ]
+  ],
+  "schedule": ["after 12am and before 7am on Saturday"],
+  "timezone": "Europe/Vienna"
 }
