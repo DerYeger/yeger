@@ -17,6 +17,7 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.3",
     "vite": "3.2.4",
+    "vite-tsconfig-paths": "3.6.0",
     "vue": "2.7.14"
   }
 }
