@@ -39,7 +39,7 @@
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "18.11.9",
+    "@types/node": "18.11.10",
     "@vitest/coverage-c8": "0.25.3",
     "@vitest/ui": "0.25.3",
     "@vue/component-compiler-utils": "3.3.0",
