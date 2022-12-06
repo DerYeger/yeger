@@ -1,5 +1,16 @@
 # @yeger/turbo-graph
 
+## 0.3.0
+
+### Minor Changes
+
+- 01f6cee: animate background
+
+### Patch Changes
+
+- Updated dependencies [8c8a4d9]
+  - d3-graph-controller@2.4.0
+
 ## 0.2.2
 
 ### Patch Changes
