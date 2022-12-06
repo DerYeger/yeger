@@ -25,74 +25,15 @@ export default async function handler(
 }
 
 async function executeCommand(tasks: string[], dir: string): Promise<string> {
-  const manager = await detectPackageManager(dir)
-  // eslint-disable-next-line no-console
-  console.log(`Using ${manager}`)
-
-  if (manager === 'pnpm') {
-    return executePnpmCommand(tasks, dir)
-  }
-  if (manager === 'yarn') {
-    return executeYarnCommand(tasks, dir)
-  }
-  return executeNpmCommand(tasks, dir)
-}
-
-async function executePnpmCommand(
-  tasks: string[],
-  dir: string
-): Promise<string> {
+  // TODO: Get .bin dir location from package manager
   const { stdout } = await execa(
-    'pnpm',
-    ['exec', 'turbo', ...tasks, '--graph'],
+    `node_modules/.bin/turbo`,
+    ['run', ...tasks, '--graph'],
     {
       cwd: dir,
     }
   )
   return stdout
-}
-async function executeYarnCommand(
-  tasks: string[],
-  dir: string
-): Promise<string> {
-  const { stdout } = await execa(
-    'yarn',
-    ['exec', 'turbo', ...tasks, '--graph'],
-    {
-      cwd: dir,
-    }
-  )
-  return stdout
-}
-async function executeNpmCommand(
-  tasks: string[],
-  dir: string
-): Promise<string> {
-  const { stdout } = await execa('npx', ['turbo', ...tasks, '--graph'], {
-    cwd: dir,
-  })
-  return stdout
-}
-
-type PackageManager = 'pnpm' | 'npm' | 'yarn'
-
-async function detectPackageManager(dir: string): Promise<PackageManager> {
-  if (await lockfileExists(dir, 'pnpm-lock.yaml')) {
-    return 'pnpm'
-  }
-  if (await lockfileExists(dir, 'yarn.lock')) {
-    return 'yarn'
-  }
-  return 'npm'
-}
-
-async function lockfileExists(dir: string, lockfile: string): Promise<boolean> {
-  try {
-    await path.readFile(`${dir}/${lockfile}`)
-    return true
-  } catch (err) {
-    return false
-  }
 }
 
 function getTask(config: Config): string[] {

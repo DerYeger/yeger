@@ -95,7 +95,7 @@ export default function Home() {
     )
   }, [graphRef, graphData])
 
-  const taskTypes = graphController?.nodeTypes.sort() ?? []
+  const tasks = graphController?.nodeTypes.sort() ?? []
 
   return (
     <div className="h-full w-full">
@@ -111,23 +111,23 @@ export default function Home() {
       <main className="h-full w-full flex flex-col">
         <div className=" border-gray-400 flex shadow-2xl z-10">
           <div className="flex gap-8 overflow-x-auto px-4 py-2">
-            {taskTypes.map((taskType) => (
-              <div key={taskType} className="flex gap-1 items-center">
+            {tasks.map((task) => (
+              <div key={task} className="flex gap-1 items-center">
                 <input
                   type="checkbox"
-                  checked={graphController?.nodeTypeFilter.includes(taskType)}
+                  checked={graphController?.nodeTypeFilter.includes(task)}
                   onChange={(event) => {
                     graphController?.filterNodesByType(
                       event.target.checked,
-                      taskType
+                      task
                     )
                     trigger()
                   }}
                 />
-                <label>{taskType}</label>
+                <label>{task}</label>
                 <div
                   className="rounded-3xl h-4 w-4"
-                  style={{ backgroundColor: taskToColor(taskType) }}
+                  style={{ backgroundColor: taskToColor(task) }}
                 />
               </div>
             ))}
