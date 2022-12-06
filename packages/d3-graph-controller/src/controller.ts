@@ -375,6 +375,7 @@ export class GraphController<
     this.yOffset = event.transform.y
     this.scale = event.transform.k
     this.applyZoom()
+    this.config.hooks.afterZoom?.(this.scale, this.xOffset, this.yOffset)
     this.simulation?.restart()
   }
 

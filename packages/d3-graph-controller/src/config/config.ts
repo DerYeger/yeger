@@ -30,6 +30,9 @@ export interface GraphConfig<
    * Callback configuration.
    */
   readonly callbacks: Callbacks<T, Node>
+  readonly hooks: {
+    afterZoom?: (scale: number, xOffset: number, yOffset: number) => void
+  }
   /**
    * Initial settings of a controller.
    */
@@ -69,6 +72,7 @@ function defaultGraphConfig<
   return {
     autoResize: false,
     callbacks: {},
+    hooks: {},
     initial: createDefaultInitialGraphSettings(),
     nodeRadius: 16,
     marker: Markers.Arrow(4),
