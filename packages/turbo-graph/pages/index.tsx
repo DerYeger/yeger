@@ -65,6 +65,13 @@ export default function Home() {
       defineGraph({ nodes, links }),
       defineGraphConfig({
         autoResize: true,
+        hooks: {
+          afterZoom(scale: number, xOffset: number, yOffset: number) {
+            container.style.setProperty('--offset-x', `${xOffset}px`)
+            container.style.setProperty('--offset-y', `${yOffset}px`)
+            container.style.setProperty('--dot-size', `${scale}rem`)
+          },
+        },
         marker: Markers.Arrow(4),
         positionInitializer:
           nodes.length > 1
@@ -135,13 +142,13 @@ export default function Home() {
             Reset
           </button>
         </div>
-        <div className="flex-1 bg-gray-50 bg-dotted relative">
+        <div className="flex-1 relative">
           {!graphController ? (
             <div className="w-full h-full flex items-center justify-center absolute inset-0">
               <span className="text-gray-700">Loading</span>
             </div>
           ) : null}
-          <div ref={graphRef} className="w-full h-full" />
+          <div ref={graphRef} className="w-full h-full bg-gray-50 bg-dotted " />
         </div>
       </main>
     </div>
