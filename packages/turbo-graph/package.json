@@ -23,7 +23,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "preview": "node start.js",
     "lint": "next lint"
   },
   "dependencies": {
