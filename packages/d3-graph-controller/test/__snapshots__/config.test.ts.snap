@@ -4,6 +4,7 @@ exports[`Config > can be defined > using default values 1`] = `
 {
   "autoResize": false,
   "callbacks": {},
+  "hooks": {},
   "initial": {
     "includeUnlinked": true,
     "linkFilter": [Function],
