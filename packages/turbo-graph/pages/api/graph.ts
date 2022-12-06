@@ -1,5 +1,6 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import path from 'fs/promises'
+import fs from 'fs/promises'
+import path from 'node:path'
 
 import { execa } from 'execa'
 import type { NextApiRequest, NextApiResponse } from 'next'
@@ -27,7 +28,7 @@ export default async function handler(
 async function executeCommand(tasks: string[], dir: string): Promise<string> {
   // TODO: Get .bin dir location from package manager
   const { stdout } = await execa(
-    `node_modules/.bin/turbo`,
+    `node_modules${path.sep}.bin${path.sep}turbo`,
     ['run', ...tasks, '--graph'],
     {
       cwd: dir,
@@ -48,13 +49,13 @@ function getTask(config: Config): string[] {
 }
 
 async function findTurboConfig(currentPath = '.'): Promise<Data> {
-  const files = await path.readdir(currentPath)
+  const files = await fs.readdir(currentPath)
   const turboConfig = files.find((file) => file === 'turbo.json')
   if (!turboConfig) {
-    return findTurboConfig(`../${currentPath}`)
+    return findTurboConfig(`..${path.sep}${currentPath}`)
   }
-  const file = `${currentPath}/${turboConfig}`
-  const buffer = await path.readFile(file)
+  const file = `${currentPath}${path.sep}${turboConfig}`
+  const buffer = await fs.readFile(file)
   const config = JSON.parse(buffer.toString())
   return { dir: currentPath, config }
 }
