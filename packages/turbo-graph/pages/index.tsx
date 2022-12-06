@@ -8,24 +8,12 @@ import {
   defineLink,
   defineNodeWithDefaults,
 } from 'd3-graph-controller'
+import { scaleOrdinal } from 'd3-scale'
+import { schemeSet3 } from 'd3-scale-chromatic'
 import Head from 'next/head'
 import { useMemo, useRef, useState } from 'react'
 
 import type { TurboGraph } from './api/graph'
-
-// From https://stackoverflow.com/a/16348977
-function taskToColor(task: string) {
-  let hash = 0
-  for (let i = 0; i < task.length; i++) {
-    hash = task.charCodeAt(i) + ((hash << 5) - hash)
-  }
-  let color = '#'
-  for (let i = 0; i < 3; i++) {
-    const value = (hash >> (i * 8)) & 0xff
-    color += `00${value.toString(16)}`.substr(-2)
-  }
-  return `${color}66`
-}
 
 export default function Home() {
   const [, setTrigger] = useState(0)
@@ -41,6 +29,13 @@ export default function Home() {
   const graphRef = useRef<HTMLDivElement>(null)
   const graphData = query.data
 
+  const colors = useMemo(() => {
+    const tasks = [
+      ...new Set(graphData?.nodes.map(({ task }) => task) ?? []),
+    ].sort()
+    return scaleOrdinal(schemeSet3).domain(tasks)
+  }, [graphData])
+
   const graphController = useMemo(() => {
     const container = graphRef.current
     if (!container || !graphData) {
@@ -50,7 +45,7 @@ export default function Home() {
       defineNodeWithDefaults({
         id: node.id,
         type: node.task,
-        color: taskToColor(node.task),
+        color: colors(node.task),
         label: { text: node.workspace, color: 'black', fontSize: '0.875rem' },
       })
     )
@@ -127,7 +122,7 @@ export default function Home() {
                 <label>{task}</label>
                 <div
                   className="rounded-3xl h-4 w-4"
-                  style={{ backgroundColor: taskToColor(task) }}
+                  style={{ backgroundColor: colors(task) }}
                 />
               </div>
             ))}
