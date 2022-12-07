@@ -21,7 +21,7 @@
     "ci": "nr turbo run build lint test typecheck",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
-    "graph": "turbo-graph",
+    "graph": "nr turbo build --filter=turbo-graph... && turbo-graph",
     "install-hooks": "is-ci || husky install",
     "lint": "nr turbo run lint lint:root",
     "lint:root": "eslint \"{.changeset,.github,.husky,.vscode}/**/*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
