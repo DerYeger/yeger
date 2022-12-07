@@ -34,10 +34,10 @@ function startServer(options: Options) {
 
   createServer(handle).listen(options.port)
 
-  const url = c.cyan(`http://localhost:${options.port}`)
+  const url = `http://localhost:${options.port}`
 
   // eslint-disable-next-line no-console
-  console.log(`${c.green('turbo-graph:')} Listening on ${url}`)
+  console.log(`${c.green('turbo-graph:')} Listening on ${c.cyan(url)}`)
 
   if (options.open) {
     open(url)
