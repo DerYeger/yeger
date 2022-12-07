@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.2
+
+### Patch Changes
+
+- 35bc132: add node shebang to bin
+
 ## 0.4.1
 
 ### Patch Changes

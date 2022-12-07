@@ -1,5 +1,14 @@
 # @yeger/turbo-graph
 
+## 0.4.2
+
+### Patch Changes
+
+- 35bc132: add node shebang to bin
+- 2254227: restore --open option
+- Updated dependencies [35bc132]
+  - @yeger/turbo-graph-ui@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes
