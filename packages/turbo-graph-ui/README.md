@@ -1,6 +1,6 @@
-# @yeger/turbo-graph
+# @yeger/turbo-graph-ui
 
-[![npm](https://img.shields.io/npm/v/@yeger/turbo-graph?color=a1b858&label=)](https://npmjs.com/package/@yeger/turbo-graph)
+[![npm](https://img.shields.io/npm/v/@yeger/turbo-graph-ui?color=a1b858&label=)](https://npmjs.com/package/@yeger/turbo-graph-ui)
 
 > Interactive visualization of Turborepo task graphs.
 
@@ -50,4 +50,4 @@ The "Reset" button centers the graph.
 
 ## License
 
-[MIT](https://github.com/DerYeger/yeger/blob/main/packages/turbo-graph/LICENSE) - Copyright &copy; Jan Müller
+[MIT](https://github.com/DerYeger/yeger/blob/main/packages/turbo-graph-ui/LICENSE) - Copyright &copy; Jan Müller
