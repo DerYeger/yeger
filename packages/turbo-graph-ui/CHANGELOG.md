@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- 1ff5f10: extract ui to separate package
+
 ## 0.3.0
 
 ### Minor Changes
