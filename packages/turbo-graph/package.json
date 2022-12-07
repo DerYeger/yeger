@@ -13,10 +13,11 @@
     "url": "https://github.com/DerYeger/yeger/issues"
   },
   "bin": {
-    "turbo-graph": "dist/index.js"
+    "turbo-graph": "index.js"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.js"
   ],
   "scripts": {
     "dev": "tsc --watch",

@@ -46,7 +46,7 @@
     "lint-staged": "13.0.3",
     "semantic-release": "19.0.5",
     "syncpack": "8.3.9",
-    "turbo": "latest",
+    "turbo": "1.6.3",
     "vercel": "28.5.6"
   },
   "pnpm": {
