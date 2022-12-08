@@ -11,7 +11,7 @@ import {
 import { scaleOrdinal } from 'd3-scale'
 import { schemeSet3 } from 'd3-scale-chromatic'
 import Head from 'next/head'
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 import type { TurboGraph } from './api/graph'
 
@@ -97,6 +97,12 @@ export default function Home() {
     )
   }, [colors, graphRef, graphData])
 
+  useEffect(() => {
+    return () => {
+      graphController?.shutdown()
+    }
+  }, [graphController])
+
   const tasks = graphController?.nodeTypes.sort() ?? []
 
   return (
@@ -135,12 +141,20 @@ export default function Home() {
             ))}
           </div>
           <div className="flex-1" />
-          <button
-            className="border-blue-200 bg-blue-200 border-1 border-2 px-2 py-1 rounded hover:bg-blue-300 transition-colors mx-4 my-2"
-            onClick={() => graphController?.restart(0.5)}
-          >
-            Reset
-          </button>
+          <div className="flex gap-2 px-4 py-2">
+            <button
+              className="border-blue-200 bg-blue-200 border-1 border-2 px-2 py-1 rounded hover:bg-blue-300 transition-colors"
+              onClick={() => query.refetch()}
+            >
+              Refresh
+            </button>
+            <button
+              className="border-blue-200 bg-blue-200 border-1 border-2 px-2 py-1 rounded hover:bg-blue-300 transition-colors"
+              onClick={() => graphController?.restart(0.5)}
+            >
+              Reset
+            </button>
+          </div>
         </div>
         <div className="flex-1 relative">
           {!graphController ? (
