@@ -5,7 +5,9 @@
   "description": "",
   "files": [
     "base.json",
+    "cli.json",
     "lib.json",
+    "next.json",
     "web.json"
   ],
   "scripts": {

@@ -37,8 +37,8 @@
     },
     "@yeger/tsconfig#build": {
       "dependsOn": ["^build"],
-      "inputs": ["base.json", "lib.json", "web.json"],
-      "outputs": ["base.json", "lib.json", "web.json"]
+      "inputs": ["*.json"],
+      "outputs": ["*.json"]
     },
     "preview": {
       "dependsOn": ["build"],

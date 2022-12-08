@@ -4,6 +4,7 @@
     "target": "esnext",
     "module": "esnext",
     "strict": true,
+    "declaration": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "importHelpers": true,
@@ -18,6 +19,7 @@
     "noImplicitAny": true,
     "newLine": "lf",
     "jsx": "preserve",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "paths": {
       "~/*": ["src/*"],
       "~test/*": ["test/*"]

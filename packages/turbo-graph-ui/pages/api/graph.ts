@@ -15,7 +15,7 @@ interface Config {
 }
 
 export default async function handler(
-  req: NextApiRequest,
+  _: NextApiRequest,
   res: NextApiResponse<TurboGraph>
 ) {
   const { dir, config } = await findTurboConfig()

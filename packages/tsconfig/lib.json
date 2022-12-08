@@ -1,8 +1,6 @@
 {
   "extends": "./base.json",
   "compilerOptions": {
-    "declaration": false,
-    "sourceMap": true,
-    "jsx": "preserve"
+    "sourceMap": true
   }
 }
