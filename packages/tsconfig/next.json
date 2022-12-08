@@ -2,8 +2,7 @@
   "extends": "./web.json",
   "compilerOptions": {
     "noEmit": true,
-    "skipLibCheck": true,
     "incremental": true,
-    "forceConsistentCasingInFileNames": true
+    "skipLibCheck": true
   }
 }
