@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.3
+
+### Patch Changes
+
+- 3aa1814: shutdown graph controller
+
 ## 0.4.2
 
 ### Patch Changes
