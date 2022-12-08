@@ -95,7 +95,7 @@ export default function Home() {
         },
       })
     )
-  }, [graphRef, graphData])
+  }, [colors, graphRef, graphData])
 
   const tasks = graphController?.nodeTypes.sort() ?? []
 
