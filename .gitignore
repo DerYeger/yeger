@@ -1,6 +1,7 @@
 # Project files
 .DS_Store
 .turbo
+build
 coverage
 dist
 node_modules
@@ -24,4 +25,13 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+.vercel
+
+# Next.js
+next-env.d.ts
+*.tsbuildinfo
+.next/
+/out/
+
+# vercel
 .vercel
