@@ -28,7 +28,7 @@
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "test": "nr turbo run test",
-    "turbo": "FORCE_COLOR=1 turbo",
+    "turbo": "cross-env FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run typecheck",
     "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile"
@@ -41,6 +41,7 @@
     "@types/node": "18.11.10",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
+    "cross-env": "7.0.3",
     "eslint": "8.28.0",
     "husky": "8.0.2",
     "lint-staged": "13.0.3",
