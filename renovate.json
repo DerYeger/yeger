@@ -19,7 +19,7 @@
     "group:monorepos"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "enabled": false
   },
   "major": {
     "automerge": false
