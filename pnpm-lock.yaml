@@ -88,7 +88,7 @@ importers:
 
   docs/vue-masonry-wall-docs:
     specifiers:
-      '@vitejs/plugin-vue': 3.2.0
+      '@vitejs/plugin-vue': 4.0.0
       '@yeger/tsconfig': workspace:*
       '@yeger/vue-masonry-wall': workspace:*
       typescript: 4.9.3
@@ -99,7 +99,7 @@ importers:
     dependencies:
       '@yeger/vue-masonry-wall': link:../../packages/vue-masonry-wall
     devDependencies:
-      '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
+      '@vitejs/plugin-vue': 4.0.0_vite@3.2.4+vue@3.2.45
       '@yeger/tsconfig': link:../../packages/tsconfig
       typescript: 4.9.3
       vite: 3.2.4
@@ -325,7 +325,7 @@ importers:
     specifiers:
       '@babel/types': 7.20.5
       '@types/resize-observer-browser': 0.1.7
-      '@vitejs/plugin-vue': 3.2.0
+      '@vitejs/plugin-vue': 4.0.0
       '@vitest/coverage-c8': 0.25.3
       '@vitest/ui': 0.25.3
       '@vue/test-utils': 2.2.3
@@ -343,7 +343,7 @@ importers:
     devDependencies:
       '@babel/types': 7.20.5
       '@types/resize-observer-browser': 0.1.7
-      '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
+      '@vitejs/plugin-vue': 4.0.0_vite@3.2.4+vue@3.2.45
       '@vitest/coverage-c8': 0.25.3_ixtiidmpupiysdfspcykw6i65u
       '@vitest/ui': 0.25.3
       '@vue/test-utils': 2.2.3_vue@3.2.45
@@ -2156,6 +2156,17 @@ packages:
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       vite: ^3.0.0
+      vue: ^3.2.25
+    dependencies:
+      vite: 3.2.4
+      vue: 3.2.45
+    dev: true
+
+  /@vitejs/plugin-vue/4.0.0_vite@3.2.4+vue@3.2.45:
+    resolution: {integrity: sha512-e0X4jErIxAB5oLtDqbHvHpJe/uWNkdpYV83AOG2xo2tEVSzCzewgJMtREZM30wXnM5ls90hxiOtAuVU6H5JgbA==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
       vite: 3.2.4
