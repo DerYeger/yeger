@@ -55,7 +55,7 @@
     "@types/d3-force": "3.0.3",
     "@types/d3-selection": "3.0.3",
     "@types/d3-zoom": "3.0.1",
-    "@types/node": "18.11.10",
+    "@types/node": "18.11.12",
     "@types/resize-observer-browser": "0.1.7",
     "@vitest/coverage-c8": "0.25.3",
     "@vitest/ui": "0.25.3",
