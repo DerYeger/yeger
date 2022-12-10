@@ -328,7 +328,7 @@ importers:
       '@vitejs/plugin-vue': 3.2.0
       '@vitest/coverage-c8': 0.25.3
       '@vitest/ui': 0.25.3
-      '@vue/test-utils': 2.2.3
+      '@vue/test-utils': 2.2.6
       '@yeger/tsconfig': workspace:*
       bundlesize2: 0.0.31
       c8: 7.12.0
@@ -346,7 +346,7 @@ importers:
       '@vitejs/plugin-vue': 3.2.0_vite@3.2.4+vue@3.2.45
       '@vitest/coverage-c8': 0.25.3_ixtiidmpupiysdfspcykw6i65u
       '@vitest/ui': 0.25.3
-      '@vue/test-utils': 2.2.3_vue@3.2.45
+      '@vue/test-utils': 2.2.6_vue@3.2.45
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31
       c8: 7.12.0
@@ -2428,8 +2428,8 @@ packages:
       vue-template-compiler: 2.7.14_vue@2.7.14
     dev: true
 
-  /@vue/test-utils/2.2.3_vue@3.2.45:
-    resolution: {integrity: sha512-MbqIS11cPEuZmqvyKNCnTdGxfNS4FhvQx7HO1JFQHlZRIM3ql2iwjPv9L1AFiLl4taW/5RTQz0r54d47xJuurA==}
+  /@vue/test-utils/2.2.6_vue@3.2.45:
+    resolution: {integrity: sha512-64zHtJZdG7V/U2L0j/z3Pt5bSygccI3xs+Kl7LB73AZK4MQ8WONJhqDQPK8leUFFA9CmmoJygeky7zcl2hX10A==}
     peerDependencies:
       vue: ^3.0.1
     dependencies:
