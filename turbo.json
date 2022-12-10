@@ -65,7 +65,7 @@
       "outputs": []
     },
     "//#lint:root": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["@yeger/eslint-config#build"],
       "inputs": [
         "./*",
         ".vscode/**",
