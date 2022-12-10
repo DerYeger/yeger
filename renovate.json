@@ -16,6 +16,7 @@
     ":labels(dependencies,renovate)",
     ":prHourlyLimitNone",
     ":semanticCommits",
+    "group:allNonMajor",
     "group:monorepos"
   ],
   "lockFileMaintenance": {
