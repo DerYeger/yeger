@@ -1,4 +1,3 @@
-/// <reference types="vitest" />
 import * as path from 'path'
 
 import { defineConfig } from 'vite'
