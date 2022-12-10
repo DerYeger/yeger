@@ -1,5 +1,15 @@
 # @yeger/eslint-config
 
+## 1.6.0
+
+### Minor Changes
+
+- 32eb65f: improve output
+
+### Patch Changes
+
+- 71968b0: add shebang to bin
+
 ## 1.5.0
 
 ### Minor Changes
