@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const { ESLint } = require('eslint')
 
 ;(async function main() {
