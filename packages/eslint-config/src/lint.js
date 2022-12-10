@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const { ESLint } = require('eslint')
+const c = require('picocolors')
 
 ;(async function main() {
   // 1. Create an instance.
@@ -23,8 +24,13 @@ const { ESLint } = require('eslint')
   const resultText = formatter.format(results)
 
   // 4. Output it.
-  // eslint-disable-next-line no-console
-  console.log(resultText)
+  if (resultText.length > 0) {
+    // eslint-disable-next-line no-console
+    console.log(resultText)
+  } else {
+    // eslint-disable-next-line no-console
+    console.log(c.green('✔ No ESLint warnings or errors'))
+  }
   process.exit(hasErrors > 0 ? 1 : 0)
 })().catch((error) => {
   process.exitCode = 1

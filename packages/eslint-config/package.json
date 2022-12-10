@@ -43,6 +43,7 @@
     "eslint-plugin-turbo": "0.0.4",
     "eslint-plugin-unused-imports": "2.0.0",
     "eslint-plugin-yml": "1.2.0",
+    "picocolors": "1.0.0",
     "prettier": "2.8.0",
     "yaml-eslint-parser": "1.1.0"
   },
