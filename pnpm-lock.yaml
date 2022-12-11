@@ -144,7 +144,7 @@ importers:
       d3-selection: 3.0.0
       d3-zoom: 3.0.0
       jsdom: 20.0.3
-      ts-deepmerge: 4.0.0
+      ts-deepmerge: 5.0.0
       typescript: 4.9.4
       vecti: workspace:*
       vite: 4.0.0
@@ -169,7 +169,7 @@ importers:
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
       jsdom: 20.0.3
-      ts-deepmerge: 4.0.0
+      ts-deepmerge: 5.0.0
       typescript: 4.9.4
       vite: 4.0.0_@types+node@18.11.13
       vite-plugin-dts: 1.7.1_vite@4.0.0
@@ -9834,8 +9834,8 @@ packages:
     resolution: {integrity: sha512-rvuRbTarPXmMb79SmzEp8aqXNKcK+y0XaB298IXueQ8I2PsrATcPBCSPyK/dDNa2iWOhKlfNnOjdAOTBU/nkFA==}
     dev: false
 
-  /ts-deepmerge/4.0.0:
-    resolution: {integrity: sha512-IrjjAwfM/J6ajWv5wDRZBdpVaTmuONJN1vC85mXlWVPXKelouLFiqsjR7m0h245qY6zZEtcDtcOTc4Rozgg1TQ==}
+  /ts-deepmerge/5.0.0:
+    resolution: {integrity: sha512-K1V6dniogjom+6jsLCysv7y6/Hd04/a9DXiKFSr/7/Y6Ji+9fwFF8DzdncYNQ6VP6to8U9qbztQpIZKqYrtBgQ==}
     engines: {node: '>=14'}
     dev: true
 
