@@ -18,12 +18,6 @@ jobs:
         run: pnpm run syncpack list-mismatches && pnpm run syncpack lint-semver-ranges
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
-      - name: Upload d3-graph-controller coverage
-        uses: codecov/codecov-action@v3
-        with:
-          files: packages/d3-graph-controller/coverage/coverage-final.json
-          flags: d3-graph-controller
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/debounce coverage
         uses: codecov/codecov-action@v3
         with:
@@ -41,6 +35,18 @@ jobs:
         with:
           files: packages/vue2-masonry-wall/coverage/coverage-final.json
           flags: vue2-masonry-wall
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload d3-graph-controller coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/d3-graph-controller/coverage/coverage-final.json
+          flags: d3-graph-controller
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload resumon coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/resumon/coverage/coverage-final.json
+          flags: resumon
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vecti coverage
         uses: codecov/codecov-action@v3

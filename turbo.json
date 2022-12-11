@@ -60,7 +60,7 @@
       "cache": false
     },
     "lint": {
-      "dependsOn": ["@yeger/eslint-config#build"],
+      "dependsOn": ["@yeger/eslint-config#build", "^build"],
       "inputs": ["**"],
       "outputs": []
     },
