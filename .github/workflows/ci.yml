@@ -54,6 +54,12 @@ jobs:
           files: packages/vecti/coverage/coverage-final.json
           flags: vecti
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload vite-plugin-ssg-utils coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/vite-plugin-ssg-utils/coverage/coverage-final.json
+          flags: vite-plugin-ssg-utils
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

@@ -1,0 +1,60 @@
+{
+  "name": "vite-plugin-ssg-utils",
+  "version": "1.0.32",
+  "description": "Utils for vite-ssg and other Vite SSG or SSR tools.",
+  "author": "Jan Müller <janmueller3698@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/DerYeger",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-ssg-utils",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "vite-plugin",
+    "vite-ssg"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "build": "rimraf dist && unbuild",
+    "lint": "yeger-lint",
+    "test": "vitest run --coverage",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vite": "^2.0.0 || ^3.0.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "kolorist": "1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.13",
+    "@vitest/ui": "0.25.7",
+    "@yeger/tsconfig": "workspace:*",
+    "rimraf": "3.0.2",
+    "typescript": "4.9.4",
+    "unbuild": "1.0.2",
+    "vite": "4.0.0",
+    "vite-tsconfig-paths": "4.0.2",
+    "vitest": "0.25.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

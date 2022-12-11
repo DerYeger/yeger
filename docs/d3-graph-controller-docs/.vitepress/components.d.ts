@@ -10,6 +10,8 @@ declare module '@vue/runtime-core' {
     Demo: typeof import('./components/Demo.vue')['default']
     GraphView: typeof import('./components/GraphView.vue')['default']
     Home: typeof import('./components/Home.vue')['default']
+    RouterLink: typeof import('vue-router')['RouterLink']
+    RouterView: typeof import('vue-router')['RouterView']
     Status: typeof import('./components/Status.vue')['default']
     UsedIn: typeof import('./components/UsedIn.vue')['default']
   }
