@@ -63,6 +63,9 @@
     "vue": "3.2.45",
     "vue-tsc": "1.0.12"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "bundlesize": [
     {
       "path": "./dist/*.js",
