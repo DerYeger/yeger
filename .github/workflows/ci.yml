@@ -60,6 +60,12 @@ jobs:
           files: packages/vite-plugin-ssg-utils/coverage/coverage-final.json
           flags: vite-plugin-ssg-utils
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload vue-marmoset-viewer coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/vue-marmoset-viewer/coverage/coverage-final.json
+          flags: vue-marmoset-viewer
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

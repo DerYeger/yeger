@@ -59,7 +59,7 @@
     }
   },
   "lint-staged": {
-    "*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --fix --rule 'import/no-unresolved: off'"
+    "*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --rule 'import/no-unresolved: off' --fix"
   },
   "volta": {
     "node": "18.12.1"

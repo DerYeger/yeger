@@ -1,4 +1,5 @@
 {
+  "extends": ["@yeger"],
   "rules": {
     "vue/custom-event-name-casing": "off",
     "vue/no-deprecated-v-bind-sync": "off",
