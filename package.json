@@ -7,7 +7,6 @@
     "url": "https://github.com/DerYeger/yeger"
   },
   "workspaces": [
-    "apps/*",
     "docs/*",
     "examples/*",
     "packages/*"

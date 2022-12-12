@@ -1,7 +1,7 @@
 import { createServer } from 'http'
 import path from 'node:path'
 
-import cac from 'cac'
+import { cac } from 'cac'
 import next from 'next'
 import open from 'open'
 import c from 'picocolors'

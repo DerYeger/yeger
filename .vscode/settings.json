@@ -11,6 +11,7 @@
     "vue",
     "yaml"
   ],
+  "eslint.workingDirectories": [{ "mode": "auto" }],
   "markdownlint.config": {
     "MD033": false
   },
