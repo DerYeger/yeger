@@ -10,6 +10,14 @@ module.exports = {
     'plugin:yml/prettier',
   ],
   plugins: ['eslint-plugin-tsdoc', 'turbo', 'unused-imports'],
+  settings: {
+    'import/parser': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      typescript: {},
+    },
+  },
   overrides: [
     {
       files: ['*.md'],
@@ -38,8 +46,6 @@ module.exports = {
     ],
     '@typescript-eslint/no-unused-vars': 'off',
     'brace-style': ['error', '1tbs'],
-    'import/named': 'off',
-    'import/no-unresolved': 'off',
     'import/order': [
       'error',
       {

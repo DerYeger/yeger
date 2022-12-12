@@ -15,3 +15,27 @@ yarn add -D eslint @yeger/eslint-config
   "extends": ["@yeger"]
 }
 ```
+
+While using the standard `eslint` command is possible, the `yeger-lint` command automatically includes all supported files in the current directory:
+
+```json
+{
+  "scripts": {
+    "lint": "yeger-lint",
+    "lint:fix": "yeger-lint --fix"
+  }
+}
+```
+
+### lint-staged
+
+`lint-staged` will not work with the `import/no-unresolved` rule if TypeScript's path aliases are used.
+Hence, the rule has to be disabled for this use case:
+
+```json
+{
+  "lint-staged": {
+    "*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --fix --rule 'import/no-unresolved: off'"
+  }
+}
+```
