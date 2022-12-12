@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.7.0
+
+### Minor Changes
+
+- 92a74ba: enable import/no-unresolved
+
 ## 1.6.0
 
 ### Minor Changes
