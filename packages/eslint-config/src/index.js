@@ -30,6 +30,12 @@ module.exports = {
       files: ['*.yaml', '*.yml'],
       parser: 'yaml-eslint-parser',
     },
+    {
+      files: ['*.js', '*.jsx', '*.cjs'],
+      rules: {
+        'tsdoc/syntax': 'off',
+      },
+    },
   ],
   rules: {
     '@typescript-eslint/brace-style': ['error', '1tbs'],

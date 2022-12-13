@@ -1,0 +1,709 @@
+// Vitest Snapshot v1
+
+exports[`FOL parser > can parse "!(tt && !(ff) && tt)" 1`] = `
+NotFormula {
+  "inner": ParenthesizedFormula {
+    "inner": AndFormula {
+      "left": AndFormula {
+        "left": BooleanLiteral {
+          "stringRepresentation": "tt",
+          "value": true,
+        },
+        "operator": "∧",
+        "right": NotFormula {
+          "inner": ParenthesizedFormula {
+            "inner": BooleanLiteral {
+              "stringRepresentation": "ff",
+              "value": false,
+            },
+          },
+          "operator": "¬",
+        },
+      },
+      "operator": "∧",
+      "right": BooleanLiteral {
+        "stringRepresentation": "tt",
+        "value": true,
+      },
+    },
+  },
+  "operator": "¬",
+}
+`;
+
+exports[`FOL parser > can parse "!(tt && !ff) && tt" 1`] = `
+AndFormula {
+  "left": NotFormula {
+    "inner": ParenthesizedFormula {
+      "inner": AndFormula {
+        "left": BooleanLiteral {
+          "stringRepresentation": "tt",
+          "value": true,
+        },
+        "operator": "∧",
+        "right": NotFormula {
+          "inner": BooleanLiteral {
+            "stringRepresentation": "ff",
+            "value": false,
+          },
+          "operator": "¬",
+        },
+      },
+    },
+    "operator": "¬",
+  },
+  "operator": "∧",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "!A(x)" 1`] = `
+NotFormula {
+  "inner": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "¬",
+}
+`;
+
+exports[`FOL parser > can parse "!ff" 1`] = `
+NotFormula {
+  "inner": BooleanLiteral {
+    "stringRepresentation": "ff",
+    "value": false,
+  },
+  "operator": "¬",
+}
+`;
+
+exports[`FOL parser > can parse "!tt && !(ff && tt)" 1`] = `
+AndFormula {
+  "left": NotFormula {
+    "inner": BooleanLiteral {
+      "stringRepresentation": "tt",
+      "value": true,
+    },
+    "operator": "¬",
+  },
+  "operator": "∧",
+  "right": NotFormula {
+    "inner": ParenthesizedFormula {
+      "inner": AndFormula {
+        "left": BooleanLiteral {
+          "stringRepresentation": "ff",
+          "value": false,
+        },
+        "operator": "∧",
+        "right": BooleanLiteral {
+          "stringRepresentation": "tt",
+          "value": true,
+        },
+      },
+    },
+    "operator": "¬",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "!tt" 1`] = `
+NotFormula {
+  "inner": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "¬",
+}
+`;
+
+exports[`FOL parser > can parse "(forall x. A(x)) && (exists x. B(x))" 1`] = `
+AndFormula {
+  "left": ParenthesizedFormula {
+    "inner": UniversalQuantorFormula {
+      "inner": UnaryRelation {
+        "expression": BoundVariable {
+          "name": "x",
+        },
+        "name": "A",
+      },
+      "quantor": "∀",
+      "variable": BoundVariable {
+        "name": "x",
+      },
+    },
+  },
+  "operator": "∧",
+  "right": ParenthesizedFormula {
+    "inner": ExistentialQuantorFormula {
+      "inner": UnaryRelation {
+        "expression": BoundVariable {
+          "name": "x",
+        },
+        "name": "B",
+      },
+      "quantor": "∃",
+      "variable": BoundVariable {
+        "name": "x",
+      },
+    },
+  },
+}
+`;
+
+exports[`FOL parser > can parse "(tt || ff) && tt" 1`] = `
+AndFormula {
+  "left": ParenthesizedFormula {
+    "inner": OrFormula {
+      "left": BooleanLiteral {
+        "stringRepresentation": "tt",
+        "value": true,
+      },
+      "operator": "∨",
+      "right": BooleanLiteral {
+        "stringRepresentation": "ff",
+        "value": false,
+      },
+    },
+  },
+  "operator": "∧",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) & B(x)" 1`] = `
+AndFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "∧",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) && B(x)" 1`] = `
+AndFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "∧",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) <-> B(x)" 1`] = `
+BiImplFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "↔",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) | B(x)" 1`] = `
+OrFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "∨",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) || B(x)" 1`] = `
+OrFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "∨",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x) -> B(x)" 1`] = `
+ImplFormula {
+  "left": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "operator": "→",
+  "right": UnaryRelation {
+    "expression": Constant {
+      "name": "x",
+    },
+    "name": "B",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "A(x)" 1`] = `
+UnaryRelation {
+  "expression": Constant {
+    "name": "x",
+  },
+  "name": "A",
+}
+`;
+
+exports[`FOL parser > can parse "A(x,y)" 1`] = `
+BinaryRelation {
+  "firstExpression": Constant {
+    "name": "x",
+  },
+  "name": "A",
+  "secondExpression": Constant {
+    "name": "y",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "Relation(x)" 1`] = `
+UnaryRelation {
+  "expression": Constant {
+    "name": "x",
+  },
+  "name": "Relation",
+}
+`;
+
+exports[`FOL parser > can parse "a = b" 1`] = `
+EqualityRelation {
+  "firstExpression": Constant {
+    "name": "a",
+  },
+  "secondExpression": Constant {
+    "name": "b",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "a = f(a,b)" 1`] = `
+EqualityRelation {
+  "firstExpression": Constant {
+    "name": "a",
+  },
+  "secondExpression": BinaryFunction {
+    "firstArgument": Constant {
+      "name": "a",
+    },
+    "name": "f",
+    "secondArgument": Constant {
+      "name": "b",
+    },
+  },
+}
+`;
+
+exports[`FOL parser > can parse "exists a . tt" 1`] = `
+ExistentialQuantorFormula {
+  "inner": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "quantor": "∃",
+  "variable": BoundVariable {
+    "name": "a",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "exists x. A(x)" 1`] = `
+ExistentialQuantorFormula {
+  "inner": UnaryRelation {
+    "expression": BoundVariable {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "quantor": "∃",
+  "variable": BoundVariable {
+    "name": "x",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "f(a) = a" 1`] = `
+EqualityRelation {
+  "firstExpression": UnaryFunction {
+    "inner": Constant {
+      "name": "a",
+    },
+    "name": "f",
+  },
+  "secondExpression": Constant {
+    "name": "a",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "f(g(x)) = y" 1`] = `
+EqualityRelation {
+  "firstExpression": UnaryFunction {
+    "inner": UnaryFunction {
+      "inner": Constant {
+        "name": "x",
+      },
+      "name": "g",
+    },
+    "name": "f",
+  },
+  "secondExpression": Constant {
+    "name": "y",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "f(x) = y" 1`] = `
+EqualityRelation {
+  "firstExpression": UnaryFunction {
+    "inner": Constant {
+      "name": "x",
+    },
+    "name": "f",
+  },
+  "secondExpression": Constant {
+    "name": "y",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "ff" 1`] = `
+BooleanLiteral {
+  "stringRepresentation": "ff",
+  "value": false,
+}
+`;
+
+exports[`FOL parser > can parse "forall a. tt" 1`] = `
+UniversalQuantorFormula {
+  "inner": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "quantor": "∀",
+  "variable": BoundVariable {
+    "name": "a",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "forall x. A(x)" 1`] = `
+UniversalQuantorFormula {
+  "inner": UnaryRelation {
+    "expression": BoundVariable {
+      "name": "x",
+    },
+    "name": "A",
+  },
+  "quantor": "∀",
+  "variable": BoundVariable {
+    "name": "x",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "forall x. exists y. forall z. f(x) = y && R(y,z) && R(z,y) || (f(x) = x -> f(z) = a <-> ff)" 1`] = `
+UniversalQuantorFormula {
+  "inner": ExistentialQuantorFormula {
+    "inner": UniversalQuantorFormula {
+      "inner": OrFormula {
+        "left": AndFormula {
+          "left": AndFormula {
+            "left": EqualityRelation {
+              "firstExpression": UnaryFunction {
+                "inner": BoundVariable {
+                  "name": "x",
+                },
+                "name": "f",
+              },
+              "secondExpression": BoundVariable {
+                "name": "y",
+              },
+            },
+            "operator": "∧",
+            "right": BinaryRelation {
+              "firstExpression": BoundVariable {
+                "name": "y",
+              },
+              "name": "R",
+              "secondExpression": BoundVariable {
+                "name": "z",
+              },
+            },
+          },
+          "operator": "∧",
+          "right": BinaryRelation {
+            "firstExpression": BoundVariable {
+              "name": "z",
+            },
+            "name": "R",
+            "secondExpression": BoundVariable {
+              "name": "y",
+            },
+          },
+        },
+        "operator": "∨",
+        "right": ParenthesizedFormula {
+          "inner": BiImplFormula {
+            "left": ImplFormula {
+              "left": EqualityRelation {
+                "firstExpression": UnaryFunction {
+                  "inner": BoundVariable {
+                    "name": "x",
+                  },
+                  "name": "f",
+                },
+                "secondExpression": BoundVariable {
+                  "name": "x",
+                },
+              },
+              "operator": "→",
+              "right": EqualityRelation {
+                "firstExpression": UnaryFunction {
+                  "inner": BoundVariable {
+                    "name": "z",
+                  },
+                  "name": "f",
+                },
+                "secondExpression": Constant {
+                  "name": "a",
+                },
+              },
+            },
+            "operator": "↔",
+            "right": BooleanLiteral {
+              "stringRepresentation": "ff",
+              "value": false,
+            },
+          },
+        },
+      },
+      "quantor": "∀",
+      "variable": BoundVariable {
+        "name": "z",
+      },
+    },
+    "quantor": "∃",
+    "variable": BoundVariable {
+      "name": "y",
+    },
+  },
+  "quantor": "∀",
+  "variable": BoundVariable {
+    "name": "x",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "forall x. forall y. A(x, y)" 1`] = `
+UniversalQuantorFormula {
+  "inner": UniversalQuantorFormula {
+    "inner": BinaryRelation {
+      "firstExpression": BoundVariable {
+        "name": "x",
+      },
+      "name": "A",
+      "secondExpression": BoundVariable {
+        "name": "y",
+      },
+    },
+    "quantor": "∀",
+    "variable": BoundVariable {
+      "name": "y",
+    },
+  },
+  "quantor": "∀",
+  "variable": BoundVariable {
+    "name": "x",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "forall x. forall y. h(x,y) = x" 1`] = `
+UniversalQuantorFormula {
+  "inner": UniversalQuantorFormula {
+    "inner": EqualityRelation {
+      "firstExpression": BinaryFunction {
+        "firstArgument": BoundVariable {
+          "name": "x",
+        },
+        "name": "h",
+        "secondArgument": BoundVariable {
+          "name": "y",
+        },
+      },
+      "secondExpression": BoundVariable {
+        "name": "x",
+      },
+    },
+    "quantor": "∀",
+    "variable": BoundVariable {
+      "name": "y",
+    },
+  },
+  "quantor": "∀",
+  "variable": BoundVariable {
+    "name": "x",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "myConstant = myConstant" 1`] = `
+EqualityRelation {
+  "firstExpression": Constant {
+    "name": "myConstant",
+  },
+  "secondExpression": Constant {
+    "name": "myConstant",
+  },
+}
+`;
+
+exports[`FOL parser > can parse "myRelation(MyFunction(someConstant, AnotherConstant))" 1`] = `
+UnaryRelation {
+  "expression": BinaryFunction {
+    "firstArgument": Constant {
+      "name": "someConstant",
+    },
+    "name": "MyFunction",
+    "secondArgument": Constant {
+      "name": "AnotherConstant",
+    },
+  },
+  "name": "myRelation",
+}
+`;
+
+exports[`FOL parser > can parse "tt && tt" 1`] = `
+AndFormula {
+  "left": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "∧",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "tt <-> tt" 1`] = `
+BiImplFormula {
+  "left": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "↔",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "tt || ff && tt" 1`] = `
+OrFormula {
+  "left": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "∨",
+  "right": AndFormula {
+    "left": BooleanLiteral {
+      "stringRepresentation": "ff",
+      "value": false,
+    },
+    "operator": "∧",
+    "right": BooleanLiteral {
+      "stringRepresentation": "tt",
+      "value": true,
+    },
+  },
+}
+`;
+
+exports[`FOL parser > can parse "tt || tt" 1`] = `
+OrFormula {
+  "left": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "∨",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "tt -> tt" 1`] = `
+ImplFormula {
+  "left": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+  "operator": "→",
+  "right": BooleanLiteral {
+    "stringRepresentation": "tt",
+    "value": true,
+  },
+}
+`;
+
+exports[`FOL parser > can parse "tt" 1`] = `
+BooleanLiteral {
+  "stringRepresentation": "tt",
+  "value": true,
+}
+`;

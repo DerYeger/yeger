@@ -1,0 +1,77 @@
+// Vitest Snapshot v1
+
+exports[`FOL formula > has correct formattedString for "!(tt && !(ff) && tt)" 1`] = `"¬((tt ∧ ¬((ff)) ∧ tt))"`;
+
+exports[`FOL formula > has correct formattedString for "!(tt && !ff) && tt" 1`] = `"¬((tt ∧ ¬(ff))) ∧ tt"`;
+
+exports[`FOL formula > has correct formattedString for "!A(x)" 1`] = `"¬(A(x))"`;
+
+exports[`FOL formula > has correct formattedString for "!ff" 1`] = `"¬(ff)"`;
+
+exports[`FOL formula > has correct formattedString for "!tt && !(ff && tt)" 1`] = `"¬(tt) ∧ ¬((ff ∧ tt))"`;
+
+exports[`FOL formula > has correct formattedString for "!tt" 1`] = `"¬(tt)"`;
+
+exports[`FOL formula > has correct formattedString for "(forall x. A(x)) && (exists x. B(x))" 1`] = `"(∀ x. A(x)) ∧ (∃ x. B(x))"`;
+
+exports[`FOL formula > has correct formattedString for "(tt || ff) && tt" 1`] = `"(tt ∨ ff) ∧ tt"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) & B(x)" 1`] = `"A(x) ∧ B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) && B(x)" 1`] = `"A(x) ∧ B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) <-> B(x)" 1`] = `"A(x) ↔ B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) | B(x)" 1`] = `"A(x) ∨ B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) || B(x)" 1`] = `"A(x) ∨ B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x) -> B(x)" 1`] = `"A(x) → B(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x)" 1`] = `"A(x)"`;
+
+exports[`FOL formula > has correct formattedString for "A(x,y)" 1`] = `"A(x, y)"`;
+
+exports[`FOL formula > has correct formattedString for "Relation(x)" 1`] = `"Relation(x)"`;
+
+exports[`FOL formula > has correct formattedString for "a = b" 1`] = `"a = a"`;
+
+exports[`FOL formula > has correct formattedString for "a = f(a,b)" 1`] = `"a = a"`;
+
+exports[`FOL formula > has correct formattedString for "exists a . tt" 1`] = `"∃ a. tt"`;
+
+exports[`FOL formula > has correct formattedString for "exists x. A(x)" 1`] = `"∃ x. A(x)"`;
+
+exports[`FOL formula > has correct formattedString for "f(a) = a" 1`] = `"f(a) = f(a)"`;
+
+exports[`FOL formula > has correct formattedString for "f(g(x)) = y" 1`] = `"f(g(x)) = f(g(x))"`;
+
+exports[`FOL formula > has correct formattedString for "f(x) = y" 1`] = `"f(x) = f(x)"`;
+
+exports[`FOL formula > has correct formattedString for "ff" 1`] = `"ff"`;
+
+exports[`FOL formula > has correct formattedString for "forall a. tt" 1`] = `"∀ a. tt"`;
+
+exports[`FOL formula > has correct formattedString for "forall x. A(x)" 1`] = `"∀ x. A(x)"`;
+
+exports[`FOL formula > has correct formattedString for "forall x. exists y. forall z. f(x) = y && R(y,z) && R(z,y) || (f(x) = x -> f(z) = a <-> ff)" 1`] = `"∀ x. ∃ y. ∀ z. f(x) = f(x) ∧ R(y, z) ∧ R(z, y) ∨ (f(x) = f(x) → f(z) = f(z) ↔ ff)"`;
+
+exports[`FOL formula > has correct formattedString for "forall x. forall y. A(x, y)" 1`] = `"∀ x. ∀ y. A(x, y)"`;
+
+exports[`FOL formula > has correct formattedString for "forall x. forall y. h(x,y) = x" 1`] = `"∀ x. ∀ y. h(x, y) = h(x, y)"`;
+
+exports[`FOL formula > has correct formattedString for "myConstant = myConstant" 1`] = `"myConstant = myConstant"`;
+
+exports[`FOL formula > has correct formattedString for "myRelation(MyFunction(someConstant, AnotherConstant))" 1`] = `"myRelation(MyFunction(someConstant, AnotherConstant))"`;
+
+exports[`FOL formula > has correct formattedString for "tt && tt" 1`] = `"tt ∧ tt"`;
+
+exports[`FOL formula > has correct formattedString for "tt <-> tt" 1`] = `"tt ↔ tt"`;
+
+exports[`FOL formula > has correct formattedString for "tt || ff && tt" 1`] = `"tt ∨ ff ∧ tt"`;
+
+exports[`FOL formula > has correct formattedString for "tt || tt" 1`] = `"tt ∨ tt"`;
+
+exports[`FOL formula > has correct formattedString for "tt -> tt" 1`] = `"tt → tt"`;
+
+exports[`FOL formula > has correct formattedString for "tt" 1`] = `"tt"`;

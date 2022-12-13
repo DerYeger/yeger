@@ -34,8 +34,8 @@
   "scripts": {
     "build": "rimraf dist && unbuild",
     "lint": "yeger-lint",
-    "test": "vitest run --coverage",
-    "typecheck": "tsc --noEmit"
+    "test": "vitest",
+    "typecheck:tsc": "tsc --noEmit"
   },
   "peerDependencies": {
     "vite": "^2.0.0 || ^3.0.0 || ^4.0.0"
@@ -51,7 +51,6 @@
     "typescript": "4.9.4",
     "unbuild": "1.0.2",
     "vite": "4.0.0",
-    "vite-tsconfig-paths": "4.0.2",
     "vitest": "0.25.7"
   },
   "publishConfig": {

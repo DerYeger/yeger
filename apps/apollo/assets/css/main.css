@@ -1,0 +1,7 @@
+@import '@unocss/reset/tailwind.css';
+
+html,
+body,
+#__nuxt {
+  height: 100%;
+}

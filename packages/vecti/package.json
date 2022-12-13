@@ -35,8 +35,8 @@
     "build": "vite build",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest run --coverage",
-    "typecheck": "tsc --noEmit"
+    "test": "vitest",
+    "typecheck:tsc": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "18.11.13",

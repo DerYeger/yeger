@@ -1,44 +1,44 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalEnv": ["CI"],
   "pipeline": {
-    "typecheck": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "index.html",
-        "tsconfig.json",
-        "vite.config.ts",
-        "*.d.ts",
-        "pages/**",
-        "public/**",
-        "src/**",
-        "test/**",
-        "styles/**"
-      ],
-      "outputs": []
+    "typecheck:tsc": {
+      "dependsOn": ["^build", "generate"],
+      "outputs": [],
+      "outputMode": "new-only"
+    },
+    "typecheck:vue": {
+      "dependsOn": ["^build", "generate"],
+      "outputs": [],
+      "outputMode": "new-only"
     },
     "build": {
-      "dependsOn": ["^build"],
-      "inputs": [
-        "index.html",
-        "tsconfig.json",
-        "vite.config.ts",
-        "*.d.ts",
-        "pages/**",
-        "public/**",
-        "src/**",
-        "styles/**"
-      ],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": ["^build", "generate"],
+      "outputs": ["dist/**", ".next/**", ".output/**"],
+      "outputMode": "new-only"
     },
     "@yeger/eslint-config#build": {
       "dependsOn": ["^build"],
       "inputs": ["src/**"],
-      "outputs": ["src/**"]
+      "outputs": ["src/**"],
+      "outputMode": "new-only"
     },
     "@yeger/tsconfig#build": {
       "dependsOn": ["^build"],
       "inputs": ["*.json"],
-      "outputs": ["*.json"]
+      "outputs": ["*.json"],
+      "outputMode": "new-only"
+    },
+    "generate": {},
+    "@yeger/fol#generate": {
+      "inputs": ["src/*.ohm"],
+      "outputs": ["src/fol.ohm-bundle.*"],
+      "outputMode": "new-only"
+    },
+    "bundlesize": {
+      "dependsOn": ["build"],
+      "inputs": ["dist/**"],
+      "outputMode": "new-only"
     },
     "preview": {
       "dependsOn": ["build"],
@@ -46,23 +46,19 @@
     },
     "test": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "tsconfig.json",
-        "vite.config.ts",
-        "*.d.ts",
-        "src/**",
-        "test/**"
-      ],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "env": ["COVERAGE"],
+      "outputMode": "new-only"
     },
     "dev": {
+      "dependsOn": ["generate"],
       "outputs": [],
       "cache": false
     },
     "lint": {
-      "dependsOn": ["@yeger/eslint-config#build", "build", "^build"],
-      "inputs": ["**"],
-      "outputs": []
+      "dependsOn": ["@yeger/eslint-config#build", "^build", "build"],
+      "outputs": [],
+      "outputMode": "new-only"
     },
     "//#lint:root": {
       "dependsOn": ["@yeger/eslint-config#build"],
@@ -73,7 +69,8 @@
         ".github/**",
         ".changeset/**"
       ],
-      "outputs": []
+      "outputs": [],
+      "outputMode": "new-only"
     }
   }
 }

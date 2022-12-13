@@ -1,0 +1,70 @@
+FOL {
+  Formula = BiImplFormula
+
+  BiImplFormula
+    = BiImplFormula "<->" ImplFormula -- biimpl
+    | ImplFormula
+
+  ImplFormula
+    = ImplFormula "->" OrFormula -- impl
+    | OrFormula
+
+  OrFormula
+    = OrFormula ("||" | "|") AndFormula -- or
+    | AndFormula
+
+  AndFormula
+    = AndFormula ("&&" | "&") UnaryFormula -- and
+    | UnaryFormula
+
+  UnaryFormula
+    = "(" Formula ")" -- paren
+    | "forall" BoundVariable "." Formula -- universal
+    | "exists" BoundVariable "." Formula -- existential
+    | "!" UnaryFormula -- not
+    | Relation
+    | BooleanLiteral
+
+  RelationName (a relation)
+    = ident
+
+  FunctionName (a function)
+    = ident
+
+  BoundVariable (a bound variable)
+    = ident
+
+  Relation
+    = EqualityRelation
+    | UnaryRelation
+    | BinaryRelation
+
+  BooleanLiteral
+    = True
+    | False
+
+  UnaryRelation = RelationName "(" Expression ")"
+
+  BinaryRelation = RelationName "(" Expression "," Expression ")"
+
+  EqualityRelation = Expression "=" Expression
+
+  True = "tt"
+
+  False = "ff"
+
+  Expression
+    = UnaryFunction
+    | BinaryFunction
+    | ConstantOrBoundVariable
+
+  ConstantOrBoundVariable (a constant or bound variable)
+    = ident
+
+  ident (an identifier)
+    = letter+
+
+  UnaryFunction = FunctionName "(" Expression ")"
+
+  BinaryFunction = FunctionName "(" Expression "," Expression ")"
+}
