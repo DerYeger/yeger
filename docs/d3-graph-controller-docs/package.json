@@ -7,7 +7,8 @@
     "dev": "vitepress dev",
     "lint": "yeger-lint",
     "preview": "vitepress serve",
-    "typecheck": "tsc --noEmit && vue-tsc --noEmit"
+    "typecheck:tsc": "tsc --noEmit",
+    "typecheck:vue": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@algolia/client-search": "4.14.2",

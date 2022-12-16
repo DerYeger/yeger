@@ -34,11 +34,13 @@
     "node": ">=12"
   },
   "scripts": {
-    "build": "vite build && bundlesize",
+    "build": "vite build",
+    "bundlesize": "bundlesize",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest run --coverage",
-    "typecheck": "tsc --noEmit && vue-tsc --noEmit"
+    "test": "vitest",
+    "typecheck:tsc": "tsc --noEmit",
+    "typecheck:vue": "vue-tsc --noEmit"
   },
   "peerDependencies": {
     "vue": "^3.0.5"

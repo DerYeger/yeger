@@ -6,6 +6,7 @@
 
 - [@yeger/debouce](https://github.com/DerYeger/yeger/tree/main/packages/debounce)
 - [@yeger/eslint-config](https://github.com/DerYeger/yeger/tree/main/packages/eslint-config)
+- [@yeger/fol](https://github.com/DerYeger/yeger/tree/main/packages/fol)
 - [@yeger/turbo-graph](https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph)
 - [@yeger/turbo-graph-ui](https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph-ui)
 - [@yeger/vue-masonry-wall](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall)

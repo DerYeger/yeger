@@ -1,0 +1,55 @@
+{
+  "name": "@yeger/fol",
+  "version": "0.0.0",
+  "description": "FOL grammar and parser.",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/fol",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types/fol.d.ts",
+      "require": "./dist/fol.umd.js",
+      "import": "./dist/fol.es.mjs"
+    }
+  },
+  "main": "./dist/fol.umd.js",
+  "module": "./dist/fol.es.mjs",
+  "types": "./dist/types/fol.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "generate": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
+    "lint": "yeger-lint",
+    "test": "vitest",
+    "typecheck:tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "ohm-js": "16.4.0"
+  },
+  "devDependencies": {
+    "@ohm-js/cli": "1.1.0",
+    "@types/node": "18.11.13",
+    "@vitest/coverage-c8": "0.25.7",
+    "@yeger/tsconfig": "workspace:*",
+    "c8": "7.12.0",
+    "resumon": "workspace:*",
+    "typescript": "4.9.4",
+    "vite": "4.0.0",
+    "vite-plugin-dts": "1.7.1",
+    "vitest": "0.25.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -6,29 +6,26 @@
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
   },
-  "workspaces": [
-    "docs/*",
-    "examples/*",
-    "packages/*"
-  ],
   "engines": {
     "node": ">=14.0.0"
   },
   "scripts": {
     "build": "nr turbo run build",
+    "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
-    "ci": "nr turbo run build lint test typecheck",
+    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize lint test typecheck:tsc typecheck:vue",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
+    "generate": "nr turbo run generate",
     "graph": "nr turbo build --filter=turbo-graph... && turbo-graph --open",
     "install-hooks": "is-ci || husky install",
     "lint": "nr turbo run lint lint:root",
     "lint:root": "eslint \"{.changeset,.github,.husky,.vscode}/**/*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
-    "test": "nr turbo run test",
-    "turbo": "cross-env FORCE_COLOR=1 turbo",
-    "typecheck": "nr turbo run typecheck",
+    "test": "cross-env COVERAGE=true nr turbo run test",
+    "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
+    "typecheck": "nr turbo run typecheck:tsc typecheck:vue",
     "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile"
   },
@@ -56,6 +53,9 @@
           "vue": "^2.7.14"
         }
       }
+    },
+    "patchedDependencies": {
+      "bundlesize2@0.0.31": "patches/bundlesize2@0.0.31.patch"
     }
   },
   "lint-staged": {

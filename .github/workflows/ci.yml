@@ -24,6 +24,12 @@ jobs:
           files: packages/debounce/coverage/coverage-final.json
           flags: debounce
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload @yeger/fol coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/fol/coverage/coverage-final.json
+          flags: fol
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/vue-masonry-wall coverage
         uses: codecov/codecov-action@v3
         with:

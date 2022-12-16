@@ -38,6 +38,7 @@ export default defineConfig({
   test: {
     include: ['test/**/*.test.ts'],
     coverage: {
+      enabled: !!process.env.COVERAGE,
       all: true,
       include: ['src/**/*.*'],
     },
