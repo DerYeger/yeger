@@ -34,11 +34,11 @@ export interface TreeNode {
 
 export interface FOLFragment {
   toFormattedString(): string
+  toTree(): TreeNode
 }
 
 export interface Formula extends FOLFragment {
   evaluate(model: Model, variableAssignment: VariableAssignment): boolean
-  toTree(): TreeNode
 }
 
 export class ParenthesizedFormula implements Formula {
@@ -81,7 +81,12 @@ export abstract class BinaryFormula implements Formula {
     } ${this.right.toFormattedString()}`
   }
 
-  public abstract toTree(): TreeNode
+  public toTree(): TreeNode {
+    return {
+      symbol: this.operator,
+      children: [this.left.toTree(), this.right.toTree()],
+    }
+  }
 }
 
 const orSymbol = '\u2228'
@@ -98,13 +103,6 @@ export class OrFormula extends BinaryFormula {
       this.left.evaluate(model, variableAssignment) ||
       this.right.evaluate(model, variableAssignment)
     )
-  }
-
-  public toTree(): TreeNode {
-    return {
-      symbol: orSymbol,
-      children: [this.left.toTree(), this.right.toTree()],
-    }
   }
 }
 
@@ -123,13 +121,6 @@ export class AndFormula extends BinaryFormula {
       this.right.evaluate(model, variableAssignment)
     )
   }
-
-  public toTree(): TreeNode {
-    return {
-      symbol: andSymbol,
-      children: [this.left.toTree(), this.right.toTree()],
-    }
-  }
 }
 
 const implSymbol = '\u2192'
@@ -147,13 +138,6 @@ export class ImplFormula extends BinaryFormula {
       this.right.evaluate(model, variableAssignment)
     )
   }
-
-  public toTree(): TreeNode {
-    return {
-      symbol: implSymbol,
-      children: [this.left.toTree(), this.right.toTree()],
-    }
-  }
 }
 
 const biImplSymbol = '\u2194'
@@ -169,13 +153,6 @@ export class BiImplFormula extends BinaryFormula {
     const left = this.left.evaluate(model, variableAssignment)
     const right = this.right.evaluate(model, variableAssignment)
     return (left && right) || (!left && !right)
-  }
-
-  public toTree(): TreeNode {
-    return {
-      symbol: biImplSymbol,
-      children: [this.left.toTree(), this.right.toTree()],
-    }
   }
 }
 
@@ -263,7 +240,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
 
   public toTree(): TreeNode {
     return {
-      symbol: universalQuantorSymbol,
+      symbol: `${universalQuantorSymbol} ${this.variable.name}`,
       children: [this.inner.toTree()],
     }
   }
@@ -293,7 +270,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
 
   public toTree(): TreeNode {
     return {
-      symbol: existentialQuantorSymbol,
+      symbol: `${existentialQuantorSymbol} ${this.variable.name}`,
       children: [this.inner.toTree()],
     }
   }
@@ -317,7 +294,7 @@ export class BooleanLiteral implements Formula {
 
   public toTree(): TreeNode {
     return {
-      symbol: this.toFormattedString(),
+      symbol: this.stringRepresentation,
       children: [],
     }
   }
@@ -350,8 +327,8 @@ export class UnaryRelation implements Relation {
 
   public toTree(): TreeNode {
     return {
-      symbol: this.toFormattedString(),
-      children: [],
+      symbol: this.name,
+      children: [this.expression.toTree()],
     }
   }
 }
@@ -396,8 +373,8 @@ export class BinaryRelation implements Relation {
 
   public toTree(): TreeNode {
     return {
-      symbol: this.toFormattedString(),
-      children: [],
+      symbol: this.name,
+      children: [this.firstExpression.toTree(), this.secondExpression.toTree()],
     }
   }
 }
@@ -429,8 +406,8 @@ export class EqualityRelation implements Relation {
 
   public toTree(): TreeNode {
     return {
-      symbol: this.toFormattedString(),
-      children: [],
+      symbol: '=',
+      children: [this.firstExpression.toTree(), this.secondExpression.toTree()],
     }
   }
 }
@@ -452,6 +429,13 @@ export class Constant implements Expression {
       throw new Error(`Missing constant ${this.name}`)
     }
     return interpreted
+  }
+
+  public toTree(): TreeNode {
+    return {
+      symbol: this.name,
+      children: [],
+    }
   }
 }
 
@@ -481,6 +465,13 @@ export class UnaryFunction implements Expression {
       )
     }
     return interpreted
+  }
+
+  public toTree(): TreeNode {
+    return {
+      symbol: this.name,
+      children: [this.inner.toTree()],
+    }
   }
 }
 
@@ -527,6 +518,13 @@ export class BinaryFunction implements Expression {
     }
     return interpreted
   }
+
+  public toTree(): TreeNode {
+    return {
+      symbol: this.name,
+      children: [this.firstArgument.toTree(), this.secondArgument.toTree()],
+    }
+  }
 }
 
 export class BoundVariable implements Expression {
@@ -538,5 +536,12 @@ export class BoundVariable implements Expression {
 
   public interpret(_: Model, variableAssignment: VariableAssignment): number {
     return variableAssignment[this.name]
+  }
+
+  public toTree(): TreeNode {
+    return {
+      symbol: this.name,
+      children: [],
+    }
   }
 }
