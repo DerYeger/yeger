@@ -40,7 +40,7 @@
     "dev": "vite build --watch",
     "lint": "yeger-lint",
     "test": "vitest",
-    "typecheck:tsc": "tsc --noEmit"
+    "check:tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*",

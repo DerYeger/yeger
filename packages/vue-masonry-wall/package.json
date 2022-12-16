@@ -41,8 +41,8 @@
     "dev": "vite build --watch",
     "lint": "yeger-lint",
     "test": "vitest",
-    "typecheck:tsc": "tsc --noEmit",
-    "typecheck:vue": "vue-tsc --noEmit"
+    "check:tsc": "tsc --noEmit",
+    "check:vue": "vue-tsc --noEmit"
   },
   "peerDependencies": {
     "vue": "^3.0.0"

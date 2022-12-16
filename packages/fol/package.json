@@ -29,10 +29,10 @@
   "scripts": {
     "build": "vite build",
     "dev": "vite build --watch",
-    "generate": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
+    "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
     "lint": "yeger-lint",
     "test": "vitest",
-    "typecheck:tsc": "tsc --noEmit"
+    "check:tsc": "tsc --noEmit"
   },
   "dependencies": {
     "ohm-js": "16.4.0"

@@ -4,11 +4,12 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "generate": "nuxt generate",
     "lint": "yeger-lint",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "typecheck:tsc": "tsc --noEmit",
-    "typecheck:vue": "nuxi typecheck"
+    "check:tsc": "tsc --noEmit",
+    "check:vue": "nuxi typecheck"
   },
   "dependencies": {
     "@yeger/fol": "workspace:*"

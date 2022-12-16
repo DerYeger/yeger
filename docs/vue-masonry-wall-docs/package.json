@@ -7,8 +7,8 @@
     "dev": "vite",
     "lint": "yeger-lint",
     "preview": "vite preview",
-    "typecheck:tsc": "tsc --noEmit",
-    "typecheck:vue": "vue-tsc --noEmit"
+    "check:tsc": "tsc --noEmit",
+    "check:vue": "vue-tsc --noEmit"
   },
   "dependencies": {
     "@yeger/vue-masonry-wall": "workspace:*"

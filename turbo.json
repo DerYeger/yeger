@@ -2,18 +2,18 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["CI"],
   "pipeline": {
-    "typecheck:tsc": {
-      "dependsOn": ["^build", "generate"],
+    "check:tsc": {
+      "dependsOn": ["^build", "codegen"],
       "outputs": [],
       "outputMode": "new-only"
     },
-    "typecheck:vue": {
-      "dependsOn": ["^build", "generate"],
+    "check:vue": {
+      "dependsOn": ["^build", "codegen"],
       "outputs": [],
       "outputMode": "new-only"
     },
     "build": {
-      "dependsOn": ["^build", "generate"],
+      "dependsOn": ["^build", "codegen"],
       "outputs": ["dist/**", ".next/**", ".output/**"],
       "outputMode": "new-only"
     },
@@ -29,8 +29,13 @@
       "outputs": ["*.json"],
       "outputMode": "new-only"
     },
-    "generate": {},
-    "@yeger/fol#generate": {
+    "generate": {
+      "dependsOn": ["build"],
+      "outputs": ["dist/**", ".next/**", ".output/**"],
+      "outputMode": "new-only"
+    },
+    "codegen": {},
+    "@yeger/fol#codegen": {
       "inputs": ["src/*.ohm"],
       "outputs": ["src/fol.ohm-bundle.*"],
       "outputMode": "new-only"
@@ -51,7 +56,7 @@
       "outputMode": "new-only"
     },
     "dev": {
-      "dependsOn": ["generate"],
+      "dependsOn": ["codegen"],
       "outputs": [],
       "cache": false
     },
