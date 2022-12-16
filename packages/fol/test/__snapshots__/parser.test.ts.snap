@@ -6,14 +6,14 @@ NotFormula {
     "inner": AndFormula {
       "left": AndFormula {
         "left": BooleanLiteral {
-          "stringRepresentation": "tt",
+          "name": "⊤",
           "value": true,
         },
         "operator": "∧",
         "right": NotFormula {
           "inner": ParenthesizedFormula {
             "inner": BooleanLiteral {
-              "stringRepresentation": "ff",
+              "name": "⊥",
               "value": false,
             },
           },
@@ -22,7 +22,7 @@ NotFormula {
       },
       "operator": "∧",
       "right": BooleanLiteral {
-        "stringRepresentation": "tt",
+        "name": "⊤",
         "value": true,
       },
     },
@@ -37,13 +37,13 @@ AndFormula {
     "inner": ParenthesizedFormula {
       "inner": AndFormula {
         "left": BooleanLiteral {
-          "stringRepresentation": "tt",
+          "name": "⊤",
           "value": true,
         },
         "operator": "∧",
         "right": NotFormula {
           "inner": BooleanLiteral {
-            "stringRepresentation": "ff",
+            "name": "⊥",
             "value": false,
           },
           "operator": "¬",
@@ -54,7 +54,7 @@ AndFormula {
   },
   "operator": "∧",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -75,7 +75,7 @@ NotFormula {
 exports[`FOL parser > can parse "!ff" 1`] = `
 NotFormula {
   "inner": BooleanLiteral {
-    "stringRepresentation": "ff",
+    "name": "⊥",
     "value": false,
   },
   "operator": "¬",
@@ -86,7 +86,7 @@ exports[`FOL parser > can parse "!tt && !(ff && tt)" 1`] = `
 AndFormula {
   "left": NotFormula {
     "inner": BooleanLiteral {
-      "stringRepresentation": "tt",
+      "name": "⊤",
       "value": true,
     },
     "operator": "¬",
@@ -96,12 +96,12 @@ AndFormula {
     "inner": ParenthesizedFormula {
       "inner": AndFormula {
         "left": BooleanLiteral {
-          "stringRepresentation": "ff",
+          "name": "⊥",
           "value": false,
         },
         "operator": "∧",
         "right": BooleanLiteral {
-          "stringRepresentation": "tt",
+          "name": "⊤",
           "value": true,
         },
       },
@@ -114,7 +114,7 @@ AndFormula {
 exports[`FOL parser > can parse "!tt" 1`] = `
 NotFormula {
   "inner": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "¬",
@@ -160,19 +160,19 @@ AndFormula {
   "left": ParenthesizedFormula {
     "inner": OrFormula {
       "left": BooleanLiteral {
-        "stringRepresentation": "tt",
+        "name": "⊤",
         "value": true,
       },
       "operator": "∨",
       "right": BooleanLiteral {
-        "stringRepresentation": "ff",
+        "name": "⊥",
         "value": false,
       },
     },
   },
   "operator": "∧",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -347,7 +347,7 @@ EqualityRelation {
 exports[`FOL parser > can parse "exists a . tt" 1`] = `
 ExistentialQuantorFormula {
   "inner": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "quantor": "∃",
@@ -419,7 +419,7 @@ EqualityRelation {
 
 exports[`FOL parser > can parse "ff" 1`] = `
 BooleanLiteral {
-  "stringRepresentation": "ff",
+  "name": "⊥",
   "value": false,
 }
 `;
@@ -427,7 +427,7 @@ BooleanLiteral {
 exports[`FOL parser > can parse "forall a. tt" 1`] = `
 UniversalQuantorFormula {
   "inner": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "quantor": "∀",
@@ -522,7 +522,7 @@ UniversalQuantorFormula {
             },
             "operator": "↔",
             "right": BooleanLiteral {
-              "stringRepresentation": "ff",
+              "name": "⊥",
               "value": false,
             },
           },
@@ -627,12 +627,12 @@ UnaryRelation {
 exports[`FOL parser > can parse "tt && tt" 1`] = `
 AndFormula {
   "left": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "∧",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -641,12 +641,12 @@ AndFormula {
 exports[`FOL parser > can parse "tt <-> tt" 1`] = `
 BiImplFormula {
   "left": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "↔",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -655,18 +655,18 @@ BiImplFormula {
 exports[`FOL parser > can parse "tt || ff && tt" 1`] = `
 OrFormula {
   "left": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "∨",
   "right": AndFormula {
     "left": BooleanLiteral {
-      "stringRepresentation": "ff",
+      "name": "⊥",
       "value": false,
     },
     "operator": "∧",
     "right": BooleanLiteral {
-      "stringRepresentation": "tt",
+      "name": "⊤",
       "value": true,
     },
   },
@@ -676,12 +676,12 @@ OrFormula {
 exports[`FOL parser > can parse "tt || tt" 1`] = `
 OrFormula {
   "left": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "∨",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -690,12 +690,12 @@ OrFormula {
 exports[`FOL parser > can parse "tt -> tt" 1`] = `
 ImplFormula {
   "left": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
   "operator": "→",
   "right": BooleanLiteral {
-    "stringRepresentation": "tt",
+    "name": "⊤",
     "value": true,
   },
 }
@@ -703,7 +703,7 @@ ImplFormula {
 
 exports[`FOL parser > can parse "tt" 1`] = `
 BooleanLiteral {
-  "stringRepresentation": "tt",
+  "name": "⊤",
   "value": true,
 }
 `;

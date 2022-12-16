@@ -8,7 +8,7 @@ describe('FOL formula', () => {
     'has correct formattedString for "%s"',
     (formula) => {
       const result = FOL.parse(formula)
-      expect(result.toFormattedString()).toMatchSnapshot()
+      expect(result.get().toFormattedString()).toMatchSnapshot()
       // console.log(result)
     }
   )

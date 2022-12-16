@@ -82,16 +82,16 @@ describe('FOL semantics', () => {
     ['forall x. forall y. h(x,y) = x', true],
     ['(ff || tt) && tt', true],
   ])('evaluates "%s" to %b', (formula, expected) => {
-    expect(FOL.evaluate(model, formula)).toBe(expected)
+    expect(FOL.evaluate(model, formula).get()).toBe(expected)
   })
 
   describe('evaluates correctly', () => {
     it('negative existential quantors', () => {
-      expect(FOL.evaluate(model, 'exists x. MyRelation(x,x)')).toBe(false)
+      expect(FOL.evaluate(model, 'exists x. MyRelation(x,x)').get()).toBe(false)
     })
 
     it('negative universal quantors', () => {
-      expect(FOL.evaluate(model, 'forall x. MyRelation(x,x)')).toBe(false)
+      expect(FOL.evaluate(model, 'forall x. MyRelation(x,x)').get()).toBe(false)
     })
   })
 

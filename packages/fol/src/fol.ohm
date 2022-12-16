@@ -58,7 +58,7 @@ FOL {
     | BinaryFunction
     | ConstantOrBoundVariable
 
-  ConstantOrBoundVariable (a constant or bound variable)
+  ConstantOrBoundVariable (a bound variable or constant)
     = ident
 
   ident (an identifier)

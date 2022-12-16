@@ -1,3 +1,6 @@
+import type { Result } from 'resumon'
+import { Err, Ok } from 'resumon'
+
 import type { FOLSemantics } from '~/fol.ohm-bundle'
 import grammar from '~/fol.ohm-bundle'
 import type { Expression, Formula } from '~/model'
@@ -150,7 +153,10 @@ const semantics: FOLSemantics = grammar
     },
   })
 
-export function parse(formula: string): Formula {
+export function parse(formula: string): Result<Formula, string> {
   const matchResult = grammar.match(formula, 'Formula')
-  return semantics(matchResult).parseFormula(new Set())
+  if (matchResult.succeeded()) {
+    return new Ok(semantics(matchResult).parseFormula(new Set()))
+  }
+  return new Err(matchResult.message ?? '')
 }
