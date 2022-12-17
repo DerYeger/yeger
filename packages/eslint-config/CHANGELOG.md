@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.7.1
+
+### Patch Changes
+
+- 109393a: add dependency
+
 ## 1.7.0
 
 ### Minor Changes
