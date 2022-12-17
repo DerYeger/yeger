@@ -1,3 +1,4 @@
 {
-  "extends": ["@yeger"]
+  "extends": ["@yeger"],
+  "plugins": ["turbo"]
 }

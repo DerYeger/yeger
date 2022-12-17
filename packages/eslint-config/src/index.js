@@ -9,7 +9,7 @@ module.exports = {
     'plugin:yml/standard',
     'plugin:yml/prettier',
   ],
-  plugins: ['eslint-plugin-tsdoc', 'turbo', 'unused-imports'],
+  plugins: ['eslint-plugin-tsdoc', 'unused-imports'],
   settings: {
     'import/parser': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
