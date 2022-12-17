@@ -1,6 +1,10 @@
 # @yeger
 
-> Monorepo for `@yeger/` and related NPM packages
+> Monorepo for `@yeger` and related NPM packages
+
+## Apps
+
+- [Apollo](https://github.com/DerYeger/yeger/tree/main/apps/apollo)
 
 ## Packages
 
