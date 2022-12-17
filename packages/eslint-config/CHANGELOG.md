@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.7.2
+
+### Patch Changes
+
+- c2c0813: do not enable turbo plugin by default
+
 ## 1.7.1
 
 ### Patch Changes
