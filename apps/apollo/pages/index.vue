@@ -3,12 +3,9 @@ import { FOL } from '@yeger/fol'
 
 const formulaInput = ref('exists x. forall y. f(x) = g(x,y) -> x = y')
 
-const matchResult = computed(() => FOL.match(formulaInput.value))
-const formula = computed(() =>
-  matchResult.value?.succeeded()
-    ? FOL.parse(formulaInput.value).get()
-    : undefined
-)
+const result = computed(() => FOL.parse(formulaInput.value))
+const formula = computed(() => result.value.getOrUndefined())
+const error = computed(() => result.value.getErrorOrUndefined())
 </script>
 
 <template>
@@ -33,7 +30,7 @@ const formula = computed(() =>
       <span>Error</span>
       <pre
         class="px-2 py-1 border-current border-1 text-stone-500 overflow-x-auto"
-        >{{ matchResult.message ?? 'None' }}</pre
+        >{{ error ?? 'None' }}</pre
       >
     </div>
     <div v-if="formula" class="flex flex-col gap-2">

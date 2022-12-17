@@ -429,7 +429,7 @@ export class EqualityRelation implements Relation {
   }
 
   public toFormattedString(): string {
-    return `${this.firstExpression.toFormattedString()} = ${this.firstExpression.toFormattedString()}`
+    return `${this.firstExpression.toFormattedString()} = ${this.secondExpression.toFormattedString()}`
   }
 }
 
