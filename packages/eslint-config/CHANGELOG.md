@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.8.1
+
+### Patch Changes
+
+- 1e5c556: update yeger-lint command
+
 ## 1.8.0
 
 ### Minor Changes
