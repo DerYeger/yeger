@@ -1,4 +1,4 @@
-import type { Model } from '~/fol'
+import { Function, Model, Relation } from '~/fol'
 
 const validFormulas = [
   'ff',
@@ -52,395 +52,50 @@ const invalidFormulas = [
   'y = f(x,y',
 ]
 
-const validModels: Model[] = [
-  {
-    nodes: new Set([1, 2]),
-    functions: {
-      binary: {
-        h: {
-          1: {
-            1: 1,
-            2: 1,
-          },
-          2: {
-            1: 2,
-            2: 2,
-          },
-        },
-      },
-      constants: {
-        a: 1,
-        b: 2,
-        d: 1,
-        second: 2,
-      },
-      unary: {
-        f: {
-          1: 2,
-          2: 2,
-        },
-        myFunction: {
-          1: 1,
-          2: 2,
-        },
-      },
-    },
-    relations: {
-      binary: {
-        A: {
-          1: new Set([1]),
-        },
-        MyRelation: {
-          1: new Set([2]),
-        },
-      },
-      unary: {
-        B: new Set([2]),
-        C: new Set([1, 2]),
-      },
-    },
-  },
-]
+const testModel = new Model(
+  new Set([1, 2]),
+  { a: 1, b: 1, d: 1, second: 2 },
+  [
+    new Function('f', 1, { '1': 2, '2': 2 }),
+    new Function('myFunction', 1, { '1': 1, '2': 2 }),
+    new Function('h', 2, { '1,1': 1, '1,2': 1, '2,1': 2, '2,2': 2 }),
+  ],
+  [
+    new Relation('A', 2, new Set(['1,1'])),
+    new Relation('MyRelation', 2, new Set(['1,2'])),
+    new Relation('B', 1, new Set(['1'])),
+    new Relation('C', 1, new Set(['1', '2'])),
+    new Relation('D', 1, new Set(['2'])),
+  ]
+)
+
+const validModels: Model[] = [testModel]
 
 const invalidModels: [string, Model][] = [
   [
-    'invalid constant',
-    {
-      nodes: new Set([1, 2]),
-      functions: {
-        binary: {},
-        constants: {
-          a: 3,
-        },
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
+    'non-total function',
+    new Model(
+      new Set([1]),
+      {},
+      [new Function('f', 2, { '1,1': 1, '1,2': 1, '2,1': 1 })],
+      []
+    ),
+  ],
+  ['out-of-range constant', new Model(new Set([1]), { c: 2 }, [], [])],
+  [
+    'out-of-domain function',
+    new Model(new Set([1]), {}, [new Function('f', 1, { '1': 1, '2': 1 })], []),
   ],
   [
-    'non-total unary function',
-    {
-      nodes: new Set([1, 2]),
-      functions: {
-        binary: {},
-        constants: {},
-        unary: {
-          f: {
-            1: 1,
-          },
-        },
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'non-total binary function',
-    {
-      nodes: new Set([1, 2]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: 1,
-              2: 1,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'non-total curried binary function',
-    {
-      nodes: new Set([1, 2]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: 1,
-              2: 1,
-            },
-            2: {
-              1: 1,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial constant',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {
-          c: undefined,
-        },
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-domain constant',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {
-          c: 2,
-        },
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial unary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {},
-        unary: {
-          f: undefined,
-        },
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial-range unary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {},
-        unary: {
-          f: {
-            1: undefined,
-          },
-        },
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-domain unary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {},
-        unary: {
-          f: {
-            1: 1,
-            2: 1,
-          },
-        },
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-range unary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {},
-        constants: {},
-        unary: {
-          f: {
-            1: 2,
-          },
-        },
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial-domain binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: undefined,
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial-domain-curried binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: {
-            1: undefined,
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: undefined,
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'partial-range binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: undefined,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-domain binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: 1,
-            },
-            2: {
-              1: 1,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-domain curried binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: 1,
-              2: 1,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
-  ],
-  [
-    'out-of-range binary function',
-    {
-      nodes: new Set([1]),
-      functions: {
-        binary: {
-          f: {
-            1: {
-              1: 2,
-            },
-          },
-        },
-        constants: {},
-        unary: {},
-      },
-      relations: {
-        binary: {},
-        unary: {},
-      },
-    },
+    'out-of-range function',
+    new Model(new Set([1]), {}, [new Function('f', 1, { '1': 2 })], []),
   ],
 ]
 
 export const TestData = {
   invalidFormulas,
   invalidModels,
+  testModel,
   validFormulas,
   validModels,
 } as const

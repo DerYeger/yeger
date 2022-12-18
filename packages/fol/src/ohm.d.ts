@@ -1,5 +1,5 @@
 import { Node } from 'ohm-js'
-import { BoundVariable, Expression, Formula } from '~/model'
+import { BoundVariable, Term, Formula } from '~/model'
 
 export type BoundVariables = Set<String>
 
@@ -8,9 +8,10 @@ declare module 'ohm-js' {
     args: {
       boundVariables: BoundVariables
     }
-    parseExpression(boundVariables: BoundVariables): Expression
     parseFormula(boundVariables: BoundVariables): Formula
     parseString(): string
+    parseTerm(boundVariables: BoundVariables): Term
+    parseTermList(boundVariables: BoundVariables): Term[]
     parseVariable(boundVariables: BoundVariables): BoundVariable
   }
 

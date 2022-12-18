@@ -13778,7 +13778,7 @@ packages:
       fs-extra: 10.1.0
       kolorist: 1.6.0
       ts-morph: 16.0.0
-      vite: 4.0.0
+      vite: 4.0.0_@types+node@18.11.13
     transitivePeerDependencies:
       - rollup
       - supports-color

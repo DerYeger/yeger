@@ -38,17 +38,19 @@ describe('FOL parser', () => {
   describe('can parse', () => {
     it('existential quantors', () => {
       const result = FOL.parse('exists c . A(c,c)').get()
-      expect(result.toFormattedString()).toMatchInlineSnapshot('"∃c. A(c, c)"')
+      expect(result.toFormattedString()).toMatchInlineSnapshot('"∃c. A(c,c)"')
       expect(result).toMatchInlineSnapshot(`
         ExistentialQuantorFormula {
-          "inner": BinaryRelation {
-            "firstExpression": BoundVariable {
-              "name": "c",
-            },
+          "inner": RelationFormula {
             "name": "A",
-            "secondExpression": BoundVariable {
-              "name": "c",
-            },
+            "terms": [
+              BoundVariable {
+                "name": "c",
+              },
+              BoundVariable {
+                "name": "c",
+              },
+            ],
           },
           "quantor": "∃",
           "variable": BoundVariable {
@@ -63,11 +65,13 @@ describe('FOL parser', () => {
       expect(result.toFormattedString()).toMatchInlineSnapshot('"∀c. C(c)"')
       expect(result).toMatchInlineSnapshot(`
         UniversalQuantorFormula {
-          "inner": UnaryRelation {
-            "expression": BoundVariable {
-              "name": "c",
-            },
+          "inner": RelationFormula {
             "name": "C",
+            "terms": [
+              BoundVariable {
+                "name": "c",
+              },
+            ],
           },
           "quantor": "∀",
           "variable": BoundVariable {
@@ -78,27 +82,34 @@ describe('FOL parser', () => {
     })
 
     it('relations', () => {
-      const result = FOL.parse('A(a,a) && B(b)').get()
+      const result = FOL.parse('A(a,a, a) && B(b)').get()
       expect(result.toFormattedString()).toMatchInlineSnapshot(
-        '"A(a, a) ∧ B(b)"'
+        '"A(a,a,a) ∧ B(b)"'
       )
       expect(result).toMatchInlineSnapshot(`
         AndFormula {
-          "left": BinaryRelation {
-            "firstExpression": Constant {
-              "name": "a",
-            },
+          "left": RelationFormula {
             "name": "A",
-            "secondExpression": Constant {
-              "name": "a",
-            },
+            "terms": [
+              ConstantTerm {
+                "name": "a",
+              },
+              ConstantTerm {
+                "name": "a",
+              },
+              ConstantTerm {
+                "name": "a",
+              },
+            ],
           },
           "operator": "∧",
-          "right": UnaryRelation {
-            "expression": Constant {
-              "name": "b",
-            },
+          "right": RelationFormula {
             "name": "B",
+            "terms": [
+              ConstantTerm {
+                "name": "b",
+              },
+            ],
           },
         }
       `)
@@ -108,14 +119,18 @@ describe('FOL parser', () => {
       const result = FOL.parse('B(f(d))').get()
       expect(result.toFormattedString()).toMatchInlineSnapshot('"B(f(d))"')
       expect(result).toMatchInlineSnapshot(`
-        UnaryRelation {
-          "expression": UnaryFunction {
-            "inner": Constant {
-              "name": "d",
-            },
-            "name": "f",
-          },
+        RelationFormula {
           "name": "B",
+          "terms": [
+            FunctionTerm {
+              "argumentTerms": [
+                ConstantTerm {
+                  "name": "d",
+                },
+              ],
+              "name": "f",
+            },
+          ],
         }
       `)
     })
@@ -123,20 +138,24 @@ describe('FOL parser', () => {
     it('long identifiers', () => {
       const result = FOL.parse('MyRelation(myFunction(a), second)').get()
       expect(result.toFormattedString()).toMatchInlineSnapshot(
-        '"MyRelation(myFunction(a), second)"'
+        '"MyRelation(myFunction(a),second)"'
       )
       expect(result).toMatchInlineSnapshot(`
-        BinaryRelation {
-          "firstExpression": UnaryFunction {
-            "inner": Constant {
-              "name": "a",
-            },
-            "name": "myFunction",
-          },
+        RelationFormula {
           "name": "MyRelation",
-          "secondExpression": Constant {
-            "name": "second",
-          },
+          "terms": [
+            FunctionTerm {
+              "argumentTerms": [
+                ConstantTerm {
+                  "name": "a",
+                },
+              ],
+              "name": "myFunction",
+            },
+            ConstantTerm {
+              "name": "second",
+            },
+          ],
         }
       `)
     })

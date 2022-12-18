@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { FOL } from '@yeger/fol'
 
-const formulaInput = ref('exists x. forall y. f(x) = g(x,y) -> x = y')
+const formulaInput = ref(
+  'exists x. forall y. f(x,y) = g(x,y,x) -> x = y && R(x,y)'
+)
 
 const result = computed(() => FOL.parse(formulaInput.value))
 const formula = computed(() => result.value.getOrUndefined())

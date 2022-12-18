@@ -1,27 +1,24 @@
+import type { NonterminalNode } from 'ohm-js'
 import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
 import type { FOLSemantics } from '~/fol.ohm-bundle'
 import grammar from '~/fol.ohm-bundle'
-import type { Expression, Formula } from '~/model'
+import { BoundVariable, ConstantTerm, FunctionTerm } from '~/model'
+import type { Formula, Term } from '~/model'
 import {
   AndFormula,
-  BiImplFormula,
-  BinaryFunction,
-  BinaryRelation,
+  BiImplicationFormula,
   BooleanLiteral,
-  BoundVariable,
-  Constant,
-  EqualityRelation,
+  EqualityRelationFormula,
   ExistentialQuantorFormula,
-  ImplFormula,
+  ImplicationFormula,
   NotFormula,
   OrFormula,
   ParenthesizedFormula,
-  UnaryFunction,
-  UnaryRelation,
+  RelationFormula,
   UniversalQuantorFormula,
-} from '~/model'
+} from '~/model/formula'
 
 const semantics: FOLSemantics = grammar
   .createSemantics()
@@ -35,33 +32,28 @@ const semantics: FOLSemantics = grammar
       return new BoundVariable(name.parseString())
     },
   })
-  .addOperation<Expression>('parseExpression(boundVariables)', {
+  .addOperation<Term>('parseTerm(boundVariables)', {
     ConstantOrBoundVariable(name) {
       const parsedName = name.parseString()
       if (this.args.boundVariables.has(parsedName)) {
         return new BoundVariable(parsedName)
       }
-      return new Constant(parsedName)
+      return new ConstantTerm(parsedName)
     },
-    UnaryFunction(name, _leftParen, inner, _rightParen) {
-      return new UnaryFunction(
+    Function(name, _leftParen, terms, _rightParen) {
+      return new FunctionTerm(
         name.parseString(),
-        inner.parseExpression(this.args.boundVariables)
+        terms.parseTermList(this.args.boundVariables)
       )
     },
-    BinaryFunction(
-      name,
-      _leftParen,
-      firstArgument,
-      _comma,
-      secondArgument,
-      _rightParen
-    ) {
-      return new BinaryFunction(
-        name.parseString(),
-        firstArgument.parseExpression(this.args.boundVariables),
-        secondArgument.parseExpression(this.args.boundVariables)
-      )
+  })
+  .addOperation<Term[]>('parseTermList(boundVariables)', {
+    TermList(terms) {
+      return terms
+        .asIteration()
+        .children.map((term: NonterminalNode) =>
+          term.parseTerm(this.args.boundVariables)
+        )
     },
   })
   .addOperation<Formula>('parseFormula(boundVariables)', {
@@ -77,14 +69,14 @@ const semantics: FOLSemantics = grammar
         right.parseFormula(this.args.boundVariables)
       )
     },
-    ImplFormula_impl(left, _operator, right) {
-      return new ImplFormula(
+    ImplicationFormula_implication(left, _operator, right) {
+      return new ImplicationFormula(
         left.parseFormula(this.args.boundVariables),
         right.parseFormula(this.args.boundVariables)
       )
     },
-    BiImplFormula_biimpl(left, _operator, right) {
-      return new BiImplFormula(
+    BiImplicationFormula_biImplication(left, _operator, right) {
+      return new BiImplicationFormula(
         left.parseFormula(this.args.boundVariables),
         right.parseFormula(this.args.boundVariables)
       )
@@ -119,30 +111,16 @@ const semantics: FOLSemantics = grammar
         inner.parseFormula(newBoundVariables)
       )
     },
-    UnaryRelation(name, _leftParen, expression, _rightParen) {
-      return new UnaryRelation(
+    Relation_regular(name, _leftParen, terms, _rightParen) {
+      return new RelationFormula(
         name.parseString(),
-        expression.parseExpression(this.args.boundVariables)
+        terms.parseTermList(this.args.boundVariables)
       )
     },
-    BinaryRelation(
-      name,
-      _leftParen,
-      firstExpression,
-      _comma,
-      secondExpression,
-      _rightParen
-    ) {
-      return new BinaryRelation(
-        name.parseString(),
-        firstExpression.parseExpression(this.args.boundVariables),
-        secondExpression.parseExpression(this.args.boundVariables)
-      )
-    },
-    EqualityRelation(firstExpression, _equality, secondExpression) {
-      return new EqualityRelation(
-        firstExpression.parseExpression(this.args.boundVariables),
-        secondExpression.parseExpression(this.args.boundVariables)
+    Relation_equality(firstTerm, _equality, secondTerm) {
+      return new EqualityRelationFormula(
+        firstTerm.parseTerm(this.args.boundVariables),
+        secondTerm.parseTerm(this.args.boundVariables)
       )
     },
     True(_) {
@@ -158,5 +136,5 @@ export function parse(formula: string): Result<Formula, string> {
   if (matchResult.succeeded()) {
     return new Ok(semantics(matchResult).parseFormula(new Set()))
   }
-  return new Err(matchResult.message ?? '')
+  return new Err(matchResult.message ?? 'An unknown error occurred')
 }
