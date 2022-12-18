@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     '@antfu',
+    'plugin:astro/recommended',
     'plugin:cypress/recommended',
     'plugin:import/recommended',
     'plugin:markdown/recommended',
@@ -9,7 +10,7 @@ module.exports = {
     'plugin:yml/standard',
     'plugin:yml/prettier',
   ],
-  plugins: ['eslint-plugin-tsdoc', 'unused-imports'],
+  plugins: ['eslint-plugin-tsdoc', 'jsx-a11y', 'unused-imports'],
   settings: {
     'import/parser': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -34,6 +35,14 @@ module.exports = {
       files: ['*.js', '*.jsx', '*.cjs'],
       rules: {
         'tsdoc/syntax': 'off',
+      },
+    },
+    {
+      files: ['*.astro'],
+      parser: 'astro-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.astro'],
       },
     },
   ],

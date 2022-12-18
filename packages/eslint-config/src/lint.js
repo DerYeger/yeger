@@ -9,7 +9,7 @@ const c = require('picocolors')
 
   // 2. Lint files.
   const results = await eslint.lintFiles([
-    './**/*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}',
+    './**/*.{.astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}',
   ])
   const hasErrors = results.some(
     ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0

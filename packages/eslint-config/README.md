@@ -35,7 +35,7 @@ Hence, the rule has to be disabled for this use case:
 ```json
 {
   "lint-staged": {
-    "*.{html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --fix --rule 'import/no-unresolved: off'"
+    "*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --fix --rule 'import/no-unresolved: off'"
   }
 }
 ```
