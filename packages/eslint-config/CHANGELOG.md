@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.8.0
+
+### Minor Changes
+
+- 49d08f8: support astro files
+
 ## 1.7.2
 
 ### Patch Changes
