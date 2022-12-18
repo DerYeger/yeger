@@ -1,12 +1,12 @@
 FOL {
-  Formula = BiImplFormula
+  Formula = BiImplicationFormula
 
-  BiImplFormula
-    = BiImplFormula "<->" ImplFormula -- biimpl
-    | ImplFormula
+  BiImplicationFormula
+    = BiImplicationFormula "<->" ImplicationFormula -- biImplication
+    | ImplicationFormula
 
-  ImplFormula
-    = ImplFormula "->" OrFormula -- impl
+  ImplicationFormula
+    = ImplicationFormula "->" OrFormula -- implication
     | OrFormula
 
   OrFormula
@@ -35,36 +35,30 @@ FOL {
     = ident
 
   Relation
-    = EqualityRelation
-    | UnaryRelation
-    | BinaryRelation
+    = Term "=" Term -- equality
+    | RelationName "(" TermList ")" -- regular
 
   BooleanLiteral
     = True
     | False
 
-  UnaryRelation = RelationName "(" Expression ")"
-
-  BinaryRelation = RelationName "(" Expression "," Expression ")"
-
-  EqualityRelation = Expression "=" Expression
-
   True = "tt"
 
   False = "ff"
 
-  Expression
-    = UnaryFunction
-    | BinaryFunction
+  Term
+    = Function
     | ConstantOrBoundVariable
 
-  ConstantOrBoundVariable (a bound variable or constant)
+  ConstantOrBoundVariable (a bound variable or a constant)
     = ident
 
   ident (an identifier)
     = letter+
 
-  UnaryFunction = FunctionName "(" Expression ")"
+  Function
+    = FunctionName "(" TermList ")"
 
-  BinaryFunction = FunctionName "(" Expression "," Expression ")"
+  TermList
+    = NonemptyListOf<Term, ",">
 }

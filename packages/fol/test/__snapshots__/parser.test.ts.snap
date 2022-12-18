@@ -62,11 +62,13 @@ AndFormula {
 
 exports[`FOL parser > can parse "!A(x)" 1`] = `
 NotFormula {
-  "inner": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "inner": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "¬",
 }
@@ -125,11 +127,13 @@ exports[`FOL parser > can parse "(forall x. A(x)) && (exists x. B(x))" 1`] = `
 AndFormula {
   "left": ParenthesizedFormula {
     "inner": UniversalQuantorFormula {
-      "inner": UnaryRelation {
-        "expression": BoundVariable {
-          "name": "x",
-        },
+      "inner": RelationFormula {
         "name": "A",
+        "terms": [
+          BoundVariable {
+            "name": "x",
+          },
+        ],
       },
       "quantor": "∀",
       "variable": BoundVariable {
@@ -140,11 +144,13 @@ AndFormula {
   "operator": "∧",
   "right": ParenthesizedFormula {
     "inner": ExistentialQuantorFormula {
-      "inner": UnaryRelation {
-        "expression": BoundVariable {
-          "name": "x",
-        },
+      "inner": RelationFormula {
         "name": "B",
+        "terms": [
+          BoundVariable {
+            "name": "x",
+          },
+        ],
       },
       "quantor": "∃",
       "variable": BoundVariable {
@@ -180,166 +186,198 @@ AndFormula {
 
 exports[`FOL parser > can parse "A(x) & B(x)" 1`] = `
 AndFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "∧",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x) && B(x)" 1`] = `
 AndFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "∧",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x) <-> B(x)" 1`] = `
-BiImplFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+BiImplicationFormula {
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "↔",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x) | B(x)" 1`] = `
 OrFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "∨",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x) || B(x)" 1`] = `
 OrFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "∨",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x) -> B(x)" 1`] = `
-ImplFormula {
-  "left": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+ImplicationFormula {
+  "left": RelationFormula {
     "name": "A",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
   "operator": "→",
-  "right": UnaryRelation {
-    "expression": Constant {
-      "name": "x",
-    },
+  "right": RelationFormula {
     "name": "B",
+    "terms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
   },
 }
 `;
 
 exports[`FOL parser > can parse "A(x)" 1`] = `
-UnaryRelation {
-  "expression": Constant {
-    "name": "x",
-  },
+RelationFormula {
   "name": "A",
+  "terms": [
+    ConstantTerm {
+      "name": "x",
+    },
+  ],
 }
 `;
 
 exports[`FOL parser > can parse "A(x,y)" 1`] = `
-BinaryRelation {
-  "firstExpression": Constant {
-    "name": "x",
-  },
+RelationFormula {
   "name": "A",
-  "secondExpression": Constant {
-    "name": "y",
-  },
+  "terms": [
+    ConstantTerm {
+      "name": "x",
+    },
+    ConstantTerm {
+      "name": "y",
+    },
+  ],
 }
 `;
 
 exports[`FOL parser > can parse "Relation(x)" 1`] = `
-UnaryRelation {
-  "expression": Constant {
-    "name": "x",
-  },
+RelationFormula {
   "name": "Relation",
+  "terms": [
+    ConstantTerm {
+      "name": "x",
+    },
+  ],
 }
 `;
 
 exports[`FOL parser > can parse "a = b" 1`] = `
-EqualityRelation {
-  "firstExpression": Constant {
+EqualityRelationFormula {
+  "firstTerm": ConstantTerm {
     "name": "a",
   },
-  "secondExpression": Constant {
+  "secondTerm": ConstantTerm {
     "name": "b",
   },
 }
 `;
 
 exports[`FOL parser > can parse "a = f(a,b)" 1`] = `
-EqualityRelation {
-  "firstExpression": Constant {
+EqualityRelationFormula {
+  "firstTerm": ConstantTerm {
     "name": "a",
   },
-  "secondExpression": BinaryFunction {
-    "firstArgument": Constant {
-      "name": "a",
-    },
+  "secondTerm": FunctionTerm {
+    "argumentTerms": [
+      ConstantTerm {
+        "name": "a",
+      },
+      ConstantTerm {
+        "name": "b",
+      },
+    ],
     "name": "f",
-    "secondArgument": Constant {
-      "name": "b",
-    },
   },
 }
 `;
@@ -359,11 +397,13 @@ ExistentialQuantorFormula {
 
 exports[`FOL parser > can parse "exists x. A(x)" 1`] = `
 ExistentialQuantorFormula {
-  "inner": UnaryRelation {
-    "expression": BoundVariable {
-      "name": "x",
-    },
+  "inner": RelationFormula {
     "name": "A",
+    "terms": [
+      BoundVariable {
+        "name": "x",
+      },
+    ],
   },
   "quantor": "∃",
   "variable": BoundVariable {
@@ -373,45 +413,53 @@ ExistentialQuantorFormula {
 `;
 
 exports[`FOL parser > can parse "f(a) = a" 1`] = `
-EqualityRelation {
-  "firstExpression": UnaryFunction {
-    "inner": Constant {
-      "name": "a",
-    },
+EqualityRelationFormula {
+  "firstTerm": FunctionTerm {
+    "argumentTerms": [
+      ConstantTerm {
+        "name": "a",
+      },
+    ],
     "name": "f",
   },
-  "secondExpression": Constant {
+  "secondTerm": ConstantTerm {
     "name": "a",
   },
 }
 `;
 
 exports[`FOL parser > can parse "f(g(x)) = y" 1`] = `
-EqualityRelation {
-  "firstExpression": UnaryFunction {
-    "inner": UnaryFunction {
-      "inner": Constant {
-        "name": "x",
+EqualityRelationFormula {
+  "firstTerm": FunctionTerm {
+    "argumentTerms": [
+      FunctionTerm {
+        "argumentTerms": [
+          ConstantTerm {
+            "name": "x",
+          },
+        ],
+        "name": "g",
       },
-      "name": "g",
-    },
+    ],
     "name": "f",
   },
-  "secondExpression": Constant {
+  "secondTerm": ConstantTerm {
     "name": "y",
   },
 }
 `;
 
 exports[`FOL parser > can parse "f(x) = y" 1`] = `
-EqualityRelation {
-  "firstExpression": UnaryFunction {
-    "inner": Constant {
-      "name": "x",
-    },
+EqualityRelationFormula {
+  "firstTerm": FunctionTerm {
+    "argumentTerms": [
+      ConstantTerm {
+        "name": "x",
+      },
+    ],
     "name": "f",
   },
-  "secondExpression": Constant {
+  "secondTerm": ConstantTerm {
     "name": "y",
   },
 }
@@ -439,11 +487,13 @@ UniversalQuantorFormula {
 
 exports[`FOL parser > can parse "forall x. A(x)" 1`] = `
 UniversalQuantorFormula {
-  "inner": UnaryRelation {
-    "expression": BoundVariable {
-      "name": "x",
-    },
+  "inner": RelationFormula {
     "name": "A",
+    "terms": [
+      BoundVariable {
+        "name": "x",
+      },
+    ],
   },
   "quantor": "∀",
   "variable": BoundVariable {
@@ -459,63 +509,73 @@ UniversalQuantorFormula {
       "inner": OrFormula {
         "left": AndFormula {
           "left": AndFormula {
-            "left": EqualityRelation {
-              "firstExpression": UnaryFunction {
-                "inner": BoundVariable {
-                  "name": "x",
-                },
+            "left": EqualityRelationFormula {
+              "firstTerm": FunctionTerm {
+                "argumentTerms": [
+                  BoundVariable {
+                    "name": "x",
+                  },
+                ],
                 "name": "f",
               },
-              "secondExpression": BoundVariable {
+              "secondTerm": BoundVariable {
                 "name": "y",
               },
             },
             "operator": "∧",
-            "right": BinaryRelation {
-              "firstExpression": BoundVariable {
-                "name": "y",
-              },
+            "right": RelationFormula {
               "name": "R",
-              "secondExpression": BoundVariable {
-                "name": "z",
-              },
+              "terms": [
+                BoundVariable {
+                  "name": "y",
+                },
+                BoundVariable {
+                  "name": "z",
+                },
+              ],
             },
           },
           "operator": "∧",
-          "right": BinaryRelation {
-            "firstExpression": BoundVariable {
-              "name": "z",
-            },
+          "right": RelationFormula {
             "name": "R",
-            "secondExpression": BoundVariable {
-              "name": "y",
-            },
+            "terms": [
+              BoundVariable {
+                "name": "z",
+              },
+              BoundVariable {
+                "name": "y",
+              },
+            ],
           },
         },
         "operator": "∨",
         "right": ParenthesizedFormula {
-          "inner": BiImplFormula {
-            "left": ImplFormula {
-              "left": EqualityRelation {
-                "firstExpression": UnaryFunction {
-                  "inner": BoundVariable {
-                    "name": "x",
-                  },
+          "inner": BiImplicationFormula {
+            "left": ImplicationFormula {
+              "left": EqualityRelationFormula {
+                "firstTerm": FunctionTerm {
+                  "argumentTerms": [
+                    BoundVariable {
+                      "name": "x",
+                    },
+                  ],
                   "name": "f",
                 },
-                "secondExpression": BoundVariable {
+                "secondTerm": BoundVariable {
                   "name": "x",
                 },
               },
               "operator": "→",
-              "right": EqualityRelation {
-                "firstExpression": UnaryFunction {
-                  "inner": BoundVariable {
-                    "name": "z",
-                  },
+              "right": EqualityRelationFormula {
+                "firstTerm": FunctionTerm {
+                  "argumentTerms": [
+                    BoundVariable {
+                      "name": "z",
+                    },
+                  ],
                   "name": "f",
                 },
-                "secondExpression": Constant {
+                "secondTerm": ConstantTerm {
                   "name": "a",
                 },
               },
@@ -548,14 +608,16 @@ UniversalQuantorFormula {
 exports[`FOL parser > can parse "forall x. forall y. A(x, y)" 1`] = `
 UniversalQuantorFormula {
   "inner": UniversalQuantorFormula {
-    "inner": BinaryRelation {
-      "firstExpression": BoundVariable {
-        "name": "x",
-      },
+    "inner": RelationFormula {
       "name": "A",
-      "secondExpression": BoundVariable {
-        "name": "y",
-      },
+      "terms": [
+        BoundVariable {
+          "name": "x",
+        },
+        BoundVariable {
+          "name": "y",
+        },
+      ],
     },
     "quantor": "∀",
     "variable": BoundVariable {
@@ -572,17 +634,19 @@ UniversalQuantorFormula {
 exports[`FOL parser > can parse "forall x. forall y. h(x,y) = x" 1`] = `
 UniversalQuantorFormula {
   "inner": UniversalQuantorFormula {
-    "inner": EqualityRelation {
-      "firstExpression": BinaryFunction {
-        "firstArgument": BoundVariable {
-          "name": "x",
-        },
+    "inner": EqualityRelationFormula {
+      "firstTerm": FunctionTerm {
+        "argumentTerms": [
+          BoundVariable {
+            "name": "x",
+          },
+          BoundVariable {
+            "name": "y",
+          },
+        ],
         "name": "h",
-        "secondArgument": BoundVariable {
-          "name": "y",
-        },
       },
-      "secondExpression": BoundVariable {
+      "secondTerm": BoundVariable {
         "name": "x",
       },
     },
@@ -599,28 +663,32 @@ UniversalQuantorFormula {
 `;
 
 exports[`FOL parser > can parse "myConstant = myConstant" 1`] = `
-EqualityRelation {
-  "firstExpression": Constant {
+EqualityRelationFormula {
+  "firstTerm": ConstantTerm {
     "name": "myConstant",
   },
-  "secondExpression": Constant {
+  "secondTerm": ConstantTerm {
     "name": "myConstant",
   },
 }
 `;
 
 exports[`FOL parser > can parse "myRelation(MyFunction(someConstant, AnotherConstant))" 1`] = `
-UnaryRelation {
-  "expression": BinaryFunction {
-    "firstArgument": Constant {
-      "name": "someConstant",
-    },
-    "name": "MyFunction",
-    "secondArgument": Constant {
-      "name": "AnotherConstant",
-    },
-  },
+RelationFormula {
   "name": "myRelation",
+  "terms": [
+    FunctionTerm {
+      "argumentTerms": [
+        ConstantTerm {
+          "name": "someConstant",
+        },
+        ConstantTerm {
+          "name": "AnotherConstant",
+        },
+      ],
+      "name": "MyFunction",
+    },
+  ],
 }
 `;
 
@@ -639,7 +707,7 @@ AndFormula {
 `;
 
 exports[`FOL parser > can parse "tt <-> tt" 1`] = `
-BiImplFormula {
+BiImplicationFormula {
   "left": BooleanLiteral {
     "name": "⊤",
     "value": true,
@@ -688,7 +756,7 @@ OrFormula {
 `;
 
 exports[`FOL parser > can parse "tt -> tt" 1`] = `
-ImplFormula {
+ImplicationFormula {
   "left": BooleanLiteral {
     "name": "⊤",
     "value": true,
