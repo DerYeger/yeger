@@ -22,14 +22,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": "./dist/masonry-wall.umd.js",
-      "import": "./dist/masonry-wall.es.mjs"
+      "require": "./dist/index.umd.js",
+      "import": "./dist/index.mjs"
     }
   },
-  "main": "dist/masonry-wall.umd.js",
-  "browser": "dist/masonry-wall.es.mjs",
-  "module": "dist/masonry-wall.es.mjs",
-  "unpkg": "dist/masonry-wall.umd.js",
+  "main": "dist/index.umd.js",
+  "browser": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
   "types": "dist/types/index.d.ts",
   "files": [
     "dist/*",
@@ -61,7 +61,7 @@
     "jsdom": "20.0.3",
     "typescript": "4.9.4",
     "vite": "4.0.0",
-    "vite-plugin-dts": "1.7.1",
+    "vite-plugin-lib": "workspace:*",
     "vitest": "0.25.7",
     "vue": "3.2.45",
     "vue-tsc": "1.0.12"

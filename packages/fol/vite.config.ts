@@ -1,24 +1,11 @@
-import path from 'node:path'
-
-import dts from 'vite-plugin-dts'
+import { libPlugin } from 'vite-plugin-lib'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [
-    dts({
-      include: 'src/**',
-      outputDir: 'dist/types',
-      staticImport: true,
-    }),
+    libPlugin({ entry: 'src/fol.ts', name: 'fol', formats: ['es', 'umd'] }),
   ],
   build: {
-    lib: {
-      entry: path.resolve(__dirname, 'src/fol.ts'),
-      formats: ['es', 'umd'],
-      name: 'fol',
-      fileName: (format: string) =>
-        `fol.${format}.${format === 'es' ? 'mjs' : 'js'}`,
-    },
     rollupOptions: {
       external: ['ohm-js'],
       output: {
@@ -27,18 +14,6 @@ export default defineConfig({
         },
       },
     },
-  },
-  resolve: {
-    alias: [
-      {
-        find: '~',
-        replacement: path.resolve(__dirname, 'src'),
-      },
-      {
-        find: '~test',
-        replacement: path.resolve(__dirname, 'test'),
-      },
-    ],
   },
   test: {
     include: ['test/**/*.test.ts'],

@@ -1,6 +1,6 @@
 import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { aliasPlugin } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,7 +10,7 @@ export default defineConfig({
       dirs: '.vitepress/components',
       dts: '.vitepress/components.d.ts',
     }),
-    tsconfigPaths({ loose: true }),
+    aliasPlugin(),
   ],
   optimizeDeps: {
     include: ['vue'],
