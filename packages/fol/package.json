@@ -17,11 +17,11 @@
     ".": {
       "types": "./dist/types/fol.d.ts",
       "require": "./dist/fol.umd.js",
-      "import": "./dist/fol.es.mjs"
+      "import": "./dist/fol.mjs"
     }
   },
   "main": "./dist/fol.umd.js",
-  "module": "./dist/fol.es.mjs",
+  "module": "./dist/fol.mjs",
   "types": "./dist/types/fol.d.ts",
   "files": [
     "dist"
@@ -46,7 +46,7 @@
     "resumon": "workspace:*",
     "typescript": "4.9.4",
     "vite": "4.0.0",
-    "vite-plugin-dts": "1.7.1",
+    "vite-plugin-lib": "workspace:*",
     "vitest": "0.25.7"
   },
   "publishConfig": {

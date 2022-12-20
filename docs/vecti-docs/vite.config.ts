@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import { aliasPlugin } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths({ loose: true })],
+  plugins: [aliasPlugin()],
   optimizeDeps: {
     include: ['vue'],
   },

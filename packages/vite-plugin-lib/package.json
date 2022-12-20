@@ -1,0 +1,57 @@
+{
+  "name": "vite-plugin-lib",
+  "version": "0.0.0",
+  "description": "Vite plugin for build configuration, automatic aliases, and type declarations.",
+  "author": "Jan Müller <janmueller3698@gmail.com>",
+  "license": "MIT",
+  "funding": "https://github.com/sponsors/DerYeger",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-lib",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "vite-plugin",
+    "declarations",
+    "aliases"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "lint": "yeger-lint",
+    "check:tsc": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "typescript": "*",
+    "vite": "^2.0.0 || ^3.0.0 || ^4.0.0"
+  },
+  "dependencies": {
+    "picocolors": "1.0.0",
+    "vite-plugin-dts": "1.7.1"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.13",
+    "@vitest/ui": "0.25.7",
+    "@yeger/tsconfig": "workspace:*",
+    "typescript": "4.9.4",
+    "unbuild": "1.0.2",
+    "vite": "4.0.0",
+    "vitest": "0.25.7"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

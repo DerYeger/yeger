@@ -22,11 +22,11 @@
   "exports": {
     ".": {
       "require": "./dist/vecti.umd.js",
-      "import": "./dist/vecti.es.mjs"
+      "import": "./dist/vecti.mjs"
     }
   },
   "main": "./dist/vecti.umd.js",
-  "module": "./dist/vecti.es.mjs",
+  "module": "./dist/vecti.mjs",
   "types": "dist/types/vecti.d.ts",
   "files": [
     "dist"
@@ -47,7 +47,7 @@
     "c8": "7.12.0",
     "typescript": "4.9.4",
     "vite": "4.0.0",
-    "vite-plugin-dts": "1.7.1",
+    "vite-plugin-lib": "workspace:*",
     "vitest": "0.25.7"
   },
   "publishConfig": {

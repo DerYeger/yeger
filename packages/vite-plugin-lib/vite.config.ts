@@ -1,13 +1,10 @@
-import { defineConfig } from 'vite'
-import { libPlugin } from 'vite-plugin-lib'
+import { defineConfig } from 'vitest/config'
+
+import { libPlugin } from './src'
 
 export default defineConfig({
   plugins: [
-    libPlugin({
-      entry: 'src/main.ts',
-      formats: ['es', 'umd'],
-      name: 'debounce',
-    }),
+    libPlugin({ entry: 'src/index.ts', formats: ['es'], name: 'index' }),
   ],
   test: {
     include: ['test/**/*.test.ts'],

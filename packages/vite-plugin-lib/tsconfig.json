@@ -1,0 +1,8 @@
+{
+  "extends": "@yeger/tsconfig/lib",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "coverage", "dist"]
+}
