@@ -75,7 +75,7 @@ export class Relation {
   public constructor(
     public readonly name: string,
     public readonly arity: number,
-    private readonly data: Set<string>
+    public readonly data: Set<string>
   ) {}
 
   public includes(...args: number[]): boolean {

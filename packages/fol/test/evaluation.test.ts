@@ -62,9 +62,9 @@ describe('FOL semantics', () => {
   describe('it throws', () => {
     it('on missing constants', () => {
       const model = new Model(new Set([1]), { a: 1 }, [], [])
-      expect(() =>
-        FOL.evaluate(model, 'a = b')
-      ).toThrowErrorMatchingInlineSnapshot('"Missing constant b"')
+      expect(FOL.evaluate(model, 'a = b').getErrorOrUndefined()).toEqual(
+        'Missing constant b'
+      )
     })
 
     describe('on missing functions', () => {
@@ -76,25 +76,23 @@ describe('FOL semantics', () => {
       )
 
       it('if function is missing', () => {
-        expect(() =>
-          FOL.evaluate(model, 'g(a) = a')
-        ).toThrowErrorMatchingInlineSnapshot('"Missing function: g."')
+        expect(FOL.evaluate(model, 'g(a) = a').getErrorOrUndefined()).toEqual(
+          'Missing function: g.'
+        )
       })
 
       it('if function is not defined for argument', () => {
-        expect(() =>
-          FOL.evaluate(model, 'f(a) = a')
-        ).toThrowErrorMatchingInlineSnapshot(
-          '"Function f is not total. f(1) is not defined."'
+        expect(FOL.evaluate(model, 'f(a) = a').getErrorOrUndefined()).toEqual(
+          'Function f is not total. f(1) is not defined.'
         )
       })
     })
 
     it('on missing relations', () => {
       const model = new Model(new Set([1]), { x: 1 }, [], [])
-      expect(() =>
-        FOL.evaluate(model, 'A(x)')
-      ).toThrowErrorMatchingInlineSnapshot('"Missing relation: A."')
+      expect(FOL.evaluate(model, 'A(x)').getErrorOrUndefined()).toEqual(
+        'Missing relation: A.'
+      )
     })
   })
 })
