@@ -1,5 +1,5 @@
 import type { Model } from '@yeger/fol'
-import type { Graph, GraphNode } from 'd3-graph-controller'
+import type { Graph, GraphLink, GraphNode } from 'd3-graph-controller'
 import { defineLink, defineNodeWithDefaults } from 'd3-graph-controller'
 
 export function modelToGraph(model: Model): Graph {
@@ -45,11 +45,17 @@ export function modelToGraph(model: Model): Graph {
         linkData[index].push(relation.name)
       })
   })
-  const links = Object.entries(linkData).map(([ident, labels]) => {
+  const links: GraphLink[] = []
+  Object.entries(linkData).forEach(([ident, labels]) => {
     const [source, target] = ident.split(',')
-    return defineLink({
-      source: nodes[source]!,
-      target: nodes[target]!,
+    const sourceNode = nodes[source]
+    const targetNode = nodes[target]
+    if (!sourceNode || !targetNode) {
+      return undefined
+    }
+    const link = defineLink({
+      source: sourceNode,
+      target: targetNode,
       color: 'gray',
       label: {
         fontSize: '0.875rem',
@@ -57,6 +63,7 @@ export function modelToGraph(model: Model): Graph {
         color: 'black',
       },
     })
+    links.push(link)
   })
   return {
     nodes: Object.values(nodes),

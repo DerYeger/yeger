@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import type { Model } from '@yeger/fol'
-import type { ResizeContext } from 'd3-graph-controller'
+import type {
+  GraphNode,
+  NodeModifier,
+  ResizeContext,
+} from 'd3-graph-controller'
 import {
   GraphController,
   Markers,
@@ -30,10 +34,17 @@ onUnmounted(() => {
   controller.value?.shutdown()
 })
 
+watch(graph, resetGraphController)
+
 function resetGraphController() {
   controller.value?.shutdown()
   if (!graph.value || !el.value) {
     return
+  }
+
+  const nodeModifier: NodeModifier<string, GraphNode> = (selection) => {
+    selection.on('pointerdown', null)
+    selection.on('pointerup', null)
   }
   controller.value = new GraphController(
     el.value!,
@@ -62,13 +73,17 @@ function resetGraphController() {
           },
         },
       },
+      modifiers: {
+        node: nodeModifier,
+      },
       marker: Markers.Arrow(2),
       positionInitializer:
         graph.value.nodes.length > 1
           ? PositionInitializers.Randomized
           : PositionInitializers.Centered,
       zoom: {
-        min: 0.5,
+        min: 0.25,
+        initial: 0.8,
         max: 2,
       },
     })
@@ -86,6 +101,10 @@ function resetGraphController() {
 .graph .node {
   stroke-width: 2px;
   stroke-opacity: 0.5;
+}
+
+.graph .node:hover:not(.focused) {
+  filter: none !important;
 }
 
 .graph .link {
