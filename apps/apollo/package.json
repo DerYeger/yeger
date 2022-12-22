@@ -13,15 +13,23 @@
     "check:vue": "nuxi typecheck"
   },
   "dependencies": {
+    "@codemirror/language": "6.3.2",
+    "@codemirror/legacy-modes": "6.3.1",
     "@yeger/fol": "workspace:*",
+    "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
-    "splitpanes": "3.1.5"
+    "resumon": "workspace:*",
+    "splitpanes": "3.1.5",
+    "vue-codemirror": "6.1.1",
+    "yaml": "2.2.0",
+    "zod": "3.20.2"
   },
   "devDependencies": {
     "@unocss/nuxt": "0.47.6",
     "@unocss/reset": "0.47.6",
     "node-fetch-native": "1.0.1",
     "nuxt": "3.0.0",
+    "nuxt-icon": "0.1.8",
     "typescript": "4.9.4",
     "ufo": "1.0.1",
     "vite": "4.0.0",

@@ -9,7 +9,7 @@ const props = defineProps<{
 const { trace, level, maxDepth } = toRefs(props)
 
 const children = computed(() => trace.value.children())
-const expanded = ref(false)
+const expanded = ref(trace.value?.actual === trace.value?.expected)
 </script>
 
 <template>

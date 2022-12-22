@@ -1,9 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  // alias: {
-  //   'ts-deepmerge': 'ts-deepmerge/dist/index.js',
-  // },
-  modules: ['@unocss/nuxt'],
+  modules: ['@unocss/nuxt', 'nuxt-icon'],
   css: ['@/assets/css/main.css'],
   unocss: {
     uno: true,
@@ -11,10 +8,5 @@ export default defineNuxtConfig({
     attributify: true,
     shortcuts: [],
     rules: [],
-  },
-  vite: {
-    optimizeDeps: {
-      include: ['d3-graph-controller > ts-deepmerge'],
-    },
   },
 })
