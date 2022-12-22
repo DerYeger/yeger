@@ -1,4 +1,4 @@
-import type { FOLFragment, Model, TreeNode, VariableAssignment } from '~/model'
+import type { FOLFragment, Model, VariableAssignment } from '~/model'
 
 export interface Term extends FOLFragment {
   interpret(model: Model, variableAssignment: VariableAssignment): number
@@ -11,7 +11,7 @@ export class ConstantTerm implements Term {
     return this.name
   }
 
-  public children(): TreeNode[] {
+  public children(): Term[] {
     return []
   }
 
@@ -42,7 +42,7 @@ export class FunctionTerm implements Term {
     return `${this.name}()`
   }
 
-  public children(): TreeNode[] {
+  public children(): Term[] {
     return this.argumentTerms
   }
 
@@ -50,9 +50,9 @@ export class FunctionTerm implements Term {
     return Math.max(...this.children().map((child) => child.depth())) + 1
   }
 
-  public toFormattedString(): string {
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
     return `${this.name}(${this.argumentTerms
-      .map((argument) => argument.toFormattedString())
+      .map((argument) => argument.toFormattedString(variableAssignment))
       .join(',')})`
   }
 
@@ -78,7 +78,7 @@ export class BoundVariable implements Term {
     return this.name
   }
 
-  public children(): TreeNode[] {
+  public children(): Term[] {
     return []
   }
 
@@ -86,8 +86,8 @@ export class BoundVariable implements Term {
     return 0
   }
 
-  public toFormattedString(): string {
-    return this.name
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return variableAssignment?.[this.name]?.toString() ?? this.name
   }
 
   public interpret(_: Model, variableAssignment: VariableAssignment): number {

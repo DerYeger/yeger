@@ -1,36 +1,45 @@
 import type { BoundVariable, Model, Term, VariableAssignment } from '~/model'
 
-export interface TreeNode {
+export interface TreeNode<T extends TreeNode<T>> {
   text(): string
-  children(): TreeNode[]
+  children(): T[]
   depth(): number
 }
 
-export interface FOLFragment extends TreeNode {
-  toFormattedString(): string
+export interface FOLFragment extends TreeNode<FOLFragment> {
+  toFormattedString(variableAssignment?: VariableAssignment): string
 }
 
 export type ModelCheckerMode = 'lazy' | 'eager'
 
-export class ModelCheckerTrace implements TreeNode {
+export class ModelCheckerTrace implements TreeNode<ModelCheckerTrace> {
   public constructor(
     public readonly mode: ModelCheckerMode,
     public readonly formula: Formula,
     public readonly expected: boolean,
     public readonly actual: boolean,
+    public readonly variableAssignment: VariableAssignment,
     private readonly childTraces: ModelCheckerTrace[]
   ) {}
 
   public text(): string {
-    throw new Error('Method not implemented.')
+    return this.formula.toFormattedString(this.variableAssignment)
   }
 
-  public children(): TreeNode[] {
+  public children(): ModelCheckerTrace[] {
     return this.childTraces
   }
 
   public depth(): number {
+    if (this.childTraces.length === 0) {
+      return 0
+    }
     return Math.max(...this.children().map((child) => child.depth())) + 1
+  }
+
+  // TODO: remove?
+  public details(): string {
+    return this.formula.toFormattedString(this.variableAssignment)
   }
 }
 
@@ -52,7 +61,7 @@ export class ParenthesizedFormula implements Formula {
     return '()'
   }
 
-  public children(): TreeNode[] {
+  public children(): Formula[] {
     return [this.inner]
   }
 
@@ -79,13 +88,18 @@ export class ParenthesizedFormula implements Formula {
       model,
       variableAssignment
     )
-    return new ModelCheckerTrace(mode, this, expected, innerTrace.actual, [
-      innerTrace,
-    ])
+    return new ModelCheckerTrace(
+      mode,
+      this,
+      expected,
+      innerTrace.actual,
+      variableAssignment,
+      [innerTrace]
+    )
   }
 
-  public toFormattedString(): string {
-    return `(${this.inner.toFormattedString()})`
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return `(${this.inner.toFormattedString(variableAssignment)})`
   }
 }
 
@@ -100,7 +114,7 @@ export abstract class BinaryFormula implements Formula {
     return this.operator
   }
 
-  public children(): TreeNode[] {
+  public children(): Formula[] {
     return [this.left, this.right]
   }
 
@@ -120,10 +134,10 @@ export abstract class BinaryFormula implements Formula {
     variableAssignment: VariableAssignment
   ): ModelCheckerTrace
 
-  public toFormattedString(): string {
-    return `${this.left.toFormattedString()} ${
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return `${this.left.toFormattedString(variableAssignment)} ${
       this.operator
-    } ${this.right.toFormattedString()}`
+    } ${this.right.toFormattedString(variableAssignment)}`
   }
 }
 export class OrFormula extends BinaryFormula {
@@ -154,7 +168,14 @@ export class OrFormula extends BinaryFormula {
       variableAssignment
     )
     if (mode === 'lazy' && left.actual) {
-      return new ModelCheckerTrace(mode, this, expected, true, [left])
+      return new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        true,
+        variableAssignment,
+        [left]
+      )
     }
     const right = this.right.traceEvaluation(
       mode,
@@ -167,6 +188,7 @@ export class OrFormula extends BinaryFormula {
       this,
       expected,
       left.actual || right.actual,
+      variableAssignment,
       [left, right]
     )
   }
@@ -200,7 +222,14 @@ export class AndFormula extends BinaryFormula {
       variableAssignment
     )
     if (mode === 'lazy' && !left.actual) {
-      return new ModelCheckerTrace(mode, this, expected, false, [left])
+      return new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        false,
+        variableAssignment,
+        [left]
+      )
     }
     const right = this.right.traceEvaluation(
       mode,
@@ -213,6 +242,7 @@ export class AndFormula extends BinaryFormula {
       this,
       expected,
       left.actual && right.actual,
+      variableAssignment,
       [left, right]
     )
   }
@@ -245,7 +275,14 @@ export class ImplicationFormula extends BinaryFormula {
       variableAssignment
     )
     if (mode === 'lazy' && !left.actual) {
-      return new ModelCheckerTrace(mode, this, expected, true, [left])
+      return new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        true,
+        variableAssignment,
+        [left]
+      )
     }
     const right = this.right.traceEvaluation(
       mode,
@@ -258,6 +295,7 @@ export class ImplicationFormula extends BinaryFormula {
       this,
       expected,
       !left.actual || right.actual,
+      variableAssignment,
       [left, right]
     )
   }
@@ -299,6 +337,7 @@ export class BiImplicationFormula extends BinaryFormula {
       this,
       expected,
       (!left.actual && !right.actual) || (left.actual && right.actual),
+      variableAssignment,
       [left, right]
     )
   }
@@ -314,7 +353,7 @@ export abstract class UnaryFormula implements Formula {
     return this.operator
   }
 
-  public children(): TreeNode[] {
+  public children(): Formula[] {
     return [this.inner]
   }
 
@@ -334,8 +373,8 @@ export abstract class UnaryFormula implements Formula {
     variableAssignment: VariableAssignment
   ): ModelCheckerTrace
 
-  public toFormattedString(): string {
-    return `${this.operator}(${this.inner.toFormattedString()})`
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return `${this.operator}${this.inner.toFormattedString(variableAssignment)}`
   }
 }
 
@@ -363,9 +402,14 @@ export class NotFormula extends UnaryFormula {
       model,
       variableAssignment
     )
-    return new ModelCheckerTrace(mode, this, expected, !innerTrace.actual, [
-      innerTrace,
-    ])
+    return new ModelCheckerTrace(
+      mode,
+      this,
+      expected,
+      !innerTrace.actual,
+      variableAssignment,
+      [innerTrace]
+    )
   }
 }
 
@@ -380,7 +424,7 @@ export abstract class QuantorFormula implements Formula {
     return `${this.quantor}${this.variable.name}`
   }
 
-  public children(): TreeNode[] {
+  public children(): Formula[] {
     return [this.inner]
   }
 
@@ -400,8 +444,8 @@ export abstract class QuantorFormula implements Formula {
     variableAssignment: VariableAssignment
   ): ModelCheckerTrace
 
-  public toFormattedString(): string {
-    return `${this.text()}. ${this.inner.toFormattedString()}`
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return `${this.text()}. ${this.inner.toFormattedString(variableAssignment)}`
   }
 }
 
@@ -448,14 +492,26 @@ export class UniversalQuantorFormula extends QuantorFormula {
       if (!innerTrace.actual) {
         actual = false
         if (mode === 'lazy') {
-          return new ModelCheckerTrace(mode, this, expected, false, [
-            innerTrace,
-          ])
+          return new ModelCheckerTrace(
+            mode,
+            this,
+            expected,
+            false,
+            variableAssignment,
+            [innerTrace]
+          )
         }
       }
       childTraces.push(innerTrace)
     }
-    return new ModelCheckerTrace(mode, this, expected, actual, childTraces)
+    return new ModelCheckerTrace(
+      mode,
+      this,
+      expected,
+      actual,
+      variableAssignment,
+      childTraces
+    )
   }
 }
 
@@ -502,14 +558,26 @@ export class ExistentialQuantorFormula extends QuantorFormula {
       if (innerTrace.actual) {
         actual = true
         if (mode === 'lazy') {
-          return new ModelCheckerTrace(mode, this, expected, actual, [
-            innerTrace,
-          ])
+          return new ModelCheckerTrace(
+            mode,
+            this,
+            expected,
+            actual,
+            variableAssignment,
+            [innerTrace]
+          )
         }
       }
       childTraces.push(innerTrace)
     }
-    return new ModelCheckerTrace(mode, this, expected, actual, childTraces)
+    return new ModelCheckerTrace(
+      mode,
+      this,
+      expected,
+      actual,
+      variableAssignment,
+      childTraces
+    )
   }
 }
 
@@ -523,7 +591,7 @@ export class BooleanLiteral implements Formula {
     return this.name
   }
 
-  public children(): TreeNode[] {
+  public children(): Formula[] {
     return []
   }
 
@@ -539,9 +607,16 @@ export class BooleanLiteral implements Formula {
     mode: ModelCheckerMode,
     expected: boolean,
     _model: Model,
-    _variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment
   ): ModelCheckerTrace {
-    return new ModelCheckerTrace(mode, this, expected, this.evaluate(), [])
+    return new ModelCheckerTrace(
+      mode,
+      this,
+      expected,
+      this.evaluate(),
+      variableAssignment,
+      []
+    )
   }
 
   public toFormattedString(): string {
@@ -562,7 +637,7 @@ export class RelationFormula implements Formula {
     return this.name
   }
 
-  public children(): TreeNode[] {
+  public children(): Term[] {
     return this.terms
   }
 
@@ -594,13 +669,14 @@ export class RelationFormula implements Formula {
       this,
       expected,
       this.evaluate(model, variableAssignment),
+      variableAssignment,
       []
     )
   }
 
-  public toFormattedString(): string {
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
     return `${this.name}(${this.terms
-      .map((term) => term.toFormattedString())
+      .map((term) => term.toFormattedString(variableAssignment))
       .join(',')})`
   }
 }
@@ -615,7 +691,7 @@ export class EqualityRelationFormula implements Formula {
     return '='
   }
 
-  public children(): TreeNode[] {
+  public children(): Term[] {
     return [this.firstTerm, this.secondTerm]
   }
 
@@ -646,11 +722,14 @@ export class EqualityRelationFormula implements Formula {
       this,
       expected,
       this.evaluate(model, variableAssignment),
+      variableAssignment,
       []
     )
   }
 
-  public toFormattedString(): string {
-    return `${this.firstTerm.toFormattedString()} = ${this.secondTerm.toFormattedString()}`
+  public toFormattedString(variableAssignment?: VariableAssignment): string {
+    return `${this.firstTerm.toFormattedString(
+      variableAssignment
+    )} = ${this.secondTerm.toFormattedString(variableAssignment)}`
   }
 }

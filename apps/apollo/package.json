@@ -13,7 +13,9 @@
     "check:vue": "nuxi typecheck"
   },
   "dependencies": {
-    "@yeger/fol": "workspace:*"
+    "@yeger/fol": "workspace:*",
+    "d3-graph-controller": "workspace:*",
+    "splitpanes": "3.1.5"
   },
   "devDependencies": {
     "@unocss/nuxt": "0.47.6",

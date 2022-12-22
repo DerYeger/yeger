@@ -1,16 +1,16 @@
 // Vitest Snapshot v1
 
-exports[`FOL formula > has correct formattedString for "!(tt && !(ff) && tt)" 1`] = `"¬((⊤ ∧ ¬((⊥)) ∧ ⊤))"`;
+exports[`FOL formula > has correct formattedString for "!(tt && !(ff) && tt)" 1`] = `"¬(⊤ ∧ ¬(⊥) ∧ ⊤)"`;
 
-exports[`FOL formula > has correct formattedString for "!(tt && !ff) && tt" 1`] = `"¬((⊤ ∧ ¬(⊥))) ∧ ⊤"`;
+exports[`FOL formula > has correct formattedString for "!(tt && !ff) && tt" 1`] = `"¬(⊤ ∧ ¬⊥) ∧ ⊤"`;
 
-exports[`FOL formula > has correct formattedString for "!A(x)" 1`] = `"¬(A(x))"`;
+exports[`FOL formula > has correct formattedString for "!A(x)" 1`] = `"¬A(x)"`;
 
-exports[`FOL formula > has correct formattedString for "!ff" 1`] = `"¬(⊥)"`;
+exports[`FOL formula > has correct formattedString for "!ff" 1`] = `"¬⊥"`;
 
-exports[`FOL formula > has correct formattedString for "!tt && !(ff && tt)" 1`] = `"¬(⊤) ∧ ¬((⊥ ∧ ⊤))"`;
+exports[`FOL formula > has correct formattedString for "!tt && !(ff && tt)" 1`] = `"¬⊤ ∧ ¬(⊥ ∧ ⊤)"`;
 
-exports[`FOL formula > has correct formattedString for "!tt" 1`] = `"¬(⊤)"`;
+exports[`FOL formula > has correct formattedString for "!tt" 1`] = `"¬⊤"`;
 
 exports[`FOL formula > has correct formattedString for "(forall x. A(x)) && (exists x. B(x))" 1`] = `"(∀x. A(x)) ∧ (∃x. B(x))"`;
 

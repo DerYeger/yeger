@@ -1,7 +1,13 @@
 @import '@unocss/reset/tailwind.css';
+@import 'd3-graph-controller/default.css';
 
 html,
 body,
 #__nuxt {
   min-height: 100vh;
+  font-family: 'Readex Pro', sans-serif;
+}
+
+:root {
+  --green: #34d399;
 }

@@ -1,4 +1,4 @@
-import merge from 'ts-deepmerge'
+import merge from '@yeger/deepmerge'
 
 import { createDefaultAlphaConfig } from '~/config/alpha'
 import type { Callbacks } from '~/config/callbacks'
@@ -114,5 +114,5 @@ export function defineGraphConfig<
     { mergeArrays: false },
     defaultGraphConfig<T, Node, Link>(),
     config
-  )
+  ) as GraphConfig<T, Node, Link>
 }
