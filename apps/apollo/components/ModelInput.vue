@@ -79,6 +79,6 @@ watch(
   <Icon
     v-if="error"
     name="mdi:alert-circle"
-    class="absolute top-1 right-1 text-red-500"
+    class="absolute top-2 right-2 text-red-500"
   />
 </template>

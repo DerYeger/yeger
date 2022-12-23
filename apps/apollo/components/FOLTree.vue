@@ -17,7 +17,7 @@ const expanded = ref(true)
     class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white bg-stone-900 bg-op-25"
   >
     <code
-      class="px-2 select-none"
+      class="px-1 select-none text-sm"
       :class="{ 'cursor-pointer': children.length > 0 }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
@@ -26,7 +26,7 @@ const expanded = ref(true)
     <div
       v-if="expanded && children.length > 0"
       class="flex flex-row w-fit h-fit justify-evenly mt-2"
-      :style="`gap: ${0.5 * (maxDepth - level)}rem`"
+      :style="`gap: ${0.5 * (maxDepth - level) - 0.5}rem`"
     >
       <FOLTree
         v-for="(child, index) of children"

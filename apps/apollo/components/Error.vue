@@ -1,5 +1,5 @@
 <template>
-  <Status class="text-rose-500">
+  <Status class="text-red-500">
     <slot />
   </Status>
 </template>
