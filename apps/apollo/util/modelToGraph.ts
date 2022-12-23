@@ -12,7 +12,7 @@ export function modelToGraph(model: Model): Graph {
         color: 'var(--green)',
         label: {
           fontSize: '0.875rem',
-          color: 'black',
+          color: '#1c1917',
           text: makeNodeLabel(element, model),
         },
       }),
@@ -56,11 +56,11 @@ export function modelToGraph(model: Model): Graph {
     const link = defineLink({
       source: sourceNode,
       target: targetNode,
-      color: 'gray',
+      color: '#a8a29e',
       label: {
         fontSize: '0.875rem',
         text: labels.join(','),
-        color: 'black',
+        color: '#1c1917',
       },
     })
     links.push(link)

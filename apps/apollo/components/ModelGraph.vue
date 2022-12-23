@@ -92,8 +92,14 @@ function resetGraphController() {
 </script>
 
 <template>
-  <div class="h-full w-full">
+  <div class="h-full w-full relative">
     <div ref="el" />
+    <button
+      class="absolute top-2 right-2 flex items-start px-1"
+      @click="controller?.restart(0.5)"
+    >
+      <Icon name="system-uicons:reset" class="block" />
+    </button>
   </div>
 </template>
 

@@ -14,17 +14,17 @@ const expanded = ref(trace.value?.actual === trace.value?.expected)
 
 <template>
   <div
-    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white border-1 inline-flex"
-    :class="{
-      'bg-rose-500': trace.actual !== trace.expected,
-      'bg-emerald-500': trace.actual === trace.expected,
-      'border-emerald-600': trace.actual === trace.expected,
-      'border-rose-600': trace.actual !== trace.expected,
-    }"
+    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white bg-stone-900 bg-op-25"
   >
     <code
-      class="px-2 select-none"
-      :class="{ 'cursor-pointer': children.length > 0 }"
+      class="px-2 py-1 select-none rounded border-1 text-sm"
+      :class="{
+        'cursor-pointer': children.length > 0,
+        'bg-red-600': trace.actual !== trace.expected,
+        'bg-green-600': trace.actual === trace.expected,
+        'border-green-800': trace.actual === trace.expected,
+        'border-red-800': trace.actual !== trace.expected,
+      }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
       >{{ expanded ? trace.text() : trace.details() }}</code
