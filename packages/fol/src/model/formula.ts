@@ -651,7 +651,7 @@ export class RelationFormula implements Formula {
   ): boolean {
     const relation = model.getRelationByName(this.name)
     if (!relation) {
-      throw new Error(`Missing relation: ${this.name}.`)
+      throw new Error(`Model is missing the relation ${this.name}.`)
     }
     return relation.includes(
       ...this.terms.map((term) => term.interpret(model, variableAssignment))

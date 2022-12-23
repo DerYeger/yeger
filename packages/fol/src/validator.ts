@@ -11,7 +11,7 @@ function allValuesAreInRange(
 ): ValidationResult {
   for (const value of Object.values(record)) {
     if (!domain.has(value)) {
-      return new Err(`value ${value} not in domain`)
+      return new Err(`Value ${value} is not part of the domain`)
     }
   }
   return new Ok(null)
@@ -26,7 +26,7 @@ function allKeysAreInRange(
     .map((key) => parseInt(key))
   for (const key of keys) {
     if (isNaN(key) || !domain.has(key)) {
-      return new Err(`key ${key} not in domain`)
+      return new Err(`${key} is not part of the domain`)
     }
   }
   return new Ok(null)
@@ -42,7 +42,7 @@ function validateFunctionTotality(
 ): ValidationResult {
   for (const func of Object.values(model.functions)) {
     if (!func.isTotal(domain)) {
-      return new Err(`function ${func.name} is not total`)
+      return new Err(`Function ${func.name} is not total.`)
     }
   }
   return new Ok(null)
@@ -52,7 +52,7 @@ function validateFunctionDomainsAndRanges(model: Model): ValidationResult {
   for (const func of Object.values(model.functions)) {
     const result = allKeysAreInRange(func.data, model.domain)
       .andThen(() => allValuesAreInRange(func.data, model.domain))
-      .mapError((error) => `${error} for function ${func.name}`)
+      .mapError((error) => `${error} for function ${func.name}.`)
     if (result.isError) {
       return result
     }
