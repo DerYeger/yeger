@@ -50,7 +50,7 @@ export class Function {
   public apply(...args: number[]): number {
     if (args.length !== this.arity) {
       throw new Error(
-        `Arity mismatch for function ${this.name}. Expected ${this.arity} but received ${args.length}.`
+        `Arity mismatch for function ${this.name}. Expected ${this.arity} but got ${args.length}.`
       )
     }
     const result = this.data[args.join(',')]
@@ -81,7 +81,7 @@ export class Relation {
   public includes(...args: number[]): boolean {
     if (args.length !== this.arity) {
       throw new Error(
-        `Arity mismatch for relation ${this.name}. Expected ${this.arity} but received ${args.length}.`
+        `Arity mismatch for relation ${this.name}. Expected ${this.arity} but got ${args.length}.`
       )
     }
     return this.data.has(args.join(','))

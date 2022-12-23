@@ -26,7 +26,7 @@ export class ConstantTerm implements Term {
   public interpret(model: Model): number {
     const interpreted = model.getConstantByName(this.name)
     if (interpreted === undefined) {
-      throw new Error(`Missing constant ${this.name}`)
+      throw new Error(`Model is missing the constant ${this.name}.`)
     }
     return interpreted
   }
@@ -62,7 +62,7 @@ export class FunctionTerm implements Term {
   ): number {
     const func = model.getFunctionByName(this.name)
     if (func === undefined) {
-      throw new Error(`Missing function: ${this.name}.`)
+      throw new Error(`Model is missing the function ${this.name}.`)
     }
     const interpretedArguments = this.argumentTerms.map((argument) =>
       argument.interpret(model, variableAssignment)

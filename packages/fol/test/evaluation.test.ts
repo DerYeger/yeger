@@ -63,7 +63,7 @@ describe('FOL semantics', () => {
     it('on missing constants', () => {
       const model = new Model(new Set([1]), { a: 1 }, [], [])
       expect(FOL.evaluate(model, 'a = b').getErrorOrUndefined()).toEqual(
-        'Missing constant b'
+        'Model is missing the constant b.'
       )
     })
 
@@ -77,7 +77,7 @@ describe('FOL semantics', () => {
 
       it('if function is missing', () => {
         expect(FOL.evaluate(model, 'g(a) = a').getErrorOrUndefined()).toEqual(
-          'Missing function: g.'
+          'Model is missing the function g.'
         )
       })
 
@@ -91,7 +91,7 @@ describe('FOL semantics', () => {
     it('on missing relations', () => {
       const model = new Model(new Set([1]), { x: 1 }, [], [])
       expect(FOL.evaluate(model, 'A(x)').getErrorOrUndefined()).toEqual(
-        'Missing relation: A.'
+        'Model is missing the relation A.'
       )
     })
   })
