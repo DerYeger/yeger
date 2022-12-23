@@ -33,7 +33,7 @@ const traceError = computed(() => traceResult.value?.getErrorOrUndefined())
 </script>
 
 <template>
-  <main class="bg-stone-100 h-100vh">
+  <main class="bg-stone-100 h-100vh !h-100dvh">
     <Splitpanes class="default-theme">
       <Pane :min-size="minPaneSize">
         <Splitpanes class="default-theme" horizontal>
