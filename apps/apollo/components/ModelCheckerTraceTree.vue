@@ -16,10 +16,10 @@ const expanded = ref(trace.value?.actual === trace.value?.expected)
   <div
     class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white border-1 inline-flex"
     :class="{
-      'bg-red-500': trace.actual !== trace.expected,
-      'bg-green-500': trace.actual === trace.expected,
-      'border-green-600': trace.actual === trace.expected,
-      'border-red-600': trace.actual !== trace.expected,
+      'bg-rose-500': trace.actual !== trace.expected,
+      'bg-emerald-500': trace.actual === trace.expected,
+      'border-emerald-600': trace.actual === trace.expected,
+      'border-rose-600': trace.actual !== trace.expected,
     }"
   >
     <code
