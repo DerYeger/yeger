@@ -3,6 +3,7 @@ import type { Model } from '@yeger/fol'
 import type {
   GraphNode,
   NodeModifier,
+  PositionInitializer,
   ResizeContext,
 } from 'd3-graph-controller'
 import {
@@ -34,14 +35,21 @@ onUnmounted(() => {
   controller.value?.shutdown()
 })
 
-watch(graph, resetGraphController)
+watch(graph, (newGrap, oldGraph) => {
+  resetGraphController(PositionInitializers.Stable(oldGraph))
+})
 
-function resetGraphController() {
+function resetGraphController(
+  positionInitializer?: PositionInitializer<string, GraphNode<string>>
+) {
   controller.value?.shutdown()
   if (!graph.value || !el.value) {
     return
   }
-
+  const defaultPositionInitializer =
+    graph.value.nodes.length > 1
+      ? PositionInitializers.Randomized
+      : PositionInitializers.Centered
   const nodeModifier: NodeModifier<string, GraphNode> = (selection) => {
     selection.on('pointerdown', null)
     selection.on('pointerup', null)
@@ -77,10 +85,7 @@ function resetGraphController() {
         node: nodeModifier,
       },
       marker: Markers.Arrow(2),
-      positionInitializer:
-        graph.value.nodes.length > 1
-          ? PositionInitializers.Randomized
-          : PositionInitializers.Centered,
+      positionInitializer: positionInitializer ?? defaultPositionInitializer,
       zoom: {
         min: 0.25,
         initial: 0.8,

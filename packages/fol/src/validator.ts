@@ -11,6 +11,7 @@ function allValuesAreInRange(
 ): ValidationResult {
   for (const value of Object.values(record)) {
     if (!domain.has(value)) {
+      // TODO: Remove "Value "
       return new Err(`Value ${value} is not part of the domain`)
     }
   }
@@ -62,6 +63,8 @@ function validateFunctionDomainsAndRanges(model: Model): ValidationResult {
 
 function validateModel(model: Model): ValidationResult {
   const domain = [...model.domain]
+  // TODO: Validate relations
+  // TODO: Merge both functions validations into single loop
   return validateConstants(model)
     .andThen(() => validateFunctionTotality(model, domain))
     .andThen(() => validateFunctionDomainsAndRanges(model))

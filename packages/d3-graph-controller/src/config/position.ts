@@ -1,4 +1,4 @@
-import type { NodeTypeToken } from '~/model/graph'
+import type { Graph, NodeTypeToken } from '~/model/graph'
 import type { GraphNode } from '~/model/node'
 
 /**
@@ -25,6 +25,21 @@ function randomInRange(min: number, max: number): number {
   return Math.random() * (max - min) + min
 }
 
+function Stable<T extends NodeTypeToken, Node extends GraphNode<T>>(
+  previousGraph: Graph<T, Node>
+): PositionInitializer<T, Node> {
+  const positions = Object.fromEntries(
+    previousGraph.nodes.map((node) => [node.id, [node.x, node.y]] as const)
+  )
+  return (node, width, height) => {
+    const [x, y] = positions[node.id] ?? []
+    if (!x || !y) {
+      return Randomized(node, width, height)
+    }
+    return [x, y]
+  }
+}
+
 /**
  * Collection of built-in position initializers.
  */
@@ -37,4 +52,8 @@ export const PositionInitializers = {
    * Randomly initializes node positions within the visible area.
    */
   Randomized,
+  /**
+   * Initializes node positions based on other graph.
+   */
+  Stable,
 }
