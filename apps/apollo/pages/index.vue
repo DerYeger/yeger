@@ -58,7 +58,7 @@ const modelError = computed(() =>
       </Pane>
       <Pane :min-size="minPaneSize">
         <Splitpanes class="default-theme" horizontal>
-          <Pane :min-size="minPaneSize" class="relative">
+          <Pane :min-size="minPaneSize" class="relative text-sm">
             <PaneTitle>Formula Input</PaneTitle>
             <div class="h-full w-full flex flex-col gap-4 pa-4 overflow-y-auto">
               <div class="flex flex-col gap-2 mt-2">
@@ -111,6 +111,7 @@ const modelError = computed(() =>
                   :trace="trace"
                   :level="0"
                   :max-depth="trace.depth()"
+                  :is-root-mismatched="trace.actual !== trace.expected"
                 />
                 <Error v-else-if="traceError" class="rounded">
                   {{ traceError }}

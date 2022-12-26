@@ -25,8 +25,7 @@ const expanded = ref(true)
     >
     <div
       v-if="expanded && children.length > 0"
-      class="flex flex-row w-fit h-fit justify-evenly mt-2"
-      :style="`gap: ${0.5 * (maxDepth - level) - 0.5}rem`"
+      class="flex flex-row w-fit h-fit justify-evenly mt-2 gap-2"
     >
       <FOLTree
         v-for="(child, index) of children"
