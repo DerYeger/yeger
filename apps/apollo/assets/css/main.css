@@ -1,12 +1,15 @@
 @import '@unocss/reset/tailwind.css';
 @import 'd3-graph-controller/default.css';
 
-html,
+html {
+  height: 100vh;
+  height: 100dvh;
+  font-family: 'Readex Pro', sans-serif;
+}
+
 body,
 #__nuxt {
-  min-height: 100vh;
-  min-height: 100dvh;
-  font-family: 'Readex Pro', sans-serif;
+  height: 100%;
 }
 
 :root {

@@ -39,7 +39,7 @@ const modelError = computed(() =>
 </script>
 
 <template>
-  <main class="bg-stone-100 h-100vh !h-100dvh">
+  <main class="bg-stone-100 h-full">
     <Splitpanes class="default-theme">
       <Pane :min-size="minPaneSize">
         <Splitpanes class="default-theme" horizontal>
