@@ -35,7 +35,7 @@ onUnmounted(() => {
   controller.value?.shutdown()
 })
 
-watch(graph, (newGrap, oldGraph) => {
+watch(graph, (_, oldGraph) => {
   resetGraphController(PositionInitializers.Stable(oldGraph))
 })
 

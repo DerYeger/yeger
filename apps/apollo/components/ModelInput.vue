@@ -5,28 +5,18 @@ import { Codemirror } from 'vue-codemirror'
 
 import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
 
+const props = withDefaults(defineProps<{ disabled?: boolean }>(), {
+  disabled: false,
+})
+
 const emit = defineEmits(['change'])
+
+const { disabled } = toRefs(props)
 
 const language = StreamLanguage.define(yaml)
 
-const input = ref(`domain: [1, 2, 3]
-
-constants:
-  a: 1
-  b: 2
-
-functions:
-  f:
-    - 1,1
-    - 2,1
-    - 3,2
-
-relations:
-  R: [3]
-  W:
-    - 1,1
-    - 2,3
-`)
+const { modelInput } = useDemoData()
+const input = ref(modelInput)
 
 const error = ref<string>()
 
@@ -74,7 +64,7 @@ watch(
       backgroundColor: '#fff',
       color: '#333',
     }"
-    placeholder="Please enter the code."
+    :disabled="disabled"
   />
   <Icon
     v-if="error"
