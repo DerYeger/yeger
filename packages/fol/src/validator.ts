@@ -11,7 +11,7 @@ function allElementsAreInRange(
 ): ValidationResult {
   for (const element of elements) {
     if (isNaN(element) || !domain.has(element)) {
-      return new Err(`${element} is not part of the domain.`)
+      return new Err(`${element} is not part of the domain`)
     }
   }
   return new Ok(null)
@@ -46,7 +46,7 @@ function validateFunctions(model: Model): ValidationResult {
     }
     const result = allKeysAreInRange(func.data, model.domain)
       .andThen(() => allValuesAreInRange(func.data, model.domain))
-      .mapError((error) => `${error} for function ${func.name}.`)
+      .mapError((error) => `${error} but used in function ${func.name}.`)
     if (result.isError) {
       return result
     }
@@ -59,7 +59,9 @@ function validateRelations(model: Model): ValidationResult {
     const elements = [...relation.data]
       .flatMap((entry) => entry.split(','))
       .map((element) => parseInt(element))
-    const result = allElementsAreInRange(elements, model.domain)
+    const result = allElementsAreInRange(elements, model.domain).mapError(
+      (error) => `${error} but used in relation ${relation.name}.`
+    )
     if (result.isError) {
       return result
     }

@@ -62,12 +62,11 @@ function copyFormulaToClipboard() {
             <Pane :min-size="minPaneSize" class="relative flex flex-col">
               <PaneTitle>Model Graph</PaneTitle>
               <ModelGraph v-if="model" :model="model" class="flex-1" />
-              <Overlay
+              <Warning
                 v-if="modelError"
-                class="absolute left-0 bottom-0 right-0 border-t-1"
+                class="absolute left-0 bottom-0 right-0"
+                >{{ modelError }}</Warning
               >
-                <code class="text-yellow-500">{{ modelError }}</code>
-              </Overlay>
             </Pane>
           </Splitpanes>
         </Pane>
@@ -146,6 +145,9 @@ function copyFormulaToClipboard() {
                   <Error v-else-if="traceError" class="rounded">
                     {{ traceError }}
                   </Error>
+                  <Error v-else-if="!formula" class="rounded"
+                    >Formula is invalid.</Error
+                  >
                 </div>
               </div>
             </Pane>

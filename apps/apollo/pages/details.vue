@@ -37,13 +37,8 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         errors.
       </DetailsParagraph>
       <DemoCard class="p-4 flex flex-col justify-center items-center gap-6">
-        <input
-          type="text"
-          disabled
-          :value="formula"
-          class="px-2 py-1 bg-white rounded border-stone-600 border-1 text-stone-500"
-        />
-        <span>becomes</span>
+        <span>{{ formula }}</span>
+        <span class="text-stone-600">is parsed as</span>
         <code>{{ parsedFormula.toFormattedString() }}</code>
       </DemoCard>
       <DetailsParagraph>
@@ -51,7 +46,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         non-terminal node can be expanded and collapsed to reveal or hide
         sub-formulas respectively.
       </DetailsParagraph>
-      <DemoCard class="mx-auto w-fit border-none shadow-none">
+      <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
         <FOLTree
           :fragment="parsedFormula"
           :max-depth="parsedFormula.depth()"
@@ -65,7 +60,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         represented as a node in the evaluation tree. This ensures that results
         are always tangible.
       </DetailsParagraph>
-      <DemoCard class="mx-auto w-fit border-none shadow-none">
+      <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
         <ModelCheckerTraceTree
           :trace="trace"
           :is-root-mismatched="trace.actual !== trace.expected"
