@@ -71,4 +71,7 @@ watch(
     name="mdi:alert-circle"
     class="absolute top-2 right-2 text-red-500"
   />
+  <Status v-if="error" class="absolute left-0 bottom-0 right-0 border-t-1">
+    <code class="text-red-500">{{ error }}</code>
+  </Status>
 </template>

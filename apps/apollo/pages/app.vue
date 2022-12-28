@@ -9,7 +9,7 @@ const minPaneSize = 10
 const formulaInput = ref('exists x. W(x,x) && f(b) = x')
 
 definePageMeta({
-  layout: 'app',
+  layout: 'empty',
 })
 
 const parseResult = computed(() => FOL.parse(formulaInput.value))
@@ -40,91 +40,118 @@ const modelError = computed(() =>
     ? Validator.validateModel(model.value).getErrorOrUndefined()
     : undefined
 )
+
+const isClipboardSupported =
+  typeof navigator !== 'undefined' && !!navigator.clipboard
+
+function copyFormulaToClipboard() {
+  navigator.clipboard.writeText(formula.value?.toFormattedString() ?? 'Invalid')
+}
 </script>
 
 <template>
-  <main class="bg-stone-100 h-full">
-    <Splitpanes class="default-theme">
-      <Pane :min-size="minPaneSize">
-        <Splitpanes class="default-theme" horizontal>
-          <Pane :min-size="minPaneSize" class="h-full w-full relative">
-            <ModelInput @change="(newModel) => (model = newModel)" />
-          </Pane>
-          <Pane :min-size="minPaneSize" class="relative flex flex-col">
-            <PaneTitle>Model Graph</PaneTitle>
-            <ModelGraph v-if="model" :model="model" class="flex-1" />
-            <Warning v-if="modelError">
-              {{ modelError }}
-            </Warning>
-            <Success v-else>Model is valid</Success>
-          </Pane>
-        </Splitpanes>
-      </Pane>
-      <Pane :min-size="minPaneSize">
-        <Splitpanes class="default-theme" horizontal>
-          <Pane :min-size="minPaneSize" class="relative text-sm">
-            <PaneTitle>Formula Input</PaneTitle>
-            <div class="h-full w-full flex flex-col gap-4 pa-4 overflow-y-auto">
-              <div class="flex flex-col gap-2 mt-2">
-                <label for="formulaInput">Input</label>
-                <input
-                  v-model="formulaInput"
-                  name="formulaInput"
-                  class="px-2 py-1 bg-white rounded border-stone-900 border-1"
-                />
+  <div class="bg-stone-300 h-full flex flex-col">
+    <Toolbar />
+    <main class="bg-stone-100 flex-1">
+      <Splitpanes class="default-theme">
+        <Pane :min-size="minPaneSize">
+          <Splitpanes class="default-theme" horizontal>
+            <Pane :min-size="minPaneSize" class="h-full w-full relative">
+              <ModelInput @change="(newModel) => (model = newModel)" />
+            </Pane>
+            <Pane :min-size="minPaneSize" class="relative flex flex-col">
+              <PaneTitle>Model Graph</PaneTitle>
+              <ModelGraph v-if="model" :model="model" class="flex-1" />
+              <Overlay
+                v-if="modelError"
+                class="absolute left-0 bottom-0 right-0 border-t-1"
+              >
+                <code class="text-yellow-500">{{ modelError }}</code>
+              </Overlay>
+            </Pane>
+          </Splitpanes>
+        </Pane>
+        <Pane :min-size="minPaneSize">
+          <Splitpanes class="default-theme" horizontal>
+            <Pane :min-size="minPaneSize" class="relative text-sm">
+              <PaneTitle>Formula Input</PaneTitle>
+              <div
+                class="h-full w-full flex flex-col gap-4 pa-4 overflow-y-auto"
+              >
+                <div class="flex flex-col gap-2 mt-2">
+                  <label for="formulaInput">Input</label>
+                  <input
+                    v-model="formulaInput"
+                    name="formulaInput"
+                    class="px-2 py-1 bg-white rounded border-stone-900 border-1"
+                  />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <span>Formula</span>
+                  <code
+                    class="px-2 py-1 border-current border-1 flex items-center"
+                  >
+                    <span class="overflow-x-auto flex-1 text-stone-500">
+                      {{ formula?.toFormattedString() ?? 'Invalid' }}
+                    </span>
+                    <ClientOnly>
+                      <button
+                        v-if="isClipboardSupported"
+                        class="transition-colors hover:text-stone-600"
+                        @click="copyFormulaToClipboard"
+                      >
+                        <Icon name="carbon:copy" />
+                      </button>
+                    </ClientOnly>
+                  </code>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label>Eager Evaluation</label>
+                  <ToggleButton
+                    :input="modelCheckerMode === 'eager'"
+                    @update:input="onModeChange"
+                  />
+                </div>
               </div>
-              <div class="flex flex-col gap-2">
-                <span>Formula</span>
-                <code
-                  class="px-2 py-1 border-current border-1 text-stone-500 overflow-x-auto"
-                >
-                  {{ formula?.toFormattedString() ?? 'Invalid' }}
-                </code>
+            </Pane>
+            <Pane :min-size="minPaneSize" class="text-stone-500 relative">
+              <PaneTitle class="!text-stone-100">Formula Tree</PaneTitle>
+              <div class="w-full h-full flex overflow-auto bg-stone-400">
+                <div class="m-auto p-2">
+                  <FOLTree
+                    v-if="formula"
+                    :fragment="formula"
+                    :level="0"
+                    :max-depth="formula.depth()"
+                    class="text-xs"
+                  />
+                  <Error v-else-if="formulaError" class="rounded">
+                    {{ formulaError }}
+                  </Error>
+                </div>
               </div>
-              <div class="flex flex-col gap-2">
-                <label>Eager Evaluation</label>
-                <ToggleButton
-                  :input="modelCheckerMode === 'eager'"
-                  @update:input="onModeChange"
-                />
+            </Pane>
+            <Pane :min-size="minPaneSize" class="text-stone-500 relative">
+              <PaneTitle class="!text-stone-100">Model Checker</PaneTitle>
+              <div class="w-full h-full flex overflow-auto bg-stone-400">
+                <div class="m-auto p-2">
+                  <ModelCheckerTraceTree
+                    v-if="trace"
+                    :trace="trace"
+                    :level="0"
+                    :max-depth="trace.depth()"
+                    :is-root-mismatched="trace.actual !== trace.expected"
+                    class="text-xs"
+                  />
+                  <Error v-else-if="traceError" class="rounded">
+                    {{ traceError }}
+                  </Error>
+                </div>
               </div>
-            </div>
-          </Pane>
-          <Pane :min-size="minPaneSize" class="text-stone-500 relative">
-            <PaneTitle class="!text-stone-100">Formula Tree</PaneTitle>
-            <div class="w-full h-full flex overflow-auto bg-stone-900 bg-op-25">
-              <div class="m-auto p-2">
-                <FOLTree
-                  v-if="formula"
-                  :fragment="formula"
-                  :level="0"
-                  :max-depth="formula.depth()"
-                />
-                <Error v-else-if="formulaError" class="rounded">
-                  {{ formulaError }}
-                </Error>
-              </div>
-            </div>
-          </Pane>
-          <Pane :min-size="minPaneSize" class="text-stone-500 relative">
-            <PaneTitle class="!text-stone-100">Evaluation</PaneTitle>
-            <div class="w-full h-full flex overflow-auto bg-stone-900 bg-op-25">
-              <div class="m-auto p-2">
-                <ModelCheckerTraceTree
-                  v-if="trace"
-                  :trace="trace"
-                  :level="0"
-                  :max-depth="trace.depth()"
-                  :is-root-mismatched="trace.actual !== trace.expected"
-                />
-                <Error v-else-if="traceError" class="rounded">
-                  {{ traceError }}
-                </Error>
-              </div>
-            </div>
-          </Pane>
-        </Splitpanes>
-      </Pane>
-    </Splitpanes>
-  </main>
+            </Pane>
+          </Splitpanes>
+        </Pane>
+      </Splitpanes>
+    </main>
+  </div>
 </template>

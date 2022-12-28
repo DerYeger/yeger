@@ -3,7 +3,10 @@ const { appLink, detailsLink } = useLinks()
 </script>
 
 <template>
-  <div v-once class="flex">
+  <div
+    v-once
+    class="flex flex-col-reverse md:flex-row space-between gap-16 md:gap-4"
+  >
     <div class="flex flex-col gap-10 md:w-50%">
       <h2 class="text-lg md:text-3xl font-bold uppercase text-stone-800">
         FOL Model Checking
@@ -34,6 +37,6 @@ const { appLink, detailsLink } = useLinks()
         </LinkButton>
       </div>
     </div>
-    <div></div>
+    <HeroImage />
   </div>
 </template>

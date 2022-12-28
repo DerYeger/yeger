@@ -16,7 +16,8 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
       <DetailsParagraph>
         The intuitive YAML-based editor enables users to quickly define models
         through textual input. At the same time, the portable format can be used
-        to store and share models.
+        to store and share models. On-the-fly validation warns about issues,
+        such as non-total functions, but does not prevent model checking.
       </DetailsParagraph>
       <DemoCard>
         <ModelInput :disabled="true" />
@@ -50,7 +51,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         non-terminal node can be expanded and collapsed to reveal or hide
         sub-formulas respectively.
       </DetailsParagraph>
-      <DemoCard class="mx-auto w-fit">
+      <DemoCard class="mx-auto w-fit border-none shadow-none">
         <FOLTree
           :fragment="parsedFormula"
           :max-depth="parsedFormula.depth()"
@@ -64,7 +65,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         represented as a node in the evaluation tree. This ensures that results
         are always tangible.
       </DetailsParagraph>
-      <DemoCard class="mx-auto w-fit">
+      <DemoCard class="mx-auto w-fit border-none shadow-none">
         <ModelCheckerTraceTree
           :trace="trace"
           :is-root-mismatched="trace.actual !== trace.expected"

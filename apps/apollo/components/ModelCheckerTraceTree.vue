@@ -14,25 +14,38 @@ const isMismatched = computed(() => trace.value.actual !== trace.value.expected)
 const expanded = ref(
   isRootMismatched.value ? isMismatched.value : !isMismatched.value
 )
+
+const borderBreakpoints = [1, 3, 5]
 </script>
 
 <template>
   <div
-    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white bg-stone-900 bg-op-25"
+    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-stone-100 bg-stone-900 bg-op-25 border-1 shadow"
+    :class="{
+      'border-stone-600': level < borderBreakpoints[0],
+      'border-stone-700': level >= borderBreakpoints[0],
+      'border-stone-800': level >= borderBreakpoints[1],
+      'border-stone-900': level >= borderBreakpoints[2],
+    }"
   >
     <code
-      class="px-2 py-1 select-none rounded border-1 text-sm"
+      class="px-2 py-1 select-none rounded flex items-center gap-2"
       :class="{
         'cursor-pointer': children.length > 0,
-        'bg-red-600': isMismatched,
-        'border-red-800': isMismatched,
-        'bg-green-600': !isMismatched,
-        'border-green-800': !isMismatched,
       }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
-      >{{ expanded ? trace.text() : trace.details() }}</code
     >
+      <Icon
+        :name="trace.actual ? 'mdi:check-bold' : 'mdi:close-thick'"
+        class="text-1.25em"
+        :class="{
+          'text-green-500': !isMismatched,
+          'text-red-500': isMismatched,
+        }"
+      />
+      {{ expanded ? trace.text() : trace.details() }}
+    </code>
     <div
       v-if="expanded && children.length > 0"
       class="flex flex-row w-fit h-fit justify-evenly mt-2 gap-2"

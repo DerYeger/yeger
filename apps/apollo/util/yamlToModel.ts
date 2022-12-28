@@ -50,7 +50,10 @@ function parseJson(input: unknown): Result<JsonModel, string> {
   try {
     return new Ok(JsonModelSchema.parse(input))
   } catch (err) {
-    return new Err((err as ZodError).message)
+    const error = err as ZodError
+    const { message, path } = error.issues[0]
+    const messageWithPath = `${message} (${path.join(' -> ')})`
+    return new Err(path.length > 0 ? messageWithPath : message)
   }
 }
 

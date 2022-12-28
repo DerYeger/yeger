@@ -14,4 +14,41 @@ body,
 
 :root {
   --green: #22c55e;
+  --splitpanes-border-color: #57534e;
+}
+
+.splitpanes__pane {
+  background-color: unset !important;
+}
+
+.splitpanes__splitter {
+  /* stone-200 */
+  background-color: #e7e5e4 !important;
+  /* border: none !important; */
+  position: relative !important;
+}
+
+.splitpanes--vertical .splitpanes__splitter {
+  z-index: 51 !important;
+  margin-top: -1px;
+  margin-bottom: -1px;
+  height: calc(100% + 1px);
+  border-left: 1px solid var(--splitpanes-border-color) !important;
+  border-right: 1px solid var(--splitpanes-border-color) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+.splitpanes--horizontal .splitpanes__splitter {
+  z-index: 50 !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: 1px solid var(--splitpanes-border-color) !important;
+  border-bottom: 1px solid var(--splitpanes-border-color) !important;
+}
+
+.splitpanes__splitter:before,
+.splitpanes__splitter:after {
+  /* stone-500 */
+  background-color: #78716c !important;
 }

@@ -10,14 +10,22 @@ const { fragment, level, maxDepth } = toRefs(props)
 
 const children = computed(() => fragment.value.children())
 const expanded = ref(true)
+
+const borderBreakpoints = [1, 3, 5]
 </script>
 
 <template>
   <div
-    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-white bg-stone-900 bg-op-25"
+    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-stone-100 bg-stone-900 bg-op-25 border-1 shadow"
+    :class="{
+      'border-stone-600': level < borderBreakpoints[0],
+      'border-stone-700': level >= borderBreakpoints[0],
+      'border-stone-800': level >= borderBreakpoints[1],
+      'border-stone-900': level >= borderBreakpoints[2],
+    }"
   >
     <code
-      class="px-1 select-none text-sm"
+      class="px-1 select-none"
       :class="{ 'cursor-pointer': children.length > 0 }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
