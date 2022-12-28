@@ -5,17 +5,23 @@ import type { Model } from '~/model'
 
 export type ValidationResult = Result<null, string>
 
+function allElementsAreInRange(
+  elements: number[],
+  domain: Set<number>
+): ValidationResult {
+  for (const element of elements) {
+    if (isNaN(element) || !domain.has(element)) {
+      return new Err(`${element} is not part of the domain.`)
+    }
+  }
+  return new Ok(null)
+}
+
 function allValuesAreInRange(
   record: Record<string, number>,
   domain: Set<number>
 ): ValidationResult {
-  for (const value of Object.values(record)) {
-    if (!domain.has(value)) {
-      // TODO: Remove "Value "
-      return new Err(`Value ${value} is not part of the domain`)
-    }
-  }
-  return new Ok(null)
+  return allElementsAreInRange(Object.values(record), domain)
 }
 
 function allKeysAreInRange(
@@ -25,32 +31,19 @@ function allKeysAreInRange(
   const keys = Object.keys(record)
     .flatMap((key) => key.split(','))
     .map((key) => parseInt(key))
-  for (const key of keys) {
-    if (isNaN(key) || !domain.has(key)) {
-      return new Err(`${key} is not part of the domain`)
-    }
-  }
-  return new Ok(null)
+  return allElementsAreInRange(keys, domain)
 }
 
 function validateConstants(model: Model): ValidationResult {
   return allValuesAreInRange(model.constants, model.domain)
 }
 
-function validateFunctionTotality(
-  model: Model,
-  domain: number[]
-): ValidationResult {
+function validateFunctions(model: Model): ValidationResult {
+  const domain = [...model.domain]
   for (const func of Object.values(model.functions)) {
     if (!func.isTotal(domain)) {
       return new Err(`Function ${func.name} is not total.`)
     }
-  }
-  return new Ok(null)
-}
-
-function validateFunctionDomainsAndRanges(model: Model): ValidationResult {
-  for (const func of Object.values(model.functions)) {
     const result = allKeysAreInRange(func.data, model.domain)
       .andThen(() => allValuesAreInRange(func.data, model.domain))
       .mapError((error) => `${error} for function ${func.name}.`)
@@ -61,13 +54,23 @@ function validateFunctionDomainsAndRanges(model: Model): ValidationResult {
   return new Ok(null)
 }
 
+function validateRelations(model: Model): ValidationResult {
+  for (const relation of Object.values(model.relations)) {
+    const elements = [...relation.data]
+      .flatMap((entry) => entry.split(','))
+      .map((element) => parseInt(element))
+    const result = allElementsAreInRange(elements, model.domain)
+    if (result.isError) {
+      return result
+    }
+  }
+  return new Ok(null)
+}
+
 function validateModel(model: Model): ValidationResult {
-  const domain = [...model.domain]
-  // TODO: Validate relations
-  // TODO: Merge both functions validations into single loop
   return validateConstants(model)
-    .andThen(() => validateFunctionTotality(model, domain))
-    .andThen(() => validateFunctionDomainsAndRanges(model))
+    .andThen(() => validateFunctions(model))
+    .andThen(() => validateRelations(model))
 }
 
 export const Validator = {

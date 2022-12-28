@@ -52,7 +52,7 @@ function parseJson(input: unknown): Result<JsonModel, string> {
   } catch (err) {
     const error = err as ZodError
     const { message, path } = error.issues[0]
-    const messageWithPath = `${message} (${path.join(' -> ')})`
+    const messageWithPath = `${message}\nError location: ${path.join(' ⭢ ')}`
     return new Err(path.length > 0 ? messageWithPath : message)
   }
 }
