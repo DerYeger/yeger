@@ -97,7 +97,7 @@ function resetGraphController(
 </script>
 
 <template>
-  <div class="h-full w-full relative">
+  <div class="h-full w-full relative font-ui">
     <div ref="el" />
     <button
       class="absolute top-2 right-2 flex items-start px-1"
@@ -124,7 +124,7 @@ function resetGraphController(
 
 .graph .node__label,
 .graph .link__label {
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .graph .node__label {

@@ -6,6 +6,15 @@ export default defineNuxtConfig({
     uno: true,
     icons: true,
     attributify: true,
+    preflight: true,
+    webFonts: {
+      fonts: {
+        ui: {
+          name: 'Readex Pro',
+          weights: [200, 300, 400, 500, 600, 700],
+        },
+      },
+    },
     shortcuts: [],
     rules: [],
   },

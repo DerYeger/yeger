@@ -19,8 +19,11 @@ relations:
     - 2,3
 `
 
+const formula = 'exists x. W(x,x) && f(b) = x'
+
 export function useDemoData() {
   return {
+    formula,
     modelInput,
     createDemoModel: () => yamlToJson(modelInput).andThen(jsonToModel).get(),
   }

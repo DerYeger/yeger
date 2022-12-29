@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { FOL } from '@yeger/fol'
 
-const formula = 'exists x. W(x,x) && f(b) = x'
+const { formula } = useDemoData()
 
 const parsedFormula = FOL.parse(formula).get()
 
@@ -58,7 +58,10 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
       <DetailsParagraph>
         Every evaluation step of the recursive model checking algorithm is
         represented as a node in the evaluation tree. This ensures that results
-        are always tangible.
+        are always tangible. A checkmark indicates that the (sub-)formula must
+        be modelled by the model, a cross represents the opposite. The colors
+        green and red show whether the actual result matches the expected result
+        or not.
       </DetailsParagraph>
       <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
         <ModelCheckerTraceTree

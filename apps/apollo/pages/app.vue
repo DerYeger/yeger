@@ -4,9 +4,11 @@ import { FOL, Validator } from '@yeger/fol'
 import { Pane, Splitpanes } from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 
-const minPaneSize = 10
+const minPaneSize = 5
 
-const formulaInput = ref('exists x. W(x,x) && f(b) = x')
+const { formula: demoFormula } = useDemoData()
+
+const formulaInput = ref(demoFormula)
 
 definePageMeta({
   layout: 'empty',
@@ -50,7 +52,7 @@ function copyFormulaToClipboard() {
 </script>
 
 <template>
-  <div class="bg-stone-300 h-full flex flex-col">
+  <div class="bg-stone-300 h-full flex flex-col font-ui">
     <Toolbar />
     <main class="bg-stone-100 flex-1 min-h-0">
       <Splitpanes class="default-theme">
@@ -82,7 +84,7 @@ function copyFormulaToClipboard() {
                   <input
                     v-model="formulaInput"
                     name="formulaInput"
-                    class="px-2 py-1 bg-white rounded border-stone-900 border-1"
+                    class="px-2 py-1 bg-white rounded border-stone-900 border-1 font-sans"
                   />
                 </div>
                 <div class="flex flex-col gap-2">
@@ -94,13 +96,12 @@ function copyFormulaToClipboard() {
                       {{ formula?.toFormattedString() ?? 'Invalid' }}
                     </span>
                     <ClientOnly>
-                      <button
+                      <IconButton
                         v-if="isClipboardSupported"
-                        class="transition-colors hover:text-stone-600"
+                        name="carbon:copy"
+                        class="mr--2"
                         @click="copyFormulaToClipboard"
-                      >
-                        <Icon name="carbon:copy" />
-                      </button>
+                      />
                     </ClientOnly>
                   </code>
                 </div>

@@ -1,10 +1,8 @@
-@import '@unocss/reset/tailwind.css';
 @import 'd3-graph-controller/default.css';
 
 html {
   height: 100vh;
   height: 100dvh;
-  font-family: 'Readex Pro', sans-serif;
 }
 
 body,

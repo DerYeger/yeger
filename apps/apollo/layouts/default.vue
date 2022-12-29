@@ -3,7 +3,7 @@ const { links } = useLinks()
 </script>
 
 <template>
-  <div class="bg-stone-100 text-stone-900 min-h-full p-4 md:p-16">
+  <div class="bg-stone-100 text-stone-900 min-h-full p-4 md:p-16 font-sans">
     <header class="flex items-center gap-4 md:gap-16 overflow-x-auto">
       <span class="text-2xl font-bold">Apollo</span>
       <div class="flex-1" />
