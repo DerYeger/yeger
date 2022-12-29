@@ -62,6 +62,7 @@ importers:
       vite: 4.0.0
       vue: 3.2.45
       vue-codemirror: 6.1.1
+      vue-toastification: 2.0.0-rc.5
       vue-tsc: 1.0.12
       yaml: 2.2.0
       zod: 3.20.2
@@ -74,6 +75,7 @@ importers:
       resumon: link:../../packages/resumon
       splitpanes: 3.1.5
       vue-codemirror: 6.1.1_vhikcdkubtgbuxk47tdob2ofvi
+      vue-toastification: 2.0.0-rc.5_vue@3.2.45
       yaml: 2.2.0
       zod: 3.20.2
     devDependencies:
@@ -14427,6 +14429,14 @@ packages:
   /vue-template-es2015-compiler/1.9.1:
     resolution: {integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==}
     dev: true
+
+  /vue-toastification/2.0.0-rc.5_vue@3.2.45:
+    resolution: {integrity: sha512-q73e5jy6gucEO/U+P48hqX+/qyXDozAGmaGgLFm5tXX4wJBcVsnGp4e/iJqlm9xzHETYOilUuwOUje2Qg1JdwA==}
+    peerDependencies:
+      vue: ^3.0.2
+    dependencies:
+      vue: 3.2.45
+    dev: false
 
   /vue-tsc/1.0.12_prq2uz4lho2pwp6irk4cfkrxwu:
     resolution: {integrity: sha512-uWSASSHMfC61eEEOuLwf+eF9ODg0UzBV42/lIkZamxsA3PFZyV/eaq+RpEFP+NRXfL0GeXZUxY6l2dm9xlY07Q==}

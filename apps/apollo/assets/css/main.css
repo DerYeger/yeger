@@ -1,4 +1,5 @@
 @import 'd3-graph-controller/default.css';
+@import 'vue-toastification/dist/index.css';
 
 html {
   height: 100vh;
