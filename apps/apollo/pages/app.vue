@@ -52,7 +52,7 @@ function copyFormulaToClipboard() {
 <template>
   <div class="bg-stone-300 h-full flex flex-col">
     <Toolbar />
-    <main class="bg-stone-100 flex-1">
+    <main class="bg-stone-100 flex-1 min-h-0">
       <Splitpanes class="default-theme">
         <Pane :min-size="minPaneSize">
           <Splitpanes class="default-theme" horizontal>
