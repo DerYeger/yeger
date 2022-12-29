@@ -320,25 +320,44 @@ export class BiImplicationFormula extends BinaryFormula {
     model: Model,
     variableAssignment: VariableAssignment
   ): ModelCheckerTrace {
-    const left = this.left.traceEvaluation(
-      mode,
-      expected,
-      model,
-      variableAssignment
-    )
-    const right = this.right.traceEvaluation(
-      mode,
-      expected,
-      model,
-      variableAssignment
-    )
+    const options: [boolean, boolean][] = [
+      [true, true],
+      [false, false],
+    ]
+    const traces: ModelCheckerTrace[] = []
+    for (const [leftExpected, rightExpected] of options) {
+      const left = this.left.traceEvaluation(
+        mode,
+        leftExpected,
+        model,
+        variableAssignment
+      )
+      const right = this.right.traceEvaluation(
+        mode,
+        rightExpected,
+        model,
+        variableAssignment
+      )
+      const trace = new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        left.actual === leftExpected && right.actual === right.expected,
+        variableAssignment,
+        [left, right]
+      )
+      if (mode === 'lazy' && trace.actual === expected) {
+        return trace
+      }
+      traces.push(trace)
+    }
     return new ModelCheckerTrace(
       mode,
       this,
       expected,
-      (!left.actual && !right.actual) || (left.actual && right.actual),
+      traces.some((trace) => trace.actual),
       variableAssignment,
-      [left, right]
+      traces
     )
   }
 }
