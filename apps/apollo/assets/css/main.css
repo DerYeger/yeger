@@ -2,10 +2,11 @@
 @import 'vue-toastification/dist/index.css';
 
 html {
-  min-height: 100vh;
-  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   width: 100dvw;
+  overflow-y: hidden;
 }
 
 body,
@@ -13,6 +14,7 @@ body,
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  overflow-y: auto;
 }
 
 :root {

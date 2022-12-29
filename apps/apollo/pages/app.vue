@@ -17,7 +17,7 @@ definePageMeta({
 useHead({
   meta: [{ name: 'theme-color', content: '#e7e5e4' }],
   htmlAttrs: {
-    class: 'bg-stone-200 h-100vh !h-100dvh',
+    class: 'bg-stone-200',
   },
 })
 
