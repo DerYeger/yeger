@@ -17,6 +17,9 @@ definePageMeta({
 const parseResult = computed(() => FOL.parse(formulaInput.value))
 const formula = computed(() => parseResult.value.getOrUndefined())
 const formulaError = computed(() => parseResult.value.getErrorOrUndefined())
+const formattedFormula = computed(
+  () => formula.value?.toFormattedString() ?? 'Invalid'
+)
 
 const model = ref<Model>()
 
@@ -42,13 +45,6 @@ const modelError = computed(() =>
     ? Validator.validateModel(model.value).getErrorOrUndefined()
     : undefined
 )
-
-const isClipboardSupported =
-  typeof navigator !== 'undefined' && !!navigator.clipboard
-
-function copyFormulaToClipboard() {
-  navigator.clipboard.writeText(formula.value?.toFormattedString() ?? 'Invalid')
-}
 </script>
 
 <template>
@@ -93,16 +89,9 @@ function copyFormulaToClipboard() {
                     class="px-2 py-1 border-current border-1 flex items-center"
                   >
                     <span class="overflow-x-auto flex-1 text-stone-500">
-                      {{ formula?.toFormattedString() ?? 'Invalid' }}
+                      {{ formattedFormula }}
                     </span>
-                    <ClientOnly>
-                      <IconButton
-                        v-if="isClipboardSupported"
-                        name="carbon:copy"
-                        class="mr--2"
-                        @click="copyFormulaToClipboard"
-                      />
-                    </ClientOnly>
+                    <CopyButton :content="formattedFormula" />
                   </code>
                 </div>
                 <div class="flex flex-col gap-2">

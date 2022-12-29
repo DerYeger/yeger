@@ -1,5 +1,5 @@
 <template>
   <Overlay>
-    <pre><slot /></pre>
+    <pre style="white-space: pre-line"><slot /></pre>
   </Overlay>
 </template>
