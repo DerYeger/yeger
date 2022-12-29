@@ -5,18 +5,20 @@ const { accessibleDescription } = useLogo()
 <template>
   <figure
     v-once
-    class="relative w-128 xl:w-172 max-w-full children:select-none"
+    class="relative w-96 md:w-128 xl:w-172 pb-100% max-w-full children:select-none"
   >
     <img
-      src="/hero-first-medium.webp"
+      src="/hero-first.webp"
       :alt="accessibleDescription"
-      class="drop-shadow-custom"
+      class="drop-shadow-custom absolute"
+      sizes="sm:512px md:512px xl:688px"
     />
     <img
-      src="/hero-second-medium.webp"
+      src="/hero-second.webp"
       :alt="accessibleDescription"
-      class="drop-shadow-custom absolute left-25% top-25%"
+      class="drop-shadow-custom absolute translate-x-25% translate-y-30%"
+      sizes="sm:512px md:512px xl:688px"
     />
-    <figcaption class="invisible">{{ accessibleDescription }}</figcaption>
+    <figcaption class="display-none">{{ accessibleDescription }}</figcaption>
   </figure>
 </template>

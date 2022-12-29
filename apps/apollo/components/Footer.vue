@@ -33,7 +33,7 @@ const resources: Link[] = [
         {{ link.text }}
       </a>
     </FooterColumn>
-    <FooterColumn title="Credits">
+    <FooterColumn title="About">
       <span>Images by Midjourney (CC BY-NC 4.0).</span>
       <span>© 2022 Jan Müller. All rights reserved.</span>
     </FooterColumn>

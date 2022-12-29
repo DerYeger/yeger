@@ -39,7 +39,7 @@ const { appLink, detailsLink } = useLinks()
         </LinkButton>
       </div>
     </div>
-    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto lg:mb-32">
+    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto">
       <HeroImage />
     </div>
   </div>

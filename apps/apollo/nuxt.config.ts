@@ -10,11 +10,23 @@ export default defineNuxtConfig({
   },
   modules: ['@unocss/nuxt', 'nuxt-icon'],
   css: ['@/assets/css/main.css'],
+  build: {
+    transpile: ['vue-toastification'],
+  },
   unocss: {
     uno: true,
     icons: true,
     attributify: true,
     preflight: true,
+    theme: {
+      breakpoints: {
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
+      },
+    },
     webFonts: {
       fonts: {
         ui: {

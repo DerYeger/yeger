@@ -16,13 +16,15 @@ const { accessibleDescription } = useLogo()
     class="bg-stone-100 text-stone-900 min-h-full p-4 md:p-16 font-sans w-full"
   >
     <header class="flex items-center gap-4 sm:gap-16">
-      <span class="text-2xl font-bold relative">
+      <span class="text-2xl font-bold relative flex items-center gap-2">
+        Apollo
         <img
           src="/hero-first-small.webp"
-          class="w-16 h-16 absolute right--20 top--5 display-none md:display-block drop-shadow-custom select-none"
+          :width="48"
+          :height="48"
+          class="mt--3 mb--2 display-none md:display-block drop-shadow-custom select-none"
           :alt="accessibleDescription"
         />
-        Apollo
       </span>
       <div class="flex-1" />
       <NuxtLink
