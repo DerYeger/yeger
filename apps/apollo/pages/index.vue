@@ -8,16 +8,18 @@ const { appLink, detailsLink } = useLinks()
     class="flex flex-col-reverse content-start md:flex-row space-between gap-16 max-w-none md:max-w-6xl mx-auto"
   >
     <div class="flex flex-col gap-10 md:w-50%">
-      <h2 class="text-lg md:text-3xl font-bold uppercase text-stone-800">
+      <h2
+        class="text-lg sm:text-2xl lg:text-3xl font-bold uppercase text-stone-800"
+      >
         FOL Model Checking
       </h2>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-black text-stone-800">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-800">
         Try.<br />
         Learn.<br />
         Understand.
       </h1>
       <HeroProse>
-        Apollo is a web-application for model checking of first-order-logic
+        Apollo is a web-application for model checking first-order-logic
         formulas. An interactive graph visualizes models that are defined using
         an intuitive YAML-based editor.
       </HeroProse>

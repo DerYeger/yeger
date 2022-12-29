@@ -101,6 +101,7 @@ function resetGraphController(
     <div ref="el" />
     <button
       class="absolute top-2 right-2 flex items-start px-1"
+      aria-label="Reset"
       @click="controller?.restart(0.5)"
     >
       <Icon name="system-uicons:reset" class="block" />

@@ -14,6 +14,13 @@ definePageMeta({
   layout: 'empty',
 })
 
+useHead({
+  meta: [{ name: 'theme-color', content: '#e7e5e4' }],
+  htmlAttrs: {
+    class: 'bg-stone-200 h-100vh !h-100dvh',
+  },
+})
+
 const parseResult = computed(() => FOL.parse(formulaInput.value))
 const formula = computed(() => parseResult.value.getOrUndefined())
 const formulaError = computed(() => parseResult.value.getErrorOrUndefined())
@@ -78,6 +85,7 @@ const modelError = computed(() =>
                 <div class="flex flex-col gap-2 mt-2">
                   <label for="formulaInput" class="select-none">Input</label>
                   <input
+                    id="formulaInput"
                     v-model="formulaInput"
                     name="formulaInput"
                     class="px-2 py-1 bg-white rounded border-stone-900 border-1 font-sans"

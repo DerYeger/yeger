@@ -29,6 +29,7 @@ async function copyToClipboard() {
     <IconButton
       v-if="isClipboardSupported"
       name="carbon:copy"
+      aria-label="Copy"
       class="text-stone-700"
       @click="copyToClipboard()"
     />
