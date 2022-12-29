@@ -4,11 +4,15 @@
 html {
   height: 100vh;
   height: 100dvh;
+  width: 100vw;
+  width: 100dvw;
 }
 
 body,
 #__nuxt {
   height: 100%;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 :root {

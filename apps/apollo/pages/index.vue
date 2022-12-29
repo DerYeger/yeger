@@ -5,7 +5,7 @@ const { appLink, detailsLink } = useLinks()
 <template>
   <div
     v-once
-    class="flex flex-col-reverse md:flex-row space-between gap-16 max-w-none md:max-w-6xl md:mx-auto"
+    class="flex flex-col-reverse content-start md:flex-row space-between gap-16 max-w-none md:max-w-6xl mx-auto"
   >
     <div class="flex flex-col gap-10 md:w-50%">
       <h2 class="text-lg md:text-3xl font-bold uppercase text-stone-800">
@@ -27,7 +27,7 @@ const { appLink, detailsLink } = useLinks()
         trees, presenting insight into the formula AST and model-checking
         results.
       </HeroProse>
-      <div class="flex gap-4">
+      <div class="flex flex-col sm:flex-row gap-4 items-start">
         <LinkButton :link="appLink"> Try Now </LinkButton>
         <LinkButton
           :link="detailsLink"
@@ -37,6 +37,8 @@ const { appLink, detailsLink } = useLinks()
         </LinkButton>
       </div>
     </div>
-    <HeroImage />
+    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto">
+      <HeroImage />
+    </div>
   </div>
 </template>
