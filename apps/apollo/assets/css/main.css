@@ -20,6 +20,10 @@ body,
   --splitpanes-border-color: #57534e;
 }
 
+.drop-shadow-custom {
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 50, 0.35));
+}
+
 .splitpanes__pane {
   background-color: unset !important;
 }

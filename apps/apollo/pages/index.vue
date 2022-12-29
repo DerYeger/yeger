@@ -27,7 +27,7 @@ const { appLink, detailsLink } = useLinks()
         trees, presenting insight into the formula AST and model-checking
         results.
       </HeroProse>
-      <div class="flex flex-col sm:flex-row gap-4 items-start">
+      <div class="flex flex-col lg:flex-row gap-4 items-start">
         <LinkButton :link="appLink"> Try Now </LinkButton>
         <LinkButton
           :link="detailsLink"
@@ -37,7 +37,7 @@ const { appLink, detailsLink } = useLinks()
         </LinkButton>
       </div>
     </div>
-    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto">
+    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto lg:mb-32">
       <HeroImage />
     </div>
   </div>

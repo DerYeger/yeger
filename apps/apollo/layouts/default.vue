@@ -6,8 +6,14 @@ const { links } = useLinks()
   <div
     class="bg-stone-100 text-stone-900 min-h-full p-4 md:p-16 font-sans w-full"
   >
-    <header class="flex items-center gap-4 md:gap-16 overflow-x-auto">
-      <span class="text-2xl font-bold">Apollo</span>
+    <header class="flex items-center gap-4 md:gap-16">
+      <span class="text-2xl font-bold relative">
+        <img
+          src="/hero-first-small.webp"
+          class="w-16 h-16 absolute right--20 top--5 display-none md:display-block drop-shadow-custom"
+        />
+        Apollo
+      </span>
       <div class="flex-1" />
       <NuxtLink
         v-for="link of links"
@@ -22,5 +28,7 @@ const { links } = useLinks()
     <main class="my-16 md:my-32">
       <slot />
     </main>
+    <HLine class="!bg-stone-400 w-100vw ml--16" />
+    <Footer />
   </div>
 </template>

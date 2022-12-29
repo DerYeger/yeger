@@ -14,10 +14,15 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
   <div v-once class="flex flex-col items-center gap-16 md:gap-32">
     <DetailsSection title="Models" :number="1">
       <DetailsParagraph>
-        The intuitive YAML-based editor enables users to quickly define models
-        through textual input. At the same time, the portable format can be used
-        to store and share models. On-the-fly validation warns about issues,
-        such as non-total functions, but does not prevent model checking.
+        <p>
+          The intuitive YAML-based editor enables users to quickly define models
+          through textual input. At the same time, the portable format can be
+          used to store and share models.
+        </p>
+        <p>
+          On-the-fly validation warns about issues, such as non-total functions,
+          but does not prevent model checking.
+        </p>
       </DetailsParagraph>
       <DemoCard>
         <ModelInput :disabled="true" />
@@ -56,12 +61,16 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
     </DetailsSection>
     <DetailsSection title="Model Checking" :number="3">
       <DetailsParagraph>
-        Every evaluation step of the recursive model checking algorithm is
-        represented as a node in the evaluation tree. This ensures that results
-        are always tangible. A checkmark indicates that the (sub-)formula must
-        be modelled by the model, a cross represents the opposite. The colors
-        green and red show whether the actual result matches the expected result
-        or not.
+        <p>
+          Every evaluation step of the recursive model checking algorithm is
+          represented as a node in the evaluation tree. This ensures that
+          results are always tangible.
+        </p>
+        <p>
+          A checkmark indicates that the (sub-)formula must be modelled by the
+          model, a cross represents the opposite. The colors green and red show
+          whether the actual result matches the expected result or not.
+        </p>
       </DetailsParagraph>
       <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
         <ModelCheckerTraceTree
