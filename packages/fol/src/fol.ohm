@@ -2,26 +2,26 @@ FOL {
   Formula = BiImplicationFormula
 
   BiImplicationFormula
-    = BiImplicationFormula "<->" ImplicationFormula -- biImplication
+    = BiImplicationFormula ("<->" | "↔") ImplicationFormula -- biImplication
     | ImplicationFormula
 
   ImplicationFormula
-    = ImplicationFormula "->" OrFormula -- implication
+    = ImplicationFormula ("->" | "→") OrFormula -- implication
     | OrFormula
 
   OrFormula
-    = OrFormula ("||" | "|") AndFormula -- or
+    = OrFormula ("||" | "|" | "∨") AndFormula -- or
     | AndFormula
 
   AndFormula
-    = AndFormula ("&&" | "&") UnaryFormula -- and
+    = AndFormula ("&&" | "&" | "∧") UnaryFormula -- and
     | UnaryFormula
 
   UnaryFormula
     = "(" Formula ")" -- paren
-    | "forall" BoundVariable "." Formula -- universal
-    | "exists" BoundVariable "." Formula -- existential
-    | "!" UnaryFormula -- not
+    | ("forall" | "∀") BoundVariable "." Formula -- universal
+    | ("exists" | "∃") BoundVariable "." Formula -- existential
+    | ("!" | "¬") UnaryFormula -- not
     | Relation
     | BooleanLiteral
 
@@ -42,9 +42,9 @@ FOL {
     = True
     | False
 
-  True = "tt"
+  True = "tt" | "⊤"
 
-  False = "ff"
+  False = "ff" | "⊥"
 
   Term
     = Function

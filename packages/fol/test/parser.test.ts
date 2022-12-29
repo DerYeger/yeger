@@ -7,6 +7,10 @@ describe('FOL parser', () => {
   it.each(TestData.validFormulas)('can parse "%s"', (formula) => {
     const result = FOL.parse(formula).get()
     expect(result).toMatchSnapshot()
+    const outputString = result.toFormattedString()
+    expect(FOL.parse(outputString).get().toFormattedString()).toEqual(
+      outputString
+    )
     // console.log(result)
   })
 
