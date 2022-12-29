@@ -48,7 +48,7 @@ const modelError = computed(() =>
 </script>
 
 <template>
-  <div class="bg-stone-300 h-full flex flex-col font-ui">
+  <div class="bg-stone-300 text-stone-900 h-full flex flex-col font-ui">
     <Toolbar />
     <main class="bg-stone-100 flex-1 min-h-0">
       <Splitpanes class="default-theme">
@@ -76,7 +76,7 @@ const modelError = computed(() =>
                 class="h-full w-full flex flex-col gap-4 pa-4 overflow-y-auto"
               >
                 <div class="flex flex-col gap-2 mt-2">
-                  <label for="formulaInput">Input</label>
+                  <label for="formulaInput" class="select-none">Input</label>
                   <input
                     v-model="formulaInput"
                     name="formulaInput"
@@ -84,7 +84,7 @@ const modelError = computed(() =>
                   />
                 </div>
                 <div class="flex flex-col gap-2">
-                  <span>Formula</span>
+                  <span class="select-none">Formula</span>
                   <code
                     class="px-2 py-1 border-current border-1 flex items-center"
                   >
@@ -95,7 +95,7 @@ const modelError = computed(() =>
                   </code>
                 </div>
                 <div class="flex flex-col gap-2">
-                  <label>Eager Evaluation</label>
+                  <label class="select-none">Eager Evaluation</label>
                   <ToggleButton
                     :input="modelCheckerMode === 'eager'"
                     @update:input="onModeChange"

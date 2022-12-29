@@ -55,22 +55,30 @@ watch(
 </script>
 
 <template>
-  <Codemirror
-    v-model="input"
-    :extensions="[language]"
-    :style="{
-      width: '100%',
-      height: '100%',
-      backgroundColor: '#fff',
-      color: '#333',
-    }"
-    :disabled="disabled"
-  />
-  <div class="absolute top-2 right-2 flex gap-2 items-center h-fit">
-    <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
-    <CopyButton :content="input" />
+  <div class="h-full w-full relative">
+    <Codemirror
+      v-model="input"
+      :extensions="[language]"
+      :style="{
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#fff',
+        color: '#333',
+      }"
+      :disabled="disabled"
+    />
+    <div class="absolute top-2 right-2 flex gap-2 items-center h-fit">
+      <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
+      <CopyButton :content="input" />
+    </div>
+    <Status v-if="error" class="absolute left-0 bottom-0 right-0 border-t-1">
+      <code class="text-red-500">{{ error }}</code>
+    </Status>
   </div>
-  <Status v-if="error" class="absolute left-0 bottom-0 right-0 border-t-1">
-    <code class="text-red-500">{{ error }}</code>
-  </Status>
 </template>
+
+<style scoped>
+:deep(.cm-lineNumbers) {
+  user-select: none;
+}
+</style>
