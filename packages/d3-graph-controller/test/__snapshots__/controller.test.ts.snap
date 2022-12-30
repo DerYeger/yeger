@@ -70,7 +70,6 @@ exports[`GraphController > matches the snapshot 1`] = `
       >
         <g>
           <circle
-            aria-label=""
             class="node"
             r="16"
             style="fill: lightgray;"
@@ -84,7 +83,6 @@ exports[`GraphController > matches the snapshot 1`] = `
         </g>
         <g>
           <circle
-            aria-label=""
             class="node"
             r="16"
             style="fill: lightgray;"
@@ -98,7 +96,6 @@ exports[`GraphController > matches the snapshot 1`] = `
         </g>
         <g>
           <circle
-            aria-label="c"
             class="node"
             r="16"
             style="fill: lightgray;"
@@ -112,7 +109,6 @@ exports[`GraphController > matches the snapshot 1`] = `
         </g>
         <g>
           <circle
-            aria-label=""
             class="node"
             r="16"
             style="fill: lightgray;"

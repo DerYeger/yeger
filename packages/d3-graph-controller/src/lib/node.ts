@@ -51,7 +51,6 @@ export function createNodes<
       const nodeCircle = nodeGroup
         .append('circle')
         .classed('node', true)
-        .attr('label', (d) => (d.label ? d.label.text : d.id))
         .attr('r', (d) => getNodeRadius(config, d))
         .on('contextmenu', (event, d) => {
           terminateEvent(event)
