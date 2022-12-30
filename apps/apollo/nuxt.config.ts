@@ -8,7 +8,7 @@ export default defineNuxtConfig({
       },
     },
   },
-  modules: ['@unocss/nuxt', 'nuxt-icon'],
+  modules: ['@unocss/nuxt', '@vueuse/nuxt', 'nuxt-icon'],
   css: ['@/assets/css/main.css'],
   build: {
     transpile: ['vue-toastification'],

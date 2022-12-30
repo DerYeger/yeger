@@ -99,13 +99,12 @@ function resetGraphController(
 <template>
   <div class="h-full w-full relative font-ui">
     <div ref="el" />
-    <button
-      class="absolute top-2 right-2 flex items-start px-1"
+    <IconButton
+      name="system-uicons:reset"
+      class="absolute top-2 right-2"
       aria-label="Reset"
       @click="controller?.restart(0.5)"
-    >
-      <Icon name="system-uicons:reset" class="block" />
-    </button>
+    />
   </div>
 </template>
 

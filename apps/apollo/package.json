@@ -9,7 +9,6 @@
     "lint": "yeger-lint",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "check:tsc": "tsc --noEmit",
     "check:vue": "nuxi typecheck"
   },
   "dependencies": {
@@ -18,6 +17,7 @@
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
+    "localforage": "1.10.0",
     "resumon": "workspace:*",
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
@@ -28,6 +28,8 @@
   "devDependencies": {
     "@unocss/nuxt": "0.47.6",
     "@unocss/reset": "0.47.6",
+    "@vueuse/core": "^9.9.0",
+    "@vueuse/nuxt": "^9.9.0",
     "node-fetch-native": "1.0.1",
     "nuxt": "3.0.0",
     "nuxt-icon": "0.1.8",

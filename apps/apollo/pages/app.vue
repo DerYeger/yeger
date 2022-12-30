@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import type { Model, ModelCheckerMode } from '@yeger/fol'
+import type { Model } from '@yeger/fol'
 import { FOL, Validator } from '@yeger/fol'
 import { Pane, Splitpanes } from 'splitpanes'
 import 'splitpanes/dist/splitpanes.css'
 
 const minPaneSize = 5
 
-const { formula: demoFormula, modelInput: demoModel } = useDemoData()
-
-const modelInput = ref(demoModel)
-const formulaInput = ref(demoFormula)
+const modelInput = useModelInput()
+const formulaInput = useFormulaInput()
 
 definePageMeta({
   layout: 'empty',
@@ -31,7 +29,7 @@ const formattedFormula = computed(
 
 const model = ref<Model>()
 
-const modelCheckerMode = ref<ModelCheckerMode>('lazy')
+const modelCheckerMode = useModelCheckerMode()
 
 function onModeChange(eager: boolean) {
   modelCheckerMode.value = eager ? 'eager' : 'lazy'
@@ -53,11 +51,13 @@ const modelError = computed(() =>
     ? Validator.validateModel(model.value).getErrorOrUndefined()
     : undefined
 )
+
+const { loading } = useAppStorage()
 </script>
 
 <template>
   <div class="bg-stone-300 text-stone-900 h-full flex flex-col font-ui">
-    <Toolbar />
+    <Toolbar :loading="loading" />
     <main class="bg-stone-100 flex-1 min-h-0">
       <Splitpanes class="default-theme">
         <Pane :min-size="minPaneSize">

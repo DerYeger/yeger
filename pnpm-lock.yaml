@@ -49,9 +49,12 @@ importers:
       '@codemirror/legacy-modes': 6.3.1
       '@unocss/nuxt': 0.47.6
       '@unocss/reset': 0.47.6
+      '@vueuse/core': ^9.9.0
+      '@vueuse/nuxt': ^9.9.0
       '@yeger/fol': workspace:*
       codemirror: 6.0.1
       d3-graph-controller: workspace:*
+      localforage: 1.10.0
       node-fetch-native: 1.0.1
       nuxt: 3.0.0
       nuxt-icon: 0.1.8
@@ -72,6 +75,7 @@ importers:
       '@yeger/fol': link:../../packages/fol
       codemirror: 6.0.1
       d3-graph-controller: link:../../packages/d3-graph-controller
+      localforage: 1.10.0
       resumon: link:../../packages/resumon
       splitpanes: 3.1.5
       vue-codemirror: 6.1.1_vhikcdkubtgbuxk47tdob2ofvi
@@ -81,6 +85,8 @@ importers:
     devDependencies:
       '@unocss/nuxt': 0.47.6_vite@4.0.0
       '@unocss/reset': 0.47.6
+      '@vueuse/core': 9.9.0_vue@3.2.45
+      '@vueuse/nuxt': 9.9.0_nuxt@3.0.0+vue@3.2.45
       node-fetch-native: 1.0.1
       nuxt: 3.0.0_typescript@4.9.4
       nuxt-icon: 0.1.8_vue@3.2.45
@@ -4040,6 +4046,18 @@ packages:
       - vue
     dev: true
 
+  /@vueuse/core/9.9.0_vue@3.2.45:
+    resolution: {integrity: sha512-JdDb7TrE0imZnwBhMF4+0PCJqGD3AxzH8S2sfk54P0rqvklK+EAtAR/mPb1HwV/JPujQFQJhghQ190Yq03YpVw==}
+    dependencies:
+      '@types/web-bluetooth': 0.0.16
+      '@vueuse/metadata': 9.9.0
+      '@vueuse/shared': 9.9.0_vue@3.2.45
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
+
   /@vueuse/head/1.0.22_vue@3.2.45:
     resolution: {integrity: sha512-YmUdbzNdCnhmrAFxGnJS+Rixj+swE+TQC9OEaYDHIro6gE7W11jugcdwVP00HrA4WRQhg+TOQ4YcY2oL/PP1hw==}
     peerDependencies:
@@ -4056,8 +4074,39 @@ packages:
     resolution: {integrity: sha512-sIC8R+kWkIdpi5X2z2Gk8TRYzmczDwHRhEFfCu2P+XW2JdPoXrziqsGpDDsN7ykBx4ilwieS7JUIweVGhvZ93w==}
     dev: true
 
+  /@vueuse/metadata/9.9.0:
+    resolution: {integrity: sha512-pgxsUJv/d7IjKpLeB6TthggEsaBwM3ffc5jPrr5TmxAm/fup0mGR5VTzrdA/PSx85tpb+CIvP92D+55qBNc8ag==}
+    dev: true
+
+  /@vueuse/nuxt/9.9.0_nuxt@3.0.0+vue@3.2.45:
+    resolution: {integrity: sha512-bhvHsy3vM38WWRhFgyjbDP/tfn0AMP7z1KeaWt5+ysxGHZ1EHMsY4lcFbpcFlQ6K9TKMcYvzzcBSzYxlWanMnQ==}
+    peerDependencies:
+      nuxt: ^3.0.0
+    dependencies:
+      '@nuxt/kit': 3.0.0
+      '@vueuse/core': 9.9.0_vue@3.2.45
+      '@vueuse/metadata': 9.9.0
+      local-pkg: 0.4.2
+      nuxt: 3.0.0_typescript@4.9.4
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - rollup
+      - supports-color
+      - vue
+    dev: true
+
   /@vueuse/shared/9.6.0_vue@3.2.45:
     resolution: {integrity: sha512-/eDchxYYhkHnFyrb00t90UfjCx94kRHxc7J1GtBCqCG4HyPMX+krV9XJgVtWIsAMaxKVU4fC8NSUviG1JkwhUQ==}
+    dependencies:
+      vue-demi: 0.13.11_vue@3.2.45
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - vue
+    dev: true
+
+  /@vueuse/shared/9.9.0_vue@3.2.45:
+    resolution: {integrity: sha512-+D0XFwHG0T+uaIbCSlROBwm1wzs71B7n3KyDOxnvfEMMHDOzl09rYKwaE2AENmYwYPXfHPbSBRDD2gBVHbvTcg==}
     dependencies:
       vue-demi: 0.13.11_vue@3.2.45
     transitivePeerDependencies:
@@ -8324,6 +8373,10 @@ packages:
     resolution: {integrity: sha512-d2qQLzTJ9WxQftPAuEQpSPmKqzxePjzVbpAVv62AQ64NTL+wR4JkrVqR/LqFsFEUsHDAiId52mJteHDFuDkElA==}
     engines: {node: '>= 4'}
 
+  /immediate/3.0.6:
+    resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
+    dev: false
+
   /import-fresh/2.0.0:
     resolution: {integrity: sha512-eZ5H8rcgYazHbKC3PG4ClHNykCSxtAhxSSEM+2mb+7evD2CKF5V7c0dNum7AdpDh0ZdICwZY9sRSn8f+KH96sg==}
     engines: {node: '>=4'}
@@ -9095,6 +9148,12 @@ packages:
       type-check: 0.4.0
     dev: true
 
+  /lie/3.1.1:
+    resolution: {integrity: sha512-RiNhHysUjhrDQntfYSfY4MU24coXXdEOgw9WGcKHNeEwffDYbF//u87M1EWaMGzuFoSbqW0C9C6lEEhDOAswfw==}
+    dependencies:
+      immediate: 3.0.6
+    dev: false
+
   /lilconfig/2.0.6:
     resolution: {integrity: sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==}
     engines: {node: '>=10'}
@@ -9181,6 +9240,12 @@ packages:
   /local-pkg/0.4.2:
     resolution: {integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==}
     engines: {node: '>=14'}
+
+  /localforage/1.10.0:
+    resolution: {integrity: sha512-14/H1aX7hzBBmmh7sGPd+AOMkkIrHM3Z1PAyGgZigA1H1p5O5ANnMyWzvpAETtG68/dC4pC0ncy3+PPGzXZHPg==}
+    dependencies:
+      lie: 3.1.1
+    dev: false
 
   /locate-path/2.0.0:
     resolution: {integrity: sha512-NCI2kiDkyR7VeEKm27Kda/iQHyKJe1Bu0FlTbYp3CqJu+9IFe9bLyAjMxf5ZDDbEg+iMPzB5zYyUTSm8wVTKmA==}
