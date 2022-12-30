@@ -5,7 +5,7 @@ const { formula } = useDemoData()
 
 const parsedFormula = FOL.parse(formula).get()
 
-const { createDemoModel } = useDemoData()
+const { createDemoModel, modelInput } = useDemoData()
 const model = createDemoModel()
 const trace = FOL.trace('lazy', true, model, parsedFormula).get()
 </script>
@@ -25,7 +25,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         </p>
       </DetailsParagraph>
       <DemoCard>
-        <ModelInput :disabled="true" />
+        <ModelInput :model-value="modelInput" :disabled="true" />
       </DemoCard>
       <DetailsParagraph>
         An interactive graph visualizes model domains, constants, functions, and

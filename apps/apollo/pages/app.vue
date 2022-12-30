@@ -6,8 +6,9 @@ import 'splitpanes/dist/splitpanes.css'
 
 const minPaneSize = 5
 
-const { formula: demoFormula } = useDemoData()
+const { formula: demoFormula, modelInput: demoModel } = useDemoData()
 
+const modelInput = ref(demoModel)
 const formulaInput = ref(demoFormula)
 
 definePageMeta({
@@ -62,7 +63,7 @@ const modelError = computed(() =>
         <Pane :min-size="minPaneSize">
           <Splitpanes class="default-theme" horizontal>
             <Pane :min-size="minPaneSize" class="h-full w-full relative">
-              <ModelInput @change="(newModel) => (model = newModel)" />
+              <ModelInput v-model="modelInput" v-model:model="model" />
             </Pane>
             <Pane :min-size="minPaneSize" class="relative flex flex-col">
               <PaneTitle>Model Graph</PaneTitle>

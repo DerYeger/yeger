@@ -5,23 +5,23 @@ import { Codemirror } from 'vue-codemirror'
 
 import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
 
-const props = withDefaults(defineProps<{ disabled?: boolean }>(), {
-  disabled: false,
-})
+const props = withDefaults(
+  defineProps<{ modelValue: string; disabled?: boolean }>(),
+  {
+    disabled: false,
+  }
+)
 
-const emit = defineEmits(['change'])
+const emit = defineEmits(['update:modelValue', 'update:model'])
 
-const { disabled } = toRefs(props)
+const { modelValue, disabled } = toRefs(props)
 
 const language = StreamLanguage.define(yaml)
-
-const { modelInput } = useDemoData()
-const input = ref(modelInput)
 
 const error = ref<string>()
 
 watch(
-  input,
+  modelValue,
   (newValue, oldValue) => {
     if (newValue === oldValue) {
       return
@@ -47,7 +47,7 @@ watch(
       error.value = result.getError()
     } else {
       error.value = undefined
-      emit('change', result.get())
+      emit('update:model', result.get())
     }
   },
   { immediate: true }
@@ -57,7 +57,7 @@ watch(
 <template>
   <div class="h-full w-full relative">
     <Codemirror
-      v-model="input"
+      :model-value="modelValue"
       :extensions="[language]"
       :style="{
         width: '100%',
@@ -66,10 +66,11 @@ watch(
         color: '#333',
       }"
       :disabled="disabled"
+      @update:model-value="(value) => emit('update:modelValue', value)"
     />
     <div class="absolute top-2 right-2 flex gap-2 items-center h-fit">
       <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
-      <CopyButton :content="input" />
+      <CopyButton :content="modelValue" />
     </div>
     <Status v-if="error" class="absolute left-0 bottom-0 right-0 border-t-1">
       <code class="text-red-500">{{ error }}</code>
