@@ -49,8 +49,8 @@ importers:
       '@codemirror/legacy-modes': 6.3.1
       '@unocss/nuxt': 0.47.6
       '@unocss/reset': 0.47.6
-      '@vueuse/core': ^9.9.0
-      '@vueuse/nuxt': ^9.9.0
+      '@vueuse/core': 9.9.0
+      '@vueuse/nuxt': 9.9.0
       '@yeger/fol': workspace:*
       codemirror: 6.0.1
       d3-graph-controller: workspace:*
@@ -4034,18 +4034,6 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vueuse/core/9.6.0_vue@3.2.45:
-    resolution: {integrity: sha512-qGUcjKQXHgN+jqXEgpeZGoxdCbIDCdVPz3QiF1uyecVGbMuM63o96I1GjYx5zskKgRI0FKSNsVWM7rwrRMTf6A==}
-    dependencies:
-      '@types/web-bluetooth': 0.0.16
-      '@vueuse/metadata': 9.6.0
-      '@vueuse/shared': 9.6.0_vue@3.2.45
-      vue-demi: 0.13.11_vue@3.2.45
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-      - vue
-    dev: true
-
   /@vueuse/core/9.9.0_vue@3.2.45:
     resolution: {integrity: sha512-JdDb7TrE0imZnwBhMF4+0PCJqGD3AxzH8S2sfk54P0rqvklK+EAtAR/mPb1HwV/JPujQFQJhghQ190Yq03YpVw==}
     dependencies:
@@ -4070,10 +4058,6 @@ packages:
       vue: 3.2.45
     dev: true
 
-  /@vueuse/metadata/9.6.0:
-    resolution: {integrity: sha512-sIC8R+kWkIdpi5X2z2Gk8TRYzmczDwHRhEFfCu2P+XW2JdPoXrziqsGpDDsN7ykBx4ilwieS7JUIweVGhvZ93w==}
-    dev: true
-
   /@vueuse/metadata/9.9.0:
     resolution: {integrity: sha512-pgxsUJv/d7IjKpLeB6TthggEsaBwM3ffc5jPrr5TmxAm/fup0mGR5VTzrdA/PSx85tpb+CIvP92D+55qBNc8ag==}
     dev: true
@@ -4093,15 +4077,6 @@ packages:
       - '@vue/composition-api'
       - rollup
       - supports-color
-      - vue
-    dev: true
-
-  /@vueuse/shared/9.6.0_vue@3.2.45:
-    resolution: {integrity: sha512-/eDchxYYhkHnFyrb00t90UfjCx94kRHxc7J1GtBCqCG4HyPMX+krV9XJgVtWIsAMaxKVU4fC8NSUviG1JkwhUQ==}
-    dependencies:
-      vue-demi: 0.13.11_vue@3.2.45
-    transitivePeerDependencies:
-      - '@vue/composition-api'
       - vue
     dev: true
 
@@ -14155,7 +14130,7 @@ packages:
       '@docsearch/js': 3.3.0_2r467mdhb7mblpaox4bg7fatdi
       '@vitejs/plugin-vue': 4.0.0_vite@4.0.0+vue@3.2.45
       '@vue/devtools-api': 6.4.5
-      '@vueuse/core': 9.6.0_vue@3.2.45
+      '@vueuse/core': 9.9.0_vue@3.2.45
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.11.1
       vite: 4.0.0
