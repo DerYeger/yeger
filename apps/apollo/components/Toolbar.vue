@@ -11,7 +11,8 @@ const { homeLink } = useLinks()
   >
     <NuxtLink
       :to="homeLink.to"
-      aria-label="Back"
+      aria-label="Back to Home"
+      title="Back to Home"
       class="flex items-center w-7 h-7 p-1 m--1 rounded-3xl hover:bg-stone-400 transition-colors"
     >
       <Icon name="carbon:arrow-left" class="ml-1" />

@@ -31,6 +31,7 @@ const { accessibleDescription } = useLogo()
         v-for="link of links"
         :key="link.to"
         :to="link.to"
+        :title="link.text"
         class="font-300 uppercase text-xs md:text-sm"
         active-class="font-600"
       >

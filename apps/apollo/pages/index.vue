@@ -33,6 +33,7 @@ const { appLink, detailsLink } = useLinks()
         <LinkButton :link="appLink"> Try Now </LinkButton>
         <LinkButton
           :link="detailsLink"
+          description="Learn more about the features of Apollo."
           class="bg-transparent text-stone-900 border-stone-900 border-1 hover:border-stone-700 hover:text-stone-100"
         >
           Read More

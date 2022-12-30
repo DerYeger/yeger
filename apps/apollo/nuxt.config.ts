@@ -6,6 +6,13 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      meta: [
+        {
+          name: 'description',
+          content:
+            'A web-application for model checking first-order-logic formulas.',
+        },
+      ],
     },
   },
   modules: ['@unocss/nuxt', '@vueuse/nuxt', 'nuxt-icon'],
