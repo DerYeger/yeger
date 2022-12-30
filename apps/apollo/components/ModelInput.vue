@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { StreamLanguage } from '@codemirror/language'
 import { yaml } from '@codemirror/legacy-modes/mode/yaml'
+import { EditorView } from 'codemirror'
 import { Codemirror } from 'vue-codemirror'
 
 import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
@@ -58,7 +59,10 @@ watch(
   <div class="h-full w-full relative">
     <Codemirror
       :model-value="modelValue"
-      :extensions="[language]"
+      :extensions="[
+        language,
+        EditorView.contentAttributes.of({ 'aria-label': 'Model Input' }),
+      ]"
       :style="{
         width: '100%',
         height: '100%',
