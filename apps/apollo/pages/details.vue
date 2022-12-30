@@ -28,9 +28,11 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         <ModelInput :model-value="modelInput" :disabled="true" />
       </DemoCard>
       <DetailsParagraph>
-        An interactive graph visualizes model domains, constants, functions, and
-        relations. Touch input and mouse input are supported. Zooming and
-        panning ensure that even the largest models can be inspected.
+        <p>
+          An interactive graph visualizes model domains, constants, functions,
+          and relations. Touch input and mouse input are supported. Zooming and
+          panning ensure that even the largest models can be inspected.
+        </p>
       </DetailsParagraph>
       <DemoCard>
         <ModelGraph :model="model" class="!h-48 !md:h-96 bg-white" />
@@ -38,8 +40,10 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
     </DetailsSection>
     <DetailsSection title="Formulas" :number="2">
       <DetailsParagraph>
-        Formulas are parsed in real-time, with helpful error messages for syntax
-        errors.
+        <p>
+          Formulas are parsed in real-time, with helpful error messages for
+          syntax errors.
+        </p>
       </DetailsParagraph>
       <DemoCard class="p-4 flex flex-col justify-center items-center gap-6">
         <span>{{ formula }}</span>
@@ -47,9 +51,11 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         <code>{{ parsedFormula.toFormattedString() }}</code>
       </DemoCard>
       <DetailsParagraph>
-        The ASTs of formulas are visualized and display operator precedence. Any
-        non-terminal node can be expanded and collapsed to reveal or hide
-        sub-formulas respectively.
+        <p>
+          The ASTs of formulas are visualized and display operator precedence.
+          Any non-terminal node can be expanded and collapsed to reveal or hide
+          sub-formulas respectively.
+        </p>
       </DetailsParagraph>
       <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
         <FOLTree
