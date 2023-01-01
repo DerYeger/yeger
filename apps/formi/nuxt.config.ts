@@ -1,8 +1,10 @@
+const appName = 'Formi'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Formi',
+      title: appName,
       htmlAttrs: {
         lang: 'en',
       },
@@ -17,18 +19,17 @@ export default defineNuxtConfig({
           rel: 'icon',
           href: '/hero-first-small.png',
         },
-      ],
-      meta: [
         {
-          name: 'description',
-          content:
-            'Formi is a web-application for model checking first-order-logic formulas.',
+          type: 'image/png',
+          rel: 'apple-touch-icon',
+          href: '/512x512.png',
         },
       ],
     },
   },
   modules: [
     '@kevinmarrec/nuxt-pwa',
+    '@nuxtjs/robots',
     '@unocss/nuxt',
     '@vueuse/nuxt',
     'nuxt-icon',
@@ -39,11 +40,15 @@ export default defineNuxtConfig({
   },
   pwa: {
     manifest: {
+      name: appName,
+      short_name: appName,
       background_color: '#f5f5f4',
       theme_color: '#f5f5f4',
     },
     meta: {
       favicon: false,
+      description:
+        'Formi is a web-application for model checking first-order-logic formulas.',
     },
   },
   unocss: {

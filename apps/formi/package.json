@@ -1,5 +1,5 @@
 {
-  "name": "Formi",
+  "name": "formi",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "0.13.0",
+    "@nuxtjs/robots": "3.0.0",
     "@unocss/nuxt": "0.47.6",
     "@unocss/reset": "0.47.6",
     "@vueuse/core": "9.9.0",

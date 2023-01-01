@@ -48,6 +48,7 @@ importers:
       '@codemirror/language': 6.3.2
       '@codemirror/legacy-modes': 6.3.1
       '@kevinmarrec/nuxt-pwa': 0.13.0
+      '@nuxtjs/robots': 3.0.0
       '@unocss/nuxt': 0.47.6
       '@unocss/reset': 0.47.6
       '@vueuse/core': 9.9.0
@@ -85,6 +86,7 @@ importers:
       zod: 3.20.2
     devDependencies:
       '@kevinmarrec/nuxt-pwa': 0.13.0
+      '@nuxtjs/robots': 3.0.0
       '@unocss/nuxt': 0.47.6_vite@4.0.0
       '@unocss/reset': 0.47.6
       '@vueuse/core': 9.9.0_vue@3.2.45
@@ -2451,6 +2453,16 @@ packages:
       - typescript
       - vls
       - vti
+    dev: true
+
+  /@nuxtjs/robots/3.0.0:
+    resolution: {integrity: sha512-qsHGW1KXBvV5Kq7u3huPnFCUTbHS4Fk8Za2mNPgmUXcwLgp3exvhPtdZfIdjrCF/aZk3A8OZONNmGghs6CecBA==}
+    dependencies:
+      '@nuxt/kit': 3.0.0
+      h3: 1.0.2
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
     dev: true
 
   /@octokit/auth-token/3.0.2:

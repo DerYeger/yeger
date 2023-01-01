@@ -46,7 +46,7 @@
       "outputMode": "new-only"
     },
     "preview": {
-      "dependsOn": ["build"],
+      "dependsOn": ["build", "generate"],
       "cache": false
     },
     "test": {
