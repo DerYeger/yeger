@@ -6,6 +6,18 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
+      link: [
+        {
+          type: 'image/webp',
+          rel: 'icon',
+          href: '/hero-first-small.webp',
+        },
+        {
+          type: 'image/png',
+          rel: 'icon',
+          href: '/hero-first-small.png',
+        },
+      ],
       meta: [
         {
           name: 'description',
@@ -15,10 +27,24 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@unocss/nuxt', '@vueuse/nuxt', 'nuxt-icon'],
+  modules: [
+    '@kevinmarrec/nuxt-pwa',
+    '@unocss/nuxt',
+    '@vueuse/nuxt',
+    'nuxt-icon',
+  ],
   css: ['@/assets/css/main.css'],
   build: {
     transpile: ['vue-toastification'],
+  },
+  pwa: {
+    manifest: {
+      background_color: '#f5f5f4',
+      theme_color: '#f5f5f4',
+    },
+    meta: {
+      favicon: false,
+    },
   },
   unocss: {
     uno: true,
