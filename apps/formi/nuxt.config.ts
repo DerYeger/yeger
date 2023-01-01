@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         {
           name: 'description',
           content:
-            'A web-application for model checking first-order-logic formulas.',
+            'Formi is a web-application for model checking first-order-logic formulas.',
         },
       ],
     },

@@ -14,6 +14,10 @@ const resources: Link[] = [
     to: 'https://github.com/DerYeger/yeger/tree/main/packages/d3-graph-controller',
     text: 'Graph Library',
   },
+  {
+    to: 'https://apollo.yeger.eu',
+    text: 'Apollo',
+  },
 ]
 </script>
 

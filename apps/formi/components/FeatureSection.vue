@@ -10,7 +10,7 @@ const { title, number } = toRefs(props)
     >
       <HLine />
       <CircledNumber :number="number" />
-      <h3>{{ title }}</h3>
+      <h2>{{ title }}</h2>
       <HLine />
     </div>
     <slot />
