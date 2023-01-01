@@ -19,7 +19,7 @@ const { appLink, detailsLink } = useLinks()
         Understand.
       </h1>
       <HeroProse>
-        Apollo is a web-application for model checking first-order-logic
+        Formi is a web-application for model checking first-order-logic
         formulas. An interactive graph visualizes models that are defined using
         an intuitive YAML-based editor.
       </HeroProse>
@@ -33,7 +33,7 @@ const { appLink, detailsLink } = useLinks()
         <LinkButton :link="appLink"> Try Now </LinkButton>
         <LinkButton
           :link="detailsLink"
-          description="Learn more about the features of Apollo."
+          description="Learn more about the features of Formi."
           class="bg-transparent text-stone-900 border-stone-900 border-1 hover:border-stone-700 hover:text-stone-100"
         >
           Read More

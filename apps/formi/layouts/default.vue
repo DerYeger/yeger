@@ -17,7 +17,7 @@ const { accessibleDescription } = useLogo()
   >
     <header class="flex items-center gap-4 sm:gap-16">
       <span class="text-2xl font-bold relative flex items-center gap-2">
-        Apollo
+        Formi
         <img
           src="/hero-first-small.webp"
           :width="48"

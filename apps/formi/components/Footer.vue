@@ -3,7 +3,7 @@ import type { Link } from '~~/types/types'
 
 const resources: Link[] = [
   {
-    to: 'https://github.com/DerYeger/yeger/tree/main/apps/apollo',
+    to: 'https://github.com/DerYeger/yeger/tree/main/apps/formi',
     text: 'GitHub',
   },
   {

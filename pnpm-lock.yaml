@@ -43,7 +43,7 @@ importers:
       turbo: 1.6.3
       vercel: 28.8.0
 
-  apps/apollo:
+  apps/formi:
     specifiers:
       '@codemirror/language': 6.3.2
       '@codemirror/legacy-modes': 6.3.1
@@ -2430,7 +2430,7 @@ packages:
       rollup: 2.79.1
       rollup-plugin-visualizer: 5.8.3_rollup@2.79.1
       ufo: 1.0.1
-      unplugin: 1.0.0
+      unplugin: 1.0.1
       vite: 3.2.5
       vite-node: 0.25.8
       vite-plugin-checker: 0.5.2_7g3uriyb4kqeq2yf2bucr7z2ea
@@ -9213,7 +9213,7 @@ packages:
       object-inspect: 1.12.2
       pidtree: 0.6.0
       string-argv: 0.3.1
-      yaml: 2.1.3
+      yaml: 2.2.0
     transitivePeerDependencies:
       - enquirer
       - supports-color
@@ -10343,7 +10343,7 @@ packages:
       unenv: 1.0.0
       unhead: 1.0.13
       unimport: 1.0.2
-      unplugin: 1.0.0
+      unplugin: 1.0.1
       untyped: 1.0.0
       vue: 3.2.45
       vue-bundle-renderer: 1.0.0
@@ -13647,7 +13647,7 @@ packages:
       acorn: 8.8.1
       estree-walker: 3.0.1
       magic-string: 0.26.7
-      unplugin: 1.0.0
+      unplugin: 1.0.1
     dev: true
 
   /undici/5.14.0:
@@ -14919,7 +14919,7 @@ packages:
     dependencies:
       eslint-visitor-keys: 3.3.0
       lodash: 4.17.21
-      yaml: 2.1.3
+      yaml: 2.2.0
     dev: false
 
   /yaml/1.10.2:
@@ -14927,14 +14927,9 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /yaml/2.1.3:
-    resolution: {integrity: sha512-AacA8nRULjKMX2DvWvOAdBZMOfQlypSFkjcOcu9FalllIDJ1kvlREzcdIZmidQUqqeMv7jorHjq2HlLv/+c2lg==}
-    engines: {node: '>= 14'}
-
   /yaml/2.2.0:
     resolution: {integrity: sha512-auf7Gi6QwO7HW//GA9seGvTXVGWl1CM/ADWh1+RxtXr6XOxnT65ovDl9fTi4e0monEyJxCHqDpF6QnFDXmJE4g==}
     engines: {node: '>= 14'}
-    dev: false
 
   /yargs-parser/18.1.3:
     resolution: {integrity: sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ==}

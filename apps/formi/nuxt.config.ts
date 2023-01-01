@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'Apollo',
+      title: 'Formi',
       htmlAttrs: {
         lang: 'en',
       },

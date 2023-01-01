@@ -66,7 +66,7 @@ localforage.defineDriver(inMemoryDriver)
 
 export function useLocalForage() {
   const localForage = localforage.createInstance({
-    storeName: 'apollo',
+    storeName: 'formi',
     driver: [
       localforage.INDEXEDDB,
       localforage.WEBSQL,

@@ -4,7 +4,7 @@
 
 ## Apps
 
-- [Apollo](https://github.com/DerYeger/yeger/tree/main/apps/apollo)
+- [Formi](https://github.com/DerYeger/yeger/tree/main/apps/formi)
 
 ## Packages
 
