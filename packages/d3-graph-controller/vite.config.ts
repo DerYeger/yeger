@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
-import { libPlugin } from 'vite-plugin-lib'
+import { library } from 'vite-plugin-lib'
 
 export default defineConfig({
   plugins: [
-    libPlugin({
+    library({
       entry: 'src/main.ts',
       formats: ['es', 'umd'],
       name: 'd3-graph-controller',

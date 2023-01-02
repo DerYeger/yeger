@@ -1,9 +1,9 @@
-import { libPlugin } from 'vite-plugin-lib'
+import { library } from 'vite-plugin-lib'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [
-    libPlugin({ entry: 'src/fol.ts', name: 'fol', formats: ['es', 'umd'] }),
+    library({ entry: 'src/fol.ts', name: 'fol', formats: ['es', 'umd'] }),
   ],
   build: {
     rollupOptions: {

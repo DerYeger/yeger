@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises'
 import { builtinModules } from 'module'
 import path from 'path'
 
+import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
 import {
   parseConfigFileTextToJson,
@@ -11,13 +12,22 @@ import {
 import type { Alias, AliasOptions, LibraryFormats, Plugin } from 'vite'
 import dts from 'vite-plugin-dts'
 
+export * as dts from 'vite-plugin-dts'
+
+function log(text: string) {
+  // eslint-disable-next-line no-console
+  console.log(`${c.cyan('[vite:lib]')} ${text}`)
+}
+
 export interface Options {
   name: string
   entry: string
-  formats: LibraryFormats[]
+  formats?: LibraryFormats[]
+  externalPackages?: (string | RegExp)[]
+  verbose?: boolean
 }
 
-export const aliasPlugin = (): Plugin => {
+export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -37,6 +47,18 @@ export const aliasPlugin = (): Plugin => {
           ),
         })
       )
+      if (aliasOptions.length > 0) {
+        log(`Injected ${c.green(aliasOptions.length)} aliases.`)
+      }
+      if (verbose) {
+        aliasOptions.forEach((alias) =>
+          log(
+            `Alias ${c.green(alias.find.toString())} -> ${c.green(
+              alias.replacement
+            )} configured`
+          )
+        )
+      }
       const existingAlias = transformExistingAlias(config.resolve?.alias)
       return {
         ...config,
@@ -49,7 +71,15 @@ export const aliasPlugin = (): Plugin => {
   }
 }
 
-export const buildPlugin = ({ entry, formats, name }: Options): Plugin => {
+const buildConfig = ({
+  entry,
+  formats,
+  name,
+  externalPackages,
+}: Options): Plugin => {
+  if (!externalPackages) {
+    log('Externalizing all packages.')
+  }
   return {
     name: 'vite-plugin-lib:build',
     enforce: 'pre',
@@ -66,7 +96,7 @@ export const buildPlugin = ({ entry, formats, name }: Options): Plugin => {
             fileName: (format: string) => formatToFileName(entry, format),
           },
           rollupOptions: {
-            external: [/node_modules/, ...builtinModules],
+            external: externalPackages ?? [/node_modules/, ...builtinModules],
           },
         },
       }
@@ -88,10 +118,10 @@ function formatToFileName(entry: string, format: string): string {
   return `${entryFileName}.${format}.js`
 }
 
-export function libPlugin(options: Options): Plugin[] {
+export function library(options: Options): Plugin[] {
   return [
-    aliasPlugin(),
-    buildPlugin(options),
+    tsconfigPaths(options),
+    buildConfig(options),
     dts({
       cleanVueFileName: true,
       include: `${path.resolve(options.entry, '..')}**`,

@@ -509,7 +509,6 @@ importers:
       unbuild: 1.0.2
       vite: 4.0.0
       vite-plugin-dts: 1.7.1
-      vitest: 0.26.2
     dependencies:
       picocolors: 1.0.0
       vite-plugin-dts: 1.7.1_vite@4.0.0
@@ -520,7 +519,6 @@ importers:
       typescript: 4.9.4
       unbuild: 1.0.2
       vite: 4.0.0_@types+node@18.11.13
-      vitest: 0.26.2_@vitest+ui@0.26.2
 
   packages/vite-plugin-ssg-utils:
     specifiers:

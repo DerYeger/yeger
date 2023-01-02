@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite'
-import { libPlugin } from 'vite-plugin-lib'
+import { library } from 'vite-plugin-lib'
 
 import Meta from './package.json'
 
 export default defineConfig({
   plugins: [
-    libPlugin({
+    library({
       entry: 'src/main.ts',
       formats: ['es', 'umd'],
       name: Meta.name,

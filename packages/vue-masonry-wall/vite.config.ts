@@ -1,12 +1,12 @@
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
-import { libPlugin } from 'vite-plugin-lib'
+import { library } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    libPlugin({
+    library({
       entry: 'src/index.ts',
       formats: ['es', 'umd'],
       name: 'MasonryWall',
