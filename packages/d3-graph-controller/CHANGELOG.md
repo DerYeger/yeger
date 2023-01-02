@@ -1,5 +1,18 @@
 # d3-graph-controller
 
+## 2.5.0
+
+### Minor Changes
+
+- da0aa0c: add Stable position initializer
+
+### Patch Changes
+
+- 104a4d2: remove invalid aria-labels
+- dc80069: use internal deepmerge
+  - @yeger/debounce@1.0.65
+  - vecti@2.1.39
+
 ## 2.4.0
 
 ### Minor Changes
