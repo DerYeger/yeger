@@ -183,6 +183,16 @@ export class OrFormula extends BinaryFormula {
       model,
       variableAssignment
     )
+    if (mode === 'lazy' && right.actual) {
+      return new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        true,
+        variableAssignment,
+        [right]
+      )
+    }
     return new ModelCheckerTrace(
       mode,
       this,
@@ -270,7 +280,7 @@ export class ImplicationFormula extends BinaryFormula {
   ): ModelCheckerTrace {
     const left = this.left.traceEvaluation(
       mode,
-      expected,
+      !expected,
       model,
       variableAssignment
     )
@@ -290,6 +300,16 @@ export class ImplicationFormula extends BinaryFormula {
       model,
       variableAssignment
     )
+    if (mode === 'lazy' && right.actual) {
+      return new ModelCheckerTrace(
+        mode,
+        this,
+        expected,
+        true,
+        variableAssignment,
+        [right]
+      )
+    }
     return new ModelCheckerTrace(
       mode,
       this,
