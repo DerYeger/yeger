@@ -19,7 +19,7 @@
 
 <p align="center">
   <a href="https://github.com/DerYeger/yeger/actions/workflows/ci.yml">
-    <img alt="CI" src="https://img.shields.io/github/workflow/status/DerYeger/yeger/CI?label=ci&logo=github&color=#4DC71F">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F">
   </a>
   <a href="https://www.npmjs.com/package/d3-graph-controller">
     <img alt="NPM" src="https://img.shields.io/npm/v/d3-graph-controller?logo=npm">

@@ -29,7 +29,7 @@ features:
   <h2 style="text-align: center">Status</h2>
   <div id="badges" style="align-items: center; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 19.2px;">
     <a href="https://github.com/DerYeger/yeger/actions/workflows/ci.yml">
-      <img alt="CI" src="https://img.shields.io/github/workflow/status/DerYeger/yeger/CI?label=ci&logo=github&color=#4DC71F">
+      <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F">
     </a>
     <a href="https://www.npmjs.com/package/vecti">
       <img alt="NPM" src="https://img.shields.io/npm/v/vecti?logo=npm">

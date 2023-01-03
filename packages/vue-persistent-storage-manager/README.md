@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/DerYeger/yeger/actions/workflows/ci.yml">
-    <img alt="CI" src="https://img.shields.io/github/workflow/status/DerYeger/yeger/CI?label=ci&logo=github&color=#4DC71F">
+    <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F">
   </a>
   <a href="https://www.npmjs.com/package/vue-persistent-storage-manager">
     <img alt="NPM" src="https://img.shields.io/npm/v/vue-persistent-storage-manager?logo=npm">
@@ -61,8 +61,15 @@ In this case, `watchStorage` will default to `false`.
 ```vue
 <template>
   <div>
-    <button :disabled="!$storageManager.isAvailable || $storageManager.isPersistent" @click="$storageManager.requestPersistentStorage()">
-      {{ $storageManager.isPersistent ? 'Persistence granted' : 'Request persistence' }}
+    <button
+      :disabled="!$storageManager.isAvailable || $storageManager.isPersistent"
+      @click="$storageManager.requestPersistentStorage()"
+    >
+      {{
+        $storageManager.isPersistent
+          ? 'Persistence granted'
+          : 'Request persistence'
+      }}
     </button>
     <p>{{ (100 * $storageEstimate.usage) / $storageEstimate.quota }}%</p>
     <p>{{ $storageEstimate.usage / 1000000 }}MB</p>
@@ -87,9 +94,7 @@ export default () => {
 
 ```typescript
 export default {
-  plugins: [
-    { src: '~/plugins/persistentStorageManager.ts' },
-  ],
+  plugins: [{ src: '~/plugins/persistentStorageManager.ts' }],
 }
 ```
 

@@ -7,7 +7,7 @@
     >
       <img
         alt="CI"
-        src="https://img.shields.io/github/workflow/status/DerYeger/yeger/CI?label=ci&logo=github&color=#4DC71F"
+        src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F"
       />
     </a>
     <a
