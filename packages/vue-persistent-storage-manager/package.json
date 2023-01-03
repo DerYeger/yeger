@@ -1,6 +1,6 @@
 {
   "name": "vue-persistent-storage-manager",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": false,
   "description": "Vue plugin that wraps the StorageManager API and provides the state of the persistent-storage permission alongside a storage estimate.",
   "author": {
