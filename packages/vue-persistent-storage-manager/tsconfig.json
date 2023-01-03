@@ -1,0 +1,12 @@
+{
+  "extends": "@yeger/tsconfig/lib",
+  "compilerOptions": {
+    "baseUrl": "./",
+    "types": ["node", "vue"],
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "coverage", "dist"],
+  "vueCompilerOptions": {
+    "target": 2
+  }
+}

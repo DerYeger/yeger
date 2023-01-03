@@ -24,7 +24,7 @@
   <a href="https://www.npmjs.com/package/d3-graph-controller">
     <img alt="NPM" src="https://img.shields.io/npm/v/d3-graph-controller?logo=npm">
   </a>
-    <a href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/d3-graph-controller">
+  <a href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/d3-graph-controller">
     <img alt="Coverage" src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=d3-graph-controller">
   </a>
   <a href="https://opensource.org/licenses/MIT">

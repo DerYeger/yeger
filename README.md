@@ -18,5 +18,7 @@
 - [d3-graph-controller](https://github.com/DerYeger/yeger/tree/main/packages/d3-graph-controller)
 - [resumon](https://github.com/DerYeger/yeger/tree/main/packages/resumon)
 - [vecti](https://github.com/DerYeger/yeger/tree/main/packages/vecti)
+- [vite-plugin-lib](https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-lib)
 - [vite-plugin-ssg-utils](https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-ssg-utils)
 - [vue-marmoset-viewer](https://github.com/DerYeger/yeger/tree/main/packages/vue-marmoset-viewer)
+- [vue-persistent-storage-manager](https://github.com/DerYeger/yeger/tree/main/packages/vue-persistent-storage-manager)

@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
       - name: Lint package versions
-        run: pnpm run syncpack list-mismatches && pnpm run syncpack lint-semver-ranges
+        run: pnpm run syncpack:list && pnpm run syncpack:lint
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
       - name: Upload @yeger/debounce coverage
@@ -71,6 +71,12 @@ jobs:
         with:
           files: packages/vue-marmoset-viewer/coverage/coverage-final.json
           flags: vue-marmoset-viewer
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload vue-marmoset-viewer coverage
+        uses: codecov/codecov-action@v3
+        with:
+          files: packages/vue-persistent-storage-manager/coverage/coverage-final.json
+          flags: vue-persistent-storage-manager
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1

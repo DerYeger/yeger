@@ -8,7 +8,8 @@
       ],
       "packages": [
         "@yeger/vue2-masonry-wall",
-        "@yeger/vue2-masonry-wall-docs"
+        "@yeger/vue2-masonry-wall-docs",
+        "vue-persistent-storage-manager"
       ]
     }
   ],
