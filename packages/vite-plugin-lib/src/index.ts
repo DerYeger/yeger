@@ -19,6 +19,10 @@ function log(text: string) {
   console.log(`${c.cyan('[vite:lib]')} ${text}`)
 }
 
+function logError(text: string) {
+  console.error(`${c.red('[vite:lib]')} ${text}`)
+}
+
 export interface Options {
   name: string
   entry: string
@@ -145,12 +149,18 @@ function transformExistingAlias(alias: AliasOptions | undefined): Alias[] {
 }
 
 async function readConfig(configPath: string): Promise<CompilerOptions> {
-  const configFileText = await readFile(configPath, { encoding: 'utf-8' })
-  const { config } = parseConfigFileTextToJson(configPath, configFileText)
-  const { options } = parseJsonConfigFileContent(
-    config,
-    sys,
-    path.dirname(configPath)
-  )
-  return options
+  try {
+    const configFileText = await readFile(configPath, { encoding: 'utf-8' })
+    const { config } = parseConfigFileTextToJson(configPath, configFileText)
+    const { options } = parseJsonConfigFileContent(
+      config,
+      sys,
+      path.dirname(configPath)
+    )
+    return options
+  } catch (error: any) {
+    const message = 'message' in error ? error.message : error
+    logError(`Could not read tsconfig.json: ${message}.`)
+    return {}
+  }
 }
