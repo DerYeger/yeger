@@ -39,10 +39,7 @@ export class VuePersistentStorageManager {
   /**
    * Installs a VuePersistentStorageManager as a Vue plugin.
    */
-  public static install: PluginFunction<PluginOptions> = (
-    _Vue: typeof Vue,
-    options
-  ) => {
+  public static install: PluginFunction<PluginOptions> = (_Vue, options) => {
     const pluginOptions: PluginOptions = { ...defaultOptions, ...options }
     const storageManager = Vue.observable(new VuePersistentStorageManager())
     if (pluginOptions.watchStorage) {

@@ -7,6 +7,7 @@ export default defineConfig({
     library({
       entry: 'src/index.ts',
       name: 'VuePersistentStorageManager',
+      externalPackages: ['vue'],
     }),
   ],
   build: {
