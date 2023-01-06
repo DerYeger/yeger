@@ -58,8 +58,8 @@
     "@types/d3-zoom": "3.0.1",
     "@types/node": "18.11.13",
     "@types/resize-observer-browser": "0.1.7",
-    "@vitest/coverage-c8": "0.26.2",
-    "@vitest/ui": "0.26.2",
+    "@vitest/coverage-c8": "0.26.3",
+    "@vitest/ui": "0.26.3",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.12.0",
@@ -67,7 +67,7 @@
     "typescript": "4.9.4",
     "vite": "4.0.0",
     "vite-plugin-lib": "workspace:*",
-    "vitest": "0.26.2"
+    "vitest": "0.26.3"
   },
   "publishConfig": {
     "access": "public"
