@@ -28,10 +28,9 @@ export interface Options {
   entry: string
   formats?: LibraryFormats[]
   externalPackages?: (string | RegExp)[]
-  verbose?: boolean
 }
 
-export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
+export const tsconfigPaths = (): Plugin => {
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -53,15 +52,15 @@ export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
       )
       if (aliasOptions.length > 0) {
         log(`Injected ${c.green(aliasOptions.length)} aliases.`)
-      }
-      if (verbose) {
-        aliasOptions.forEach((alias) =>
-          log(
-            `Alias ${c.green(alias.find.toString())} -> ${c.green(
-              alias.replacement
-            )} configured`
+        const base = `${path.resolve(config.root ?? '.')}/`
+        aliasOptions
+          .map(
+            ({ find, replacement }) =>
+              `${c.gray('>')} ${c.green(find.toString())} -> ${c.green(
+                replacement.replace(base, '')
+              )}`
           )
-        )
+          .forEach(log)
       }
       const existingAlias = transformExistingAlias(config.resolve?.alias)
       return {
@@ -82,7 +81,7 @@ const buildConfig = ({
   externalPackages,
 }: Options): Plugin => {
   if (!externalPackages) {
-    log('Externalizing all packages.')
+    log('Externalized all packages.')
   }
   return {
     name: 'vite-plugin-lib:build',
@@ -124,7 +123,7 @@ function formatToFileName(entry: string, format: string): string {
 
 export function library(options: Options): Plugin[] {
   return [
-    tsconfigPaths(options),
+    tsconfigPaths(),
     buildConfig(options),
     dts({
       cleanVueFileName: true,
