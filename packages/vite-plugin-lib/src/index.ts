@@ -56,9 +56,9 @@ export const tsconfigPaths = (): Plugin => {
         aliasOptions
           .map(
             ({ find, replacement }) =>
-              `${c.gray('>')} ${c.green(find.toString())} -> ${c.green(
-                replacement.replace(base, '')
-              )}`
+              `${c.gray('>')} ${c.green(find.toString())} ${c.gray(
+                c.bold('->')
+              )} ${c.green(replacement.replace(base, ''))}`
           )
           .forEach(log)
       }
@@ -151,6 +151,9 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
   try {
     const configFileText = await readFile(configPath, { encoding: 'utf-8' })
     const { config } = parseConfigFileTextToJson(configPath, configFileText)
+    if (!('baseUrl' in config?.compilerOptions)) {
+      throw new Error('No baseUrl provided in tsconfig.json.')
+    }
     const { options } = parseJsonConfigFileContent(
       config,
       sys,
@@ -159,7 +162,7 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
     return options
   } catch (error: any) {
     const message = 'message' in error ? error.message : error
-    logError(`Could not read tsconfig.json: ${message}.`)
-    return {}
+    logError(`Could not read tsconfig.json: ${message}`)
+    throw error
   }
 }

@@ -1,6 +1,7 @@
 {
   "extends": "@yeger/tsconfig/web",
   "compilerOptions": {
+    "baseUrl": "./",
     "types": ["node", "vue"]
   },
   "exclude": ["node_modules", "coverage", "dist"]

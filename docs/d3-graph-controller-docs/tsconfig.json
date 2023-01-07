@@ -1,6 +1,7 @@
 {
   "extends": "@yeger/tsconfig/web",
   "compilerOptions": {
+    "baseUrl": "./",
     "types": ["node", "vue"],
     "noUnusedLocals": false,
     "noUnusedParameters": false,
