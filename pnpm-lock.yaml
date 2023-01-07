@@ -621,7 +621,7 @@ importers:
   packages/vue-persistent-storage-manager:
     specifiers:
       '@vitest/coverage-c8': 0.26.3
-      '@vue/test-utils': 1.3.3
+      '@vue/test-utils': 2.2.7
       '@yeger/tsconfig': workspace:*
       bundlesize2: 0.0.31
       c8: 7.12.0
@@ -635,7 +635,7 @@ importers:
       vue-template-compiler: 2.7.14
     devDependencies:
       '@vitest/coverage-c8': 0.26.3_jsdom@20.0.3
-      '@vue/test-utils': 1.3.3_rhqkolmkwunxzlyyxxsuwaiuri
+      '@vue/test-utils': 2.2.7_vue@2.7.14
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31_4herlizhofruej6mubxc5snxay
       c8: 7.12.0
@@ -4103,6 +4103,14 @@ packages:
       vue: ^3.0.1
     dependencies:
       vue: 3.2.45
+    dev: true
+
+  /@vue/test-utils/2.2.7_vue@2.7.14:
+    resolution: {integrity: sha512-BMuoruUFTEqhLoOgsMcgNVMiByYbfHCKGr2C4CPdGtz/affUtDVX5zr1RnPuq0tYSiaqq+Enw5voUpG6JY8Q7g==}
+    peerDependencies:
+      vue: ^3.0.1
+    dependencies:
+      vue: 2.7.14
     dev: true
 
   /@vueuse/core/9.9.0_vue@3.2.45:
