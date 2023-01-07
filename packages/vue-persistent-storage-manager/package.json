@@ -36,7 +36,7 @@
     "check:tsc": "tsc --noEmit"
   },
   "peerDependencies": {
-    "vue": "^2.0.0"
+    "vue": "^2.0.0 || ^3.0.0"
   },
   "devDependencies": {
     "@vitest/coverage-c8": "0.26.3",
@@ -50,7 +50,7 @@
     "vite": "4.0.0",
     "vite-plugin-lib": "workspace:*",
     "vitest": "0.26.3",
-    "vue": "2.7.14",
+    "vue": "3.2.45",
     "vue-template-compiler": "2.7.14"
   },
   "publishConfig": {
