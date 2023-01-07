@@ -199,11 +199,11 @@ describe('MasonryWall', () => {
       .then(flushPromises)
 
     const [first, second, third] = wall.findAll('.masonry-column')
-    expect(first.element.childElementCount).toEqual(2)
-    expect(second.element.childElementCount).toEqual(0)
-    expect(third.element.childElementCount).toEqual(0)
+    expect(first?.element.childElementCount).toEqual(2)
+    expect(second?.element.childElementCount).toEqual(0)
+    expect(third?.element.childElementCount).toEqual(0)
 
-    first.element.getBoundingClientRect = (): DOMRect => ({
+    first!.element.getBoundingClientRect = (): DOMRect => ({
       bottom: 0,
       height: 500,
       left: 0,
@@ -216,7 +216,7 @@ describe('MasonryWall', () => {
         return ''
       },
     })
-    third.element.getBoundingClientRect = (): DOMRect => ({
+    third!.element.getBoundingClientRect = (): DOMRect => ({
       bottom: 0,
       height: 200,
       left: 0,
@@ -236,8 +236,8 @@ describe('MasonryWall', () => {
       })
       .then(flushPromises)
     const [firstNew, secondNew, thirdNew] = wall.findAll('.masonry-column')
-    expect(firstNew.element.childElementCount).toEqual(0)
-    expect(secondNew.element.childElementCount).toEqual(3)
-    expect(thirdNew.element.childElementCount).toEqual(0)
+    expect(firstNew?.element.childElementCount).toEqual(0)
+    expect(secondNew?.element.childElementCount).toEqual(3)
+    expect(thirdNew?.element.childElementCount).toEqual(0)
   })
 })

@@ -36,7 +36,7 @@ export default defineComponent({
     metaElement.setAttribute('name', 'description')
     metaElement.content =
       'A responsive and configurable Marmoset Viewer component for Vue.'
-    document.getElementsByTagName('head')[0].appendChild(metaElement)
+    document.getElementsByTagName('head')[0]?.appendChild(metaElement)
   },
   methods: {
     addEmit(emit: string) {

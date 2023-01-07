@@ -83,7 +83,7 @@ async function processResult(input: string): Promise<TurboGraph> {
     .map((line) => line.substring(line.indexOf('"') + 1, line.lastIndexOf('"')))
     .map((line) => {
       const [source, target] = line.split('" -> "', 2)
-      return { source, target }
+      return { source: source!, target: target! }
     })
   const nodes: TurboNode[] = [...new Set(edges.flatMap(Object.values))].map(
     (id) => {

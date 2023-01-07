@@ -41,14 +41,18 @@ export const tsconfigPaths = (): Plugin => {
         return config
       }
       const aliasOptions: Alias[] = Object.entries(paths).map(
-        ([alias, replacement]) => ({
-          find: alias.replace('/*', ''),
-          replacement: path.resolve(
+        ([alias, replacements]) => {
+          const find = alias.replace('/*', '')
+          const replacement = path.resolve(
             tsconfigPath,
             baseUrl,
-            replacement[0].replace('/*', '')
-          ),
-        })
+            replacements[0]?.replace('/*', '') ?? find
+          )
+          return {
+            find,
+            replacement,
+          }
+        }
       )
       if (aliasOptions.length > 0) {
         log(`Injected ${c.green(aliasOptions.length)} aliases.`)

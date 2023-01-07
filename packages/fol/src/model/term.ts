@@ -91,6 +91,10 @@ export class BoundVariable implements Term {
   }
 
   public interpret(_: Model, variableAssignment: VariableAssignment): number {
-    return variableAssignment[this.name]
+    const interpreted = variableAssignment[this.name]
+    if (interpreted === undefined) {
+      throw new Error(`Variable ${this.name} is not assigned.`)
+    }
+    return interpreted
   }
 }

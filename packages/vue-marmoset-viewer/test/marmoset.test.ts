@@ -5,7 +5,7 @@ import { loadMarmoset, marmosetScriptId } from '~/marmoset'
 function testScript() {
   const scripts = document.head.getElementsByTagName('script')
   expect(scripts.length).toBe(1)
-  expect(scripts[0].id).toEqual(marmosetScriptId)
+  expect(scripts[0]?.id).toEqual(marmosetScriptId)
 }
 
 describe('Marmoset', () => {

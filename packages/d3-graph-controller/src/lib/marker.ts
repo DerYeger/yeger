@@ -56,10 +56,11 @@ function getUniqueColors<
 }
 
 function makeLine(points: [number, number][]): string {
-  if (points.length < 1) {
+  const [start, ...rest] = points
+  if (!start) {
     return 'M0,0'
   }
-  const [[startX, startY], ...rest] = points
+  const [startX, startY] = start
   return rest.reduce(
     (line, [x, y]) => `${line}L${x},${y}`,
     `M${startX},${startY}`
