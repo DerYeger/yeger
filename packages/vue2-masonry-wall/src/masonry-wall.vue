@@ -47,7 +47,7 @@ function createColumns(count: number): Column[] {
 if (ssrColumns.value > 0) {
   const newColumns = createColumns(ssrColumns.value)
   items.value.forEach((_: unknown, i: number) =>
-    newColumns[i % ssrColumns.value].push(i)
+    newColumns[i % ssrColumns.value]!.push(i)
   )
   columns.value = newColumns
 }
@@ -66,7 +66,7 @@ async function fillColumns(itemIndex: number) {
       ? curr
       : prev
   )
-  columns.value[+target.dataset.index!].push(itemIndex)
+  columns.value[+target.dataset.index!]!.push(itemIndex)
   await fillColumns(itemIndex + 1)
 }
 

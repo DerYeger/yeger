@@ -1,3 +1,4 @@
+import { existsSync } from 'fs'
 import { readFile } from 'fs/promises'
 import { builtinModules } from 'module'
 import path from 'path'
@@ -9,7 +10,13 @@ import {
   parseJsonConfigFileContent,
   sys,
 } from 'typescript'
-import type { Alias, AliasOptions, LibraryFormats, Plugin } from 'vite'
+import type {
+  Alias,
+  AliasOptions,
+  LibraryFormats,
+  Plugin,
+  UserConfig,
+} from 'vite'
 import dts from 'vite-plugin-dts'
 
 export * as dts from 'vite-plugin-dts'
@@ -17,6 +24,10 @@ export * as dts from 'vite-plugin-dts'
 function log(text: string) {
   // eslint-disable-next-line no-console
   console.log(`${c.cyan('[vite:lib]')} ${text}`)
+}
+
+function logWarn(text: string) {
+  console.warn(`${c.yellow('[vite:lib]')} ${text}`)
 }
 
 function logError(text: string) {
@@ -28,9 +39,10 @@ export interface Options {
   entry: string
   formats?: LibraryFormats[]
   externalPackages?: (string | RegExp)[]
+  verbose?: boolean
 }
 
-export const tsconfigPaths = (): Plugin => {
+export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -38,33 +50,15 @@ export const tsconfigPaths = (): Plugin => {
       const tsconfigPath = path.resolve(config.root ?? '.', 'tsconfig.json')
       const { baseUrl, paths } = await readConfig(tsconfigPath)
       if (!baseUrl || !paths) {
+        log('No paths found in tsconfig.json.')
         return config
       }
-      const aliasOptions: Alias[] = Object.entries(paths).map(
-        ([alias, replacements]) => {
-          const find = alias.replace('/*', '')
-          const replacement = path.resolve(
-            tsconfigPath,
-            baseUrl,
-            replacements[0]?.replace('/*', '') ?? find
-          )
-          return {
-            find,
-            replacement,
-          }
-        }
-      )
+      const pathToAlias = pathToAliasFactory(tsconfigPath, baseUrl, verbose)
+      const aliasOptions = Object.entries(paths)
+        .map(pathToAlias)
+        .filter(Boolean) as Alias[]
       if (aliasOptions.length > 0) {
-        log(`Injected ${c.green(aliasOptions.length)} aliases.`)
-        const base = `${path.resolve(config.root ?? '.')}/`
-        aliasOptions
-          .map(
-            ({ find, replacement }) =>
-              `${c.gray('>')} ${c.green(find.toString())} ${c.gray(
-                c.bold('->')
-              )} ${c.green(replacement.replace(base, ''))}`
-          )
-          .forEach(log)
+        logInjectedAliases(aliasOptions, config, verbose)
       }
       const existingAlias = transformExistingAlias(config.resolve?.alias)
       return {
@@ -109,6 +103,84 @@ const buildConfig = ({
       }
     },
   }
+}
+
+function logInjectedAliases(
+  aliasOptions: Alias[],
+  config: UserConfig,
+  verbose?: boolean
+) {
+  log(`Injected ${c.green(aliasOptions.length)} aliases.`)
+  if (!verbose) {
+    return
+  }
+  const base = `${path.resolve(config.root ?? '.')}/`
+  aliasOptions
+    .map(
+      ({ find, replacement }) =>
+        `${c.gray('>')} ${c.green(find.toString())} ${c.gray(
+          c.bold('->')
+        )} ${c.green(replacement.replace(base, ''))}`
+    )
+    .forEach(log)
+}
+
+function pathToAliasFactory(
+  tsconfigPath: string,
+  baseUrl: string,
+  verbose?: boolean
+): (path: [string, string[]]) => Alias | undefined {
+  return ([alias, replacements]) => {
+    if (replacements.length === 0) {
+      if (verbose) {
+        logWarn(`No replacements for alias ${c.green(alias)}.`)
+      }
+      return undefined
+    }
+    if (verbose && replacements.length > 1) {
+      logWarn(`Found more than one replacement for alias ${c.green(alias)}.`)
+      logWarn('Using the first existing replacement.')
+    }
+    const find = alias.replace('/*', '')
+    const replacement = getFirstExistingReplacement(
+      tsconfigPath,
+      baseUrl,
+      replacements,
+      find
+    )
+    if (!replacement) {
+      if (verbose) {
+        logWarn(`No replacement found for alias ${c.green(alias)}.`)
+      }
+      return undefined
+    }
+    return {
+      find,
+      replacement,
+    }
+  }
+}
+
+function getFirstExistingReplacement(
+  tsconfigPath: string,
+  baseUrl: string,
+  replacements: string[],
+  find: string,
+  verbose?: boolean
+): string | undefined {
+  for (const replacement of replacements) {
+    const resolvedReplacement = path.resolve(
+      tsconfigPath,
+      baseUrl,
+      replacement.replace('/*', '') ?? find
+    )
+    if (existsSync(resolvedReplacement)) {
+      return resolvedReplacement
+    } else if (verbose) {
+      logWarn(`Path ${c.green(replacement)} does not exist.`)
+    }
+  }
+  return undefined
 }
 
 function formatToFileName(entry: string, format: string): string {
