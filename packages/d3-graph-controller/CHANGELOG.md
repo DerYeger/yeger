@@ -1,5 +1,13 @@
 # d3-graph-controller
 
+## 2.5.1
+
+### Patch Changes
+
+- 18c47f0: check indexed accesses
+  - @yeger/debounce@1.0.65
+  - vecti@2.1.39
+
 ## 2.5.0
 
 ### Minor Changes

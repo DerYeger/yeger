@@ -1,6 +1,6 @@
 {
   "name": "@yeger/turbo-graph-ui",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "Interactive visualization of Turborepo task graphs.",
   "author": {
     "name": "Jan Müller",

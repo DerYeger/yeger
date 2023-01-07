@@ -1,6 +1,6 @@
 {
   "name": "vue-marmoset-viewer-docs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "build": "vite build && cp dist/index.html dist/404.html",
