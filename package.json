@@ -45,7 +45,6 @@
     "eslint": "8.29.0",
     "husky": "8.0.2",
     "lint-staged": "13.1.0",
-    "semantic-release": "19.0.5",
     "syncpack": "8.4.11",
     "turbo": "1.6.3",
     "vercel": "28.8.0"
