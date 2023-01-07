@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 3.4.3
+
+### Patch Changes
+
+- 18c47f0: check indexed accesses
+
 ## 3.4.2
 
 ### Patch Changes

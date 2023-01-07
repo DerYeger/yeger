@@ -1,5 +1,13 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.5
+
+### Patch Changes
+
+- 18c47f0: check indexed accesses
+- Updated dependencies [18c47f0]
+  - d3-graph-controller@2.5.1
+
 ## 0.4.4
 
 ### Patch Changes
