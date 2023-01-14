@@ -63,7 +63,7 @@
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.12.0",
-    "jsdom": "20.0.3",
+    "jsdom": "21.0.0",
     "typescript": "4.9.4",
     "vite": "4.0.0",
     "vite-plugin-lib": "workspace:*",
