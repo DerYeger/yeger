@@ -16,13 +16,13 @@
     "vue": "3.2.45"
   },
   "devDependencies": {
-    "@types/d3-selection": "3.0.3",
+    "@types/d3-selection": "3.0.4",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.4",
-    "unplugin-vue-components": "0.22.11",
-    "vite": "4.0.0",
+    "unplugin-vue-components": "0.22.12",
+    "vite": "4.0.4",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-alpha.31",
-    "vue-tsc": "1.0.12"
+    "vitepress": "1.0.0-alpha.40",
+    "vue-tsc": "1.0.24"
   }
 }

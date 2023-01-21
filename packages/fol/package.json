@@ -35,17 +35,17 @@
     "check:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "ohm-js": "16.4.0"
+    "ohm-js": "16.6.0"
   },
   "devDependencies": {
     "@ohm-js/cli": "1.1.0",
-    "@types/node": "18.11.13",
+    "@types/node": "18.11.18",
     "@vitest/coverage-c8": "0.26.3",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.12.0",
     "resumon": "workspace:*",
     "typescript": "4.9.4",
-    "vite": "4.0.0",
+    "vite": "4.0.4",
     "vite-plugin-lib": "workspace:*",
     "vitest": "0.26.3"
   },
