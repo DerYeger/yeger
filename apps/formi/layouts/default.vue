@@ -13,16 +13,16 @@ const { accessibleDescription } = useLogo()
 
 <template>
   <div
-    class="bg-stone-100 text-stone-900 min-h-full p-4 md:p-16 font-sans w-full"
+    class="min-h-full w-full bg-stone-100 p-4 font-sans text-stone-900 md:p-16"
   >
     <header class="flex items-center gap-4 sm:gap-16">
-      <span class="text-2xl font-bold relative flex items-center gap-2">
+      <span class="relative flex items-center gap-2 text-2xl font-bold">
         Formi
         <img
           src="/hero-first-small.webp"
           :width="48"
           :height="48"
-          class="mt--3 mb--2 display-none md:display-block drop-shadow-custom select-none"
+          class="display-none md:display-block drop-shadow-custom mt--3 mb--2 select-none"
           :alt="accessibleDescription"
         />
       </span>
@@ -32,7 +32,7 @@ const { accessibleDescription } = useLogo()
         :key="link.to"
         :to="link.to"
         :title="link.text"
-        class="font-300 uppercase text-xs md:text-sm"
+        class="font-300 text-xs uppercase md:text-sm"
         active-class="font-600"
       >
         {{ link.text }}
@@ -41,7 +41,7 @@ const { accessibleDescription } = useLogo()
     <main class="my-16 md:my-32">
       <slot />
     </main>
-    <HLine class="!bg-stone-400 w-100vw !w-100dvw ml--4 md:ml--16" />
+    <HLine class="w-100vw !w-100dvw ml--4 !bg-stone-400 md:ml--16" />
     <Footer />
   </div>
 </template>

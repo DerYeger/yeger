@@ -16,7 +16,7 @@ const borderBreakpoints = [1, 3, 5]
 
 <template>
   <div
-    class="flex flex-col justify-center items-center rounded w-fit h-fit p-2 text-stone-100 bg-stone-900 bg-op-25 border-1 shadow"
+    class="bg-op-25 border-1 flex h-fit w-fit flex-col items-center justify-center rounded bg-stone-900 p-2 text-stone-100 shadow"
     :class="{
       'border-stone-600': level < borderBreakpoints[0],
       'border-stone-700': level >= borderBreakpoints[0],
@@ -25,7 +25,7 @@ const borderBreakpoints = [1, 3, 5]
     }"
   >
     <code
-      class="px-1 select-none"
+      class="select-none px-1"
       :class="{ 'cursor-pointer': children.length > 0 }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
@@ -33,7 +33,7 @@ const borderBreakpoints = [1, 3, 5]
     >
     <div
       v-if="expanded && children.length > 0"
-      class="flex flex-row w-fit h-fit justify-evenly mt-2 gap-2"
+      class="mt-2 flex h-fit w-fit flex-row justify-evenly gap-2"
     >
       <FOLTree
         v-for="(child, index) of children"

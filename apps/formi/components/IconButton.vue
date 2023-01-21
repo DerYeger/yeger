@@ -6,7 +6,7 @@ const { name } = toRefs(props)
 
 <template>
   <button
-    class="transition-colors rounded-3xl w-7 h-7 p-1 m--1 hover:bg-stone-300 hover:text-stone-600 flex justify-center items-center"
+    class="m--1 flex h-7 w-7 items-center justify-center rounded-3xl p-1 transition-colors hover:bg-stone-300 hover:text-stone-600"
     @click="emit('click')"
   >
     <Icon :name="name" />

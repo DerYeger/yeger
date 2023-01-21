@@ -116,11 +116,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="h-full w-full flex flex-col">
-        <div className=" border-gray-400 flex shadow-2xl z-10">
+      <main className="flex h-full w-full flex-col">
+        <div className=" z-10 flex border-gray-400 shadow-2xl">
           <div className="flex gap-8 overflow-x-auto px-4 py-2">
             {tasks.map((task) => (
-              <div key={task} className="flex gap-1 items-center">
+              <div key={task} className="flex items-center gap-1">
                 <input
                   type="checkbox"
                   checked={graphController?.nodeTypeFilter.includes(task)}
@@ -134,7 +134,7 @@ export default function Home() {
                 />
                 <label>{task}</label>
                 <div
-                  className="rounded-3xl h-4 w-4"
+                  className="h-4 w-4 rounded-3xl"
                   style={{ backgroundColor: colors(task) }}
                 />
               </div>
@@ -143,26 +143,26 @@ export default function Home() {
           <div className="flex-1" />
           <div className="flex gap-2 px-4 py-2">
             <button
-              className="border-blue-200 bg-blue-200 border-1 border-2 px-2 py-1 rounded hover:bg-blue-300 transition-colors"
+              className="border-1 rounded border-2 border-blue-200 bg-blue-200 px-2 py-1 transition-colors hover:bg-blue-300"
               onClick={() => query.refetch()}
             >
               Refresh
             </button>
             <button
-              className="border-blue-200 bg-blue-200 border-1 border-2 px-2 py-1 rounded hover:bg-blue-300 transition-colors"
+              className="border-1 rounded border-2 border-blue-200 bg-blue-200 px-2 py-1 transition-colors hover:bg-blue-300"
               onClick={() => graphController?.restart(0.5)}
             >
               Reset
             </button>
           </div>
         </div>
-        <div className="flex-1 relative">
+        <div className="relative flex-1">
           {!graphController ? (
-            <div className="w-full h-full flex items-center justify-center absolute inset-0">
+            <div className="absolute inset-0 flex h-full w-full items-center justify-center">
               <span className="text-gray-700">Loading</span>
             </div>
           ) : null}
-          <div ref={graphRef} className="w-full h-full bg-gray-50 bg-dotted " />
+          <div ref={graphRef} className="bg-dotted h-full w-full bg-gray-50 " />
         </div>
       </main>
     </div>

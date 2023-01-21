@@ -12,11 +12,11 @@ const { input } = toRefs(props)
   <div class="relative">
     <input id="foobar3" type="checkbox" class="hidden" :checked="input" />
     <div
-      class="toggle__line w-12 h-6 bg-gray-200 rounded-full shadow-inner"
+      class="toggle__line h-6 w-12 rounded-full bg-gray-200 shadow-inner"
       @click="emit('update:input', !input)"
     />
     <div
-      class="toggle__dot absolute w-5 h-5 bg-white rounded-full shadow inset-y-0 left-0"
+      class="toggle__dot absolute inset-y-0 left-0 h-5 w-5 rounded-full bg-white shadow"
       @click="emit('update:input', !input)"
     />
   </div>

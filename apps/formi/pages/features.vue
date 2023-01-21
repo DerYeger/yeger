@@ -13,7 +13,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
 <template>
   <div v-once class="flex flex-col items-center gap-16 md:gap-32">
     <h1
-      class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-800 text-center"
+      class="text-center text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl"
     >
       Formi's Features
     </h1>
@@ -42,7 +42,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         </p>
       </FeatureParagraph>
       <DemoCard>
-        <ModelGraph :model="model" class="!h-48 !md:h-96 bg-white" />
+        <ModelGraph :model="model" class="!md:h-96 !h-48 bg-white" />
       </DemoCard>
     </FeatureSection>
     <FeatureSection title="Formulas" :number="3">
@@ -52,7 +52,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
           syntax errors.
         </p>
       </FeatureParagraph>
-      <DemoCard class="p-4 flex flex-col justify-center items-center gap-6">
+      <DemoCard class="flex flex-col items-center justify-center gap-6 p-4">
         <span>{{ formula }}</span>
         <span class="text-stone-600">is parsed as</span>
         <code>{{ parsedFormula.toFormattedString() }}</code>
@@ -64,7 +64,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
           sub-formulas respectively.
         </p>
       </FeatureParagraph>
-      <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
+      <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">
         <FOLTree
           :fragment="parsedFormula"
           :max-depth="parsedFormula.depth()"
@@ -85,7 +85,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
           whether the actual result matches the expected result or not.
         </p>
       </FeatureParagraph>
-      <DemoCard class="mx-auto w-fit border-none shadow-none !bg-stone-400">
+      <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">
         <ModelCheckerTraceTree
           :trace="trace"
           :is-root-mismatched="trace.actual !== trace.expected"

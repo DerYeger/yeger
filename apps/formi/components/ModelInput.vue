@@ -56,7 +56,7 @@ watch(
 </script>
 
 <template>
-  <div class="h-full w-full relative">
+  <div class="relative h-full w-full">
     <Codemirror
       :model-value="modelValue"
       :extensions="[
@@ -72,11 +72,11 @@ watch(
       :disabled="disabled"
       @update:model-value="(value) => emit('update:modelValue', value)"
     />
-    <div class="absolute top-2 right-2 flex gap-2 items-center h-fit">
+    <div class="absolute top-2 right-2 flex h-fit items-center gap-2">
       <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
       <CopyButton :content="modelValue" />
     </div>
-    <Status v-if="error" class="absolute left-0 bottom-0 right-0 border-t-1">
+    <Status v-if="error" class="border-t-1 absolute inset-x-0 bottom-0">
       <code class="text-red-500">{{ error }}</code>
     </Status>
   </div>

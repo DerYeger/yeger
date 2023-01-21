@@ -5,15 +5,15 @@ const { appLink, featuresLink } = useLinks()
 <template>
   <div
     v-once
-    class="flex flex-col-reverse content-start md:flex-row space-between gap-16 max-w-none md:max-w-6xl mx-auto"
+    class="space-between mx-auto flex max-w-none flex-col-reverse content-start gap-16 md:max-w-6xl md:flex-row"
   >
-    <div class="flex flex-col gap-10 md:w-50%">
+    <div class="md:w-50% flex flex-col gap-10">
       <h2
-        class="text-lg sm:text-2xl lg:text-3xl font-bold uppercase text-stone-800"
+        class="text-lg font-bold uppercase text-stone-800 sm:text-2xl lg:text-3xl"
       >
         FOL Model Checking
       </h2>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-stone-800">
+      <h1 class="text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl">
         Try.<br />
         Learn.<br />
         Understand.
@@ -29,18 +29,18 @@ const { appLink, featuresLink } = useLinks()
         trees, presenting insight into the formula AST and model checking
         results.
       </HeroProse>
-      <div class="flex flex-col lg:flex-row gap-4 items-start">
+      <div class="flex flex-col items-start gap-4 lg:flex-row">
         <LinkButton :link="appLink"> Try Now </LinkButton>
         <LinkButton
           :link="featuresLink"
           description="Learn more about the features of Formi."
-          class="bg-transparent text-stone-900 border-stone-900 border-1 hover:border-stone-700 hover:text-stone-100"
+          class="border-1 border-stone-900 bg-transparent text-stone-900 hover:border-stone-700 hover:text-stone-100"
         >
           Read More
         </LinkButton>
       </div>
     </div>
-    <div class="max-w-full flex-1 mt--16 md:mt-0 mx-auto">
+    <div class="mx-auto mt--16 max-w-full flex-1 md:mt-0">
       <HeroImage />
     </div>
   </div>

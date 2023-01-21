@@ -6,7 +6,7 @@ const { title, number } = toRefs(props)
 <template>
   <section>
     <div
-      class="text-xl sm:text-2xl md:text-3xl flex justify-center items-center mb-16 gap-4"
+      class="mb-16 flex items-center justify-center gap-4 text-xl sm:text-2xl md:text-3xl"
     >
       <HLine />
       <CircledNumber :number="number" />

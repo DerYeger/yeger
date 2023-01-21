@@ -7,10 +7,11 @@ module.exports = {
     'plugin:markdown/recommended',
     'plugin:md/recommended',
     'plugin:prettier/recommended',
+    'plugin:tailwindcss/recommended',
     'plugin:yml/standard',
     'plugin:yml/prettier',
   ],
-  plugins: ['eslint-plugin-tsdoc', 'jsx-a11y', 'unused-imports'],
+  plugins: ['eslint-plugin-tsdoc', 'jsx-a11y', 'tailwindcss', 'unused-imports'],
   settings: {
     'import/parser': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
@@ -43,6 +44,9 @@ module.exports = {
       parserOptions: {
         parser: '@typescript-eslint/parser',
         extraFileExtensions: ['.astro'],
+      },
+      rules: {
+        'unused-imports/no-unused-vars': 'off',
       },
     },
   ],
@@ -87,6 +91,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'prefer-template': 'error',
     'prefer-const': 'error',
+    'tailwindcss/no-custom-classname': 'off',
     'tsdoc/syntax': 'error',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [

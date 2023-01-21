@@ -1,6 +1,6 @@
 <template>
   <p
-    class="text-justify md:text-start font-300 !leading-8 !md:leading-10 text-stone-700"
+    class="font-300 !md:leading-10 text-justify !leading-8 text-stone-700 md:text-start"
   >
     <slot />
   </p>

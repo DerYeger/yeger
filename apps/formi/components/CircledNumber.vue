@@ -5,7 +5,7 @@ const { number } = toRefs(props)
 
 <template>
   <div
-    class="border-1 border-stone-900 rounded-10 w-1.25em h-1.25em flex items-center justify-center font-200 select-none"
+    class="border-1 rounded-10 w-1.25em h-1.25em font-200 flex select-none items-center justify-center border-stone-900"
   >
     <span class="text-0.875em">
       {{ number }}
