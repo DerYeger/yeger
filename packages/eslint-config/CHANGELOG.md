@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.9.0
+
+### Minor Changes
+
+- 94d42ee: configure tailwind eslint plugin
+
 ## 1.8.1
 
 ### Patch Changes
