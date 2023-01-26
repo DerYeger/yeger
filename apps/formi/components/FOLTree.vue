@@ -32,7 +32,7 @@ const borderBreakpoints = [1, 3, 5]
       >{{ expanded ? fragment.text() : fragment.toFormattedString() }}</code
     >
     <div
-      v-if="expanded && children.length > 0"
+      v-show="expanded && children.length > 0"
       class="mt-2 flex h-fit w-fit flex-row justify-evenly gap-2"
     >
       <FOLTree
