@@ -24,8 +24,8 @@ const { appLink, featuresLink } = useLinks()
         intuitive YAML-based editor.
       </HeroProse>
       <HeroProse>
-        Real-time validation of formula and model inputs make the feedback cycle
-        near-instantaneous. Formulas and evaluation results are displayed as
+        Real-time validation of formula and model inputs results in a near-instantaneous
+        feedback cycle. Formulas and evaluation results are displayed as
         trees, presenting insight into the formula AST and model checking
         results.
       </HeroProse>
