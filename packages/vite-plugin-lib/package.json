@@ -45,7 +45,7 @@
   },
   "devDependencies": {
     "@types/node": "18.11.18",
-    "@vitest/ui": "0.26.3",
+    "@vitest/ui": "0.28.3",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.4",
     "unbuild": "1.1.1",
