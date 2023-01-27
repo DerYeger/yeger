@@ -24,10 +24,10 @@ const { appLink, featuresLink } = useLinks()
         intuitive YAML-based editor.
       </HeroProse>
       <HeroProse>
-        Real-time validation of formula and model inputs results in a near-instantaneous
-        feedback cycle. Formulas and evaluation results are displayed as
-        trees, presenting insight into the formula AST and model checking
-        results.
+        Real-time validation of formula and model inputs results in a
+        near-instantaneous feedback cycle. Formulas and evaluation results are
+        displayed as trees, presenting insight into the formula AST and model
+        checking results.
       </HeroProse>
       <div class="flex flex-col items-start gap-4 lg:flex-row">
         <LinkButton :link="appLink"> Try Now </LinkButton>
