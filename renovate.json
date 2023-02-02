@@ -41,6 +41,14 @@
       ],
       "matchPackageNames": ["@vue/test-utils"],
       "allowedVersions": "<2"
+    },
+    {
+      "matchPackageNames": ["nuxt"],
+      "allowedVersions": "3.0.0"
+    },
+    {
+      "matchPackageNames": ["nuxt-icon"],
+      "allowedVersions": "<=0.2.6"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],
