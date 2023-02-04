@@ -18,7 +18,7 @@
     "vite": "4.1.1",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "0.22.1",
-    "vue": "3.2.45",
+    "vue": "3.2.47",
     "vue-router": "4.1.6"
   }
 }
