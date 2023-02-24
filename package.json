@@ -36,8 +36,8 @@
   "devDependencies": {
     "@antfu/ni": "0.19.0",
     "@changesets/cli": "2.26.0",
-    "@commitlint/cli": "17.4.2",
-    "@commitlint/config-conventional": "17.4.2",
+    "@commitlint/cli": "17.4.4",
+    "@commitlint/config-conventional": "17.4.4",
     "@types/node": "18.11.18",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
