@@ -1,5 +1,10 @@
 {
-  "peer": false,
+  "dependencyTypes": [
+    "dev",
+    "overrides",
+    "prod",
+    "resolutions"
+  ],
   "versionGroups": [
     {
       "dependencies": [
@@ -12,6 +17,5 @@
         "vue-persistent-storage-manager"
       ]
     }
-  ],
-  "workspace": false
+  ]
 }
