@@ -241,8 +241,8 @@ importers:
       '@types/d3-zoom': 3.0.2
       '@types/node': 18.11.18
       '@types/resize-observer-browser': 0.1.7
-      '@vitest/coverage-c8': 0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
+      '@vitest/ui': 0.28.5
       '@yeger/debounce': workspace:*
       '@yeger/deepmerge': workspace:*
       '@yeger/tsconfig': workspace:*
@@ -256,7 +256,7 @@ importers:
       vecti: workspace:*
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
     dependencies:
       '@yeger/debounce': link:../debounce
       d3-drag: 3.0.0
@@ -271,8 +271,8 @@ importers:
       '@types/d3-zoom': 3.0.2
       '@types/node': 18.11.18
       '@types/resize-observer-browser': 0.1.7
-      '@vitest/coverage-c8': 0.28.3_a7aimjszcawcicrmfep77vgtlm
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a
+      '@vitest/ui': 0.28.5
       '@yeger/deepmerge': link:../deepmerge
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
@@ -280,27 +280,27 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.11.18
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_a7aimjszcawcicrmfep77vgtlm
+      vitest: 0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a
 
   packages/debounce:
     specifiers:
-      '@vitest/coverage-c8': 0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': workspace:*
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
     devDependencies:
-      '@vitest/coverage-c8': 0.28.3_@vitest+ui@0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5_@vitest+ui@0.28.5
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_@vitest+ui@0.28.3
+      vitest: 0.28.5_@vitest+ui@0.28.5
 
   packages/deepmerge:
     specifiers:
@@ -363,7 +363,7 @@ importers:
     specifiers:
       '@ohm-js/cli': 1.1.0
       '@types/node': 18.11.18
-      '@vitest/coverage-c8': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
       '@yeger/tsconfig': workspace:*
       c8: 7.12.0
       ohm-js: 16.6.0
@@ -371,42 +371,42 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
     dependencies:
       ohm-js: 16.6.0
     devDependencies:
       '@ohm-js/cli': 1.1.0
       '@types/node': 18.11.18
-      '@vitest/coverage-c8': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
       resumon: link:../resumon
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.11.18
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3
+      vitest: 0.28.5
 
   packages/resumon:
     specifiers:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': workspace:*
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
     devDependencies:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.11.18
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_@vitest+ui@0.28.3
+      vitest: 0.28.5_@vitest+ui@0.28.5
 
   packages/tsconfig:
     specifiers: {}
@@ -480,31 +480,31 @@ importers:
   packages/vecti:
     specifiers:
       '@types/node': 18.11.18
-      '@vitest/coverage-c8': 0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
+      '@vitest/ui': 0.28.5
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': workspace:*
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
     devDependencies:
       '@types/node': 18.11.18
-      '@vitest/coverage-c8': 0.28.3_@vitest+ui@0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5_@vitest+ui@0.28.5
+      '@vitest/ui': 0.28.5
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.12.0
       typescript: 4.9.5
       vite: 4.1.1_@types+node@18.11.18
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_@vitest+ui@0.28.3
+      vitest: 0.28.5_@vitest+ui@0.28.5
 
   packages/vite-plugin-lib:
     specifiers:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': workspace:*
       picocolors: 1.0.0
       typescript: 4.9.5
@@ -516,7 +516,7 @@ importers:
       vite-plugin-dts: 1.7.2_vite@4.1.1
     devDependencies:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': link:../tsconfig
       typescript: 4.9.5
       unbuild: 1.1.1
@@ -525,31 +525,31 @@ importers:
   packages/vite-plugin-ssg-utils:
     specifiers:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': workspace:*
       kolorist: 1.7.0
       rimraf: 4.1.2
       typescript: 4.9.5
       unbuild: 1.1.1
       vite: 4.1.1
-      vitest: 0.28.3
+      vitest: 0.28.5
     dependencies:
       kolorist: 1.7.0
     devDependencies:
       '@types/node': 18.11.18
-      '@vitest/ui': 0.28.3
+      '@vitest/ui': 0.28.5
       '@yeger/tsconfig': link:../tsconfig
       rimraf: 4.1.2
       typescript: 4.9.5
       unbuild: 1.1.1
       vite: 4.1.1_@types+node@18.11.18
-      vitest: 0.28.3_@vitest+ui@0.28.3
+      vitest: 0.28.5_@vitest+ui@0.28.5
 
   packages/vue-marmoset-viewer:
     specifiers:
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 4.0.0
-      '@vitest/coverage-c8': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
       '@vue/test-utils': 2.2.10
       '@yeger/debounce': workspace:*
       '@yeger/tsconfig': workspace:*
@@ -560,7 +560,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
       vue: 3.2.47
       vue-tsc: 1.0.24
     dependencies:
@@ -568,7 +568,7 @@ importers:
     devDependencies:
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
-      '@vitest/coverage-c8': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
       '@vue/test-utils': 2.2.10_vue@3.2.47
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31_4herlizhofruej6mubxc5snxay
@@ -578,7 +578,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3
+      vitest: 0.28.5
       vue: 3.2.47
       vue-tsc: 1.0.24_hmuptsblhheur2tugfgucj7gc4
 
@@ -587,8 +587,8 @@ importers:
       '@babel/types': 7.20.7
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 4.0.0
-      '@vitest/coverage-c8': 0.28.3
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
+      '@vitest/ui': 0.28.5
       '@vue/test-utils': 2.2.10
       '@yeger/tsconfig': workspace:*
       bundlesize2: 0.0.31
@@ -598,15 +598,15 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
       vue: 3.2.47
       vue-tsc: 1.0.24
     devDependencies:
       '@babel/types': 7.20.7
       '@types/resize-observer-browser': 0.1.7
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
-      '@vitest/coverage-c8': 0.28.3_a7aimjszcawcicrmfep77vgtlm
-      '@vitest/ui': 0.28.3
+      '@vitest/coverage-c8': 0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a
+      '@vitest/ui': 0.28.5
       '@vue/test-utils': 2.2.10_vue@3.2.47
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31_4herlizhofruej6mubxc5snxay
@@ -616,13 +616,13 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_a7aimjszcawcicrmfep77vgtlm
+      vitest: 0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a
       vue: 3.2.47
       vue-tsc: 1.0.24_hmuptsblhheur2tugfgucj7gc4
 
   packages/vue-persistent-storage-manager:
     specifiers:
-      '@vitest/coverage-c8': 0.28.3
+      '@vitest/coverage-c8': 0.28.5
       '@vue/test-utils': 1.3.4
       '@yeger/tsconfig': workspace:*
       bundlesize2: 0.0.31
@@ -632,11 +632,11 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
       vue: 2.7.14
       vue-template-compiler: 2.7.14
     devDependencies:
-      '@vitest/coverage-c8': 0.28.3_jsdom@21.1.0
+      '@vitest/coverage-c8': 0.28.5_jsdom@21.1.0
       '@vue/test-utils': 1.3.4_rhqkolmkwunxzlyyxxsuwaiuri
       '@yeger/tsconfig': link:../tsconfig
       bundlesize2: 0.0.31_4herlizhofruej6mubxc5snxay
@@ -646,7 +646,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_jsdom@21.1.0
+      vitest: 0.28.5_jsdom@21.1.0
       vue: 2.7.14
       vue-template-compiler: 2.7.14_vue@2.7.14
 
@@ -664,7 +664,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: workspace:*
-      vitest: 0.28.3
+      vitest: 0.28.5
       vue: 2.7.14
       vue-template-compiler: 2.7.14
     devDependencies:
@@ -680,7 +680,7 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vite-plugin-lib: link:../vite-plugin-lib
-      vitest: 0.28.3_jsdom@21.1.0
+      vitest: 0.28.5_jsdom@21.1.0
       vue: 2.7.14
       vue-template-compiler: 2.7.14_vue@2.7.14
 
@@ -3712,13 +3712,13 @@ packages:
       vue: 2.7.14
     dev: true
 
-  /@vitest/coverage-c8/0.28.3:
-    resolution: {integrity: sha512-3Toi4flNyxwSSYohhV3/euFSyrHjaD9vJVwFVcy84lcRHMEkv0W7pxlqZZeCvPdktN+WETbNazx3WWBs0jqhVQ==}
+  /@vitest/coverage-c8/0.28.5:
+    resolution: {integrity: sha512-zCNyurjudoG0BAqAgknvlBhkV2V9ZwyYLWOAGtHSDhL/St49MJT+V2p1G0yPaoqBbKOTATVnP5H2p1XL15H75g==}
     dependencies:
       c8: 7.12.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.28.3
+      vitest: 0.28.5
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3733,13 +3733,13 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.28.3_@vitest+ui@0.28.3:
-    resolution: {integrity: sha512-3Toi4flNyxwSSYohhV3/euFSyrHjaD9vJVwFVcy84lcRHMEkv0W7pxlqZZeCvPdktN+WETbNazx3WWBs0jqhVQ==}
+  /@vitest/coverage-c8/0.28.5_@vitest+ui@0.28.5:
+    resolution: {integrity: sha512-zCNyurjudoG0BAqAgknvlBhkV2V9ZwyYLWOAGtHSDhL/St49MJT+V2p1G0yPaoqBbKOTATVnP5H2p1XL15H75g==}
     dependencies:
       c8: 7.12.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.28.3_@vitest+ui@0.28.3
+      vitest: 0.28.5_@vitest+ui@0.28.5
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3754,13 +3754,13 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.28.3_a7aimjszcawcicrmfep77vgtlm:
-    resolution: {integrity: sha512-3Toi4flNyxwSSYohhV3/euFSyrHjaD9vJVwFVcy84lcRHMEkv0W7pxlqZZeCvPdktN+WETbNazx3WWBs0jqhVQ==}
+  /@vitest/coverage-c8/0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a:
+    resolution: {integrity: sha512-zCNyurjudoG0BAqAgknvlBhkV2V9ZwyYLWOAGtHSDhL/St49MJT+V2p1G0yPaoqBbKOTATVnP5H2p1XL15H75g==}
     dependencies:
       c8: 7.12.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.28.3_a7aimjszcawcicrmfep77vgtlm
+      vitest: 0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3775,13 +3775,13 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.28.3_jsdom@21.1.0:
-    resolution: {integrity: sha512-3Toi4flNyxwSSYohhV3/euFSyrHjaD9vJVwFVcy84lcRHMEkv0W7pxlqZZeCvPdktN+WETbNazx3WWBs0jqhVQ==}
+  /@vitest/coverage-c8/0.28.5_jsdom@21.1.0:
+    resolution: {integrity: sha512-zCNyurjudoG0BAqAgknvlBhkV2V9ZwyYLWOAGtHSDhL/St49MJT+V2p1G0yPaoqBbKOTATVnP5H2p1XL15H75g==}
     dependencies:
       c8: 7.12.0
       picocolors: 1.0.0
       std-env: 3.3.1
-      vitest: 0.28.3_jsdom@21.1.0
+      vitest: 0.28.5_jsdom@21.1.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -3796,30 +3796,30 @@ packages:
       - terser
     dev: true
 
-  /@vitest/expect/0.28.3:
-    resolution: {integrity: sha512-dnxllhfln88DOvpAK1fuI7/xHwRgTgR4wdxHldPaoTaBu6Rh9zK5b//v/cjTkhOfNP/AJ8evbNO8H7c3biwd1g==}
+  /@vitest/expect/0.28.5:
+    resolution: {integrity: sha512-gqTZwoUTwepwGIatnw4UKpQfnoyV0Z9Czn9+Lo2/jLIt4/AXLTn+oVZxlQ7Ng8bzcNkR+3DqLJ08kNr8jRmdNQ==}
     dependencies:
-      '@vitest/spy': 0.28.3
-      '@vitest/utils': 0.28.3
+      '@vitest/spy': 0.28.5
+      '@vitest/utils': 0.28.5
       chai: 4.3.7
     dev: true
 
-  /@vitest/runner/0.28.3:
-    resolution: {integrity: sha512-P0qYbATaemy1midOLkw7qf8jraJszCoEvjQOSlseiXZyEDaZTZ50J+lolz2hWiWv6RwDu1iNseL9XLsG0Jm2KQ==}
+  /@vitest/runner/0.28.5:
+    resolution: {integrity: sha512-NKkHtLB+FGjpp5KmneQjTcPLWPTDfB7ie+MmF1PnUBf/tGe2OjGxWyB62ySYZ25EYp9krR5Bw0YPLS/VWh1QiA==}
     dependencies:
-      '@vitest/utils': 0.28.3
+      '@vitest/utils': 0.28.5
       p-limit: 4.0.0
       pathe: 1.1.0
     dev: true
 
-  /@vitest/spy/0.28.3:
-    resolution: {integrity: sha512-jULA6suS6CCr9VZfr7/9x97pZ0hC55prnUNHNrg5/q16ARBY38RsjsfhuUXt6QOwvIN3BhSS0QqPzyh5Di8g6w==}
+  /@vitest/spy/0.28.5:
+    resolution: {integrity: sha512-7if6rsHQr9zbmvxN7h+gGh2L9eIIErgf8nSKYDlg07HHimCxp4H6I/X/DPXktVPPLQfiZ1Cw2cbDIx9fSqDjGw==}
     dependencies:
       tinyspy: 1.0.2
     dev: true
 
-  /@vitest/ui/0.28.3:
-    resolution: {integrity: sha512-pbr9VySq2PJhaQP06Fq9c6Ra1wSUY1gnNEVhuwVU1yhqz78WdsO3rqREu7GSqEpAr6oZfwpBOUVzW87C2lNGYw==}
+  /@vitest/ui/0.28.5:
+    resolution: {integrity: sha512-hzzZzv38mH/LMFh54QEJpWFuGixZZBOD+C0fHU81d1lsvochPwNZhWJbuRJQNyZLSMZYCYW4hF6PpNQJXDHDmg==}
     dependencies:
       fast-glob: 3.2.12
       flatted: 3.2.7
@@ -3828,8 +3828,8 @@ packages:
       sirv: 2.0.2
     dev: true
 
-  /@vitest/utils/0.28.3:
-    resolution: {integrity: sha512-YHiQEHQqXyIbhDqETOJUKx9/psybF7SFFVCNfOvap0FvyUqbzTSDCa3S5lL4C0CLXkwVZttz9xknDoyHMguFRQ==}
+  /@vitest/utils/0.28.5:
+    resolution: {integrity: sha512-UyZdYwdULlOa4LTUSwZ+Paz7nBHGTT72jKwdFSV4IjHF1xsokp+CabMdhjvVhYwkLfO88ylJT46YMilnkSARZA==}
     dependencies:
       cli-truncate: 3.1.0
       diff: 5.1.0
@@ -9161,11 +9161,6 @@ packages:
       strip-bom: 3.0.0
     dev: true
 
-  /local-pkg/0.4.2:
-    resolution: {integrity: sha512-mlERgSPrbxU3BP4qBqAvvwlgW4MTg78iwJdGGnv7kibKjWcJksrG3t6LB5lXI93wXRDvG4NpUgJFmTG4T6rdrg==}
-    engines: {node: '>=14'}
-    dev: true
-
   /local-pkg/0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
     engines: {node: '>=14'}
@@ -13681,8 +13676,8 @@ packages:
       - terser
     dev: true
 
-  /vite-node/0.28.3_@types+node@18.11.18:
-    resolution: {integrity: sha512-uJJAOkgVwdfCX8PUQhqLyDOpkBS5+j+FdbsXoPVPDlvVjRkb/W/mLYQPSL6J+t8R0UV8tJSe8c9VyxVQNsDSyg==}
+  /vite-node/0.28.5_@types+node@18.11.18:
+    resolution: {integrity: sha512-LmXb9saMGlrMZbXTvOveJKwMTBTNUH66c8rJnQ0ZPNX+myPEol64+szRzXtV5ORb0Hb/91yq+/D3oERoyAt6LA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     dependencies:
@@ -13938,8 +13933,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.28.3:
-    resolution: {integrity: sha512-N41VPNf3VGJlWQizGvl1P5MGyv3ZZA2Zvh+2V8L6tYBAAuqqDK4zExunT1Cdb6dGfZ4gr+IMrnG8d4Z6j9ctPw==}
+  /vitest/0.28.5:
+    resolution: {integrity: sha512-pyCQ+wcAOX7mKMcBNkzDwEHRGqQvHUl0XnoHR+3Pb1hytAHISgSxv9h0gUiSiYtISXUU3rMrKiKzFYDrI6ZIHA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -13963,16 +13958,16 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.11.18
-      '@vitest/expect': 0.28.3
-      '@vitest/runner': 0.28.3
-      '@vitest/spy': 0.28.3
-      '@vitest/utils': 0.28.3
+      '@vitest/expect': 0.28.5
+      '@vitest/runner': 0.28.5
+      '@vitest/spy': 0.28.5
+      '@vitest/utils': 0.28.5
       acorn: 8.8.1
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
-      local-pkg: 0.4.2
+      local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
       source-map: 0.6.1
@@ -13982,7 +13977,7 @@ packages:
       tinypool: 0.3.1
       tinyspy: 1.0.2
       vite: 4.1.1_@types+node@18.11.18
-      vite-node: 0.28.3_@types+node@18.11.18
+      vite-node: 0.28.5_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -13993,8 +13988,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.28.3_@vitest+ui@0.28.3:
-    resolution: {integrity: sha512-N41VPNf3VGJlWQizGvl1P5MGyv3ZZA2Zvh+2V8L6tYBAAuqqDK4zExunT1Cdb6dGfZ4gr+IMrnG8d4Z6j9ctPw==}
+  /vitest/0.28.5_@vitest+ui@0.28.5:
+    resolution: {integrity: sha512-pyCQ+wcAOX7mKMcBNkzDwEHRGqQvHUl0XnoHR+3Pb1hytAHISgSxv9h0gUiSiYtISXUU3rMrKiKzFYDrI6ZIHA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -14018,17 +14013,17 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.11.18
-      '@vitest/expect': 0.28.3
-      '@vitest/runner': 0.28.3
-      '@vitest/spy': 0.28.3
-      '@vitest/ui': 0.28.3
-      '@vitest/utils': 0.28.3
+      '@vitest/expect': 0.28.5
+      '@vitest/runner': 0.28.5
+      '@vitest/spy': 0.28.5
+      '@vitest/ui': 0.28.5
+      '@vitest/utils': 0.28.5
       acorn: 8.8.1
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
-      local-pkg: 0.4.2
+      local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
       source-map: 0.6.1
@@ -14038,7 +14033,7 @@ packages:
       tinypool: 0.3.1
       tinyspy: 1.0.2
       vite: 4.1.1_@types+node@18.11.18
-      vite-node: 0.28.3_@types+node@18.11.18
+      vite-node: 0.28.5_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -14049,8 +14044,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.28.3_a7aimjszcawcicrmfep77vgtlm:
-    resolution: {integrity: sha512-N41VPNf3VGJlWQizGvl1P5MGyv3ZZA2Zvh+2V8L6tYBAAuqqDK4zExunT1Cdb6dGfZ4gr+IMrnG8d4Z6j9ctPw==}
+  /vitest/0.28.5_itn5mhdgoxdt6nk7zeh5bmcq5a:
+    resolution: {integrity: sha512-pyCQ+wcAOX7mKMcBNkzDwEHRGqQvHUl0XnoHR+3Pb1hytAHISgSxv9h0gUiSiYtISXUU3rMrKiKzFYDrI6ZIHA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -14074,18 +14069,18 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.11.18
-      '@vitest/expect': 0.28.3
-      '@vitest/runner': 0.28.3
-      '@vitest/spy': 0.28.3
-      '@vitest/ui': 0.28.3
-      '@vitest/utils': 0.28.3
+      '@vitest/expect': 0.28.5
+      '@vitest/runner': 0.28.5
+      '@vitest/spy': 0.28.5
+      '@vitest/ui': 0.28.5
+      '@vitest/utils': 0.28.5
       acorn: 8.8.1
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
       jsdom: 21.1.0
-      local-pkg: 0.4.2
+      local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
       source-map: 0.6.1
@@ -14095,7 +14090,7 @@ packages:
       tinypool: 0.3.1
       tinyspy: 1.0.2
       vite: 4.1.1_@types+node@18.11.18
-      vite-node: 0.28.3_@types+node@18.11.18
+      vite-node: 0.28.5_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
@@ -14106,8 +14101,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.28.3_jsdom@21.1.0:
-    resolution: {integrity: sha512-N41VPNf3VGJlWQizGvl1P5MGyv3ZZA2Zvh+2V8L6tYBAAuqqDK4zExunT1Cdb6dGfZ4gr+IMrnG8d4Z6j9ctPw==}
+  /vitest/0.28.5_jsdom@21.1.0:
+    resolution: {integrity: sha512-pyCQ+wcAOX7mKMcBNkzDwEHRGqQvHUl0XnoHR+3Pb1hytAHISgSxv9h0gUiSiYtISXUU3rMrKiKzFYDrI6ZIHA==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -14131,17 +14126,17 @@ packages:
       '@types/chai': 4.3.4
       '@types/chai-subset': 1.3.3
       '@types/node': 18.11.18
-      '@vitest/expect': 0.28.3
-      '@vitest/runner': 0.28.3
-      '@vitest/spy': 0.28.3
-      '@vitest/utils': 0.28.3
+      '@vitest/expect': 0.28.5
+      '@vitest/runner': 0.28.5
+      '@vitest/spy': 0.28.5
+      '@vitest/utils': 0.28.5
       acorn: 8.8.1
       acorn-walk: 8.2.0
       cac: 6.7.14
       chai: 4.3.7
       debug: 4.3.4
       jsdom: 21.1.0
-      local-pkg: 0.4.2
+      local-pkg: 0.4.3
       pathe: 1.1.0
       picocolors: 1.0.0
       source-map: 0.6.1
@@ -14151,7 +14146,7 @@ packages:
       tinypool: 0.3.1
       tinyspy: 1.0.2
       vite: 4.1.1_@types+node@18.11.18
-      vite-node: 0.28.3_@types+node@18.11.18
+      vite-node: 0.28.5_@types+node@18.11.18
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
