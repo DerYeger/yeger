@@ -203,6 +203,7 @@ export function library(options: Options): Plugin[] {
     buildConfig(options),
     dts({
       cleanVueFileName: true,
+      copyDtsFiles: true,
       include: `${path.resolve(options.entry, '..')}**`,
       outputDir: 'dist/types',
       staticImport: true,
