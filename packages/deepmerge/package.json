@@ -23,9 +23,9 @@
     "check:tsc": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
+    "@types/node": "18.14.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.5",
-    "unbuild": "1.1.1"
+    "unbuild": "1.1.2"
   }
 }

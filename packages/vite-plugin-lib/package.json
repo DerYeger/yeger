@@ -44,12 +44,12 @@
     "vite-plugin-dts": "2.0.2"
   },
   "devDependencies": {
-    "@types/node": "18.11.18",
-    "@vitest/ui": "0.28.5",
+    "@types/node": "18.14.1",
+    "@vitest/ui": "0.29.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.5",
-    "unbuild": "1.1.1",
-    "vite": "4.1.1"
+    "unbuild": "1.1.2",
+    "vite": "4.1.4"
   },
   "publishConfig": {
     "access": "public"
