@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.9.1
+
+### Patch Changes
+
+- c3be08f: update deps
+
 ## 1.9.0
 
 ### Minor Changes
