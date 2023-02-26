@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 3.4.4
+
+### Patch Changes
+
+- c3be08f: update deps
+
 ## 3.4.3
 
 ### Patch Changes

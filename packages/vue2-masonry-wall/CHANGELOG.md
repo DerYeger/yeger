@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 2.3.3
+
+### Patch Changes
+
+- c3be08f: update deps
+
 ## 2.3.2
 
 ### Patch Changes

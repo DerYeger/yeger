@@ -1,5 +1,13 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.6
+
+### Patch Changes
+
+- c3be08f: update deps
+- Updated dependencies [c3be08f]
+  - d3-graph-controller@2.5.2
+
 ## 0.4.5
 
 ### Patch Changes

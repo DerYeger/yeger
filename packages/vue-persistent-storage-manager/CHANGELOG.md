@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 2.1.2
+
+### Patch Changes
+
+- c3be08f: update deps
+
 ## 2.1.1
 
 ### Patch Changes

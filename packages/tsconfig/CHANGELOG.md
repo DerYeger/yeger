@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 1.1.2
+
+### Patch Changes
+
+- c3be08f: update deps
+
 ## 1.1.1
 
 ### Patch Changes
