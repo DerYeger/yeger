@@ -17,7 +17,6 @@
     ":labels(dependencies,renovate)",
     ":semanticCommits",
     "group:allNonMajor",
-    "group:monorepos",
     "workarounds:all"
   ],
   "major": {
