@@ -35,7 +35,7 @@
     "check:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "ohm-js": "16.6.0"
+    "ohm-js": "17.0.3"
   },
   "devDependencies": {
     "@ohm-js/cli": "2.0.0",
