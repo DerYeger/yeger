@@ -361,7 +361,7 @@ importers:
 
   packages/fol:
     specifiers:
-      '@ohm-js/cli': 1.1.0
+      '@ohm-js/cli': 2.0.0
       '@types/node': 18.14.1
       '@vitest/coverage-c8': 0.29.1
       '@yeger/tsconfig': workspace:*
@@ -375,7 +375,7 @@ importers:
     dependencies:
       ohm-js: 16.6.0
     devDependencies:
-      '@ohm-js/cli': 1.1.0
+      '@ohm-js/cli': 2.0.0_ohm-js@16.6.0
       '@types/node': 18.14.1
       '@vitest/coverage-c8': 0.29.1_vitest@0.29.1
       '@yeger/tsconfig': link:../tsconfig
@@ -4033,9 +4033,11 @@ packages:
       - supports-color
     dev: true
 
-  /@ohm-js/cli/1.1.0:
-    resolution: {integrity: sha512-CQSwyT6JsO6qc6lFGy9/EF639ZwPVqx2u8ZW/lTCxBGcnBs4aPueJtEYg3XT8yi7oGslCpddvoVDbsnnIEy+mw==}
+  /@ohm-js/cli/2.0.0_ohm-js@16.6.0:
+    resolution: {integrity: sha512-yiO6QEqW4wQQe1l9c+jOIfmhGm2LlHEhjmaB5Qu9hhz6rEQvL/vhz44azgHegLb0m23D0S7a78orURbPClRtyA==}
     hasBin: true
+    peerDependencies:
+      ohm-js: ^17.0.0
     dependencies:
       commander: 8.3.0
       fast-glob: 3.2.12
