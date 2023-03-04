@@ -38,7 +38,7 @@
     "ohm-js": "16.6.0"
   },
   "devDependencies": {
-    "@ohm-js/cli": "1.1.0",
+    "@ohm-js/cli": "2.0.0",
     "@types/node": "18.14.1",
     "@vitest/coverage-c8": "0.29.1",
     "@yeger/tsconfig": "workspace:*",
