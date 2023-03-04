@@ -366,14 +366,14 @@ importers:
       '@vitest/coverage-c8': 0.29.1
       '@yeger/tsconfig': workspace:*
       c8: 7.13.0
-      ohm-js: 16.6.0
+      ohm-js: 17.0.3
       resumon: workspace:*
       typescript: 4.9.5
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.1
     dependencies:
-      ohm-js: 16.6.0
+      ohm-js: 17.0.3
     devDependencies:
       '@ohm-js/cli': 1.1.0
       '@types/node': 18.14.1
@@ -13226,6 +13226,12 @@ packages:
   /ohm-js/16.6.0:
     resolution: {integrity: sha512-X9P4koSGa7swgVQ0gt71UCYtkAQGOjciJPJAz74kDxWt8nXbH5HrDOQG6qBDH7SR40ktNv4x61BwpTDE9q4lRA==}
     engines: {node: '>=0.12.1'}
+    dev: true
+
+  /ohm-js/17.0.3:
+    resolution: {integrity: sha512-HMWTBJsmCEc9C18i9FveXkwYQJlwrdVCMiIk/FwGQrNejPFTfxZPwMMJXB0ssXx7bXL/EbY0oZCumk0w15OMZg==}
+    engines: {node: '>=0.12.1'}
+    dev: false
 
   /on-finished/2.4.1:
     resolution: {integrity: sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==}
