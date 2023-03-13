@@ -1,7 +1,7 @@
-import { existsSync } from 'fs'
-import { readFile } from 'fs/promises'
-import { builtinModules } from 'module'
-import path from 'path'
+import { existsSync } from 'node:fs'
+import { readFile } from 'node:fs/promises'
+import { builtinModules } from 'node:module'
+import path from 'node:path'
 
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'

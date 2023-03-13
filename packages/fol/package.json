@@ -35,19 +35,19 @@
     "check:tsc": "tsc --noEmit"
   },
   "dependencies": {
-    "ohm-js": "17.0.3"
+    "ohm-js": "17.0.4"
   },
   "devDependencies": {
     "@ohm-js/cli": "2.0.0",
-    "@types/node": "18.14.1",
-    "@vitest/coverage-c8": "0.29.1",
+    "@types/node": "18.15.1",
+    "@vitest/coverage-c8": "0.29.2",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.13.0",
     "resumon": "workspace:*",
     "typescript": "4.9.5",
     "vite": "4.1.4",
     "vite-plugin-lib": "workspace:*",
-    "vitest": "0.29.1"
+    "vitest": "0.29.2"
   },
   "publishConfig": {
     "access": "public"

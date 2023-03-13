@@ -2,7 +2,7 @@
   "name": "yeger-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@7.28.0",
+  "packageManager": "pnpm@7.29.1",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
   },
@@ -38,16 +38,16 @@
     "@changesets/cli": "2.26.0",
     "@commitlint/cli": "17.4.4",
     "@commitlint/config-conventional": "17.4.4",
-    "@types/node": "18.14.1",
+    "@types/node": "18.15.1",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "7.0.3",
-    "eslint": "8.35.0",
+    "eslint": "8.36.0",
     "husky": "8.0.3",
-    "lint-staged": "13.1.2",
+    "lint-staged": "13.2.0",
     "syncpack": "9.8.4",
-    "turbo": "1.8.2",
-    "vercel": "28.16.7"
+    "turbo": "1.8.3",
+    "vercel": "28.16.15"
   },
   "pnpm": {
     "packageExtensions": {
@@ -65,6 +65,6 @@
     "*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --rule 'import/no-unresolved: off' --fix"
   },
   "volta": {
-    "node": "18.14.2"
+    "node": "18.15.0"
   }
 }

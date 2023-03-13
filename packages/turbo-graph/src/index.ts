@@ -1,4 +1,4 @@
-import { createServer } from 'http'
+import { createServer } from 'node:http'
 import path from 'node:path'
 
 import { cac } from 'cac'

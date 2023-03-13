@@ -41,11 +41,11 @@
   },
   "dependencies": {
     "picocolors": "1.0.0",
-    "vite-plugin-dts": "2.0.2"
+    "vite-plugin-dts": "2.1.0"
   },
   "devDependencies": {
-    "@types/node": "18.14.1",
-    "@vitest/ui": "0.29.1",
+    "@types/node": "18.15.1",
+    "@vitest/ui": "0.29.2",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "4.9.5",
     "unbuild": "1.1.2",
