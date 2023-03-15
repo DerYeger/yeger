@@ -48,7 +48,7 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/types": "7.21.2",
+    "@babel/types": "7.21.3",
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue": "4.0.0",
     "@vitest/coverage-c8": "0.29.2",

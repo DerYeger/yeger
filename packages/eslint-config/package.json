@@ -56,6 +56,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@types/eslint": "8.21.1"
+    "@types/eslint": "8.21.2"
   }
 }
