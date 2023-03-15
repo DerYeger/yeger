@@ -44,7 +44,7 @@
     "kolorist": "1.7.0"
   },
   "devDependencies": {
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@vitest/ui": "0.29.2",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "4.4.0",

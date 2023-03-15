@@ -30,14 +30,14 @@
     "d3-graph-controller": "workspace:*",
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.0.0",
-    "execa": "7.1.0",
+    "execa": "7.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/d3-scale": "4.0.3",
     "@types/d3-scale-chromatic": "3.0.0",
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@yeger/tsconfig": "workspace:*",

@@ -38,7 +38,7 @@
     "check:tsc": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@vitest/ui": "0.29.2",
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",

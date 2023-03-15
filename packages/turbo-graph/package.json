@@ -33,7 +33,7 @@
     "picocolors": "1.0.0"
   },
   "devDependencies": {
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "4.4.0",
     "typescript": "4.9.5"

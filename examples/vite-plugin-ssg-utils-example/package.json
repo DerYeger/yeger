@@ -9,7 +9,7 @@
     "check:tsc": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "18.15.1",
+    "@types/node": "18.15.3",
     "@vitejs/plugin-vue": "4.0.0",
     "@vueuse/head": "1.1.23",
     "@yeger/tsconfig": "workspace:*",
