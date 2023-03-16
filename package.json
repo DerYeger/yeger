@@ -13,7 +13,7 @@
     "build": "nr turbo run build",
     "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint test check:tsc check:vue",
+    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint test check:tsc check:vue --output-logs=errors-only",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
     "codegen": "nr turbo run codegen",
@@ -28,7 +28,7 @@
     "syncpack:lint": "syncpack lint-semver-ranges",
     "syncpack:list": "syncpack list-mismatches",
     "test": "cross-env COVERAGE=true nr turbo run test",
-    "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
+    "turbo": "cross-env CI=true FORCE_COLOR=1 turbo --output-logs=new-only",
     "typecheck": "nr turbo run check:tsc check:vue",
     "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile"
