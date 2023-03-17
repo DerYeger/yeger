@@ -18,7 +18,7 @@
   "devDependencies": {
     "@types/d3-selection": "3.0.4",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "4.9.5",
+    "typescript": "5.0.2",
     "unplugin-vue-components": "0.24.1",
     "vite": "4.1.4",
     "vite-plugin-lib": "workspace:*",
