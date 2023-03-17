@@ -60,7 +60,7 @@ importers:
       nuxt-icon: 0.2.6
       resumon: workspace:*
       splitpanes: 3.1.5
-      typescript: 4.9.5
+      typescript: 5.0.2
       ufo: 1.1.1
       vite: 4.1.4
       vue: 3.2.47
@@ -90,13 +90,13 @@ importers:
       '@vueuse/core': 9.13.0_vue@3.2.47
       '@vueuse/nuxt': 9.13.0_nuxt@3.0.0+vue@3.2.47
       node-fetch-native: 1.0.2
-      nuxt: 3.0.0_ebmhceqxtb6o6vbzh6kcrsm5gi
+      nuxt: 3.0.0_jfuwnx2zko5dookbhub4kvu7fu
       nuxt-icon: 0.2.6_vue@3.2.47
-      typescript: 4.9.5
+      typescript: 5.0.2
       ufo: 1.1.1
       vite: 4.1.4
       vue: 3.2.47
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   docs/d3-graph-controller-docs:
     specifiers:
@@ -104,7 +104,7 @@ importers:
       '@types/d3-selection': 3.0.4
       '@yeger/tsconfig': workspace:*
       d3-graph-controller: workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       unplugin-vue-components: 0.24.1
       vite: 4.1.4
       vite-plugin-lib: workspace:*
@@ -118,18 +118,18 @@ importers:
     devDependencies:
       '@types/d3-selection': 3.0.4
       '@yeger/tsconfig': link:../../packages/tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       unplugin-vue-components: 0.24.1_vue@3.2.47
       vite: 4.1.4
       vite-plugin-lib: link:../../packages/vite-plugin-lib
       vitepress: 1.0.0-alpha.58_2xdflmy6sc2qhwxavtux3g5lt4
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   docs/vecti-docs:
     specifiers:
       '@algolia/client-search': 4.15.0
       '@yeger/tsconfig': workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       vecti: workspace:*
       vite: 4.1.4
       vite-plugin-lib: workspace:*
@@ -141,7 +141,7 @@ importers:
       vue: 3.2.47
     devDependencies:
       '@yeger/tsconfig': link:../../packages/tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../../packages/vite-plugin-lib
       vitepress: 1.0.0-alpha.58_2xdflmy6sc2qhwxavtux3g5lt4
@@ -150,7 +150,7 @@ importers:
     specifiers:
       '@vitejs/plugin-vue': 4.0.0
       '@yeger/tsconfig': workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vue: 3.2.47
@@ -161,18 +161,18 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
       '@yeger/tsconfig': link:../../packages/tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../../packages/vite-plugin-lib
       vue: 3.2.47
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   docs/vue-masonry-wall-docs:
     specifiers:
       '@vitejs/plugin-vue': 4.0.0
       '@yeger/tsconfig': workspace:*
       '@yeger/vue-masonry-wall': workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vue: 3.2.47
@@ -182,18 +182,18 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue': 4.0.0_vite@4.1.4+vue@3.2.47
       '@yeger/tsconfig': link:../../packages/tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../../packages/vite-plugin-lib
       vue: 3.2.47
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   docs/vue2-masonry-wall-docs:
     specifiers:
       '@vitejs/plugin-vue2': 2.2.0
       '@yeger/tsconfig': workspace:*
       '@yeger/vue2-masonry-wall': workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vue: 2.7.14
@@ -202,7 +202,7 @@ importers:
     devDependencies:
       '@vitejs/plugin-vue2': 2.2.0_vite@4.1.4+vue@2.7.14
       '@yeger/tsconfig': link:../../packages/tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../../packages/vite-plugin-lib
       vue: 2.7.14
@@ -214,7 +214,7 @@ importers:
       '@vueuse/head': 1.1.23
       '@yeger/tsconfig': workspace:*
       critters: 0.0.16
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-ssg-utils: workspace:*
       vite-ssg: 0.22.1
@@ -226,7 +226,7 @@ importers:
       '@vueuse/head': 1.1.23_vue@3.2.47
       '@yeger/tsconfig': link:../../packages/tsconfig
       critters: 0.0.16
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4_@types+node@18.15.3
       vite-plugin-ssg-utils: link:../../packages/vite-plugin-ssg-utils
       vite-ssg: 0.22.1_fvpdbwmmibqr343f5gjegmgx74
@@ -252,7 +252,7 @@ importers:
       d3-selection: 3.0.0
       d3-zoom: 3.0.0
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vecti: workspace:*
       vite: 4.1.4
       vite-plugin-lib: workspace:*
@@ -277,7 +277,7 @@ importers:
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.13.0
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4_@types+node@18.15.3
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_z3y4fq4qsrc24bzs6xwkfju2cy
@@ -288,7 +288,7 @@ importers:
       '@vitest/ui': 0.29.2
       '@yeger/tsconfig': workspace:*
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -297,7 +297,7 @@ importers:
       '@vitest/ui': 0.29.2
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_@vitest+ui@0.29.2
@@ -306,12 +306,12 @@ importers:
     specifiers:
       '@types/node': 18.15.3
       '@yeger/tsconfig': workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
     devDependencies:
       '@types/node': 18.15.3
       '@yeger/tsconfig': link:../tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
 
   packages/eslint-config:
@@ -368,7 +368,7 @@ importers:
       c8: 7.13.0
       ohm-js: 17.0.4
       resumon: workspace:*
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -381,7 +381,7 @@ importers:
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.13.0
       resumon: link:../resumon
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4_@types+node@18.15.3
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2
@@ -393,7 +393,7 @@ importers:
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': workspace:*
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -403,7 +403,7 @@ importers:
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4_@types+node@18.15.3
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_@vitest+ui@0.29.2
@@ -421,7 +421,7 @@ importers:
       open: 8.4.2
       picocolors: 1.0.0
       rimraf: 4.4.0
-      typescript: 4.9.5
+      typescript: 5.0.2
     dependencies:
       '@yeger/turbo-graph-ui': link:../turbo-graph-ui
       cac: 6.7.14
@@ -432,7 +432,7 @@ importers:
       '@types/node': 18.15.3
       '@yeger/tsconfig': link:../tsconfig
       rimraf: 4.4.0
-      typescript: 4.9.5
+      typescript: 5.0.2
 
   packages/turbo-graph-ui:
     specifiers:
@@ -454,7 +454,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       tailwindcss: 3.2.7
-      typescript: 4.9.5
+      typescript: 5.0.2
     dependencies:
       '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
       d3-graph-controller: link:../d3-graph-controller
@@ -471,11 +471,11 @@ importers:
       '@types/react-dom': 18.0.11
       '@yeger/tsconfig': link:../tsconfig
       autoprefixer: 10.4.14_postcss@8.4.21
-      eslint-config-next: 13.2.4_typescript@4.9.5
+      eslint-config-next: 13.2.4_typescript@5.0.2
       next: 13.2.4_biqbaboplfbrettd7655fr4n2y
       postcss: 8.4.21
       tailwindcss: 3.2.7_postcss@8.4.21
-      typescript: 4.9.5
+      typescript: 5.0.2
 
   packages/vecti:
     specifiers:
@@ -485,7 +485,7 @@ importers:
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': workspace:*
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -496,7 +496,7 @@ importers:
       '@vue/component-compiler-utils': 3.3.0
       '@yeger/tsconfig': link:../tsconfig
       c8: 7.13.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4_@types+node@18.15.3
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_@vitest+ui@0.29.2
@@ -507,7 +507,7 @@ importers:
       '@vitest/ui': 0.29.2
       '@yeger/tsconfig': workspace:*
       picocolors: 1.0.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
       vite: 4.1.4
       vite-plugin-dts: 2.1.0
@@ -518,7 +518,7 @@ importers:
       '@types/node': 18.15.3
       '@vitest/ui': 0.29.2
       '@yeger/tsconfig': link:../tsconfig
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
       vite: 4.1.4_@types+node@18.15.3
 
@@ -529,7 +529,7 @@ importers:
       '@yeger/tsconfig': workspace:*
       kolorist: 1.7.0
       rimraf: 4.4.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
       vite: 4.1.4
       vitest: 0.29.2
@@ -540,7 +540,7 @@ importers:
       '@vitest/ui': 0.29.2
       '@yeger/tsconfig': link:../tsconfig
       rimraf: 4.4.0
-      typescript: 4.9.5
+      typescript: 5.0.2
       unbuild: 1.1.2
       vite: 4.1.4_@types+node@18.15.3
       vitest: 0.29.2_@vitest+ui@0.29.2
@@ -557,7 +557,7 @@ importers:
       c8: 7.13.0
       cross-env: 7.0.3
       flush-promises: 1.0.2
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -575,12 +575,12 @@ importers:
       c8: 7.13.0
       cross-env: 7.0.3
       flush-promises: 1.0.2
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2
       vue: 3.2.47
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   packages/vue-masonry-wall:
     specifiers:
@@ -595,7 +595,7 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -613,12 +613,12 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_z3y4fq4qsrc24bzs6xwkfju2cy
       vue: 3.2.47
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
 
   packages/vue-persistent-storage-manager:
     specifiers:
@@ -629,7 +629,7 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -643,7 +643,7 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_jsdom@21.1.1
@@ -661,7 +661,7 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: workspace:*
       vitest: 0.29.2
@@ -677,7 +677,7 @@ importers:
       c8: 7.13.0
       flush-promises: 1.0.2
       jsdom: 21.1.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 4.1.4
       vite-plugin-lib: link:../vite-plugin-lib
       vitest: 0.29.2_jsdom@21.1.1
@@ -4143,7 +4143,7 @@ packages:
     resolution: {integrity: sha512-PjVETP7+iZXAs5Q8O4ivl4t6qjWZMZqwiTVogUXHoHGZZcw7GZW3u3tzfYfE1HbzyYJfr236IXqQ02MeR8Fz2w==}
     dev: true
 
-  /@nuxt/vite-builder/3.0.0_t7m3ib42dngsalbnriblxrakmm:
+  /@nuxt/vite-builder/3.0.0_3rblbkqkr4x75q4sti3q5j24uu:
     resolution: {integrity: sha512-eMnpPpjHU8rGZcsJUksCuSX+6dpId03q8LOSStsm6rXzrNJtZIcwt0nBRTUaigckXIozX8ZNl5u2OPGUfUbMrw==}
     engines: {node: ^14.16.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     peerDependencies:
@@ -4180,7 +4180,7 @@ packages:
       unplugin: 1.1.0
       vite: 3.2.5
       vite-node: 0.25.8
-      vite-plugin-checker: 0.5.6_4dtwjxarkthv7paksh46izuaum
+      vite-plugin-checker: 0.5.6_gonzvajfdj3cmgpvuoa6qa6ze4
       vue: 3.2.47
       vue-bundle-renderer: 1.0.2
     transitivePeerDependencies:
@@ -4917,7 +4917,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/parser/5.54.0_typescript@4.9.5:
+  /@typescript-eslint/parser/5.54.0_typescript@5.0.2:
     resolution: {integrity: sha512-aAVL3Mu2qTi+h/r04WI/5PfNWvO6pdhpeMRWk9R7rEV4mwJNzoWf5CCU5vDKBsPIFQFjEq1xg7XBI2rjiMXQbQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -4929,9 +4929,9 @@ packages:
     dependencies:
       '@typescript-eslint/scope-manager': 5.54.0
       '@typescript-eslint/types': 5.54.0
-      '@typescript-eslint/typescript-estree': 5.54.0_typescript@4.9.5
+      '@typescript-eslint/typescript-estree': 5.54.0_typescript@5.0.2
       debug: 4.3.4
-      typescript: 4.9.5
+      typescript: 5.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4984,7 +4984,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@typescript-eslint/typescript-estree/5.54.0_typescript@4.9.5:
+  /@typescript-eslint/typescript-estree/5.54.0_typescript@5.0.2:
     resolution: {integrity: sha512-X2rJG97Wj/VRo5YxJ8Qx26Zqf0RRKsVHd4sav8NElhbZzhpBI8jU54i6hfo9eheumj4oO4dcRN1B/zIVEqR/MQ==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     peerDependencies:
@@ -4999,8 +4999,8 @@ packages:
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.3.8
-      tsutils: 3.21.0_typescript@4.9.5
-      typescript: 4.9.5
+      tsutils: 3.21.0_typescript@5.0.2
+      typescript: 5.0.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -5993,7 +5993,7 @@ packages:
       '@vueuse/core': 9.13.0_vue@3.2.47
       '@vueuse/metadata': 9.13.0
       local-pkg: 0.4.3
-      nuxt: 3.0.0_ebmhceqxtb6o6vbzh6kcrsm5gi
+      nuxt: 3.0.0_jfuwnx2zko5dookbhub4kvu7fu
       vue-demi: 0.13.11_vue@3.2.47
     transitivePeerDependencies:
       - '@vue/composition-api'
@@ -9022,7 +9022,7 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-next/13.2.4_typescript@4.9.5:
+  /eslint-config-next/13.2.4_typescript@5.0.2:
     resolution: {integrity: sha512-lunIBhsoeqw6/Lfkd6zPt25w1bn0znLA/JCL+au1HoEpSb4/PpsOYsYtgV/q+YPsoKIOzFyU5xnb04iZnXjUvg==}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
@@ -9033,14 +9033,14 @@ packages:
     dependencies:
       '@next/eslint-plugin-next': 13.2.4
       '@rushstack/eslint-patch': 1.2.0
-      '@typescript-eslint/parser': 5.54.0_typescript@4.9.5
+      '@typescript-eslint/parser': 5.54.0_typescript@5.0.2
       eslint-import-resolver-node: 0.3.7
       eslint-import-resolver-typescript: 3.5.3_5rfvta7qn57kxm7ir36ta6fixq
       eslint-plugin-import: 2.27.5_strb4vucfutisfed4i6ctwwc6q
       eslint-plugin-jsx-a11y: 6.7.1
       eslint-plugin-react: 7.32.2
       eslint-plugin-react-hooks: 4.6.0
-      typescript: 4.9.5
+      typescript: 5.0.2
     transitivePeerDependencies:
       - eslint-import-resolver-webpack
       - supports-color
@@ -13306,7 +13306,7 @@ packages:
       - vue
     dev: true
 
-  /nuxt/3.0.0_ebmhceqxtb6o6vbzh6kcrsm5gi:
+  /nuxt/3.0.0_jfuwnx2zko5dookbhub4kvu7fu:
     resolution: {integrity: sha512-RNlD78uv04ZiXWmlx9f1tnJfrqsYAWHU+4gbgOTQpIBmQzHWPWiox+fm/1m93iKfEd5sJi9TJUoXX5yBObVZYw==}
     engines: {node: ^14.16.0 || ^16.10.0 || ^17.0.0 || ^18.0.0 || ^19.0.0}
     hasBin: true
@@ -13316,7 +13316,7 @@ packages:
       '@nuxt/schema': 3.0.0
       '@nuxt/telemetry': 2.1.10
       '@nuxt/ui-templates': 1.1.1
-      '@nuxt/vite-builder': 3.0.0_t7m3ib42dngsalbnriblxrakmm
+      '@nuxt/vite-builder': 3.0.0_3rblbkqkr4x75q4sti3q5j24uu
       '@unhead/ssr': 1.1.15
       '@vue/reactivity': 3.2.47
       '@vue/shared': 3.2.47
@@ -16815,14 +16815,14 @@ packages:
     dependencies:
       tslib: 1.14.1
 
-  /tsutils/3.21.0_typescript@4.9.5:
+  /tsutils/3.21.0_typescript@5.0.2:
     resolution: {integrity: sha512-mHKK3iUXL+3UF6xL5k0PEhKRUBKPBCv/+RkEOpjRWxxx27KKRBmmA60A9pgOUvMi8GKhRMPEmjBRPzs2W7O1OA==}
     engines: {node: '>= 6'}
     peerDependencies:
       typescript: '>=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta'
     dependencies:
       tslib: 1.14.1
-      typescript: 4.9.5
+      typescript: 5.0.2
     dev: true
 
   /tty-table/4.1.6:
@@ -16997,6 +16997,12 @@ packages:
   /typescript/4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
     hasBin: true
     dev: true
 
@@ -17668,7 +17674,7 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-checker/0.5.6_4dtwjxarkthv7paksh46izuaum:
+  /vite-plugin-checker/0.5.6_gonzvajfdj3cmgpvuoa6qa6ze4:
     resolution: {integrity: sha512-ftRyON0gORUHDxcDt2BErmsikKSkfvl1i2DoP6Jt2zDO9InfvM6tqO1RkXhSjkaXEhKPea6YOnhFaZxW3BzudQ==}
     engines: {node: '>=14.16'}
     peerDependencies:
@@ -17711,13 +17717,13 @@ packages:
       npm-run-path: 4.0.1
       strip-ansi: 6.0.1
       tiny-invariant: 1.3.1
-      typescript: 4.9.5
+      typescript: 5.0.2
       vite: 3.2.5
       vscode-languageclient: 7.0.0
       vscode-languageserver: 7.0.0
       vscode-languageserver-textdocument: 1.0.8
       vscode-uri: 3.0.7
-      vue-tsc: 1.2.0_hmuptsblhheur2tugfgucj7gc4
+      vue-tsc: 1.2.0_p4srtwdgezcoeovfcc2yxzvaue
     dev: true
 
   /vite-plugin-dts/2.1.0_fiacabm3igr2j6cgupjjtacm3i:
@@ -18283,7 +18289,7 @@ packages:
       vue: 3.2.47
     dev: false
 
-  /vue-tsc/1.2.0_hmuptsblhheur2tugfgucj7gc4:
+  /vue-tsc/1.2.0_p4srtwdgezcoeovfcc2yxzvaue:
     resolution: {integrity: sha512-rIlzqdrhyPYyLG9zxsVRa+JEseeS9s8F2BbVVVWRRsTZvJO2BbhLEb2HW3MY+DFma0378tnIqs+vfTzbcQtRFw==}
     hasBin: true
     peerDependencies:
@@ -18291,7 +18297,7 @@ packages:
     dependencies:
       '@volar/vue-language-core': 1.2.0_vue@3.2.47
       '@volar/vue-typescript': 1.2.0_vue@3.2.47
-      typescript: 4.9.5
+      typescript: 5.0.2
     transitivePeerDependencies:
       - vue
     dev: true
