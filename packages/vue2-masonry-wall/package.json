@@ -52,9 +52,9 @@
     "flush-promises": "1.0.2",
     "jsdom": "21.1.1",
     "typescript": "5.0.2",
-    "vite": "4.1.4",
+    "vite": "4.2.0",
     "vite-plugin-lib": "workspace:*",
-    "vitest": "0.29.2",
+    "vitest": "0.29.3",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
   },

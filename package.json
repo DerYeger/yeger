@@ -2,7 +2,7 @@
   "name": "yeger-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@7.29.1",
+  "packageManager": "pnpm@7.29.3",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
   },
@@ -47,7 +47,7 @@
     "lint-staged": "13.2.0",
     "syncpack": "9.8.4",
     "turbo": "1.8.3",
-    "vercel": "28.16.15"
+    "vercel": "28.17.0"
   },
   "pnpm": {
     "packageExtensions": {

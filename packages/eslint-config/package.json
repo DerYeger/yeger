@@ -35,7 +35,7 @@
     "@antfu/eslint-config": "0.36.0",
     "eslint-config-prettier": "8.7.0",
     "eslint-import-resolver-typescript": "3.5.3",
-    "eslint-plugin-astro": "0.24.0",
+    "eslint-plugin-astro": "0.25.0",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",

@@ -58,16 +58,16 @@
     "@types/d3-zoom": "3.0.2",
     "@types/node": "18.15.3",
     "@types/resize-observer-browser": "0.1.7",
-    "@vitest/coverage-c8": "0.29.2",
-    "@vitest/ui": "0.29.2",
+    "@vitest/coverage-c8": "0.29.3",
+    "@vitest/ui": "0.29.3",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.13.0",
     "jsdom": "21.1.1",
     "typescript": "5.0.2",
-    "vite": "4.1.4",
+    "vite": "4.2.0",
     "vite-plugin-lib": "workspace:*",
-    "vitest": "0.29.2"
+    "vitest": "0.29.3"
   },
   "publishConfig": {
     "access": "public"
