@@ -54,20 +54,20 @@
   "devDependencies": {
     "@types/d3-drag": "3.0.2",
     "@types/d3-force": "3.0.4",
-    "@types/d3-selection": "3.0.4",
+    "@types/d3-selection": "3.0.5",
     "@types/d3-zoom": "3.0.2",
-    "@types/node": "18.15.3",
+    "@types/node": "18.15.8",
     "@types/resize-observer-browser": "0.1.7",
-    "@vitest/coverage-c8": "0.29.3",
-    "@vitest/ui": "0.29.3",
+    "@vitest/coverage-c8": "0.29.7",
+    "@vitest/ui": "0.29.7",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "c8": "7.13.0",
     "jsdom": "21.1.1",
     "typescript": "5.0.2",
-    "vite": "4.2.0",
+    "vite": "4.2.1",
     "vite-plugin-lib": "workspace:*",
-    "vitest": "0.29.3"
+    "vitest": "0.29.7"
   },
   "publishConfig": {
     "access": "public"
