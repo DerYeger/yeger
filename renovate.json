@@ -48,6 +48,10 @@
     {
       "matchPackageNames": ["nuxt-icon"],
       "allowedVersions": "<=0.2.6"
+    },
+    {
+      "matchPackageNames": ["open"],
+      "allowedVersions": "<9"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],
