@@ -329,7 +329,7 @@ importers:
       eslint-plugin-prettier: 4.2.1
       eslint-plugin-tailwindcss: 3.10.1
       eslint-plugin-tsdoc: 0.2.17
-      eslint-plugin-turbo: 0.0.10
+      eslint-plugin-turbo: 1.8.8
       eslint-plugin-yml: 1.5.0
       picocolors: 1.0.0
       prettier: 2.8.7
@@ -349,7 +349,7 @@ importers:
       eslint-plugin-prettier: 4.2.1_jjysbn2ajmj7khqmaebawpz6qu
       eslint-plugin-tailwindcss: 3.10.1
       eslint-plugin-tsdoc: 0.2.17
-      eslint-plugin-turbo: 0.0.10
+      eslint-plugin-turbo: 1.8.8
       eslint-plugin-yml: 1.5.0
       picocolors: 1.0.0
       prettier: 2.8.7
@@ -9613,8 +9613,8 @@ packages:
       '@microsoft/tsdoc-config': 0.16.2
     dev: false
 
-  /eslint-plugin-turbo/0.0.10:
-    resolution: {integrity: sha512-T7QRwF4rjBQCJD9AHLHn9ShtHCHNkfIZW5Oio92WtQYhoU5jZCU3ynU+ONFXLuvoUx4dJ19WergIyHL+DwL2+g==}
+  /eslint-plugin-turbo/1.8.8:
+    resolution: {integrity: sha512-zqyTIvveOY4YU5jviDWw9GXHd4RiKmfEgwsjBrV/a965w0PpDwJgEUoSMB/C/dU310Sv9mF3DSdEjxjJLaw6rA==}
     peerDependencies:
       eslint: '>6.6.0'
     dev: false
