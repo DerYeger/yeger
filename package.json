@@ -2,7 +2,7 @@
   "name": "yeger-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@7.30.3",
+  "packageManager": "pnpm@8.1.0",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
   },
