@@ -5,7 +5,7 @@ import type { VueConstructor } from 'vue'
 import type { PluginOptions } from '~/index'
 import { VuePersistentStorageManager } from '~/index'
 
-export const localStorageMock = (): Storage => {
+export function localStorageMock(): Storage {
   return {
     getItem: vi.fn(),
     setItem: vi.fn(),

@@ -6,7 +6,7 @@ const loading = ref(false)
 
 let pendingClear: number | undefined
 
-const setLoading = () => {
+function setLoading() {
   if (pendingClear !== undefined) {
     clearTimeout(pendingClear)
     pendingClear = undefined
@@ -14,7 +14,7 @@ const setLoading = () => {
   loading.value = true
 }
 
-const clearLoading = () => {
+function clearLoading() {
   pendingClear = setTimeout(
     () => (loading.value = false),
     1000

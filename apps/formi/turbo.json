@@ -1,0 +1,12 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "outputs": [".nuxt/**", ".output/**", "dist/**"]
+    },
+    "check:vue": {
+      "dependsOn": ["build"]
+    }
+  }
+}

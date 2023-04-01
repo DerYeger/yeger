@@ -15,9 +15,9 @@
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.0.2",
+    "typescript": "5.0.3",
     "vite": "4.2.1",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-alpha.61"
+    "vitepress": "1.0.0-alpha.64"
   }
 }

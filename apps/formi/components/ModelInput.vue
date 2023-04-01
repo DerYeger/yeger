@@ -72,7 +72,7 @@ watch(
       :disabled="disabled"
       @update:model-value="(value) => emit('update:modelValue', value)"
     />
-    <div class="absolute top-2 right-2 flex h-fit items-center gap-2">
+    <div class="absolute right-2 top-2 flex h-fit items-center gap-2">
       <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
       <CopyButton :content="modelValue" />
     </div>

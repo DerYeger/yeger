@@ -44,14 +44,15 @@
     "kolorist": "1.7.0"
   },
   "devDependencies": {
-    "@types/node": "18.15.8",
-    "@vitest/ui": "0.29.7",
+    "@types/node": "18.15.11",
+    "@vitest/coverage-c8": "0.29.8",
+    "@vitest/ui": "0.29.8",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "4.4.1",
-    "typescript": "5.0.2",
-    "unbuild": "1.1.2",
+    "typescript": "5.0.3",
+    "unbuild": "1.2.0",
     "vite": "4.2.1",
-    "vitest": "0.29.7"
+    "vitest": "0.29.8"
   },
   "publishConfig": {
     "access": "public"

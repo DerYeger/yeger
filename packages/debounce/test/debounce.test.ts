@@ -2,8 +2,9 @@ import { describe, expect, it } from 'vitest'
 
 import { debounce } from '~/main'
 
-const flushTimeouts = (delay?: number) =>
-  new Promise((resolve) => setTimeout(resolve, delay))
+function flushTimeouts(delay?: number) {
+  return new Promise((resolve) => setTimeout(resolve, delay))
+}
 
 describe('debounce', () => {
   it('invokes the callback', async () => {

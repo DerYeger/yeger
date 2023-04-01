@@ -10,11 +10,11 @@
     },
     "build": {
       "dependsOn": ["^build", "codegen"],
-      "outputs": ["dist/**", ".next/**", ".output/**"]
+      "outputs": ["dist/**", ".next/**"]
     },
     "generate": {
       "dependsOn": ["build"],
-      "outputs": ["dist/**", ".next/**", ".output/**"]
+      "outputs": ["dist/**", ".next/**"]
     },
     "codegen": {},
     "bundlesize": {

@@ -22,7 +22,7 @@ const { accessibleDescription } = useLogo()
           src="/hero-first-small.webp"
           :width="48"
           :height="48"
-          class="display-none md:display-block drop-shadow-custom mt--3 mb--2 select-none"
+          class="display-none md:display-block drop-shadow-custom mb--2 mt--3 select-none"
           :alt="accessibleDescription"
         />
       </span>

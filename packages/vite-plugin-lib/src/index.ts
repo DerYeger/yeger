@@ -42,7 +42,7 @@ export interface Options {
   verbose?: boolean
 }
 
-export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
+export function tsconfigPaths({ verbose }: Partial<Options> = {}): Plugin {
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -72,12 +72,12 @@ export const tsconfigPaths = ({ verbose }: Partial<Options> = {}): Plugin => {
   }
 }
 
-const buildConfig = ({
+function buildConfig({
   entry,
   formats,
   name,
   externalPackages,
-}: Options): Plugin => {
+}: Options): Plugin {
   if (!externalPackages) {
     log('Externalized all packages.')
   }
