@@ -2,6 +2,7 @@
 const { ESLint } = require('eslint')
 const c = require('picocolors')
 
+// eslint-disable-next-line import/newline-after-import
 ;(async function main() {
   // 1. Create an instance.
   const fix = process.argv.includes('--fix')

@@ -4,8 +4,7 @@
     "baseUrl": "./",
     "types": ["node", "vue"],
     "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "skipLibCheck": true
+    "noUnusedParameters": false
   },
   "exclude": ["node_modules", "coverage", "dist"]
 }

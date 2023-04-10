@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import Package from '../../../../packages/d3-graph-controller/package.json'
+
 const packageName = Package.name
 const repo = Package.repository.replace('github:', '')
 

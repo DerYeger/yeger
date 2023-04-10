@@ -3,6 +3,7 @@ import { ref } from 'vue'
 
 import { demoGraph, demoGraphConfig } from '../demo/model'
 import { generateRandomGraph, randomGraphConfig } from '../demo/random-graph'
+
 const graph = ref(demoGraph)
 const config = ref(demoGraphConfig)
 

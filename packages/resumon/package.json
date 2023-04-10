@@ -39,15 +39,11 @@
   },
   "devDependencies": {
     "@types/node": "18.15.11",
-    "@vitest/coverage-c8": "0.29.8",
-    "@vitest/ui": "0.29.8",
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
-    "c8": "7.13.0",
-    "typescript": "5.0.3",
+    "typescript": "5.0.4",
     "vite": "4.2.1",
-    "vite-plugin-lib": "workspace:*",
-    "vitest": "0.29.8"
+    "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
