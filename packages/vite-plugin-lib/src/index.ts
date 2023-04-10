@@ -5,11 +5,7 @@ import path from 'node:path'
 
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
-import {
-  parseConfigFileTextToJson,
-  parseJsonConfigFileContent,
-  sys,
-} from 'typescript'
+import ts from 'typescript'
 import type {
   Alias,
   AliasOptions,
@@ -227,13 +223,16 @@ function transformExistingAlias(alias: AliasOptions | undefined): Alias[] {
 async function readConfig(configPath: string): Promise<CompilerOptions> {
   try {
     const configFileText = await readFile(configPath, { encoding: 'utf-8' })
-    const { config } = parseConfigFileTextToJson(configPath, configFileText)
+    // eslint-disable-next-line import/no-named-as-default-member
+    const { config } = ts.parseConfigFileTextToJson(configPath, configFileText)
     if (!('baseUrl' in config?.compilerOptions)) {
       throw new Error('No baseUrl provided in tsconfig.json.')
     }
-    const { options } = parseJsonConfigFileContent(
+    // eslint-disable-next-line import/no-named-as-default-member
+    const { options } = ts.parseJsonConfigFileContent(
       config,
-      sys,
+      // eslint-disable-next-line import/no-named-as-default-member
+      ts.sys,
       path.dirname(configPath)
     )
     return options

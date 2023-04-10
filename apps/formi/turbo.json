@@ -6,7 +6,7 @@
       "outputs": [".nuxt/**", ".output/**", "dist/**"]
     },
     "check:vue": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build", "generate"]
     }
   }
 }
