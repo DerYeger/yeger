@@ -570,8 +570,8 @@ importers:
   packages/turbo-graph-ui:
     dependencies:
       '@tanstack/react-query':
-        specifier: 4.28.0
-        version: 4.28.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: 4.29.1
+        version: 4.29.1(react-dom@18.2.0)(react@18.2.0)
       d3-graph-controller:
         specifier: workspace:*
         version: link:../d3-graph-controller
@@ -604,8 +604,8 @@ importers:
         specifier: 18.15.11
         version: 18.15.11
       '@types/react':
-        specifier: 18.0.33
-        version: 18.0.33
+        specifier: 18.0.34
+        version: 18.0.34
       '@types/react-dom':
         specifier: 18.0.11
         version: 18.0.11
@@ -3986,7 +3986,7 @@ packages:
     dependencies:
       '@remix-run/router': 1.5.0
       '@types/cookie': 0.4.1
-      '@types/react': 18.0.33
+      '@types/react': 18.0.34
       '@web3-storage/multipart-parser': 1.0.0
       cookie: 0.4.2
       set-cookie-parser: 2.6.0
@@ -4268,12 +4268,12 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tanstack/query-core@4.27.0:
-    resolution: {integrity: sha512-sm+QncWaPmM73IPwFlmWSKPqjdTXZeFf/7aEmWh00z7yl2FjqophPt0dE1EHW9P1giMC5rMviv7OUbSDmWzXXA==}
+  /@tanstack/query-core@4.29.1:
+    resolution: {integrity: sha512-vkPewLEG8ua0efo3SsVT0BcBtkq5RZX8oPhDAyKL+k/rdOYSQTEocfGEXSaBwIwsXeOGBUpfKqI+UmHvNqdWXg==}
     dev: false
 
-  /@tanstack/react-query@4.28.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-8cGBV5300RHlvYdS4ea+G1JcZIt5CIuprXYFnsWggkmGoC0b5JaqG0fIX3qwDL9PTNkKvG76NGThIWbpXivMrQ==}
+  /@tanstack/react-query@4.29.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-/crv1v+OeuGG6EOvaQmyeo9GCKtH4jbmuhZkvk9ulufRiHcTr/A9+YP9GevEAZzUTdzXMwenpTbyxBGvG2xXvw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4284,7 +4284,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.27.0
+      '@tanstack/query-core': 4.29.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
@@ -4423,7 +4423,7 @@ packages:
     resolution: {integrity: sha512-9K4zoImiZc3HlIp6AVUDE4CWYx22a+lhSZMYNpbjW04+YF0KWj4pJXnEMjdnFTiQibFFmElcsasJXDbdI/EPhA==}
     dependencies:
       '@types/eslint': 8.37.0
-      '@types/estree': 0.0.51
+      '@types/estree': 1.0.0
     dev: true
 
   /@types/eslint@8.37.0:
@@ -4533,11 +4533,11 @@ packages:
   /@types/react-dom@18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.33
+      '@types/react': 18.0.34
     dev: true
 
-  /@types/react@18.0.33:
-    resolution: {integrity: sha512-sHxzVxeanvQyQ1lr8NSHaj0kDzcNiGpILEVt69g9S31/7PfMvNCKLKcsHw4lYKjs3cGNJjXSP4mYzX43QlnjNA==}
+  /@types/react@18.0.34:
+    resolution: {integrity: sha512-NO1UO8941541CJl1BeOXi8a9dNKFK09Gnru5ZJqkm4Q3/WoQJtHvmwt0VX0SB9YCEwe7TfSSxDuaNmx6H2BAIQ==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -10235,7 +10235,7 @@ packages:
       '@types/glob': 7.2.0
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.2.11
+      fast-glob: 3.2.12
       glob: 7.2.3
       ignore: 5.2.4
       merge2: 1.4.1
