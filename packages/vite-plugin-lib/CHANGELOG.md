@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 1.2.2
+
+### Patch Changes
+
+- e986477: use default import for typescript
+
 ## 1.2.1
 
 ### Patch Changes
