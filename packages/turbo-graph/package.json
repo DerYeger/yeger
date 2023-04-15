@@ -35,7 +35,7 @@
   "devDependencies": {
     "@types/node": "18.15.11",
     "@yeger/tsconfig": "workspace:*",
-    "rimraf": "4.4.1",
+    "rimraf": "5.0.0",
     "typescript": "5.0.4"
   },
   "publishConfig": {
