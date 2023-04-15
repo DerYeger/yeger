@@ -31,7 +31,7 @@
     "@nuxtjs/robots": "3.0.0",
     "@unocss/nuxt": "0.51.2",
     "@unocss/reset": "0.51.2",
-    "@vueuse/core": "9.13.0",
+    "@vueuse/core": "10.0.2",
     "@vueuse/nuxt": "9.13.0",
     "node-fetch-native": "1.1.0",
     "nuxt": "3.0.0",
