@@ -42,7 +42,7 @@
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.0.4",
-    "vite": "4.2.1",
+    "vite": "4.3.0",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

@@ -20,7 +20,7 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.0.4",
     "unplugin-vue-components": "0.24.1",
-    "vite": "4.2.1",
+    "vite": "4.3.0",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "1.0.0-alpha.65",
     "vue-tsc": "1.2.0"

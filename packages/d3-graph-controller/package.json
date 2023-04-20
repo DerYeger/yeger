@@ -62,7 +62,7 @@
     "@yeger/tsconfig": "workspace:*",
     "jsdom": "21.1.1",
     "typescript": "5.0.4",
-    "vite": "4.2.1",
+    "vite": "4.3.0",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
