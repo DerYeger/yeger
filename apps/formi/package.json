@@ -23,7 +23,7 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.2.1",
+    "yaml": "2.2.2",
     "zod": "3.21.4"
   },
   "devDependencies": {
