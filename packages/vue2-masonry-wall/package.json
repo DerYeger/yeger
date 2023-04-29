@@ -44,14 +44,14 @@
   "devDependencies": {
     "@types/resize-observer-browser": "0.1.7",
     "@vitejs/plugin-vue2": "2.2.0",
-    "@vue/test-utils": "1.3.4",
+    "@vue/test-utils": "1.3.5",
     "@yeger/tsconfig": "workspace:*",
     "babel-core": "7.0.0-bridge.0",
     "bundlesize2": "0.0.31",
     "flush-promises": "1.0.2",
     "jsdom": "21.1.1",
     "typescript": "5.0.4",
-    "vite": "4.3.0",
+    "vite": "4.3.3",
     "vite-plugin-lib": "workspace:*",
     "vue": "2.7.14",
     "vue-template-compiler": "2.7.14"
