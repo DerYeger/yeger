@@ -50,7 +50,7 @@
     "lint-staged": "13.2.1",
     "syncpack": "9.8.4",
     "turbo": "1.8.8",
-    "vercel": "28.18.4",
+    "vercel": "29.0.0",
     "vitest": "0.30.0"
   },
   "pnpm": {
