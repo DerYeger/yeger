@@ -376,8 +376,8 @@ importers:
         specifier: workspace:*
         version: link:../tsconfig
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 22.0.0
+        version: 22.0.0
       typescript:
         specifier: 5.0.4
         version: 5.0.4
@@ -769,8 +769,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 22.0.0
+        version: 22.0.0
       typescript:
         specifier: 5.0.4
         version: 5.0.4
@@ -802,8 +802,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 22.0.0
+        version: 22.0.0
       typescript:
         specifier: 5.0.4
         version: 5.0.4
@@ -844,8 +844,8 @@ importers:
         specifier: 1.0.2
         version: 1.0.2
       jsdom:
-        specifier: 21.1.1
-        version: 21.1.1
+        specifier: 22.0.0
+        version: 22.0.0
       typescript:
         specifier: 5.0.4
         version: 5.0.4
@@ -11715,6 +11715,44 @@ packages:
       - utf-8-validate
     dev: true
 
+  /jsdom@22.0.0:
+    resolution: {integrity: sha512-p5ZTEb5h+O+iU02t0GfEjAnkdYPrQSkfuTSMkMYyIoMvUNEHsbG0bHHbfXIcfTqD2UfvjQX7mmgiFsyRwGscVw==}
+    engines: {node: '>=16'}
+    peerDependencies:
+      canvas: ^2.5.0
+    peerDependenciesMeta:
+      canvas:
+        optional: true
+    dependencies:
+      abab: 2.0.6
+      cssstyle: 3.0.0
+      data-urls: 4.0.0
+      decimal.js: 10.4.3
+      domexception: 4.0.0
+      form-data: 4.0.0
+      html-encoding-sniffer: 3.0.0
+      http-proxy-agent: 5.0.0
+      https-proxy-agent: 5.0.1
+      is-potential-custom-element-name: 1.0.1
+      nwsapi: 2.2.4
+      parse5: 7.1.2
+      rrweb-cssom: 0.6.0
+      saxes: 6.0.0
+      symbol-tree: 3.2.4
+      tough-cookie: 4.1.2
+      w3c-xmlserializer: 4.0.0
+      webidl-conversions: 7.0.0
+      whatwg-encoding: 2.0.0
+      whatwg-mimetype: 3.0.0
+      whatwg-url: 12.0.1
+      ws: 8.13.0
+      xml-name-validator: 4.0.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: true
+
   /jsesc@0.5.0:
     resolution: {integrity: sha512-uZz5UnB7u4T9LvwmFqXii7pZSouaRPorGs5who1Ip7VO0wxanFvBL7GkM6dTHlgX+jhBApRetaWpnDabOeTcnA==}
     hasBin: true
@@ -13451,6 +13489,10 @@ packages:
 
   /nwsapi@2.2.3:
     resolution: {integrity: sha512-jscxIO4/VKScHlbmFBdV1Z6LXnLO+ZR4VMtypudUdfwtKxUN3TQcNFIHLwKtrUbDyHN4/GycY9+oRGZ2XMXYPw==}
+    dev: true
+
+  /nwsapi@2.2.4:
+    resolution: {integrity: sha512-NHj4rzRo0tQdijE9ZqAx6kYDcoRwYwSYzCA8MY3JzfxlrvEU0jhnhJT9BhqhJs7I/dKcrDm6TyulaRqZPIhN5g==}
     dev: true
 
   /object-assign@4.1.1:
