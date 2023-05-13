@@ -32,10 +32,10 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "0.38.5",
+    "@antfu/eslint-config": "0.38.6",
     "eslint-config-prettier": "8.8.0",
     "eslint-import-resolver-typescript": "3.5.5",
-    "eslint-plugin-astro": "0.26.1",
+    "eslint-plugin-astro": "0.27.0",
     "eslint-plugin-cypress": "2.13.3",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jsx-a11y": "6.7.1",
@@ -44,13 +44,13 @@
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-tailwindcss": "3.11.0",
     "eslint-plugin-tsdoc": "0.2.17",
-    "eslint-plugin-turbo": "1.9.3",
-    "eslint-plugin-yml": "1.5.0",
+    "eslint-plugin-turbo": "1.9.4",
+    "eslint-plugin-yml": "1.7.0",
     "picocolors": "1.0.0",
     "prettier": "2.8.8",
-    "prettier-plugin-astro": "0.8.0",
+    "prettier-plugin-astro": "0.8.1",
     "prettier-plugin-tailwindcss": "0.2.8",
-    "yaml-eslint-parser": "1.2.0"
+    "yaml-eslint-parser": "1.2.2"
   },
   "publishConfig": {
     "access": "public"

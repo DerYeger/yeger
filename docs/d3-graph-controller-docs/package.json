@@ -13,16 +13,16 @@
   "dependencies": {
     "@algolia/client-search": "4.17.0",
     "d3-graph-controller": "workspace:*",
-    "vue": "3.2.47"
+    "vue": "3.3.2"
   },
   "devDependencies": {
     "@types/d3-selection": "3.0.5",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.0.4",
     "unplugin-vue-components": "0.24.1",
-    "vite": "4.3.3",
+    "vite": "4.3.5",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-alpha.74",
-    "vue-tsc": "1.6.1"
+    "vitepress": "1.0.0-alpha.75",
+    "vue-tsc": "1.6.4"
   }
 }
