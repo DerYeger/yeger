@@ -28,14 +28,14 @@
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
     "cac": "6.7.14",
-    "next": "13.4.2",
+    "next": "13.4.3",
     "open": "8.4.2",
     "picocolors": "1.0.0"
   },
   "devDependencies": {
-    "@types/node": "18.16.8",
+    "@types/node": "18.16.13",
     "@yeger/tsconfig": "workspace:*",
-    "rimraf": "5.0.0",
+    "rimraf": "5.0.1",
     "typescript": "5.0.4"
   },
   "publishConfig": {
