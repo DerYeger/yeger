@@ -20,10 +20,11 @@
     "index.js"
   ],
   "scripts": {
-    "dev": "tsc --watch",
     "build": "rimraf dist && tsc",
-    "preview": "node dist/index.js",
-    "lint": "yeger-lint"
+    "check:publish": "publint run --strict",
+    "dev": "tsc --watch",
+    "lint": "yeger-lint",
+    "preview": "node dist/index.js"
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",

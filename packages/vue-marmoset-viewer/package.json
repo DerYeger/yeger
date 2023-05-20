@@ -36,11 +36,12 @@
   "scripts": {
     "build": "vite build",
     "bundlesize": "bundlesize",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
+    "check:vue": "vue-tsc --noEmit",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest",
-    "check:tsc": "tsc --noEmit",
-    "check:vue": "vue-tsc --noEmit"
+    "test": "vitest"
   },
   "peerDependencies": {
     "vue": "^3.0.5"

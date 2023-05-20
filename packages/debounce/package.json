@@ -20,6 +20,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./dist/types/main.d.ts",
       "require": "./dist/main.umd.js",
       "import": "./dist/main.mjs"
     }
@@ -33,10 +34,11 @@
   ],
   "scripts": {
     "build": "vite build",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest",
-    "check:tsc": "tsc --noEmit"
+    "test": "vitest"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",

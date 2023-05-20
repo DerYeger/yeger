@@ -2,6 +2,9 @@
   "$schema": "https://turbo.build/schema.json",
   "globalEnv": ["CI"],
   "pipeline": {
+    "check:publish": {
+      "dependsOn": ["build", "generate"]
+    },
     "check:tsc": {
       "dependsOn": ["^build", "codegen"]
     },

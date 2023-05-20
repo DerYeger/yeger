@@ -21,6 +21,7 @@
   "sideEffects": false,
   "exports": {
     ".": {
+      "types": "./dist/types/vecti.d.ts",
       "require": "./dist/vecti.umd.js",
       "import": "./dist/vecti.mjs"
     }
@@ -33,10 +34,11 @@
   ],
   "scripts": {
     "build": "vite build",
+    "check:tsc": "tsc --noEmit",
+    "check:publish": "publint run --strict",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest",
-    "check:tsc": "tsc --noEmit"
+    "test": "vitest"
   },
   "devDependencies": {
     "@types/node": "18.16.13",

@@ -28,11 +28,12 @@
   ],
   "scripts": {
     "build": "vite build",
-    "dev": "vite build --watch",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
+    "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest",
-    "check:tsc": "tsc --noEmit"
+    "test": "vitest"
   },
   "dependencies": {
     "ohm-js": "17.1.0"

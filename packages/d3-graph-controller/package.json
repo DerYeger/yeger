@@ -38,10 +38,11 @@
   ],
   "scripts": {
     "build": "vite build",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "test": "vitest",
-    "check:tsc": "tsc --noEmit"
+    "test": "vitest"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*",

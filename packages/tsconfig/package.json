@@ -11,6 +11,7 @@
     "web.json"
   ],
   "scripts": {
+    "check:publish": "publint run --strict",
     "lint": "yeger-lint"
   }
 }

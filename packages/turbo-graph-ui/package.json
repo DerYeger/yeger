@@ -18,8 +18,9 @@
     "next.config.js"
   ],
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
+    "check:publish": "publint run --strict",
+    "dev": "next dev",
     "lint": "next lint"
   },
   "peerDependencies": {

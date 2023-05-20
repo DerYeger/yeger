@@ -19,8 +19,9 @@
   ],
   "scripts": {
     "build": "unbuild",
-    "lint": "yeger-lint",
-    "check:tsc": "tsc --noEmit"
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
+    "lint": "yeger-lint"
   },
   "devDependencies": {
     "@types/node": "18.16.13",
