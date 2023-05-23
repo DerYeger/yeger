@@ -80,12 +80,13 @@ export default defineComponent({
         :rtl="rtl"
         :scroll-container="useScrollContainer ? scrollContainer : undefined"
       >
-        <template #default="{ item, index }">
+        <template #default="{ item, column, row, index }">
           <div
             class="item"
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
             :style="`height: ${item}px;`"
           >
+            <p>Location {{ `(${column}, ${row})` }}</p>
             <p>Index {{ index }}</p>
             <p style="text-align: center">Height {{ item }}px</p>
             <button class="primary" @click="removeItem(index)">Remove</button>

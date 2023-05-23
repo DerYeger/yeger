@@ -760,8 +760,8 @@ importers:
         specifier: 4.2.3
         version: 4.2.3(vite@4.3.8)(vue@3.3.4)
       '@vue/test-utils':
-        specifier: 2.3.2
-        version: 2.3.2(vue@3.3.4)
+        specifier: 2.4.0-alpha.1
+        version: 2.4.0-alpha.1(vue@3.3.4)
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -1277,11 +1277,6 @@ packages:
       '@babel/types': 7.21.5
     dev: true
 
-  /@babel/helper-plugin-utils@7.20.2:
-    resolution: {integrity: sha512-8RvlJG2mj4huQ4pZ+rU9lqKi9ZKiRmuvGuM2HlWmkmgOhbs6zEAw6IEiJ5cQqGbDzGZOhwuOQNtZMi/ENLjZoQ==}
-    engines: {node: '>=6.9.0'}
-    dev: true
-
   /@babel/helper-plugin-utils@7.21.5:
     resolution: {integrity: sha512-0WDaIlXKOX/3KfBK/dwP1oQGiPh6rjMkT7HIRv7i5RR2VUMwrx5ZL0dwBkKx7+SW1zwNdgjHd34IMk5ZjTeHVg==}
     engines: {node: '>=6.9.0'}
@@ -1678,7 +1673,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.8
-      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/helper-plugin-utils': 7.21.5
     dev: true
 
   /@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.21.8):
@@ -1762,7 +1757,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.8
-      '@babel/helper-plugin-utils': 7.20.2
+      '@babel/helper-plugin-utils': 7.21.5
     dev: true
 
   /@babel/plugin-transform-arrow-functions@7.21.5(@babel/core@7.21.8):
@@ -5653,6 +5648,22 @@ packages:
     optionalDependencies:
       '@vue/compiler-dom': 3.3.4
       '@vue/server-renderer': 3.3.4(vue@3.3.4)
+    dev: true
+
+  /@vue/test-utils@2.4.0-alpha.1(vue@3.3.4):
+    resolution: {integrity: sha512-Irbty6HWqiaMEPppPROp6EitGo87NfpZVtZ9QaOqBUnydGX7w9ond7/pl1t9pqUSecCEunLmXkie4MMe3oud+w==}
+    peerDependencies:
+      '@vue/compiler-dom': ^3.0.1
+      '@vue/server-renderer': ^3.0.1
+      vue: ^3.0.1
+    peerDependenciesMeta:
+      '@vue/compiler-dom':
+        optional: true
+      '@vue/server-renderer':
+        optional: true
+    dependencies:
+      js-beautify: 1.14.6
+      vue: 3.3.4
     dev: true
 
   /@vueuse/core@10.1.2(vue@3.3.4):
@@ -15883,7 +15894,7 @@ packages:
       detect-libc: 2.0.1
       node-addon-api: 5.1.0
       prebuild-install: 7.1.1
-      semver: 7.3.8
+      semver: 7.5.0
       simple-get: 4.0.1
       tar-fs: 2.1.1
       tunnel-agent: 0.6.0
