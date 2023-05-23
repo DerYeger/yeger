@@ -1,5 +1,12 @@
 # @yeger/vue-masonry-wall
 
+## 3.5.0
+
+### Minor Changes
+
+- ceca2b7: use generic type
+- 265f2ca: add prop for custom item keys
+
 ## 3.4.4
 
 ### Patch Changes
