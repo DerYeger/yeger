@@ -20,12 +20,15 @@ export default defineComponent({
   },
   data() {
     return {
-      columnWidth: 400,
+      columnWidth: 300,
       gap: 16,
-      items: [128, 256, 128],
+      items: [] as number[],
       rtl: false,
       useScrollContainer: false,
     }
+  },
+  mounted() {
+    this.addItems()
   },
   methods: {
     randomHeight(): number {
@@ -86,8 +89,8 @@ export default defineComponent({
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
             :style="`height: ${item}px;`"
           >
-            <p>Location {{ `(${column}, ${row})` }}</p>
             <p>Index {{ index }}</p>
+            <p>{{ `(${column}, ${row})` }}</p>
             <p style="text-align: center">Height {{ item }}px</p>
             <button class="primary" @click="removeItem(index)">Remove</button>
           </div>

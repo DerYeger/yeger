@@ -10,6 +10,12 @@ const props = withDefaults(
     rtl?: boolean
     ssrColumns?: number
     scrollContainer?: HTMLElement | null
+    keyMapper?: (
+      item: T,
+      column: number,
+      row: number,
+      index: number
+    ) => string | number | symbol | undefined
   }>(),
   {
     columnWidth: 400,
@@ -17,6 +23,8 @@ const props = withDefaults(
     rtl: false,
     ssrColumns: 0,
     scrollContainer: null,
+    keyMapper: (_item: T, _column: number, _row: number, index: number) =>
+      index,
   }
 )
 
@@ -36,7 +44,7 @@ defineSlots<{
 
 type Column = number[]
 
-const { columnWidth, items, gap, rtl, ssrColumns, scrollContainer } =
+const { columnWidth, items, gap, rtl, ssrColumns, scrollContainer, keyMapper } =
   toRefs(props)
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
@@ -133,7 +141,7 @@ watch([columnWidth, gap], () => redraw())
     >
       <div
         v-for="(itemIndex, row) in column"
-        :key="itemIndex"
+        :key="keyMapper(items[itemIndex]!, columnIndex, row, itemIndex)"
         class="masonry-item"
       >
         <slot

@@ -70,6 +70,7 @@ Props:
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
 - `scroll-container`: Scrolling `HTMLElement` parent element that will be used for restoring scroll position. If omitted, `window` is used.
+- `keyMapper`: Optional mapper function that receives an item, its column index, its row index, and its index w.r.t. the `items` array and returns a unique key. Defaults to `(_item, _column, _row, index) => index`.
 
 ```vue
 <script setup lang="ts">
