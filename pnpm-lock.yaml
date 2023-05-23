@@ -718,8 +718,8 @@ importers:
         specifier: 4.2.3
         version: 4.2.3(vite@4.3.8)(vue@3.3.4)
       '@vue/test-utils':
-        specifier: 2.3.2
-        version: 2.3.2(vue@3.3.4)
+        specifier: 2.4.0-alpha.1
+        version: 2.4.0-alpha.1(vue@3.3.4)
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -5636,18 +5636,6 @@ packages:
       pretty: 2.0.0
       vue: 2.7.14
       vue-template-compiler: 2.7.14(vue@2.7.14)
-    dev: true
-
-  /@vue/test-utils@2.3.2(vue@3.3.4):
-    resolution: {integrity: sha512-hJnVaYhbrIm0yBS0+e1Y0Sj85cMyAi+PAbK4JHqMRUZ6S622Goa+G7QzkRSyvCteG8wop7tipuEbHoZo26wsSA==}
-    peerDependencies:
-      vue: ^3.0.1
-    dependencies:
-      js-beautify: 1.14.6
-      vue: 3.3.4
-    optionalDependencies:
-      '@vue/compiler-dom': 3.3.4
-      '@vue/server-renderer': 3.3.4(vue@3.3.4)
     dev: true
 
   /@vue/test-utils@2.4.0-alpha.1(vue@3.3.4):
