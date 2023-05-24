@@ -29,7 +29,7 @@ async function executeCommand(tasks: string[], dir: string): Promise<string> {
   // TODO: Get .bin dir location from package manager
   const { stdout } = await execa(
     `node_modules${path.sep}.bin${path.sep}turbo`,
-    ['run', ...tasks, '--graph'],
+    ['run', ...tasks, '--concurrency=100%', '--graph'],
     {
       cwd: dir,
     }
