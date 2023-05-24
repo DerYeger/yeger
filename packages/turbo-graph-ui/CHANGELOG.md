@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 0.4.7
+
+### Patch Changes
+
+- c875a93: use full concurrency
+
 ## 0.4.6
 
 ### Patch Changes
