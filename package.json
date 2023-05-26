@@ -38,7 +38,7 @@
     "@changesets/cli": "2.26.1",
     "@commitlint/cli": "17.6.3",
     "@commitlint/config-conventional": "17.6.3",
-    "@types/node": "18.16.13",
+    "@types/node": "18.16.16",
     "@vitest/coverage-c8": "0.31.1",
     "@vitest/ui": "0.31.1",
     "@yeger/eslint-config": "workspace:*",
@@ -50,8 +50,8 @@
     "lint-staged": "13.2.2",
     "publint": "0.1.12",
     "syncpack": "9.8.6",
-    "turbo": "1.9.8",
-    "vercel": "29.3.6",
+    "turbo": "1.9.9",
+    "vercel": "29.4.0",
     "vitest": "0.31.1"
   },
   "pnpm": {
