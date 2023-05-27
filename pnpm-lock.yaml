@@ -63,8 +63,8 @@ importers:
         specifier: 1.9.9
         version: 1.9.9
       vercel:
-        specifier: 29.4.0
-        version: 29.4.0(@types/node@18.16.16)(ts-node@10.9.1)
+        specifier: 30.0.0
+        version: 30.0.0(@types/node@18.16.16)(ts-node@10.9.1)
       vitest:
         specifier: 0.31.1
         version: 0.31.1(@vitest/ui@0.31.1)
@@ -17775,8 +17775,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vercel@29.4.0(@types/node@18.16.16)(ts-node@10.9.1):
-    resolution: {integrity: sha512-sVfg87dhF3q6Nhrr5zv2oaOU1zQQd+MlsjhdNkB9MfrQyXqluAdHKiNz0+g/+wJeh/y7sUhWk2/XJb5CDlF70w==}
+  /vercel@30.0.0(@types/node@18.16.16)(ts-node@10.9.1):
+    resolution: {integrity: sha512-JxpE29jxVTjnBsILc0E4umj6cLFq8H6AsSowGiPz/dxP0lJLwX3QPgDn+qd6GWIc4QDNEnvvkqAJ+7pSKTO04A==}
     engines: {node: '>= 14'}
     hasBin: true
     requiresBuild: true
