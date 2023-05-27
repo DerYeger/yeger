@@ -51,7 +51,7 @@
     "publint": "0.1.12",
     "syncpack": "9.8.6",
     "turbo": "1.9.9",
-    "vercel": "29.4.0",
+    "vercel": "30.0.0",
     "vitest": "0.31.1"
   },
   "pnpm": {
