@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
       - name: Lint package versions
-        run: pnpm run syncpack:list && pnpm run syncpack:lint
+        run: pnpm run syncpack:lint
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
       - name: Upload @yeger/debounce coverage
