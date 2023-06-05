@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 // @vitest-environment jsdom
 
 import type { Wrapper } from '@vue/test-utils'

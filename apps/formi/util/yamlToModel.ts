@@ -27,7 +27,7 @@ const ElementTupleSchema = z.preprocess(
       .regex(/\d+,\d+/)
       .parse(raw)
       .split(',')
-      .map((element) => parseInt(element)),
+      .map((element) => Number.parseInt(element)),
   z.tuple([ElementSchema, ElementSchema])
 )
 

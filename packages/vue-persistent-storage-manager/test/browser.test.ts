@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 // @vitest-environment jsdom
 
 import { createLocalVue } from '@vue/test-utils'

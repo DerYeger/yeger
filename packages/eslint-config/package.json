@@ -33,7 +33,7 @@
     "eslint": ">=7.4.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "0.39.3",
+    "@antfu/eslint-config": "0.39.5",
     "eslint-config-prettier": "8.8.0",
     "eslint-import-resolver-typescript": "3.5.5",
     "eslint-plugin-astro": "0.27.1",
@@ -43,13 +43,13 @@
     "eslint-plugin-markdown": "3.0.0",
     "eslint-plugin-md": "1.0.19",
     "eslint-plugin-prettier": "4.2.1",
-    "eslint-plugin-tailwindcss": "3.12.0",
+    "eslint-plugin-tailwindcss": "3.12.1",
     "eslint-plugin-tsdoc": "0.2.17",
-    "eslint-plugin-turbo": "1.9.9",
+    "eslint-plugin-turbo": "1.10.1",
     "eslint-plugin-yml": "1.7.0",
     "picocolors": "1.0.0",
     "prettier": "2.8.8",
-    "prettier-plugin-astro": "0.9.1",
+    "prettier-plugin-astro": "0.10.0",
     "prettier-plugin-tailwindcss": "0.3.0",
     "yaml-eslint-parser": "1.2.2"
   },

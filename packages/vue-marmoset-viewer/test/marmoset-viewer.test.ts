@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'

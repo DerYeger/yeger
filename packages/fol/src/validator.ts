@@ -10,7 +10,7 @@ function allElementsAreInRange(
   domain: Set<number>
 ): ValidationResult {
   for (const element of elements) {
-    if (isNaN(element) || !domain.has(element)) {
+    if (Number.isNaN(element) || !domain.has(element)) {
       return new Err(`${element} is not part of the domain`)
     }
   }
@@ -30,7 +30,7 @@ function allKeysAreInRange(
 ): ValidationResult {
   const keys = Object.keys(record)
     .flatMap((key) => key.split(','))
-    .map((key) => parseInt(key))
+    .map((key) => Number.parseInt(key))
   return allElementsAreInRange(keys, domain)
 }
 
@@ -58,7 +58,7 @@ function validateRelations(model: Model): ValidationResult {
   for (const relation of Object.values(model.relations)) {
     const elements = [...relation.data]
       .flatMap((entry) => entry.split(','))
-      .map((element) => parseInt(element))
+      .map((element) => Number.parseInt(element))
     const result = allElementsAreInRange(elements, model.domain).mapError(
       (error) => `${error} but used in relation ${relation.name}.`
     )
