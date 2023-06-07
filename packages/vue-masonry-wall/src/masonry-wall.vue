@@ -10,6 +10,8 @@ const props = withDefaults(
     rtl?: boolean
     ssrColumns?: number
     scrollContainer?: HTMLElement | null
+    minColumns?: number
+    maxColumns?: number
     keyMapper?: (
       item: T,
       column: number,
@@ -44,8 +46,17 @@ defineSlots<{
 
 type Column = number[]
 
-const { columnWidth, items, gap, rtl, ssrColumns, scrollContainer, keyMapper } =
-  toRefs(props)
+const {
+  columnWidth,
+  items,
+  gap,
+  rtl,
+  ssrColumns,
+  scrollContainer,
+  minColumns,
+  maxColumns,
+  keyMapper,
+} = toRefs(props)
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 
@@ -54,7 +65,18 @@ function columnCount(): number {
     (wall.value.getBoundingClientRect().width + gap.value) /
       (columnWidth.value + gap.value)
   )
-  return count > 0 ? count : 1
+  const boundedCount = coerceColumnCount(count)
+  return boundedCount > 0 ? boundedCount : 1
+}
+
+function coerceColumnCount(count: number) {
+  if (minColumns?.value && count < minColumns.value) {
+    return minColumns.value
+  }
+  if (maxColumns?.value && count > maxColumns.value) {
+    return maxColumns.value
+  }
+  return count
 }
 
 function createColumns(count: number): Column[] {
@@ -115,7 +137,7 @@ onMounted(() => {
 onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
 
 watch([items, rtl], () => redraw(true))
-watch([columnWidth, gap], () => redraw())
+watch([columnWidth, gap, minColumns, maxColumns], () => redraw())
 </script>
 
 <template>

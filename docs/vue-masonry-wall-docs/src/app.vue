@@ -25,6 +25,8 @@ export default defineComponent({
       items: [] as number[],
       rtl: false,
       useScrollContainer: false,
+      minColumns: 1,
+      maxColumns: 8,
     }
   },
   mounted() {
@@ -72,6 +74,8 @@ export default defineComponent({
         v-model:gap="gap"
         v-model:rtl="rtl"
         v-model:useScrollContainer="useScrollContainer"
+        v-model:minColumns="minColumns"
+        v-model:maxColumns="maxColumns"
         @create-item="addItem($event)"
         @create-items="addItems()"
         @clear-items="items = []"
@@ -82,6 +86,8 @@ export default defineComponent({
         :gap="gap"
         :rtl="rtl"
         :scroll-container="useScrollContainer ? scrollContainer : undefined"
+        :min-columns="minColumns"
+        :max-columns="maxColumns"
       >
         <template #default="{ item, column, row, index }">
           <div

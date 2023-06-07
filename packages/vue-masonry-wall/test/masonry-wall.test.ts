@@ -240,4 +240,63 @@ describe('MasonryWall', () => {
     expect(secondNew?.element.childElementCount).toEqual(3)
     expect(thirdNew?.element.childElementCount).toEqual(0)
   })
+
+  it('coerces with regards to minColumns', async () => {
+    const wrapper = mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+        minColumns: 3,
+      },
+    })
+    await flushPromises()
+    const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
+    expect(wall.element).toBeDefined()
+    const columns = wrapper.findAll<HTMLDivElement>('.masonry-column')
+    expect(columns.length).toEqual(3)
+    const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
+    expect(items.length).toEqual(2)
+  })
+
+  it('coerces with regards to maxColumns', async () => {
+    const wrapper = mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+        columnWidth: 100,
+      },
+    })
+    await flushPromises()
+    const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
+    expect(wall.element).toBeDefined()
+    wall.element.getBoundingClientRect = (): DOMRect => ({
+      bottom: 0,
+      height: 0,
+      left: 0,
+      right: 0,
+      top: 0,
+      width: 1000,
+      x: 0,
+      y: 0,
+      toJSON(): string {
+        return ''
+      },
+    })
+    await wrapper
+      .setProps({
+        maxColumns: 20,
+      })
+      .then(flushPromises)
+    const unconstrainedColumns =
+      wrapper.findAll<HTMLDivElement>('.masonry-column')
+    expect(unconstrainedColumns.length).toEqual(10)
+
+    await wrapper
+      .setProps({
+        maxColumns: 1,
+      })
+      .then(flushPromises)
+    const columns = wrapper.findAll<HTMLDivElement>('.masonry-column')
+    expect(columns.length).toEqual(1)
+    const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
+    expect(items.length).toEqual(2)
+  })
 })

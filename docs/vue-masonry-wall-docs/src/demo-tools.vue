@@ -20,6 +20,14 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    minColumns: {
+      type: Number,
+      required: true,
+    },
+    maxColumns: {
+      type: Number,
+      required: true,
+    },
   },
   emits: [
     'clearItems',
@@ -29,6 +37,8 @@ export default defineComponent({
     'update:gap',
     'update:columnWidth',
     'update:useScrollContainer',
+    'update:minColumns',
+    'update:maxColumns',
   ],
   data() {
     return {
@@ -47,18 +57,6 @@ export default defineComponent({
   <div id="tools">
     <section id="settings">
       <h2>Settings</h2>
-      <div class="row">
-        <label for="width">Column Width</label>
-        <input
-          id="width"
-          type="range"
-          min="128"
-          max="512"
-          :value="columnWidth"
-          @input="$emit('update:columnWidth', +($event.target as any).value)"
-        />
-        <span>{{ columnWidth }}px</span>
-      </div>
       <div class="row">
         <label for="gap">Gap</label>
         <input
@@ -92,8 +90,47 @@ export default defineComponent({
         />
       </div>
     </section>
+    <section id="settings">
+      <h2>Columns</h2>
+      <div class="row">
+        <label for="width">Width</label>
+        <input
+          id="width"
+          type="range"
+          min="128"
+          max="512"
+          :value="columnWidth"
+          @input="$emit('update:columnWidth', +($event.target as any).value)"
+        />
+        <span>{{ columnWidth }}px</span>
+      </div>
+      <div class="row">
+        <label for="min-columns">Min. Columns</label>
+        <input
+          id="min-columns"
+          type="range"
+          min="1"
+          max="10"
+          :value="minColumns"
+          @input="$emit('update:minColumns', +($event.target as any).value)"
+        />
+        <span>{{ minColumns }}</span>
+      </div>
+      <div class="row">
+        <label for="max-columns">Max. Columns</label>
+        <input
+          id="max-columns"
+          type="range"
+          min="1"
+          max="10"
+          :value="maxColumns"
+          @input="$emit('update:maxColumns', +($event.target as any).value)"
+        />
+        <span>{{ maxColumns }}</span>
+      </div>
+    </section>
     <section id="item-creation">
-      <h2>New Item</h2>
+      <h2>Items</h2>
       <div class="row">
         <label for="height">Height</label>
         <input
