@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-docs
 
+## 1.1.0
+
+### Minor Changes
+
+- 949ca22: add min-columns and max-columns props
+
+### Patch Changes
+
+- Updated dependencies [949ca22]
+  - @yeger/vue-masonry-wall@3.6.0
+
 ## 1.0.6
 
 ### Patch Changes
