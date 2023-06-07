@@ -65,18 +65,24 @@ function columnCount(): number {
     (wall.value.getBoundingClientRect().width + gap.value) /
       (columnWidth.value + gap.value)
   )
-  const boundedCount = coerceColumnCount(count)
+  const boundedCount = aboveMin(belowMax(count))
   return boundedCount > 0 ? boundedCount : 1
 }
 
-function coerceColumnCount(count: number) {
-  if (minColumns?.value && count < minColumns.value) {
-    return minColumns.value
+function belowMax(count: number) {
+  const max = maxColumns?.value
+  if (!max) {
+    return count
   }
-  if (maxColumns?.value && count > maxColumns.value) {
-    return maxColumns.value
+  return count > max ? max : count
+}
+
+function aboveMin(count: number) {
+  const min = minColumns?.value
+  if (!min) {
+    return count
   }
-  return count
+  return count < min ? min : count
 }
 
 function createColumns(count: number): Column[] {
