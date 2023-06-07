@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 3.6.1
+
+### Patch Changes
+
+- 025f195: coerce in proper order
+
 ## 3.6.0
 
 ### Minor Changes
