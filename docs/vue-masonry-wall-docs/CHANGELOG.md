@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-docs
 
+## 1.2.0
+
+### Minor Changes
+
+- 716ca94: support differing column widths
+
+### Patch Changes
+
+- Updated dependencies [716ca94]
+  - @yeger/vue-masonry-wall@3.7.0
+
 ## 1.1.1
 
 ### Patch Changes
