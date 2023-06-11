@@ -4,7 +4,7 @@ import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    columnWidth?: number
+    columnWidth?: number | [number, ...number[]]
     items: T[]
     gap?: number
     rtl?: boolean
@@ -60,10 +60,38 @@ const {
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 
+function countIteratively(
+  containerWidth: number,
+  gap: number,
+  count: number,
+  consumed: number
+) {
+  const nextWidth = getColumnWidthTarget(count)
+  if (consumed + gap + nextWidth <= containerWidth) {
+    return countIteratively(
+      containerWidth,
+      gap,
+      count + 1,
+      consumed + gap + nextWidth
+    )
+  }
+  return count
+}
+
+function getColumnWidthTarget(columnIndex: number) {
+  const widths = Array.isArray(columnWidth.value)
+    ? columnWidth.value
+    : [columnWidth.value]
+  return widths[columnIndex % widths.length] as number
+}
+
 function columnCount(): number {
-  const count = Math.floor(
-    (wall.value.getBoundingClientRect().width + gap.value) /
-      (columnWidth.value + gap.value)
+  const count = countIteratively(
+    wall.value.getBoundingClientRect().width,
+    gap.value,
+    0,
+    // Needs to be offset my negative gap to prevent gap counts being off by one
+    -gap.value
   )
   const boundedCount = aboveMin(belowMax(count))
   return boundedCount > 0 ? boundedCount : 1
@@ -159,7 +187,7 @@ watch([columnWidth, gap, minColumns, maxColumns], () => redraw())
       :data-index="columnIndex"
       :style="{
         display: 'flex',
-        'flex-basis': '0px',
+        'flex-basis': `${getColumnWidthTarget(columnIndex)}px`,
         'flex-direction': 'column',
         'flex-grow': 1,
         gap: `${gap}px`,

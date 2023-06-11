@@ -33,7 +33,7 @@
 
 - 📱 **Responsive**: Responsive with configurable column width and gaps. Based on `ResizeObserver`.
 - 🔁 **Reactive**: Reacts to property changes.
-- 🪶 **Lightweight**: Zero dependencies. Less than 1.3 kB.
+- 🪶 **Lightweight**: Zero dependencies. Less than 1.4 kB.
 - ⬅️ **RTL**: Supports LTR and RTL layouts.
 
 ## Links
@@ -65,7 +65,7 @@ app.use(MasonryWall)
 Props:
 
 - `items`: Array of items. Required.
-- `column-width`: Minimal width of columns in `px`.
+- `column-width`: Minimal width of columns in `px`. Can be either a `number`, or a non-empty array of `number`s. Defaults to `300`. If an array is passed, the first value will be used for the first column, the second value for the second column, and so on. If the array is shorter than the number of columns, the pattern will be repeated starting at the first value.
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.

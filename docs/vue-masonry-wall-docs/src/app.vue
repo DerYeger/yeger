@@ -20,13 +20,13 @@ export default defineComponent({
   },
   data() {
     return {
-      columnWidth: 300,
+      columnWidth: [256, 128, 128, 512, 128],
       gap: 16,
       items: [] as number[],
       rtl: false,
       useScrollContainer: false,
       minColumns: 1,
-      maxColumns: 8,
+      maxColumns: 5,
     }
   },
   mounted() {
