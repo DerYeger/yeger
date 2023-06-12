@@ -55,6 +55,7 @@
     "@vitejs/plugin-vue": "4.2.3",
     "@vue/test-utils": "2.4.0-alpha.2",
     "@yeger/tsconfig": "workspace:*",
+    "@yeger/vue-masonry-wall-core": "workspace:*",
     "bundlesize2": "0.0.31",
     "flush-promises": "1.0.2",
     "jsdom": "22.1.0",

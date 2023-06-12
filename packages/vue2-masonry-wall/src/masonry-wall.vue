@@ -1,24 +1,35 @@
 <script setup lang="ts">
+import type {
+  Column,
+  KeyMapper,
+  NonEmptyArray,
+} from '@yeger/vue-masonry-wall-core'
+import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
-type Column = number[]
-
 const props = withDefaults(
   defineProps<{
-    columnWidth?: number
+    columnWidth?: number | NonEmptyArray<number>
     items: unknown[]
     gap?: number
     rtl?: boolean
     ssrColumns?: number
     scrollContainer?: HTMLElement | null
+    minColumns?: number
+    maxColumns?: number
+    keyMapper?: KeyMapper<unknown>
   }>(),
   {
     columnWidth: 400,
     gap: 0,
+    keyMapper: (_item: unknown, _column: number, _row: number, index: number) =>
+      index,
+    minColumns: 1,
+    maxColumns: undefined,
     rtl: false,
-    ssrColumns: 0,
     scrollContainer: null,
+    ssrColumns: 0,
   }
 )
 
@@ -27,78 +38,38 @@ const emit = defineEmits<{
   (event: 'redraw-skip'): void
 }>()
 
-const { columnWidth, items, gap, rtl, ssrColumns, scrollContainer } =
-  toRefs(props)
+const {
+  columnWidth,
+  items,
+  gap,
+  rtl,
+  ssrColumns,
+  scrollContainer,
+  minColumns,
+  maxColumns,
+  keyMapper,
+} = toRefs(props)
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
-
-function columnCount(): number {
-  const count = Math.floor(
-    (wall.value.getBoundingClientRect().width + gap.value) /
-      (columnWidth.value + gap.value)
-  )
-  return count > 0 ? count : 1
-}
-
-function createColumns(count: number): Column[] {
-  return [...new Array(count)].map(() => [])
-}
-
-if (ssrColumns.value > 0) {
-  const newColumns = createColumns(ssrColumns.value)
-  items.value.forEach((_: unknown, i: number) =>
-    newColumns[i % ssrColumns.value]!.push(i)
-  )
-  columns.value = newColumns
-}
-
-async function fillColumns(itemIndex: number) {
-  if (itemIndex >= items.value.length) {
-    return
-  }
-  await nextTick()
-  const columnDivs = [...wall.value.children] as HTMLDivElement[]
-  if (rtl.value) {
-    columnDivs.reverse()
-  }
-  const target = columnDivs.reduce((prev, curr) =>
-    curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
-      ? curr
-      : prev
-  )
-  columns.value[+target.dataset.index!]!.push(itemIndex)
-  await fillColumns(itemIndex + 1)
-}
-
-async function redraw(force = false) {
-  if (columns.value.length === columnCount() && !force) {
-    emit('redraw-skip')
-    return
-  }
-  columns.value = createColumns(columnCount())
-  const scrollTarget = scrollContainer?.value
-  const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
-  await fillColumns(0)
-  scrollTarget
-    ? scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
-    : window.scrollTo({ top: scrollY })
-  emit('redraw')
-}
-
-const resizeObserver =
-  typeof ResizeObserver === 'undefined'
-    ? undefined
-    : new ResizeObserver(() => redraw())
-
-onMounted(() => {
-  redraw()
-  resizeObserver?.observe(wall.value)
+const { getColumnWidthTarget } = useMasonryWall<unknown>({
+  columns,
+  columnWidth,
+  emit,
+  gap,
+  items,
+  keyMapper,
+  maxColumns,
+  minColumns,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  rtl,
+  scrollContainer,
+  ssrColumns,
+  vue: 2,
+  wall,
+  watch,
 })
-
-onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
-
-watch([items, rtl], () => redraw(true))
-watch([columnWidth, gap], () => redraw())
 </script>
 
 <template>
@@ -114,7 +85,7 @@ watch([columnWidth, gap], () => redraw())
       :data-index="columnIndex"
       :style="{
         display: 'flex',
-        'flex-basis': '0px',
+        'flex-basis': `${getColumnWidthTarget(columnIndex)}px`,
         'flex-direction': 'column',
         'flex-grow': 1,
         gap: `${gap}px`,

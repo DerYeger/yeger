@@ -1,6 +1,6 @@
 {
   "name": "@yeger/vue2-masonry-wall",
-  "version": "2.3.3",
+  "version": "3.7.0",
   "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 2.",
   "author": {
     "name": "Jan Müller",
@@ -47,6 +47,7 @@
     "@vitejs/plugin-vue2": "2.2.0",
     "@vue/test-utils": "1.3.6",
     "@yeger/tsconfig": "workspace:*",
+    "@yeger/vue-masonry-wall-core": "workspace:*",
     "babel-core": "7.0.0-bridge.0",
     "bundlesize2": "0.0.31",
     "flush-promises": "1.0.2",

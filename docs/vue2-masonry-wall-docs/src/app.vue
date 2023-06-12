@@ -20,12 +20,17 @@ export default defineComponent({
   },
   data() {
     return {
-      items: [128, 256, 128],
-      columnWidth: 400,
+      columnWidth: [256, 128, 128, 512, 128],
       gap: 16,
+      items: [] as number[],
       rtl: false,
       useScrollContainer: false,
+      minColumns: 1,
+      maxColumns: 5,
     }
+  },
+  mounted() {
+    this.addItems()
   },
   methods: {
     randomHeight(): number {
@@ -69,6 +74,8 @@ export default defineComponent({
         :gap.sync="gap"
         :rtl.sync="rtl"
         :use-scroll-container.sync="useScrollContainer"
+        :min-columns.sync="minColumns"
+        :max-columns.sync="maxColumns"
         @create-item="addItem($event)"
         @create-items="addItems()"
         @clear-items="items = []"
@@ -79,6 +86,8 @@ export default defineComponent({
         :gap="gap"
         :rtl="rtl"
         :scroll-container="useScrollContainer ? scrollContainer : undefined"
+        :min-columns="minColumns"
+        :max-columns="maxColumns"
       >
         <template #default="{ item, index }">
           <div

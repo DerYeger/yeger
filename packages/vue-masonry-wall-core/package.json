@@ -1,0 +1,29 @@
+{
+  "name": "@yeger/vue-masonry-wall-core",
+  "version": "3.7.0",
+  "private": true,
+  "sideEffects": false,
+  "main": "dist/index.umd.js",
+  "browser": "dist/index.mjs",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/types/index.d.ts",
+  "files": [
+    "dist/*",
+    "masonry-wall.d.ts"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc --noEmit",
+    "dev": "vite build --watch",
+    "lint": "yeger-lint"
+  },
+  "devDependencies": {
+    "@types/resize-observer-browser": "0.1.7",
+    "@yeger/tsconfig": "workspace:*",
+    "typescript": "5.1.3",
+    "vite": "4.3.9",
+    "vite-plugin-lib": "workspace:*"
+  }
+}

@@ -33,7 +33,7 @@
 
 - 📱 **Responsive**: Responsive with configurable column width and gaps. Based on `ResizeObserver`.
 - 🔁 **Reactive**: Reacts to property changes.
-- 🪶 **Lightweight**: Zero dependencies. Less than 1.7 kB.
+- 🪶 **Lightweight**: Zero dependencies. Less than 2 kB.
 - ⬅️ **RTL**: Supports LTR and RTL layouts.
 
 ## Links
@@ -63,11 +63,14 @@ Vue.use(MasonryWall)
 Props:
 
 - `items`: Array of items. Required.
-- `column-width`: Minimal width of columns in `px`.
+- `column-width`: Minimal width of columns in `px`. Can be either a `number`, or a non-empty array of `number`s. Defaults to `300`. If an array is passed, the first value will be used for the first column, the second value for the second column, and so on. If the array is shorter than the number of columns, the pattern will be repeated starting at the first value.
 - `gap`: Spacing between items in `px`. Defaults to `0`.
 - `rtl`: Toggles between LTR (`false`) and RTL (`true`) layouts. Defaults to `false`.
 - `ssr-columns`: Number of server-side-rendered columns. Optional.
 - `scroll-container`: Scrolling `HTMLElement` parent element that will be used for restoring scroll position. If omitted, `window` is used.
+- `min-columns`: Minimum number of columns. `undefined` implies no constraint. Defaults to `undefined`, but will always be at least `1` in the output.
+- `max-columns`: Maximum number of columns. `undefined` implies no constraint. Defaults to `undefined`. If `min-columns` is greater than `max-columns`, `min-columns` will take precedence.
+- `keyMapper`: Optional mapper function that receives an item, its column index, its row index, and its index w.r.t. the `items` array and returns a unique key. Defaults to `(_item, _column, _row, index) => index`.
 
 ```vue
 <script>

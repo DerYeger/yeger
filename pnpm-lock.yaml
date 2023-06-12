@@ -766,6 +766,9 @@ importers:
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@yeger/vue-masonry-wall-core':
+        specifier: workspace:*
+        version: link:../vue-masonry-wall-core
       bundlesize2:
         specifier: 0.0.31
         version: 0.0.31(patch_hash=4herlizhofruej6mubxc5snxay)
@@ -790,6 +793,24 @@ importers:
       vue-tsc:
         specifier: 1.6.5
         version: 1.6.5(typescript@5.1.3)(vue@3.3.4)
+
+  packages/vue-masonry-wall-core:
+    devDependencies:
+      '@types/resize-observer-browser':
+        specifier: 0.1.7
+        version: 0.1.7
+      '@yeger/tsconfig':
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: 5.1.3
+        version: 5.1.3
+      vite:
+        specifier: 4.3.9
+        version: 4.3.9(@types/node@18.16.16)
+      vite-plugin-lib:
+        specifier: workspace:*
+        version: link:../vite-plugin-lib
 
   packages/vue-persistent-storage-manager:
     devDependencies:
@@ -838,6 +859,9 @@ importers:
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@yeger/vue-masonry-wall-core':
+        specifier: workspace:*
+        version: link:../vue-masonry-wall-core
       babel-core:
         specifier: 7.0.0-bridge.0
         version: 7.0.0-bridge.0(@babel/core@7.21.8)
