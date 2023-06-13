@@ -10,6 +10,7 @@ export default defineConfig({
       entry: 'src/index.ts',
       formats: ['es', 'umd'],
       name: 'MasonryWall',
+      externalPackages: ['@yeger/vue-masonry-wall-core'],
     }),
   ],
   build: {
@@ -18,6 +19,7 @@ export default defineConfig({
       output: {
         globals: {
           vue: 'Vue',
+          '@yeger/vue-masonry-wall-core': 'MasonryWallCore',
         },
       },
     },

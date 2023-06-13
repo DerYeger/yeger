@@ -37,6 +37,7 @@
     "@changesets/cli": "2.26.1",
     "@commitlint/cli": "17.6.5",
     "@commitlint/config-conventional": "17.6.5",
+    "@turbo/gen": "1.10.3",
     "@types/node": "18.16.16",
     "@vitest/coverage-v8": "0.32.0",
     "@vitest/ui": "0.32.0",

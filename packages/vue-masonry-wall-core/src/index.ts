@@ -1,3 +1,10 @@
+import type {
+  LifecycleHook,
+  VueRef,
+  VueVersion,
+  Watch,
+} from '@yeger/vue-lib-adapter'
+
 export interface ComponentProps<T> {
   columnWidth?: number | NonEmptyArray<number>
   items: T[]
@@ -13,6 +20,7 @@ export interface ComponentProps<T> {
 export type NonEmptyArray<T> = [T, ...T[]]
 
 export type Column = number[]
+
 export interface Vue2ComponentEmits {
   (event: 'redraw'): void
   (event: 'redraw-skip'): void
@@ -44,10 +52,6 @@ export const defaults = {
   ssrColumns: 0,
 } as const satisfies Partial<ComponentProps<unknown>>
 
-export interface VueRef<T> {
-  value: T
-}
-
 export type KeyMapper<T> = (
   item: T,
   column: number,
@@ -62,17 +66,17 @@ export interface HookProps<T> {
   gap: VueRef<number>
   items: VueRef<T[]>
   keyMapper: VueRef<KeyMapper<T>>
-  maxColumns: VueRef<number | undefined> | undefined
-  minColumns: VueRef<number | undefined> | undefined
+  maxColumns: VueRef<number | undefined>
+  minColumns: VueRef<number | undefined>
   nextTick: () => Promise<void>
-  onBeforeUnmount: (callback: () => void) => void
-  onMounted: (callback: () => void) => void
+  onBeforeUnmount: LifecycleHook
+  onMounted: LifecycleHook
   rtl: VueRef<boolean>
   scrollContainer: VueRef<HTMLElement | null>
   ssrColumns: VueRef<number>
-  vue: 2 | 3
+  vue: VueVersion
   wall: VueRef<HTMLDivElement>
-  watch: (refs: (VueRef<unknown> | undefined)[], callback: () => void) => void
+  watch: Watch
 }
 
 export function useMasonryWall<T>({

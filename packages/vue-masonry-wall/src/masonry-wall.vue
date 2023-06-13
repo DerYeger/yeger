@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T">
+<script setup lang="ts">
 import type {
   Column,
   ComponentProps,
@@ -8,6 +8,8 @@ import type {
 import { defaults, useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
+
+type T = unknown
 
 const props = withDefaults(defineProps<ComponentProps<T>>(), defaults)
 
