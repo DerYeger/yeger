@@ -1,6 +1,6 @@
 {
   "name": "@yeger/vue-masonry-wall-core",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "sideEffects": false,
   "main": "dist/index.umd.js",
   "browser": "dist/index.mjs",
