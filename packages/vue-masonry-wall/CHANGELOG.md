@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 4.0.1
+
+### Patch Changes
+
+- 38ad6c8: externalize vue-lib-adapter
+- Updated dependencies [38ad6c8]
+  - @yeger/vue-masonry-wall-core@4.0.1
+
 ## 4.0.0
 
 ### Major Changes
