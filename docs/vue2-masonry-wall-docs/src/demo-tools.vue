@@ -5,7 +5,7 @@ export default defineComponent({
   name: 'DemoTools',
   props: {
     columnWidth: {
-      type: Number,
+      type: Array,
       required: true,
     },
     gap: {
@@ -20,15 +20,49 @@ export default defineComponent({
       type: Boolean,
       required: true,
     },
+    minColumns: {
+      type: Number,
+      required: true,
+    },
+    maxColumns: {
+      type: Number,
+      required: true,
+    },
   },
   data() {
     return {
+      colWidth1: 256,
+      colWidth2: 128,
+      colWidth3: 128,
+      colWidth4: 512,
+      colWidth5: 128,
       newItemHeight: 128,
     }
+  },
+  computed: {
+    columnWidths(): [number, ...number[]] {
+      return [
+        +this.colWidth1,
+        +this.colWidth2,
+        +this.colWidth3,
+        +this.colWidth4,
+        +this.colWidth5,
+      ] as [number, ...number[]]
+    },
+  },
+  watch: {
+    columnWidths() {
+      this.$emit('update:column-width', this.columnWidths)
+    },
   },
   methods: {
     randomHeight(): number {
       return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    },
+    getWidthLabel(index: number) {
+      const columnWidth = this.columnWidth
+      const widths = Array.isArray(columnWidth) ? columnWidth : [columnWidth]
+      return `${widths[index % widths.length]}px`
     },
   },
 })
@@ -38,18 +72,6 @@ export default defineComponent({
   <div id="tools">
     <section id="settings">
       <h2>Settings</h2>
-      <div class="row">
-        <label for="width">Column Width</label>
-        <input
-          id="width"
-          type="range"
-          min="128"
-          max="512"
-          :value="columnWidth"
-          @input="$emit('update:column-width', +$event.target.value)"
-        />
-        <span>{{ columnWidth }}px</span>
-      </div>
       <div class="row">
         <label for="gap">Gap</label>
         <input
@@ -61,6 +83,30 @@ export default defineComponent({
           @input="$emit('update:gap', +$event.target.value)"
         />
         <span>{{ gap }}px</span>
+      </div>
+      <div class="row">
+        <label for="min-columns">Min. Columns</label>
+        <input
+          id="min-columns"
+          type="range"
+          min="1"
+          max="10"
+          :value="minColumns"
+          @input="$emit('update:min-columns', +$event.target.value)"
+        />
+        <span>{{ minColumns }}</span>
+      </div>
+      <div class="row">
+        <label for="max-columns">Max. Columns</label>
+        <input
+          id="max-columns"
+          type="range"
+          min="1"
+          max="10"
+          :value="maxColumns"
+          @input="$emit('update:max-columns', +$event.target.value)"
+        />
+        <span>{{ maxColumns }}</span>
       </div>
       <div class="row">
         <label for="rtl">RTL</label>
@@ -79,6 +125,64 @@ export default defineComponent({
           :checked="useScrollContainer"
           @change="$emit('update:use-scroll-container', $event.target.checked)"
         />
+      </div>
+    </section>
+    <section id="columns">
+      <h2>Columns</h2>
+      <div class="row">
+        <label for="width">1st Column</label>
+        <input
+          id="width"
+          v-model="colWidth1"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ getWidthLabel(0) }}</span>
+      </div>
+      <div class="row">
+        <label for="2nd-width">2nd Column</label>
+        <input
+          id="2nd-width"
+          v-model="colWidth2"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ getWidthLabel(1) }}</span>
+      </div>
+      <div class="row">
+        <label for="3rd-width">3rd Column</label>
+        <input
+          id="3rd-width"
+          v-model="colWidth3"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ getWidthLabel(2) }}</span>
+      </div>
+      <div class="row">
+        <label for="4th-width">4th Column</label>
+        <input
+          id="4th-width"
+          v-model="colWidth4"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ getWidthLabel(3) }}</span>
+      </div>
+      <div class="row">
+        <label for="5th-width">5th Column</label>
+        <input
+          id="5th-width"
+          v-model="colWidth5"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ getWidthLabel(4) }}</span>
       </div>
     </section>
     <section id="item-creation">
