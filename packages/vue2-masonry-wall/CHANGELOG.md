@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 4.0.0
+
+### Major Changes
+
+- 55665f4: backport min-/max-columns, differing column width, by using vue masonry wall core
+
 ## 2.3.3
 
 ### Patch Changes

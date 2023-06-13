@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 4.0.0
+
+### Major Changes
+
+- 55665f4: use vue masonry wall core
+
 ## 3.7.0
 
 ### Minor Changes

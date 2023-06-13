@@ -1,6 +1,6 @@
 {
   "name": "@yeger/vue-masonry-wall",
-  "version": "3.7.0",
+  "version": "4.0.0",
   "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 3.",
   "author": {
     "name": "Jan Müller",
