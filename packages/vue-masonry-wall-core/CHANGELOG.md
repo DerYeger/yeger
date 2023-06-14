@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 4.0.3
+
+### Patch Changes
+
+- 8a2298a: specify license
+- Updated dependencies [8a2298a]
+  - @yeger/vue-lib-adapter@1.0.1
+
 ## 4.0.2
 
 ### Patch Changes
