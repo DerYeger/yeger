@@ -1,7 +1,23 @@
 {
   "name": "@yeger/vue-lib-adapter",
   "version": "1.0.0",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "repository": "github:DerYeger/yeger",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/index.umd.js",
+      "import": "./dist/index.mjs"
+    }
+  },
   "main": "dist/index.umd.js",
   "browser": "dist/index.mjs",
   "module": "dist/index.mjs",

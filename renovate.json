@@ -42,10 +42,6 @@
       "allowedVersions": "<2"
     },
     {
-      "matchPackageNames": ["nuxt"],
-      "allowedVersions": "3.0.0"
-    },
-    {
       "matchPackageNames": ["nuxt-icon"],
       "allowedVersions": "<=0.2.6"
     },
