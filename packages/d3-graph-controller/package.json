@@ -57,7 +57,7 @@
     "@types/d3-force": "3.0.4",
     "@types/d3-selection": "3.0.5",
     "@types/d3-zoom": "3.0.3",
-    "@types/node": "18.16.16",
+    "@types/node": "18.16.18",
     "@types/resize-observer-browser": "0.1.7",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
