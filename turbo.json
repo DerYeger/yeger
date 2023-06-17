@@ -28,8 +28,12 @@
       "dependsOn": ["build", "generate"],
       "cache": false
     },
+    "bench": {
+      "dependsOn": ["^build", "codegen"],
+      "cache": false
+    },
     "test": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "codegen"],
       "outputs": ["coverage/**"],
       "env": ["COVERAGE"]
     },

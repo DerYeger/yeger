@@ -26,6 +26,11 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
     actions: [
       {
         type: 'add',
+        path: '{{ turbo.paths.root }}/packages/{{ dashCase name }}/LICENSE',
+        templateFile: 'templates/lib/LICENSE',
+      },
+      {
+        type: 'add',
         path: '{{ turbo.paths.root }}/packages/{{ dashCase name }}/package.json',
         templateFile: 'templates/lib/package.json.hbs',
       },
