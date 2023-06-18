@@ -96,6 +96,15 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public distinct() {
     return AsyncDistinctStream.ofPrevious(this)
   }
+
+  public async find(fn: AsyncFilter<T>) {
+    for await (const item of this) {
+      if (await fn(item)) {
+        return item
+      }
+    }
+    return undefined
+  }
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {

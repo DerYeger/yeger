@@ -86,6 +86,15 @@ export abstract class Stream<T> implements Iterable<T> {
   public distinct() {
     return DistinctStream.ofPrevious(this)
   }
+
+  public find(fn: Filter<T>) {
+    for (const item of this) {
+      if (fn(item)) {
+        return item
+      }
+    }
+    return undefined
+  }
 }
 
 class SourceStream<T> extends Stream<T> {
