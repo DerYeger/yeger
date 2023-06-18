@@ -117,6 +117,10 @@ export abstract class Stream<T> implements Iterable<T> {
   public join(separator: string) {
     return this.reduce((acc, value) => acc + separator + value, '')
   }
+
+  public concat(...sources: Iterable<T>[]) {
+    return ConcatStream.ofPrevious(this, sources)
+  }
 }
 
 class SourceStream<T> extends Stream<T> {
@@ -259,6 +263,35 @@ class DistinctStream<T> extends Stream<T> {
         set.add(item)
         yield item
       }
+    }
+  }
+}
+
+class ConcatStream<T> extends Stream<T> {
+  private constructor(
+    private readonly previous: Stream<T>,
+    private readonly sources: Iterable<T>[]
+  ) {
+    super()
+  }
+
+  public static ofPrevious<T>(
+    previous: Stream<T>,
+    sources: Iterable<T>[]
+  ): Stream<T> {
+    if (previous instanceof ConcatStream) {
+      return new ConcatStream<T>(
+        previous.previous,
+        previous.sources.concat(...sources)
+      )
+    }
+    return new ConcatStream<T>(previous, sources)
+  }
+
+  public *[Symbol.iterator](): IterableIterator<T> {
+    yield* this.previous
+    for (const source of this.sources) {
+      yield* source
     }
   }
 }

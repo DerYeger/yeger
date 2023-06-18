@@ -127,6 +127,10 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public join(separator: string) {
     return this.reduce((acc, value) => acc + separator + value, '')
   }
+
+  public async concat(...streams: AsyncIterable<T>[]) {
+    return AsyncConcatStream.ofPrevious(this, ...streams)
+  }
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {
@@ -273,6 +277,35 @@ class AsyncDistinctStream<T> extends AsyncStream<T> {
         set.add(item)
         yield item
       }
+    }
+  }
+}
+
+class AsyncConcatStream<T> extends AsyncStream<T> {
+  private constructor(
+    private readonly previous: AsyncStream<T>,
+    private readonly sources: AsyncIterable<T>[]
+  ) {
+    super()
+  }
+
+  public static ofPrevious<T>(
+    previous: AsyncStream<T>,
+    ...streams: AsyncIterable<T>[]
+  ) {
+    if (previous instanceof AsyncConcatStream) {
+      return new AsyncConcatStream<T>(
+        previous.previous,
+        previous.sources.concat(streams)
+      )
+    }
+    return new AsyncConcatStream<T>(previous, streams)
+  }
+
+  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+    yield* this.previous
+    for (const source of this.sources) {
+      yield* source
     }
   }
 }
