@@ -1,4 +1,4 @@
-import { Stream } from '~/index'
+import { AsyncStream, Stream } from '~/index'
 
 function fibonacci(n: number): number {
   if (n <= 1) {
@@ -20,6 +20,15 @@ const testStream = Stream.from(source)
   .map((x) => fibonacci(x))
   .limit(limit)
 
+const asyncTestStream = AsyncStream.from(source)
+  .filter((x) => x % 2 !== 0)
+  .map((x) => x * 2)
+  .map((x) => `${x}.5`)
+  .map((x) => Number.parseInt(x, 10))
+  .map((x) => x % 20)
+  .map((x) => fibonacci(x))
+  .limit(limit)
+
 const earlyLimitTestStream = Stream.from(source)
   .filter((x) => x % 2 !== 0)
   .limit(limit)
@@ -30,9 +39,10 @@ const earlyLimitTestStream = Stream.from(source)
   .map((x) => fibonacci(x))
 
 export const TestUtils = {
+  asyncTestStream,
+  earlyLimitTestStream,
   fibonacci,
+  limit,
   source,
   testStream,
-  earlyLimitTestStream,
-  limit,
 }

@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { Stream } from '~/index'
 import { TestUtils } from '~test/test-utils'
 
-describe('streams', () => {
+describe('sync streams', () => {
   it('works with complex chains', () => {
     const res = Stream.from([null, 0, 1, 2, undefined, 3, 4, 5, 6, 7, 8, 9])
       .filterNonNull()

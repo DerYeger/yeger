@@ -555,9 +555,6 @@ importers:
       vite-plugin-lib:
         specifier: workspace:*
         version: link:../vite-plugin-lib
-      vitest:
-        specifier: 0.31.1
-        version: 0.31.1(@vitest/ui@0.32.2)
 
   packages/tsconfig: {}
 
