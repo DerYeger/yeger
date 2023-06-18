@@ -123,6 +123,10 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     }
     return true
   }
+
+  public join(separator: string) {
+    return this.reduce((acc, value) => acc + separator + value, '')
+  }
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {

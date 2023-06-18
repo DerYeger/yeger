@@ -113,6 +113,10 @@ export abstract class Stream<T> implements Iterable<T> {
     }
     return true
   }
+
+  public join(separator: string) {
+    return this.reduce((acc, value) => acc + separator + value, '')
+  }
 }
 
 class SourceStream<T> extends Stream<T> {
