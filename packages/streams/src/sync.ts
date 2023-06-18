@@ -82,9 +82,13 @@ export abstract class Stream<T> implements Iterable<T> {
   public toAsync() {
     return AsyncStream.from(this)
   }
+
+  public distinct() {
+    return DistinctStream.ofPrevious(this)
+  }
 }
 
-export class SourceStream<T> extends Stream<T> {
+class SourceStream<T> extends Stream<T> {
   private constructor(private readonly source: Iterable<T>) {
     super()
   }
@@ -100,7 +104,7 @@ export class SourceStream<T> extends Stream<T> {
   }
 }
 
-export class MapStream<Input, Output> extends Stream<Output> {
+class MapStream<Input, Output> extends Stream<Output> {
   private constructor(
     private readonly previous: Stream<Input>,
     private readonly fn: Processor<Input, Output>
@@ -127,7 +131,7 @@ export class MapStream<Input, Output> extends Stream<Output> {
   }
 }
 
-export class FlatMapStream<Input, Output> extends Stream<Output> {
+class FlatMapStream<Input, Output> extends Stream<Output> {
   private constructor(
     private readonly previous: Stream<Input>,
     private readonly fn: Processor<Input, Iterable<Output>>
@@ -149,7 +153,7 @@ export class FlatMapStream<Input, Output> extends Stream<Output> {
   }
 }
 
-export class LimitStream<T> extends Stream<T> {
+class LimitStream<T> extends Stream<T> {
   private constructor(
     private readonly previous: Stream<T>,
     private readonly n: number
@@ -178,7 +182,7 @@ export class LimitStream<T> extends Stream<T> {
   }
 }
 
-export class FilterStream<T> extends Stream<T> {
+class FilterStream<T> extends Stream<T> {
   private constructor(
     private readonly previous: Stream<T>,
     private readonly fn: Filter<T>
@@ -199,6 +203,29 @@ export class FilterStream<T> extends Stream<T> {
   public *[Symbol.iterator](): IterableIterator<T> {
     for (const item of this.previous) {
       if (this.fn(item)) {
+        yield item
+      }
+    }
+  }
+}
+
+class DistinctStream<T> extends Stream<T> {
+  private constructor(private readonly previous: Stream<T>) {
+    super()
+  }
+
+  public static ofPrevious<T>(previous: Stream<T>) {
+    if (previous instanceof DistinctStream) {
+      return new DistinctStream<T>(previous.previous)
+    }
+    return new DistinctStream<T>(previous)
+  }
+
+  public *[Symbol.iterator](): IterableIterator<T> {
+    const set = new Set<T>()
+    for (const item of this.previous) {
+      if (!set.has(item)) {
+        set.add(item)
         yield item
       }
     }

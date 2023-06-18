@@ -92,9 +92,13 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     }
     return this
   }
+
+  public distinct() {
+    return AsyncDistinctStream.ofPrevious(this)
+  }
 }
 
-export class AsyncSourceStream<T> extends AsyncStream<T> {
+class AsyncSourceStream<T> extends AsyncStream<T> {
   private constructor(private readonly source: Iterable<T>) {
     super()
   }
@@ -110,7 +114,7 @@ export class AsyncSourceStream<T> extends AsyncStream<T> {
   }
 }
 
-export class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
+class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
   private constructor(
     private readonly previous: AsyncStream<Input>,
     private readonly fn: AsyncProcessor<Input, Output>
@@ -138,7 +142,7 @@ export class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
   }
 }
 
-export class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
+class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
   private constructor(
     private readonly previous: AsyncStream<Input>,
     private readonly fn: AsyncFlatMap<Input, Output>
@@ -160,7 +164,7 @@ export class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
   }
 }
 
-export class AsyncLimitStream<T> extends AsyncStream<T> {
+class AsyncLimitStream<T> extends AsyncStream<T> {
   private constructor(
     private readonly previous: AsyncStream<T>,
     private readonly n: number
@@ -192,7 +196,7 @@ export class AsyncLimitStream<T> extends AsyncStream<T> {
   }
 }
 
-export class AsyncFilterStream<T> extends AsyncStream<T> {
+class AsyncFilterStream<T> extends AsyncStream<T> {
   private constructor(
     private readonly previous: AsyncStream<T>,
     private readonly fn: AsyncFilter<T>
@@ -213,6 +217,29 @@ export class AsyncFilterStream<T> extends AsyncStream<T> {
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
     for await (const item of this.previous) {
       if (await this.fn(item)) {
+        yield item
+      }
+    }
+  }
+}
+
+class AsyncDistinctStream<T> extends AsyncStream<T> {
+  private constructor(private readonly previous: AsyncStream<T>) {
+    super()
+  }
+
+  public static ofPrevious<T>(previous: AsyncStream<T>) {
+    if (previous instanceof AsyncDistinctStream) {
+      return new AsyncDistinctStream<T>(previous.previous)
+    }
+    return new AsyncDistinctStream<T>(previous)
+  }
+
+  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+    const set = new Set<T>()
+    for await (const item of this.previous) {
+      if (!set.has(item)) {
+        set.add(item)
         yield item
       }
     }
