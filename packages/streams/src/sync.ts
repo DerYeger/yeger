@@ -121,6 +121,10 @@ export abstract class Stream<T> implements Iterable<T> {
   public concat(...sources: Iterable<T>[]) {
     return ConcatStream.ofPrevious(this, sources)
   }
+
+  public cache() {
+    return CacheStream.ofPrevious(this)
+  }
 }
 
 class SourceStream<T> extends Stream<T> {
@@ -293,5 +297,33 @@ class ConcatStream<T> extends Stream<T> {
     for (const source of this.sources) {
       yield* source
     }
+  }
+}
+
+class CacheStream<T> extends Stream<T> {
+  private cachedInput: T[] | undefined = undefined
+
+  private constructor(private readonly previous: Stream<T>) {
+    super()
+  }
+
+  public static ofPrevious<T>(previous: Stream<T>) {
+    if (previous instanceof CacheStream) {
+      return previous
+    }
+    return new CacheStream<T>(previous)
+  }
+
+  public *[Symbol.iterator](): IterableIterator<T> {
+    if (this.cachedInput) {
+      yield* this.cachedInput
+      return
+    }
+    const cache: T[] = []
+    for (const item of this.previous) {
+      cache.push(item)
+      yield item
+    }
+    this.cachedInput = cache
   }
 }

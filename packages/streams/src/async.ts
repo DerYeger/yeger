@@ -131,6 +131,10 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public async concat(...streams: AsyncIterable<T>[]) {
     return AsyncConcatStream.ofPrevious(this, ...streams)
   }
+
+  public cache() {
+    return AsyncCacheStream.ofPrevious(this)
+  }
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {
@@ -307,5 +311,33 @@ class AsyncConcatStream<T> extends AsyncStream<T> {
     for (const source of this.sources) {
       yield* source
     }
+  }
+}
+
+class AsyncCacheStream<T> extends AsyncStream<T> {
+  private cachedInput: T[] | undefined = undefined
+
+  private constructor(private readonly previous: AsyncStream<T>) {
+    super()
+  }
+
+  public static ofPrevious<T>(previous: AsyncStream<T>) {
+    if (previous instanceof AsyncCacheStream) {
+      return previous
+    }
+    return new AsyncCacheStream<T>(previous)
+  }
+
+  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+    if (this.cachedInput) {
+      yield* this.cachedInput
+      return
+    }
+    const cache: T[] = []
+    for await (const item of this.previous) {
+      cache.push(item)
+      yield item
+    }
+    this.cachedInput = cache
   }
 }
