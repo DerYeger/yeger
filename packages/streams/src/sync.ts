@@ -23,22 +23,22 @@ export abstract class Stream<T> implements Iterable<T> {
     return Array.from(this)
   }
 
-  public toMap<K>(fn: (value: T) => K): Map<K, T> {
+  public toMap<K>(fn: Processor<T, K>): Map<K, T> {
     const stream = this.map((x) => [fn(x), x] as const)
     return new Map(stream)
   }
 
-  public toRecord(fn: (value: T) => string): Record<string, T> {
+  public toRecord(fn: Processor<T, string>): Record<string, T> {
     return Object.fromEntries(this.map((x) => [fn(x), x] as const))
   }
 
   public abstract [Symbol.iterator](): IterableIterator<T>
 
-  public map<R>(fn: (value: T) => R) {
+  public map<R>(fn: Processor<T, R>) {
     return MapStream.ofPrevious(this, fn)
   }
 
-  public flatMap<R>(fn: (value: T) => Iterable<R>) {
+  public flatMap<R>(fn: Processor<T, Iterable<R>>) {
     return FlatMapStream.ofPrevious(this, fn)
   }
 
@@ -46,7 +46,7 @@ export abstract class Stream<T> implements Iterable<T> {
     return LimitStream.ofPrevious(this, limit)
   }
 
-  public filter(fn: (value: T) => boolean) {
+  public filter(fn: Filter<T>) {
     return FilterStream.ofPrevious(this, fn)
   }
 
@@ -65,14 +65,14 @@ export abstract class Stream<T> implements Iterable<T> {
     return acc
   }
 
-  public sum(fn: T extends number ? void : (value: T) => number) {
+  public sum(fn: T extends number ? void : Processor<T, number>) {
     const add = fn
       ? (a: number, b: T) => a + fn(b)
       : (a: number, b: number) => a + b
     return this.reduce((acc, value) => add(acc, value as T & number), 0)
   }
 
-  public forEach(fn: (value: T) => void) {
+  public forEach(fn: Processor<T, void>) {
     for (const item of this) {
       fn(item)
     }

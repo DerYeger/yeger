@@ -31,13 +31,15 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return result
   }
 
-  public async toMap<K>(fn: (value: T) => K): Promise<Map<K, T>> {
-    const entries = this.map(async (x) => [fn(x), x] as const)
+  public async toMap<K>(fn: AsyncProcessor<T, K>): Promise<Map<K, T>> {
+    const entries = this.map(async (x) => [await fn(x), x] as const)
     return new Map(await entries.toArray())
   }
 
-  public async toRecord(fn: (value: T) => string): Promise<Record<string, T>> {
-    const entries = this.map(async (x) => [fn(x), x] as const)
+  public async toRecord(
+    fn: AsyncProcessor<T, string>
+  ): Promise<Record<string, T>> {
+    const entries = this.map(async (x) => [await fn(x), x] as const)
     return Object.fromEntries(await entries.toArray())
   }
 
@@ -77,14 +79,14 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return acc
   }
 
-  public async sum(fn: T extends number ? void : (value: T) => number) {
+  public async sum(fn: T extends number ? void : AsyncProcessor<T, number>) {
     const add = fn
-      ? (a: number, b: T) => a + fn(b)
+      ? async (a: number, b: T) => a + (await fn(b))
       : (a: number, b: number) => a + b
     return this.reduce((acc, value) => add(acc, value as T & number), 0)
   }
 
-  public async forEach(fn: (value: T) => void) {
+  public async forEach(fn: AsyncProcessor<T, void>) {
     for await (const item of this) {
       fn(item)
     }
