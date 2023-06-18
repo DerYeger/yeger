@@ -105,6 +105,24 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     }
     return undefined
   }
+
+  public async some(fn: AsyncFilter<T>) {
+    for await (const item of this) {
+      if (await fn(item)) {
+        return true
+      }
+    }
+    return false
+  }
+
+  public async every(fn: AsyncFilter<T>) {
+    for await (const item of this) {
+      if (!(await fn(item))) {
+        return false
+      }
+    }
+    return true
+  }
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {

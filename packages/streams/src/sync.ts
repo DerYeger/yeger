@@ -95,6 +95,24 @@ export abstract class Stream<T> implements Iterable<T> {
     }
     return undefined
   }
+
+  public some(fn: Filter<T>) {
+    for (const item of this) {
+      if (fn(item)) {
+        return true
+      }
+    }
+    return false
+  }
+
+  public every(fn: Filter<T>) {
+    for (const item of this) {
+      if (!fn(item)) {
+        return false
+      }
+    }
+    return true
+  }
 }
 
 class SourceStream<T> extends Stream<T> {
