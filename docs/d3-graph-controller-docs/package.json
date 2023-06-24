@@ -11,7 +11,7 @@
     "check:vue": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "@algolia/client-search": "4.17.2",
+    "@algolia/client-search": "4.18.0",
     "d3-graph-controller": "workspace:*",
     "vue": "3.3.4"
   },

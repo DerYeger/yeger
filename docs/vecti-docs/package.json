@@ -9,7 +9,7 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "4.17.2",
+    "@algolia/client-search": "4.18.0",
     "vecti": "workspace:*",
     "vue": "3.3.4"
   },
