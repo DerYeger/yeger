@@ -35,18 +35,22 @@ export interface Options {
   entry: string
   formats?: LibraryFormats[]
   externalPackages?: (string | RegExp)[]
+  tsconfig?: string
   verbose?: boolean
 }
 
-export function tsconfigPaths({ verbose }: Partial<Options> = {}): Plugin {
+export function tsconfigPaths({
+  verbose,
+  tsconfig = 'tsconfig.json',
+}: Partial<Options> = {}): Plugin {
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
     config: async (config) => {
-      const tsconfigPath = path.resolve(config.root ?? '.', 'tsconfig.json')
+      const tsconfigPath = path.resolve(config.root ?? '.', tsconfig)
       const { baseUrl, paths } = await readConfig(tsconfigPath)
       if (!baseUrl || !paths) {
-        log('No paths found in tsconfig.json.')
+        log(`No paths found in ${tsconfig}`)
         return config
       }
       const pathToAlias = pathToAliasFactory(tsconfigPath, baseUrl, verbose)
@@ -195,7 +199,7 @@ function formatToFileName(entry: string, format: string): string {
 
 export function library(options: Options): Plugin[] {
   return [
-    tsconfigPaths(),
+    tsconfigPaths(options),
     buildConfig(options),
     dts({
       cleanVueFileName: true,

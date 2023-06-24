@@ -18,20 +18,18 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "LICENSE"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "unbuild && cp dist/index.d.ts dist/index.d.mts && mv dist/index.d.ts dist/index.d.cts",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc --noEmit",
     "lint": "yeger-lint"
@@ -42,6 +40,7 @@
   },
   "dependencies": {
     "picocolors": "1.0.0",
+    "tsconfck": "^2.1.1",
     "vite-plugin-dts": "2.3.0"
   },
   "devDependencies": {
