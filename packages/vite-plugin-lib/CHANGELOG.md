@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 1.2.3
+
+### Patch Changes
+
+- 9bfae13: update to vite-plugin-dts v3.0.0
+
 ## 1.2.2
 
 ### Patch Changes
