@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "picocolors": "1.0.0",
-    "vite-plugin-dts": "2.3.0"
+    "vite-plugin-dts": "3.0.0"
   },
   "devDependencies": {
     "@types/node": "18.16.18",

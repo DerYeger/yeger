@@ -201,7 +201,7 @@ export function library(options: Options): Plugin[] {
       cleanVueFileName: true,
       copyDtsFiles: true,
       include: `${path.resolve(options.entry, '..')}/**`,
-      outputDir: 'dist/types',
+      outDir: 'dist/types',
       staticImport: true,
     }),
   ]
