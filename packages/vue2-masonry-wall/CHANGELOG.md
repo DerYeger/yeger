@@ -1,5 +1,12 @@
 # @yeger/vue2-masonry-wall
 
+## 4.0.4
+
+### Patch Changes
+
+- 1b42930: emit valid types
+  - @yeger/vue-masonry-wall-core@4.0.3
+
 ## 4.0.3
 
 ### Patch Changes
