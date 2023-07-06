@@ -7,7 +7,7 @@ bench(
   () => {
     TestUtils.testStream.toMap((x) => x.toString())
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -15,7 +15,7 @@ bench(
   () => {
     TestUtils.earlyLimitTestStream.toMap((x) => x.toString())
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -33,7 +33,7 @@ bench(
       }
     }
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -53,7 +53,7 @@ bench(
     // @ts-expect-error Unused
     const _result = new Map(intermediate)
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -69,10 +69,10 @@ bench(
         .map((x) => x % 20)
         .map(TestUtils.fibonacci)
         .slice(0, TestUtils.limit)
-        .map((x) => [x.toString(), x])
+        .map((x) => [x.toString(), x]),
     )
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -88,8 +88,8 @@ bench(
         .map((x) => Number.parseInt(x, 10))
         .map((x) => x % 20)
         .map(TestUtils.fibonacci)
-        .map((x) => [x.toString(), x])
+        .map((x) => [x.toString(), x]),
     )
   },
-  { time: 1000 }
+  { time: 1000 },
 )

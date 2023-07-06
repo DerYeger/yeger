@@ -37,7 +37,7 @@ describe('async streams', () => {
       }
       count++
       forOfResult += TestUtils.fibonacci(
-        Number.parseInt(`${item * 2}.5`, 10) % 20
+        Number.parseInt(`${item * 2}.5`, 10) % 20,
       )
       if (count === TestUtils.limit) {
         break
@@ -67,13 +67,13 @@ describe('async streams', () => {
 
   it('can create a map with a mapper', async () => {
     const streamResult = await AsyncStream.from([1, 2]).toMap((x) =>
-      x.toString()
+      x.toString(),
     )
     expect(streamResult).toEqual(
       new Map([
         ['1', 1],
         ['2', 2],
-      ])
+      ]),
     )
   })
 

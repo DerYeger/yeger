@@ -7,7 +7,7 @@ bench(
   () => {
     TestUtils.testStream.toArray()
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -15,7 +15,7 @@ bench(
   () => {
     TestUtils.earlyLimitTestStream.toArray()
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -32,7 +32,7 @@ bench(
       }
     }
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -47,7 +47,7 @@ bench(
       .map(TestUtils.fibonacci)
       .slice(0, TestUtils.limit)
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -62,5 +62,5 @@ bench(
       .map((x) => x % 20)
       .map(TestUtils.fibonacci)
   },
-  { time: 1000 }
+  { time: 1000 },
 )

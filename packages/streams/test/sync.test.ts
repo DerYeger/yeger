@@ -24,7 +24,7 @@ describe('sync streams', () => {
       }
       count++
       forOfResult += TestUtils.fibonacci(
-        Number.parseInt(`${item * 2}.5`, 10) % 20
+        Number.parseInt(`${item * 2}.5`, 10) % 20,
       )
       if (count === TestUtils.limit) {
         break
@@ -55,14 +55,14 @@ describe('sync streams', () => {
       new Map([
         ['1', 1],
         ['2', 2],
-      ])
+      ]),
     )
   })
 
   it('can flatmap', () => {
-    const streamResult = Stream.from([1, 2, 3])
-      .flatMap((x) => [x, x])
+    const streamResult = Stream.from([[1], [2, 2], [3, 3, 3]])
+      .flatMap((x) => Stream.from(x))
       .toArray()
-    expect(streamResult).toEqual([1, 1, 2, 2, 3, 3])
+    expect(streamResult).toEqual([1, 2, 2, 3, 3, 3])
   })
 })

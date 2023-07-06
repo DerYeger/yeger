@@ -1,21 +1,23 @@
 export type AsyncProcessor<Input, Output> = (
-  value: Input
+  value: Input,
 ) => Output | Promise<Output>
 
 export type AsyncFilter<Input> = AsyncProcessor<Input, boolean>
 
 export type AsyncFlatMap<Input, Output> = (
-  value: Input
+  value: Input,
 ) => Iterable<Output> | AsyncIterable<Output>
 
 export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public static fromObject<T>(
-    source: Record<string | number | symbol, T>
+    source: Record<string | number | symbol, T>,
   ): AsyncStream<[string, T]> {
     return AsyncStream.from(Object.entries(source))
   }
 
-  public static from<T>(source: Iterable<T>): AsyncStream<T> {
+  public static from<T>(
+    source: Iterable<T> | AsyncIterable<T>,
+  ): AsyncStream<T> {
     return AsyncSourceStream.from(source)
   }
 
@@ -37,7 +39,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   }
 
   public async toRecord(
-    fn: AsyncProcessor<T, string>
+    fn: AsyncProcessor<T, string>,
   ): Promise<Record<string, T>> {
     const entries = this.map(async (x) => [await fn(x), x] as const)
     return Object.fromEntries(await entries.toArray())
@@ -64,13 +66,13 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public filterNonNull() {
     return AsyncFilterStream.ofPrevious(
       this,
-      async (x) => x !== null && x !== undefined
+      async (x) => x !== null && x !== undefined,
     ) as AsyncFilterStream<NonNullable<T>>
   }
 
   public async reduce<R>(
     fn: (acc: R, value: T) => R | Promise<R>,
-    initialValue: R | Promise<R>
+    initialValue: R | Promise<R>,
   ) {
     let acc = await initialValue
     for await (const item of this) {
@@ -138,16 +140,16 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {
-  private constructor(private readonly source: Iterable<T>) {
+  private constructor(private readonly source: Iterable<T> | AsyncIterable<T>) {
     super()
   }
 
-  public static from<T>(source: Iterable<T>) {
+  public static from<T>(source: Iterable<T> | AsyncIterable<T>) {
     return new AsyncSourceStream(source)
   }
 
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    for (const value of this.source) {
+    for await (const value of this.source) {
       yield value
     }
   }
@@ -156,19 +158,19 @@ class AsyncSourceStream<T> extends AsyncStream<T> {
 class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
   private constructor(
     private readonly previous: AsyncStream<Input>,
-    private readonly fn: AsyncProcessor<Input, Output>
+    private readonly fn: AsyncProcessor<Input, Output>,
   ) {
     super()
   }
 
   public static ofPrevious<Input, Output>(
     previous: AsyncStream<Input>,
-    fn: AsyncProcessor<Input, Output>
+    fn: AsyncProcessor<Input, Output>,
   ) {
     if (previous instanceof AsyncMapStream) {
       return new AsyncMapStream<Input, Output>(
         previous.previous,
-        async (value) => fn(await previous.fn(value))
+        async (value) => fn(await previous.fn(value)),
       )
     }
     return new AsyncMapStream(previous, fn)
@@ -184,14 +186,14 @@ class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
 class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
   private constructor(
     private readonly previous: AsyncStream<Input>,
-    private readonly fn: AsyncFlatMap<Input, Output>
+    private readonly fn: AsyncFlatMap<Input, Output>,
   ) {
     super()
   }
 
   public static ofPrevious<Input, Output>(
     previous: AsyncStream<Input>,
-    fn: AsyncFlatMap<Input, Output>
+    fn: AsyncFlatMap<Input, Output>,
   ) {
     return new AsyncFlatMapStream(previous, fn)
   }
@@ -206,7 +208,7 @@ class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
 class AsyncLimitStream<T> extends AsyncStream<T> {
   private constructor(
     private readonly previous: AsyncStream<T>,
-    private readonly n: number
+    private readonly n: number,
   ) {
     super()
   }
@@ -215,7 +217,7 @@ class AsyncLimitStream<T> extends AsyncStream<T> {
     if (previous instanceof AsyncLimitStream) {
       return new AsyncLimitStream<T>(
         previous.previous,
-        Math.min(previous.n, limit)
+        Math.min(previous.n, limit),
       )
     }
     return new AsyncLimitStream<T>(previous, limit)
@@ -238,7 +240,7 @@ class AsyncLimitStream<T> extends AsyncStream<T> {
 class AsyncFilterStream<T> extends AsyncStream<T> {
   private constructor(
     private readonly previous: AsyncStream<T>,
-    private readonly fn: AsyncFilter<T>
+    private readonly fn: AsyncFilter<T>,
   ) {
     super()
   }
@@ -247,7 +249,7 @@ class AsyncFilterStream<T> extends AsyncStream<T> {
     if (previous instanceof AsyncFilterStream) {
       return new AsyncFilterStream<T>(
         previous.previous,
-        async (value) => (await previous.fn(value)) && (await fn(value))
+        async (value) => (await previous.fn(value)) && (await fn(value)),
       )
     }
     return new AsyncFilterStream<T>(previous, fn)
@@ -288,7 +290,7 @@ class AsyncDistinctStream<T> extends AsyncStream<T> {
 class AsyncConcatStream<T> extends AsyncStream<T> {
   private constructor(
     private readonly previous: AsyncStream<T>,
-    private readonly sources: AsyncIterable<T>[]
+    private readonly sources: AsyncIterable<T>[],
   ) {
     super()
   }
@@ -300,7 +302,7 @@ class AsyncConcatStream<T> extends AsyncStream<T> {
     if (previous instanceof AsyncConcatStream) {
       return new AsyncConcatStream<T>(
         previous.previous,
-        previous.sources.concat(streams)
+        previous.sources.concat(streams),
       )
     }
     return new AsyncConcatStream<T>(previous, streams)

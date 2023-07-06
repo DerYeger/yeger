@@ -7,7 +7,7 @@ bench(
   () => {
     TestUtils.testStream.toSet()
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -16,7 +16,7 @@ bench(
     // @ts-expect-error Unused
     const _result = new Set(TestUtils.testStream.toArray())
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -24,7 +24,7 @@ bench(
   () => {
     TestUtils.earlyLimitTestStream.toSet()
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -41,7 +41,7 @@ bench(
       }
     }
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -60,7 +60,7 @@ bench(
     // @ts-expect-error Unused
     const _set = new Set(result)
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -77,7 +77,7 @@ bench(
     // @ts-expect-error Unused
     const _set = new Set(result)
   },
-  { time: 1000 }
+  { time: 1000 },
 )
 
 bench(
@@ -94,5 +94,5 @@ bench(
     // @ts-expect-error Unused
     const _set = new Set(result)
   },
-  { time: 1000 }
+  { time: 1000 },
 )

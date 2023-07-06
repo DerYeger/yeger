@@ -6,7 +6,7 @@ export type Filter<Input> = Processor<Input, boolean>
 
 export abstract class Stream<T> implements Iterable<T> {
   public static fromObject<T>(
-    source: Record<string | number | symbol, T>
+    source: Record<string | number | symbol, T>,
   ): Stream<[string, T]> {
     return Stream.from(Object.entries(source))
   }
@@ -53,7 +53,7 @@ export abstract class Stream<T> implements Iterable<T> {
   public filterNonNull() {
     return FilterStream.ofPrevious(
       this,
-      (x) => x !== null && x !== undefined
+      (x) => x !== null && x !== undefined,
     ) as FilterStream<NonNullable<T>>
   }
 
@@ -146,18 +146,18 @@ class SourceStream<T> extends Stream<T> {
 class MapStream<Input, Output> extends Stream<Output> {
   private constructor(
     private readonly previous: Stream<Input>,
-    private readonly fn: Processor<Input, Output>
+    private readonly fn: Processor<Input, Output>,
   ) {
     super()
   }
 
   public static ofPrevious<Input, Output>(
     previous: Stream<Input>,
-    fn: Processor<Input, Output>
+    fn: Processor<Input, Output>,
   ) {
     if (previous instanceof MapStream) {
       return new MapStream<Input, Output>(previous.previous, (value) =>
-        fn(previous.fn(value))
+        fn(previous.fn(value)),
       )
     }
     return new MapStream(previous, fn)
@@ -173,14 +173,14 @@ class MapStream<Input, Output> extends Stream<Output> {
 class FlatMapStream<Input, Output> extends Stream<Output> {
   private constructor(
     private readonly previous: Stream<Input>,
-    private readonly fn: Processor<Input, Iterable<Output>>
+    private readonly fn: Processor<Input, Iterable<Output>>,
   ) {
     super()
   }
 
   public static ofPrevious<Input, Output>(
     previous: Stream<Input>,
-    fn: Processor<Input, Iterable<Output>>
+    fn: Processor<Input, Iterable<Output>>,
   ) {
     return new FlatMapStream(previous, fn)
   }
@@ -195,7 +195,7 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
 class LimitStream<T> extends Stream<T> {
   private constructor(
     private readonly previous: Stream<T>,
-    private readonly n: number
+    private readonly n: number,
   ) {
     super()
   }
@@ -224,7 +224,7 @@ class LimitStream<T> extends Stream<T> {
 class FilterStream<T> extends Stream<T> {
   private constructor(
     private readonly previous: Stream<T>,
-    private readonly fn: Filter<T>
+    private readonly fn: Filter<T>,
   ) {
     super()
   }
@@ -233,7 +233,7 @@ class FilterStream<T> extends Stream<T> {
     if (previous instanceof FilterStream) {
       return new FilterStream<T>(
         previous.previous,
-        (value) => previous.fn(value) && fn(value)
+        (value) => previous.fn(value) && fn(value),
       )
     }
     return new FilterStream<T>(previous, fn)
@@ -274,19 +274,19 @@ class DistinctStream<T> extends Stream<T> {
 class ConcatStream<T> extends Stream<T> {
   private constructor(
     private readonly previous: Stream<T>,
-    private readonly sources: Iterable<T>[]
+    private readonly sources: Iterable<T>[],
   ) {
     super()
   }
 
   public static ofPrevious<T>(
     previous: Stream<T>,
-    sources: Iterable<T>[]
+    sources: Iterable<T>[],
   ): Stream<T> {
     if (previous instanceof ConcatStream) {
       return new ConcatStream<T>(
         previous.previous,
-        previous.sources.concat(...sources)
+        previous.sources.concat(...sources),
       )
     }
     return new ConcatStream<T>(previous, sources)
