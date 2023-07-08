@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 export type VariableAssignment = Record<string, number>
 
 export class Model {

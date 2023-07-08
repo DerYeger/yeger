@@ -151,7 +151,7 @@ export function useMasonryWall<T>({
   }
 
   function createColumns(count: number): Column[] {
-    return [...new Array(count)].map(() => [])
+    return Array.from({ length: count }).map(() => [])
   }
 
   if (ssrColumns.value > 0) {

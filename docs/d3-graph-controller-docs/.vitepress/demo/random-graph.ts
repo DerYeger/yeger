@@ -27,7 +27,7 @@ export const randomGraphConfig: DemoGraphConfig = defineGraphConfig({
 
 export function generateRandomGraph(): DemoGraph {
   const nodeCount = 200
-  const nodes: DemoNode[] = [...new Array(nodeCount)].map((_, id) =>
+  const nodes: DemoNode[] = Array.from({ length: nodeCount }).map((_, id) =>
     defineDemoNode(
       id.toString(),
       id % 4 === 1 ? 'secondary' : 'primary',

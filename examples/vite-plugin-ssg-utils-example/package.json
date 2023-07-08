@@ -9,16 +9,16 @@
     "check:tsc": "tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "18.16.18",
+    "@types/node": "18.16.19",
     "@vitejs/plugin-vue": "4.2.3",
     "@vueuse/head": "1.1.26",
     "@yeger/tsconfig": "workspace:*",
     "critters": "0.0.19",
-    "typescript": "5.1.3",
-    "vite": "4.3.9",
+    "typescript": "5.1.6",
+    "vite": "4.4.2",
     "vite-plugin-ssg-utils": "workspace:*",
-    "vite-ssg": "0.22.2",
+    "vite-ssg": "0.23.0",
     "vue": "3.3.4",
-    "vue-router": "4.2.2"
+    "vue-router": "4.2.4"
   }
 }
