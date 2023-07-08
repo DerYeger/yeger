@@ -66,7 +66,7 @@ const testModel = new Model(
     new Relation('B', 1, new Set(['1'])),
     new Relation('C', 1, new Set(['1', '2'])),
     new Relation('D', 1, new Set(['2'])),
-  ]
+  ],
 )
 
 const validModels: Model[] = [testModel]
@@ -78,7 +78,7 @@ const invalidModels: [string, Model][] = [
       new Set([1]),
       {},
       [new Function('f', 2, { '1,1': 1, '1,2': 1, '2,1': 1 })],
-      []
+      [],
     ),
   ],
   ['out-of-range constant', new Model(new Set([1]), { c: 2 }, [], [])],

@@ -8,13 +8,13 @@ export class Model {
     public readonly domain: Set<number>,
     public readonly constants: Record<string, number>,
     functions: Function[],
-    relations: Relation[]
+    relations: Relation[],
   ) {
     this.functions = Object.fromEntries(
-      functions.map((func) => [func.name, func])
+      functions.map((func) => [func.name, func]),
     )
     this.relations = Object.fromEntries(
-      relations.map((relation) => [relation.name, relation])
+      relations.map((relation) => [relation.name, relation]),
     )
   }
 
@@ -36,7 +36,7 @@ function generateAllArguments(domain: number[], remaining: number): string[] {
     return domain.map((element) => element.toString())
   }
   return generateAllArguments(domain, remaining - 1).flatMap((partial) =>
-    domain.map((element) => `${element},${partial}`)
+    domain.map((element) => `${element},${partial}`),
   )
 }
 
@@ -44,21 +44,21 @@ export class Function {
   public constructor(
     public readonly name: string,
     public readonly arity: number,
-    public readonly data: Record<string, number>
+    public readonly data: Record<string, number>,
   ) {}
 
   public apply(...args: number[]): number {
     if (args.length !== this.arity) {
       throw new Error(
-        `Arity mismatch for function ${this.name}. Expected ${this.arity} but got ${args.length}.`
+        `Arity mismatch for function ${this.name}. Expected ${this.arity} but got ${args.length}.`,
       )
     }
     const result = this.data[args.join(',')]
     if (result === undefined) {
       throw new Error(
         `Function ${this.name} is not total. ${this.name}(${args.join(
-          ', '
-        )}) is not defined.`
+          ', ',
+        )}) is not defined.`,
       )
     }
     return result
@@ -66,7 +66,7 @@ export class Function {
 
   public isTotal(domain: number[]): boolean {
     return generateAllArguments(domain, this.arity).every(
-      (args) => this.data[args] !== undefined
+      (args) => this.data[args] !== undefined,
     )
   }
 }
@@ -75,13 +75,13 @@ export class Relation {
   public constructor(
     public readonly name: string,
     public readonly arity: number,
-    public readonly data: Set<string>
+    public readonly data: Set<string>,
   ) {}
 
   public includes(...args: number[]): boolean {
     if (args.length !== this.arity) {
       throw new Error(
-        `Arity mismatch for relation ${this.name}. Expected ${this.arity} but got ${args.length}.`
+        `Arity mismatch for relation ${this.name}. Expected ${this.arity} but got ${args.length}.`,
       )
     }
     return this.data.has(args.join(','))

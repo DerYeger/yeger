@@ -33,7 +33,7 @@ import type { GraphNode } from '~/model/node'
 export class GraphController<
   T extends NodeTypeToken = NodeTypeToken,
   Node extends GraphNode<T> = GraphNode<T>,
-  Link extends GraphLink<T, Node> = GraphLink<T, Node>
+  Link extends GraphLink<T, Node> = GraphLink<T, Node>,
 > {
   /**
    * Array of all node types included in the controller's graph.
@@ -79,7 +79,7 @@ export class GraphController<
   public constructor(
     private readonly container: HTMLDivElement,
     private readonly graph: Graph<T, Node, Link>,
-    private readonly config: GraphConfig<T, Node, Link>
+    private readonly config: GraphConfig<T, Node, Link>,
   ) {
     this.scale = config.zoom.initial
 
@@ -89,7 +89,7 @@ export class GraphController<
       const [x, y] = config.positionInitializer(
         node,
         this.effectiveWidth,
-        this.effectiveHeight
+        this.effectiveHeight,
       )
       node.x = node.x ?? x
       node.y = node.y ?? y
@@ -242,7 +242,7 @@ export class GraphController<
     this.restart(
       isNumber(alpha)
         ? alpha
-        : alpha({ oldWidth, oldHeight, newWidth, newHeight })
+        : alpha({ oldWidth, oldHeight, newWidth, newHeight }),
     )
   }
 
@@ -295,7 +295,7 @@ export class GraphController<
       this._nodeTypeFilter.push(nodeType)
     } else {
       this._nodeTypeFilter = this._nodeTypeFilter.filter(
-        (type) => type !== nodeType
+        (type) => type !== nodeType,
       )
     }
     this.filterGraph(this.focusedNode)

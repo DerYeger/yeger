@@ -40,7 +40,7 @@ export function defineCanvas({
   if (applyZoom) {
     svg.call(
       zoom.transform,
-      zoomIdentity.translate(xOffset, yOffset).scale(scale)
+      zoomIdentity.translate(xOffset, yOffset).scale(scale),
     )
   }
 

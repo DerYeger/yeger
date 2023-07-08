@@ -68,7 +68,7 @@ export function redefineGlobals(): void {
 
 export function checkStorageEstimate(
   vm: VueConstructor,
-  expected: StorageEstimate
+  expected: StorageEstimate,
 ): void {
   expect(vm.prototype.$storageManager.storageEstimate).toEqual(expected)
   expect(vm.prototype.$storageEstimate).toEqual(expected)
@@ -78,7 +78,7 @@ export async function checkPluginInstallation(
   vm: VueConstructor,
   options?: PluginOptions,
   isAvailable = false,
-  isPersistent = false
+  isPersistent = false,
 ): Promise<void> {
   expect(vm.prototype.$storageManager).toBeUndefined()
   vm.use(VuePersistentStorageManager, options)

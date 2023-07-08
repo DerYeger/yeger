@@ -10,7 +10,7 @@ import type { Label } from '~/model/shared'
 export interface GraphLink<
   T extends NodeTypeToken = NodeTypeToken,
   SourceNode extends GraphNode<T> = GraphNode<T>,
-  TargetNode extends GraphNode<T> = SourceNode
+  TargetNode extends GraphNode<T> = SourceNode,
 > extends SimulationLinkDatum<SourceNode | TargetNode> {
   /**
    * The source node of the link.
@@ -44,7 +44,7 @@ export function defineLink<
     T,
     SourceNode,
     TargetNode
-  >
+  >,
 >(data: Link): Link {
   return {
     ...data,

@@ -24,7 +24,7 @@ const parseResult = computed(() => FOL.parse(formulaInput.value))
 const formula = computed(() => parseResult.value.getOrUndefined())
 const formulaError = computed(() => parseResult.value.getErrorOrUndefined())
 const formattedFormula = computed(
-  () => formula.value?.toFormattedString() ?? 'Invalid'
+  () => formula.value?.toFormattedString() ?? 'Invalid',
 )
 
 const model = ref<Model>()
@@ -49,7 +49,7 @@ const traceError = computed(() => traceResult.value?.getErrorOrUndefined())
 const modelError = computed(() =>
   model.value
     ? Validator.validateModel(model.value).getErrorOrUndefined()
-    : undefined
+    : undefined,
 )
 
 const { loading } = useAppStorage()

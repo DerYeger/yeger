@@ -10,7 +10,7 @@ import type { GraphNode } from '~/model/node'
 export interface DefineDragParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly onDragStart: (event: NodeDragEvent<T, Node>, d: Node) => void
@@ -20,7 +20,7 @@ export interface DefineDragParams<
 export function defineDrag<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   config,
   onDragStart,

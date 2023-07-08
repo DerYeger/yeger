@@ -22,13 +22,13 @@ describe('GraphController', () => {
 
   it('renders nodes', () => {
     expect(container.querySelectorAll('.node').length).toEqual(
-      TestData.graph.nodes.length
+      TestData.graph.nodes.length,
     )
   })
 
   it('renders links', () => {
     expect(container.querySelectorAll('.link').length).toEqual(
-      TestData.graph.links.length
+      TestData.graph.links.length,
     )
   })
 
@@ -38,7 +38,7 @@ describe('GraphController', () => {
         controller = new GraphController(
           container,
           TestData.graph,
-          defineGraphConfig<TestNodeType>({ initial: { nodeTypeFilter: [] } })
+          defineGraphConfig<TestNodeType>({ initial: { nodeTypeFilter: [] } }),
         )
 
         expect(controller.nodeTypeFilter).toEqual([])
@@ -52,7 +52,7 @@ describe('GraphController', () => {
           TestData.graph,
           defineGraphConfig<TestNodeType>({
             initial: { includeUnlinked: false },
-          })
+          }),
         )
 
         expect(controller.includeUnlinked).toEqual(false)
@@ -68,7 +68,7 @@ describe('GraphController', () => {
               linkFilter: (link: GraphLink<TestNodeType>) =>
                 link.source.id === link.target.id,
             },
-          })
+          }),
         )
 
         expect(container.querySelectorAll('.link').length).toEqual(1)
@@ -79,7 +79,7 @@ describe('GraphController', () => {
   describe('has settings that', () => {
     it('can exclude unlinked nodes', () => {
       expect(container.querySelectorAll('.node').length).toEqual(
-        TestData.graph.nodes.length
+        TestData.graph.nodes.length,
       )
 
       controller.includeUnlinked = false
@@ -89,7 +89,7 @@ describe('GraphController', () => {
 
     it('can filter links', () => {
       expect(container.querySelectorAll('.link').length).toEqual(
-        TestData.graph.links.length
+        TestData.graph.links.length,
       )
 
       controller.linkFilter = (link: GraphLink<TestNodeType>) =>
@@ -104,8 +104,8 @@ describe('GraphController', () => {
       const checkIncludedNodes = () => {
         expect(container.querySelectorAll('.node').length).toEqual(
           TestData.graph.nodes.filter(
-            (node) => !currentlyExcluded.includes(node.type)
-          ).length
+            (node) => !currentlyExcluded.includes(node.type),
+          ).length,
         )
       }
 

@@ -7,7 +7,7 @@ export type ValidationResult = Result<null, string>
 
 function allElementsAreInRange(
   elements: number[],
-  domain: Set<number>
+  domain: Set<number>,
 ): ValidationResult {
   for (const element of elements) {
     if (Number.isNaN(element) || !domain.has(element)) {
@@ -19,14 +19,14 @@ function allElementsAreInRange(
 
 function allValuesAreInRange(
   record: Record<string, number>,
-  domain: Set<number>
+  domain: Set<number>,
 ): ValidationResult {
   return allElementsAreInRange(Object.values(record), domain)
 }
 
 function allKeysAreInRange(
   record: Record<string, unknown>,
-  domain: Set<number>
+  domain: Set<number>,
 ): ValidationResult {
   const keys = Object.keys(record)
     .flatMap((key) => key.split(','))
@@ -60,7 +60,7 @@ function validateRelations(model: Model): ValidationResult {
       .flatMap((entry) => entry.split(','))
       .map((element) => Number.parseInt(element))
     const result = allElementsAreInRange(elements, model.domain).mapError(
-      (error) => `${error} but used in relation ${relation.name}.`
+      (error) => `${error} but used in relation ${relation.name}.`,
     )
     if (result.isError) {
       return result

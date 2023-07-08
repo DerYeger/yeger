@@ -62,7 +62,7 @@ export interface GraphNode<T extends NodeTypeToken = NodeTypeToken>
  */
 export function defineNode<
   T extends NodeTypeToken = NodeTypeToken,
-  Node extends GraphNode<T> = GraphNode<T>
+  Node extends GraphNode<T> = GraphNode<T>,
 >(data: Node): Node {
   return {
     ...data,
@@ -86,7 +86,7 @@ const nodeDefaults: Omit<GraphNode, 'id' | 'type'> = {
  * @param data - The data of the node.
  */
 export function defineNodeWithDefaults<T extends NodeTypeToken = NodeTypeToken>(
-  data: Partial<GraphNode<T>> & Pick<GraphNode, 'id' | 'type'>
+  data: Partial<GraphNode<T>> & Pick<GraphNode, 'id' | 'type'>,
 ): GraphNode<T> {
   return defineNode<T>({
     ...nodeDefaults,

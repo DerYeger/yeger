@@ -10,6 +10,6 @@ describe('FOL formula', () => {
       const result = FOL.parse(formula)
       expect(result.get().toFormattedString()).toMatchSnapshot()
       // console.log(result)
-    }
+    },
   )
 })

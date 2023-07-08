@@ -10,7 +10,7 @@ const props = withDefaults(
   defineProps<{ modelValue: string; disabled?: boolean }>(),
   {
     disabled: false,
-  }
+  },
 )
 
 const emit = defineEmits(['update:modelValue', 'update:model'])
@@ -51,7 +51,7 @@ watch(
       emit('update:model', result.get())
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
 

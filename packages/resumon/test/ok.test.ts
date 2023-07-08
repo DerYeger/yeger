@@ -43,7 +43,7 @@ describe.concurrent('Left', () => {
     it('no error', () => {
       const res: Result<number, string> = new Ok(42)
       expect(
-        res.mapError((error) => `test: ${error}`).getErrorOrNull()
+        res.mapError((error) => `test: ${error}`).getErrorOrNull(),
       ).toBeNull()
     })
   })

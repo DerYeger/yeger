@@ -26,7 +26,7 @@ describe.concurrent('filter', () => {
       graph: TestData.graph,
     })
     expect(filteredResult.nodes).toEqual(
-      TestData.graph.nodes.filter((node) => node.type === 'first')
+      TestData.graph.nodes.filter((node) => node.type === 'first'),
     )
   })
 
@@ -41,9 +41,9 @@ describe.concurrent('filter', () => {
     expect(filteredResult.nodes).toEqual(
       TestData.graph.nodes.filter((node) =>
         TestData.graph.links.some(
-          (link) => link.source.id === node.id || link.target.id === node.id
-        )
-      )
+          (link) => link.source.id === node.id || link.target.id === node.id,
+        ),
+      ),
     )
     expect(filteredResult.links).toEqual(TestData.graph.links)
   })

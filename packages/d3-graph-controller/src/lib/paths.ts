@@ -13,7 +13,7 @@ import type { GraphNode } from '~/model/node'
 export interface PathParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly source: Node
@@ -23,7 +23,7 @@ export interface PathParams<
 export interface ReflexivePathParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly node: Node
@@ -31,13 +31,13 @@ export interface ReflexivePathParams<
 }
 
 function getX<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  node: Node
+  node: Node,
 ): number {
   return node.x ?? 0
 }
 
 function getY<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  node: Node
+  node: Node,
 ): number {
   return node.y ?? 0
 }
@@ -53,7 +53,7 @@ interface VectorData {
 function calculateVectorData<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ source, target }: PathParams<T, Node, Link>): VectorData {
   const s = new Vector(getX(source), getY(source))
   const t = new Vector(getX(target), getY(target))
@@ -73,7 +73,7 @@ function calculateVectorData<
 function calculateCenter<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ center, node }: ReflexivePathParams<T, Node, Link>) {
   const n = new Vector(getX(node), getY(node))
   let c = center
@@ -90,7 +90,7 @@ function calculateCenter<
 function calculateSourceAndTarget<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ config, source, target }: PathParams<T, Node, Link>) {
   const { s, t, norm } = calculateVectorData({ config, source, target })
   const start = s.add(norm.multiply(getNodeRadius(config, source) - 1))
@@ -108,7 +108,7 @@ function calculateSourceAndTarget<
 function paddedLinePath<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(params: PathParams<T, Node, Link>): string {
   const { start, end } = calculateSourceAndTarget(params)
   return `M${start.x},${start.y}
@@ -118,7 +118,7 @@ function paddedLinePath<
 function lineLinkTextTransform<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(params: PathParams<T, Node, Link>): string {
   const { start, end } = calculateSourceAndTarget(params)
 
@@ -135,7 +135,7 @@ function lineLinkTextTransform<
 function paddedArcPath<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ config, source, target }: PathParams<T, Node, Link>): string {
   const { s, t, dist, norm, endNorm } = calculateVectorData({
     config,
@@ -164,7 +164,7 @@ function paddedArcPath<
 function paddedReflexivePath<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ center, config, node }: ReflexivePathParams<T, Node, Link>): string {
   const { n, c } = calculateCenter({ center, config, node })
   const radius = getNodeRadius(config, node)
@@ -187,7 +187,7 @@ function paddedReflexivePath<
 function bidirectionalLinkTextTransform<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ config, source, target }: PathParams<T, Node, Link>): string {
   const { t, dist, endNorm } = calculateVectorData({ config, source, target })
   const rotation = 10
@@ -201,7 +201,7 @@ function bidirectionalLinkTextTransform<
 function reflexiveLinkTextTransform<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({ center, config, node }: ReflexivePathParams<T, Node, Link>): string {
   const { n, c } = calculateCenter({ center, config, node })
   const diff = n.subtract(c)

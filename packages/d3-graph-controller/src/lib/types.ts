@@ -11,11 +11,11 @@ export type Canvas = Selection<SVGGElement, undefined, null, undefined>
 
 export type Drag<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = DragBehavior<SVGGElement, Node, Node>
 export type NodeDragEvent<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = D3DragEvent<SVGCircleElement, Node, Node>
 
 export type GraphHost = Selection<HTMLDivElement, undefined, null, undefined>
@@ -23,13 +23,13 @@ export type GraphHost = Selection<HTMLDivElement, undefined, null, undefined>
 export type GraphSimulation<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > = Simulation<Node, Link>
 
 export type LinkSelection<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > = Selection<SVGGElement, Link, SVGGElement, undefined>
 
 export type MarkerSelection = Selection<
@@ -41,7 +41,7 @@ export type MarkerSelection = Selection<
 
 export type NodeSelection<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = Selection<SVGGElement, Node, SVGGElement, undefined>
 
 export type Zoom = ZoomBehavior<SVGSVGElement, undefined>

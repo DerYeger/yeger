@@ -36,7 +36,7 @@ describe('VuePersistentStorageManager in node environment', () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm)
     await expect(
-      vm.prototype.$storageManager.requestPersistentStorage()
+      vm.prototype.$storageManager.requestPersistentStorage(),
     ).resolves.toBe(false)
     expect(vm.prototype.$storageManager.isPersistent).toBe(false)
   })

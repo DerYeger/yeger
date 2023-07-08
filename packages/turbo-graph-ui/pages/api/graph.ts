@@ -16,7 +16,7 @@ interface Config {
 
 export default async function handler(
   _: NextApiRequest,
-  res: NextApiResponse<TurboGraph>
+  res: NextApiResponse<TurboGraph>,
 ) {
   const { dir, config } = await findTurboConfig()
   const tasks = getTask(config)
@@ -32,7 +32,7 @@ async function executeCommand(tasks: string[], dir: string): Promise<string> {
     ['run', ...tasks, '--concurrency=100%', '--graph'],
     {
       cwd: dir,
-    }
+    },
   )
   return stdout
 }
@@ -95,7 +95,7 @@ async function processResult(input: string): Promise<TurboGraph> {
         workspace,
         task,
       }
-    }
+    },
   )
   return { nodes, edges }
 }

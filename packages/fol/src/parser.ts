@@ -43,7 +43,7 @@ const semantics: FOLSemantics = grammar
     Function(name, _leftParen, terms, _rightParen) {
       return new FunctionTerm(
         name.parseString(),
-        terms.parseTermList(this.args.boundVariables)
+        terms.parseTermList(this.args.boundVariables),
       )
     },
   })
@@ -52,7 +52,7 @@ const semantics: FOLSemantics = grammar
       return terms
         .asIteration()
         .children.map((term: NonterminalNode) =>
-          term.parseTerm(this.args.boundVariables)
+          term.parseTerm(this.args.boundVariables),
         )
     },
   })
@@ -60,30 +60,30 @@ const semantics: FOLSemantics = grammar
     OrFormula_or(left, _operator, right) {
       return new OrFormula(
         left.parseFormula(this.args.boundVariables),
-        right.parseFormula(this.args.boundVariables)
+        right.parseFormula(this.args.boundVariables),
       )
     },
     AndFormula_and(left, _operator, right) {
       return new AndFormula(
         left.parseFormula(this.args.boundVariables),
-        right.parseFormula(this.args.boundVariables)
+        right.parseFormula(this.args.boundVariables),
       )
     },
     ImplicationFormula_implication(left, _operator, right) {
       return new ImplicationFormula(
         left.parseFormula(this.args.boundVariables),
-        right.parseFormula(this.args.boundVariables)
+        right.parseFormula(this.args.boundVariables),
       )
     },
     BiImplicationFormula_biImplication(left, _operator, right) {
       return new BiImplicationFormula(
         left.parseFormula(this.args.boundVariables),
-        right.parseFormula(this.args.boundVariables)
+        right.parseFormula(this.args.boundVariables),
       )
     },
     UnaryFormula_paren(_leftParen, inner, _rightParen) {
       return new ParenthesizedFormula(
-        inner.parseFormula(this.args.boundVariables)
+        inner.parseFormula(this.args.boundVariables),
       )
     },
     UnaryFormula_not(_not, inner) {
@@ -97,7 +97,7 @@ const semantics: FOLSemantics = grammar
       ])
       return new UniversalQuantorFormula(
         parsedVariable,
-        inner.parseFormula(newBoundVariables)
+        inner.parseFormula(newBoundVariables),
       )
     },
     UnaryFormula_existential(_quantor, variable, _dot, inner) {
@@ -108,19 +108,19 @@ const semantics: FOLSemantics = grammar
       ])
       return new ExistentialQuantorFormula(
         parsedVariable,
-        inner.parseFormula(newBoundVariables)
+        inner.parseFormula(newBoundVariables),
       )
     },
     Relation_regular(name, _leftParen, terms, _rightParen) {
       return new RelationFormula(
         name.parseString(),
-        terms.parseTermList(this.args.boundVariables)
+        terms.parseTermList(this.args.boundVariables),
       )
     },
     Relation_equality(firstTerm, _equality, secondTerm) {
       return new EqualityRelationFormula(
         firstTerm.parseTerm(this.args.boundVariables),
-        secondTerm.parseTerm(this.args.boundVariables)
+        secondTerm.parseTerm(this.args.boundVariables),
       )
     },
     True(_) {

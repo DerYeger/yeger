@@ -7,7 +7,7 @@ import type { GraphNode } from '~/model/node'
 export interface SimulationConfig<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   /**
    * Alpha value configuration.

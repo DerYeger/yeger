@@ -31,8 +31,8 @@ export function generateRandomGraph(): DemoGraph {
     defineDemoNode(
       id.toString(),
       id % 4 === 1 ? 'secondary' : 'primary',
-      1 + Math.random() * (id % (3 * Math.random()))
-    )
+      1 + Math.random() * (id % (3 * Math.random())),
+    ),
   )
   // const nodeMap = Object.fromEntries(nodes.map((node) => [node.id, node]))
   // const links: DemoLink[] = [...new Array(42)].map(() => {

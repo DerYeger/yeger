@@ -9,14 +9,14 @@ import type { GraphNode } from '~/model/node'
  * Modifier for the drag.
  */
 export type DragModifier<T extends NodeTypeToken, Node extends GraphNode<T>> = (
-  drag: Drag<T, Node>
+  drag: Drag<T, Node>,
 ) => void
 
 /**
  * Modifier for node circles.
  */
 export type NodeModifier<T extends NodeTypeToken, Node extends GraphNode<T>> = (
-  selection: Selection<SVGCircleElement, Node, SVGGElement, undefined>
+  selection: Selection<SVGCircleElement, Node, SVGGElement, undefined>,
 ) => void
 
 /**
@@ -24,7 +24,7 @@ export type NodeModifier<T extends NodeTypeToken, Node extends GraphNode<T>> = (
  */
 export type NodeLabelModifier<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = (selection: Selection<SVGTextElement, Node, SVGGElement, undefined>) => void
 
 /**
@@ -33,7 +33,7 @@ export type NodeLabelModifier<
 export type LinkModifier<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > = (selection: Selection<SVGPathElement, Link, SVGGElement, undefined>) => void
 
 /**
@@ -42,7 +42,7 @@ export type LinkModifier<
 export type LinkLabelModifier<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > = (selection: Selection<SVGTextElement, Link, SVGGElement, undefined>) => void
 
 /**
@@ -51,7 +51,7 @@ export type LinkLabelModifier<
 export type SimulationModifier<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > = (simulation: GraphSimulation<T, Node, Link>) => void
 
 /**
@@ -65,7 +65,7 @@ export type ZoomModifier = (zoom: Zoom) => void
 export interface Modifiers<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   /**
    * Modify the drag.

@@ -40,7 +40,7 @@ describe.concurrent('Config', () => {
         },
       }
       expect(customMerge.simulation.forces).toStrictEqual(
-        customConfig.simulation.forces
+        customConfig.simulation.forces,
       )
     })
   })

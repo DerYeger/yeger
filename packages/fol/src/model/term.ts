@@ -35,7 +35,7 @@ export class ConstantTerm implements Term {
 export class FunctionTerm implements Term {
   public constructor(
     public readonly name: string,
-    public readonly argumentTerms: Term[]
+    public readonly argumentTerms: Term[],
   ) {}
 
   public text(): string {
@@ -58,14 +58,14 @@ export class FunctionTerm implements Term {
 
   public interpret(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): number {
     const func = model.getFunctionByName(this.name)
     if (func === undefined) {
       throw new Error(`Model is missing the function ${this.name}.`)
     }
     const interpretedArguments = this.argumentTerms.map((argument) =>
-      argument.interpret(model, variableAssignment)
+      argument.interpret(model, variableAssignment),
     )
     return func.apply(...interpretedArguments)
   }

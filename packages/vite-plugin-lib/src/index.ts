@@ -104,7 +104,7 @@ function buildConfig({
 function logInjectedAliases(
   aliasOptions: Alias[],
   config: UserConfig,
-  verbose?: boolean
+  verbose?: boolean,
 ) {
   log(`Injected ${c.green(aliasOptions.length)} aliases.`)
   if (!verbose) {
@@ -115,8 +115,8 @@ function logInjectedAliases(
     .map(
       ({ find, replacement }) =>
         `${c.gray('>')} ${c.green(find.toString())} ${c.gray(
-          c.bold('->')
-        )} ${c.green(replacement.replace(base, ''))}`
+          c.bold('->'),
+        )} ${c.green(replacement.replace(base, ''))}`,
     )
     .forEach(log)
 }
@@ -124,7 +124,7 @@ function logInjectedAliases(
 function pathToAliasFactory(
   tsconfigPath: string,
   baseUrl: string,
-  verbose?: boolean
+  verbose?: boolean,
 ): (path: [string, string[]]) => Alias | undefined {
   return ([alias, replacements]) => {
     if (replacements.length === 0) {
@@ -142,7 +142,7 @@ function pathToAliasFactory(
       tsconfigPath,
       baseUrl,
       replacements,
-      find
+      find,
     )
     if (!replacement) {
       if (verbose) {
@@ -162,13 +162,13 @@ function getFirstExistingReplacement(
   baseUrl: string,
   replacements: string[],
   find: string,
-  verbose?: boolean
+  verbose?: boolean,
 ): string | undefined {
   for (const replacement of replacements) {
     const resolvedReplacement = path.resolve(
       tsconfigPath,
       baseUrl,
-      replacement.replace('/*', '') ?? find
+      replacement.replace('/*', '') ?? find,
     )
     if (existsSync(resolvedReplacement)) {
       return resolvedReplacement
@@ -182,7 +182,7 @@ function getFirstExistingReplacement(
 function formatToFileName(entry: string, format: string): string {
   const entryFileName = entry.substring(
     entry.lastIndexOf('/') + 1,
-    entry.lastIndexOf('.')
+    entry.lastIndexOf('.'),
   )
   if (format === 'es') {
     return `${entryFileName}.mjs`
@@ -233,7 +233,7 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
       config,
       // eslint-disable-next-line import/no-named-as-default-member
       ts.sys,
-      path.dirname(configPath)
+      path.dirname(configPath),
     )
     return options
   } catch (error: any) {

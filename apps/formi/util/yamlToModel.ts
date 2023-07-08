@@ -28,11 +28,11 @@ const ElementTupleSchema = z.preprocess(
       .parse(raw)
       .split(',')
       .map((element) => Number.parseInt(element)),
-  z.tuple([ElementSchema, ElementSchema])
+  z.tuple([ElementSchema, ElementSchema]),
 )
 
 const UnaryRelationSchema = z.array(
-  ElementSchema.transform((element) => [element] satisfies [number])
+  ElementSchema.transform((element) => [element] satisfies [number]),
 )
 const BinaryRelationSchema = z.array(ElementTupleSchema)
 const RelationSchema = z.union([UnaryRelationSchema, BinaryRelationSchema])
@@ -66,15 +66,15 @@ function jsonModelToModel(jsonModel: JsonModel): Result<Model, string> {
         return new Relation(
           name,
           data[0].length,
-          new Set(data.map((entries) => entries.join(',')))
+          new Set(data.map((entries) => entries.join(','))),
         )
       }
       return new Relation(
         name,
         1,
-        new Set(data.map(([element]) => element.toString()))
+        new Set(data.map(([element]) => element.toString())),
       )
-    }
+    },
   )
 
   const functions = Object.entries(jsonModel.functions ?? {}).map(
@@ -82,14 +82,14 @@ function jsonModelToModel(jsonModel: JsonModel): Result<Model, string> {
       const mapping = new Map<string, number>()
       data.forEach(([arg, result]) => mapping.set(arg.toString(), result))
       return new Function(name, 1, Object.fromEntries(mapping.entries()))
-    }
+    },
   )
 
   const model = new Model(
     new Set([...domain]),
     jsonModel.constants ?? {},
     functions,
-    relations
+    relations,
   )
   return new Ok(model)
 }

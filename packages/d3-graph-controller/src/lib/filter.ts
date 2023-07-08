@@ -6,7 +6,7 @@ import type { GraphNode } from '~/model/node'
 export interface GraphFilterParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly graph: Graph<T, Node, Link>
   readonly filter: T[]
@@ -18,7 +18,7 @@ export interface GraphFilterParams<
 export function filterGraph<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   graph,
   filter,
@@ -30,15 +30,15 @@ export function filterGraph<
     (d) =>
       filter.includes(d.source.type) &&
       filter.includes(d.target.type) &&
-      linkFilter(d)
+      linkFilter(d),
   )
 
   const isLinked = (node: Node) =>
     links.find(
-      (link) => link.source.id === node.id || link.target.id === node.id
+      (link) => link.source.id === node.id || link.target.id === node.id,
     ) !== undefined
   const nodes = graph.nodes.filter(
-    (d) => filter.includes(d.type) && (includeUnlinked || isLinked(d))
+    (d) => filter.includes(d.type) && (includeUnlinked || isLinked(d)),
   )
 
   if (focusedNode === undefined || !filter.includes(focusedNode.type)) {
@@ -54,7 +54,7 @@ export function filterGraph<
 function getFocusedSubgraph<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node): Graph<T, Node, Link> {
   const links = [
     ...getIncomingLinksTransitively(graph, source),
@@ -72,35 +72,35 @@ function getFocusedSubgraph<
 function getIncomingLinksTransitively<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node): Link[] {
   return getLinksInDirectionTransitively(
     graph,
     source,
-    (link, node) => link.target.id === node.id
+    (link, node) => link.target.id === node.id,
   )
 }
 
 function getOutgoingLinksTransitively<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node): Link[] {
   return getLinksInDirectionTransitively(
     graph,
     source,
-    (link, node) => link.source.id === node.id
+    (link, node) => link.source.id === node.id,
   )
 }
 
 function getLinksInDirectionTransitively<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(
   graph: Graph<T, Node, Link>,
   source: Node,
-  directionPredicate: (link: Link, node: Node) => boolean
+  directionPredicate: (link: Link, node: Node) => boolean,
 ): Link[] {
   const remainingLinks = new Set(graph.links)
   const foundNodes = new Set([source])
@@ -108,7 +108,7 @@ function getLinksInDirectionTransitively<
 
   while (remainingLinks.size > 0) {
     const newLinks = [...remainingLinks].filter((link) =>
-      [...foundNodes].some((node) => directionPredicate(link, node))
+      [...foundNodes].some((node) => directionPredicate(link, node)),
     )
 
     if (newLinks.length === 0) {

@@ -9,7 +9,7 @@ import type { GraphNode } from '~/model/node'
 export interface InitialGraphSettings<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   /**
    * Whether nodes without incoming or outgoing links will be shown or not.
@@ -40,7 +40,7 @@ export interface InitialGraphSettings<
 export function createDefaultInitialGraphSettings<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(): InitialGraphSettings<T, Node, Link> {
   return {
     includeUnlinked: true,

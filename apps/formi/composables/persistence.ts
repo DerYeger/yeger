@@ -17,7 +17,7 @@ function setLoading() {
 function clearLoading() {
   pendingClear = setTimeout(
     () => (loading.value = false),
-    1000
+    1000,
   ) as unknown as number
 }
 
@@ -50,7 +50,7 @@ const inMemoryDriver: LocalForageDriver = {
     return Object.keys(inMemoryStorage)
   },
   async iterate<T, U>(
-    iteratee: (value: T, key: string, iterationNumber: number) => U
+    iteratee: (value: T, key: string, iterationNumber: number) => U,
   ): Promise<U> {
     for (const [key, value] of Object.entries(inMemoryStorage)) {
       const result = iteratee(value as T, key, 0)
@@ -120,6 +120,6 @@ export function useModelCheckerMode() {
   return useStorageAsync<ModelCheckerMode>(
     'model-checker-mode',
     'lazy',
-    storage
+    storage,
   )
 }

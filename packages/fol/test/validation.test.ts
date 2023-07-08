@@ -15,7 +15,7 @@ describe('FOL validation', () => {
       (_, model) => {
         const result = Validator.validateModel(model)
         expect(result.isError).toBe(true)
-      }
+      },
     )
   })
 })

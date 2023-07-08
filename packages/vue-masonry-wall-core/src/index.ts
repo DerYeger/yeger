@@ -56,7 +56,7 @@ export type KeyMapper<T> = (
   item: T,
   column: number,
   row: number,
-  index: number
+  index: number,
 ) => string | number | symbol | undefined
 
 export interface HookProps<T> {
@@ -101,7 +101,7 @@ export function useMasonryWall<T>({
     containerWidth: number,
     gap: number,
     count: number,
-    consumed: number
+    consumed: number,
   ): number {
     const nextWidth = getColumnWidthTarget(count)
     if (consumed + gap + nextWidth <= containerWidth) {
@@ -109,7 +109,7 @@ export function useMasonryWall<T>({
         containerWidth,
         gap,
         count + 1,
-        consumed + gap + nextWidth
+        consumed + gap + nextWidth,
       )
     }
     return count
@@ -128,7 +128,7 @@ export function useMasonryWall<T>({
       gap.value,
       0,
       // Needs to be offset my negative gap to prevent gap counts being off by one
-      -gap.value
+      -gap.value,
     )
     const boundedCount = aboveMin(belowMax(count))
     return boundedCount > 0 ? boundedCount : 1
@@ -157,7 +157,7 @@ export function useMasonryWall<T>({
   if (ssrColumns.value > 0) {
     const newColumns = createColumns(ssrColumns.value)
     items.value.forEach((_: T, i: number) =>
-      newColumns[i % ssrColumns.value]!.push(i)
+      newColumns[i % ssrColumns.value]!.push(i),
     )
     columns.value = newColumns
   }
@@ -174,7 +174,7 @@ export function useMasonryWall<T>({
     const target = columnDivs.reduce((prev, curr) =>
       curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
         ? curr
-        : prev
+        : prev,
     )
     columns.value[+target.dataset.index!]!.push(itemIndex)
     await fillColumns(itemIndex + 1)

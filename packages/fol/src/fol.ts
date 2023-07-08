@@ -29,7 +29,7 @@ function traceEvaluation(
   mode: ModelCheckerMode,
   expected: boolean,
   model: Model,
-  formula: string
+  formula: string,
 ): Result<ModelCheckerTrace, string> {
   return parse(formula).andThen<ModelCheckerTrace>((parsedFormula) => {
     try {
@@ -44,7 +44,7 @@ function trace(
   mode: ModelCheckerMode,
   expected: boolean,
   model: Model,
-  formula: Formula
+  formula: Formula,
 ): Result<ModelCheckerTrace, string> {
   try {
     return new Ok(formula.traceEvaluation(mode, expected, model, {}))

@@ -19,7 +19,7 @@ export class ModelCheckerTrace implements TreeNode<ModelCheckerTrace> {
     public readonly expected: boolean,
     public readonly actual: boolean,
     public readonly variableAssignment: VariableAssignment,
-    private readonly childTraces: ModelCheckerTrace[]
+    private readonly childTraces: ModelCheckerTrace[],
   ) {}
 
   public text(): string {
@@ -50,7 +50,7 @@ export interface Formula extends FOLFragment {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace
 }
 
@@ -71,7 +71,7 @@ export class ParenthesizedFormula implements Formula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     return this.inner.evaluate(model, variableAssignment)
   }
@@ -80,13 +80,13 @@ export class ParenthesizedFormula implements Formula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const innerTrace = this.inner.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     return new ModelCheckerTrace(
       mode,
@@ -94,7 +94,7 @@ export class ParenthesizedFormula implements Formula {
       expected,
       innerTrace.actual,
       variableAssignment,
-      [innerTrace]
+      [innerTrace],
     )
   }
 
@@ -107,7 +107,7 @@ export abstract class BinaryFormula implements Formula {
   public constructor(
     public readonly left: Formula,
     public readonly operator: string,
-    public readonly right: Formula
+    public readonly right: Formula,
   ) {}
 
   public text(): string {
@@ -124,14 +124,14 @@ export abstract class BinaryFormula implements Formula {
 
   public abstract evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean
 
   public abstract traceEvaluation(
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace
 
   public toFormattedString(variableAssignment?: VariableAssignment): string {
@@ -147,7 +147,7 @@ export class OrFormula extends BinaryFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     return (
       this.left.evaluate(model, variableAssignment) ||
@@ -159,13 +159,13 @@ export class OrFormula extends BinaryFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const left = this.left.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     if (mode === 'lazy' && left.actual) {
       return new ModelCheckerTrace(
@@ -174,14 +174,14 @@ export class OrFormula extends BinaryFormula {
         expected,
         true,
         variableAssignment,
-        [left]
+        [left],
       )
     }
     const right = this.right.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     if (mode === 'lazy' && right.actual) {
       return new ModelCheckerTrace(
@@ -190,7 +190,7 @@ export class OrFormula extends BinaryFormula {
         expected,
         true,
         variableAssignment,
-        [right]
+        [right],
       )
     }
     return new ModelCheckerTrace(
@@ -199,7 +199,7 @@ export class OrFormula extends BinaryFormula {
       expected,
       left.actual || right.actual,
       variableAssignment,
-      [left, right]
+      [left, right],
     )
   }
 }
@@ -211,7 +211,7 @@ export class AndFormula extends BinaryFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     return (
       this.left.evaluate(model, variableAssignment) &&
@@ -223,13 +223,13 @@ export class AndFormula extends BinaryFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const left = this.left.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     if (mode === 'lazy' && !left.actual) {
       return new ModelCheckerTrace(
@@ -238,14 +238,14 @@ export class AndFormula extends BinaryFormula {
         expected,
         false,
         variableAssignment,
-        [left]
+        [left],
       )
     }
     const right = this.right.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     return new ModelCheckerTrace(
       mode,
@@ -253,7 +253,7 @@ export class AndFormula extends BinaryFormula {
       expected,
       left.actual && right.actual,
       variableAssignment,
-      [left, right]
+      [left, right],
     )
   }
 }
@@ -264,7 +264,7 @@ export class ImplicationFormula extends BinaryFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     return (
       !this.left.evaluate(model, variableAssignment) ||
@@ -276,13 +276,13 @@ export class ImplicationFormula extends BinaryFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const left = this.left.traceEvaluation(
       mode,
       !expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     if (mode === 'lazy' && !left.actual) {
       return new ModelCheckerTrace(
@@ -291,14 +291,14 @@ export class ImplicationFormula extends BinaryFormula {
         expected,
         true,
         variableAssignment,
-        [left]
+        [left],
       )
     }
     const right = this.right.traceEvaluation(
       mode,
       expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     if (mode === 'lazy' && right.actual) {
       return new ModelCheckerTrace(
@@ -307,7 +307,7 @@ export class ImplicationFormula extends BinaryFormula {
         expected,
         true,
         variableAssignment,
-        [right]
+        [right],
       )
     }
     return new ModelCheckerTrace(
@@ -316,7 +316,7 @@ export class ImplicationFormula extends BinaryFormula {
       expected,
       !left.actual || right.actual,
       variableAssignment,
-      [left, right]
+      [left, right],
     )
   }
 }
@@ -327,7 +327,7 @@ export class BiImplicationFormula extends BinaryFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     const left = this.left.evaluate(model, variableAssignment)
     const right = this.right.evaluate(model, variableAssignment)
@@ -338,7 +338,7 @@ export class BiImplicationFormula extends BinaryFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const options: [boolean, boolean][] = [
       [true, true],
@@ -350,13 +350,13 @@ export class BiImplicationFormula extends BinaryFormula {
         mode,
         leftExpected,
         model,
-        variableAssignment
+        variableAssignment,
       )
       const right = this.right.traceEvaluation(
         mode,
         rightExpected,
         model,
-        variableAssignment
+        variableAssignment,
       )
       const trace = new ModelCheckerTrace(
         mode,
@@ -364,7 +364,7 @@ export class BiImplicationFormula extends BinaryFormula {
         expected,
         left.actual === leftExpected && right.actual === right.expected,
         variableAssignment,
-        [left, right]
+        [left, right],
       )
       if (mode === 'lazy' && trace.actual === expected) {
         return trace
@@ -377,7 +377,7 @@ export class BiImplicationFormula extends BinaryFormula {
       expected,
       traces.some((trace) => trace.actual),
       variableAssignment,
-      traces
+      traces,
     )
   }
 }
@@ -385,7 +385,7 @@ export class BiImplicationFormula extends BinaryFormula {
 export abstract class UnaryFormula implements Formula {
   public constructor(
     public readonly inner: Formula,
-    public readonly operator: string
+    public readonly operator: string,
   ) {}
 
   public text(): string {
@@ -402,14 +402,14 @@ export abstract class UnaryFormula implements Formula {
 
   public abstract evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean
 
   public abstract traceEvaluation(
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace
 
   public toFormattedString(variableAssignment?: VariableAssignment): string {
@@ -424,7 +424,7 @@ export class NotFormula extends UnaryFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     return !this.inner.evaluate(model, variableAssignment)
   }
@@ -433,13 +433,13 @@ export class NotFormula extends UnaryFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     const innerTrace = this.inner.traceEvaluation(
       mode,
       !expected,
       model,
-      variableAssignment
+      variableAssignment,
     )
     return new ModelCheckerTrace(
       mode,
@@ -447,7 +447,7 @@ export class NotFormula extends UnaryFormula {
       expected,
       !innerTrace.actual,
       variableAssignment,
-      [innerTrace]
+      [innerTrace],
     )
   }
 }
@@ -456,7 +456,7 @@ export abstract class QuantorFormula implements Formula {
   public constructor(
     public readonly variable: BoundVariable,
     public readonly inner: Formula,
-    public readonly quantor: string
+    public readonly quantor: string,
   ) {}
 
   public text(): string {
@@ -473,14 +473,14 @@ export abstract class QuantorFormula implements Formula {
 
   public abstract evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean
 
   public abstract traceEvaluation(
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace
 
   public toFormattedString(variableAssignment?: VariableAssignment): string {
@@ -495,7 +495,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     for (const node of model.domain.values()) {
       const newAssignment = {
@@ -513,7 +513,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     let actual = true
     const childTraces: ModelCheckerTrace[] = []
@@ -526,7 +526,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
         mode,
         expected,
         model,
-        newAssignment
+        newAssignment,
       )
       if (!innerTrace.actual) {
         actual = false
@@ -537,7 +537,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
             expected,
             false,
             variableAssignment,
-            [innerTrace]
+            [innerTrace],
           )
         }
       }
@@ -549,7 +549,7 @@ export class UniversalQuantorFormula extends QuantorFormula {
       expected,
       actual,
       variableAssignment,
-      childTraces
+      childTraces,
     )
   }
 }
@@ -561,7 +561,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     for (const node of model.domain.values()) {
       const newAssignment = {
@@ -579,7 +579,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     let actual = false
     const childTraces: ModelCheckerTrace[] = []
@@ -592,7 +592,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
         mode,
         expected,
         model,
-        newAssignment
+        newAssignment,
       )
       if (innerTrace.actual) {
         actual = true
@@ -603,7 +603,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
             expected,
             actual,
             variableAssignment,
-            [innerTrace]
+            [innerTrace],
           )
         }
       }
@@ -615,7 +615,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
       expected,
       actual,
       variableAssignment,
-      childTraces
+      childTraces,
     )
   }
 }
@@ -623,7 +623,7 @@ export class ExistentialQuantorFormula extends QuantorFormula {
 export class BooleanLiteral implements Formula {
   private constructor(
     public readonly name: string,
-    public readonly value: boolean
+    public readonly value: boolean,
   ) {}
 
   public text(): string {
@@ -646,7 +646,7 @@ export class BooleanLiteral implements Formula {
     mode: ModelCheckerMode,
     expected: boolean,
     _model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     return new ModelCheckerTrace(
       mode,
@@ -654,7 +654,7 @@ export class BooleanLiteral implements Formula {
       expected,
       this.evaluate(),
       variableAssignment,
-      []
+      [],
     )
   }
 
@@ -669,7 +669,7 @@ export class BooleanLiteral implements Formula {
 export class RelationFormula implements Formula {
   public constructor(
     public readonly name: string,
-    public readonly terms: Term[]
+    public readonly terms: Term[],
   ) {}
 
   public text(): string {
@@ -686,14 +686,14 @@ export class RelationFormula implements Formula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     const relation = model.getRelationByName(this.name)
     if (!relation) {
       throw new Error(`Model is missing the relation ${this.name}.`)
     }
     return relation.includes(
-      ...this.terms.map((term) => term.interpret(model, variableAssignment))
+      ...this.terms.map((term) => term.interpret(model, variableAssignment)),
     )
   }
 
@@ -701,7 +701,7 @@ export class RelationFormula implements Formula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     return new ModelCheckerTrace(
       mode,
@@ -709,7 +709,7 @@ export class RelationFormula implements Formula {
       expected,
       this.evaluate(model, variableAssignment),
       variableAssignment,
-      []
+      [],
     )
   }
 
@@ -723,7 +723,7 @@ export class RelationFormula implements Formula {
 export class EqualityRelationFormula implements Formula {
   public constructor(
     public readonly firstTerm: Term,
-    public readonly secondTerm: Term
+    public readonly secondTerm: Term,
   ) {}
 
   public text(): string {
@@ -740,12 +740,12 @@ export class EqualityRelationFormula implements Formula {
 
   public evaluate(
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): boolean {
     const firstInterpreted = this.firstTerm.interpret(model, variableAssignment)
     const secondInterpreted = this.secondTerm.interpret(
       model,
-      variableAssignment
+      variableAssignment,
     )
     return firstInterpreted === secondInterpreted
   }
@@ -754,7 +754,7 @@ export class EqualityRelationFormula implements Formula {
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
-    variableAssignment: VariableAssignment
+    variableAssignment: VariableAssignment,
   ): ModelCheckerTrace {
     return new ModelCheckerTrace(
       mode,
@@ -762,13 +762,13 @@ export class EqualityRelationFormula implements Formula {
       expected,
       this.evaluate(model, variableAssignment),
       variableAssignment,
-      []
+      [],
     )
   }
 
   public toFormattedString(variableAssignment?: VariableAssignment): string {
     return `${this.firstTerm.toFormattedString(
-      variableAssignment
+      variableAssignment,
     )} = ${this.secondTerm.toFormattedString(variableAssignment)}`
   }
 }

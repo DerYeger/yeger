@@ -19,7 +19,10 @@ export class Vector {
    * @param y - The component of the y-axis.
    * @returns The vector.
    */
-  public constructor(public readonly x: number, public readonly y: number) {}
+  public constructor(
+    public readonly x: number,
+    public readonly y: number,
+  ) {}
 
   /**
    * Add another vector to the vector.

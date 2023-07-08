@@ -11,7 +11,7 @@ import type { GraphNode } from '~/model/node'
 export function defineLinkSelection<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(canvas: Canvas): LinkSelection<T, Node, Link> {
   return canvas.append('g').classed('links', true).selectAll('path')
 }
@@ -19,7 +19,7 @@ export function defineLinkSelection<
 export interface CreateLinksParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly graph: Graph<T, Node, Link>
@@ -30,7 +30,7 @@ export interface CreateLinksParams<
 export function createLinks<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   config,
   graph,
@@ -72,7 +72,7 @@ export function createLinks<
 export interface UpdateLinksParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly center: Vector
   readonly config: GraphConfig<T, Node, Link>
@@ -83,7 +83,7 @@ export interface UpdateLinksParams<
 export function updateLinks<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(params: UpdateLinksParams<T, Node, Link>): void {
   updateLinkPaths(params)
   updateLinkLabels(params)
@@ -92,7 +92,7 @@ export function updateLinks<
 function updateLinkPaths<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   center,
   config,
@@ -125,7 +125,7 @@ function updateLinkPaths<
 function updateLinkLabels<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   config,
   center,
@@ -166,15 +166,15 @@ function updateLinkLabels<
 function areBidirectionallyConnected<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node, target: Node): boolean {
   return (
     source.id !== target.id &&
     graph.links.some(
-      (l) => l.target.id === source.id && l.source.id === target.id
+      (l) => l.target.id === source.id && l.source.id === target.id,
     ) &&
     graph.links.some(
-      (l) => l.target.id === target.id && l.source.id === source.id
+      (l) => l.target.id === target.id && l.source.id === source.id,
     )
   )
 }

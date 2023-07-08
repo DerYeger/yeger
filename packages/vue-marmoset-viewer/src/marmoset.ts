@@ -63,7 +63,7 @@ export declare interface Marmoset {
     src: string,
     onLoad: (image: any) => void,
     onError?: () => void,
-    image?: any
+    image?: any,
   ): void
 
   /**

@@ -16,6 +16,6 @@ describe('FOL grammar', () => {
       const result = FOL.match(formula)
       expect(result.failed(), result.message).toBe(true)
       // console.log(result.message)
-    }
+    },
   )
 })

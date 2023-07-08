@@ -19,7 +19,7 @@ import type { GraphNode } from '~/model/node'
 export interface GraphConfig<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   /**
    * Set to true to enable automatic resizing.
@@ -67,7 +67,7 @@ export interface GraphConfig<
 function defaultGraphConfig<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(): GraphConfig<T, Node, Link> {
   return {
     autoResize: false,
@@ -106,13 +106,13 @@ export type DeepPartial<T> = {
 export function defineGraphConfig<
   T extends NodeTypeToken = NodeTypeToken,
   Node extends GraphNode<T> = GraphNode<T>,
-  Link extends GraphLink<T, Node> = GraphLink<T, Node>
+  Link extends GraphLink<T, Node> = GraphLink<T, Node>,
 >(
-  config: DeepPartial<GraphConfig<T, Node, Link>> = {}
+  config: DeepPartial<GraphConfig<T, Node, Link>> = {},
 ): GraphConfig<T, Node, Link> {
   return merge.withOptions(
     { mergeArrays: false },
     defaultGraphConfig<T, Node, Link>(),
-    config
+    config,
   ) as GraphConfig<T, Node, Link>
 }

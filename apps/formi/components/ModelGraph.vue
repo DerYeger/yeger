@@ -40,7 +40,7 @@ watch(graph, (_, oldGraph) => {
 })
 
 function resetGraphController(
-  positionInitializer?: PositionInitializer<string, GraphNode<string>>
+  positionInitializer?: PositionInitializer<string, GraphNode<string>>,
 ) {
   controller.value?.shutdown()
   if (!graph.value || !el.value) {
@@ -91,7 +91,7 @@ function resetGraphController(
         initial: 0.8,
         max: 2,
       },
-    })
+    }),
   )
 }
 </script>

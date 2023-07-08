@@ -21,10 +21,10 @@ export interface MarkerConfig {
   readonly padding: <
     T extends NodeTypeToken,
     Node extends GraphNode<T>,
-    Link extends GraphLink<T, Node>
+    Link extends GraphLink<T, Node>,
   >(
     node: Node,
-    config: GraphConfig<T, Node, Link>
+    config: GraphConfig<T, Node, Link>,
   ) => number
   /**
    * The ref of the marker.
@@ -46,10 +46,10 @@ function defaultMarkerConfig(size: number): MarkerConfig {
     padding: <
       T extends NodeTypeToken,
       Node extends GraphNode<T>,
-      Link extends GraphLink<T, Node>
+      Link extends GraphLink<T, Node>,
     >(
       node: Node,
-      config: GraphConfig<T, Node, Link>
+      config: GraphConfig<T, Node, Link>,
     ) => getNodeRadius(config, node) + 2 * size,
     ref: [size / 2, size / 2],
     path: [

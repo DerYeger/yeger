@@ -18,7 +18,7 @@ import type { GraphNode } from '~/model/node'
 export interface DefineSimulationParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly center: () => Vector
   readonly config: GraphConfig<T, Node, Link>
@@ -29,7 +29,7 @@ export interface DefineSimulationParams<
 export function defineSimulation<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   center,
   config,
@@ -50,7 +50,7 @@ export function defineSimulation<
   if (chargeForce && chargeForce.enabled) {
     simulation.force(
       'charge',
-      forceManyBody<Node>().strength(chargeForce.strength)
+      forceManyBody<Node>().strength(chargeForce.strength),
     )
   }
 
@@ -59,8 +59,8 @@ export function defineSimulation<
     simulation.force(
       'collision',
       forceCollide<Node>().radius(
-        (d) => collisionForce.radiusMultiplier * getNodeRadius(config, d)
-      )
+        (d) => collisionForce.radiusMultiplier * getNodeRadius(config, d),
+      ),
     )
   }
 
@@ -71,7 +71,7 @@ export function defineSimulation<
       forceLink<Node, Link>(graph.links)
         .id((d) => d.id)
         .distance(config.simulation.forces.link.length)
-        .strength(linkForce.strength)
+        .strength(linkForce.strength),
     )
   }
 

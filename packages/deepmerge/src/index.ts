@@ -52,7 +52,7 @@ function merge<T extends IObject[]>(...objects: T): TMerged<T[number]> {
   return objects.reduce((result, current) => {
     if (Array.isArray(current)) {
       throw new TypeError(
-        'Arguments provided to deepmerge must be objects, not arrays.'
+        'Arguments provided to deepmerge must be objects, not arrays.',
       )
     }
 

@@ -9,7 +9,7 @@ describe('FOL parser', () => {
     expect(result).toMatchSnapshot()
     const outputString = result.toFormattedString()
     expect(FOL.parse(outputString).get().toFormattedString()).toEqual(
-      outputString
+      outputString,
     )
     // console.log(result)
   })
@@ -88,7 +88,7 @@ describe('FOL parser', () => {
     it('relations', () => {
       const result = FOL.parse('A(a,a, a) && B(b)').get()
       expect(result.toFormattedString()).toMatchInlineSnapshot(
-        '"A(a,a,a) ∧ B(b)"'
+        '"A(a,a,a) ∧ B(b)"',
       )
       expect(result).toMatchInlineSnapshot(`
         AndFormula {
@@ -142,7 +142,7 @@ describe('FOL parser', () => {
     it('long identifiers', () => {
       const result = FOL.parse('MyRelation(myFunction(a), second)').get()
       expect(result.toFormattedString()).toMatchInlineSnapshot(
-        '"MyRelation(myFunction(a),second)"'
+        '"MyRelation(myFunction(a),second)"',
       )
       expect(result).toMatchInlineSnapshot(`
         RelationFormula {

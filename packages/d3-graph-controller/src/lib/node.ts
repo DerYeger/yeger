@@ -7,7 +7,7 @@ import type { GraphNode } from '~/model/node'
 
 export function defineNodeSelection<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 >(canvas: Canvas): NodeSelection<T, Node> {
   return canvas.append('g').classed('nodes', true).selectAll('circle')
 }
@@ -15,7 +15,7 @@ export function defineNodeSelection<
 export interface CreateNodesParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly drag?: Drag<T, Node> | undefined
@@ -29,7 +29,7 @@ export interface CreateNodesParams<
 export function createNodes<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   config,
   drag,
@@ -57,7 +57,7 @@ export function createNodes<
           onNodeContext(d)
         })
         .on('pointerdown', (event: PointerEvent, d) =>
-          onPointerDown(event, d, onNodeSelected ?? onNodeContext)
+          onPointerDown(event, d, onNodeSelected ?? onNodeContext),
         )
         .style('fill', (d) => d.color)
 
@@ -88,7 +88,7 @@ const DOUBLE_CLICK_INTERVAL_MS = 500
 function onPointerDown<T extends NodeTypeToken, Node extends GraphNode<T>>(
   event: PointerEvent,
   node: Node,
-  onNodeSelected: (node: Node) => void
+  onNodeSelected: (node: Node) => void,
 ): void {
   if (event.button !== undefined && event.button !== 0) {
     return
@@ -108,7 +108,7 @@ function onPointerDown<T extends NodeTypeToken, Node extends GraphNode<T>>(
 }
 
 export function updateNodes<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  selection?: NodeSelection<T, Node>
+  selection?: NodeSelection<T, Node>,
 ): void {
   selection?.attr('transform', (d) => `translate(${d.x ?? 0},${d.y ?? 0})`)
 }

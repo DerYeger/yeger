@@ -69,8 +69,12 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
         'flex-direction': 'column',
         'flex-grow': 1,
         gap: `${gap}px`,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
-        'min-width': 0
+        height: [
+          '-webkit-max-content',
+          '-moz-max-content',
+          'max-content',
+        ] as any,
+        'min-width': 0,
       }"
     >
       <div

@@ -30,7 +30,7 @@ const props = withDefaults(
     rtl: false,
     scrollContainer: null,
     ssrColumns: 0,
-  }
+  },
 )
 
 const emit = defineEmits<{

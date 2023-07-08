@@ -42,7 +42,7 @@ export interface ResizeContext {
  */
 export interface AlphaConfig<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > {
   /**
    * Target alpha values for dragging.
@@ -130,7 +130,7 @@ export interface AlphaConfig<
  */
 export function createDefaultAlphaConfig<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 >(): AlphaConfig<T, Node> {
   return {
     drag: {

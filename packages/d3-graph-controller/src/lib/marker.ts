@@ -12,7 +12,7 @@ export function defineMarkerSelection(canvas: Canvas): MarkerSelection {
 export interface CreateMarkerParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly config: GraphConfig<T, Node, Link>
   readonly graph: Graph<T, Node, Link>
@@ -22,7 +22,7 @@ export interface CreateMarkerParams<
 export function createMarkers<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   config,
   graph,
@@ -50,7 +50,7 @@ export function createMarkers<
 function getUniqueColors<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>): string[] {
   return [...new Set(graph.links.map((link) => link.color))]
 }
@@ -63,6 +63,6 @@ function makeLine(points: [number, number][]): string {
   const [startX, startY] = start
   return rest.reduce(
     (line, [x, y]) => `${line}L${x},${y}`,
-    `M${startX},${startY}`
+    `M${startX},${startY}`,
   )
 }

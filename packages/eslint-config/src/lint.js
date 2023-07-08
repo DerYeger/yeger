@@ -13,7 +13,7 @@ const c = require('picocolors')
     './**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}',
   ])
   const hasErrors = results.some(
-    ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0
+    ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0,
   )
 
   if (fix) {

@@ -6,19 +6,19 @@ import type { GraphNode } from '~/model/node'
  */
 export type PositionInitializer<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = (node: Node, width: number, height: number) => [number, number]
 
 const Centered: PositionInitializer<NodeTypeToken, GraphNode> = (
   _,
   width,
-  height
+  height,
 ) => [width / 2, height / 2]
 
 const Randomized: PositionInitializer<NodeTypeToken, GraphNode> = (
   _,
   width,
-  height
+  height,
 ) => [randomInRange(0, width), randomInRange(0, height)]
 
 function randomInRange(min: number, max: number): number {
@@ -26,10 +26,10 @@ function randomInRange(min: number, max: number): number {
 }
 
 function Stable<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  previousGraph: Graph<T, Node>
+  previousGraph: Graph<T, Node>,
 ): PositionInitializer<T, Node> {
   const positions = Object.fromEntries(
-    previousGraph.nodes.map((node) => [node.id, [node.x, node.y]] as const)
+    previousGraph.nodes.map((node) => [node.id, [node.x, node.y]] as const),
   )
   return (node, width, height) => {
     const [x, y] = positions[node.id] ?? []

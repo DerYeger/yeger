@@ -16,7 +16,7 @@ export function modelToGraph(model: Model): Graph {
           text: makeNodeLabel(element, model),
         },
       }),
-    ])
+    ]),
   )
   const linkData: Record<`${number},${number}`, string[]> = {}
   Object.values(model.functions).forEach((func) => {

@@ -22,7 +22,7 @@ export interface Force<Subject> {
  */
 export type NodeForce<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > = Force<Node>
 
 /**
@@ -30,7 +30,7 @@ export type NodeForce<
  */
 export interface CollisionForce<
   T extends NodeTypeToken,
-  Node extends GraphNode<T>
+  Node extends GraphNode<T>,
 > extends NodeForce<T, Node> {
   /**
    * Multiplier of the node radius.
@@ -45,7 +45,7 @@ export interface CollisionForce<
 export interface LinkForce<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > extends Force<Link> {
   /**
    * Define the length of a link for the simulation.
@@ -59,7 +59,7 @@ export interface LinkForce<
 export interface SimulationForceConfig<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   /**
    * Centering force applied to nodes.
@@ -85,7 +85,7 @@ export interface SimulationForceConfig<
 export function createDefaultForceConfig<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(): SimulationForceConfig<T, Node, Link> {
   return {
     centering: {

@@ -39,7 +39,7 @@ describe('FOL semantics', () => {
       'lazy',
       expected,
       TestData.testModel,
-      formula
+      formula,
     ).get()
     expect(trace.actual).toBe(expected)
     expect(trace.expected).toBe(expected)
@@ -48,13 +48,13 @@ describe('FOL semantics', () => {
   describe('evaluates correctly', () => {
     it('negative existential quantors', () => {
       expect(
-        FOL.evaluate(TestData.testModel, 'exists x. MyRelation(x,x)').get()
+        FOL.evaluate(TestData.testModel, 'exists x. MyRelation(x,x)').get(),
       ).toBe(false)
     })
 
     it('negative universal quantors', () => {
       expect(
-        FOL.evaluate(TestData.testModel, 'forall x. MyRelation(x,x)').get()
+        FOL.evaluate(TestData.testModel, 'forall x. MyRelation(x,x)').get(),
       ).toBe(false)
     })
   })
@@ -63,7 +63,7 @@ describe('FOL semantics', () => {
     it('on missing constants', () => {
       const model = new Model(new Set([1]), { a: 1 }, [], [])
       expect(FOL.evaluate(model, 'a = b').getErrorOrUndefined()).toEqual(
-        'Model is missing the constant b.'
+        'Model is missing the constant b.',
       )
     })
 
@@ -72,18 +72,18 @@ describe('FOL semantics', () => {
         new Set([1]),
         { a: 1 },
         [new Function('f', 1, {})],
-        []
+        [],
       )
 
       it('if function is missing', () => {
         expect(FOL.evaluate(model, 'g(a) = a').getErrorOrUndefined()).toEqual(
-          'Model is missing the function g.'
+          'Model is missing the function g.',
         )
       })
 
       it('if function is not defined for argument', () => {
         expect(FOL.evaluate(model, 'f(a) = a').getErrorOrUndefined()).toEqual(
-          'Function f is not total. f(1) is not defined.'
+          'Function f is not total. f(1) is not defined.',
         )
       })
     })
@@ -91,7 +91,7 @@ describe('FOL semantics', () => {
     it('on missing relations', () => {
       const model = new Model(new Set([1]), { x: 1 }, [], [])
       expect(FOL.evaluate(model, 'A(x)').getErrorOrUndefined()).toEqual(
-        'Model is missing the relation A.'
+        'Model is missing the relation A.',
       )
     })
   })

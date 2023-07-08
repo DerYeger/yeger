@@ -47,7 +47,7 @@ export default function Home() {
         type: node.task,
         color: colors(node.task),
         label: { text: node.workspace, color: 'black', fontSize: '0.875rem' },
-      })
+      }),
     )
     const links = graphData.edges.map((edge) => {
       const source = nodes.find((node) => node.id === edge.source)!
@@ -93,7 +93,7 @@ export default function Home() {
           min: 0.3,
           max: 2,
         },
-      })
+      }),
     )
   }, [colors, graphRef, graphData])
 
@@ -127,7 +127,7 @@ export default function Home() {
                   onChange={(event) => {
                     graphController?.filterNodesByType(
                       event.target.checked,
-                      task
+                      task,
                     )
                     trigger()
                   }}

@@ -15,7 +15,7 @@ export function isNumber(value: unknown): value is number {
 export function getNodeRadius<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(config: GraphConfig<T, Node, Link>, node: Node) {
   return isNumber(config.nodeRadius)
     ? config.nodeRadius
@@ -29,7 +29,7 @@ export function getNodeRadius<
 export function getLinkId<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(link: Link): string {
   return `${link.source.id}-${link.target.id}`
 }
@@ -49,7 +49,7 @@ export function getMarkerId(color: string): string {
 export function getMarkerUrl<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >(link: Link): string {
   return `url(#${getMarkerId(link.color)})`
 }

@@ -11,7 +11,7 @@ import type { GraphNode } from '~/model/node'
 export interface DefineZoomParams<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 > {
   readonly canvasContainer: () => Selection<
     SVGSVGElement,
@@ -28,7 +28,7 @@ export interface DefineZoomParams<
 export function defineZoom<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
-  Link extends GraphLink<T, Node>
+  Link extends GraphLink<T, Node>,
 >({
   canvasContainer,
   config,

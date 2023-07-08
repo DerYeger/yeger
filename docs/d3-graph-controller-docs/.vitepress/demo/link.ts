@@ -12,7 +12,7 @@ export interface DemoLink extends GraphLink<DemoType, DemoNode> {
 export function defineDemoLink(
   source: DemoNode,
   target: DemoNode,
-  weight: number
+  weight: number,
 ): DemoLink {
   return defineLink<DemoType, DemoNode, DemoNode, DemoLink>({
     source,
