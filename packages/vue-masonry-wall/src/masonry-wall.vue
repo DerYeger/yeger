@@ -1,54 +1,53 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import type {
   Column,
-  ComponentProps,
-  Slots,
+  KeyMapper,
+  NonEmptyArray,
   Vue3ComponentEmits,
 } from '@yeger/vue-masonry-wall-core'
 import { defaults, useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
-type T = unknown
-
-const props = withDefaults(defineProps<ComponentProps<T>>(), defaults)
+const props = withDefaults(
+  defineProps<{
+    columnWidth?: number | NonEmptyArray<number>
+    items: T[]
+    gap?: number
+    rtl?: boolean
+    ssrColumns?: number
+    scrollContainer?: HTMLElement | null
+    minColumns?: number
+    maxColumns?: number
+    keyMapper?: KeyMapper<T>
+  }>(),
+  defaults,
+)
 
 const emit = defineEmits<Vue3ComponentEmits>()
 
-defineSlots<Slots<T>>()
+defineSlots<{
+  default?: (props: {
+    item: T
+    column: number
+    row: number
+    index: number
+  }) => any
+}>()
 
-const {
-  columnWidth,
-  items,
-  gap,
-  rtl,
-  ssrColumns,
-  scrollContainer,
-  minColumns,
-  maxColumns,
-  keyMapper,
-} = toRefs(props)
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 
 const { getColumnWidthTarget } = useMasonryWall<T>({
   columns,
-  columnWidth,
   emit,
-  gap,
-  items,
-  keyMapper,
-  maxColumns,
-  minColumns,
   nextTick,
   onBeforeUnmount,
   onMounted,
-  rtl,
-  scrollContainer,
-  ssrColumns,
   vue: 3,
   wall,
   watch,
+  ...toRefs(props),
 })
 </script>
 

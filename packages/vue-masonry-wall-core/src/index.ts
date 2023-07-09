@@ -31,15 +31,6 @@ export interface Vue3ComponentEmits {
   (event: 'redrawSkip'): void
 }
 
-export interface Slots<T> {
-  default?: (props: {
-    item: T
-    column: number
-    row: number
-    index: number
-  }) => any
-}
-
 export const defaults = {
   columnWidth: 400,
   gap: 0,

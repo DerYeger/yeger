@@ -38,37 +38,18 @@ const emit = defineEmits<{
   (event: 'redraw-skip'): void
 }>()
 
-const {
-  columnWidth,
-  items,
-  gap,
-  rtl,
-  ssrColumns,
-  scrollContainer,
-  minColumns,
-  maxColumns,
-  keyMapper,
-} = toRefs(props)
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 const { getColumnWidthTarget } = useMasonryWall<unknown>({
   columns,
-  columnWidth,
   emit,
-  gap,
-  items,
-  keyMapper,
-  maxColumns,
-  minColumns,
   nextTick,
   onBeforeUnmount,
   onMounted,
-  rtl,
-  scrollContainer,
-  ssrColumns,
   vue: 2,
   wall,
   watch,
+  ...toRefs(props),
 })
 </script>
 
