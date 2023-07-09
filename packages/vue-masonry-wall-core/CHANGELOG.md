@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall-core
 
+## 4.1.0
+
+### Minor Changes
+
+- 34e4378: enable vue 3 generics
+
 ## 4.0.3
 
 ### Patch Changes
