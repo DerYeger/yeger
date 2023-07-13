@@ -55,6 +55,10 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return AsyncFlatMapStream.ofPrevious(this, fn)
   }
 
+  public zip<R>(other: Iterable<R> | AsyncIterable<R>) {
+    return AsyncZipStream.ofPrevious(this, other)
+  }
+
   public limit(limit: number) {
     return AsyncLimitStream.ofPrevious(this, limit)
   }
@@ -201,6 +205,36 @@ class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
     for await (const item of this.previous) {
       yield* this.fn(item)
+    }
+  }
+}
+
+class AsyncZipStream<T, R> extends AsyncStream<[T, R]> {
+  private constructor(
+    private readonly previous: AsyncStream<T>,
+    private readonly other: Iterable<R> | AsyncIterable<R>,
+  ) {
+    super()
+  }
+
+  public static ofPrevious<T, R>(
+    previous: AsyncStream<T>,
+    other: Iterable<R> | AsyncIterable<R>,
+  ) {
+    return new AsyncZipStream(previous, other)
+  }
+
+  public async *[Symbol.asyncIterator](): AsyncIterableIterator<[T, R]> {
+    const otherIterator =
+      Symbol.asyncIterator in this.other
+        ? this.other[Symbol.asyncIterator]()
+        : this.other[Symbol.iterator]()
+    for await (const item of this.previous) {
+      const otherItem = await otherIterator.next()
+      if (otherItem.done) {
+        break
+      }
+      yield [item, otherItem.value]
     }
   }
 }

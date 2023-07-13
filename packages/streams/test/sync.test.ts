@@ -65,4 +65,15 @@ describe('sync streams', () => {
       .toArray()
     expect(streamResult).toEqual([1, 2, 2, 3, 3, 3])
   })
+
+  it('can zip', () => {
+    const streamResult = Stream.from([1, 2, 3])
+      .zip(Stream.from(['a', 'b', 'c']))
+      .toArray()
+    expect(streamResult).toEqual([
+      [1, 'a'],
+      [2, 'b'],
+      [3, 'c'],
+    ])
+  })
 })

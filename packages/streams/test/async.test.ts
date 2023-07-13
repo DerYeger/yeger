@@ -84,6 +84,17 @@ describe('async streams', () => {
     expect(streamResult).toEqual([1, 1, 2, 2, 3, 3])
   })
 
+  it('can zip', async () => {
+    const streamResult = await AsyncStream.from([1, 2, 3])
+      .zip([4, 5, 6])
+      .toArray()
+    expect(streamResult).toEqual([
+      [1, 4],
+      [2, 5],
+      [3, 6],
+    ])
+  })
+
   it('can transform to async', async () => {
     const a = await AsyncStream.from([1, 2, 3])
       .map((x) => 2 * x)

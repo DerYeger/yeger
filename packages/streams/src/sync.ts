@@ -42,6 +42,10 @@ export abstract class Stream<T> implements Iterable<T> {
     return FlatMapStream.ofPrevious(this, fn)
   }
 
+  public zip<R>(other: Iterable<R>) {
+    return ZipStream.ofPrevious(this, other)
+  }
+
   public limit(limit: number) {
     return LimitStream.ofPrevious(this, limit)
   }
@@ -188,6 +192,33 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
   public *[Symbol.iterator](): IterableIterator<Output> {
     for (const item of this.previous) {
       yield* this.fn(item)
+    }
+  }
+}
+
+class ZipStream<T, R> extends Stream<[T, R]> {
+  private constructor(
+    private readonly previous: Stream<T>,
+    private readonly other: Iterable<R>,
+  ) {
+    super()
+  }
+
+  public static ofPrevious<T, R>(
+    previous: Stream<T>,
+    other: Iterable<R>,
+  ): ZipStream<T, R> {
+    return new ZipStream(previous, other)
+  }
+
+  public *[Symbol.iterator](): IterableIterator<[T, R]> {
+    const otherIterator = this.other[Symbol.iterator]()
+    for (const item of this.previous) {
+      const otherItem = otherIterator.next()
+      if (otherItem.done) {
+        break
+      }
+      yield [item, otherItem.value]
     }
   }
 }
