@@ -34,7 +34,7 @@
   ],
   "scripts": {
     "build": "vite build",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "tsc",
     "check:publish": "publint run --strict",
     "dev": "vite build --watch",
     "lint": "yeger-lint",

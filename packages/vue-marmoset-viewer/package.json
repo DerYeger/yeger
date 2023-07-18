@@ -37,8 +37,8 @@
     "build": "vite build",
     "bundlesize": "bundlesize",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc --noEmit",
-    "check:vue": "vue-tsc --noEmit",
+    "check:tsc": "tsc",
+    "check:vue": "vue-tsc",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
     "test": "vitest"

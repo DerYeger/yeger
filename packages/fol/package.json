@@ -29,7 +29,7 @@
   "scripts": {
     "build": "vite build",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "tsc",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
     "dev": "vite build --watch",
     "lint": "yeger-lint",

@@ -6,7 +6,7 @@
     "build": "vite-ssg build",
     "lint": "yeger-lint",
     "preview": "vite preview",
-    "check:tsc": "tsc --noEmit"
+    "check:tsc": "tsc"
   },
   "devDependencies": {
     "@types/node": "18.16.19",

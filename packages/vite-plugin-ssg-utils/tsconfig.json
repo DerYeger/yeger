@@ -1,7 +1,8 @@
 {
   "extends": "@yeger/tsconfig/lib",
   "compilerOptions": {
-    "baseUrl": "./"
+    "baseUrl": "./",
+    "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   },
   "exclude": ["node_modules", "coverage", "dist"]
 }

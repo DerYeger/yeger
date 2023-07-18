@@ -34,7 +34,7 @@
   "scripts": {
     "build": "rimraf dist && unbuild",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "tsc",
     "lint": "yeger-lint",
     "test": "vitest"
   },

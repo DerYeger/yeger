@@ -7,7 +7,7 @@
     "dev": "vite",
     "lint": "yeger-lint",
     "preview": "vite preview",
-    "check:tsc": "tsc --noEmit"
+    "check:tsc": "tsc"
   },
   "dependencies": {
     "@yeger/vue2-masonry-wall": "workspace:*"

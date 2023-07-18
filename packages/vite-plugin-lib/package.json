@@ -33,7 +33,7 @@
   "scripts": {
     "build": "unbuild",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "tsc",
     "lint": "yeger-lint"
   },
   "peerDependencies": {

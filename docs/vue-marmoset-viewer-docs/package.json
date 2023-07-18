@@ -7,8 +7,8 @@
     "dev": "vite",
     "lint": "yeger-lint",
     "preview": "vite preview",
-    "check:tsc": "tsc --noEmit",
-    "check:vue": "vue-tsc --noEmit"
+    "check:tsc": "tsc",
+    "check:vue": "vue-tsc"
   },
   "dependencies": {
     "vue-marmoset-viewer": "workspace:*"
