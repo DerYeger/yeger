@@ -1,3 +1,5 @@
+import process from 'node:process'
+
 import { library } from 'vite-plugin-lib'
 import { defineConfig } from 'vitest/config'
 

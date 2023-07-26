@@ -93,6 +93,11 @@ module.exports = {
     'prefer-const': 'error',
     'tailwindcss/no-custom-classname': 'off',
     'tsdoc/syntax': 'error',
+    // The following unicorn rules are disabled due to implementation issues
+    'unicorn/error-message': 'off',
+    'unicorn/no-instanceof-array': 'off',
+    'unicorn/prefer-includes': 'off',
+    'unicorn/prefer-number-properties': 'off',
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'error',

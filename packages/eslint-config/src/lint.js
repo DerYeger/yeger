@@ -1,9 +1,10 @@
 #!/usr/bin/env node
+const process = require('node:process')
+
 const { ESLint } = require('eslint')
 const c = require('picocolors')
 
-// eslint-disable-next-line import/newline-after-import
-;(async function main() {
+async function main() {
   // 1. Create an instance.
   const fix = process.argv.includes('--fix')
   const eslint = new ESLint({ fix })
@@ -33,7 +34,9 @@ const c = require('picocolors')
     console.log(c.green('✔ No ESLint warnings or errors'))
   }
   process.exit(hasErrors > 0 ? 1 : 0)
-})().catch((error) => {
+}
+
+main().catch((error) => {
   process.exitCode = 1
   console.error(error)
 })
