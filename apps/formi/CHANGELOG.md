@@ -1,5 +1,18 @@
 # Formi
 
+## 0.1.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - d3-graph-controller@2.6.0
+  - resumon@1.2.0
+  - @yeger/fol@0.3.0
+
 ## 0.0.4
 
 ### Patch Changes

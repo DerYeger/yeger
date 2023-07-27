@@ -1,5 +1,17 @@
 # d3-graph-controller
 
+## 2.6.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - @yeger/debounce@1.1.0
+  - vecti@2.2.0
+
 ## 2.5.2
 
 ### Patch Changes

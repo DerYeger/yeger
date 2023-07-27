@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 1.3.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
 ## 1.2.3
 
 ### Patch Changes

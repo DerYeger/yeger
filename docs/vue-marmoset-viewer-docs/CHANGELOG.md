@@ -1,5 +1,16 @@
 # vue-marmoset-viewer-docs
 
+## 1.1.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - vue-marmoset-viewer@3.2.0
+
 ## 1.0.3
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-core
 
+## 4.2.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - @yeger/vue-lib-adapter@1.1.0
+
 ## 4.1.0
 
 ### Minor Changes
