@@ -18,9 +18,14 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.cjs",
-      "import": "./dist/index.mjs"
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
     }
   },
   "main": "dist/index.cjs",
@@ -48,7 +53,7 @@
     "@types/node": "18.17.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.1.6",
-    "unbuild": "1.2.1",
+    "unbuild": "v2.0.0-rc.0",
     "vite": "4.4.7"
   },
   "publishConfig": {

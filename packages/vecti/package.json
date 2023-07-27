@@ -21,9 +21,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/types/vecti.d.ts",
-      "require": "./dist/vecti.umd.js",
-      "import": "./dist/vecti.mjs"
+      "require": {
+        "types": "./dist/types/vecti.d.ts",
+        "default": "./dist/vecti.umd.js"
+      },
+      "import": {
+        "types": "./dist/types/vecti.d.mts",
+        "default": "./dist/vecti.mjs"
+      }
     }
   },
   "main": "./dist/vecti.umd.js",

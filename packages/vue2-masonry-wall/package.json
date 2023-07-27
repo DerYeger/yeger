@@ -20,6 +20,18 @@
     "wall"
   ],
   "sideEffects": false,
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
+      },
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
   "main": "dist/index.umd.js",
   "browser": "dist/index.mjs",
   "module": "dist/index.mjs",

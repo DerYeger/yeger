@@ -15,9 +15,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/types/fol.d.ts",
-      "require": "./dist/fol.umd.js",
-      "import": "./dist/fol.mjs"
+      "require": {
+        "types": "./dist/types/fol.d.ts",
+        "default": "./dist/fol.umd.js"
+      },
+      "import": {
+        "types": "./dist/types/fol.d.mts",
+        "default": "./dist/fol.mjs"
+      }
     }
   },
   "main": "./dist/fol.umd.js",

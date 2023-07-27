@@ -1,21 +1,24 @@
 import { existsSync } from 'node:fs'
-import { readFile } from 'node:fs/promises'
+import { copyFile, readFile } from 'node:fs/promises'
 import { builtinModules } from 'node:module'
 import path from 'node:path'
 
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
 import ts from 'typescript'
-import type {
-  Alias,
-  AliasOptions,
-  LibraryFormats,
-  Plugin,
-  UserConfig,
+import {
+  type Alias,
+  type AliasOptions,
+  type LibraryFormats,
+  type Plugin,
+  type UserConfig,
+  normalizePath,
 } from 'vite'
 import dts from 'vite-plugin-dts'
 
 export * as dts from 'vite-plugin-dts'
+
+const typesDir = 'dist/types'
 
 function log(text: string) {
   // eslint-disable-next-line no-console
@@ -201,8 +204,11 @@ export function library(options: Options): Plugin[] {
       cleanVueFileName: true,
       copyDtsFiles: true,
       include: `${path.resolve(options.entry, '..')}/**`,
-      outDir: 'dist/types',
+      outDir: typesDir,
       staticImport: true,
+      afterBuild: includesESFormat(options.formats)
+        ? () => copyMTSDeclaration(options)
+        : undefined,
     }),
   ]
 }
@@ -237,8 +243,41 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
     )
     return options
   } catch (error: any) {
-    const message = 'message' in error ? error.message : error
+    const message = getErrorMessage(error)
     logError(`Could not read tsconfig.json: ${message}`)
+    throw error
+  }
+}
+
+function includesESFormat(formats?: LibraryFormats[]) {
+  return formats?.includes('es') ?? true
+}
+
+function getErrorMessage(error: unknown) {
+  const isObject =
+    typeof error === 'object' && error !== null && 'message' in error
+  return isObject ? error.message : String(error)
+}
+
+async function copyMTSDeclaration(options: Options) {
+  const declarationFile = options.entry
+    .replace('.ts', '.d.ts')
+    .substring(options.entry.lastIndexOf('/') + 1)
+  const mtsDeclarationFile = declarationFile.replace('.ts', '.mts')
+  const sourceDeclaration = normalizePath(
+    path.resolve(typesDir, declarationFile),
+  )
+  const targetDeclaration = normalizePath(
+    path.resolve(typesDir, mtsDeclarationFile),
+  )
+  log(
+    `Creating mts declaration file ${mtsDeclarationFile} based on ${declarationFile}`,
+  )
+  try {
+    await copyFile(sourceDeclaration, targetDeclaration)
+  } catch (error: unknown) {
+    const message = getErrorMessage(error)
+    logError(`Could not create mts declaration file: ${message}`)
     throw error
   }
 }

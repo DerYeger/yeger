@@ -14,9 +14,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "require": "./dist/index.umd.js",
-      "import": "./dist/index.mjs"
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
+      },
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
     }
   },
   "main": "dist/index.umd.js",
