@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 1.4.0
+
+### Minor Changes
+
+- 9c20216: create mts declaration for each file
+
 ## 1.3.0
 
 ### Minor Changes
