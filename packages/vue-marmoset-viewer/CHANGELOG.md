@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 3.2.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+- Updated dependencies [8e92d42]
+  - @yeger/debounce@1.1.1
+
 ## 3.2.0
 
 ### Minor Changes

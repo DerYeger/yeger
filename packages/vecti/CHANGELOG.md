@@ -1,5 +1,11 @@
 # vecti
 
+## 2.2.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+
 ## 2.2.0
 
 ### Minor Changes

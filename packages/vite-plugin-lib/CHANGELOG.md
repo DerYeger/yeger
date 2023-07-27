@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 1.5.0
+
+### Minor Changes
+
+- 8e92d42: fix mts declarations
+
 ## 1.4.0
 
 ### Minor Changes

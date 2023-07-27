@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 4.2.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+- Updated dependencies [8e92d42]
+  - @yeger/vue-lib-adapter@1.1.1
+
 ## 4.2.0
 
 ### Minor Changes
