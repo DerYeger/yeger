@@ -15,8 +15,8 @@ import {
 } from 'vite'
 import dts from 'vite-plugin-dts'
 
+import { generateMTSDeclarations } from './es-declarations'
 import { log, logError, logWarn } from './logger'
-import { generateMTSDeclarations } from './mts-declarations'
 
 export * as dts from 'vite-plugin-dts'
 

@@ -38,13 +38,29 @@ async function createMTSImports(file: string) {
 }
 
 function transformLine(line: string) {
-  const isStaticImport = line.includes('import ') && line.includes(`from '.`)
-  if (isStaticImport) {
-    return `${line.substring(0, line.length - 2)}.d.mts';`
+  return (
+    transformStaticImport(line, "'") ??
+    transformStaticImport(line, '"') ??
+    transformExport(line, "'") ??
+    transformExport(line, '"') ??
+    line
+  )
+}
+
+function transformStaticImport(line: string, quote: string) {
+  const isStaticImport =
+    line.includes('import ') && line.includes(`from ${quote}.`)
+  if (!isStaticImport) {
+    return undefined
   }
-  const isStaticExport = line.includes('export ') && line.includes(` from '.`)
-  if (isStaticExport) {
-    return `${line.substring(0, line.length - 2)}.mjs';`
+  return `${line.substring(0, line.length - 2)}.mjs${quote};`
+}
+
+function transformExport(line: string, quote: string) {
+  const isStaticExport =
+    line.includes('export ') && line.includes(` from ${quote}.`)
+  if (!isStaticExport) {
+    return undefined
   }
-  return line
+  return `${line.substring(0, line.length - 2)}.mjs${quote};`
 }
