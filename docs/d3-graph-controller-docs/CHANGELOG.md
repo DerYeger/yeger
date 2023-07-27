@@ -1,5 +1,16 @@
 # d3-graph-controller-docs
 
+## 1.1.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - d3-graph-controller@2.6.0
+
 ## 1.0.5
 
 ### Patch Changes

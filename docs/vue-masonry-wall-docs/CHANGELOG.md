@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-docs
 
+## 1.3.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - @yeger/vue-masonry-wall@4.2.0
+
 ## 1.2.6
 
 ### Patch Changes

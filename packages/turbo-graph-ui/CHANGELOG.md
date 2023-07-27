@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - d3-graph-controller@2.6.0
+
 ## 0.4.7
 
 ### Patch Changes

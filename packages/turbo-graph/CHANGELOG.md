@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 0.4.8
+
+### Patch Changes
+
+- Updated dependencies [b8ede33]
+  - @yeger/turbo-graph-ui@0.5.0
+
 ## 0.4.7
 
 ### Patch Changes

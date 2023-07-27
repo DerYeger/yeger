@@ -1,5 +1,11 @@
 # vecti
 
+## 2.2.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
 ## 2.1.40
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 0.3.0
+
+### Minor Changes
+
+- b8ede33: generate mts declaration entrypoint
+
 ## 0.2.2
 
 ### Patch Changes
