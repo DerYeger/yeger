@@ -1,5 +1,13 @@
 # @yeger/turbo-graph-ui
 
+## 0.5.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+- Updated dependencies [8e92d42]
+  - d3-graph-controller@2.6.1
+
 ## 0.5.0
 
 ### Minor Changes

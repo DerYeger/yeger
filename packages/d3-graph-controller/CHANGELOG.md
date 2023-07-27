@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 2.6.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+- Updated dependencies [8e92d42]
+  - @yeger/debounce@1.1.1
+  - vecti@2.2.1
+
 ## 2.6.0
 
 ### Minor Changes

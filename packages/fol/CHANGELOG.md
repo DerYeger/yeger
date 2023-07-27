@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 0.3.1
+
+### Patch Changes
+
+- 8e92d42: fix mts declarations
+
 ## 0.3.0
 
 ### Minor Changes
