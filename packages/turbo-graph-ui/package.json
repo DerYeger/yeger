@@ -31,7 +31,7 @@
     "d3-graph-controller": "workspace:*",
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.0.0",
-    "execa": "7.1.1",
+    "execa": "7.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -39,7 +39,7 @@
     "@types/d3-scale": "4.0.3",
     "@types/d3-scale-chromatic": "3.0.0",
     "@types/node": "18.17.1",
-    "@types/react": "18.2.16",
+    "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "10.4.14",

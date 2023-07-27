@@ -47,10 +47,10 @@
     "eslint": "8.45.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
-    "publint": "0.1.16",
+    "publint": "0.2.0",
     "syncpack": "10.7.3",
     "turbo": "1.10.12",
-    "vercel": "31.1.0",
+    "vercel": "31.1.1",
     "vitest": "0.33.0"
   },
   "pnpm": {
