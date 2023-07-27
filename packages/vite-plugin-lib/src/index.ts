@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { copyFile, readFile } from 'node:fs/promises'
+import { readFile } from 'node:fs/promises'
 import { builtinModules } from 'node:module'
 import path from 'node:path'
 
@@ -12,26 +12,15 @@ import {
   type LibraryFormats,
   type Plugin,
   type UserConfig,
-  normalizePath,
 } from 'vite'
 import dts from 'vite-plugin-dts'
+
+import { log, logError, logWarn } from './logger'
+import { generateMTSDeclarations } from './mts-declarations'
 
 export * as dts from 'vite-plugin-dts'
 
 const typesDir = 'dist/types'
-
-function log(text: string) {
-  // eslint-disable-next-line no-console
-  console.log(`${c.cyan('[vite:lib]')} ${text}`)
-}
-
-function logWarn(text: string) {
-  console.warn(`${c.yellow('[vite:lib]')} ${text}`)
-}
-
-function logError(text: string) {
-  console.error(`${c.red('[vite:lib]')} ${text}`)
-}
 
 export interface Options {
   name: string
@@ -207,7 +196,7 @@ export function library(options: Options): Plugin[] {
       outDir: typesDir,
       staticImport: true,
       afterBuild: includesESFormat(options.formats)
-        ? () => copyMTSDeclaration(options)
+        ? () => generateMTSDeclarations(typesDir)
         : undefined,
     }),
   ]
@@ -257,27 +246,4 @@ function getErrorMessage(error: unknown) {
   const isObject =
     typeof error === 'object' && error !== null && 'message' in error
   return isObject ? error.message : String(error)
-}
-
-async function copyMTSDeclaration(options: Options) {
-  const declarationFile = options.entry
-    .replace('.ts', '.d.ts')
-    .substring(options.entry.lastIndexOf('/') + 1)
-  const mtsDeclarationFile = declarationFile.replace('.ts', '.mts')
-  const sourceDeclaration = normalizePath(
-    path.resolve(typesDir, declarationFile),
-  )
-  const targetDeclaration = normalizePath(
-    path.resolve(typesDir, mtsDeclarationFile),
-  )
-  log(
-    `Creating mts declaration file ${mtsDeclarationFile} based on ${declarationFile}`,
-  )
-  try {
-    await copyFile(sourceDeclaration, targetDeclaration)
-  } catch (error: unknown) {
-    const message = getErrorMessage(error)
-    logError(`Could not create mts declaration file: ${message}`)
-    throw error
-  }
 }
