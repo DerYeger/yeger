@@ -13,7 +13,7 @@ jobs:
       - name: Setup
         uses: DerYeger/pnpm-setup-action@master
         with:
-          node-version: 18
+          node-version-file: .node-version
       - name: Lint package versions
         run: pnpm run syncpack:lint
       - name: Build, Lint, Test, and Typecheck
