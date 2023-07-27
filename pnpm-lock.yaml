@@ -434,8 +434,8 @@ importers:
         specifier: '>=7.4.0'
         version: 8.38.0
       eslint-config-prettier:
-        specifier: 8.8.0
-        version: 8.8.0(eslint@8.38.0)
+        specifier: 8.9.0
+        version: 8.9.0(eslint@8.38.0)
       eslint-import-resolver-typescript:
         specifier: 3.5.5
         version: 3.5.5(@typescript-eslint/parser@6.2.0)(eslint-plugin-import@2.27.5)(eslint@8.38.0)
@@ -459,7 +459,7 @@ importers:
         version: 1.0.19
       eslint-plugin-prettier:
         specifier: 5.0.0
-        version: 5.0.0(@types/eslint@8.44.1)(eslint-config-prettier@8.8.0)(eslint@8.38.0)(prettier@3.0.0)
+        version: 5.0.0(@types/eslint@8.44.1)(eslint-config-prettier@8.9.0)(eslint@8.38.0)(prettier@3.0.0)
       eslint-plugin-tailwindcss:
         specifier: 3.13.0
         version: 3.13.0(tailwindcss@3.3.3)
@@ -9655,8 +9655,8 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-config-prettier@8.8.0(eslint@8.38.0):
-    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
+  /eslint-config-prettier@8.9.0(eslint@8.38.0):
+    resolution: {integrity: sha512-+sbni7NfVXnOpnRadUA8S28AUlsZt9GjgFvABIRL9Hkn8KqNzOp+7Lw4QWtrwn20KzU3wqu1QoOj2m+7rKRqkA==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -10126,7 +10126,7 @@ packages:
     engines: {node: '>=5.0.0'}
     dev: false
 
-  /eslint-plugin-prettier@5.0.0(@types/eslint@8.44.1)(eslint-config-prettier@8.8.0)(eslint@8.38.0)(prettier@3.0.0):
+  /eslint-plugin-prettier@5.0.0(@types/eslint@8.44.1)(eslint-config-prettier@8.9.0)(eslint@8.38.0)(prettier@3.0.0):
     resolution: {integrity: sha512-AgaZCVuYDXHUGxj/ZGu1u8H8CYgDY3iG6w5kUFw4AzMVXzB7VvbKgYR4nATIN+OvUrghMbiDLeimVjVY5ilq3w==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
@@ -10142,7 +10142,7 @@ packages:
     dependencies:
       '@types/eslint': 8.44.1
       eslint: 8.38.0
-      eslint-config-prettier: 8.8.0(eslint@8.38.0)
+      eslint-config-prettier: 8.9.0(eslint@8.38.0)
       prettier: 3.0.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
@@ -10841,6 +10841,7 @@ packages:
 
   /file-uri-to-path@1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
 
   /file-uri-to-path@2.0.0:
