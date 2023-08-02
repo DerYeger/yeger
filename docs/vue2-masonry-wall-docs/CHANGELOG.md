@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall-docs
 
+## 1.1.12
+
+### Patch Changes
+
+- b389379: add missing masonry-item keys
+- Updated dependencies [b389379]
+  - @yeger/vue2-masonry-wall@4.2.2
+
 ## 1.1.11
 
 ### Patch Changes
