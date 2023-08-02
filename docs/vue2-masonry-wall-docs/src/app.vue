@@ -1,4 +1,5 @@
 <script lang="ts">
+import MasonryWall from '@yeger/vue2-masonry-wall'
 import { defineComponent, ref } from 'vue'
 
 import DemoFooter from '~/demo-footer.vue'
@@ -11,6 +12,7 @@ export default defineComponent({
     DemoFooter,
     DemoHeader,
     DemoTools,
+    MasonryWall,
   },
   setup() {
     const scrollContainer = ref(null)
@@ -20,7 +22,7 @@ export default defineComponent({
   },
   data() {
     return {
-      columnWidth: [256, 128, 128, 512, 128],
+      columnWidth: [256, 128, 128, 512, 128] as [number, ...number[]],
       gap: 16,
       items: [] as number[],
       rtl: false,

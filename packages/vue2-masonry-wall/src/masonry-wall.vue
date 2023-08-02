@@ -1,12 +1,15 @@
 <script setup lang="ts">
-import type {
-  Column,
-  KeyMapper,
-  NonEmptyArray,
-} from '@yeger/vue-masonry-wall-core'
+import type { Column, NonEmptyArray } from '@yeger/vue-masonry-wall-core'
 import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
+
+export type KeyMapper<T> = (
+  item: T,
+  column: number,
+  row: number,
+  index: number,
+) => string | number | symbol | undefined
 
 const props = withDefaults(
   defineProps<{
@@ -40,6 +43,7 @@ const emit = defineEmits<{
 
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
+
 const { getColumnWidthTarget } = useMasonryWall<unknown>({
   columns,
   emit,
@@ -74,7 +78,11 @@ const { getColumnWidthTarget } = useMasonryWall<unknown>({
         'min-width': 0,
       }"
     >
-      <div v-for="itemIndex in column" :key="itemIndex" class="masonry-item">
+      <div
+        v-for="(itemIndex, row) in column"
+        :key="keyMapper(items[itemIndex], columnIndex, row, itemIndex)"
+        class="masonry-item"
+      >
         <slot :item="items[itemIndex]" :index="itemIndex">
           {{ items[itemIndex] }}
         </slot>
