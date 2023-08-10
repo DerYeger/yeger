@@ -20,18 +20,18 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "require": {
-        "types": "./dist/types/main.d.ts",
-        "default": "./dist/main.umd.js"
-      },
       "import": {
         "types": "./dist/types/main.d.mts",
         "default": "./dist/main.mjs"
+      },
+      "require": {
+        "types": "./dist/types/main.d.ts",
+        "default": "./dist/main.umd.js"
       }
     },
     "./default.css": {
-      "require": "./default.css",
-      "import": "./default.css"
+      "import": "./default.css",
+      "require": "./default.css"
     }
   },
   "main": "./dist/main.umd.js",
@@ -62,13 +62,13 @@
     "@types/d3-force": "3.0.4",
     "@types/d3-selection": "3.0.5",
     "@types/d3-zoom": "3.0.3",
-    "@types/node": "18.17.1",
+    "@types/node": "18.17.4",
     "@types/resize-observer-browser": "0.1.7",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "jsdom": "22.1.0",
     "typescript": "5.1.6",
-    "vite": "4.4.7",
+    "vite": "4.4.9",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

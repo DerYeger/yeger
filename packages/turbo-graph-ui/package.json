@@ -27,7 +27,7 @@
     "turbo": "^1.0.0"
   },
   "dependencies": {
-    "@tanstack/react-query": "4.32.0",
+    "@tanstack/react-query": "4.32.6",
     "d3-graph-controller": "workspace:*",
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.0.0",
@@ -38,13 +38,13 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.3",
     "@types/d3-scale-chromatic": "3.0.0",
-    "@types/node": "18.17.1",
-    "@types/react": "18.2.17",
+    "@types/node": "18.17.4",
+    "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "10.4.14",
-    "eslint-config-next": "13.4.12",
-    "next": "13.4.12",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
     "postcss": "8.4.27",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
