@@ -2,6 +2,7 @@
   "extends": "./web.json",
   "compilerOptions": {
     "noEmit": true,
-    "incremental": true
+    "incremental": true,
+    "plugins": [{ "name": "next" }]
   }
 }

@@ -28,8 +28,11 @@ export abstract class Stream<T> implements Iterable<T> {
     return new Map(stream)
   }
 
-  public toRecord(fn: Processor<T, string>): Record<string, T> {
-    return Object.fromEntries(this.map((x) => [fn(x), x] as const))
+  public toRecord<U>(
+    key: Processor<T, string>,
+    value: Processor<T, U>,
+  ): Record<string, U> {
+    return Object.fromEntries(this.map((x) => [key(x), value?.(x)] as const))
   }
 
   public abstract [Symbol.iterator](): IterableIterator<T>

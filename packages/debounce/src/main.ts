@@ -4,12 +4,15 @@
  * @param delay - A delay after which the callback will be invoked.
  * @returns The debounced callback.
  */
-export function debounce(cb: () => void, delay?: number) {
+export function debounce<Args extends any[]>(
+  cb: (...args: Args) => void,
+  delay?: number,
+) {
   let timeout: any
-  return () => {
+  return (...args: Args) => {
     if (timeout !== undefined) {
       clearTimeout(timeout)
     }
-    timeout = setTimeout(() => cb(), delay)
+    timeout = setTimeout(() => cb(...args), delay)
   }
 }

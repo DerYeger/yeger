@@ -29,24 +29,23 @@ For simple usage, create a script in your root `package.json`.
 }
 ```
 
-Nodes represent your workspaces, i.e., packages.
-Each workspace can have multiple nodes, each color defining the corresponding task (as seen in the toolbar).
+Nodes represent your packages.
+Each package can have multiple nodes, each color defining the corresponding task.
 
 ### CLI
 
+Optionally, the CLI command can be followed by a list of tasks names that are loaded at startup.
+E.g., `turbo-graph build test` will load `build` and `test` tasks.
+Like the `--filter` option listed below, this only applies if the `--open` open option is used.
+
+- `-f, --filter <filter>`: Filter nodes by a Turborepo filter (e.g., `my-lib...`).
 - `-o, --open`: Open the visualizer in the default browser.
 - `-p, --port <port>`: Port of the visualizer. (default: 29312)
 - `-h, --help`: Display help message
 
 ### Controls
 
-By right-clicking a node, only its (transitive) dependencies and dependents are shown.
-
-Further, the checkboxes allow filtering nodes by their corresponding tasks.
-
-The graph can be zoomed using the mouse-wheel and nodes may be dragged while holding the left mouse-button.
-
-The "Reset" button centers the graph.
+By double-clicking a node, its package is used as the filter.
 
 ## License
 

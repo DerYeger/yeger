@@ -20,20 +20,30 @@
   "scripts": {
     "build": "next build",
     "check:publish": "publint run --strict",
-    "dev": "next dev",
-    "lint": "next lint"
+    "dev": "next dev --turbo",
+    "lint": "next lint",
+    "preview": "next start"
   },
   "peerDependencies": {
     "turbo": "^1.0.0"
   },
   "dependencies": {
-    "@tanstack/react-query": "4.32.6",
+    "@yeger/debounce": "workspace:*",
+    "@yeger/streams": "workspace:*",
+    "class-variance-authority": "0.7.0",
+    "clsx": "2.0.0",
+    "d3-dag": "1.0.0",
     "d3-graph-controller": "workspace:*",
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.0.0",
     "execa": "7.2.0",
+    "lucide-react": "^0.268.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "reactflow": "11.8.1",
+    "resumon": "workspace:*",
+    "tailwind-merge": "^1.14.0",
+    "tailwindcss-animate": "^1.0.6"
   },
   "devDependencies": {
     "@types/d3-scale": "4.0.3",
@@ -44,7 +54,7 @@
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "10.4.14",
     "eslint-config-next": "13.4.13",
-    "next": "13.4.13",
+    "next": "13.4.16",
     "postcss": "8.4.27",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"

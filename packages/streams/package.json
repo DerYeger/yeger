@@ -13,9 +13,14 @@
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "require": "./dist/index.umd.js",
-      "import": "./dist/index.mjs"
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/index.umd.js"
+      }
     }
   },
   "main": "dist/index.umd.js",
@@ -38,7 +43,7 @@
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.1.6",
-    "vite": "4.4.4",
+    "vite": "4.4.9",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
