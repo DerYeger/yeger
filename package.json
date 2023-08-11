@@ -44,7 +44,7 @@
     "@yeger/eslint-config": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "7.0.3",
-    "eslint": "8.46.0",
+    "eslint": "8.47.0",
     "husky": "8.0.3",
     "lint-staged": "13.2.3",
     "publint": "0.2.0",
