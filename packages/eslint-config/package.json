@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@antfu/eslint-config": "0.40.2",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "3.6.0",
     "eslint-plugin-astro": "0.28.0",
     "eslint-plugin-cypress": "2.14.0",
