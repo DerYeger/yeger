@@ -1,6 +1,6 @@
 {
   "name": "@yeger/debounce",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A tiny TypeScript library for debouncing functions.",
   "author": {
     "name": "Jan Müller",

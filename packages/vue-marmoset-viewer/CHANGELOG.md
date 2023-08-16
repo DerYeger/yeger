@@ -1,5 +1,12 @@
 # vue-marmoset-viewer
 
+## 3.2.2
+
+### Patch Changes
+
+- Updated dependencies [9a69892]
+  - @yeger/debounce@1.2.0
+
 ## 3.2.1
 
 ### Patch Changes

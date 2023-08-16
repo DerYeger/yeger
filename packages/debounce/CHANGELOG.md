@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 1.2.0
+
+### Minor Changes
+
+- 9a69892: add optional args to callback
+
 ## 1.1.1
 
 ### Patch Changes
