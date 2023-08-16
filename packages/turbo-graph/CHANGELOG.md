@@ -1,5 +1,16 @@
 # @yeger/turbo-graph
 
+## 1.0.0
+
+### Major Changes
+
+- 9a69892: re-implement visualization
+
+### Patch Changes
+
+- Updated dependencies [9a69892]
+  - @yeger/turbo-graph-ui@1.0.0
+
 ## 0.4.9
 
 ### Patch Changes
