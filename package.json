@@ -47,7 +47,7 @@
     "cross-env": "7.0.3",
     "eslint": "8.47.0",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.0",
     "publint": "0.2.0",
     "rimraf": "5.0.1",
     "syncpack": "10.9.3",
