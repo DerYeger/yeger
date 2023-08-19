@@ -4,7 +4,7 @@ import { Err, Ok } from 'resumon'
 import type { YAMLParseError } from 'yaml'
 import { parse } from 'yaml'
 import type { ZodError } from 'zod'
-import z from 'zod'
+import { z } from 'zod'
 
 export function jsonToModel(input: unknown): Result<Model, string> {
   return parseJson(input).andThen(jsonModelToModel)
