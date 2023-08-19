@@ -40,7 +40,7 @@
     "lucide-react": "^0.268.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "reactflow": "11.8.1",
+    "reactflow": "11.8.2",
     "resumon": "workspace:*",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.6"
@@ -48,14 +48,14 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.3",
     "@types/d3-scale-chromatic": "3.0.0",
-    "@types/node": "18.17.5",
+    "@types/node": "18.17.6",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@yeger/tsconfig": "workspace:*",
-    "autoprefixer": "10.4.14",
-    "eslint-config-next": "13.4.13",
-    "next": "13.4.16",
-    "postcss": "8.4.27",
+    "autoprefixer": "10.4.15",
+    "eslint-config-next": "13.4.19",
+    "next": "13.4.19",
+    "postcss": "8.4.28",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
   },

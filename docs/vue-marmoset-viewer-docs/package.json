@@ -14,7 +14,7 @@
     "vue-marmoset-viewer": "workspace:*"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "4.2.3",
+    "@vitejs/plugin-vue": "4.3.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.1.6",
     "vite": "4.4.9",
