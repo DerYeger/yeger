@@ -29,8 +29,8 @@
   "devDependencies": {
     "@kevinmarrec/nuxt-pwa": "0.17.0",
     "@nuxtjs/robots": "3.0.0",
-    "@unocss/nuxt": "0.55.1",
-    "@unocss/reset": "0.55.1",
+    "@unocss/nuxt": "0.55.2",
+    "@unocss/reset": "0.55.2",
     "@vueuse/core": "10.3.0",
     "@vueuse/nuxt": "10.3.0",
     "node-fetch-native": "1.2.0",
