@@ -29,9 +29,9 @@
     "lint": "yeger-lint"
   },
   "devDependencies": {
-    "@types/node": "18.17.6",
+    "@types/node": "18.17.8",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.1.6",
-    "unbuild": "v2.0.0-rc.0"
+    "unbuild": "2.0.0"
   }
 }

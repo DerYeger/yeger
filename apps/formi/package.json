@@ -33,7 +33,7 @@
     "@unocss/reset": "0.55.2",
     "@vueuse/core": "10.3.0",
     "@vueuse/nuxt": "10.3.0",
-    "node-fetch-native": "1.2.0",
+    "node-fetch-native": "1.4.0",
     "nuxt": "3.5.3",
     "nuxt-icon": "0.2.6",
     "typescript": "5.1.6",
