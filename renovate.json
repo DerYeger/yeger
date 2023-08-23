@@ -52,6 +52,10 @@
     {
       "matchPackageNames": ["open"],
       "allowedVersions": "<9"
+    },
+    {
+      "matchPackageNames": ["@unhead/vue"],
+      "allowedVersions": "<=1.2.2"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],
