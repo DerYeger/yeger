@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { FOL } from '~/fol'
+import { FOL } from '~/index'
 import { TestData } from '~test/test-utils'
 
 describe('FOL grammar', () => {

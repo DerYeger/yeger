@@ -1,4 +1,4 @@
-import { Function, Model, Relation } from '~/fol'
+import { Function, Model, Relation } from '~/index'
 
 const validFormulas = [
   'ff',

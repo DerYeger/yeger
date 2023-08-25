@@ -1,5 +1,6 @@
 {
   "name": "@yeger/vue-masonry-wall",
+  "type": "module",
   "version": "4.2.1",
   "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 3.",
   "author": {
@@ -25,18 +26,10 @@
       "import": {
         "types": "./dist/types/index.d.mts",
         "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.umd.js"
       }
     }
   },
-  "main": "dist/index.umd.js",
-  "browser": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/index.d.mts",
   "files": [
     "dist/*",
     "src/**/*.vue"

@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import type { Result } from '~/main'
-import { Ok, err, ok } from '~/main'
+import type { Result } from '~/index'
+import { Ok, err, ok } from '~/index'
 
 describe.concurrent('Left', () => {
   describe('can be initialized', () => {

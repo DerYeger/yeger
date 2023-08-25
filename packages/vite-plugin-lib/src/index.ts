@@ -1,7 +1,8 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { builtinModules } from 'node:module'
 import path from 'node:path'
+import process from 'node:process'
 
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
@@ -22,15 +23,40 @@ export * as dts from 'vite-plugin-dts'
 
 const typesDir = 'dist/types'
 
+export const coverage = {
+  enabled: !!process.env.COVERAGE,
+  all: true,
+  include: ['src/**/*.*'],
+  provider: 'v8' as const,
+}
+
 export interface Options {
-  name: string
+  /** Defaults to 'src/index.ts' */
   entry: string
-  formats?: LibraryFormats[]
   externalPackages?: (string | RegExp)[]
+  /** Defaults to ['es'] */
+  formats?: LibraryFormats[]
+  /** Defaults to 'package.json' */
+  manifest: string
+  name?: string
   verbose?: boolean
 }
 
-export function tsconfigPaths({ verbose }: Partial<Options> = {}): Plugin {
+const defaults = {
+  entry: 'src/index.ts',
+  formats: ['es'],
+  manifest: 'package.json',
+} satisfies Partial<Options>
+
+function mergeWithDefaults(options: Partial<Options>): Options {
+  return {
+    ...defaults,
+    ...options,
+  }
+}
+
+export function tsconfigPaths(options: Partial<Options> = {}): Plugin {
+  const { verbose } = mergeWithDefaults(options)
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -63,6 +89,7 @@ export function tsconfigPaths({ verbose }: Partial<Options> = {}): Plugin {
 function buildConfig({
   entry,
   formats,
+  manifest,
   name,
   externalPackages,
 }: Options): Plugin {
@@ -85,11 +112,27 @@ function buildConfig({
             fileName: (format: string) => formatToFileName(entry, format),
           },
           rollupOptions: {
-            external: externalPackages ?? [/node_modules/, ...builtinModules],
+            external: externalPackages ?? [
+              /node_modules/,
+              ...builtinModules,
+              ...getDependencies(manifest),
+            ],
           },
         },
       }
     },
+  }
+}
+
+function getDependencies(manifest: string): string[] {
+  try {
+    const content = readFileSync(manifest, { encoding: 'utf-8' })
+    const { dependencies = {} } = JSON.parse(content)
+    return Object.keys(dependencies)
+  } catch (error: any) {
+    const message = getErrorMessage(error)
+    logError(`Could not read ${c.green(manifest)}: ${message}`)
+    throw error
   }
 }
 
@@ -185,18 +228,19 @@ function formatToFileName(entry: string, format: string): string {
   return `${entryFileName}.${format}.js`
 }
 
-export function library(options: Options): Plugin[] {
+export function library(options: Partial<Options> = {}): Plugin[] {
+  const mergedOptions = mergeWithDefaults(options)
   return [
     tsconfigPaths(),
-    buildConfig(options),
+    buildConfig(mergedOptions),
     dts({
       cleanVueFileName: true,
       copyDtsFiles: true,
-      include: `${path.resolve(options.entry, '..')}/**`,
+      include: `${path.resolve(mergedOptions.entry, '..')}/**`,
       outDir: typesDir,
       staticImport: true,
       afterBuild: includesESFormat(options.formats)
-        ? () => generateMTSDeclarations(typesDir)
+        ? () => generateMTSDeclarations(typesDir, options.formats?.length === 1)
         : undefined,
     }),
   ]

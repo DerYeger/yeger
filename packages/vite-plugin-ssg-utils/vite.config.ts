@@ -1,22 +1,9 @@
-import path from 'node:path'
-import process from 'node:process'
-
+import { coverage, library } from 'vite-plugin-lib'
 import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
-  resolve: {
-    alias: [
-      {
-        find: '~',
-        replacement: path.resolve(__dirname, 'src'),
-      },
-    ],
-  },
+  plugins: [library()],
   test: {
-    coverage: {
-      enabled: !!process.env.COVERAGE,
-      all: true,
-      include: ['src/**/*.*'],
-    },
+    coverage,
   },
 })

@@ -1,5 +1,5 @@
 {
-  "extends": "@yeger/tsconfig/lib",
+  "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
     "baseUrl": "./",
     "types": ["node"]

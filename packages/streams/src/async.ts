@@ -138,6 +138,10 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return AsyncConcatStream.ofPrevious(this, ...streams)
   }
 
+  public append(...value: T[]) {
+    return this.concat(AsyncStream.from(value))
+  }
+
   public cache() {
     return AsyncCacheStream.ofPrevious(this)
   }

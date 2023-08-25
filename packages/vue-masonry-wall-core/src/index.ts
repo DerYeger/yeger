@@ -31,18 +31,6 @@ export interface Vue3ComponentEmits {
   (event: 'redrawSkip'): void
 }
 
-export const defaults = {
-  columnWidth: 400,
-  gap: 0,
-  keyMapper: (_item: unknown, _column: number, _row: number, index: number) =>
-    index,
-  minColumns: 1,
-  maxColumns: undefined,
-  rtl: false,
-  scrollContainer: null,
-  ssrColumns: 0,
-} as const satisfies Partial<ComponentProps<unknown>>
-
 export type KeyMapper<T> = (
   item: T,
   column: number,

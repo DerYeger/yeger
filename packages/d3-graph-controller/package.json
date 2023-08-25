@@ -1,5 +1,6 @@
 {
   "name": "d3-graph-controller",
+  "type": "module",
   "version": "2.6.2",
   "description": "A TypeScript library for visualizing and simulating directed, interactive graphs.",
   "author": {
@@ -21,22 +22,15 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/main.d.mts",
-        "default": "./dist/main.mjs"
-      },
-      "require": {
-        "types": "./dist/types/main.d.ts",
-        "default": "./dist/main.umd.js"
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./default.css": {
-      "import": "./default.css",
-      "require": "./default.css"
+      "import": "./default.css"
     }
   },
-  "main": "./dist/main.umd.js",
-  "module": "./dist/main.mjs",
-  "types": "./dist/types/main.d.ts",
+  "types": "./dist/types/index.d.mts",
   "files": [
     "dist",
     "default.css"

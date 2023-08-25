@@ -52,7 +52,6 @@ describe('MasonryWall', () => {
 
   it('can be installed', async () => {
     Vue.use(MasonryWall)
-    // @ts-expect-error Vue 2.7.14 typings
     const wrapper = mount(TestComponent)
     await flushPromises()
     const wall = wrapper.find<HTMLDivElement>('.masonry-wall')

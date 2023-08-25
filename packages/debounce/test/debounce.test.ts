@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { debounce } from '~/main'
+import { debounce } from '~/index'
 
 function flushTimeouts(delay?: number) {
   return new Promise((resolve) => setTimeout(resolve, delay))

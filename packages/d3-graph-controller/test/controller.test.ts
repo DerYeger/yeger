@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { GraphController, defineGraphConfig } from '~/main'
-import type { GraphLink } from '~/main'
+import { GraphController, defineGraphConfig } from '~/index'
+import type { GraphLink } from '~/index'
 import TestData from '~test/test-data'
 import type { TestNodeType } from '~test/test-data'
 

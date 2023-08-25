@@ -1,5 +1,6 @@
 {
   "name": "vite-plugin-ssg-utils",
+  "type": "module",
   "version": "1.2.1",
   "description": "Utils for vite-ssg and other Vite SSG or SSR tools.",
   "author": "Jan Müller <janmueller3698@gmail.com>",
@@ -17,18 +18,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
+        "types": "./dist/types/index.d.mts",
         "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.cjs"
       }
     }
   },
-  "main": "dist/index.cjs",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.mts",
   "files": [
     "dist",
     "LICENSE"
@@ -37,9 +32,10 @@
     "node": ">=14"
   },
   "scripts": {
-    "build": "rimraf dist && unbuild",
+    "build": "vite build",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
+    "dev": "vite build --watch",
     "lint": "yeger-lint",
     "test": "vitest"
   },
@@ -54,8 +50,8 @@
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "5.0.1",
     "typescript": "5.1.6",
-    "unbuild": "2.0.0",
-    "vite": "4.4.9"
+    "vite": "4.4.9",
+    "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

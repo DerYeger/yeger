@@ -1,5 +1,6 @@
 {
   "name": "vue-marmoset-viewer",
+  "type": "module",
   "version": "3.2.2",
   "private": false,
   "description": "A responsive and configurable Marmoset Viewer component for Vue.",
@@ -21,11 +22,15 @@
     "3d"
   ],
   "sideEffects": false,
-  "main": "dist/index.umd.js",
-  "browser": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "types": "dist/types/index.d.mts",
   "files": [
     "dist/*",
     "src/**/*.vue"
@@ -68,7 +73,7 @@
   },
   "bundlesize": [
     {
-      "path": "./dist/*.js",
+      "path": "./dist/*.mjs",
       "maxSize": "1.5kb"
     }
   ]

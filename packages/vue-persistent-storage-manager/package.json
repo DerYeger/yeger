@@ -1,5 +1,6 @@
 {
   "name": "vue-persistent-storage-manager",
+  "type": "module",
   "version": "2.2.1",
   "private": false,
   "description": "Vue plugin that wraps the StorageManager API and provides the state of the persistent-storage permission alongside a storage estimate.",
@@ -24,18 +25,10 @@
       "import": {
         "types": "./dist/types/index.d.mts",
         "default": "./dist/index.mjs"
-      },
-      "require": {
-        "types": "./dist/types/index.d.ts",
-        "default": "./dist/index.umd.js"
       }
     }
   },
-  "main": "dist/index.umd.js",
-  "browser": "dist/index.mjs",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/index.d.mts",
   "files": [
     "dist/*"
   ],

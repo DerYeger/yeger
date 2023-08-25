@@ -127,6 +127,7 @@ export class VuePersistentStorageManager {
   }
 }
 
+// @ts-expect-error Can be ignored
 declare module 'vue/types/vue' {
   interface Vue {
     /**

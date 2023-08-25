@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { Validator } from '~/fol'
+import { Validator } from '~/index'
 import { TestData } from '~test/test-utils'
 
 describe('FOL validation', () => {

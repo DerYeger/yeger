@@ -1,5 +1,6 @@
 {
   "name": "@yeger/debounce",
+  "type": "module",
   "version": "1.2.0",
   "description": "A tiny TypeScript library for debouncing functions.",
   "author": {
@@ -21,18 +22,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/main.d.mts",
-        "default": "./dist/main.mjs"
-      },
-      "require": {
-        "types": "./dist/types/main.d.ts",
-        "default": "./dist/main.umd.js"
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
-  "main": "./dist/main.umd.js",
-  "module": "./dist/main.mjs",
-  "types": "dist/types/main.d.ts",
+  "types": "dist/types/index.d.mts",
   "files": [
     "dist",
     "default.css"

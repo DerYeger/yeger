@@ -1,5 +1,6 @@
 {
   "name": "vue-marmoset-viewer-docs",
+  "type": "module",
   "version": "1.1.2",
   "private": true,
   "scripts": {

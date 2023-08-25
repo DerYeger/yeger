@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { Vector } from '~/vecti'
+import { Vector } from '~/index'
 
 describe.concurrent('Vector', () => {
   describe('can be initialized', () => {

@@ -129,6 +129,10 @@ export abstract class Stream<T> implements Iterable<T> {
     return ConcatStream.ofPrevious(this, sources)
   }
 
+  public append(...value: T[]) {
+    return this.concat(Stream.from(value))
+  }
+
   public cache() {
     return CacheStream.ofPrevious(this)
   }

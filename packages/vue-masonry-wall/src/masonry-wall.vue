@@ -1,13 +1,15 @@
 <script setup lang="ts" generic="T">
-import type {
-  Column,
-  KeyMapper,
-  NonEmptyArray,
-  Vue3ComponentEmits,
-} from '@yeger/vue-masonry-wall-core'
-import { defaults, useMasonryWall } from '@yeger/vue-masonry-wall-core'
+import type { Column, NonEmptyArray } from '@yeger/vue-masonry-wall-core'
+import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
+
+export type KeyMapper<T> = (
+  item: T,
+  column: number,
+  row: number,
+  index: number,
+) => string | number | symbol | undefined
 
 const props = withDefaults(
   defineProps<{
@@ -21,10 +23,23 @@ const props = withDefaults(
     maxColumns?: number
     keyMapper?: KeyMapper<T>
   }>(),
-  defaults,
+  {
+    columnWidth: 400,
+    gap: 0,
+    keyMapper: (_item: unknown, _column: number, _row: number, index: number) =>
+      index,
+    minColumns: 1,
+    maxColumns: undefined,
+    rtl: false,
+    scrollContainer: null,
+    ssrColumns: 0,
+  },
 )
 
-const emit = defineEmits<Vue3ComponentEmits>()
+const emit = defineEmits<{
+  (event: 'redraw'): void
+  (event: 'redrawSkip'): void
+}>()
 
 defineSlots<{
   default?: (props: {

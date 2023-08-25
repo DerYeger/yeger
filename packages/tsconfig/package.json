@@ -8,6 +8,7 @@
     "cli.json",
     "lib.json",
     "next.json",
+    "vite.json",
     "web.json"
   ],
   "scripts": {

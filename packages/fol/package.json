@@ -1,5 +1,6 @@
 {
   "name": "@yeger/fol",
+  "type": "module",
   "version": "0.3.1",
   "description": "FOL grammar and parser.",
   "author": {
@@ -16,18 +17,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/fol.d.mts",
-        "default": "./dist/fol.mjs"
-      },
-      "require": {
-        "types": "./dist/types/fol.d.ts",
-        "default": "./dist/fol.umd.js"
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
-  "main": "./dist/fol.umd.js",
-  "module": "./dist/fol.mjs",
-  "types": "./dist/types/fol.d.ts",
+  "types": "./dist/types/index.d.mts",
   "files": [
     "dist"
   ],

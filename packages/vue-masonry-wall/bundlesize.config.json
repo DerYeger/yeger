@@ -1,7 +1,7 @@
 {
   "files": [
     {
-      "path": "./dist/*.{js,mjs}",
+      "path": "./dist/*.mjs",
       "maxSize": "1.6KB",
       "compression": "brotli"
     }
