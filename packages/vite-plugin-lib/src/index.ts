@@ -239,8 +239,12 @@ export function library(options: Partial<Options> = {}): Plugin[] {
       include: `${path.resolve(mergedOptions.entry, '..')}/**`,
       outDir: typesDir,
       staticImport: true,
-      afterBuild: includesESFormat(options.formats)
-        ? () => generateMTSDeclarations(typesDir, options.formats?.length === 1)
+      afterBuild: includesESFormat(mergedOptions.formats)
+        ? () =>
+            generateMTSDeclarations(
+              typesDir,
+              mergedOptions.formats?.length === 1,
+            )
         : undefined,
     }),
   ]
