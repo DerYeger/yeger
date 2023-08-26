@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.2
+
+### Patch Changes
+
+- f239c21: externalize peer dependencies
+
 ## 3.0.1
 
 ### Patch Changes

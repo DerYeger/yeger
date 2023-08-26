@@ -1,5 +1,12 @@
 # @yeger/vue2-masonry-wall
 
+## 5.0.2
+
+### Patch Changes
+
+- f239c21: externalize peer dependencies
+  - @yeger/vue-masonry-wall-core@5.0.1
+
 ## 5.0.1
 
 ### Patch Changes

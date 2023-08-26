@@ -1,5 +1,12 @@
 # vue-marmoset-viewer
 
+## 4.0.2
+
+### Patch Changes
+
+- f239c21: externalize peer dependencies
+  - @yeger/debounce@2.0.1
+
 ## 4.0.1
 
 ### Patch Changes
