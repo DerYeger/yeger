@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
+### Patch Changes
+
+- Updated dependencies [8f519a4]
+  - @yeger/vue-lib-adapter@2.0.0
+
 ## 4.2.1
 
 ### Patch Changes

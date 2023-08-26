@@ -1,5 +1,16 @@
 # vecti-docs
 
+## 2.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
+### Patch Changes
+
+- Updated dependencies [8f519a4]
+  - vecti@3.0.0
+
 ## 1.0.4
 
 ### Patch Changes

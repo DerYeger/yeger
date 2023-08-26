@@ -1,5 +1,16 @@
 # @yeger/vue-masonry-wall-docs
 
+## 2.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
+### Patch Changes
+
+- Updated dependencies [8f519a4]
+  - @yeger/vue-masonry-wall@5.0.0
+
 ## 1.3.1
 
 ### Patch Changes

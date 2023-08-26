@@ -1,5 +1,16 @@
 # vue-marmoset-viewer
 
+## 4.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
+### Patch Changes
+
+- Updated dependencies [8f519a4]
+  - @yeger/debounce@2.0.0
+
 ## 3.2.2
 
 ### Patch Changes
