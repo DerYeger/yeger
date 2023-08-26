@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.0.2
+
+### Patch Changes
+
+- f239c21: externalize peer dependencies
+
 ## 2.0.1
 
 ### Patch Changes
