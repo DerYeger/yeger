@@ -128,9 +128,9 @@ function buildConfig({
 function getDependencies(manifest: string): string[] {
   try {
     const content = readFileSync(manifest, { encoding: 'utf-8' })
-    const { dependencies = {} } = JSON.parse(content)
-    return Object.keys(dependencies)
-  } catch (error: any) {
+    const { dependencies = {}, peerDependencies = {} } = JSON.parse(content)
+    return Object.keys({ ...dependencies, ...peerDependencies })
+  } catch (error) {
     const message = getErrorMessage(error)
     logError(`Could not read ${c.green(manifest)}: ${message}`)
     throw error
