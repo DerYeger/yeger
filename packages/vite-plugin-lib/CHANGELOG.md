@@ -1,5 +1,12 @@
 # vite-plugin-lib
 
+## 2.0.1
+
+### Patch Changes
+
+- efe9e95: use merged options for es declarations
+- bb31a9a: externalize node protocol imports
+
 ## 2.0.0
 
 ### Major Changes

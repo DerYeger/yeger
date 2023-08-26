@@ -1,5 +1,15 @@
 # Formi
 
+## 0.1.4
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+- Updated dependencies [efe9e95]
+  - d3-graph-controller@3.0.1
+  - resumon@2.0.1
+  - @yeger/fol@1.0.0
+
 ## 0.1.3
 
 ### Patch Changes

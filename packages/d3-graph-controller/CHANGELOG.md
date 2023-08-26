@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.0.1
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+- Updated dependencies [efe9e95]
+  - @yeger/debounce@2.0.1
+  - vecti@3.0.1
+
 ## 3.0.0
 
 ### Major Changes
