@@ -52,7 +52,7 @@
     "rimraf": "5.0.1",
     "syncpack": "11.2.1",
     "turbo": "1.10.13",
-    "vercel": "31.4.0",
+    "vercel": "32.1.0",
     "vitest": "0.34.3"
   },
   "pnpm": {
