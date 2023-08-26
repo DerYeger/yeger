@@ -1,24 +1,42 @@
-# @yeger
+# yeger-monorepo
 
 > Monorepo for `@yeger` and related NPM packages
 
 ## Apps
 
-- [Formi](https://github.com/DerYeger/yeger/tree/main/apps/formi)
+- [formi](./apps/formi)
+
+## Docs
+
+- [@yeger/vue-masonry-wall-docs](./docs/vue-masonry-wall-docs)
+- [@yeger/vue2-masonry-wall-docs](./docs/vue2-masonry-wall-docs)
+- [d3-graph-controller-docs](./docs/d3-graph-controller-docs)
+- [vecti-docs](./docs/vecti-docs)
+- [vue-marmoset-viewer-docs](./docs/vue-marmoset-viewer-docs)
+
+## Examples
+
+- [vite-plugin-ssg-utils-example](./examples/vite-plugin-ssg-utils-example)
 
 ## Packages
 
-- [@yeger/debouce](https://github.com/DerYeger/yeger/tree/main/packages/debounce)
-- [@yeger/eslint-config](https://github.com/DerYeger/yeger/tree/main/packages/eslint-config)
-- [@yeger/fol](https://github.com/DerYeger/yeger/tree/main/packages/fol)
-- [@yeger/turbo-graph](https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph)
-- [@yeger/turbo-graph-ui](https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph-ui)
-- [@yeger/vue-masonry-wall](https://github.com/DerYeger/yeger/tree/main/packages/vue-masonry-wall)
-- [@yeger/vue2-masonry-wall](https://github.com/DerYeger/yeger/tree/main/packages/vue2-masonry-wall)
-- [d3-graph-controller](https://github.com/DerYeger/yeger/tree/main/packages/d3-graph-controller)
-- [resumon](https://github.com/DerYeger/yeger/tree/main/packages/resumon)
-- [vecti](https://github.com/DerYeger/yeger/tree/main/packages/vecti)
-- [vite-plugin-lib](https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-lib)
-- [vite-plugin-ssg-utils](https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-ssg-utils)
-- [vue-marmoset-viewer](https://github.com/DerYeger/yeger/tree/main/packages/vue-marmoset-viewer)
-- [vue-persistent-storage-manager](https://github.com/DerYeger/yeger/tree/main/packages/vue-persistent-storage-manager)
+- [@yeger/debounce](./packages/debounce)
+- [@yeger/deepmerge](./packages/deepmerge)
+- [@yeger/eslint-config](./packages/eslint-config)
+- [@yeger/fol](./packages/fol)
+- [@yeger/scripts](./packages/scripts)
+- [@yeger/streams](./packages/streams)
+- [@yeger/tsconfig](./packages/tsconfig)
+- [@yeger/turbo-graph](./packages/turbo-graph)
+- [@yeger/turbo-graph-ui](./packages/turbo-graph-ui)
+- [@yeger/vue-lib-adapter](./packages/vue-lib-adapter)
+- [@yeger/vue-masonry-wall](./packages/vue-masonry-wall)
+- [@yeger/vue-masonry-wall-core](./packages/vue-masonry-wall-core)
+- [@yeger/vue2-masonry-wall](./packages/vue2-masonry-wall)
+- [d3-graph-controller](./packages/d3-graph-controller)
+- [resumon](./packages/resumon)
+- [vecti](./packages/vecti)
+- [vite-plugin-lib](./packages/vite-plugin-lib)
+- [vite-plugin-ssg-utils](./packages/vite-plugin-ssg-utils)
+- [vue-marmoset-viewer](./packages/vue-marmoset-viewer)
+- [vue-persistent-storage-manager](./packages/vue-persistent-storage-manager)

@@ -115,6 +115,7 @@ function buildConfig({
             external: externalPackages ?? [
               /node_modules/,
               ...builtinModules,
+              /node:/,
               ...getDependencies(manifest),
             ],
           },

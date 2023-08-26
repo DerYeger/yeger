@@ -1,8 +1,8 @@
 {
-  "name": "@yeger/{{name}}",
+  "name": "@yeger/scripts",
   "type": "module",
   "version": "0.0.0",
-    "author": {
+  "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
@@ -21,7 +21,11 @@
     }
   },
   "types": "dist/types/index.d.mts",
+  "bin": {
+    "generate-readme": "bin/generate-readme.js"
+  },
   "files": [
+    "bin/*",
     "dist/*"
   ],
   "scripts": {
@@ -31,10 +35,13 @@
     "dev": "vite build --watch",
     "lint": "yeger-lint"
   },
+  "dependencies": {
+    "@manypkg/get-packages": "2.2.0"
+  },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.1.3",
-    "vite": "4.3.9",
+    "typescript": "5.2.2",
+    "vite": "4.4.9",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
