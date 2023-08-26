@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
 ## 2.2.1
 
 ### Patch Changes

@@ -1,5 +1,20 @@
 # vite-plugin-lib
 
+## 2.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
+### Minor Changes
+
+- 8f519a4: automatically externalize all dependencies
+- 8f519a4: delete initial dist files if es is only format
+
+### Patch Changes
+
+- 8f519a4: correctly transform index imports and exports
+
 ## 1.5.0
 
 ### Minor Changes

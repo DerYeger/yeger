@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.0.0
+
+### Major Changes
+
+- 8f519a4: only ship esm
+
 ## 0.3.1
 
 ### Patch Changes
