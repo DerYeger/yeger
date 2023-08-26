@@ -1,5 +1,11 @@
 # resumon
 
+## 2.0.1
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+
 ## 2.0.0
 
 ### Major Changes

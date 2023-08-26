@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.0.1
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+
 ## 1.0.0
 
 ### Major Changes

@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.0.1
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+- Updated dependencies [efe9e95]
+  - @yeger/vue-masonry-wall-core@5.0.1
+
 ## 5.0.0
 
 ### Major Changes

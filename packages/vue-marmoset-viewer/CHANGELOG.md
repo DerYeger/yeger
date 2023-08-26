@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.1
+
+### Patch Changes
+
+- efe9e95: remove redundant declarations from dist
+- Updated dependencies [efe9e95]
+  - @yeger/debounce@2.0.1
+
 ## 4.0.0
 
 ### Major Changes
