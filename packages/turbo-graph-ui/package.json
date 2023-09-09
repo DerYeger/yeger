@@ -48,7 +48,7 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.4",
     "@types/d3-scale-chromatic": "3.0.0",
-    "@types/node": "18.17.13",
+    "@types/node": "18.17.15",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@yeger/tsconfig": "workspace:*",
