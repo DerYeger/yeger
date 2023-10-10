@@ -35,10 +35,10 @@
     "@yeger/vue-lib-adapter": "workspace:*"
   },
   "devDependencies": {
-    "@types/resize-observer-browser": "0.1.7",
+    "@types/resize-observer-browser": "0.1.8",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.2.2",
-    "vite": "4.4.9",
+    "vite": "4.4.11",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

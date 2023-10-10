@@ -55,18 +55,18 @@
     "@yeger/debounce": "workspace:*"
   },
   "devDependencies": {
-    "@types/resize-observer-browser": "0.1.7",
-    "@vitejs/plugin-vue": "4.3.4",
+    "@types/resize-observer-browser": "0.1.8",
+    "@vitejs/plugin-vue": "4.4.0",
     "@vue/test-utils": "2.4.1",
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "0.0.31",
     "cross-env": "7.0.3",
     "flush-promises": "1.0.2",
     "typescript": "5.2.2",
-    "vite": "4.4.9",
+    "vite": "4.4.11",
     "vite-plugin-lib": "workspace:*",
     "vue": "3.3.4",
-    "vue-tsc": "1.8.10"
+    "vue-tsc": "1.8.18"
   },
   "publishConfig": {
     "access": "public"
