@@ -42,7 +42,7 @@
     "eslint-plugin-jsx-a11y": "6.7.1",
     "eslint-plugin-markdown": "3.0.1",
     "eslint-plugin-md": "1.0.19",
-    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-tailwindcss": "3.13.0",
     "eslint-plugin-tsdoc": "0.2.17",
     "eslint-plugin-turbo": "1.10.15",
@@ -50,13 +50,13 @@
     "picocolors": "1.0.0",
     "prettier": "3.0.3",
     "prettier-plugin-astro": "0.12.0",
-    "prettier-plugin-tailwindcss": "0.5.5",
+    "prettier-plugin-tailwindcss": "0.5.6",
     "yaml-eslint-parser": "1.2.2"
   },
   "publishConfig": {
     "access": "public"
   },
   "devDependencies": {
-    "@types/eslint": "8.44.3"
+    "@types/eslint": "8.44.4"
   }
 }

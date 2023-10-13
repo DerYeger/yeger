@@ -23,7 +23,7 @@
     "unplugin-vue-components": "0.25.2",
     "vite": "4.4.11",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-rc.20",
-    "vue-tsc": "1.8.18"
+    "vitepress": "1.0.0-rc.21",
+    "vue-tsc": "1.8.19"
   }
 }

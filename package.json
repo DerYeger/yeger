@@ -41,7 +41,7 @@
     "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
     "@turbo/gen": "1.10.15",
-    "@types/node": "18.18.4",
+    "@types/node": "18.18.5",
     "@vitest/coverage-v8": "0.34.6",
     "@vitest/ui": "0.34.6",
     "@yeger/eslint-config": "workspace:*",

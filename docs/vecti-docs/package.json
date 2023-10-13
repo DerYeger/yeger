@@ -19,6 +19,6 @@
     "typescript": "5.2.2",
     "vite": "4.4.11",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-rc.20"
+    "vitepress": "1.0.0-rc.21"
   }
 }
