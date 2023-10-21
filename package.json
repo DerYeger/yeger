@@ -38,7 +38,7 @@
   "devDependencies": {
     "@antfu/ni": "0.21.8",
     "@changesets/cli": "2.26.2",
-    "@commitlint/cli": "17.7.2",
+    "@commitlint/cli": "18.0.0",
     "@commitlint/config-conventional": "18.0.0",
     "@turbo/gen": "1.10.15",
     "@types/node": "18.18.5",
