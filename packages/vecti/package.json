@@ -41,7 +41,7 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "18.18.5",
+    "@types/node": "20.8.9",
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.2.2",
