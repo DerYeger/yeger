@@ -42,7 +42,7 @@
     "react-dom": "18.2.0",
     "reactflow": "11.9.3",
     "resumon": "workspace:*",
-    "tailwind-merge": "^1.14.0",
+    "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.6"
   },
   "devDependencies": {
