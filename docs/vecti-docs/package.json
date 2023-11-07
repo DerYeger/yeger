@@ -12,13 +12,13 @@
   "dependencies": {
     "@algolia/client-search": "4.20.0",
     "vecti": "workspace:*",
-    "vue": "3.3.4"
+    "vue": "3.3.8"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.2.2",
-    "vite": "4.4.11",
+    "vite": "4.5.0",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-rc.21"
+    "vitepress": "1.0.0-rc.25"
   }
 }

@@ -52,17 +52,17 @@
     "vecti": "workspace:*"
   },
   "devDependencies": {
-    "@types/d3-drag": "3.0.4",
-    "@types/d3-force": "3.0.6",
-    "@types/d3-selection": "3.0.7",
-    "@types/d3-zoom": "3.0.5",
-    "@types/node": "20.8.9",
-    "@types/resize-observer-browser": "0.1.8",
+    "@types/d3-drag": "3.0.6",
+    "@types/d3-force": "3.0.8",
+    "@types/d3-selection": "3.0.9",
+    "@types/d3-zoom": "3.0.7",
+    "@types/node": "20.8.10",
+    "@types/resize-observer-browser": "0.1.9",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "jsdom": "22.1.0",
     "typescript": "5.2.2",
-    "vite": "4.4.11",
+    "vite": "4.5.0",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@babel/types": "7.23.0",
-    "@types/resize-observer-browser": "0.1.8",
+    "@types/resize-observer-browser": "0.1.9",
     "@vitejs/plugin-vue": "4.4.0",
     "@vue/test-utils": "2.4.1",
     "@yeger/tsconfig": "workspace:*",
@@ -60,10 +60,10 @@
     "flush-promises": "1.0.2",
     "jsdom": "22.1.0",
     "typescript": "5.2.2",
-    "vite": "4.4.11",
+    "vite": "4.5.0",
     "vite-plugin-lib": "workspace:*",
-    "vue": "3.3.4",
-    "vue-tsc": "1.8.19"
+    "vue": "3.3.8",
+    "vue-tsc": "1.8.22"
   },
   "publishConfig": {
     "access": "public"
