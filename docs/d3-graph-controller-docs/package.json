@@ -17,7 +17,7 @@
     "vue": "3.3.8"
   },
   "devDependencies": {
-    "@types/d3-selection": "3.0.9",
+    "@types/d3-selection": "3.0.10",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.2.2",
     "unplugin-vue-components": "0.25.2",

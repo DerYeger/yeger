@@ -46,11 +46,11 @@
     "tailwindcss-animate": "^1.0.6"
   },
   "devDependencies": {
-    "@types/d3-scale": "4.0.7",
-    "@types/d3-scale-chromatic": "3.0.1",
-    "@types/node": "20.8.10",
-    "@types/react": "18.2.36",
-    "@types/react-dom": "18.2.14",
+    "@types/d3-scale": "4.0.8",
+    "@types/d3-scale-chromatic": "3.0.2",
+    "@types/node": "20.9.0",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "10.4.16",
     "eslint-config-next": "14.0.1",
