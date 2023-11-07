@@ -52,12 +52,12 @@
     "vecti": "workspace:*"
   },
   "devDependencies": {
-    "@types/d3-drag": "3.0.6",
-    "@types/d3-force": "3.0.8",
-    "@types/d3-selection": "3.0.9",
-    "@types/d3-zoom": "3.0.7",
-    "@types/node": "20.8.10",
-    "@types/resize-observer-browser": "0.1.9",
+    "@types/d3-drag": "3.0.7",
+    "@types/d3-force": "3.0.9",
+    "@types/d3-selection": "3.0.10",
+    "@types/d3-zoom": "3.0.8",
+    "@types/node": "20.9.0",
+    "@types/resize-observer-browser": "0.1.10",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "jsdom": "22.1.0",
