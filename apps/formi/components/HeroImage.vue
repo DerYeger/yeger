@@ -19,6 +19,6 @@ const { accessibleDescription } = useLogo()
       class="drop-shadow-custom translate-x-12.5% translate-y-12.5% absolute"
       sizes="sm:512px md:512px xl:688px"
     />
-    <figcaption class="display-none">{{ accessibleDescription }}</figcaption>
+    <figcaption class="sr-only">{{ accessibleDescription }}</figcaption>
   </figure>
 </template>
