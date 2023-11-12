@@ -15,7 +15,7 @@
     "@yeger/vue-masonry-wall": "workspace:*"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "4.4.0",
+    "@vitejs/plugin-vue": "4.4.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.2.2",
     "vite": "4.5.0",

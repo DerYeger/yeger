@@ -51,9 +51,9 @@
     "@yeger/vue-masonry-wall-core": "workspace:*"
   },
   "devDependencies": {
-    "@babel/types": "7.23.0",
+    "@babel/types": "7.23.3",
     "@types/resize-observer-browser": "0.1.10",
-    "@vitejs/plugin-vue": "4.4.0",
+    "@vitejs/plugin-vue": "4.4.1",
     "@vue/test-utils": "2.4.1",
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "0.0.31",
