@@ -128,10 +128,11 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redrawSkip')).toBeUndefined()
     await wrapper
       .setProps({
+        items: [1, 2],
         columnWidth: 300,
       })
       .then(flushPromises)
-    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw')?.length).toEqual(2)
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
 
@@ -146,10 +147,11 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redrawSkip')).toBeUndefined()
     await wrapper
       .setProps({
+        items: [1, 2],
         gap: 42,
       })
       .then(flushPromises)
-    expect(wrapper.emitted('redraw')?.length).toEqual(1)
+    expect(wrapper.emitted('redraw')?.length).toEqual(2)
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
 
@@ -163,6 +165,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
     await wrapper
       .setProps({
+        items: [1, 2],
         rtl: true,
       })
       .then(flushPromises)
@@ -282,6 +285,7 @@ describe('MasonryWall', () => {
     })
     await wrapper
       .setProps({
+        items: [1, 2],
         maxColumns: 20,
       })
       .then(flushPromises)
@@ -291,6 +295,7 @@ describe('MasonryWall', () => {
 
     await wrapper
       .setProps({
+        items: [1, 2],
         maxColumns: 1,
       })
       .then(flushPromises)
