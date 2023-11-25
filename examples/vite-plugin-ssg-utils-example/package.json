@@ -19,7 +19,7 @@
     "vite": "5.0.2",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "0.23.5",
-    "vue": "3.3.8",
+    "vue": "3.3.9",
     "vue-router": "4.2.5"
   }
 }
