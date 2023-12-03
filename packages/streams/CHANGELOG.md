@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.0
+
+### Minor Changes
+
+- 55ce1c8: add empty and single value stream utils
+
 ## 1.0.1
 
 ### Patch Changes
