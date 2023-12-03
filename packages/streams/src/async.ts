@@ -9,16 +9,24 @@ export type AsyncFlatMap<Input, Output> = (
 ) => Iterable<Output> | AsyncIterable<Output>
 
 export abstract class AsyncStream<T> implements AsyncIterable<T> {
-  public static fromObject<T>(
-    source: Record<string | number | symbol, T>,
-  ): AsyncStream<[string, T]> {
-    return AsyncStream.from(Object.entries(source))
+  public static empty<T>() {
+    return AsyncStream.from<T>([])
   }
 
   public static from<T>(
     source: Iterable<T> | AsyncIterable<T>,
   ): AsyncStream<T> {
     return AsyncSourceStream.from(source)
+  }
+
+  public static fromObject<T>(
+    source: Record<string | number | symbol, T>,
+  ): AsyncStream<[string, T]> {
+    return AsyncStream.from(Object.entries(source))
+  }
+
+  public static fromSingle<T>(value: T): AsyncStream<T> {
+    return AsyncStream.from([value])
   }
 
   public async toSet(): Promise<Set<T>> {

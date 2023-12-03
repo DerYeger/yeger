@@ -76,4 +76,14 @@ describe('sync streams', () => {
       [3, 'c'],
     ])
   })
+
+  it('can be empty', () => {
+    const streamResult = Stream.empty().toArray()
+    expect(streamResult).toEqual([])
+  })
+
+  it('can have a single value', () => {
+    const streamResult = Stream.fromSingle(1).toArray()
+    expect(streamResult).toEqual([1])
+  })
 })

@@ -5,14 +5,22 @@ export type Processor<Input, Output> = (value: Input) => Output
 export type Filter<Input> = Processor<Input, boolean>
 
 export abstract class Stream<T> implements Iterable<T> {
+  public static empty<T>() {
+    return Stream.from<T>([])
+  }
+
+  public static from<T>(source: Iterable<T>): Stream<T> {
+    return SourceStream.from(source)
+  }
+
   public static fromObject<T>(
     source: Record<string | number | symbol, T>,
   ): Stream<[string, T]> {
     return Stream.from(Object.entries(source))
   }
 
-  public static from<T>(source: Iterable<T>): Stream<T> {
-    return SourceStream.from(source)
+  public static fromSingle<T>(value: T): Stream<T> {
+    return Stream.from([value])
   }
 
   public toSet() {

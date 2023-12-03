@@ -108,4 +108,14 @@ describe('async streams', () => {
     expect(a).toEqual([2, 4])
     expect(b).toEqual([2, 4])
   })
+
+  it('can be empty', async () => {
+    const streamResult = await AsyncStream.empty().toArray()
+    expect(streamResult).toEqual([])
+  })
+
+  it('can have a single value', async () => {
+    const streamResult = await AsyncStream.fromSingle(1).toArray()
+    expect(streamResult).toEqual([1])
+  })
 })
