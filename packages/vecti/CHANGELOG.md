@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.2
+
+### Patch Changes
+
+- 6b1600e: update dependencies
+
 ## 3.0.1
 
 ### Patch Changes

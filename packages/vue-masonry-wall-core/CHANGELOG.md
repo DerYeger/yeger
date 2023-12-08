@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.2
+
+### Patch Changes
+
+- 6b1600e: update dependencies
+- Updated dependencies [6b1600e]
+  - @yeger/vue-lib-adapter@2.0.2
+
 ## 5.0.1
 
 ### Patch Changes

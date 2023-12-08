@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.3
+
+### Patch Changes
+
+- 6b1600e: update dependencies
+- Updated dependencies [6b1600e]
+  - vue-marmoset-viewer@4.0.3
+
 ## 2.0.2
 
 ### Patch Changes
