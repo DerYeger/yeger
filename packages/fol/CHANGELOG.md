@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.0.1
+
+### Patch Changes
+
+- 6b1600e: update dependencies
+
 ## 1.0.0
 
 ### Major Changes

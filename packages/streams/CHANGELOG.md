@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.1
+
+### Patch Changes
+
+- 6b1600e: update dependencies
+
 ## 1.1.0
 
 ### Minor Changes
