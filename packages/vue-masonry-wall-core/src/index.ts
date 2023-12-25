@@ -19,7 +19,10 @@ export interface ComponentProps<T> {
 
 export type NonEmptyArray<T> = [T, ...T[]]
 
-export type Column = number[]
+export interface Column {
+  items: number[]
+  height: number | undefined
+}
 
 export interface Vue2ComponentEmits {
   (event: 'redraw'): void
@@ -75,6 +78,7 @@ export function useMasonryWall<T>({
   vue,
   wall,
   watch,
+  keyMapper,
 }: HookProps<T>) {
   function countIteratively(
     containerWidth: number,
@@ -130,35 +134,55 @@ export function useMasonryWall<T>({
   }
 
   function createColumns(count: number): Column[] {
-    return Array.from({ length: count }).map(() => [])
+    return Array.from({ length: count }).map(() => ({
+      items: [],
+      height: undefined,
+    }))
   }
 
   if (ssrColumns.value > 0) {
     const newColumns = createColumns(ssrColumns.value)
     items.value.forEach((_: T, i: number) =>
-      newColumns[i % ssrColumns.value]!.push(i),
+      newColumns[i % ssrColumns.value]!.items.push(i),
     )
     columns.value = newColumns
   }
 
-  async function fillColumns(itemIndex: number) {
-    if (itemIndex >= items.value.length) {
-      return
-    }
-    await nextTick()
+  function getColumnDivs() {
     const columnDivs = [...wall.value.children] as HTMLDivElement[]
     if (rtl.value) {
       columnDivs.reverse()
     }
-    const target = columnDivs.reduce((prev, curr) =>
-      curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
-        ? curr
-        : prev,
-    )
-    columns.value[+target.dataset.index!]!.push(itemIndex)
-    await fillColumns(itemIndex + 1)
+    return columnDivs
   }
 
+  async function fillColumns(itemIndex: number) {
+    const firstColumn = columns.value[0]!
+    const initialItems = firstColumn.items.length
+    for (let i = itemIndex; i < items.value.length; i++)
+      firstColumn.items.push(i)
+    await nextTick()
+    const div = getColumnDivs()[0]!
+    let itemHeights = []
+    for (let child of div.children)
+      itemHeights.push((child as HTMLElement).getBoundingClientRect().height)
+    itemHeights = itemHeights.slice(initialItems)
+    firstColumn.items.splice(
+      initialItems,
+      firstColumn.items.length - initialItems,
+    )
+
+    let heights = columns.value.map((col) => col.height!)
+    for (let i = 0; i < items.value.length - itemIndex; i++) {
+      let bestCol = 0
+      for (let j = 1; j < columns.value.length; j++)
+        if (heights[j] < heights[bestCol]) bestCol = j
+      columns.value[bestCol].items.push(itemIndex + i)
+      heights[bestCol] += itemHeights[i] + gap.value
+    }
+  }
+
+  let previousKeys: ReturnType<KeyMapper<T>>[] = []
   async function redraw(force = false) {
     if (columns.value.length === columnCount() && !force) {
       if (vue === 2) {
@@ -168,10 +192,48 @@ export function useMasonryWall<T>({
       }
       return
     }
-    columns.value = createColumns(columnCount())
+
+    const newKeys = items.value.map((item, index) =>
+      keyMapper.value(item, 0, 0, index),
+    )
+    let reuse = 0
+    if (columns.value.length === columnCount()) {
+      while (
+        reuse < newKeys.length &&
+        reuse < previousKeys.length &&
+        newKeys[reuse] === previousKeys[reuse]
+      ) {
+        reuse++
+      }
+      for (let column of columns.value) {
+        // Binary search for first item to remove
+        let start = 0,
+          end = column.items.length
+        while (start < end) {
+          const mid = Math.floor((start + end) / 2)
+          if (column.items[mid] < reuse) start = mid + 1
+          else end = mid
+        }
+        if (start < column.items.length) {
+          column.items.splice(start, column.items.length - start)
+        }
+      }
+    } else {
+      columns.value = createColumns(columnCount())
+    }
+    previousKeys = newKeys
+
+    await nextTick()
+    const columnDivs = getColumnDivs()
+    for (let i = 0; i < columns.value.length; i++)
+      columns.value[i]!.height = columnDivs[i]!.scrollHeight
+
     const scrollTarget = scrollContainer?.value
     const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
-    await fillColumns(0)
+    await fillColumns(reuse)
+    for (let column of columns.value) column.height = undefined
+    await nextTick()
+
     scrollTarget
       ? scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
       : window.scrollTo({ top: scrollY })
