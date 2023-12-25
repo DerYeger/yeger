@@ -22,6 +22,7 @@ const props = withDefaults(
     minColumns?: number
     maxColumns?: number
     keyMapper?: KeyMapper<T>
+    incremental?: boolean
   }>(),
   {
     columnWidth: 400,
@@ -33,6 +34,7 @@ const props = withDefaults(
     rtl: false,
     scrollContainer: null,
     ssrColumns: 0,
+    incremental: false,
   },
 )
 

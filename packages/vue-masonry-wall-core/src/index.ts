@@ -15,6 +15,7 @@ export interface ComponentProps<T> {
   minColumns?: number
   maxColumns?: number
   keyMapper?: KeyMapper<T>
+  incremental?: boolean
 }
 
 export type NonEmptyArray<T> = [T, ...T[]]
@@ -59,6 +60,7 @@ export interface HookProps<T> {
   vue: VueVersion
   wall: VueRef<HTMLDivElement>
   watch: Watch
+  incremental: VueRef<boolean>
 }
 
 export function useMasonryWall<T>({
@@ -79,6 +81,7 @@ export function useMasonryWall<T>({
   wall,
   watch,
   keyMapper,
+  incremental,
 }: HookProps<T>) {
   function countIteratively(
     containerWidth: number,
@@ -197,7 +200,7 @@ export function useMasonryWall<T>({
       keyMapper.value(item, 0, 0, index),
     )
     let reuse = 0
-    if (columns.value.length === columnCount()) {
+    if (columns.value.length === columnCount() && incremental) {
       while (
         reuse < newKeys.length &&
         reuse < previousKeys.length &&
