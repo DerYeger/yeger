@@ -71,6 +71,7 @@ Props:
 - `min-columns`: Minimum number of columns. `undefined` implies no constraint. Defaults to `undefined`, but will always be at least `1` in the output.
 - `max-columns`: Maximum number of columns. `undefined` implies no constraint. Defaults to `undefined`. If `min-columns` is greater than `max-columns`, `min-columns` will take precedence.
 - `keyMapper`: Optional mapper function that receives an item, its column index, its row index, and its index w.r.t. the `items` array and returns a unique key. Defaults to `(_item, _column, _row, index) => index`.
+- `incremental`: Optional flag that enables incremental rendering. Note that this requires the `keyMapper` to be agnostic to column index and row index. Defaults to `false`.
 
 ```vue
 <script>
