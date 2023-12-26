@@ -27,7 +27,7 @@
     "lint:root": "eslint \"{.changeset,.github,.husky,.vscode}/**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
-    "syncpack:fix": "syncpack fix",
+    "syncpack:fix": "syncpack fix-mismatches",
     "syncpack:lint": "syncpack list-mismatches",
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo --output-logs=new-only",
