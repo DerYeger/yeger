@@ -189,6 +189,8 @@ export function useMasonryWall<T>({
   }
 
   let previousKeys: ReturnType<KeyMapper<T>>[] = []
+  let redrawing = false,
+    hasPendingRedraw = false
   async function redraw(force = false) {
     if (columns.value.length === columnCount() && !force) {
       if (vue === 2) {
@@ -198,6 +200,13 @@ export function useMasonryWall<T>({
       }
       return
     }
+
+    // Prevent multiple redraws from being queued
+    if (redrawing) {
+      hasPendingRedraw = true
+      return
+    }
+    redrawing = true
 
     const newKeys = items.value.map((item, index) =>
       keyMapper.value(item, 0, 0, index),
@@ -250,6 +259,12 @@ export function useMasonryWall<T>({
       ? scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
       : window.scrollTo({ top: scrollY })
     emit('redraw')
+
+    redrawing = false
+    if (hasPendingRedraw) {
+      hasPendingRedraw = false
+      redraw()
+    }
   }
 
   const resizeObserver =
