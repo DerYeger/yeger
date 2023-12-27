@@ -4,12 +4,7 @@ import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
 import type { Ref } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
-export type KeyMapper<T> = (
-  item: T,
-  column: number,
-  row: number,
-  index: number,
-) => string | number | symbol | undefined
+import type { KeyMapper } from '@yeger/vue-masonry-wall-core'
 
 const props = withDefaults(
   defineProps<{
