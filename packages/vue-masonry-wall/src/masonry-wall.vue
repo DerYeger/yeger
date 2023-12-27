@@ -92,9 +92,9 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
                 '-moz-max-content',
                 'max-content',
               ] as any)
-            : column.height + 'px',
+            : `${column.height}px`,
         'min-width': 0,
-        'overflow-y': 'hidden',
+        'overflow-y': column.height === undefined ? undefined : 'hidden',
       }"
     >
       <div

@@ -22,6 +22,7 @@ const props = withDefaults(
     minColumns?: number
     maxColumns?: number
     keyMapper?: KeyMapper<unknown>
+    incremental?: boolean
   }>(),
   {
     columnWidth: 400,
@@ -33,6 +34,7 @@ const props = withDefaults(
     rtl: false,
     scrollContainer: null,
     ssrColumns: 0,
+    incremental: false,
   },
 )
 
@@ -74,12 +76,16 @@ const { getColumnWidthTarget } = useMasonryWall<unknown>({
         'flex-direction': 'column',
         'flex-grow': 1,
         gap: `${gap}px`,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'],
+        height:
+          column.height === undefined
+            ? ['-webkit-max-content', '-moz-max-content', 'max-content']
+            : `${column.height}px`,
         'min-width': 0,
+        'overflow-y': column.height === undefined ? undefined : 'hidden',
       }"
     >
       <div
-        v-for="(itemIndex, row) in column"
+        v-for="(itemIndex, row) in column.items"
         :key="keyMapper(items[itemIndex], columnIndex, row, itemIndex)"
         class="masonry-item"
       >

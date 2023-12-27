@@ -12,7 +12,8 @@
     "check:vue": "vue-tsc"
   },
   "dependencies": {
-    "@yeger/vue-masonry-wall": "workspace:*"
+    "@yeger/vue-masonry-wall": "workspace:*",
+    "nanoid": "5.0.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "4.5.2",

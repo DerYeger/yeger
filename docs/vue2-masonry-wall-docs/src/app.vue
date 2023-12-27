@@ -1,10 +1,16 @@
 <script lang="ts">
 import MasonryWall from '@yeger/vue2-masonry-wall'
+import { nanoid } from 'nanoid'
 import { defineComponent, ref } from 'vue'
 
 import DemoFooter from '~/demo-footer.vue'
 import DemoHeader from '~/demo-header.vue'
 import DemoTools from '~/demo-tools.vue'
+
+interface Item {
+  value: number
+  id: string
+}
 
 export default defineComponent({
   name: 'App',
@@ -24,7 +30,7 @@ export default defineComponent({
     return {
       columnWidth: [256, 128, 128, 512, 128] as [number, ...number[]],
       gap: 16,
-      items: [] as number[],
+      items: [] as Item[],
       rtl: false,
       useScrollContainer: false,
       minColumns: 1,
@@ -35,25 +41,28 @@ export default defineComponent({
     this.addItems()
   },
   methods: {
-    randomHeight(): number {
-      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    randomItem(): Item {
+      return {
+        value: Math.floor(Math.random() * (512 - 128 + 1)) + 128,
+        id: nanoid(),
+      }
     },
-    addItem(item: number): void {
-      this.items = [...this.items, item]
+    addItem(value: number): void {
+      this.items = [...this.items, { value, id: nanoid() }]
     },
     addItems() {
       this.items = [
         ...this.items,
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
+        this.randomItem(),
       ]
     },
     removeItem(index: number): void {
@@ -90,15 +99,17 @@ export default defineComponent({
         :scroll-container="useScrollContainer ? scrollContainer : undefined"
         :min-columns="minColumns"
         :max-columns="maxColumns"
+        :key-mapper="(item) => item.id"
+        :incremental="true"
       >
         <template #default="{ item, index }">
           <div
             class="item"
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-            :style="`height: ${item}px;`"
+            :style="`height: ${item.value}px;`"
           >
             <p>Index {{ index }}</p>
-            <p style="text-align: center">Height {{ item }}px</p>
+            <p style="text-align: center">Height {{ item.value }}px</p>
             <button class="primary" @click="removeItem(index)">Remove</button>
           </div>
         </template>

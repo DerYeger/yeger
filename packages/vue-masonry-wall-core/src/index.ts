@@ -167,7 +167,7 @@ export function useMasonryWall<T>({
     await nextTick()
     const div = getColumnDivs()[0]!
     let itemHeights = []
-    for (let child of div.children)
+    for (const child of div.children)
       itemHeights.push((child as HTMLElement).getBoundingClientRect().height)
     itemHeights = itemHeights.slice(initialItems)
     firstColumn.items.splice(
@@ -175,13 +175,16 @@ export function useMasonryWall<T>({
       firstColumn.items.length - initialItems,
     )
 
-    let heights = columns.value.map((col) => col.height!)
+    const heights = columns.value.map((col) => col.height!)
     for (let i = 0; i < items.value.length - itemIndex; i++) {
       let bestCol = 0
-      for (let j = 1; j < columns.value.length; j++)
-        if (heights[j] < heights[bestCol]) bestCol = j
-      columns.value[bestCol].items.push(itemIndex + i)
-      heights[bestCol] += itemHeights[i] + gap.value
+      for (let j = 1; j < columns.value.length; j++) {
+        if ((heights[j] ?? 0) < (heights[bestCol] ?? 0)) {
+          bestCol = j
+        }
+      }
+      columns.value[bestCol]?.items.push(itemIndex + i)
+      heights[bestCol] += (itemHeights[i] ?? 0) + gap.value
     }
   }
 
@@ -208,14 +211,17 @@ export function useMasonryWall<T>({
       ) {
         reuse++
       }
-      for (let column of columns.value) {
+      for (const column of columns.value) {
         // Binary search for first item to remove
-        let start = 0,
-          end = column.items.length
+        let start = 0
+        let end = column.items.length
         while (start < end) {
           const mid = Math.floor((start + end) / 2)
-          if (column.items[mid] < reuse) start = mid + 1
-          else end = mid
+          if ((column.items[mid] ?? 0) < reuse) {
+            start = mid + 1
+          } else {
+            end = mid
+          }
         }
         if (start < column.items.length) {
           column.items.splice(start, column.items.length - start)
@@ -228,13 +234,16 @@ export function useMasonryWall<T>({
 
     await nextTick()
     const columnDivs = getColumnDivs()
-    for (let i = 0; i < columns.value.length; i++)
+    for (let i = 0; i < columns.value.length; i++) {
       columns.value[i]!.height = columnDivs[i]!.scrollHeight
+    }
 
     const scrollTarget = scrollContainer?.value
     const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
     await fillColumns(reuse)
-    for (let column of columns.value) column.height = undefined
+    for (const column of columns.value) {
+      column.height = undefined
+    }
     await nextTick()
 
     scrollTarget
