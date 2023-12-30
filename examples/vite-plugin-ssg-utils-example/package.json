@@ -12,7 +12,7 @@
   "devDependencies": {
     "@types/node": "20.10.5",
     "@unhead/vue": "1.2.2",
-    "@vitejs/plugin-vue": "4.5.2",
+    "@vitejs/plugin-vue": "5.0.1",
     "@yeger/tsconfig": "workspace:*",
     "critters": "0.0.20",
     "typescript": "5.3.3",
