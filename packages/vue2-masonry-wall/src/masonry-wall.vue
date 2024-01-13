@@ -26,8 +26,7 @@ const props = withDefaults(
   {
     columnWidth: 400,
     gap: 0,
-    keyMapper: (_item: unknown, _column: number, _row: number, index: number) =>
-      index,
+    keyMapper: undefined,
     minColumns: 1,
     maxColumns: undefined,
     rtl: false,
@@ -80,7 +79,10 @@ const { getColumnWidthTarget } = useMasonryWall<unknown>({
     >
       <div
         v-for="(itemIndex, row) in column"
-        :key="keyMapper(items[itemIndex], columnIndex, row, itemIndex)"
+        :key="
+          keyMapper?.(items[itemIndex], columnIndex, row, itemIndex) ??
+          itemIndex
+        "
         class="masonry-item"
       >
         <slot :item="items[itemIndex]" :index="itemIndex">

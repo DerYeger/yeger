@@ -10,15 +10,15 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "4.22.0",
+    "@algolia/client-search": "4.22.1",
     "vecti": "workspace:*",
-    "vue": "3.3.13"
+    "vue": "3.4.12"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.3.3",
-    "vite": "5.0.10",
+    "vite": "5.0.11",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.0.0-rc.32"
+    "vitepress": "1.0.0-rc.36"
   }
 }

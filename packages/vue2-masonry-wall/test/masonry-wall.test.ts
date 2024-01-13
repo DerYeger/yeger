@@ -52,7 +52,7 @@ describe('MasonryWall', () => {
 
   it('can be installed', async () => {
     Vue.use(MasonryWall)
-    const wrapper = mount(TestComponent)
+    const wrapper = mount(TestComponent as any)
     await flushPromises()
     const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
     expect(wall.element).toBeDefined()

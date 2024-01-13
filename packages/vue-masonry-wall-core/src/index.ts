@@ -14,7 +14,6 @@ export interface ComponentProps<T> {
   scrollContainer?: HTMLElement | null
   minColumns?: number
   maxColumns?: number
-  keyMapper?: KeyMapper<T>
 }
 
 export type NonEmptyArray<T> = [T, ...T[]]
@@ -31,20 +30,12 @@ export interface Vue3ComponentEmits {
   (event: 'redrawSkip'): void
 }
 
-export type KeyMapper<T> = (
-  item: T,
-  column: number,
-  row: number,
-  index: number,
-) => string | number | symbol | undefined
-
 export interface HookProps<T> {
   columns: VueRef<Column[]>
   columnWidth: VueRef<number | NonEmptyArray<number>>
   emit: Vue2ComponentEmits | Vue3ComponentEmits
   gap: VueRef<number>
   items: VueRef<T[]>
-  keyMapper: VueRef<KeyMapper<T>>
   maxColumns: VueRef<number | undefined>
   minColumns: VueRef<number | undefined>
   nextTick: () => Promise<void>
