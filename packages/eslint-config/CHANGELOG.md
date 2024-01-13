@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.9.3
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 1.9.2
 
 ### Patch Changes

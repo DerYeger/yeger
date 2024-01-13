@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils-example
 
+## 2.0.2
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 2.0.1
 
 ### Patch Changes

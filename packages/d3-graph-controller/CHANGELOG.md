@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.0.3
+
+### Patch Changes
+
+- f84a58c: update dependencies
+- Updated dependencies [f84a58c]
+  - @yeger/debounce@2.0.3
+  - vecti@3.0.3
+
 ## 3.0.2
 
 ### Patch Changes

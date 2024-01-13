@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.3
+
+### Patch Changes
+
+- f84a58c: update dependencies
+- Updated dependencies [f84a58c]
+  - vecti@3.0.3
+
 ## 2.0.2
 
 ### Patch Changes

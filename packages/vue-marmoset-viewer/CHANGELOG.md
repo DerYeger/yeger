@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.4
+
+### Patch Changes
+
+- f84a58c: update dependencies
+- Updated dependencies [f84a58c]
+  - @yeger/debounce@2.0.3
+
 ## 4.0.3
 
 ### Patch Changes

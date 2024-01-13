@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.2
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 1.1.1
 
 ### Patch Changes

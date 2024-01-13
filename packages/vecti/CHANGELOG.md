@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.3
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 3.0.2
 
 ### Patch Changes
