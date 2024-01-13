@@ -1,7 +1,7 @@
 {
   "name": "@yeger/fol",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "FOL grammar and parser.",
   "author": {
     "name": "Jan Müller",

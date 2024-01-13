@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.0.2
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 1.0.1
 
 ### Patch Changes

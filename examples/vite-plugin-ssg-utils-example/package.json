@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-ssg-utils-example",
   "type": "module",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "private": true,
   "scripts": {
     "build": "vite-ssg build",

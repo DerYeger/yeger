@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 2.0.3
+
+### Patch Changes
+
+- f84a58c: update dependencies
+
 ## 2.0.2
 
 ### Patch Changes
