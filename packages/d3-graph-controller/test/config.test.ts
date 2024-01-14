@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { defineGraphConfig } from '~/config/config'
 
-describe.concurrent('Config', () => {
+describe('Config', () => {
   describe('can be defined', () => {
     it('using default values', () => {
       const config = defineGraphConfig()

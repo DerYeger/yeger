@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest'
 import type { Result } from '~/index'
 import { Err, err, ok } from '~/index'
 
-describe.concurrent('Right', () => {
+describe('Right', () => {
   describe('can be initialized', () => {
     it('using the constructor', () => {
       const res: Result<string, number> = new Err(42)

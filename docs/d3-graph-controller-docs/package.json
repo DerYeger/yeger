@@ -14,7 +14,7 @@
   "dependencies": {
     "@algolia/client-search": "4.22.1",
     "d3-graph-controller": "workspace:*",
-    "vue": "3.4.12"
+    "vue": "3.4.13"
   },
   "devDependencies": {
     "@types/d3-selection": "3.0.10",

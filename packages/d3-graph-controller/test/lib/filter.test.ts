@@ -5,7 +5,7 @@ import type { GraphLink } from '~/model/link'
 import type { TestNodeType } from '~test/test-data'
 import TestData from '~test/test-data'
 
-describe.concurrent('filter', () => {
+describe('filter', () => {
   it('can filter nothing', () => {
     const filteredResult = filterGraph({
       filter: ['first', 'second'],

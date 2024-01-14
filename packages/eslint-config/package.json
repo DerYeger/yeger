@@ -48,7 +48,7 @@
     "eslint-plugin-turbo": "1.11.3",
     "eslint-plugin-yml": "1.11.0",
     "picocolors": "1.0.0",
-    "prettier": "3.2.1",
+    "prettier": "3.2.2",
     "prettier-plugin-astro": "0.12.3",
     "prettier-plugin-tailwindcss": "0.5.11",
     "yaml-eslint-parser": "1.2.2"

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { Vector } from '~/index'
 
-describe.concurrent('Vector', () => {
+describe('Vector', () => {
   describe('can be initialized', () => {
     it('using the constructor', () => {
       const vector = new Vector(42, 7)
