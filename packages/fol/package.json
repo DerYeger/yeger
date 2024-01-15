@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@ohm-js/cli": "2.0.0",
-    "@types/node": "20.11.0",
+    "@types/node": "20.11.1",
     "@yeger/tsconfig": "workspace:*",
     "resumon": "workspace:*",
     "typescript": "5.3.3",
