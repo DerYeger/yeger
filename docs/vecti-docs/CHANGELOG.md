@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.4
+
+### Patch Changes
+
+- 7690ed8: update dependencies
+- Updated dependencies [7690ed8]
+  - vecti@3.0.4
+
 ## 2.0.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.3
+
+### Patch Changes
+
+- 7690ed8: update dependencies
+
 ## 1.0.2
 
 ### Patch Changes
