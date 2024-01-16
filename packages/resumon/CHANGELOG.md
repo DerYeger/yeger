@@ -1,5 +1,11 @@
 # resumon
 
+## 2.0.4
+
+### Patch Changes
+
+- 7690ed8: update dependencies
+
 ## 2.0.3
 
 ### Patch Changes

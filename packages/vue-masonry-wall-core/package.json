@@ -1,7 +1,7 @@
 {
   "name": "@yeger/vue-masonry-wall-core",
   "type": "module",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"

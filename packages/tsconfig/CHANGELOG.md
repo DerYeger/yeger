@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 2.0.2
+
+### Patch Changes
+
+- 7690ed8: update dependencies
+
 ## 2.0.1
 
 ### Patch Changes
