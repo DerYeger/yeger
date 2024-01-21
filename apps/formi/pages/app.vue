@@ -62,7 +62,7 @@ const { loading } = useAppStorage()
       <Splitpanes class="default-theme">
         <Pane :min-size="minPaneSize">
           <Splitpanes class="default-theme" horizontal>
-            <Pane :min-size="minPaneSize" class="relative h-full w-full">
+            <Pane :min-size="minPaneSize" class="relative size-full">
               <ModelInput v-model="modelInput" v-model:model="model" />
             </Pane>
             <Pane :min-size="minPaneSize" class="relative flex flex-col">
@@ -78,9 +78,7 @@ const { loading } = useAppStorage()
           <Splitpanes class="default-theme" horizontal>
             <Pane :min-size="minPaneSize" class="relative text-sm">
               <PaneTitle>Formula Input</PaneTitle>
-              <div
-                class="pa-4 flex h-full w-full flex-col gap-4 overflow-y-auto"
-              >
+              <div class="pa-4 flex size-full flex-col gap-4 overflow-y-auto">
                 <div class="mt-2 flex flex-col gap-2">
                   <label for="formulaInput" class="select-none">Input</label>
                   <input
@@ -112,7 +110,7 @@ const { loading } = useAppStorage()
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
               <PaneTitle class="!text-stone-100">Formula Tree</PaneTitle>
-              <div class="flex h-full w-full overflow-auto bg-stone-400">
+              <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <FOLTree
                     v-if="formula"
@@ -129,7 +127,7 @@ const { loading } = useAppStorage()
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
               <PaneTitle class="!text-stone-100">Model Checker</PaneTitle>
-              <div class="flex h-full w-full overflow-auto bg-stone-400">
+              <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <ModelCheckerTraceTree
                     v-if="trace"

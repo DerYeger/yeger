@@ -22,7 +22,7 @@ export async function Graph({ tasks, filter }: GraphProps) {
         ? error.message.substring(searchIndex + searchTerm.length)
         : error.message
     return (
-      <div className="flex h-full w-full items-center justify-center p-4">
+      <div className="flex size-full items-center justify-center p-4">
         <code className="text-justify text-sm text-red-500">{message}</code>
       </div>
     )
@@ -41,7 +41,7 @@ export async function Graph({ tasks, filter }: GraphProps) {
   )
 
   return (
-    <div className="h-full w-full">
+    <div className="size-full">
       <FlowGraph graph={graph} uniqueTasks={uniqueTasks}>
         <svg>
           <defs>

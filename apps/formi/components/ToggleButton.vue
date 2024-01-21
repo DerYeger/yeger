@@ -16,7 +16,7 @@ const { input } = toRefs(props)
       @click="emit('update:input', !input)"
     />
     <div
-      class="toggle__dot absolute inset-y-0 left-0 h-5 w-5 rounded-full bg-white shadow"
+      class="toggle__dot absolute inset-y-0 left-0 size-5 rounded-full bg-white shadow"
       @click="emit('update:input', !input)"
     />
   </div>

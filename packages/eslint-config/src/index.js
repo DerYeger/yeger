@@ -39,6 +39,12 @@ module.exports = {
       },
     },
     {
+      files: ['**/tsconfig.json'],
+      rules: {
+        'jsonc/comma-dangle': 'off',
+      },
+    },
+    {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       parserOptions: {
@@ -91,6 +97,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'prefer-template': 'error',
     'prefer-const': 'error',
+    'tailwindcss/enforces-shorthand': 'error',
     'tailwindcss/no-custom-classname': 'off',
     'tsdoc/syntax': 'error',
     // The following unicorn rules are disabled due to implementation issues
