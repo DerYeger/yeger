@@ -56,7 +56,7 @@ watch(
 </script>
 
 <template>
-  <div class="relative h-full w-full">
+  <div class="relative size-full">
     <Codemirror
       :model-value="modelValue"
       :extensions="[

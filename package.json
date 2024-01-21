@@ -41,9 +41,9 @@
     "@commitlint/cli": "18.4.4",
     "@commitlint/config-conventional": "18.4.4",
     "@turbo/gen": "1.11.3",
-    "@types/node": "20.11.1",
-    "@vitest/coverage-v8": "1.2.0",
-    "@vitest/ui": "1.2.0",
+    "@types/node": "20.11.5",
+    "@vitest/coverage-v8": "1.2.1",
+    "@vitest/ui": "1.2.1",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
@@ -55,8 +55,8 @@
     "rimraf": "5.0.5",
     "syncpack": "12.3.0",
     "turbo": "1.11.3",
-    "vercel": "33.1.0",
-    "vitest": "1.2.0"
+    "vercel": "33.2.0",
+    "vitest": "1.2.1"
   },
   "pnpm": {
     "packageExtensions": {

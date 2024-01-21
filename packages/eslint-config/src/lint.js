@@ -7,6 +7,8 @@ const c = require('picocolors')
 async function main() {
   // 1. Create an instance.
   const fix = process.argv.includes('--fix')
+  // eslint-disable-next-line no-console
+  console.log('kaksoispiste', fix)
   const eslint = new ESLint({ fix })
 
   // 2. Lint files.
