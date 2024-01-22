@@ -245,6 +245,7 @@ export function library(options: Partial<Options> = {}): Plugin[] {
             generateMTSDeclarations(
               typesDir,
               mergedOptions.formats?.length === 1,
+              options.verbose,
             )
         : undefined,
     }),

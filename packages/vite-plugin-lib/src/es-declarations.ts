@@ -9,10 +9,11 @@ import { log } from './logger'
 export async function generateMTSDeclarations(
   typesDir: string,
   deleteSourceFiles: boolean,
+  verbose: boolean | undefined,
 ) {
   const files = await collectFiles(typesDir)
   for (const file of files) {
-    await createMTSImports(file)
+    await createMTSImports(file, verbose)
     if (deleteSourceFiles) {
       unlink(file)
     }
@@ -36,25 +37,34 @@ async function collectFiles(dir: string): Promise<string[]> {
     .concat(...nestedFiles)
 }
 
-async function createMTSImports(file: string) {
+async function createMTSImports(file: string, verbose: boolean | undefined) {
   const content = await readFile(file, 'utf-8')
   const lines = content.split('\n')
-  const modified = lines.map((line) => transformLine(file, line))
+  const modified = lines.map((line) => transformLine(file, line, verbose))
   const targetFile = file.replace('.d.ts', '.d.mts')
   await writeFile(targetFile, modified.join('\n'))
 }
 
-function transformLine(file: string, line: string) {
+function transformLine(
+  file: string,
+  line: string,
+  verbose: boolean | undefined,
+) {
   return (
-    transformStaticImport(file, line, "'") ??
-    transformStaticImport(file, line, '"') ??
-    transformExport(file, line, "'") ??
-    transformExport(file, line, '"') ??
+    transformStaticImport(file, line, "'", verbose) ??
+    transformStaticImport(file, line, '"', verbose) ??
+    transformExport(file, line, "'", verbose) ??
+    transformExport(file, line, '"', verbose) ??
     line
   )
 }
 
-function transformStaticImport(file: string, line: string, quote: string) {
+function transformStaticImport(
+  file: string,
+  line: string,
+  quote: string,
+  verbose: boolean | undefined,
+) {
   const importPathMarker = `from ${quote}`
   const isStaticImport =
     line.includes('import ') && line.includes(`${importPathMarker}.`)
@@ -69,14 +79,21 @@ function transformStaticImport(file: string, line: string, quote: string) {
   )
   const resolvedImport = path.resolve(path.dirname(file), importPath)
   if (existsSync(resolvedImport)) {
-    log(`got index import ${resolvedImport}`)
+    if (verbose) {
+      log(`got index import ${resolvedImport}`)
+    }
     return `${line.substring(0, line.length - 2)}/index.mjs${quote};`
   }
 
   return `${line.substring(0, line.length - 2)}.mjs${quote};`
 }
 
-function transformExport(file: string, line: string, quote: string) {
+function transformExport(
+  file: string,
+  line: string,
+  quote: string,
+  verbose: boolean | undefined,
+) {
   const exportPathMarker = ` from ${quote}`
   const isStaticExport =
     line.includes('export ') && line.includes(`${exportPathMarker}.`)
@@ -91,7 +108,9 @@ function transformExport(file: string, line: string, quote: string) {
   )
   const resolvedExport = path.resolve(path.dirname(file), exportPath)
   if (existsSync(resolvedExport)) {
-    log(`got index export ${resolvedExport}`)
+    if (verbose) {
+      log(`got index export ${resolvedExport}`)
+    }
     return `${line.substring(0, line.length - 2)}/index.mjs${quote};`
   }
 
