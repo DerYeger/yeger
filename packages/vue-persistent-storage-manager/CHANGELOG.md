@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.6
+
+### Patch Changes
+
+- 3687e71: update dependencies
+
 ## 3.0.5
 
 ### Patch Changes

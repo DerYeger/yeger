@@ -1,5 +1,12 @@
 # vite-plugin-lib
 
+## 2.0.6
+
+### Patch Changes
+
+- 3687e71: update dependencies
+- 8ccbae8: do not print logs unless verbose is true
+
 ## 2.0.5
 
 ### Patch Changes

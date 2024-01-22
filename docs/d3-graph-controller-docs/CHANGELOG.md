@@ -1,5 +1,13 @@
 # d3-graph-controller-docs
 
+## 2.0.5
+
+### Patch Changes
+
+- 3687e71: update dependencies
+- Updated dependencies [3687e71]
+  - d3-graph-controller@3.0.5
+
 ## 2.0.4
 
 ### Patch Changes

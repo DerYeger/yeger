@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.6
+
+### Patch Changes
+
+- 3687e71: update dependencies
+
 ## 2.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/deepmerge
 
+## 2.0.5
+
+### Patch Changes
+
+- 3687e71: update dependencies
+
 ## 2.0.4
 
 ### Patch Changes
