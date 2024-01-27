@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 1.9.6
+
+### Patch Changes
+
+- 4efaa44: update deps
+
 ## 1.9.5
 
 ### Patch Changes
