@@ -60,7 +60,7 @@
     "@types/resize-observer-browser": "0.1.11",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
-    "jsdom": "23.2.0",
+    "jsdom": "24.0.0",
     "typescript": "5.3.3",
     "vite": "5.0.12",
     "vite-plugin-lib": "workspace:*"
