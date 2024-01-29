@@ -20,8 +20,8 @@ const { homeLink } = useLinks()
     <div class="flex-1" />
     <Icon
       name="carbon:save"
-      class="transition-color font-bold text-stone-900 duration-500"
-      :class="{ 'text-stone-400': !loading }"
+      class="transition-color font-bold duration-500"
+      :class="{ 'text-stone-900': loading, 'text-stone-400': !loading }"
     />
   </div>
 </template>

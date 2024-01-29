@@ -8,15 +8,6 @@
   "versionGroups": [
     {
       "dependencies": [
-        "vue"
-      ],
-      "packages": [
-        "@yeger/vue-masonry-wall",
-        "@yeger/vue-masonry-wall-docs"
-      ]
-    },
-    {
-      "dependencies": [
         "@vue/test-utils",
         "vue"
       ],
