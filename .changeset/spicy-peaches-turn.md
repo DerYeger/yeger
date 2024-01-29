@@ -1,5 +1,0 @@
----
-'formi': minor
----
-
-upgrade nuxt
