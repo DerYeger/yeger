@@ -2,10 +2,10 @@
   "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
     "baseUrl": "./",
-    "types": ["node", "vue", "resize-observer-browser"],
+    "types": ["node", "vue", "resize-observer-browser"]
   },
   "exclude": ["node_modules", "coverage", "dist"],
   "vueCompilerOptions": {
-    "target": 2.7,
-  },
+    "target": 2.7
+  }
 }

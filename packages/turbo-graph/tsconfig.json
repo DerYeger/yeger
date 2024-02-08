@@ -2,7 +2,7 @@
   "extends": "@yeger/tsconfig/cli",
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "dist",
+    "outDir": "dist"
   },
-  "include": ["src"],
+  "include": ["src"]
 }

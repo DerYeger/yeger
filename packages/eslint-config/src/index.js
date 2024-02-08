@@ -39,12 +39,6 @@ module.exports = {
       },
     },
     {
-      files: ['**/tsconfig.json'],
-      rules: {
-        'jsonc/comma-dangle': 'off',
-      },
-    },
-    {
       files: ['*.astro'],
       parser: 'astro-eslint-parser',
       parserOptions: {

@@ -2,7 +2,7 @@
   "name": "yeger-monorepo",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.15.0",
+  "packageManager": "pnpm@8.15.1",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
@@ -40,8 +40,8 @@
     "@changesets/cli": "2.27.1",
     "@commitlint/cli": "18.6.0",
     "@commitlint/config-conventional": "18.6.0",
-    "@turbo/gen": "1.11.3",
-    "@types/node": "20.11.8",
+    "@turbo/gen": "1.12.3",
+    "@types/node": "20.11.16",
     "@vitest/coverage-v8": "1.2.2",
     "@vitest/ui": "1.2.2",
     "@yeger/eslint-config": "workspace:*",
@@ -49,13 +49,13 @@
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "7.0.3",
     "eslint": "8.56.0",
-    "husky": "9.0.6",
-    "lint-staged": "15.2.0",
+    "husky": "9.0.10",
+    "lint-staged": "15.2.2",
     "publint": "0.2.7",
     "rimraf": "5.0.5",
     "syncpack": "12.3.0",
-    "turbo": "1.11.3",
-    "vercel": "33.3.0",
+    "turbo": "1.12.3",
+    "vercel": "33.4.1",
     "vitest": "1.2.2"
   },
   "pnpm": {

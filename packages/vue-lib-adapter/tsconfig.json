@@ -2,7 +2,7 @@
   "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
     "baseUrl": "./",
-    "types": ["node"],
+    "types": ["node"]
   },
-  "exclude": ["node_modules", "coverage", "dist"],
+  "exclude": ["node_modules", "coverage", "dist"]
 }
