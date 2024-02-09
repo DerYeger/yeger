@@ -1,13 +1,13 @@
 import type { BoundVariable, Model, Term, VariableAssignment } from '~/model'
 
 export interface TreeNode<T extends TreeNode<T>> {
-  text(): string
-  children(): T[]
-  depth(): number
+  text: () => string
+  children: () => T[]
+  depth: () => number
 }
 
 export interface FOLFragment extends TreeNode<FOLFragment> {
-  toFormattedString(variableAssignment?: VariableAssignment): string
+  toFormattedString: (variableAssignment?: VariableAssignment) => string
 }
 
 export type ModelCheckerMode = 'lazy' | 'eager'
@@ -44,14 +44,14 @@ export class ModelCheckerTrace implements TreeNode<ModelCheckerTrace> {
 }
 
 export interface Formula extends FOLFragment {
-  evaluate(model: Model, variableAssignment: VariableAssignment): boolean
+  evaluate: (model: Model, variableAssignment: VariableAssignment) => boolean
 
-  traceEvaluation(
+  traceEvaluation: (
     mode: ModelCheckerMode,
     expected: boolean,
     model: Model,
     variableAssignment: VariableAssignment,
-  ): ModelCheckerTrace
+  ) => ModelCheckerTrace
 }
 
 export class ParenthesizedFormula implements Formula {

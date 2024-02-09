@@ -10,7 +10,7 @@ const { input } = toRefs(props)
 
 <template>
   <div class="relative">
-    <input id="foobar3" type="checkbox" class="hidden" :checked="input" />
+    <input id="foobar3" type="checkbox" class="hidden" :checked="input">
     <div
       class="toggle__line h-6 w-12 rounded-full bg-gray-200 shadow-inner"
       @click="emit('update:input', !input)"

@@ -23,15 +23,12 @@ Since vectors are entirely immutable, they are read-only.
 :::
 
 To use Vecti, add the following import to your TypeScript file.
-
-```ts
-
-```
-
 Instances of the `Vector` class can be created by using either its constructor or the static method `of`.
 The latter accepts a `number` array of length 2, with the first element being the x-axis component and the second element being the y-axis component.
 
 ```ts
+import { Vector } from 'vecti'
+
 const a = new Vector(42, 7)
 console.log(a) // == Vector { x: 42, y: 7 }
 

@@ -1,5 +1,6 @@
 {
   "name": "@yeger/turbo-graph",
+  "type": "module",
   "version": "1.0.7",
   "description": "Interactive visualization of Turborepo task graphs.",
   "author": {
@@ -13,18 +14,18 @@
     "url": "https://github.com/DerYeger/yeger/issues"
   },
   "bin": {
-    "turbo-graph": "index.js"
+    "turbo-graph": "index.mjs"
   },
   "files": [
     "dist",
-    "index.js"
+    "index.mjs"
   ],
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "vite build",
     "check:publish": "publint run --strict",
-    "dev": "tsc --watch",
+    "dev": "vite build --watch",
     "lint": "yeger-lint",
-    "preview": "node dist/index.js"
+    "preview": "node dist/index.mjs"
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
@@ -36,8 +37,9 @@
   "devDependencies": {
     "@types/node": "20.11.17",
     "@yeger/tsconfig": "workspace:*",
-    "rimraf": "5.0.5",
-    "typescript": "5.3.3"
+    "typescript": "5.3.3",
+    "vite": "5.1.0",
+    "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

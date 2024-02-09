@@ -1,7 +1,7 @@
 import type { FOLFragment, Model, VariableAssignment } from '~/model'
 
 export interface Term extends FOLFragment {
-  interpret(model: Model, variableAssignment: VariableAssignment): number
+  interpret: (model: Model, variableAssignment: VariableAssignment) => number
 }
 
 export class ConstantTerm implements Term {

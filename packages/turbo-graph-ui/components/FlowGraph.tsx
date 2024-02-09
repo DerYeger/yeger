@@ -40,9 +40,11 @@ function Task({ data }: TaskProps) {
   const { task, package: workspace, isTerminal, isOrigin } = data
   return (
     <div className="flex flex-col">
-      {isOrigin ? null : (
-        <Handle type="target" position={Position.Top} isConnectable={false} />
-      )}
+      {isOrigin
+        ? null
+        : (
+          <Handle type="target" position={Position.Top} isConnectable={false} />
+          )}
       <div
         className="flex flex-col rounded p-4"
         style={{
@@ -54,13 +56,15 @@ function Task({ data }: TaskProps) {
         <div className="font-bold text-neutral-800">{task}</div>
         <div className="text-right text-neutral-800">{workspace}</div>
       </div>
-      {isTerminal ? null : (
-        <Handle
-          type="source"
-          position={Position.Bottom}
-          isConnectable={false}
-        />
-      )}
+      {isTerminal
+        ? null
+        : (
+          <Handle
+            type="source"
+            position={Position.Bottom}
+            isConnectable={false}
+          />
+          )}
     </div>
   )
 }
@@ -115,8 +119,7 @@ export function FlowGraph({ children, graph, uniqueTasks }: Props) {
       <Controls showInteractive={false} />
       <MiniMap
         nodeColor={({ data }: { data: FlowNode }) =>
-          `var(${getTaskColorVar(data.task)})`
-        }
+          `var(${getTaskColorVar(data.task)})`}
         nodeStrokeColor="#000000"
       />
       <ViewFitter graph={graph} />

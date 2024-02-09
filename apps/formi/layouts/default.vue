@@ -24,7 +24,7 @@ const { accessibleDescription } = useLogo()
           :height="48"
           class="display-none md:display-block drop-shadow-custom mb--2 mt--3 select-none"
           :alt="accessibleDescription"
-        />
+        >
       </span>
       <div class="flex-1" />
       <NuxtLink

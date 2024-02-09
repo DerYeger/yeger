@@ -7,7 +7,7 @@ import { Codemirror } from 'vue-codemirror'
 import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
 
 const props = withDefaults(
-  defineProps<{ modelValue: string; disabled?: boolean }>(),
+  defineProps<{ modelValue: string, disabled?: boolean }>(),
   {
     disabled: false,
   },
@@ -38,7 +38,7 @@ watch(
     if (
       newResult.isOk &&
       JSON.stringify(newResult.get()) ===
-        JSON.stringify(oldResult?.getOrUndefined())
+      JSON.stringify(oldResult?.getOrUndefined())
     ) {
       return
     }

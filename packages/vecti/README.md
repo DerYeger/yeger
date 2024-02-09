@@ -61,15 +61,12 @@ Vectors have two properties, `x` and `y`, representing their components.
 Since vectors are entirely immutable, they are read-only.
 
 To use Vecti, add the following import to your TypeScript file.
-
-```ts
-
-```
-
 Instances of the `Vector` class can be created either by using its constructor or the static method of the class.
 The latter accepts a `number` array of length 2, with the first element being the x-axis component and the second element being the y-axis component.
 
 ```ts
+import { Vector } from 'vecti'
+
 // eslint-disable-next-line no-new
 new Vector(42, 7) // == Vector { x: 42, y: 7 }
 

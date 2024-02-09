@@ -49,7 +49,7 @@ export declare interface Marmoset {
    * @param options - Options for the viewer.
    * @returns Marmoset.WebViewer that has been embedded.
    */
-  embed(src: string, options: Marmoset.WebViewerOptions): Marmoset.WebViewer
+  embed: (src: string, options: Marmoset.WebViewerOptions) => Marmoset.WebViewer
 
   /**
    * Fetches the thumbnail of a mview file. Request size will be around 64KB.
@@ -59,12 +59,12 @@ export declare interface Marmoset {
    * @param image - Target image buffer. If not present, a new buffer will be created.
    */
 
-  fetchThumbnail(
+  fetchThumbnail: (
     src: string,
     onLoad: (image: any) => void,
     onError?: () => void,
     image?: any,
-  ): void
+  ) => void
 
   /**
    * Custom viewer URL. Must be set before any viewer instances are created.
@@ -87,7 +87,7 @@ export declare interface Marmoset {
   noUserInterface?: boolean
 }
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
+// eslint-disable-next-line ts/no-namespace
 export declare namespace Marmoset {
   export class WebViewer {
     /**

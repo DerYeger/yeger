@@ -47,7 +47,9 @@ function resetGraphController() {
 <template>
   <div>
     <div class="settings card">
-      <button @click="resetGraphController()">Reset</button>
+      <button @click="resetGraphController()">
+        Reset
+      </button>
       <div>
         <label for="maxWeight">Link Filter: {{ maxWeight }}</label>
         <input
@@ -56,7 +58,7 @@ function resetGraphController() {
           type="range"
           min="0"
           max="5"
-        />
+        >
       </div>
       <div>
         <span>Included Node Types</span>
@@ -72,7 +74,7 @@ function resetGraphController() {
             @change="
               controller?.filterNodesByType($event.currentTarget.checked, type)
             "
-          />
+          >
           <label :for="`type-${type}`">{{ type }}</label>
         </div>
       </div>

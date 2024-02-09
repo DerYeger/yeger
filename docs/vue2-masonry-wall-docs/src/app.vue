@@ -98,8 +98,12 @@ export default defineComponent({
             :style="`height: ${item}px;`"
           >
             <p>Index {{ index }}</p>
-            <p style="text-align: center">Height {{ item }}px</p>
-            <button class="primary" @click="removeItem(index)">Remove</button>
+            <p style="text-align: center">
+              Height {{ item }}px
+            </p>
+            <button class="primary" @click="removeItem(index)">
+              Remove
+            </button>
           </div>
         </template>
       </MasonryWall>

@@ -8,7 +8,7 @@
       <img
         alt="CI"
         src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F"
-      />
+      >
     </a>
     <a
       href="https://www.npmjs.com/package/@yeger/vue2-masonry-wall"
@@ -18,7 +18,7 @@
       <img
         alt="NPM"
         src="https://img.shields.io/npm/v/@yeger/vue2-masonry-wall?logo=npm"
-      />
+      >
     </a>
     <a
       href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/vue2-masonry-wall"
@@ -28,13 +28,13 @@
       <img
         alt="Coverage"
         src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=vue2-masonry-wall"
-      />
+      >
     </a>
     <a href="https://www.npmjs.com/package/vue" target="_blank" rel="noopener">
       <img
         alt="npm peer dependency version"
         src="https://img.shields.io/npm/dependency-version/@yeger/vue2-masonry-wall/peer/vue"
-      />
+      >
     </a>
     <a
       href="https://opensource.org/licenses/MIT"
@@ -44,7 +44,7 @@
       <img
         alt="MIT"
         src="https://img.shields.io/npm/l/@yeger/vue2-masonry-wall?color=%234DC71F"
-      />
+      >
     </a>
     <a
       href="https://bundlephobia.com/package/@yeger/vue2-masonry-wall"
@@ -54,7 +54,7 @@
       <img
         alt="npm bundle size"
         src="https://img.shields.io/bundlephobia/minzip/@yeger/vue2-masonry-wall"
-      />
+      >
     </a>
   </div>
 </template>

@@ -48,10 +48,6 @@
     {
       "matchPackageNames": ["@unhead/vue"],
       "allowedVersions": "<=1.2.2"
-    },
-    {
-      "matchPackageNames": ["@antfu/eslint-config"],
-      "allowedVersions": "<=0.41.0"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],

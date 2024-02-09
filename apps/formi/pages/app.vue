@@ -68,9 +68,11 @@ const { loading } = useAppStorage()
             <Pane :min-size="minPaneSize" class="relative flex flex-col">
               <PaneTitle>Model Graph</PaneTitle>
               <ModelGraph v-if="model" :model="model" class="flex-1" />
-              <Warning v-if="modelError" class="absolute inset-x-0 bottom-0">{{
-                modelError
-              }}</Warning>
+              <Warning v-if="modelError" class="absolute inset-x-0 bottom-0">
+                {{
+                  modelError
+                }}
+              </Warning>
             </Pane>
           </Splitpanes>
         </Pane>
@@ -86,7 +88,7 @@ const { loading } = useAppStorage()
                     v-model="formulaInput"
                     name="formulaInput"
                     class="border-1 rounded border-stone-900 bg-white px-2 py-1 font-sans"
-                  />
+                  >
                 </div>
                 <div class="flex flex-col gap-2">
                   <span class="select-none">Formula</span>
@@ -109,7 +111,9 @@ const { loading } = useAppStorage()
               </div>
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
-              <PaneTitle class="!text-stone-100">Formula Tree</PaneTitle>
+              <PaneTitle class="!text-stone-100">
+                Formula Tree
+              </PaneTitle>
               <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <FOLTree
@@ -126,7 +130,9 @@ const { loading } = useAppStorage()
               </div>
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
-              <PaneTitle class="!text-stone-100">Model Checker</PaneTitle>
+              <PaneTitle class="!text-stone-100">
+                Model Checker
+              </PaneTitle>
               <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <ModelCheckerTraceTree
@@ -140,9 +146,9 @@ const { loading } = useAppStorage()
                   <Error v-else-if="traceError" class="rounded">
                     {{ traceError }}
                   </Error>
-                  <Error v-else-if="!formula" class="rounded"
-                    >Formula is invalid.</Error
-                  >
+                  <Error v-else-if="!formula" class="rounded">
+                    Formula is invalid.
+                  </Error>
                 </div>
               </div>
             </Pane>

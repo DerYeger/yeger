@@ -176,8 +176,7 @@ class MapStream<Input, Output> extends Stream<Output> {
   ) {
     if (previous instanceof MapStream) {
       return new MapStream<Input, Output>(previous.previous, (value) =>
-        fn(previous.fn(value)),
-      )
+        fn(previous.fn(value)))
     }
     return new MapStream(previous, fn)
   }
@@ -206,7 +205,7 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
 
   public *[Symbol.iterator](): IterableIterator<Output> {
     for (const item of this.previous) {
-      yield* this.fn(item)
+      yield * this.fn(item)
     }
   }
 }
@@ -339,9 +338,9 @@ class ConcatStream<T> extends Stream<T> {
   }
 
   public *[Symbol.iterator](): IterableIterator<T> {
-    yield* this.previous
+    yield * this.previous
     for (const source of this.sources) {
-      yield* source
+      yield * source
     }
   }
 }
@@ -362,7 +361,7 @@ class CacheStream<T> extends Stream<T> {
 
   public *[Symbol.iterator](): IterableIterator<T> {
     if (this.cachedInput) {
-      yield* this.cachedInput
+      yield * this.cachedInput
       return
     }
     const cache: T[] = []

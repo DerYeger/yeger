@@ -67,7 +67,7 @@ function getWidthLabel(index: number) {
           max="256"
           :value="gap"
           @input="emit('update:gap', +($event.target as any).value)"
-        />
+        >
         <span>{{ gap }}px</span>
       </div>
       <div class="row">
@@ -79,7 +79,7 @@ function getWidthLabel(index: number) {
           max="10"
           :value="minColumns"
           @input="emit('update:minColumns', +($event.target as any).value)"
-        />
+        >
         <span>{{ minColumns }}</span>
       </div>
       <div class="row">
@@ -91,7 +91,7 @@ function getWidthLabel(index: number) {
           max="10"
           :value="maxColumns"
           @input="emit('update:maxColumns', +($event.target as any).value)"
-        />
+        >
         <span>{{ maxColumns }}</span>
       </div>
       <div class="row">
@@ -101,7 +101,7 @@ function getWidthLabel(index: number) {
           type="checkbox"
           :checked="rtl"
           @change="emit('update:rtl', ($event.target as any).checked)"
-        />
+        >
       </div>
       <div class="row">
         <label for="useScrollContainer">Scroll Container</label>
@@ -112,7 +112,7 @@ function getWidthLabel(index: number) {
           @change="
             emit('update:useScrollContainer', ($event.target as any).checked)
           "
-        />
+        >
       </div>
     </section>
     <section id="columns">
@@ -125,7 +125,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(0) }}</span>
       </div>
       <div class="row">
@@ -136,7 +136,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(1) }}</span>
       </div>
       <div class="row">
@@ -147,7 +147,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(2) }}</span>
       </div>
       <div class="row">
@@ -158,7 +158,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(3) }}</span>
       </div>
       <div class="row">
@@ -169,7 +169,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(4) }}</span>
       </div>
     </section>
@@ -183,7 +183,7 @@ function getWidthLabel(index: number) {
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ newItemHeight }}px</span>
       </div>
       <div class="row button-row">
@@ -196,7 +196,9 @@ function getWidthLabel(index: number) {
         <button class="primary" @click="emit('createItems')">
           Random (10)
         </button>
-        <button class="secondary" @click="emit('clearItems')">Clear</button>
+        <button class="secondary" @click="emit('clearItems')">
+          Clear
+        </button>
       </div>
     </section>
   </div>

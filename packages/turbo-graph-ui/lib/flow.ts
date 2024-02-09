@@ -1,6 +1,6 @@
 import { Stream } from '@yeger/streams'
 import { graphStratify, sugiyama } from 'd3-dag'
-import { type Edge, type Node } from 'reactflow'
+import type { Edge, Node } from 'reactflow'
 
 import type { TurboEdge, TurboGraph, TurboNode } from './turbo'
 

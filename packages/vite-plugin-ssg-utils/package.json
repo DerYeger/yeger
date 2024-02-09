@@ -25,8 +25,8 @@
   },
   "types": "dist/types/index.d.mts",
   "files": [
-    "dist",
-    "LICENSE"
+    "LICENSE",
+    "dist"
   ],
   "engines": {
     "node": ">=14"

@@ -12,7 +12,9 @@ export default defineComponent({
 <template>
   <header class="secondary">
     <div class="row">
-      <h1 id="title">@yeger/vue-masonry-wall</h1>
+      <h1 id="title">
+        @yeger/vue-masonry-wall
+      </h1>
       <GithubLogo />
     </div>
     <p id="subtitle">

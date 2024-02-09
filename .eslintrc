@@ -1,4 +1,0 @@
-{
-  "extends": ["@yeger"],
-  "plugins": ["turbo"]
-}

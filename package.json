@@ -1,5 +1,6 @@
 {
   "name": "yeger-monorepo",
+  "type": "module",
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@8.15.1",
@@ -74,6 +75,6 @@
     }
   },
   "lint-staged": {
-    "*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}": "eslint --rule 'import/no-unresolved: off' --rule 'import/default: off' --fix"
+    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

@@ -216,7 +216,7 @@ class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
 
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
     for await (const item of this.previous) {
-      yield* this.fn(item)
+      yield * this.fn(item)
     }
   }
 }
@@ -355,9 +355,9 @@ class AsyncConcatStream<T> extends AsyncStream<T> {
   }
 
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    yield* this.previous
+    yield * this.previous
     for (const source of this.sources) {
-      yield* source
+      yield * source
     }
   }
 }
@@ -378,7 +378,7 @@ class AsyncCacheStream<T> extends AsyncStream<T> {
 
   public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
     if (this.cachedInput) {
-      yield* this.cachedInput
+      yield * this.cachedInput
       return
     }
     const cache: T[] = []
