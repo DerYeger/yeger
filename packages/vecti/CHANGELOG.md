@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.6
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+
 ## 3.0.5
 
 ### Patch Changes

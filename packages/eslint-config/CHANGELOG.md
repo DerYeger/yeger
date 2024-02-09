@@ -1,5 +1,15 @@
 # @yeger/eslint-config
 
+## 2.0.0
+
+### Major Changes
+
+- 94f9458: migrate to flat config
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+
 ## 1.9.6
 
 ### Patch Changes

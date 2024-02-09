@@ -1,5 +1,18 @@
 # @yeger/turbo-graph
 
+## 2.0.0
+
+### Major Changes
+
+- 94f9458: migrate to ESM
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+- Updated dependencies [94f9458]
+  - @yeger/turbo-graph-ui@2.0.0
+
 ## 1.0.7
 
 ### Patch Changes

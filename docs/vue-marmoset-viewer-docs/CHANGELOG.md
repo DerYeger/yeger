@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.7
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - vue-marmoset-viewer@4.0.7
+
 ## 2.0.6
 
 ### Patch Changes

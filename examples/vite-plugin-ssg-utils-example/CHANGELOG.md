@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils-example
 
+## 2.0.5
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+
 ## 2.0.4
 
 ### Patch Changes

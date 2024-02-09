@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.5
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+
 ## 1.1.4
 
 ### Patch Changes

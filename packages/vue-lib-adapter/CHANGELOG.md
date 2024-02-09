@@ -1,5 +1,11 @@
 # @yeger/vue-lib-adapter
 
+## 2.0.6
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+
 ## 2.0.5
 
 ### Patch Changes
