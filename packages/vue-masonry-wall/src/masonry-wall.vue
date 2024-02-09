@@ -77,12 +77,12 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
       class="masonry-column"
       :data-index="columnIndex"
       :style="{
-        display: 'flex',
+        'display': 'flex',
         'flex-basis': `${getColumnWidthTarget(columnIndex)}px`,
         'flex-direction': 'column',
         'flex-grow': 1,
-        gap: `${gap}px`,
-        height: [
+        'gap': `${gap}px`,
+        'height': [
           '-webkit-max-content',
           '-moz-max-content',
           'max-content',
@@ -93,8 +93,8 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
       <div
         v-for="(itemIndex, row) in column"
         :key="
-          keyMapper?.(items[itemIndex]!, columnIndex, row, itemIndex) ??
-          itemIndex
+          keyMapper?.(items[itemIndex]!, columnIndex, row, itemIndex)
+            ?? itemIndex
         "
         class="masonry-item"
       >

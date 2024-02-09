@@ -29,6 +29,17 @@ export default defineComponent({
       required: true,
     },
   },
+  emits: [
+    'update:column-width',
+    'update:gap',
+    'update:rtl',
+    'update:use-scroll-container',
+    'update:min-columns',
+    'update:max-columns',
+    'create-item',
+    'create-items',
+    'clear-items',
+  ],
   data() {
     return {
       colWidth1: 256,
@@ -81,7 +92,7 @@ export default defineComponent({
           max="256"
           :value="gap"
           @input="$emit('update:gap', +$event.target.value)"
-        />
+        >
         <span>{{ gap }}px</span>
       </div>
       <div class="row">
@@ -93,7 +104,7 @@ export default defineComponent({
           max="10"
           :value="minColumns"
           @input="$emit('update:min-columns', +$event.target.value)"
-        />
+        >
         <span>{{ minColumns }}</span>
       </div>
       <div class="row">
@@ -105,7 +116,7 @@ export default defineComponent({
           max="10"
           :value="maxColumns"
           @input="$emit('update:max-columns', +$event.target.value)"
-        />
+        >
         <span>{{ maxColumns }}</span>
       </div>
       <div class="row">
@@ -115,7 +126,7 @@ export default defineComponent({
           type="checkbox"
           :checked="rtl"
           @change="$emit('update:rtl', $event.target.checked)"
-        />
+        >
       </div>
       <div class="row">
         <label for="useScrollContainer">Scroll Container</label>
@@ -124,7 +135,7 @@ export default defineComponent({
           type="checkbox"
           :checked="useScrollContainer"
           @change="$emit('update:use-scroll-container', $event.target.checked)"
-        />
+        >
       </div>
     </section>
     <section id="columns">
@@ -137,7 +148,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(0) }}</span>
       </div>
       <div class="row">
@@ -148,7 +159,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(1) }}</span>
       </div>
       <div class="row">
@@ -159,7 +170,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(2) }}</span>
       </div>
       <div class="row">
@@ -170,7 +181,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(3) }}</span>
       </div>
       <div class="row">
@@ -181,7 +192,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ getWidthLabel(4) }}</span>
       </div>
     </section>
@@ -195,7 +206,7 @@ export default defineComponent({
           type="range"
           min="128"
           max="512"
-        />
+        >
         <span>{{ newItemHeight }}px</span>
       </div>
       <div class="row button-row">
@@ -208,7 +219,9 @@ export default defineComponent({
         <button class="primary" @click="$emit('create-items')">
           Random (10)
         </button>
-        <button class="secondary" @click="$emit('clear-items')">Clear</button>
+        <button class="secondary" @click="$emit('clear-items')">
+          Clear
+        </button>
       </div>
     </section>
   </div>

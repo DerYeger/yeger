@@ -72,11 +72,11 @@ export default defineComponent({
           </div>
           <div>
             <label for="autostart">Autostart</label>
-            <input id="autostart" v-model="autoStart" type="checkbox" />
+            <input id="autostart" v-model="autoStart" type="checkbox">
           </div>
           <div>
             <label for="responsive">Responsive</label>
-            <input id="responsive" v-model="responsive" type="checkbox" />
+            <input id="responsive" v-model="responsive" type="checkbox">
           </div>
           <div>
             <label for="width">
@@ -90,7 +90,7 @@ export default defineComponent({
               min="200"
               max="800"
               :disabled="responsive"
-            />
+            >
           </div>
           <div>
             <label for="height">
@@ -104,13 +104,15 @@ export default defineComponent({
               max="600"
               min="200"
               type="range"
-            />
+            >
           </div>
         </section>
         <section id="emits">
           <div>
             <label for="emitLog">Emits</label>
-            <button @click="emits = []">Clear</button>
+            <button @click="emits = []">
+              Clear
+            </button>
           </div>
           <textarea id="emitLog" v-model="emitLog" readonly />
         </section>

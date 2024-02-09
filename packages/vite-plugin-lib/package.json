@@ -26,8 +26,8 @@
   },
   "types": "dist/index.d.mts",
   "files": [
-    "dist",
-    "LICENSE"
+    "LICENSE",
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",

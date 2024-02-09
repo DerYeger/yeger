@@ -14,8 +14,8 @@
   },
   "types": "dist/types/index.d.mts",
   "files": [
-    "dist",
-    "LICENSE"
+    "LICENSE",
+    "dist"
   ],
   "scripts": {
     "build": "vite build",

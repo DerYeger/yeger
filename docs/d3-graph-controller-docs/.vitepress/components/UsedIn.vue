@@ -21,7 +21,7 @@ const projects: Project[] = [
       <div v-for="project of projects" :key="project.name" class="project">
         <h3>
           <a href="https://vitest.dev/" target="_blank" rel="noopener">
-            <img :src="project.logo" :alt="project.name" class="logo" />
+            <img :src="project.logo" :alt="project.name" class="logo">
             {{ project.name }}
           </a>
         </h3>

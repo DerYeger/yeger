@@ -51,8 +51,10 @@ function transformLine(
   verbose: boolean | undefined,
 ) {
   return (
+    // eslint-disable-next-line style/quotes
     transformStaticImport(file, line, "'", verbose) ??
     transformStaticImport(file, line, '"', verbose) ??
+    // eslint-disable-next-line style/quotes
     transformExport(file, line, "'", verbose) ??
     transformExport(file, line, '"', verbose) ??
     line

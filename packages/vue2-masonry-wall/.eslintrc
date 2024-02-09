@@ -1,5 +1,0 @@
-{
-  "rules": {
-    "vue/custom-event-name-casing": "off"
-  }
-}

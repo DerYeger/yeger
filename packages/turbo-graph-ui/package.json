@@ -1,5 +1,6 @@
 {
   "name": "@yeger/turbo-graph-ui",
+  "type": "module",
   "version": "1.0.7",
   "description": "Interactive visualization of Turborepo task graphs.",
   "author": {
@@ -12,16 +13,16 @@
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },
-  "main": "next.config.js",
+  "main": "next.config.mjs",
   "files": [
     ".next",
-    "next.config.js"
+    "next.config.mjs"
   ],
   "scripts": {
     "build": "next build",
     "check:publish": "publint run --strict",
     "dev": "next dev --turbo",
-    "lint": "next lint",
+    "lint": "yeger-lint",
     "preview": "next start"
   },
   "peerDependencies": {

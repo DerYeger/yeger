@@ -1,5 +1,5 @@
 {
-  "extends": "@yeger/tsconfig/cli",
+  "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "dist"

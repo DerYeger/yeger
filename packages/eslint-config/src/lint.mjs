@@ -1,25 +1,28 @@
 #!/usr/bin/env node
-const process = require('node:process')
+import { argv, exit } from 'node:process'
 
-const { ESLint } = require('eslint')
-const c = require('picocolors')
+import ESLint from 'eslint/use-at-your-own-risk'
+import colors from 'picocolors'
+
+const { FlatESLint } = ESLint
+const { green } = colors
 
 async function main() {
   // 1. Create an instance.
-  const fix = process.argv.includes('--fix')
+  const fix = argv.includes('--fix')
 
-  const eslint = new ESLint({ fix })
+  const eslint = new FlatESLint({ fix })
 
   // 2. Lint files.
   const results = await eslint.lintFiles([
-    './**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}',
+    './**/*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}',
   ])
   const hasErrors = results.some(
     ({ errorCount, fatalErrorCount }) => errorCount > 0 || fatalErrorCount > 0,
   )
 
   if (fix) {
-    await ESLint.outputFixes(results)
+    await FlatESLint.outputFixes(results)
   }
 
   // 3. Format the results.
@@ -32,12 +35,12 @@ async function main() {
     console.log(resultText)
   } else {
     // eslint-disable-next-line no-console
-    console.log(c.green('✔ No ESLint warnings or errors'))
+    console.log(green('✔ No ESLint warnings or errors'))
   }
-  process.exit(hasErrors > 0 ? 1 : 0)
+  exit(hasErrors > 0 ? 1 : 0)
 }
 
 main().catch((error) => {
-  process.exitCode = 1
   console.error(error)
+  exit(1)
 })

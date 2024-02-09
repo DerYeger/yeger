@@ -57,8 +57,7 @@ export function createNodes<
           onNodeContext(d)
         })
         .on('pointerdown', (event: PointerEvent, d) =>
-          onPointerDown(event, d, onNodeSelected ?? onNodeContext),
-        )
+          onPointerDown(event, d, onNodeSelected ?? onNodeContext))
         .style('fill', (d) => d.color)
 
       config.modifiers.node?.(nodeCircle)

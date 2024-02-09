@@ -7,12 +7,12 @@ import process from 'node:process'
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
 import ts from 'typescript'
-import {
-  type Alias,
-  type AliasOptions,
-  type LibraryFormats,
-  type Plugin,
-  type UserConfig,
+import type {
+  Alias,
+  AliasOptions,
+  LibraryFormats,
+  Plugin,
+  UserConfig,
 } from 'vite'
 import dts from 'vite-plugin-dts'
 
@@ -268,15 +268,15 @@ function transformExistingAlias(alias: AliasOptions | undefined): Alias[] {
 async function readConfig(configPath: string): Promise<CompilerOptions> {
   try {
     const configFileText = await readFile(configPath, { encoding: 'utf-8' })
-    // eslint-disable-next-line import/no-named-as-default-member
+
     const { config } = ts.parseConfigFileTextToJson(configPath, configFileText)
     if (!('baseUrl' in config?.compilerOptions)) {
       throw new Error('No baseUrl provided in tsconfig.json.')
     }
-    // eslint-disable-next-line import/no-named-as-default-member
+
     const { options } = ts.parseJsonConfigFileContent(
       config,
-      // eslint-disable-next-line import/no-named-as-default-member
+
       ts.sys,
       path.dirname(configPath),
     )

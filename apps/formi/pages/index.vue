@@ -14,8 +14,8 @@ const { appLink, featuresLink } = useLinks()
         FOL Model Checking
       </h2>
       <h1 class="text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl">
-        Try.<br />
-        Learn.<br />
+        Try.<br>
+        Learn.<br>
         Understand.
       </h1>
       <HeroProse>
@@ -30,7 +30,9 @@ const { appLink, featuresLink } = useLinks()
         checking results.
       </HeroProse>
       <div class="flex flex-col items-start gap-4 lg:flex-row">
-        <LinkButton :link="appLink"> Try Now </LinkButton>
+        <LinkButton :link="appLink">
+          Try Now
+        </LinkButton>
         <LinkButton
           :link="featuresLink"
           description="Learn more about the features of Formi."

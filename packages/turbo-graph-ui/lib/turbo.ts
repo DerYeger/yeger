@@ -20,7 +20,8 @@ export async function getGraph(
 ): Promise<Result<TurboGraph, Error>> {
   const filteredTasks = tasks.filter(Boolean)
   if (filteredTasks.length === 0) {
-    return ok({ nodes: [], edges: [] })
+    const emptyGraph: TurboGraph = { nodes: [], edges: [] }
+    return ok(emptyGraph)
   }
   const { dir } = await findTurboConfig()
   const stdout = await executeCommand(dir, filteredTasks, filter)

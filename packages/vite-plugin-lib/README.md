@@ -24,7 +24,6 @@ This highly opinionated all-in one Vite plugin enables automatic alias configura
 
 ```ts
 import { defineConfig } from 'vite'
-
 import { tsconfigPaths } from 'vite-plugin-lib'
 
 export default defineConfig({
@@ -38,7 +37,6 @@ The `library` plugin includes the `alias` plugin, configures build settings, and
 
 ```ts
 import { defineConfig } from 'vite'
-
 import { library } from 'vite-plugin-lib'
 
 export default defineConfig({
