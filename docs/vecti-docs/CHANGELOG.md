@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.6
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - vecti@3.0.6
+
 ## 2.0.5
 
 ### Patch Changes

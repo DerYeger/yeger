@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.6
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - @yeger/vue-lib-adapter@2.0.6
+
 ## 5.0.5
 
 ### Patch Changes

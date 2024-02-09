@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.7
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - @yeger/debounce@2.0.6
+
 ## 4.0.6
 
 ### Patch Changes

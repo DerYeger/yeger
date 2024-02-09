@@ -1,5 +1,20 @@
 # @yeger/turbo-graph-ui
 
+## 2.0.0
+
+### Major Changes
+
+- 94f9458: migrate to ESM
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - d3-graph-controller@3.0.6
+  - @yeger/debounce@2.0.6
+  - resumon@2.0.6
+  - @yeger/streams@1.1.5
+
 ## 1.0.7
 
 ### Patch Changes

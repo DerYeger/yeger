@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.1
+
+### Patch Changes
+
+- 94f9458: upgrade deps
+- Updated dependencies [94f9458]
+  - d3-graph-controller@3.0.6
+  - resumon@2.0.6
+  - @yeger/fol@1.0.5
+
 ## 0.2.0
 
 ### Minor Changes
