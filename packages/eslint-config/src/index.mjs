@@ -133,6 +133,13 @@ export default function (...configs) {
         },
       },
       rules: {
+        'style/indent-binary-ops': 'off',
+        'style/jsx-closing-bracket-location': 'off',
+        'style/jsx-closing-tag-location': 'off',
+        'style/jsx-indent': 'off',
+        'style/jsx-one-expression-per-line': 'off',
+        'style/jsx-wrap-multilines': 'off',
+        'style/multiline-ternary': 'off',
         'unused-imports/no-unused-vars': 'off',
       },
     },
