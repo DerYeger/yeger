@@ -124,7 +124,7 @@ export default function (...configs) {
       languageOptions: {
         parser: astroParser,
         parserOptions: {
-          parser: 'ts/parser',
+          parser: '@typescript-eslint/parser',
           extraFileExtensions: ['.astro'],
         },
       },
