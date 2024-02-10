@@ -11,6 +11,10 @@ export default function (...configs) {
   const compat = new FlatCompat({ resolvePluginsRelativeTo: __dirname })
   return antfu(
     {
+      formatters: {
+        css: true,
+        html: true,
+      },
       markdown: true,
       react: true,
       stylistic: {
