@@ -82,6 +82,7 @@ export default function (...configs) {
         'no-unused-vars': 'off',
         'prefer-template': 'error',
         'prefer-const': 'error',
+        'react/prop-types': 'off',
         'style/arrow-parens': ['error', 'always'],
         'style/operator-linebreak': 'off',
         'style/quote-props': 'off',
