@@ -1,5 +1,15 @@
 # @yeger/eslint-config
 
+## 2.1.0
+
+### Minor Changes
+
+- c7e6c5d: enable css and html formatting
+
+### Patch Changes
+
+- 660d26b: fix astro parser configuration
+
 ## 2.0.0
 
 ### Major Changes
