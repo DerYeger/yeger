@@ -38,10 +38,10 @@
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.0.0",
     "execa": "8.0.1",
-    "lucide-react": "^0.323.0",
+    "lucide-react": "^0.331.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "reactflow": "11.10.3",
+    "reactflow": "11.10.4",
     "resumon": "workspace:*",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.6"
@@ -49,7 +49,7 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.8",
     "@types/d3-scale-chromatic": "3.0.3",
-    "@types/node": "20.11.17",
+    "@types/node": "20.11.19",
     "@types/react": "18.2.55",
     "@types/react-dom": "18.2.19",
     "@yeger/tsconfig": "workspace:*",

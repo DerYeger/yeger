@@ -51,7 +51,7 @@
     "eslint-plugin-svelte": "2.35.1",
     "eslint-plugin-tailwindcss": "3.14.2",
     "eslint-plugin-tsdoc": "0.2.17",
-    "eslint-plugin-turbo": "1.12.3",
+    "eslint-plugin-turbo": "1.12.4",
     "eslint-plugin-yml": "1.12.2",
     "picocolors": "1.0.0",
     "yaml-eslint-parser": "1.2.2"
