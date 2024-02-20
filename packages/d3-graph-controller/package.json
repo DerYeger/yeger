@@ -9,7 +9,11 @@
   },
   "license": "MIT",
   "homepage": "https://graph-controller.yeger.eu",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/d3-graph-controller"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },

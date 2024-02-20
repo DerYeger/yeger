@@ -7,7 +7,11 @@
     "url": "https://github.com/DerYeger"
   },
   "license": "MIT",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/streams"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },

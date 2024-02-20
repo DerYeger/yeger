@@ -9,6 +9,7 @@ jobs:
     env:
       TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+    permissions: write-all
     steps:
       - name: Setup
         uses: DerYeger/pnpm-setup-action@master

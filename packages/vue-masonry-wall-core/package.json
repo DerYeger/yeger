@@ -8,7 +8,11 @@
   },
   "license": "MIT",
   "homepage": "https://vue-masonry-wall.yeger.eu",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/vue-masonry-wall-core"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },

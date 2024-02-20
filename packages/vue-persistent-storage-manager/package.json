@@ -10,7 +10,11 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vue-persistent-storage-manager",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/vue-persistent-storage-manager"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },

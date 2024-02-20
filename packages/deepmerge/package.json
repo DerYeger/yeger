@@ -3,7 +3,11 @@
   "type": "module",
   "version": "2.0.6",
   "private": true,
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/deepmerge"
+  },
   "exports": {
     ".": {
       "import": {

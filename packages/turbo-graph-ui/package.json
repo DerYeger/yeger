@@ -9,7 +9,11 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph-ui",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/turbo-graph-ui"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },

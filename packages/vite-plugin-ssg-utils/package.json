@@ -7,7 +7,11 @@
   "license": "MIT",
   "funding": "https://github.com/sponsors/DerYeger",
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-ssg-utils",
-  "repository": "github:DerYeger/yeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/vite-plugin-ssg-utils"
+  },
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },
