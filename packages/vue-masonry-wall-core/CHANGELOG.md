@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.7
+
+### Patch Changes
+
+- a645b79: publish with provenance
+- Updated dependencies [a645b79]
+  - @yeger/vue-lib-adapter@2.0.7
+
 ## 5.0.6
 
 ### Patch Changes

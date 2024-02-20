@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.0.1
+
+### Patch Changes
+
+- a645b79: publish with provenance
+- Updated dependencies [a645b79]
+  - @yeger/turbo-graph-ui@2.0.1
+
 ## 2.0.0
 
 ### Major Changes

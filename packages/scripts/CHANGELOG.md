@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.6
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 1.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.8
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 2.0.7
 
 ### Patch Changes

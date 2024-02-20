@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.8
+
+### Patch Changes
+
+- a645b79: publish with provenance
+- Updated dependencies [a645b79]
+  - vue-marmoset-viewer@4.0.8
+
 ## 2.0.7
 
 ### Patch Changes

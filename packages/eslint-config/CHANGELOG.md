@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.1.2
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 2.1.1
 
 ### Patch Changes
