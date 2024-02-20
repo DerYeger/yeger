@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.8
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 3.0.7
 
 ### Patch Changes

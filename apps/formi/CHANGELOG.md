@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.2
+
+### Patch Changes
+
+- a645b79: publish with provenance
+- Updated dependencies [a645b79]
+  - d3-graph-controller@3.0.7
+  - @yeger/fol@1.0.6
+  - resumon@2.0.7
+
 ## 0.2.1
 
 ### Patch Changes

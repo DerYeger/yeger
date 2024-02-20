@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.6
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 1.1.5
 
 ### Patch Changes

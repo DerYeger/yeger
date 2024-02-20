@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.0.7
+
+### Patch Changes
+
+- a645b79: publish with provenance
+- Updated dependencies [a645b79]
+  - @yeger/debounce@2.0.7
+  - vecti@3.0.7
+
 ## 3.0.6
 
 ### Patch Changes

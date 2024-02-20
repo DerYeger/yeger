@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 2.0.5
+
+### Patch Changes
+
+- a645b79: publish with provenance
+
 ## 2.0.4
 
 ### Patch Changes
