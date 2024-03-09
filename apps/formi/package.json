@@ -23,26 +23,26 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.4.0",
+    "yaml": "2.4.1",
     "zod": "3.22.4"
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.8.10",
+    "@unhead/shared": "1.8.12",
     "@unocss/nuxt": "0.58.5",
     "@unocss/reset": "0.58.5",
-    "@vite-pwa/nuxt": "0.5.0",
+    "@vite-pwa/nuxt": "0.6.0",
     "@vue/shared": "3.4.21",
     "@vueuse/core": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
     "node-fetch-native": "1.6.2",
     "nuxt": "3.10.3",
-    "nuxt-icon": "0.6.8",
-    "typescript": "5.3.3",
+    "nuxt-icon": "0.6.9",
+    "typescript": "5.4.2",
     "ufo": "1.4.0",
-    "vite": "5.1.4",
+    "vite": "5.1.5",
     "vue": "3.4.21",
     "vue-router": "4.3.0",
-    "vue-tsc": "2.0.1"
+    "vue-tsc": "2.0.6"
   }
 }
