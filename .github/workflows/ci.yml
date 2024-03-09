@@ -20,61 +20,61 @@ jobs:
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
       - name: Upload @yeger/debounce coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/debounce/coverage/coverage-final.json
           flags: debounce
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/fol coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/fol/coverage/coverage-final.json
           flags: fol
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/vue-masonry-wall coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vue-masonry-wall/coverage/coverage-final.json
           flags: vue-masonry-wall
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/vue2-masonry-wall coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vue2-masonry-wall/coverage/coverage-final.json
           flags: vue2-masonry-wall
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload d3-graph-controller coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/d3-graph-controller/coverage/coverage-final.json
           flags: d3-graph-controller
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload resumon coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/resumon/coverage/coverage-final.json
           flags: resumon
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vecti coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vecti/coverage/coverage-final.json
           flags: vecti
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vite-plugin-ssg-utils coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vite-plugin-ssg-utils/coverage/coverage-final.json
           flags: vite-plugin-ssg-utils
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-marmoset-viewer coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vue-marmoset-viewer/coverage/coverage-final.json
           flags: vue-marmoset-viewer
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-marmoset-viewer coverage
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           files: packages/vue-persistent-storage-manager/coverage/coverage-final.json
           flags: vue-persistent-storage-manager
