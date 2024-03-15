@@ -47,7 +47,7 @@
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.4.2",
-    "vite": "5.1.5",
+    "vite": "5.1.6",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
