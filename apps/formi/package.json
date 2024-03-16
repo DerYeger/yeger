@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.8.18",
+    "@unhead/shared": "1.8.20",
     "@unocss/nuxt": "0.58.6",
     "@unocss/reset": "0.58.6",
     "@vite-pwa/nuxt": "0.6.0",
