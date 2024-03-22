@@ -15,7 +15,7 @@
     "build": "nr turbo run build",
     "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint test check:publish check:tsc check:vue --output-logs=errors-only",
+    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint test check:publish check:tsc check:vue",
     "clean": "rimraf -g **/.tsbuildinfo **/tsconfig.tsbuildinfo **/vite.config.ts.*",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
@@ -31,7 +31,7 @@
     "syncpack:fix": "syncpack fix-mismatches",
     "syncpack:lint": "syncpack list-mismatches",
     "test": "cross-env COVERAGE=true nr turbo run test",
-    "turbo": "cross-env CI=true FORCE_COLOR=1 turbo --output-logs=new-only",
+    "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run check:tsc check:vue",
     "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile"
@@ -55,7 +55,7 @@
     "publint": "0.2.7",
     "rimraf": "5.0.5",
     "syncpack": "12.3.0",
-    "turbo": "1.12.5",
+    "turbo": "1.13.0",
     "vercel": "33.6.1",
     "vitest": "1.4.0"
   },

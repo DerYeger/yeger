@@ -1,5 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "experimentalUI": false,
   "globalEnv": ["CI"],
   "pipeline": {
     "check:publish": {
