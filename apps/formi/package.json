@@ -28,21 +28,21 @@
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.8.20",
-    "@unocss/nuxt": "0.58.6",
-    "@unocss/reset": "0.58.6",
+    "@unhead/shared": "1.9.2",
+    "@unocss/nuxt": "0.58.8",
+    "@unocss/reset": "0.58.8",
     "@vite-pwa/nuxt": "0.6.0",
     "@vue/shared": "3.4.21",
     "@vueuse/core": "10.9.0",
     "@vueuse/nuxt": "10.9.0",
-    "node-fetch-native": "1.6.2",
-    "nuxt": "3.10.3",
-    "nuxt-icon": "0.6.9",
-    "typescript": "5.4.2",
-    "ufo": "1.5.1",
-    "vite": "5.1.6",
+    "node-fetch-native": "1.6.4",
+    "nuxt": "3.11.1",
+    "nuxt-icon": "0.6.10",
+    "typescript": "5.4.3",
+    "ufo": "1.5.3",
+    "vite": "5.2.6",
     "vue": "3.4.21",
     "vue-router": "4.3.0",
-    "vue-tsc": "2.0.6"
+    "vue-tsc": "2.0.7"
   }
 }
