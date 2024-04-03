@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 2.0.2
+
+### Patch Changes
+
+- b9f21ed: update deps
+- Updated dependencies [b9f21ed]
+  - d3-graph-controller@3.0.8
+  - @yeger/debounce@2.0.8
+  - resumon@2.0.8
+  - @yeger/streams@1.1.7
+
 ## 2.0.1
 
 ### Patch Changes

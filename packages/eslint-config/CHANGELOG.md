@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.1.3
+
+### Patch Changes
+
+- b9f21ed: update deps
+
 ## 2.1.2
 
 ### Patch Changes

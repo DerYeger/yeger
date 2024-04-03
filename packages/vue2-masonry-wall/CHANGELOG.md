@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall
 
+## 5.0.9
+
+### Patch Changes
+
+- b9f21ed: update deps
+- Updated dependencies [b9f21ed]
+  - @yeger/vue-masonry-wall-core@5.0.8
+
 ## 5.0.8
 
 ### Patch Changes
