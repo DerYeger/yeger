@@ -18,7 +18,7 @@
     "@vitejs/plugin-vue": "5.0.4",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.4.2",
-    "vite": "5.1.6",
+    "vite": "5.1.7",
     "vite-plugin-lib": "workspace:*",
     "vue": "3.4.21",
     "vue-tsc": "2.0.6"
