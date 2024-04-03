@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.8
+
+### Patch Changes
+
+- b9f21ed: update deps
+- Updated dependencies [b9f21ed]
+  - vecti@3.0.8
+
 ## 2.0.7
 
 ### Patch Changes

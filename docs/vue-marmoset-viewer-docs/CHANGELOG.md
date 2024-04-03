@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.9
+
+### Patch Changes
+
+- b9f21ed: update deps
+- Updated dependencies [b9f21ed]
+  - vue-marmoset-viewer@4.0.9
+
 ## 2.0.8
 
 ### Patch Changes

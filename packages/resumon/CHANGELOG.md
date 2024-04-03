@@ -1,5 +1,11 @@
 # resumon
 
+## 2.0.8
+
+### Patch Changes
+
+- b9f21ed: update deps
+
 ## 2.0.7
 
 ### Patch Changes
