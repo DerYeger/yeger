@@ -56,7 +56,7 @@
     "rimraf": "5.0.5",
     "syncpack": "12.3.0",
     "turbo": "1.13.0",
-    "vercel": "33.6.1",
+    "vercel": "34.0.0",
     "vitest": "1.4.0"
   },
   "pnpm": {
