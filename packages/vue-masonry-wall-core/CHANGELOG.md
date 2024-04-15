@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.9
+
+### Patch Changes
+
+- b0ebd13: debounce resizes
+
 ## 5.0.8
 
 ### Patch Changes
