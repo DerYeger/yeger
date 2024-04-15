@@ -36,6 +36,7 @@
     "lint": "yeger-lint"
   },
   "dependencies": {
+    "@yeger/debounce": "workspace:*",
     "@yeger/vue-lib-adapter": "workspace:*"
   },
   "devDependencies": {

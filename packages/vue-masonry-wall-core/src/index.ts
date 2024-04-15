@@ -1,3 +1,4 @@
+import { debounce } from '@yeger/debounce'
 import type {
   LifecycleHook,
   VueRef,
@@ -172,7 +173,7 @@ export function useMasonryWall<T>({
   const resizeObserver =
     typeof ResizeObserver === 'undefined'
       ? undefined
-      : new ResizeObserver(() => redraw())
+      : new ResizeObserver(debounce(() => redraw()))
 
   onMounted(() => {
     redraw()

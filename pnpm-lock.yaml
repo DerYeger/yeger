@@ -906,6 +906,9 @@ importers:
 
   packages/vue-masonry-wall-core:
     dependencies:
+      '@yeger/debounce':
+        specifier: workspace:*
+        version: link:../debounce
       '@yeger/vue-lib-adapter':
         specifier: workspace:*
         version: link:../vue-lib-adapter
