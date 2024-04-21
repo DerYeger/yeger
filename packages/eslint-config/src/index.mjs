@@ -30,7 +30,6 @@ export default function (...configs) {
       'plugin:cypress/recommended',
       'plugin:md/recommended',
       'plugin:tailwindcss/recommended',
-      'plugin:yml/standard',
     ),
     compat.plugins('jsx-a11y', 'md', 'tailwindcss', 'tsdoc'),
     {
