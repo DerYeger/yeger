@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.2.0
+
+### Minor Changes
+
+- 087653e: update eslint to v9
+
 ## 2.1.3
 
 ### Patch Changes
