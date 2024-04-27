@@ -450,7 +450,7 @@ importers:
     dependencies:
       '@antfu/eslint-config':
         specifier: 2.15.0
-        version: 2.15.0(@eslint-react/eslint-plugin@1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2))(@vue/compiler-sfc@3.4.21)(astro-eslint-parser@0.16.3)(eslint-plugin-astro@0.31.4(eslint@9.0.0))(eslint-plugin-format@0.1.0(eslint@9.0.0))(eslint-plugin-react-hooks@4.6.0(eslint@9.0.0))(eslint-plugin-react-refresh@0.4.6(eslint@9.0.0))(eslint-plugin-svelte@2.35.1(eslint@9.0.0)(ts-node@10.9.2(@types/node@20.11.28)(typescript@5.4.2)))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vitest@1.4.0(@edge-runtime/vm@3.2.0)(@types/node@20.11.28)(@vitest/ui@1.4.0)(jsdom@24.0.0)(terser@5.27.0))
+        version: 2.15.0(@eslint-react/eslint-plugin@1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2))(@vue/compiler-sfc@3.4.21)(astro-eslint-parser@1.0.1(typescript@5.4.2))(eslint-plugin-astro@0.31.4(eslint@9.0.0))(eslint-plugin-format@0.1.0(eslint@9.0.0))(eslint-plugin-react-hooks@4.6.0(eslint@9.0.0))(eslint-plugin-react-refresh@0.4.6(eslint@9.0.0))(eslint-plugin-svelte@2.35.1(eslint@9.0.0)(ts-node@10.9.2(@types/node@20.11.28)(typescript@5.4.2)))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vitest@1.4.0(@edge-runtime/vm@3.2.0)(@types/node@20.11.28)(@vitest/ui@1.4.0)(jsdom@24.0.0)(terser@5.27.0))
       '@eslint-react/eslint-plugin':
         specifier: 1.5.9
         version: 1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2)
@@ -458,8 +458,8 @@ importers:
         specifier: 3.0.2
         version: 3.0.2
       astro-eslint-parser:
-        specifier: 0.16.3
-        version: 0.16.3
+        specifier: 1.0.1
+        version: 1.0.1(typescript@5.4.2)
       eslint:
         specifier: '>=9.0.0'
         version: 9.0.0
@@ -4150,9 +4150,19 @@ packages:
     resolution: {integrity: sha512-CGaBseNtunAV2DCpwBXqTKq8+9Tw65XZetMaC0FsMoZuLj0gxNIkbCf2QyKYScVrNOU7/ayfNdVw8ZCSHBiqCg==}
     engines: {node: ^14.18.0 || >=16.0.0}
 
+  astro-eslint-parser@1.0.1:
+    resolution: {integrity: sha512-dbBnHjxLjX4G6mFo9GCl8VcHIM8xwtxfqzqefUjOU1PwRJ48qWrVeIl2/mz4Usl3YyT+BFO2AP3it17oLjdqtQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
   astrojs-compiler-sync@0.3.5:
     resolution: {integrity: sha512-y420rhIIJ2HHDkYeqKArBHSdJNIIGMztLH90KGIX3zjcJyt/cr9Z2wYA8CP5J1w6KE7xqMh0DAkhfjhNDpQb2Q==}
     engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      '@astrojs/compiler': '>=0.27.0'
+
+  astrojs-compiler-sync@1.0.0:
+    resolution: {integrity: sha512-IM6FxpMoBxkGGdKppkFHNQIC9Wge7jspG2MIJff8DOhG41USNJLxJfxRm7wnkTKWlYK5Y1YFFNYr2vUUKkI8sw==}
+    engines: {node: ^18.18.0 || >=20.9.0}
     peerDependencies:
       '@astrojs/compiler': '>=0.27.0'
 
@@ -8916,6 +8926,7 @@ packages:
   right-pad@1.0.1:
     resolution: {integrity: sha512-bYBjgxmkvTAfgIYy328fmkwhp39v8lwVgWhhrzxPV3yHtcSqyYKe9/XOhvW48UFjATg3VuJbpsp5822ACNvkmw==}
     engines: {node: '>= 0.10'}
+    deprecated: Please use String.prototype.padEnd() over this package.
 
   rimraf@2.6.3:
     resolution: {integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==}
@@ -10875,7 +10886,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
 
-  '@antfu/eslint-config@2.15.0(@eslint-react/eslint-plugin@1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2))(@vue/compiler-sfc@3.4.21)(astro-eslint-parser@0.16.3)(eslint-plugin-astro@0.31.4(eslint@9.0.0))(eslint-plugin-format@0.1.0(eslint@9.0.0))(eslint-plugin-react-hooks@4.6.0(eslint@9.0.0))(eslint-plugin-react-refresh@0.4.6(eslint@9.0.0))(eslint-plugin-svelte@2.35.1(eslint@9.0.0)(ts-node@10.9.2(@types/node@20.11.28)(typescript@5.4.2)))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vitest@1.4.0(@edge-runtime/vm@3.2.0)(@types/node@20.11.28)(@vitest/ui@1.4.0)(jsdom@24.0.0)(terser@5.27.0))':
+  '@antfu/eslint-config@2.15.0(@eslint-react/eslint-plugin@1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2))(@vue/compiler-sfc@3.4.21)(astro-eslint-parser@1.0.1(typescript@5.4.2))(eslint-plugin-astro@0.31.4(eslint@9.0.0))(eslint-plugin-format@0.1.0(eslint@9.0.0))(eslint-plugin-react-hooks@4.6.0(eslint@9.0.0))(eslint-plugin-react-refresh@0.4.6(eslint@9.0.0))(eslint-plugin-svelte@2.35.1(eslint@9.0.0)(ts-node@10.9.2(@types/node@20.11.28)(typescript@5.4.2)))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vitest@1.4.0(@edge-runtime/vm@3.2.0)(@types/node@20.11.28)(@vitest/ui@1.4.0)(jsdom@24.0.0)(terser@5.27.0))':
     dependencies:
       '@antfu/install-pkg': 0.3.2
       '@clack/prompts': 0.7.0
@@ -10894,7 +10905,7 @@ snapshots:
       eslint-plugin-markdown: 4.0.1(eslint@9.0.0)
       eslint-plugin-n: 17.2.1(eslint@9.0.0)
       eslint-plugin-no-only-tests: 3.1.0
-      eslint-plugin-perfectionist: 2.9.0(astro-eslint-parser@0.16.3)(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vue-eslint-parser@9.4.2(eslint@9.0.0))
+      eslint-plugin-perfectionist: 2.9.0(astro-eslint-parser@1.0.1(typescript@5.4.2))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vue-eslint-parser@9.4.2(eslint@9.0.0))
       eslint-plugin-toml: 0.11.0(eslint@9.0.0)
       eslint-plugin-unicorn: 52.0.0(eslint@9.0.0)
       eslint-plugin-unused-imports: 3.1.0(@typescript-eslint/eslint-plugin@7.7.0(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)
@@ -10913,7 +10924,7 @@ snapshots:
       yargs: 17.7.2
     optionalDependencies:
       '@eslint-react/eslint-plugin': 1.5.9(@typescript-eslint/parser@7.7.0(eslint@9.0.0)(typescript@5.4.2))(eslint@9.0.0)(typescript@5.4.2)
-      astro-eslint-parser: 0.16.3
+      astro-eslint-parser: 1.0.1(typescript@5.4.2)
       eslint-plugin-astro: 0.31.4(eslint@9.0.0)
       eslint-plugin-format: 0.1.0(eslint@9.0.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@9.0.0)
@@ -15204,7 +15215,31 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  astro-eslint-parser@1.0.1(typescript@5.4.2):
+    dependencies:
+      '@astrojs/compiler': 2.5.3
+      '@typescript-eslint/scope-manager': 7.7.0
+      '@typescript-eslint/types': 7.7.0
+      '@typescript-eslint/typescript-estree': 7.7.0(typescript@5.4.2)
+      astrojs-compiler-sync: 1.0.0(@astrojs/compiler@2.5.3)
+      debug: 4.3.4
+      entities: 4.5.0
+      eslint-scope: 8.0.1
+      eslint-visitor-keys: 4.0.0
+      espree: 10.0.1
+      globby: 11.1.0
+      is-glob: 4.0.3
+      semver: 7.6.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   astrojs-compiler-sync@0.3.5(@astrojs/compiler@2.5.3):
+    dependencies:
+      '@astrojs/compiler': 2.5.3
+      synckit: 0.9.0
+
+  astrojs-compiler-sync@1.0.0(@astrojs/compiler@2.5.3):
     dependencies:
       '@astrojs/compiler': 2.5.3
       synckit: 0.9.0
@@ -16877,14 +16912,14 @@ snapshots:
 
   eslint-plugin-no-only-tests@3.1.0: {}
 
-  eslint-plugin-perfectionist@2.9.0(astro-eslint-parser@0.16.3)(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vue-eslint-parser@9.4.2(eslint@9.0.0)):
+  eslint-plugin-perfectionist@2.9.0(astro-eslint-parser@1.0.1(typescript@5.4.2))(eslint@9.0.0)(svelte-eslint-parser@0.33.1)(typescript@5.4.2)(vue-eslint-parser@9.4.2(eslint@9.0.0)):
     dependencies:
       '@typescript-eslint/utils': 6.21.0(eslint@9.0.0)(typescript@5.4.2)
       eslint: 9.0.0
       minimatch: 9.0.3
       natural-compare-lite: 1.4.0
     optionalDependencies:
-      astro-eslint-parser: 0.16.3
+      astro-eslint-parser: 1.0.1(typescript@5.4.2)
       svelte-eslint-parser: 0.33.1
       vue-eslint-parser: 9.4.2(eslint@9.0.0)
     transitivePeerDependencies:
