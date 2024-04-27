@@ -470,8 +470,8 @@ importers:
         specifier: 0.31.4
         version: 0.31.4(eslint@9.0.0)
       eslint-plugin-cypress:
-        specifier: 2.15.1
-        version: 2.15.1(eslint@9.0.0)
+        specifier: 3.0.2
+        version: 3.0.2(eslint@9.0.0)
       eslint-plugin-format:
         specifier: 0.1.0
         version: 0.1.0(eslint@9.0.0)
@@ -5657,10 +5657,10 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-cypress@2.15.1:
-    resolution: {integrity: sha512-eLHLWP5Q+I4j2AWepYq0PgFEei9/s5LvjuSqWrxurkg1YZ8ltxdvMNmdSf0drnsNo57CTgYY/NIHHLRSWejR7w==}
+  eslint-plugin-cypress@3.0.2:
+    resolution: {integrity: sha512-5hIWc3SqXSuR+Sd7gmNMzx8yJ3LWQQS0e+qLvEVF4C1JfFtu1s9imtEm1KxlCBCcKb7+6CyR9KQYs0GiI02AlA==}
     peerDependencies:
-      eslint: '>= 3.2.1'
+      eslint: '>=7 <9'
 
   eslint-plugin-es-x@7.5.0:
     resolution: {integrity: sha512-ODswlDSO0HJDzXU0XvgZ3lF3lS3XAZEossh15Q2UHjwrJggWeBoKqqEsLTZLXl+dh5eOAozG0zRcYtuE35oTuQ==}
@@ -16715,7 +16715,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-cypress@2.15.1(eslint@9.0.0):
+  eslint-plugin-cypress@3.0.2(eslint@9.0.0):
     dependencies:
       eslint: 9.0.0
       globals: 13.24.0
