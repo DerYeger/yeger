@@ -91,7 +91,7 @@ const items = [
 <template>
   <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
     <template #default="{ item, index }">
-      <div :style="{ height: `${index * 100}px` }">
+      <div :style="{ height: `${(index+1) * 100}px` }">
         <h1>{{ item.title }}</h1>
         <span>{{ item.description }}</span>
       </div>
