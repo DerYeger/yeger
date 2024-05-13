@@ -89,7 +89,7 @@ export default {
 <template>
   <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
     <template #default="{ item, index }">
-      <div style="height: 100px">
+      <div :style="{ height: `${(index + 1) * 100}px` }">
         <h1>{{ item.title }} ({{ index }})</h1>
         <span>{{ item.description }}</span>
       </div>
