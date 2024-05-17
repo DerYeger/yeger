@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.8
+
+### Patch Changes
+
+- ac9ba6b: do not widen type of cached stream
+
 ## 1.1.7
 
 ### Patch Changes
