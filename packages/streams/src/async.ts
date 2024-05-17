@@ -371,7 +371,7 @@ class AsyncCacheStream<T> extends AsyncStream<T> {
 
   public static ofPrevious<T>(previous: AsyncStream<T>) {
     if (previous instanceof AsyncCacheStream) {
-      return previous
+      return previous as AsyncCacheStream<T>
     }
     return new AsyncCacheStream<T>(previous)
   }

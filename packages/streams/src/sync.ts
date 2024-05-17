@@ -354,7 +354,7 @@ class CacheStream<T> extends Stream<T> {
 
   public static ofPrevious<T>(previous: Stream<T>) {
     if (previous instanceof CacheStream) {
-      return previous
+      return previous as CacheStream<T>
     }
     return new CacheStream<T>(previous)
   }
