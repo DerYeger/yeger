@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@codemirror/language": "6.10.1",
-    "@codemirror/legacy-modes": "6.3.3",
+    "@codemirror/legacy-modes": "6.4.0",
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
@@ -23,26 +23,26 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.4.1",
-    "zod": "3.22.4"
+    "yaml": "2.4.2",
+    "zod": "3.23.8"
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.8.20",
-    "@unocss/nuxt": "0.58.6",
-    "@unocss/reset": "0.58.6",
-    "@vite-pwa/nuxt": "0.6.0",
-    "@vue/shared": "3.4.21",
-    "@vueuse/core": "10.9.0",
-    "@vueuse/nuxt": "10.9.0",
-    "node-fetch-native": "1.6.2",
-    "nuxt": "3.10.3",
-    "nuxt-icon": "0.6.9",
-    "typescript": "5.4.2",
-    "ufo": "1.5.1",
-    "vite": "5.1.7",
-    "vue": "3.4.21",
-    "vue-router": "4.3.0",
-    "vue-tsc": "2.0.6"
+    "@unhead/shared": "1.9.11",
+    "@unocss/nuxt": "0.60.4",
+    "@unocss/reset": "0.60.4",
+    "@vite-pwa/nuxt": "0.8.0",
+    "@vue/shared": "3.4.27",
+    "@vueuse/core": "10.10.0",
+    "@vueuse/nuxt": "10.10.0",
+    "node-fetch-native": "1.6.4",
+    "nuxt": "3.11.2",
+    "nuxt-icon": "0.6.10",
+    "typescript": "5.4.5",
+    "ufo": "1.5.3",
+    "vite": "5.2.12",
+    "vue": "3.4.27",
+    "vue-router": "4.3.2",
+    "vue-tsc": "2.0.19"
   }
 }

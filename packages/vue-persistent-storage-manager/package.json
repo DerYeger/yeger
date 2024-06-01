@@ -53,9 +53,9 @@
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "0.0.31",
     "flush-promises": "1.0.2",
-    "jsdom": "24.0.0",
-    "typescript": "5.4.2",
-    "vite": "5.1.7",
+    "jsdom": "24.1.0",
+    "typescript": "5.4.5",
+    "vite": "5.2.12",
     "vite-plugin-lib": "workspace:*",
     "vue": "2.7.16",
     "vue-template-compiler": "2.7.16"
