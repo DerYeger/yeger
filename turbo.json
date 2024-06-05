@@ -28,10 +28,6 @@
         "^build",
         "codegen"
       ],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "!vite.config.ts.timestamp-*"
-      ],
       "outputs": [
         "dist/**",
         ".next/**"
