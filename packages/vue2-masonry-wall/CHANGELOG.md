@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall
 
+## 5.0.11
+
+### Patch Changes
+
+- ae80562: update deps
+- a4f2554: silence warning
+  - @yeger/vue-masonry-wall-core@5.0.9
+
 ## 5.0.10
 
 ### Patch Changes
