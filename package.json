@@ -22,7 +22,7 @@
     "codegen": "nr turbo run codegen",
     "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=scripts... && generate-readme",
-    "graph": "nr turbo build --filter=turbo-graph... && turbo-graph --open",
+    "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "is-ci || husky install",
     "lint": "nr turbo run lint lint:root",
     "lint:root": "eslint \"{.changeset,.github,.husky,.vscode,turbo}/**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
@@ -35,7 +35,8 @@
     "typecheck": "nr turbo run check:tsc check:vue",
     "update": "taze -l -r -w",
     "vercel": "vercel",
-    "version": "changeset version && pnpm install --no-frozen-lockfile"
+    "version": "changeset version && pnpm install --no-frozen-lockfile",
+    "watch": "nr turbo watch"
   },
   "devDependencies": {
     "@antfu/ni": "0.21.12",
@@ -57,7 +58,7 @@
     "rimraf": "5.0.7",
     "syncpack": "12.3.2",
     "taze": "0.13.8",
-    "turbo": "1.13.3",
+    "turbo": "2.0.1",
     "vercel": "34.2.4",
     "vitest": "1.6.0"
   },

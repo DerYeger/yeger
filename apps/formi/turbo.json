@@ -1,12 +1,21 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "extends": ["//"],
-  "pipeline": {
+  "extends": [
+    "//"
+  ],
+  "tasks": {
     "build": {
-      "outputs": [".nuxt/**", ".output/**", "dist/**"]
+      "outputs": [
+        ".nuxt/**",
+        ".output/**",
+        "dist/**"
+      ]
     },
     "check:vue": {
-      "dependsOn": ["build", "generate"]
+      "dependsOn": [
+        "build",
+        "generate"
+      ]
     }
   }
 }

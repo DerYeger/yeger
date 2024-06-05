@@ -1,52 +1,103 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "experimentalUI": false,
-  "globalEnv": ["CI"],
-  "pipeline": {
+  "ui": "stream",
+  "globalEnv": [
+    "CI"
+  ],
+  "tasks": {
     "check:publish": {
-      "dependsOn": ["build", "generate"]
+      "dependsOn": [
+        "build",
+        "generate"
+      ]
     },
     "check:tsc": {
-      "dependsOn": ["^build", "codegen"]
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ]
     },
     "check:vue": {
-      "dependsOn": ["^build", "codegen"]
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ]
     },
     "build": {
-      "dependsOn": ["^build", "codegen"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "!vite.config.ts.timestamp-*"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
     "generate": {
-      "dependsOn": ["build"],
-      "outputs": ["dist/**", ".next/**"]
+      "dependsOn": [
+        "build"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**"
+      ]
     },
     "codegen": {},
     "bundlesize": {
-      "dependsOn": ["build"],
-      "inputs": ["dist/**"]
+      "dependsOn": [
+        "build"
+      ],
+      "inputs": [
+        "dist/**"
+      ]
     },
     "preview": {
-      "dependsOn": ["build", "generate"],
+      "dependsOn": [
+        "build",
+        "generate"
+      ],
       "cache": false
     },
     "bench": {
-      "dependsOn": ["^build", "codegen"],
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ],
       "cache": false
     },
     "test": {
-      "dependsOn": ["^build", "codegen"],
-      "outputs": ["coverage/**"],
-      "env": ["COVERAGE"]
+      "dependsOn": [
+        "^build",
+        "codegen"
+      ],
+      "outputs": [
+        "coverage/**"
+      ],
+      "env": [
+        "COVERAGE"
+      ]
     },
     "dev": {
-      "dependsOn": ["codegen"],
+      "dependsOn": [
+        "codegen"
+      ],
       "cache": false
     },
     "lint": {
-      "dependsOn": ["@yeger/eslint-config#build", "^build", "build"]
+      "dependsOn": [
+        "@yeger/eslint-config#build",
+        "^build",
+        "build"
+      ]
     },
     "//#lint:root": {
-      "dependsOn": ["@yeger/eslint-config#build"],
+      "dependsOn": [
+        "@yeger/eslint-config#build"
+      ],
       "inputs": [
         "./*",
         ".vscode/**",

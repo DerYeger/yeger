@@ -1,10 +1,16 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "extends": ["//"],
-  "pipeline": {
+  "extends": [
+    "//"
+  ],
+  "tasks": {
     "codegen": {
-      "inputs": ["src/*.ohm"],
-      "outputs": ["src/fol.ohm-bundle.*"]
+      "inputs": [
+        "src/*.ohm"
+      ],
+      "outputs": [
+        "src/fol.ohm-bundle.*"
+      ]
     }
   }
 }

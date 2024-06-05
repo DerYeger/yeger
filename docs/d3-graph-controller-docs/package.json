@@ -5,11 +5,11 @@
   "private": true,
   "scripts": {
     "build": "vitepress build",
+    "check:tsc": "tsc",
+    "check:vue": "vue-tsc",
     "dev": "vitepress dev",
     "lint": "yeger-lint",
-    "preview": "vitepress serve",
-    "check:tsc": "tsc",
-    "check:vue": "vue-tsc"
+    "preview": "vitepress serve"
   },
   "dependencies": {
     "@algolia/client-search": "4.23.3",
