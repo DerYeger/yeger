@@ -13,7 +13,7 @@
     "check:vue": "nuxi typecheck"
   },
   "dependencies": {
-    "@codemirror/language": "6.10.1",
+    "@codemirror/language": "6.10.2",
     "@codemirror/legacy-modes": "6.4.0",
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
@@ -23,12 +23,12 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.4.2",
+    "yaml": "2.4.3",
     "zod": "3.23.8"
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.9.11",
+    "@unhead/shared": "1.9.12",
     "@unocss/nuxt": "0.60.4",
     "@unocss/reset": "0.60.4",
     "@vite-pwa/nuxt": "0.8.0",

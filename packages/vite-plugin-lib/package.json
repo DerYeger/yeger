@@ -48,7 +48,7 @@
     "vite-plugin-dts": "3.9.1"
   },
   "devDependencies": {
-    "@types/node": "20.13.0",
+    "@types/node": "20.14.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.4.5",
     "unbuild": "2.0.0",

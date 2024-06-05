@@ -39,7 +39,7 @@
     "picocolors": "1.0.1"
   },
   "devDependencies": {
-    "@types/node": "20.13.0",
+    "@types/node": "20.14.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.4.5",
     "vite": "5.2.12",

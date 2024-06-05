@@ -43,8 +43,8 @@
     "@changesets/cli": "2.27.5",
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
-    "@turbo/gen": "1.13.3",
-    "@types/node": "20.13.0",
+    "@turbo/gen": "2.0.1",
+    "@types/node": "20.14.1",
     "@vitest/coverage-v8": "1.6.0",
     "@vitest/ui": "1.6.0",
     "@yeger/eslint-config": "workspace:*",
@@ -59,7 +59,7 @@
     "syncpack": "12.3.2",
     "taze": "0.13.8",
     "turbo": "2.0.1",
-    "vercel": "34.2.4",
+    "vercel": "34.2.5",
     "vitest": "1.6.0"
   },
   "pnpm": {
