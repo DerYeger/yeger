@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.0.10
+
+### Patch Changes
+
+- ae80562: update deps
+
 ## 2.0.9
 
 ### Patch Changes

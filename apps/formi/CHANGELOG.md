@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.4
+
+### Patch Changes
+
+- ae80562: update deps
+- Updated dependencies [ae80562]
+  - d3-graph-controller@3.0.9
+  - resumon@2.0.9
+  - @yeger/fol@1.0.8
+
 ## 0.2.3
 
 ### Patch Changes

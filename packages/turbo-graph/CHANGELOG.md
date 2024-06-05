@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.0.4
+
+### Patch Changes
+
+- ae80562: update deps
+- Updated dependencies [ae80562]
+  - @yeger/turbo-graph-ui@2.0.4
+
 ## 2.0.3
 
 ### Patch Changes

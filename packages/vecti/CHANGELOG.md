@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.9
+
+### Patch Changes
+
+- ae80562: update deps
+
 ## 3.0.8
 
 ### Patch Changes

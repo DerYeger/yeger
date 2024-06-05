@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.9
+
+### Patch Changes
+
+- ae80562: update deps
+- Updated dependencies [ae80562]
+  - vecti@3.0.9
+
 ## 2.0.8
 
 ### Patch Changes
