@@ -54,6 +54,8 @@ const { getColumnWidthTarget } = useMasonryWall<unknown>({
   watch,
   ...toRefs(props),
 })
+
+const heightStyle = ['-webkit-max-content', '-moz-max-content', 'max-content'] as any
 </script>
 
 <template>
@@ -73,7 +75,7 @@ const { getColumnWidthTarget } = useMasonryWall<unknown>({
         'flex-direction': 'column',
         'flex-grow': 1,
         'gap': `${gap}px`,
-        'height': ['-webkit-max-content', '-moz-max-content', 'max-content'],
+        'height': heightStyle,
         'min-width': 0,
       }"
     >
