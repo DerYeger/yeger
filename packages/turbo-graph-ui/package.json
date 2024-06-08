@@ -41,8 +41,8 @@
     "d3-graph-controller": "workspace:*",
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.1.0",
-    "execa": "9.1.0",
-    "lucide-react": "0.381.0",
+    "execa": "9.2.0",
+    "lucide-react": "0.390.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "reactflow": "11.11.3",
@@ -53,7 +53,7 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.8",
     "@types/d3-scale-chromatic": "3.0.3",
-    "@types/node": "20.14.1",
+    "@types/node": "20.14.2",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "@yeger/tsconfig": "workspace:*",
@@ -61,7 +61,7 @@
     "eslint-config-next": "14.2.3",
     "next": "14.2.3",
     "postcss": "8.4.38",
-    "tailwindcss": "3.4.3",
+    "tailwindcss": "3.4.4",
     "typescript": "5.4.5"
   },
   "publishConfig": {

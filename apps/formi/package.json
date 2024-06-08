@@ -23,7 +23,7 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.4.3",
+    "yaml": "2.4.4",
     "zod": "3.23.8"
   },
   "devDependencies": {
@@ -40,9 +40,9 @@
     "nuxt-icon": "0.6.10",
     "typescript": "5.4.5",
     "ufo": "1.5.3",
-    "vite": "5.2.12",
+    "vite": "5.2.13",
     "vue": "3.4.27",
     "vue-router": "4.3.2",
-    "vue-tsc": "2.0.19"
+    "vue-tsc": "2.0.21"
   }
 }
