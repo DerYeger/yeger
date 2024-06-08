@@ -30,7 +30,7 @@
     "preview": "next start"
   },
   "peerDependencies": {
-    "turbo": "^1.0.0"
+    "turbo": "^1.0.0 || ^2.0.0"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*",
