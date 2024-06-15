@@ -39,12 +39,12 @@
     "eslint": ">=9.0.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "2.21.0",
+    "@antfu/eslint-config": "2.21.1",
     "@eslint-react/eslint-plugin": "1.5.15",
     "@eslint/eslintrc": "3.1.0",
     "astro-eslint-parser": "1.0.2",
     "eslint-import-resolver-typescript": "3.6.1",
-    "eslint-plugin-astro": "1.2.0",
+    "eslint-plugin-astro": "1.2.2",
     "eslint-plugin-cypress": "3.3.0",
     "eslint-plugin-format": "0.1.1",
     "eslint-plugin-import": "2.29.1",
@@ -53,10 +53,10 @@
     "eslint-plugin-md": "1.0.19",
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.7",
-    "eslint-plugin-svelte": "2.39.0",
+    "eslint-plugin-svelte": "2.39.3",
     "eslint-plugin-tailwindcss": "3.17.3",
     "eslint-plugin-tsdoc": "0.3.0",
-    "eslint-plugin-turbo": "2.0.3",
+    "eslint-plugin-turbo": "2.0.4",
     "eslint-plugin-yml": "1.14.0",
     "picocolors": "1.0.1",
     "yaml-eslint-parser": "1.2.3"

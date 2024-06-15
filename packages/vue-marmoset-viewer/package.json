@@ -67,9 +67,9 @@
     "cross-env": "7.0.3",
     "flush-promises": "1.0.2",
     "typescript": "5.4.5",
-    "vite": "5.2.13",
+    "vite": "5.3.1",
     "vite-plugin-lib": "workspace:*",
-    "vue": "3.4.27",
+    "vue": "3.4.29",
     "vue-tsc": "2.0.21"
   },
   "publishConfig": {
