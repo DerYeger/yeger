@@ -57,10 +57,10 @@
   },
   "devDependencies": {
     "@types/d3-drag": "3.0.7",
-    "@types/d3-force": "3.0.9",
+    "@types/d3-force": "3.0.10",
     "@types/d3-selection": "3.0.10",
     "@types/d3-zoom": "3.0.8",
-    "@types/node": "20.14.2",
+    "@types/node": "20.14.7",
     "@types/resize-observer-browser": "0.1.11",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",

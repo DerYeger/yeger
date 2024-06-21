@@ -10,8 +10,8 @@
     "check:tsc": "tsc"
   },
   "devDependencies": {
-    "@types/node": "20.14.2",
-    "@unhead/vue": "1.9.12",
+    "@types/node": "20.14.7",
+    "@unhead/vue": "1.9.14",
     "@vitejs/plugin-vue": "5.0.5",
     "@yeger/tsconfig": "workspace:*",
     "critters": "0.0.22",

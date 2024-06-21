@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@nuxtjs/robots": "3.0.0",
-    "@unhead/shared": "1.9.13",
+    "@unhead/shared": "1.9.14",
     "@unocss/nuxt": "0.61.0",
     "@unocss/reset": "0.61.0",
     "@vite-pwa/nuxt": "0.8.0",
@@ -36,7 +36,7 @@
     "@vueuse/core": "10.11.0",
     "@vueuse/nuxt": "10.11.0",
     "node-fetch-native": "1.6.4",
-    "nuxt": "3.12.1",
+    "nuxt": "3.12.2",
     "nuxt-icon": "0.6.10",
     "typescript": "5.5.2",
     "ufo": "1.5.3",
