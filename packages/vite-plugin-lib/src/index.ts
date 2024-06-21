@@ -70,7 +70,7 @@ export function tsconfigPaths(options: Partial<Options> = {}): Plugin {
       const pathToAlias = pathToAliasFactory(tsconfigPath, baseUrl, verbose)
       const aliasOptions = Object.entries(paths)
         .map(pathToAlias)
-        .filter(Boolean) as Alias[]
+        .filter((alias) => alias !== undefined)
       if (aliasOptions.length > 0) {
         logInjectedAliases(aliasOptions, config, verbose)
       }

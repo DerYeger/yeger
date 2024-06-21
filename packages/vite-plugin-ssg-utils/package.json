@@ -53,7 +53,7 @@
     "@types/node": "20.14.2",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "5.0.7",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "vite": "5.3.1",
     "vite-plugin-lib": "workspace:*"
   },

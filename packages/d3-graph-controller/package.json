@@ -65,7 +65,7 @@
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "jsdom": "24.1.0",
-    "typescript": "5.4.5",
+    "typescript": "5.5.2",
     "vite": "5.3.1",
     "vite-plugin-lib": "workspace:*"
   },
