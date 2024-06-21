@@ -1,5 +1,11 @@
 # @yeger/vue2-masonry-wall
 
+## 5.0.13
+
+### Patch Changes
+
+- 2873aeb: describe `items` reactivity limitations
+
 ## 5.0.12
 
 ### Patch Changes
