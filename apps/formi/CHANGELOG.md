@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.5
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - d3-graph-controller@3.0.10
+  - resumon@2.0.10
+  - @yeger/fol@1.0.9
+
 ## 0.2.4
 
 ### Patch Changes

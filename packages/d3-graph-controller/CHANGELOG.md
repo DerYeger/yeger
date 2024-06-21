@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.0.10
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - @yeger/debounce@2.0.9
+  - vecti@3.0.10
+
 ## 3.0.9
 
 ### Patch Changes

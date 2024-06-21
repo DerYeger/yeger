@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.10
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 3.0.9
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.8
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 1.0.7
 
 ### Patch Changes

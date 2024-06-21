@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.0.5
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - @yeger/turbo-graph-ui@2.0.5
+
 ## 2.0.4
 
 ### Patch Changes

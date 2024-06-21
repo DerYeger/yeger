@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.2.2
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 2.2.1
 
 ### Patch Changes
