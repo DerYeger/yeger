@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./",
+    "baseUrl": "${configDir}",
     "declaration": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,

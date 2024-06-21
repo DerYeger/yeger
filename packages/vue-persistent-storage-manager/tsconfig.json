@@ -1,8 +1,5 @@
 {
   "extends": "@yeger/tsconfig/vite",
-  "compilerOptions": {
-    "baseUrl": "./"
-  },
   "exclude": ["node_modules", "coverage", "dist"],
   "vueCompilerOptions": {
     "target": 2

@@ -270,13 +270,9 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
     const configFileText = await readFile(configPath, { encoding: 'utf-8' })
 
     const { config } = ts.parseConfigFileTextToJson(configPath, configFileText)
-    if (!('baseUrl' in config?.compilerOptions)) {
-      throw new Error('No baseUrl provided in tsconfig.json.')
-    }
 
     const { options } = ts.parseJsonConfigFileContent(
       config,
-
       ts.sys,
       path.dirname(configPath),
     )

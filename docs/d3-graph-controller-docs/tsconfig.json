@@ -1,7 +1,6 @@
 {
   "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
-    "baseUrl": "./",
     "types": ["node", "vue"],
     "noUnusedLocals": false,
     "noUnusedParameters": false
