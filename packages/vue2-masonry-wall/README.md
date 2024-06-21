@@ -98,10 +98,11 @@ export default {
 </template>
 ```
 
-### Adding items
+### Adding items, removing items, and changing items
 
-To add new items, assign a new value to the `items` property, e.g., `items.value = [...items.value, newItem]`.
-**DO NOT** push items to the array (e.g., `items.value.push(newItem)`), as such mutations will not be detected by the reactivity.
+To add/remove/change items, assign a new value to the `items` property, e.g., `items.value = [...items.value, newItem]`.
+**DO NOT** push items to the array, pop items from the array, or change items of the array (e.g., `items.value.push(newItem)`), as such mutations will not be detected by the reactivity and may result in rendering issues.
+This is intentional, as the deep watchers required to properly handle those mutations would be too expensive for complex item types and large arrays.
 
 ### Limitations
 
