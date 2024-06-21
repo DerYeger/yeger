@@ -54,7 +54,7 @@
     "eslint-plugin-react-hooks": "4.6.2",
     "eslint-plugin-react-refresh": "0.4.7",
     "eslint-plugin-svelte": "2.40.0",
-    "eslint-plugin-tailwindcss": "3.17.3",
+    "eslint-plugin-tailwindcss": "3.17.4",
     "eslint-plugin-tsdoc": "0.3.0",
     "eslint-plugin-turbo": "2.0.4",
     "eslint-plugin-yml": "1.14.0",
