@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.10
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - @yeger/vue-lib-adapter@2.0.9
+  - @yeger/debounce@2.0.9
+
 ## 5.0.9
 
 ### Patch Changes

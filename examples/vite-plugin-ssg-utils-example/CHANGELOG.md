@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils-example
 
+## 2.0.9
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 2.0.8
 
 ### Patch Changes

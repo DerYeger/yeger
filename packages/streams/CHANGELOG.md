@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.1.9
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 1.1.8
 
 ### Patch Changes

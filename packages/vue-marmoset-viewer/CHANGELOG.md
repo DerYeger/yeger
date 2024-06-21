@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.10
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - @yeger/debounce@2.0.9
+
 ## 4.0.9
 
 ### Patch Changes

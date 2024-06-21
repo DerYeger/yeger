@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.0.9
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+
 ## 1.0.8
 
 ### Patch Changes

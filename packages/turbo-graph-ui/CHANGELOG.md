@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 2.0.5
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - d3-graph-controller@3.0.10
+  - @yeger/debounce@2.0.9
+  - resumon@2.0.10
+  - @yeger/streams@1.1.9
+
 ## 2.0.4
 
 ### Patch Changes

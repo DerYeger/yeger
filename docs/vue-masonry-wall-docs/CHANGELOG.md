@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-docs
 
+## 2.0.11
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - @yeger/vue-masonry-wall@5.0.11
+
 ## 2.0.10
 
 ### Patch Changes

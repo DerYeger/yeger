@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.10
+
+### Patch Changes
+
+- 8063d69: update typescript to v5.5
+- Updated dependencies [8063d69]
+  - vecti@3.0.10
+
 ## 2.0.9
 
 ### Patch Changes
