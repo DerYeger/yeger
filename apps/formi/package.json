@@ -32,7 +32,7 @@
     "@unocss/nuxt": "0.61.0",
     "@unocss/reset": "0.61.0",
     "@vite-pwa/nuxt": "0.8.1",
-    "@vue/shared": "3.4.29",
+    "@vue/shared": "3.4.31",
     "@vueuse/core": "10.11.0",
     "@vueuse/nuxt": "10.11.0",
     "node-fetch-native": "1.6.4",
@@ -40,9 +40,9 @@
     "nuxt-icon": "0.6.10",
     "typescript": "5.5.2",
     "ufo": "1.5.3",
-    "vite": "5.3.1",
-    "vue": "3.4.29",
+    "vite": "5.3.2",
+    "vue": "3.4.31",
     "vue-router": "4.4.0",
-    "vue-tsc": "2.0.21"
+    "vue-tsc": "2.0.22"
   }
 }

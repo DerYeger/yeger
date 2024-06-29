@@ -43,7 +43,7 @@ function Task({ data }: TaskProps) {
       {isOrigin
         ? null
         : (
-          <Handle type="target" position={Position.Top} isConnectable={false} />
+            <Handle type="target" position={Position.Top} isConnectable={false} />
           )}
       <div
         className="flex flex-col rounded p-4"
@@ -59,11 +59,11 @@ function Task({ data }: TaskProps) {
       {isTerminal
         ? null
         : (
-          <Handle
-            type="source"
-            position={Position.Bottom}
-            isConnectable={false}
-          />
+            <Handle
+              type="source"
+              position={Position.Bottom}
+              isConnectable={false}
+            />
           )}
     </div>
   )

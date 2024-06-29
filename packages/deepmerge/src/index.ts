@@ -8,7 +8,7 @@ type TIndexValue<T, K extends PropertyKey, D = never> = T extends any
   : never
 
 type TPartialKeys<T, K extends keyof T> = Omit<T, K> &
-  Partial<Pick<T, K>> extends infer O
+Partial<Pick<T, K>> extends infer O
   ? { [P in keyof O]: O[P] }
   : never
 
