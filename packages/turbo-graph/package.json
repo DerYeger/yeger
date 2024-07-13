@@ -34,7 +34,7 @@
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
     "cac": "6.7.14",
-    "next": "14.2.4",
+    "next": "14.2.5",
     "open": "8.4.2",
     "picocolors": "1.0.1"
   },
