@@ -40,7 +40,6 @@ describe('MasonryWall', () => {
 
   beforeEach(() => {
     mockResizeObserver()
-    // @ts-expect-error Correct typings are not required for mock
     window.scrollTo = vi.fn()
   })
 
