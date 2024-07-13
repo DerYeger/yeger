@@ -46,7 +46,7 @@
     "@turbo/gen": "2.0.6",
     "@types/node": "20.14.10",
     "@vitest/coverage-v8": "1.6.0",
-    "@vitest/ui": "1.6.0",
+    "@vitest/ui": "2.0.2",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
