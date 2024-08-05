@@ -36,7 +36,7 @@
     "@vueuse/core": "10.11.0",
     "@vueuse/nuxt": "10.11.0",
     "node-fetch-native": "1.6.4",
-    "nuxt": "3.12.3",
+    "nuxt": "3.12.4",
     "nuxt-icon": "0.6.10",
     "typescript": "5.5.3",
     "ufo": "1.5.3",
