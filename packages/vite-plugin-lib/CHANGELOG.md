@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.0.12
+
+### Patch Changes
+
+- 9b3d464: generate valid types
+
 ## 2.0.11
 
 ### Patch Changes
