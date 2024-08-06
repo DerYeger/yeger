@@ -1,5 +1,12 @@
 # vue-marmoset-viewer
 
+## 4.0.11
+
+### Patch Changes
+
+- 9b3d464: generate valid types
+  - @yeger/debounce@2.0.9
+
 ## 4.0.10
 
 ### Patch Changes

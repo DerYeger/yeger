@@ -1,5 +1,12 @@
 # @yeger/vue2-masonry-wall
 
+## 5.0.14
+
+### Patch Changes
+
+- 9b3d464: generate valid types
+  - @yeger/vue-masonry-wall-core@5.0.10
+
 ## 5.0.13
 
 ### Patch Changes
