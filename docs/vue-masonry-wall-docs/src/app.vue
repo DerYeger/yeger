@@ -1,4 +1,5 @@
 <script lang="ts">
+import MasonryWall from '@yeger/vue-masonry-wall'
 import { defineComponent, ref } from 'vue'
 
 import DemoFooter from '~/demo-footer.vue'
@@ -11,6 +12,7 @@ export default defineComponent({
     DemoFooter,
     DemoHeader,
     DemoTools,
+    MasonryWall,
   },
   setup() {
     const scrollContainer = ref(null)
@@ -22,7 +24,7 @@ export default defineComponent({
     return {
       columnWidth: [256, 128, 128, 512, 128] as [number, ...number[]],
       gap: 16,
-      items: [] as number[],
+      items: [] as { height: number }[],
       rtl: false,
       useScrollContainer: false,
       minColumns: 1,
@@ -33,11 +35,11 @@ export default defineComponent({
     this.addItems()
   },
   methods: {
-    randomHeight(): number {
-      return Math.floor(Math.random() * (512 - 128 + 1)) + 128
+    randomHeight() {
+      return { height: Math.floor(Math.random() * (512 - 128 + 1)) + 128 }
     },
     addItem(item: number) {
-      this.items = [...this.items, item]
+      this.items = [...this.items, { height: item }]
     },
     addItems() {
       this.items = [
@@ -93,12 +95,12 @@ export default defineComponent({
           <div
             class="item"
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
-            :style="`height: ${item}px;`"
+            :style="`height: ${item.height}px;`"
           >
             <p>Index {{ index }}</p>
             <p>{{ `(${column}, ${row})` }}</p>
             <p style="text-align: center">
-              Height {{ item }}px
+              Height {{ item.height }}px
             </p>
             <button class="primary" @click="removeItem(index)">
               Remove
