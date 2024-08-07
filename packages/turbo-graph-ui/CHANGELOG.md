@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 2.0.6
+
+### Patch Changes
+
+- bbfd0fa: use exactOptionalPropertyTypes
+- Updated dependencies [c6608e2]
+  - @yeger/streams@1.2.0
+  - d3-graph-controller@3.0.10
+  - @yeger/debounce@2.0.9
+  - resumon@2.0.10
+
 ## 2.0.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.0.14
+
+### Patch Changes
+
+- bbfd0fa: use exactOptionalPropertyTypes
+- Updated dependencies [bbfd0fa]
+  - @yeger/vue-masonry-wall-core@5.0.11
+
 ## 5.0.13
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.11
+
+### Patch Changes
+
+- bbfd0fa: use exactOptionalPropertyTypes
+
 ## 3.0.10
 
 ### Patch Changes

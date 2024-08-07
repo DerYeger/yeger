@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.11
+
+### Patch Changes
+
+- bbfd0fa: use exactOptionalPropertyTypes
+  - @yeger/debounce@2.0.9
+  - @yeger/vue-lib-adapter@2.0.9
+
 ## 5.0.10
 
 ### Patch Changes
