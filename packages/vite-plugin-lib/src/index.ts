@@ -320,7 +320,7 @@ export function cleanup(): Plugin {
         rmSync(`./${file}`)
         deletedCount++
       })
-      log(`Removed ${deletedCount} temporary build files.`)
+      log(`Removed ${deletedCount} temporary files.`)
     },
   }
 }
