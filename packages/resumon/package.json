@@ -48,7 +48,7 @@
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.5.4",
-    "vite": "5.3.5",
+    "vite": "5.4.0",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

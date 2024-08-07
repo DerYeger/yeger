@@ -40,7 +40,7 @@
   "devDependencies": {
     "@antfu/ni": "0.22.0",
     "@changesets/cli": "2.27.7",
-    "@commitlint/cli": "19.3.0",
+    "@commitlint/cli": "19.4.0",
     "@commitlint/config-conventional": "19.2.2",
     "@turbo/gen": "2.0.12",
     "@types/node": "20.14.14",
