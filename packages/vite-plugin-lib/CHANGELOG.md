@@ -1,5 +1,15 @@
 # vite-plugin-lib
 
+## 2.1.0
+
+### Minor Changes
+
+- f47cb1c: delete temporary files
+
+### Patch Changes
+
+- bbfd0fa: use exactOptionalPropertyTypes
+
 ## 2.0.13
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.2.0
+
+### Minor Changes
+
+- c6608e2: add index as second argument to all sync-processors
+
 ## 1.1.9
 
 ### Patch Changes
