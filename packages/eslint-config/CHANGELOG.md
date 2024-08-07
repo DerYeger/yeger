@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.3.0
+
+### Minor Changes
+
+- ed6001e: upgrade base config
+
 ## 2.2.3
 
 ### Patch Changes
