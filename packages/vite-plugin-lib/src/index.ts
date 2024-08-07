@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, readFileSync, readdirSync, rmSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { builtinModules } from 'node:module'
 import path from 'node:path'
@@ -31,21 +31,24 @@ export const coverage = {
 }
 
 export interface Options {
-  /** Defaults to 'src/index.ts' */
+  /** Defaults to `src/index.ts`. */
   entry: string
   externalPackages?: (string | RegExp)[]
-  /** Defaults to ['es'] */
+  /** Defaults to `['es']`. */
   formats?: LibraryFormats[]
-  /** Defaults to 'package.json' */
+  /** Defaults to `package.json`. */
   manifest: string
   name?: string
   verbose?: boolean
+  /** Remove any temporary build files. Defaults to `true`. */
+  cleanup?: boolean
 }
 
 const defaults = {
   entry: 'src/index.ts',
   formats: ['es'],
   manifest: 'package.json',
+  cleanup: true,
 } satisfies Partial<Options>
 
 function mergeWithDefaults(options: Partial<Options>): Options {
@@ -231,7 +234,7 @@ function formatToFileName(entry: string, format: string): string {
 
 export function library(options: Partial<Options> = {}): Plugin[] {
   const mergedOptions = mergeWithDefaults(options)
-  return [
+  const plugins = [
     tsconfigPaths(),
     buildConfig(mergedOptions),
     dts({
@@ -240,16 +243,23 @@ export function library(options: Partial<Options> = {}): Plugin[] {
       include: `${path.resolve(mergedOptions.entry, '..')}/**`,
       outDir: typesDir,
       staticImport: true,
-      afterBuild: includesESFormat(mergedOptions.formats)
-        ? () =>
-            generateMTSDeclarations(
-              typesDir,
-              mergedOptions.formats?.length === 1,
-              options.verbose,
-            )
-        : undefined,
+      afterBuild: async () => {
+        if (includesESFormat(mergedOptions.formats)) {
+          await generateMTSDeclarations(
+            typesDir,
+            mergedOptions.formats?.length === 1,
+            options.verbose,
+          )
+        }
+      },
     }),
   ]
+
+  if (mergedOptions.cleanup) {
+    plugins.push(cleanup())
+  }
+
+  return plugins
 }
 
 function transformExistingAlias(alias: AliasOptions | undefined): Alias[] {
@@ -292,4 +302,25 @@ function getErrorMessage(error: unknown) {
   const isObject =
     typeof error === 'object' && error !== null && 'message' in error
   return isObject ? error.message : String(error)
+}
+
+/**
+ * Remove any temporary `vite.config.ts.timestamp-*` files.
+ */
+export function cleanup(): Plugin {
+  return {
+    name: 'vite-plugin-lib:cleanup',
+    enforce: 'post',
+    closeBundle: () => {
+      let deletedCount = 0
+      readdirSync('.').forEach((file) => {
+        if (!file.startsWith('vite.config.ts.timestamp-')) {
+          return
+        }
+        rmSync(`./${file}`)
+        deletedCount++
+      })
+      log(`Removed ${deletedCount} temporary build files.`)
+    },
+  }
 }

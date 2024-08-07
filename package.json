@@ -16,7 +16,6 @@
     "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
     "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint lint:root test check:publish check:tsc check:vue",
-    "clean": "rimraf -g **/.tsbuildinfo **/tsconfig.tsbuildinfo **/vite.config.ts.*",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
     "codegen": "nr turbo run codegen",
