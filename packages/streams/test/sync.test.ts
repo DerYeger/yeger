@@ -15,6 +15,12 @@ describe('sync streams', () => {
     expect(res).toEqual(['2.0', '6.0', '10.0'])
   })
 
+  it('provides the index', () => {
+    const res = Stream.from([false, 0, 'test']).map((_, index) => index)
+    expect(res.toArray()).toEqual([0, 1, 2])
+    expect(res.toArray()).toEqual([0, 1, 2])
+  })
+
   it('can sum', () => {
     let count = 0
     let forOfResult = 0

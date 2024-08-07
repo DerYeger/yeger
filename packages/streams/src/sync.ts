@@ -1,6 +1,6 @@
 import { AsyncStream } from '~/async'
 
-export type Processor<Input, Output> = (value: Input) => Output
+export type Processor<Input, Output> = (value: Input, index: number) => Output
 
 export type Filter<Input> = Processor<Input, boolean>
 
@@ -32,7 +32,7 @@ export abstract class Stream<T> implements Iterable<T> {
   }
 
   public toMap<K>(fn: Processor<T, K>): Map<K, T> {
-    const stream = this.map((x) => [fn(x), x] as const)
+    const stream = this.map((value, index) => [fn(value, index), value] as const)
     return new Map(stream)
   }
 
@@ -40,7 +40,7 @@ export abstract class Stream<T> implements Iterable<T> {
     key: Processor<T, string>,
     value: Processor<T, U>,
   ): Record<string, U> {
-    return Object.fromEntries(this.map((x) => [key(x), value?.(x)] as const))
+    return Object.fromEntries(this.map((x, index) => [key(x, index), value?.(x, index)] as const))
   }
 
   public abstract [Symbol.iterator](): IterableIterator<T>
@@ -68,28 +68,30 @@ export abstract class Stream<T> implements Iterable<T> {
   public filterNonNull() {
     return FilterStream.ofPrevious(
       this,
-      (x) => x !== null && x !== undefined,
+      (value) => value !== null && value !== undefined,
     ) as FilterStream<NonNullable<T>>
   }
 
-  public reduce<R>(fn: (acc: R, value: T) => R, initialValue: R) {
+  public reduce<R>(fn: (acc: R, value: T, index: number) => R, initialValue: R) {
     let acc = initialValue
+    let index = 0
     for (const item of this) {
-      acc = fn(acc, item)
+      acc = fn(acc, item, index++)
     }
     return acc
   }
 
   public sum(fn: T extends number ? void : Processor<T, number>) {
     const add = fn
-      ? (a: number, b: T) => a + fn(b)
+      ? (a: number, b: T, index: number) => a + fn(b, index)
       : (a: number, b: number) => a + b
-    return this.reduce((acc, value) => add(acc, value as T & number), 0)
+    return this.reduce((acc, value, index) => add(acc, value as T & number, index), 0)
   }
 
   public forEach(fn: Processor<T, void>) {
+    let index = 0
     for (const item of this) {
-      fn(item)
+      fn(item, index++)
     }
     return this
   }
@@ -103,8 +105,9 @@ export abstract class Stream<T> implements Iterable<T> {
   }
 
   public find(fn: Filter<T>) {
+    let index = 0
     for (const item of this) {
-      if (fn(item)) {
+      if (fn(item, index++)) {
         return item
       }
     }
@@ -112,8 +115,9 @@ export abstract class Stream<T> implements Iterable<T> {
   }
 
   public some(fn: Filter<T>) {
+    let index = 0
     for (const item of this) {
-      if (fn(item)) {
+      if (fn(item, index++)) {
         return true
       }
     }
@@ -121,8 +125,9 @@ export abstract class Stream<T> implements Iterable<T> {
   }
 
   public every(fn: Filter<T>) {
+    let index = 0
     for (const item of this) {
-      if (!fn(item)) {
+      if (!fn(item, index++)) {
         return false
       }
     }
@@ -175,15 +180,16 @@ class MapStream<Input, Output> extends Stream<Output> {
     fn: Processor<Input, Output>,
   ) {
     if (previous instanceof MapStream) {
-      return new MapStream<Input, Output>(previous.previous, (value) =>
-        fn(previous.fn(value)))
+      return new MapStream<Input, Output>(previous.previous, (value, index) =>
+        fn(previous.fn(value, index), index))
     }
     return new MapStream(previous, fn)
   }
 
   public *[Symbol.iterator](): IterableIterator<Output> {
+    let index = 0
     for (const item of this.previous) {
-      yield this.fn(item)
+      yield this.fn(item, index++)
     }
   }
 }
@@ -204,8 +210,9 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
   }
 
   public *[Symbol.iterator](): IterableIterator<Output> {
+    let index = 0
     for (const item of this.previous) {
-      yield * this.fn(item)
+      yield * this.fn(item, index++)
     }
   }
 }
@@ -278,15 +285,16 @@ class FilterStream<T> extends Stream<T> {
     if (previous instanceof FilterStream) {
       return new FilterStream<T>(
         previous.previous,
-        (value) => previous.fn(value) && fn(value),
+        (value, index) => previous.fn(value, index) && fn(value, index),
       )
     }
     return new FilterStream<T>(previous, fn)
   }
 
   public *[Symbol.iterator](): IterableIterator<T> {
+    let index = 0
     for (const item of this.previous) {
-      if (this.fn(item)) {
+      if (this.fn(item, index++)) {
         yield item
       }
     }
