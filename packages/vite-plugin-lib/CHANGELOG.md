@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.1.1
+
+### Patch Changes
+
+- 4ee0c9c: improve log message
+
 ## 2.1.0
 
 ### Minor Changes
