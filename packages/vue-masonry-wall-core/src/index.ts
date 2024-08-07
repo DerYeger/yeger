@@ -164,9 +164,11 @@ export function useMasonryWall<T>({
     const scrollTarget = scrollContainer?.value
     const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
     await fillColumns(0)
-    scrollTarget
-      ? scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
-      : window.scrollTo({ top: scrollY })
+    if (scrollTarget) {
+      scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
+    } else {
+      window.scrollTo({ top: scrollY })
+    }
     emit('redraw')
   }
 

@@ -1,5 +1,4 @@
 declare module '*.vue' {
-  // eslint-disable-next-line ts/ban-types
-  const component: DefineComponent<{}, {}, any>
+  const component: DefineComponent<object, object, any>
   export default component
 }
