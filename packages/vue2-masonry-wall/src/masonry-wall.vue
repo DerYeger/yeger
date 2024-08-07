@@ -13,20 +13,19 @@ export type KeyMapper<T> = (
 
 const props = withDefaults(
   defineProps<{
-    columnWidth?: number | NonEmptyArray<number>
+    columnWidth?: number | NonEmptyArray<number> | undefined
     items: unknown[]
-    gap?: number
-    rtl?: boolean
-    ssrColumns?: number
-    scrollContainer?: HTMLElement | null
-    minColumns?: number
-    maxColumns?: number
-    keyMapper?: KeyMapper<unknown>
+    gap?: number | undefined
+    rtl?: boolean | undefined
+    ssrColumns?: number | undefined
+    scrollContainer?: HTMLElement | null | undefined
+    minColumns?: number | undefined
+    maxColumns?: number | undefined
+    keyMapper?: KeyMapper<unknown> | undefined
   }>(),
   {
     columnWidth: 400,
     gap: 0,
-    keyMapper: undefined,
     minColumns: 1,
     maxColumns: undefined,
     rtl: false,

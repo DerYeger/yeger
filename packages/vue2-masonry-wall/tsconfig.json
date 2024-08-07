@@ -1,7 +1,8 @@
 {
   "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
-    "types": ["node", "vue", "resize-observer-browser"]
+    "types": ["node", "vue", "resize-observer-browser"],
+    "exactOptionalPropertyTypes": false
   },
   "exclude": ["node_modules", "coverage", "dist"],
   "vueCompilerOptions": {

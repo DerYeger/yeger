@@ -6,17 +6,6 @@ import type {
   Watch,
 } from '@yeger/vue-lib-adapter'
 
-export interface ComponentProps<T> {
-  columnWidth?: number | NonEmptyArray<number>
-  items: T[]
-  gap?: number
-  rtl?: boolean
-  ssrColumns?: number
-  scrollContainer?: HTMLElement | null
-  minColumns?: number
-  maxColumns?: number
-}
-
 export type NonEmptyArray<T> = [T, ...T[]]
 
 export type Column = number[]

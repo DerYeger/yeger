@@ -1,7 +1,8 @@
 {
   "extends": "@yeger/tsconfig/vite",
   "compilerOptions": {
-    "types": ["node", "vue"]
+    "types": ["node", "vue"],
+    "exactOptionalPropertyTypes": false
   },
   "exclude": ["node_modules", "coverage", "dist"]
 }

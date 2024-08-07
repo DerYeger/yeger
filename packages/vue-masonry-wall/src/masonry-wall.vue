@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T">
 import type { Column, NonEmptyArray } from '@yeger/vue-masonry-wall-core'
 import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
-import type { Ref } from 'vue'
+import type { Ref, VNode } from 'vue'
 import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
 
 export type KeyMapper<T> = (
@@ -13,22 +13,20 @@ export type KeyMapper<T> = (
 
 const props = withDefaults(
   defineProps<{
-    columnWidth?: number | NonEmptyArray<number>
+    columnWidth?: number | NonEmptyArray<number> | undefined
     items: T[]
-    gap?: number
-    rtl?: boolean
-    ssrColumns?: number
-    scrollContainer?: HTMLElement | null
-    minColumns?: number
-    maxColumns?: number
-    keyMapper?: KeyMapper<T>
+    gap?: number | undefined
+    rtl?: boolean | undefined
+    ssrColumns?: number | undefined
+    scrollContainer?: HTMLElement | null | undefined
+    minColumns?: number | undefined
+    maxColumns?: number | undefined
+    keyMapper?: KeyMapper<T> | undefined
   }>(),
   {
     columnWidth: 400,
     gap: 0,
-    keyMapper: undefined,
     minColumns: 1,
-    maxColumns: undefined,
     rtl: false,
     scrollContainer: null,
     ssrColumns: 0,
@@ -46,7 +44,7 @@ defineSlots<{
     column: number
     row: number
     index: number
-  }) => any
+  }) => VNode
 }>()
 
 const columns = ref<Column[]>([])

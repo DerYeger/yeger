@@ -8,7 +8,7 @@ import type { GraphParameter } from '../lib/utils'
 import { useGraphSettings } from '../lib/utils'
 
 interface GraphInputProps {
-  defaultValue?: string
+  defaultValue?: string | undefined
 }
 
 interface GraphParameterInputProps extends GraphInputProps {

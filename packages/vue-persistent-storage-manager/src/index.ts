@@ -29,10 +29,7 @@ export class VuePersistentStorageManager {
   /**
    * Contains storage quota and usage information.
    */
-  public readonly storageEstimate: StorageEstimate = {
-    quota: undefined,
-    usage: undefined,
-  }
+  public readonly storageEstimate: StorageEstimate = {}
 
   private _isPersistent = false
 

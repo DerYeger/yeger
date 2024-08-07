@@ -7,7 +7,7 @@ import { FlowGraph } from './FlowGraph'
 
 export interface GraphProps {
   tasks: string[]
-  filter?: string
+  filter: string | undefined
 }
 
 export async function Graph({ tasks, filter }: GraphProps) {
