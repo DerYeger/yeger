@@ -38,19 +38,19 @@
     "watch": "nr turbo watch"
   },
   "devDependencies": {
-    "@antfu/ni": "0.22.0",
+    "@antfu/ni": "0.22.1",
     "@changesets/cli": "2.27.7",
     "@commitlint/cli": "19.4.0",
     "@commitlint/config-conventional": "19.2.2",
     "@turbo/gen": "2.0.12",
-    "@types/node": "20.14.14",
+    "@types/node": "20.14.15",
     "@vitest/coverage-v8": "2.0.5",
     "@vitest/ui": "2.0.5",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "7.0.3",
-    "eslint": "9.8.0",
+    "eslint": "9.9.0",
     "husky": "9.1.4",
     "lint-staged": "15.2.8",
     "publint": "0.2.9",
@@ -58,7 +58,7 @@
     "syncpack": "12.4.0",
     "taze": "0.16.3",
     "turbo": "2.0.12",
-    "vercel": "35.2.3",
+    "vercel": "35.2.4",
     "vitest": "2.0.5"
   },
   "pnpm": {
