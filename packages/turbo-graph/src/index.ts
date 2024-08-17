@@ -59,9 +59,9 @@ async function run() {
           } else if (tasks.length > 0 || options.filter) {
           // eslint-disable-next-line no-console
             console.log(
-            `${c.yellow('turbo-graph:')} Use ${c.cyan(
-              '--open',
-            )} to open the visualizer in the default browser with the provided tasks and filter.`,
+              `${c.yellow('turbo-graph:')} Use ${c.cyan(
+                '--open',
+              )} to open the visualizer in the default browser with the provided tasks and filter.`,
             )
           }
         })
