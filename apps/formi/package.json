@@ -33,7 +33,7 @@
     "@unocss/reset": "0.62.1",
     "@vite-pwa/nuxt": "0.9.1",
     "@vue/shared": "3.4.37",
-    "@vueuse/core": "10.11.1",
+    "@vueuse/core": "11.0.0",
     "@vueuse/nuxt": "10.11.1",
     "node-fetch-native": "1.6.4",
     "nuxt": "3.12.4",
