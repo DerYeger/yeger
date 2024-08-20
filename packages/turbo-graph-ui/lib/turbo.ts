@@ -37,7 +37,10 @@ async function executeCommand(
   try {
     const args = ['run', ...tasks, '--concurrency=100%', '--dry=json']
     if (filter) {
-      args.push(`--filter=${filter}`)
+      const filterParts = filter.split(',')
+      for (const part of filterParts) {
+        args.push(`--filter=${part.trim()}`)
+      }
     }
     const { stdout } = await execa(
       `node_modules${path.sep}.bin${path.sep}turbo`,
