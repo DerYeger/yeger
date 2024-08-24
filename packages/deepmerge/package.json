@@ -29,10 +29,10 @@
     "lint": "yeger-lint"
   },
   "devDependencies": {
-    "@types/node": "20.15.0",
+    "@types/node": "20.16.1",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.5.4",
-    "vite": "5.4.1",
+    "vite": "5.4.2",
     "vite-plugin-lib": "workspace:*"
   }
 }
