@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.1.0
+
+### Minor Changes
+
+- 7e9b81f: support multiple filters
+
 ## 2.0.6
 
 ### Patch Changes
