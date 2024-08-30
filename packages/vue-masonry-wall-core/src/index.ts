@@ -122,11 +122,18 @@ export function useMasonryWall<T>({
     columns.value = newColumns
   }
 
-  async function fillColumns(itemIndex: number) {
+  let currentRedrawId = 0
+
+  async function fillColumns(itemIndex: number, assignedRedrawId: number) {
     if (itemIndex >= items.value.length) {
       return
     }
     await nextTick()
+    if (currentRedrawId !== assignedRedrawId) {
+      // Skip if a new redraw has been requested in parallel,
+      // e.g., in an onMounted hook during initial render
+      return
+    }
     const columnDivs = [...wall.value.children] as HTMLDivElement[]
     if (rtl.value) {
       columnDivs.reverse()
@@ -137,11 +144,12 @@ export function useMasonryWall<T>({
         : prev,
     )
     columns.value[+target.dataset.index!]!.push(itemIndex)
-    await fillColumns(itemIndex + 1)
+    await fillColumns(itemIndex + 1, assignedRedrawId)
   }
 
   async function redraw(force = false) {
-    if (columns.value.length === columnCount() && !force) {
+    const newColumnCount = columnCount()
+    if (columns.value.length === newColumnCount && !force) {
       if (vue === 2) {
         ;(emit as Vue2ComponentEmits)('redraw-skip')
       } else {
@@ -149,10 +157,10 @@ export function useMasonryWall<T>({
       }
       return
     }
-    columns.value = createColumns(columnCount())
+    columns.value = createColumns(newColumnCount)
     const scrollTarget = scrollContainer?.value
     const scrollY = scrollTarget ? scrollTarget.scrollTop : window.scrollY
-    await fillColumns(0)
+    await fillColumns(0, ++currentRedrawId)
     if (scrollTarget) {
       scrollTarget.scrollBy({ top: scrollY - scrollTarget.scrollTop })
     } else {
