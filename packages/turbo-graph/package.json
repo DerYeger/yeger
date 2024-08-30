@@ -34,12 +34,12 @@
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
     "cac": "6.7.14",
-    "next": "14.2.6",
+    "next": "14.2.7",
     "open": "8.4.2",
     "picocolors": "1.0.1"
   },
   "devDependencies": {
-    "@types/node": "20.16.1",
+    "@types/node": "20.16.2",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.5.4",
     "vite": "5.4.2",
