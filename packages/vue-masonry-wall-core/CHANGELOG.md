@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.12
+
+### Patch Changes
+
+- ac9b404: prevent item duplication due to race condition
+
 ## 5.0.11
 
 ### Patch Changes
