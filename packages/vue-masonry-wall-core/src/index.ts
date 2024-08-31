@@ -110,10 +110,6 @@ export function useMasonryWall<T>({
     return count < min ? min : count
   }
 
-  function createColumns(count: number): Column[] {
-    return Array.from({ length: count }).map(() => [])
-  }
-
   if (ssrColumns.value > 0) {
     const newColumns = createColumns(ssrColumns.value)
     items.value.forEach((_: T, i: number) =>
@@ -185,4 +181,8 @@ export function useMasonryWall<T>({
   watch([columnWidth, gap, minColumns, maxColumns], () => redraw())
 
   return { getColumnWidthTarget }
+}
+
+function createColumns(count: number): Column[] {
+  return Array.from({ length: count }).map(() => [])
 }

@@ -39,6 +39,11 @@ watch(graph, (_, oldGraph) => {
   resetGraphController(PositionInitializers.Stable(oldGraph))
 })
 
+const nodeModifier: NodeModifier<string, GraphNode> = (selection) => {
+  selection.on('pointerdown', null)
+  selection.on('pointerup', null)
+}
+
 function resetGraphController(
   positionInitializer?: PositionInitializer<string, GraphNode<string>>,
 ) {
@@ -50,10 +55,6 @@ function resetGraphController(
     graph.value.nodes.length > 1
       ? PositionInitializers.Randomized
       : PositionInitializers.Centered
-  const nodeModifier: NodeModifier<string, GraphNode> = (selection) => {
-    selection.on('pointerdown', null)
-    selection.on('pointerup', null)
-  }
   controller.value = new GraphController(
     el.value!,
     graph.value,
