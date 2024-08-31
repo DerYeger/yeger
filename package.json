@@ -55,7 +55,7 @@
     "lint-staged": "15.2.9",
     "publint": "0.2.10",
     "rimraf": "6.0.1",
-    "syncpack": "12.4.0",
+    "syncpack": "13.0.0",
     "taze": "0.16.7",
     "turbo": "2.1.1",
     "vercel": "37.2.1",
