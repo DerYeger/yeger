@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.4.0
+
+### Minor Changes
+
+- e8a4e8d: upgrade @antfu/eslint-config to v3
+
 ## 2.3.0
 
 ### Minor Changes
