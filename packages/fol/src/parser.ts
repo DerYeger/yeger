@@ -51,7 +51,8 @@ const semantics: FOLSemantics = grammar
     TermList(terms) {
       return terms
         .asIteration()
-        .children.map((term: NonterminalNode) =>
+        .children
+        .map((term: NonterminalNode) =>
           term.parseTerm(this.args.boundVariables),
         )
     },

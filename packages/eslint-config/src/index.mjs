@@ -63,6 +63,8 @@ export default function (...configs) {
             },
           },
         ],
+        'perfectionist/sort-imports': 'off',
+        'perfectionist/sort-named-imports': 'off',
         'test/prefer-lowercase-title': 'off',
         'jsdoc/check-param-names': 'off',
         'md/remark': [

@@ -43,7 +43,7 @@
     "@types/resize-observer-browser": "0.1.11",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.5.4",
-    "vite": "5.4.2",
+    "vite": "5.4.3",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
