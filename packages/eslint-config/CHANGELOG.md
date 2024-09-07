@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.4.1
+
+### Patch Changes
+
+- ad8b0b5: update dependencies
+
 ## 2.4.0
 
 ### Minor Changes
