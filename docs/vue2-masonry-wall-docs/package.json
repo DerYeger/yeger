@@ -16,8 +16,8 @@
   "devDependencies": {
     "@vitejs/plugin-vue2": "2.3.1",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.5.4",
-    "vite": "5.4.3",
+    "typescript": "5.6.2",
+    "vite": "5.4.5",
     "vite-plugin-lib": "workspace:*",
     "vue": "2.7.16"
   }
