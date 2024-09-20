@@ -12,14 +12,14 @@
   "devDependencies": {
     "@types/node": "20.16.5",
     "@unhead/vue": "1.9.14",
-    "@vitejs/plugin-vue": "5.1.3",
+    "@vitejs/plugin-vue": "5.1.4",
     "@yeger/tsconfig": "workspace:*",
     "critters": "0.0.24",
     "typescript": "5.6.2",
     "vite": "5.4.5",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "0.23.8",
-    "vue": "3.5.5",
+    "vue": "3.5.7",
     "vue-router": "4.4.5"
   }
 }
