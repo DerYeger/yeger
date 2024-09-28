@@ -12,9 +12,9 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "5.5.3",
+    "@algolia/client-search": "5.6.1",
     "d3-graph-controller": "workspace:*",
-    "vue": "3.5.7"
+    "vue": "3.5.10"
   },
   "devDependencies": {
     "@types/d3-selection": "3.0.10",
