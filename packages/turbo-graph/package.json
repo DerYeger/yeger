@@ -34,7 +34,7 @@
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
     "cac": "6.7.14",
-    "next": "14.2.13",
+    "next": "14.2.14",
     "open": "8.4.2",
     "picocolors": "1.1.0"
   },
@@ -42,7 +42,7 @@
     "@types/node": "20.16.10",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.6.2",
-    "vite": "5.4.6",
+    "vite": "5.4.8",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
