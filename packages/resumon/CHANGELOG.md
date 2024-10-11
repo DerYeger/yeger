@@ -1,5 +1,11 @@
 # resumon
 
+## 2.0.11
+
+### Patch Changes
+
+- 48773d7: update deps
+
 ## 2.0.10
 
 ### Patch Changes
