@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall-docs
 
+## 2.0.17
+
+### Patch Changes
+
+- 48773d7: update deps
+- Updated dependencies [48773d7]
+  - @yeger/vue2-masonry-wall@5.0.17
+
 ## 2.0.16
 
 ### Patch Changes

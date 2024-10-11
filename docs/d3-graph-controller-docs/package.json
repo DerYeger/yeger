@@ -1,7 +1,7 @@
 {
   "name": "d3-graph-controller-docs",
   "type": "module",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "private": true,
   "scripts": {
     "build": "vitepress build",

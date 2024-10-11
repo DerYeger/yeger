@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.0.10
+
+### Patch Changes
+
+- 48773d7: update deps
+
 ## 1.0.9
 
 ### Patch Changes

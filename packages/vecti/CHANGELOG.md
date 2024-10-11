@@ -1,5 +1,11 @@
 # vecti
 
+## 3.0.11
+
+### Patch Changes
+
+- 48773d7: update deps
+
 ## 3.0.10
 
 ### Patch Changes

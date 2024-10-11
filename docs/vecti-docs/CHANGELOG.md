@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 2.0.11
+
+### Patch Changes
+
+- 48773d7: update deps
+- Updated dependencies [48773d7]
+  - vecti@3.0.11
+
 ## 2.0.10
 
 ### Patch Changes
