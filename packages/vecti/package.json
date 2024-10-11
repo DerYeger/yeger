@@ -45,10 +45,10 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "20.16.10",
+    "@types/node": "22.7.5",
     "@vue/component-compiler-utils": "3.3.0",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.6.2",
+    "typescript": "5.6.3",
     "vite": "5.4.8",
     "vite-plugin-lib": "workspace:*"
   },
