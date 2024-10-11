@@ -473,8 +473,8 @@ importers:
         specifier: 1.2.4
         version: 1.2.4(eslint@9.4.0)(typescript@5.6.3)
       eslint-plugin-cypress:
-        specifier: 3.6.0
-        version: 3.6.0(eslint@9.4.0)
+        specifier: 4.0.0
+        version: 4.0.0(eslint@9.4.0)
       eslint-plugin-format:
         specifier: 0.1.2
         version: 0.1.2(eslint@9.4.0)
@@ -6163,10 +6163,10 @@ packages:
     peerDependencies:
       eslint: '*'
 
-  eslint-plugin-cypress@3.6.0:
-    resolution: {integrity: sha512-7IAMcBbTVu5LpWeZRn5a9mQ30y4hKp3AfTz+6nSD/x/7YyLMoBI6X7XjDLYI6zFvuy4Q4QVGl563AGEXGW/aSA==}
+  eslint-plugin-cypress@4.0.0:
+    resolution: {integrity: sha512-KRzI4zxoOKMhWKRxcikRu/Vjsomnx1vXJEY2CTG+4oluFbXxGuyRC1CLlhmBVOK5/iR17vY7rzuyRbpcx5zEPA==}
     peerDependencies:
-      eslint: '>=7'
+      eslint: '>=9'
 
   eslint-plugin-es-x@7.5.0:
     resolution: {integrity: sha512-ODswlDSO0HJDzXU0XvgZ3lF3lS3XAZEossh15Q2UHjwrJggWeBoKqqEsLTZLXl+dh5eOAozG0zRcYtuE35oTuQ==}
@@ -6441,6 +6441,7 @@ packages:
   eslint@6.8.0:
     resolution: {integrity: sha512-K+Iayyo2LtyYhDSYwz5D5QdWw0hCacNzyq1Y821Xna2xSJj7cijoLLYmLxTQgcgZ9mC61nryMy9S7GRbYpI5Ig==}
     engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
 
   eslint@9.12.0:
@@ -6910,6 +6911,10 @@ packages:
 
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
+    engines: {node: '>=18'}
+
+  globals@15.11.0:
+    resolution: {integrity: sha512-yeyNSjdbyVaWurlwCpcA6XNBrHTMIeDdj0/hnvX/OLJ9ekOXYbLsLinH/MucQyGvNnXhidTdNhTtJaffL2sMfw==}
     engines: {node: '>=18'}
 
   globals@15.9.0:
@@ -18120,10 +18125,10 @@ snapshots:
       '@es-joy/jsdoccomment': 0.48.0
       eslint: 9.4.0
 
-  eslint-plugin-cypress@3.6.0(eslint@9.4.0):
+  eslint-plugin-cypress@4.0.0(eslint@9.4.0):
     dependencies:
       eslint: 9.4.0
-      globals: 13.24.0
+      globals: 15.11.0
 
   eslint-plugin-es-x@7.5.0(eslint@9.4.0):
     dependencies:
@@ -19295,6 +19300,8 @@ snapshots:
       type-fest: 0.20.2
 
   globals@14.0.0: {}
+
+  globals@15.11.0: {}
 
   globals@15.9.0: {}
 
