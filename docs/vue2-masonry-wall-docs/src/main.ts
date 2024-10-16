@@ -6,6 +6,7 @@ import App from './app.vue'
 
 Vue.config.productionTip = false
 
+// eslint-disable-next-line react-hooks/rules-of-hooks
 Vue.use(MasonryWall)
 
 new Vue({

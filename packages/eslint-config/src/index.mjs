@@ -135,6 +135,7 @@ export default function (...configs) {
         },
       },
       rules: {
+        'antfu/no-top-level-await': 'off',
         'style/indent-binary-ops': 'off',
         'style/jsx-closing-bracket-location': 'off',
         'style/jsx-closing-tag-location': 'off',
