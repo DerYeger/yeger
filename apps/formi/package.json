@@ -23,12 +23,12 @@
     "splitpanes": "3.1.5",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
-    "yaml": "2.5.1",
+    "yaml": "2.6.0",
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@nuxtjs/robots": "4.1.7",
-    "@unhead/shared": "1.11.7",
+    "@nuxtjs/robots": "4.1.9",
+    "@unhead/shared": "1.11.10",
     "@unocss/nuxt": "0.63.4",
     "@unocss/reset": "0.63.4",
     "@vite-pwa/nuxt": "0.10.5",
@@ -40,7 +40,7 @@
     "nuxt-icon": "0.6.10",
     "typescript": "5.6.3",
     "ufo": "1.5.4",
-    "vite": "5.4.8",
+    "vite": "5.4.9",
     "vue": "3.5.12",
     "vue-router": "4.4.5",
     "vue-tsc": "2.1.6"
