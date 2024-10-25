@@ -29,8 +29,8 @@
   "devDependencies": {
     "@nuxtjs/robots": "4.1.9",
     "@unhead/shared": "1.11.10",
-    "@unocss/nuxt": "0.63.4",
-    "@unocss/reset": "0.63.4",
+    "@unocss/nuxt": "0.63.6",
+    "@unocss/reset": "0.63.6",
     "@vite-pwa/nuxt": "0.10.5",
     "@vue/shared": "3.5.12",
     "@vueuse/core": "11.1.0",
@@ -40,7 +40,7 @@
     "nuxt-icon": "0.6.10",
     "typescript": "5.6.3",
     "ufo": "1.5.4",
-    "vite": "5.4.9",
+    "vite": "5.4.10",
     "vue": "3.5.12",
     "vue-router": "4.4.5",
     "vue-tsc": "2.1.6"

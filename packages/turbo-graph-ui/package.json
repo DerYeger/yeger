@@ -53,13 +53,13 @@
   "devDependencies": {
     "@types/d3-scale": "4.0.8",
     "@types/d3-scale-chromatic": "3.0.3",
-    "@types/node": "22.7.7",
-    "@types/react": "18.3.11",
+    "@types/node": "22.8.1",
+    "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "10.4.20",
-    "eslint-config-next": "14.2.15",
-    "next": "14.2.15",
+    "eslint-config-next": "14.2.16",
+    "next": "14.2.16",
     "postcss": "8.4.47",
     "tailwindcss": "3.4.14",
     "typescript": "5.6.3"
