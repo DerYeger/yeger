@@ -328,8 +328,8 @@ importers:
         specifier: 22.8.1
         version: 22.8.1
       '@unhead/vue':
-        specifier: 1.11.7
-        version: 1.11.7(vue@3.5.12(typescript@5.6.3))
+        specifier: 1.11.10
+        version: 1.11.10(vue@3.5.12(typescript@5.6.3))
       '@vitejs/plugin-vue':
         specifier: 5.1.4
         version: 5.1.4(vite@5.4.10(@types/node@22.8.1)(terser@5.31.0))(vue@3.5.12(typescript@5.6.3))
@@ -482,8 +482,8 @@ importers:
         specifier: 2.31.0
         version: 2.31.0(@typescript-eslint/parser@8.10.0(eslint@9.4.0)(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@9.4.0)
       eslint-plugin-jsx-a11y:
-        specifier: 6.10.1
-        version: 6.10.1(eslint@9.4.0)
+        specifier: 6.10.2
+        version: 6.10.2(eslint@9.4.0)
       eslint-plugin-markdown:
         specifier: 5.1.0
         version: 5.1.0(eslint@9.4.0)
@@ -3869,11 +3869,11 @@ packages:
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
 
+  '@unhead/dom@1.11.10':
+    resolution: {integrity: sha512-nL1mdRzYVATZIYauK15zOI2YyM3YxCLfhbTqljEjDFJeiJUzTTi+a//5FHiUk84ewSucFnrwHNey/pEXFlyY1A==}
+
   '@unhead/dom@1.11.6':
     resolution: {integrity: sha512-FYU8Cu+XWcpbO4OvXdB6x7m6GTPcl6CW7igI8rNu6Kc0Ilxb+atxIvyFXdTGAyB7h/F0w3ex06ZVWJ65f3EW8A==}
-
-  '@unhead/dom@1.11.7':
-    resolution: {integrity: sha512-Nj2ulnbY5lvIcxqXwdO5YfdvLm8EYLjcaOje2b2aQnfyPAyOIVeR8iB79DDKk/uZZAPEwkdhSnUdEh9Ny0b3lw==}
 
   '@unhead/dom@1.9.15':
     resolution: {integrity: sha512-4sdP/2Unt4zFRO8pBZVXvebidGmrLEvnDU6ZpasZfInjiiuuaQOVTJaiKnEnug3cmW2YjglPG2d1c2xAsHr3NQ==}
@@ -3884,9 +3884,6 @@ packages:
   '@unhead/schema@1.11.6':
     resolution: {integrity: sha512-Ava5+kQERaZ2fi66phgR9KZQr9SsheN1YhhKM8fCP2A4Jb5lHUssVQ19P0+89V6RX9iUg/Q27WdEbznm75LzhQ==}
 
-  '@unhead/schema@1.11.7':
-    resolution: {integrity: sha512-j9uN7T63aUXrZ6yx2CfjVT7xZHjn0PZO7TPMaWqMFjneIH/NONKvDVCMEqDlXeqdSIERIYtk/xTHgCUMer5eyw==}
-
   '@unhead/schema@1.9.15':
     resolution: {integrity: sha512-9ADZuXOH+tOKHIjXsgg+SPINnh/YJEBMCjpg+8VLGgE2r5med3jAnOU8g7ALfuVEBRBrbFgs1qVKoKm1NkTXJQ==}
 
@@ -3896,22 +3893,19 @@ packages:
   '@unhead/shared@1.11.6':
     resolution: {integrity: sha512-aGrtzRCcFlVh9iru73fBS8FA1vpQskS190t5cCRRMpisOEunVv3ueqXN1F8CseQd0W4wyEr/ycDvdfKt+RPv5g==}
 
-  '@unhead/shared@1.11.7':
-    resolution: {integrity: sha512-5v3PmV1LMyikGyQi/URYS5ilH8dg1Iomtja7iFWke990O8RBDEzAdagJqcsUE/fw+o7cXRSOamyx5wCf5Q1TrA==}
-
   '@unhead/shared@1.9.15':
     resolution: {integrity: sha512-+U5r04eRtCNcniWjzNPRtwVuF9rW/6EXxhGvuohJBDaIE57J6BHWo5cEp7Pqts7DlTFs7LiDtH8ONNDv4QqRaw==}
 
   '@unhead/ssr@1.11.6':
     resolution: {integrity: sha512-jmRkJB3UWlaAV6aoTBcsi2cLOje8hJxWqbmcLmekmCBZcCgR8yHEjxVCzLtYnAQg68Trgg9+uqMt+8UFY40tDA==}
 
-  '@unhead/vue@1.11.6':
-    resolution: {integrity: sha512-CMuDJGTi4n4wKdOp6/JmB9roGshjTdoFKF34PEkXu4+g97BiVFiZ9LvgY44+UlWCUzQHcqEPRQIzm9iKEqcfKw==}
+  '@unhead/vue@1.11.10':
+    resolution: {integrity: sha512-v6ddp4YEQCNILhYrx37Yt0GKRIFeTrb3VSmTbjh+URT+ua1mwgmNFTfl2ZldtTtri3tEkwSG1/5wLRq20ma70g==}
     peerDependencies:
       vue: '>=2.7 || >=3'
 
-  '@unhead/vue@1.11.7':
-    resolution: {integrity: sha512-SLr0eQfznVp63iKi47L4s5Yz+oiQjDA82VBP4jlXi7dM9fSIn1ul1aKvBqle/ZxI2cqY8zVGz60EjhjWeu754A==}
+  '@unhead/vue@1.11.6':
+    resolution: {integrity: sha512-CMuDJGTi4n4wKdOp6/JmB9roGshjTdoFKF34PEkXu4+g97BiVFiZ9LvgY44+UlWCUzQHcqEPRQIzm9iKEqcfKw==}
     peerDependencies:
       vue: '>=2.7 || >=3'
 
@@ -6353,8 +6347,8 @@ packages:
     peerDependencies:
       eslint: '>=6.0.0'
 
-  eslint-plugin-jsx-a11y@6.10.1:
-    resolution: {integrity: sha512-zHByM9WTUMnfsDTafGXRiqxp6lFtNoSOWBY6FonVRn3A+BUwN1L/tdBXT40BcBJi0cZjOGTXZ0eD/rTG9fEJ0g==}
+  eslint-plugin-jsx-a11y@6.10.2:
+    resolution: {integrity: sha512-scB3nz4WmG75pV8+3eRUQOHZlNSUhFNq37xnpgRkCCELU3XMvXAxLk1eqWWyE22Ki4Q01Fnsw9BA3cJHDPgn2Q==}
     engines: {node: '>=4.0'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8 || ^9
@@ -11064,11 +11058,11 @@ packages:
   unenv@1.10.0:
     resolution: {integrity: sha512-wY5bskBQFL9n3Eca5XnhH6KbUo/tfvkwm9OpcdCvLaeA7piBNbavbOKJySEwQ1V0RH6HvNlSAFRTpvTqgKRQXQ==}
 
+  unhead@1.11.10:
+    resolution: {integrity: sha512-hypXrAI47wE3wIhkze0RMPGAWcoo45Q1+XzdqLD/OnTCzjFXQrpuE4zBy8JRexyrqp+Ud2+nFTUNf/mjfFSymw==}
+
   unhead@1.11.6:
     resolution: {integrity: sha512-TKTQGUzHKF925VZ4KZVbLfKFzTVTEWfPLaXKmkd/ptEY2FHEoJUF7xOpAWc3K7Jzy/ExS66TL7GnLLjtd4sISg==}
-
-  unhead@1.11.7:
-    resolution: {integrity: sha512-aA0+JBRryLhDKUq6L2JhMDLZEG/ElyyDASyC9wiwDl6nvvsj9hD26LgPWgmAsSd+9HtMGM2N1gU27CWEMo16CQ==}
 
   unherit@1.1.3:
     resolution: {integrity: sha512-Ft16BJcnapDKp0+J/rqFC3Rrk6Y/Ng4nzsC028k2jdDII/rdZ7Wd3pPT/6+vIIxRagwRc9K0IUX0Ra4fKvw+WQ==}
@@ -15451,15 +15445,15 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
+  '@unhead/dom@1.11.10':
+    dependencies:
+      '@unhead/schema': 1.11.10
+      '@unhead/shared': 1.11.10
+
   '@unhead/dom@1.11.6':
     dependencies:
       '@unhead/schema': 1.11.6
       '@unhead/shared': 1.11.6
-
-  '@unhead/dom@1.11.7':
-    dependencies:
-      '@unhead/schema': 1.11.7
-      '@unhead/shared': 1.11.7
 
   '@unhead/dom@1.9.15':
     dependencies:
@@ -15472,11 +15466,6 @@ snapshots:
       zhead: 2.2.4
 
   '@unhead/schema@1.11.6':
-    dependencies:
-      hookable: 5.5.3
-      zhead: 2.2.4
-
-  '@unhead/schema@1.11.7':
     dependencies:
       hookable: 5.5.3
       zhead: 2.2.4
@@ -15494,10 +15483,6 @@ snapshots:
     dependencies:
       '@unhead/schema': 1.11.6
 
-  '@unhead/shared@1.11.7':
-    dependencies:
-      '@unhead/schema': 1.11.7
-
   '@unhead/shared@1.9.15':
     dependencies:
       '@unhead/schema': 1.9.15
@@ -15507,6 +15492,15 @@ snapshots:
       '@unhead/schema': 1.11.6
       '@unhead/shared': 1.11.6
 
+  '@unhead/vue@1.11.10(vue@3.5.12(typescript@5.6.3))':
+    dependencies:
+      '@unhead/schema': 1.11.10
+      '@unhead/shared': 1.11.10
+      defu: 6.1.4
+      hookable: 5.5.3
+      unhead: 1.11.10
+      vue: 3.5.12(typescript@5.6.3)
+
   '@unhead/vue@1.11.6(vue@3.5.12(typescript@5.6.3))':
     dependencies:
       '@unhead/schema': 1.11.6
@@ -15514,15 +15508,6 @@ snapshots:
       defu: 6.1.4
       hookable: 5.5.3
       unhead: 1.11.6
-      vue: 3.5.12(typescript@5.6.3)
-
-  '@unhead/vue@1.11.7(vue@3.5.12(typescript@5.6.3))':
-    dependencies:
-      '@unhead/schema': 1.11.7
-      '@unhead/shared': 1.11.7
-      defu: 6.1.4
-      hookable: 5.5.3
-      unhead: 1.11.7
       vue: 3.5.12(typescript@5.6.3)
 
   '@unocss/astro@0.63.6(rollup@4.21.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.1)(terser@5.31.0))':
@@ -18250,7 +18235,7 @@ snapshots:
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.3(@typescript-eslint/parser@8.10.0(eslint@9.13.0(jiti@2.0.0))(typescript@5.6.3))(eslint-import-resolver-node@0.3.9)(eslint-plugin-import-x@4.3.1(eslint@9.13.0(jiti@2.0.0))(typescript@5.6.3))(eslint-plugin-import@2.31.0)(eslint@9.13.0(jiti@2.0.0))
       eslint-plugin-import: 2.31.0(@typescript-eslint/parser@8.10.0(eslint@9.13.0(jiti@2.0.0))(typescript@5.6.3))(eslint-import-resolver-typescript@3.6.3)(eslint@9.13.0(jiti@2.0.0))
-      eslint-plugin-jsx-a11y: 6.10.1(eslint@9.13.0(jiti@2.0.0))
+      eslint-plugin-jsx-a11y: 6.10.2(eslint@9.13.0(jiti@2.0.0))
       eslint-plugin-react: 7.37.2(eslint@9.13.0(jiti@2.0.0))
       eslint-plugin-react-hooks: 5.0.0(eslint@9.13.0(jiti@2.0.0))
     optionalDependencies:
@@ -18535,7 +18520,7 @@ snapshots:
       natural-compare: 1.4.0
       synckit: 0.6.2
 
-  eslint-plugin-jsx-a11y@6.10.1(eslint@9.13.0(jiti@2.0.0)):
+  eslint-plugin-jsx-a11y@6.10.2(eslint@9.13.0(jiti@2.0.0)):
     dependencies:
       aria-query: 5.3.2
       array-includes: 3.1.8
@@ -18545,7 +18530,6 @@ snapshots:
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
-      es-iterator-helpers: 1.1.0
       eslint: 9.13.0(jiti@2.0.0)
       hasown: 2.0.2
       jsx-ast-utils: 3.3.5
@@ -18555,7 +18539,7 @@ snapshots:
       safe-regex-test: 1.0.3
       string.prototype.includes: 2.0.1
 
-  eslint-plugin-jsx-a11y@6.10.1(eslint@9.4.0):
+  eslint-plugin-jsx-a11y@6.10.2(eslint@9.4.0):
     dependencies:
       aria-query: 5.3.2
       array-includes: 3.1.8
@@ -18565,7 +18549,6 @@ snapshots:
       axobject-query: 4.1.0
       damerau-levenshtein: 1.0.8
       emoji-regex: 9.2.2
-      es-iterator-helpers: 1.1.0
       eslint: 9.4.0
       hasown: 2.0.2
       jsx-ast-utils: 3.3.5
@@ -24452,18 +24435,18 @@ snapshots:
       node-fetch-native: 1.6.4
       pathe: 1.1.2
 
+  unhead@1.11.10:
+    dependencies:
+      '@unhead/dom': 1.11.10
+      '@unhead/schema': 1.11.10
+      '@unhead/shared': 1.11.10
+      hookable: 5.5.3
+
   unhead@1.11.6:
     dependencies:
       '@unhead/dom': 1.11.6
       '@unhead/schema': 1.11.6
       '@unhead/shared': 1.11.6
-      hookable: 5.5.3
-
-  unhead@1.11.7:
-    dependencies:
-      '@unhead/dom': 1.11.7
-      '@unhead/schema': 1.11.7
-      '@unhead/shared': 1.11.7
       hookable: 5.5.3
 
   unherit@1.1.3:
@@ -24981,7 +24964,7 @@ snapshots:
   vite-ssg@0.23.8(critters@0.0.25)(vite@5.4.10(@types/node@22.8.1)(terser@5.31.0))(vue-router@4.4.5(vue@3.5.12(typescript@5.6.3)))(vue@3.5.12(typescript@5.6.3)):
     dependencies:
       '@unhead/dom': 1.9.15
-      '@unhead/vue': 1.11.7(vue@3.5.12(typescript@5.6.3))
+      '@unhead/vue': 1.11.10(vue@3.5.12(typescript@5.6.3))
       fs-extra: 11.2.0
       html-minifier-terser: 7.2.0
       html5parser: 2.0.2

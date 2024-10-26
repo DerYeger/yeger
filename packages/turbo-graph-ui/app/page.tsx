@@ -8,16 +8,19 @@ export const metadata: Metadata = {
   icons: ['/favicon.ico'],
 }
 
-export default async function Home({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined }
-}) {
-  const rawTasks = searchParams?.tasks
+export interface Props {
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export default async function Home(
+  { searchParams }: Props,
+) {
+  const awaitedSearchParams = await searchParams
+  const rawTasks = awaitedSearchParams?.tasks
   const tasks = Array.isArray(rawTasks)
     ? rawTasks
     : rawTasks?.replaceAll(',', ' ')?.split(' ') ?? ['build']
-  const filter = searchParams?.filter
+  const filter = awaitedSearchParams?.filter
 
   if (filter && Array.isArray(filter)) {
     throw new Error(`Unsupported filter ${filter}`)
