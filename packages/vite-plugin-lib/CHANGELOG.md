@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.1.3
+
+### Patch Changes
+
+- c887f5a: update deps
+
 ## 2.1.2
 
 ### Patch Changes

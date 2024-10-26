@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.2.2
+
+### Patch Changes
+
+- c887f5a: update deps
+
 ## 1.2.1
 
 ### Patch Changes
