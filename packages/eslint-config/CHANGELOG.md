@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.5.1
+
+### Patch Changes
+
+- c887f5a: update deps
+
 ## 2.5.0
 
 ### Minor Changes
