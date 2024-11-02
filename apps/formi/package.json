@@ -27,14 +27,14 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@nuxtjs/robots": "4.1.9",
-    "@unhead/shared": "1.11.10",
+    "@nuxtjs/robots": "4.1.10",
+    "@unhead/shared": "1.11.11",
     "@unocss/nuxt": "0.63.6",
     "@unocss/reset": "0.63.6",
-    "@vite-pwa/nuxt": "0.10.5",
+    "@vite-pwa/nuxt": "0.10.6",
     "@vue/shared": "3.5.12",
-    "@vueuse/core": "11.1.0",
-    "@vueuse/nuxt": "11.1.0",
+    "@vueuse/core": "11.2.0",
+    "@vueuse/nuxt": "11.2.0",
     "node-fetch-native": "1.6.4",
     "nuxt": "3.13.2",
     "nuxt-icon": "0.6.10",
@@ -43,6 +43,6 @@
     "vite": "5.4.10",
     "vue": "3.5.12",
     "vue-router": "4.4.5",
-    "vue-tsc": "2.1.6"
+    "vue-tsc": "2.1.10"
   }
 }

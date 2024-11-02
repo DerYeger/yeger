@@ -10,7 +10,7 @@
     "check:tsc": "tsc"
   },
   "devDependencies": {
-    "@types/node": "22.8.1",
+    "@types/node": "22.8.6",
     "@unhead/vue": "1.11.10",
     "@vitejs/plugin-vue": "5.1.4",
     "@yeger/tsconfig": "workspace:*",
@@ -18,7 +18,7 @@
     "typescript": "5.6.3",
     "vite": "5.4.10",
     "vite-plugin-ssg-utils": "workspace:*",
-    "vite-ssg": "0.23.8",
+    "vite-ssg": "0.24.1",
     "vue": "3.5.12",
     "vue-router": "4.4.5"
   }
