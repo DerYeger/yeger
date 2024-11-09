@@ -10,7 +10,7 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "5.12.0",
+    "@algolia/client-search": "5.13.0",
     "vecti": "workspace:*",
     "vue": "3.5.12"
   },
@@ -19,6 +19,6 @@
     "typescript": "5.6.3",
     "vite": "5.4.10",
     "vite-plugin-lib": "workspace:*",
-    "vitepress": "1.4.3"
+    "vitepress": "1.5.0"
   }
 }
