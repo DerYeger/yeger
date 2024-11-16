@@ -42,7 +42,7 @@
     "d3-scale": "4.0.2",
     "d3-scale-chromatic": "3.1.0",
     "execa": "9.5.1",
-    "lucide-react": "0.456.0",
+    "lucide-react": "0.460.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "reactflow": "11.11.4",
@@ -60,8 +60,8 @@
     "autoprefixer": "10.4.20",
     "eslint-config-next": "15.0.3",
     "next": "15.0.3",
-    "postcss": "8.4.47",
-    "tailwindcss": "3.4.14",
+    "postcss": "8.4.49",
+    "tailwindcss": "3.4.15",
     "typescript": "5.6.3"
   },
   "publishConfig": {
