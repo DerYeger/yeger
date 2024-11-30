@@ -27,7 +27,7 @@
     "zod": "3.23.8"
   },
   "devDependencies": {
-    "@nuxtjs/robots": "4.1.11",
+    "@nuxtjs/robots": "5.0.0",
     "@unhead/shared": "1.11.11",
     "@unocss/nuxt": "0.64.1",
     "@unocss/reset": "0.64.1",
