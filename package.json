@@ -22,7 +22,7 @@
     "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=@yeger/scripts... && generate-readme",
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
-    "install-hooks": "is-ci || husky install",
+    "install-hooks": "husky",
     "lint": "nr turbo run lint lint:root",
     "lint:root": "eslint \"{.changeset,.github,.husky,.vscode,turbo}/**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
     "preview": "nr turbo run preview",
