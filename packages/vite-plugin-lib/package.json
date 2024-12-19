@@ -52,7 +52,7 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.7.2",
     "unbuild": "3.0.1",
-    "vite": "6.0.3"
+    "vite": "6.0.4"
   },
   "publishConfig": {
     "access": "public"
