@@ -47,7 +47,12 @@ export default function generator(plop: PlopTypes.NodePlopAPI): void {
       {
         type: 'add',
         path: '{{ turbo.paths.root }}/packages/{{ dashCase name }}/vite.config.ts',
-        templateFile: 'templates/lib/vite.config.ts.hbs',
+        templateFile: 'templates/lib/vite.config.ts',
+      },
+      {
+        type: 'add',
+        path: '{{ turbo.paths.root }}/packages/{{ dashCase name }}/vitest.config.ts',
+        templateFile: 'templates/lib/vitest.config.ts',
       },
       {
         type: 'add',

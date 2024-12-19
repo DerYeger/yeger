@@ -1,9 +1,6 @@
-import { coverage, library } from 'vite-plugin-lib'
-import { defineConfig } from 'vitest/config'
+import { defineConfig } from 'vite'
+import { library } from 'vite-plugin-lib'
 
 export default defineConfig({
   plugins: [library()],
-  test: {
-    coverage,
-  },
 })
