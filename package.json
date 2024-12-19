@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@9.13.2",
+  "packageManager": "pnpm@9.15.0",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
@@ -38,32 +38,32 @@
     "watch": "nr turbo watch"
   },
   "devDependencies": {
-    "@antfu/ni": "0.23.0",
-    "@changesets/cli": "2.27.9",
-    "@commitlint/cli": "19.5.0",
-    "@commitlint/config-conventional": "19.5.0",
-    "@turbo/gen": "2.3.0",
-    "@types/node": "22.9.0",
-    "@vitest/coverage-v8": "2.1.6",
-    "@vitest/ui": "2.1.6",
+    "@antfu/ni": "0.23.1",
+    "@changesets/cli": "2.27.11",
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@turbo/gen": "2.3.3",
+    "@types/node": "22.10.2",
+    "@vitest/coverage-v8": "2.1.8",
+    "@vitest/ui": "2.1.8",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "7.0.3",
-    "eslint": "9.15.0",
-    "husky": "9.1.6",
-    "lint-staged": "15.2.10",
+    "eslint": "9.17.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.11",
     "publint": "0.2.12",
     "rimraf": "6.0.1",
     "syncpack": "13.0.0",
     "taze": "0.18.0",
-    "turbo": "2.3.0",
-    "vercel": "39.0.2",
-    "vitest": "2.1.6"
+    "turbo": "2.3.3",
+    "vercel": "39.2.2",
+    "vitest": "2.1.8"
   },
   "pnpm": {
     "overrides": {
-      "@codemirror/state": "6.4.1"
+      "@codemirror/state": "6.5.0"
     },
     "packageExtensions": {
       "vue-template-compiler": {
