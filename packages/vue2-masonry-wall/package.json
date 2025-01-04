@@ -63,7 +63,7 @@
     "flush-promises": "1.0.2",
     "jsdom": "25.0.1",
     "typescript": "5.7.2",
-    "vite": "6.0.6",
+    "vite": "6.0.7",
     "vite-plugin-lib": "workspace:*",
     "vue": "2.7.16",
     "vue-template-compiler": "2.7.16"

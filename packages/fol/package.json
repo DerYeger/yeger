@@ -44,11 +44,11 @@
   },
   "devDependencies": {
     "@ohm-js/cli": "2.0.0",
-    "@types/node": "22.10.2",
+    "@types/node": "22.10.5",
     "@yeger/tsconfig": "workspace:*",
     "resumon": "workspace:*",
     "typescript": "5.7.2",
-    "vite": "6.0.6",
+    "vite": "6.0.7",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
