@@ -18,7 +18,7 @@
     "typescript": "5.7.2",
     "vite": "6.0.7",
     "vite-plugin-ssg-utils": "workspace:*",
-    "vite-ssg": "0.24.3",
+    "vite-ssg": "25.0.0",
     "vue": "3.5.13",
     "vue-router": "4.5.0"
   }
