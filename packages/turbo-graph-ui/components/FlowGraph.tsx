@@ -130,9 +130,12 @@ export function FlowGraph({ children, graph, uniqueTasks }: Props) {
 function ViewFitter({ graph }: { graph: TurboGraph }) {
   const reactFlow = useReactFlow()
   useEffect(() => {
-    setTimeout(() => {
+    const timeout = setTimeout(() => {
       reactFlow.fitView({ duration: 200 })
     }, 200)
+    return () => {
+      clearTimeout(timeout)
+    }
   }, [reactFlow, graph])
   return null
 }

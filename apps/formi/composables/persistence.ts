@@ -1,4 +1,5 @@
 import type { StorageLikeAsync } from '@vueuse/core'
+import { useStorageAsync } from '@vueuse/core'
 import type { ModelCheckerMode } from '@yeger/fol'
 import localforage from 'localforage'
 

@@ -27,6 +27,7 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   modules: [
     '@nuxtjs/robots',
     '@unocss/nuxt',
@@ -34,10 +35,13 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     'nuxt-icon',
   ],
+
   css: ['@/assets/css/main.css'],
+
   build: {
     transpile: ['vue-toastification'],
   },
+
   pwa: {
     registerType: 'autoUpdate',
     manifest: {
@@ -63,6 +67,7 @@ export default defineNuxtConfig({
       installPrompt: true,
     },
   },
+
   unocss: {
     uno: true,
     icons: true,
@@ -88,4 +93,6 @@ export default defineNuxtConfig({
     shortcuts: [],
     rules: [],
   },
+
+  compatibilityDate: '2025-01-18',
 })

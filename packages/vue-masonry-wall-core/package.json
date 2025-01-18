@@ -42,7 +42,7 @@
   "devDependencies": {
     "@types/resize-observer-browser": "0.1.11",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.7.2",
+    "typescript": "5.7.3",
     "vite": "6.0.7",
     "vite-plugin-lib": "workspace:*"
   },
