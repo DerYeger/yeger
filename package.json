@@ -38,7 +38,7 @@
     "watch": "nr turbo watch"
   },
   "devDependencies": {
-    "@antfu/ni": "0.23.2",
+    "@antfu/ni": "23.2.0",
     "@changesets/cli": "2.27.11",
     "@commitlint/cli": "19.6.1",
     "@commitlint/config-conventional": "19.6.0",
