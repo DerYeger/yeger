@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.0.10
+
+### Patch Changes
+
+- f6d5960: update deps
+- Updated dependencies [f6d5960]
+  - @yeger/turbo-graph-ui@2.1.3
+
 ## 2.0.9
 
 ### Patch Changes

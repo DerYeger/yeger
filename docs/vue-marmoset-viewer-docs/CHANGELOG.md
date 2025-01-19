@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.13
+
+### Patch Changes
+
+- f6d5960: update deps
+- Updated dependencies [f6d5960]
+  - vue-marmoset-viewer@4.0.13
+
 ## 2.0.12
 
 ### Patch Changes

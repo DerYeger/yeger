@@ -1,5 +1,11 @@
 # @yeger/deepmerge
 
+## 2.0.12
+
+### Patch Changes
+
+- f6d5960: update deps
+
 ## 2.0.11
 
 ### Patch Changes

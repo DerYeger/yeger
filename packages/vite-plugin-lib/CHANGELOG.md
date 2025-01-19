@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.1.4
+
+### Patch Changes
+
+- f6d5960: update deps
+
 ## 2.1.3
 
 ### Patch Changes
