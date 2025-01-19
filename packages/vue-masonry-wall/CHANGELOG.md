@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.0.17
+
+### Patch Changes
+
+- f6d5960: update deps
+- Updated dependencies [f6d5960]
+  - @yeger/vue-masonry-wall-core@5.0.14
+
 ## 5.0.16
 
 ### Patch Changes

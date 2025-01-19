@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.13
+
+### Patch Changes
+
+- f6d5960: update deps
+
 ## 2.0.12
 
 ### Patch Changes

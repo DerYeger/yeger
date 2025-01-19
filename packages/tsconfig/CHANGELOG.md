@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 2.0.9
+
+### Patch Changes
+
+- f6d5960: update deps
+
 ## 2.0.8
 
 ### Patch Changes
