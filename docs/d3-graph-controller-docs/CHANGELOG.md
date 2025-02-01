@@ -1,5 +1,13 @@
 # d3-graph-controller-docs
 
+## 2.0.13
+
+### Patch Changes
+
+- 9927a84: update deps
+- Updated dependencies [9927a84]
+  - d3-graph-controller@3.0.13
+
 ## 2.0.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.11
+
+### Patch Changes
+
+- 9927a84: update deps
+
 ## 1.0.10
 
 ### Patch Changes

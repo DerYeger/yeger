@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.15
+
+### Patch Changes
+
+- 9927a84: update deps
+- Updated dependencies [9927a84]
+  - @yeger/vue-lib-adapter@2.0.12
+  - @yeger/debounce@2.0.12
+
 ## 5.0.14
 
 ### Patch Changes
