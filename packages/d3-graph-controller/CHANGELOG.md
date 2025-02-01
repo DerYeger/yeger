@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.0.13
+
+### Patch Changes
+
+- 9927a84: update deps
+- Updated dependencies [9927a84]
+  - @yeger/debounce@2.0.12
+  - vecti@3.0.13
+
 ## 3.0.12
 
 ### Patch Changes
