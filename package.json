@@ -59,7 +59,7 @@
     "taze": "18.3.0",
     "turbo": "2.4.0",
     "vercel": "39.4.2",
-    "vitest": "3.0.4"
+    "vitest": "3.0.5"
   },
   "pnpm": {
     "overrides": {
