@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url'
 
 import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
-import astroParser from 'astro-eslint-parser'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -140,13 +139,7 @@ export default function (...configs) {
       },
     },
     {
-      files: ['**/*.astro/*.js'],
-      languageOptions: {
-        parser: astroParser,
-        parserOptions: {
-          parser: '@typescript-eslint/parser',
-        },
-      },
+      ignores: ['**/*.astro/*.js'],
     },
     {
       files: ['**/*.bench.ts'],

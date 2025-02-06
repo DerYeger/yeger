@@ -10,6 +10,12 @@ async function log() {
 await log()
 ---
 
+<div>Hello World!</div>
+
 <script>
 const test: number = 0
+const setTitle = (value: number) => {
+  document.title = `${value}`
+}
+document.onload = () => setTitle(test)
 </script>
