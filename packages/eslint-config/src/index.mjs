@@ -127,13 +127,6 @@ export default function (...configs) {
     },
     {
       files: ['**/*.astro'],
-      languageOptions: {
-        parser: astroParser,
-        parserOptions: {
-          parser: '@typescript-eslint/parser',
-          extraFileExtensions: ['.astro'],
-        },
-      },
       rules: {
         'antfu/no-top-level-await': 'off',
         'style/indent-binary-ops': 'off',
@@ -144,6 +137,15 @@ export default function (...configs) {
         'style/jsx-wrap-multilines': 'off',
         'style/multiline-ternary': 'off',
         'unused-imports/no-unused-vars': 'off',
+      },
+    },
+    {
+      files: ['**/*.astro/*.js'],
+      languageOptions: {
+        parser: astroParser,
+        parserOptions: {
+          parser: '@typescript-eslint/parser',
+        },
       },
     },
     {
