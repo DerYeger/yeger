@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.5.5
+
+### Patch Changes
+
+- f3e3529: disable eslint in astro script blocks
+
 ## 2.5.4
 
 ### Patch Changes
