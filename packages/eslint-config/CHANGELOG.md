@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.5.4
+
+### Patch Changes
+
+- 55a02ab: support typescript in astro script blocks
+
 ## 2.5.3
 
 ### Patch Changes
