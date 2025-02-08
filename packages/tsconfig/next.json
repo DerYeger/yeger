@@ -2,8 +2,9 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./web.json",
   "compilerOptions": {
-    "noEmit": true,
     "incremental": false,
+    "moduleResolution": "bundler",
+    "noEmit": true,
     "plugins": [{ "name": "next" }]
   }
 }

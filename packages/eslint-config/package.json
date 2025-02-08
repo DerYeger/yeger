@@ -23,7 +23,14 @@
     "eslint-preset"
   ],
   "sideEffects": false,
-  "main": "src/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./src/index.d.mts",
+        "default": "./src/index.mjs"
+      }
+    }
+  },
   "bin": {
     "yeger-lint": "src/lint.mjs"
   },
