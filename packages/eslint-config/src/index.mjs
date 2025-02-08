@@ -7,7 +7,7 @@ import { FlatCompat } from '@eslint/eslintrc'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
 /**
- * @param  {...Linter.Config} configs
+ * @param  {...Linter.Config[]} configs
  * @returns {Linter.Config[]} a preset ESLint config.
  */
 export default function (...configs) {
