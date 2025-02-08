@@ -17,7 +17,11 @@
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },
-  "main": "next.config.mjs",
+  "exports": {
+    ".": {
+      "import": "./next.config.mjs"
+    }
+  },
   "files": [
     ".next",
     "next.config.mjs"
