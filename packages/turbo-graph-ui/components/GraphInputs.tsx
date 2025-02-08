@@ -1,7 +1,8 @@
 'use client'
 
 import { debounce } from '@yeger/debounce'
-import { type ChangeEventHandler, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
+import type { ChangeEventHandler } from 'react'
 
 import { Input } from '../components/Input'
 import type { GraphParameter } from '../lib/utils'

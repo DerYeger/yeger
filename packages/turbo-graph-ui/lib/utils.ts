@@ -1,5 +1,6 @@
 import { Stream } from '@yeger/streams'
-import { type ClassValue, clsx } from 'clsx'
+import { clsx } from 'clsx'
+import type { ClassValue } from 'clsx'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 

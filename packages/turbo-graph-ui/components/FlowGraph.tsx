@@ -17,12 +17,12 @@ import {
 
 import 'reactflow/dist/style.css'
 import {
-  type FlowNode,
   TASK_HEIGHT_VAR,
   TASK_WIDTH_VAR,
   convertGraph,
   getTaskColorVar,
 } from '../lib/flow'
+import type { FlowNode } from '../lib/flow'
 import type { TurboGraph } from '../lib/turbo'
 import { useGraphSettings } from '../lib/utils'
 
