@@ -7,11 +7,11 @@ settings:
 overrides:
   '@codemirror/state': 6.5.1
 
-packageExtensionsChecksum: 4e4c94798ec73c1dbfeb6e3475634511
+packageExtensionsChecksum: sha256-kOSs2zY/gvDV0Yr/cq90ZSf+oOz+JXsrQMTmUOd7puQ=
 
 patchedDependencies:
   bundlesize2@0.0.32:
-    hash: 4herlizhofruej6mubxc5snxay
+    hash: 7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260
     path: patches/bundlesize2@0.0.32.patch
 
 importers:
@@ -841,7 +841,7 @@ importers:
         version: link:../tsconfig
       bundlesize2:
         specifier: 0.0.32
-        version: 0.0.32(patch_hash=4herlizhofruej6mubxc5snxay)
+        version: 0.0.32(patch_hash=7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260)
       cross-env:
         specifier: 7.0.3
         version: 7.0.3
@@ -887,7 +887,7 @@ importers:
         version: link:../tsconfig
       bundlesize2:
         specifier: 0.0.32
-        version: 0.0.32(patch_hash=4herlizhofruej6mubxc5snxay)
+        version: 0.0.32(patch_hash=7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260)
       flush-promises:
         specifier: 1.0.2
         version: 1.0.2
@@ -945,7 +945,7 @@ importers:
         version: link:../tsconfig
       bundlesize2:
         specifier: 0.0.32
-        version: 0.0.32(patch_hash=4herlizhofruej6mubxc5snxay)
+        version: 0.0.32(patch_hash=7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260)
       flush-promises:
         specifier: 1.0.2
         version: 1.0.2
@@ -991,7 +991,7 @@ importers:
         version: 7.0.0-bridge.0(@babel/core@7.26.0)
       bundlesize2:
         specifier: 0.0.32
-        version: 0.0.32(patch_hash=4herlizhofruej6mubxc5snxay)
+        version: 0.0.32(patch_hash=7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260)
       flush-promises:
         specifier: 1.0.2
         version: 1.0.2
@@ -15979,7 +15979,7 @@ snapshots:
       esbuild: 0.24.2
       load-tsconfig: 0.2.5
 
-  bundlesize2@0.0.32(patch_hash=4herlizhofruej6mubxc5snxay):
+  bundlesize2@0.0.32(patch_hash=7e2c2a315611fc2ab109ee868cae9e087647a8f1aa3841585c1fb8f763dfc260):
     dependencies:
       bytes: 3.1.2
       chalk: 4.1.2
