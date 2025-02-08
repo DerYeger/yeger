@@ -1,5 +1,15 @@
 # @yeger/turbo-graph-ui
 
+## 2.1.5
+
+### Patch Changes
+
+- f1b1313: use package exports
+  - d3-graph-controller@3.0.13
+  - @yeger/debounce@2.0.12
+  - resumon@2.0.13
+  - @yeger/streams@1.2.4
+
 ## 2.1.4
 
 ### Patch Changes
