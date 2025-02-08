@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.1.6
+
+### Patch Changes
+
+- f1b1313: use package exports
+
 ## 2.1.5
 
 ### Patch Changes

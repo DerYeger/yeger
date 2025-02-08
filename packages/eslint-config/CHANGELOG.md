@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.6.0
+
+### Minor Changes
+
+- 667ad9d: add type declaration
+
 ## 2.5.6
 
 ### Patch Changes
