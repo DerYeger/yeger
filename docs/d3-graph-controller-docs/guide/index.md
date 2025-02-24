@@ -14,7 +14,7 @@ This library allows for custom node and link data types that extend the default 
 These custom properties can then be used anywhere in the configuration.
 
 Lastly, this library is framework-agnostic.
-A graph's container element can be retrieved by any means, including [Vue's refs](https://v3.vuejs.org/guide/component-template-refs.html), [React's refs](https://reactjs.org/docs/refs-and-the-dom.html), [Angular's ViewChild](https://angular.io/api/core/ViewChild), or the old and trustworthy `document.gelElementById`.
+A graph's container element can be retrieved by any means, including [Vue's refs](https://v3.vuejs.org/guide/component-template-refs.html), [React's refs](https://reactjs.org/docs/refs-and-the-dom.html), [Angular's ViewChild](https://angular.io/api/core/ViewChild), or the old and trustworthy `document.getElementById`.
 Just do not forget to [integrate the graph in the framework's lifecycle](/api/#shutdown).
 
 ## Installation
