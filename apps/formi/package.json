@@ -15,7 +15,7 @@
   "dependencies": {
     "@codemirror/language": "6.10.8",
     "@codemirror/legacy-modes": "6.4.3",
-    "@vueuse/core": "12.6.1",
+    "@vueuse/core": "12.7.0",
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
@@ -28,21 +28,21 @@
     "zod": "3.24.2"
   },
   "devDependencies": {
-    "@nuxtjs/robots": "5.2.2",
-    "@unhead/shared": "1.11.19",
+    "@nuxtjs/robots": "5.2.4",
+    "@unhead/shared": "1.11.20",
     "@unocss/nuxt": "66.0.0",
     "@unocss/reset": "66.0.0",
     "@vite-pwa/nuxt": "0.10.6",
     "@vue/shared": "3.5.13",
-    "@vueuse/nuxt": "12.6.1",
+    "@vueuse/nuxt": "12.7.0",
     "node-fetch-native": "1.6.6",
     "nuxt": "3.15.4",
     "nuxt-icon": "0.6.10",
-    "typescript": "5.7.3",
+    "typescript": "5.8.2",
     "ufo": "1.5.4",
-    "vite": "6.1.0",
+    "vite": "6.2.0",
     "vue": "3.5.13",
     "vue-router": "4.5.0",
-    "vue-tsc": "2.2.0"
+    "vue-tsc": "2.2.6"
   }
 }

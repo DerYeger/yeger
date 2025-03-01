@@ -1,5 +1,7 @@
 packages:
-  - 'apps/*'
-  - 'docs/*'
-  - 'examples/*'
-  - 'packages/*'
+  - apps/*
+  - docs/*
+  - examples/*
+  - packages/*
+onlyBuiltDependencies:
+  - esbuild
