@@ -66,11 +66,11 @@
     "bundlesize2": "0.0.34",
     "cross-env": "7.0.3",
     "flush-promises": "1.0.2",
-    "typescript": "5.7.3",
-    "vite": "6.1.0",
+    "typescript": "5.8.2",
+    "vite": "6.2.0",
     "vite-plugin-lib": "workspace:*",
     "vue": "3.5.13",
-    "vue-tsc": "2.2.0"
+    "vue-tsc": "2.2.6"
   },
   "publishConfig": {
     "access": "public"

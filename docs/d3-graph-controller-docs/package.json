@@ -12,18 +12,18 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "5.20.2",
+    "@algolia/client-search": "5.20.3",
     "d3-graph-controller": "workspace:*",
     "vue": "3.5.13"
   },
   "devDependencies": {
     "@types/d3-selection": "3.0.11",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.7.3",
-    "unplugin-vue-components": "28.0.0",
-    "vite": "6.1.0",
+    "typescript": "5.8.2",
+    "unplugin-vue-components": "28.4.1",
+    "vite": "6.2.0",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "1.6.3",
-    "vue-tsc": "2.2.0"
+    "vue-tsc": "2.2.6"
   }
 }
