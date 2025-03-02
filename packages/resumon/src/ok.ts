@@ -5,7 +5,11 @@ export class Ok<D, E> implements Result<D, E>, Succeeded<D> {
   public readonly isOk = true
   public readonly isError = false
 
-  public constructor(private readonly data: D) {}
+  private readonly data: D
+
+  public constructor(data: D) {
+    this.data = data
+  }
 
   public get(): D {
     return this.data

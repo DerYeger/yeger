@@ -70,6 +70,10 @@ export class GraphController<
 
   private resizeObserver?: ResizeObserver
 
+  private readonly container: HTMLDivElement
+  private readonly graph: Graph<T, Node, Link>
+  private readonly config: GraphConfig<T, Node, Link>
+
   /**
    * Create a new controller and initialize the view.
    * @param container - The container the graph will be placed in.
@@ -77,10 +81,14 @@ export class GraphController<
    * @param config - The config of the controller.
    */
   public constructor(
-    private readonly container: HTMLDivElement,
-    private readonly graph: Graph<T, Node, Link>,
-    private readonly config: GraphConfig<T, Node, Link>,
+    container: HTMLDivElement,
+    graph: Graph<T, Node, Link>,
+    config: GraphConfig<T, Node, Link>,
   ) {
+    this.container = container
+    this.graph = graph
+    this.config = config
+
     this.scale = config.zoom.initial
 
     this.resetView()

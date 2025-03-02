@@ -13,14 +13,28 @@ export interface FOLFragment extends TreeNode<FOLFragment> {
 export type ModelCheckerMode = 'lazy' | 'eager'
 
 export class ModelCheckerTrace implements TreeNode<ModelCheckerTrace> {
+  public readonly mode: ModelCheckerMode
+  public readonly formula: Formula
+  public readonly expected: boolean
+  public readonly actual: boolean
+  public readonly variableAssignment: VariableAssignment
+  private readonly childTraces: ModelCheckerTrace[]
+
   public constructor(
-    public readonly mode: ModelCheckerMode,
-    public readonly formula: Formula,
-    public readonly expected: boolean,
-    public readonly actual: boolean,
-    public readonly variableAssignment: VariableAssignment,
-    private readonly childTraces: ModelCheckerTrace[],
-  ) {}
+    mode: ModelCheckerMode,
+    formula: Formula,
+    expected: boolean,
+    actual: boolean,
+    variableAssignment: VariableAssignment,
+    childTraces: ModelCheckerTrace[],
+  ) {
+    this.mode = mode
+    this.formula = formula
+    this.expected = expected
+    this.actual = actual
+    this.variableAssignment = variableAssignment
+    this.childTraces = childTraces
+  }
 
   public text(): string {
     return this.formula.toFormattedString(this.variableAssignment)
@@ -55,7 +69,11 @@ export interface Formula extends FOLFragment {
 }
 
 export class ParenthesizedFormula implements Formula {
-  public constructor(public readonly inner: Formula) {}
+  public readonly inner: Formula
+
+  public constructor(inner: Formula) {
+    this.inner = inner
+  }
 
   public text(): string {
     return '()'
@@ -104,11 +122,19 @@ export class ParenthesizedFormula implements Formula {
 }
 
 export abstract class BinaryFormula implements Formula {
+  public readonly left: Formula
+  public readonly operator: string
+  public readonly right: Formula
+
   public constructor(
-    public readonly left: Formula,
-    public readonly operator: string,
-    public readonly right: Formula,
-  ) {}
+    left: Formula,
+    operator: string,
+    right: Formula,
+  ) {
+    this.left = left
+    this.operator = operator
+    this.right = right
+  }
 
   public text(): string {
     return this.operator
@@ -383,10 +409,16 @@ export class BiImplicationFormula extends BinaryFormula {
 }
 
 export abstract class UnaryFormula implements Formula {
+  public readonly inner: Formula
+  public readonly operator: string
+
   public constructor(
-    public readonly inner: Formula,
-    public readonly operator: string,
-  ) {}
+    inner: Formula,
+    operator: string,
+  ) {
+    this.inner = inner
+    this.operator = operator
+  }
 
   public text(): string {
     return this.operator
@@ -453,11 +485,19 @@ export class NotFormula extends UnaryFormula {
 }
 
 export abstract class QuantorFormula implements Formula {
+  public readonly variable: BoundVariable
+  public readonly inner: Formula
+  public readonly quantor: string
+
   public constructor(
-    public readonly variable: BoundVariable,
-    public readonly inner: Formula,
-    public readonly quantor: string,
-  ) {}
+    variable: BoundVariable,
+    inner: Formula,
+    quantor: string,
+  ) {
+    this.variable = variable
+    this.inner = inner
+    this.quantor = quantor
+  }
 
   public text(): string {
     return `${this.quantor}${this.variable.name}`
@@ -621,10 +661,16 @@ export class ExistentialQuantorFormula extends QuantorFormula {
 }
 
 export class BooleanLiteral implements Formula {
+  public readonly name: string
+  public readonly value: boolean
+
   private constructor(
-    public readonly name: string,
-    public readonly value: boolean,
-  ) {}
+    name: string,
+    value: boolean,
+  ) {
+    this.name = name
+    this.value = value
+  }
 
   public text(): string {
     return this.name
@@ -667,10 +713,16 @@ export class BooleanLiteral implements Formula {
 }
 
 export class RelationFormula implements Formula {
+  public readonly name: string
+  public readonly terms: Term[]
+
   public constructor(
-    public readonly name: string,
-    public readonly terms: Term[],
-  ) {}
+    name: string,
+    terms: Term[],
+  ) {
+    this.name = name
+    this.terms = terms
+  }
 
   public text(): string {
     return this.name
@@ -721,10 +773,16 @@ export class RelationFormula implements Formula {
 }
 
 export class EqualityRelationFormula implements Formula {
+  public readonly firstTerm: Term
+  public readonly secondTerm: Term
+
   public constructor(
-    public readonly firstTerm: Term,
-    public readonly secondTerm: Term,
-  ) {}
+    firstTerm: Term,
+    secondTerm: Term,
+  ) {
+    this.firstTerm = firstTerm
+    this.secondTerm = secondTerm
+  }
 
   public text(): string {
     return '='

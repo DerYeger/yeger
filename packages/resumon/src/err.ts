@@ -5,8 +5,11 @@ export class Err<D, E> implements Result<D, E>, Failed<E> {
   public readonly isOk = false
   public readonly isError = true
 
-  // eslint-disable-next-line node/handle-callback-err
-  public constructor(private readonly error: E) {}
+  private readonly error: E
+
+  public constructor(error: E) {
+    this.error = error
+  }
 
   public get(): D {
     throw new IllegalStateError('Cannot get data or Err')

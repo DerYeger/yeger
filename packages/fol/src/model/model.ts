@@ -1,15 +1,19 @@
 export type VariableAssignment = Record<string, number>
 
 export class Model {
+  public readonly domain: Set<number>
+  public readonly constants: Record<string, number>
   public readonly functions: Record<string, Function>
   public readonly relations: Record<string, Relation>
 
   public constructor(
-    public readonly domain: Set<number>,
-    public readonly constants: Record<string, number>,
+    domain: Set<number>,
+    constants: Record<string, number>,
     functions: Function[],
     relations: Relation[],
   ) {
+    this.domain = domain
+    this.constants = constants
     this.functions = Object.fromEntries(
       functions.map((func) => [func.name, func]),
     )
@@ -41,11 +45,19 @@ function generateAllArguments(domain: number[], remaining: number): string[] {
 }
 
 export class Function {
+  public readonly name: string
+  public readonly arity: number
+  public readonly data: Record<string, number>
+
   public constructor(
-    public readonly name: string,
-    public readonly arity: number,
-    public readonly data: Record<string, number>,
-  ) {}
+    name: string,
+    arity: number,
+    data: Record<string, number>,
+  ) {
+    this.name = name
+    this.arity = arity
+    this.data = data
+  }
 
   public apply(...args: number[]): number {
     if (args.length !== this.arity) {
@@ -72,11 +84,19 @@ export class Function {
 }
 
 export class Relation {
+  public readonly name: string
+  public readonly arity: number
+  public readonly data: Set<string>
+
   public constructor(
-    public readonly name: string,
-    public readonly arity: number,
-    public readonly data: Set<string>,
-  ) {}
+    name: string,
+    arity: number,
+    data: Set<string>,
+  ) {
+    this.name = name
+    this.arity = arity
+    this.data = data
+  }
 
   public includes(...args: number[]): boolean {
     if (args.length !== this.arity) {

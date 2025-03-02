@@ -5,7 +5,11 @@ export interface Term extends FOLFragment {
 }
 
 export class ConstantTerm implements Term {
-  public constructor(public readonly name: string) {}
+  public readonly name: string
+
+  public constructor(name: string) {
+    this.name = name
+  }
 
   public text(): string {
     return this.name
@@ -33,10 +37,16 @@ export class ConstantTerm implements Term {
 }
 
 export class FunctionTerm implements Term {
+  public readonly name: string
+  public readonly argumentTerms: Term[]
+
   public constructor(
-    public readonly name: string,
-    public readonly argumentTerms: Term[],
-  ) {}
+    name: string,
+    argumentTerms: Term[],
+  ) {
+    this.name = name
+    this.argumentTerms = argumentTerms
+  }
 
   public text(): string {
     return `${this.name}()`
@@ -72,7 +82,11 @@ export class FunctionTerm implements Term {
 }
 
 export class BoundVariable implements Term {
-  public constructor(public readonly name: string) {}
+  public readonly name: string
+
+  public constructor(name: string) {
+    this.name = name
+  }
 
   public text(): string {
     return this.name

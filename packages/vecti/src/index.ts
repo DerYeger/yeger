@@ -3,6 +3,8 @@
  * @public
  */
 export class Vector {
+  public readonly x: number
+  public readonly y: number
   /**
    * Create a vector with the given components.
    * @param x - The component of the x-axis.
@@ -20,9 +22,12 @@ export class Vector {
    * @returns The vector.
    */
   public constructor(
-    public readonly x: number,
-    public readonly y: number,
-  ) {}
+    x: number,
+    y: number,
+  ) {
+    this.x = x
+    this.y = y
+  }
 
   /**
    * Add another vector to the vector.

@@ -156,8 +156,11 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
 }
 
 class AsyncSourceStream<T> extends AsyncStream<T> {
-  private constructor(private readonly source: Iterable<T> | AsyncIterable<T>) {
+  private readonly source: Iterable<T> | AsyncIterable<T>
+
+  private constructor(source: Iterable<T> | AsyncIterable<T>) {
     super()
+    this.source = source
   }
 
   public static from<T>(source: Iterable<T> | AsyncIterable<T>) {
@@ -172,11 +175,16 @@ class AsyncSourceStream<T> extends AsyncStream<T> {
 }
 
 class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
+  private readonly previous: AsyncStream<Input>
+  private readonly fn: AsyncProcessor<Input, Output>
+
   private constructor(
-    private readonly previous: AsyncStream<Input>,
-    private readonly fn: AsyncProcessor<Input, Output>,
+    previous: AsyncStream<Input>,
+    fn: AsyncProcessor<Input, Output>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<Input, Output>(
@@ -200,11 +208,16 @@ class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
 }
 
 class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
+  private readonly previous: AsyncStream<Input>
+  private readonly fn: AsyncFlatMap<Input, Output>
+
   private constructor(
-    private readonly previous: AsyncStream<Input>,
-    private readonly fn: AsyncFlatMap<Input, Output>,
+    previous: AsyncStream<Input>,
+    fn: AsyncFlatMap<Input, Output>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<Input, Output>(
@@ -222,11 +235,16 @@ class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
 }
 
 class AsyncZipStream<T, R> extends AsyncStream<[T, R]> {
+  private readonly previous: AsyncStream<T>
+  private readonly other: Iterable<R> | AsyncIterable<R>
+
   private constructor(
-    private readonly previous: AsyncStream<T>,
-    private readonly other: Iterable<R> | AsyncIterable<R>,
+    previous: AsyncStream<T>,
+    other: Iterable<R> | AsyncIterable<R>,
   ) {
     super()
+    this.previous = previous
+    this.other = other
   }
 
   public static ofPrevious<T, R>(
@@ -252,11 +270,16 @@ class AsyncZipStream<T, R> extends AsyncStream<[T, R]> {
 }
 
 class AsyncLimitStream<T> extends AsyncStream<T> {
+  private readonly previous: AsyncStream<T>
+  private readonly n: number
+
   private constructor(
-    private readonly previous: AsyncStream<T>,
-    private readonly n: number,
+    previous: AsyncStream<T>,
+    n: number,
   ) {
     super()
+    this.previous = previous
+    this.n = n
   }
 
   public static ofPrevious<T>(previous: AsyncStream<T>, limit: number) {
@@ -284,11 +307,16 @@ class AsyncLimitStream<T> extends AsyncStream<T> {
 }
 
 class AsyncFilterStream<T> extends AsyncStream<T> {
+  private readonly previous: AsyncStream<T>
+  private readonly fn: AsyncFilter<T>
+
   private constructor(
-    private readonly previous: AsyncStream<T>,
-    private readonly fn: AsyncFilter<T>,
+    previous: AsyncStream<T>,
+    fn: AsyncFilter<T>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<T>(previous: AsyncStream<T>, fn: AsyncFilter<T>) {
@@ -311,8 +339,11 @@ class AsyncFilterStream<T> extends AsyncStream<T> {
 }
 
 class AsyncDistinctStream<T> extends AsyncStream<T> {
-  private constructor(private readonly previous: AsyncStream<T>) {
+  private readonly previous: AsyncStream<T>
+
+  private constructor(previous: AsyncStream<T>) {
     super()
+    this.previous = previous
   }
 
   public static ofPrevious<T>(previous: AsyncStream<T>) {
@@ -334,11 +365,16 @@ class AsyncDistinctStream<T> extends AsyncStream<T> {
 }
 
 class AsyncConcatStream<T> extends AsyncStream<T> {
+  private readonly previous: AsyncStream<T>
+  private readonly sources: AsyncIterable<T>[]
+
   private constructor(
-    private readonly previous: AsyncStream<T>,
-    private readonly sources: AsyncIterable<T>[],
+    previous: AsyncStream<T>,
+    sources: AsyncIterable<T>[],
   ) {
     super()
+    this.previous = previous
+    this.sources = sources
   }
 
   public static ofPrevious<T>(
@@ -363,10 +399,13 @@ class AsyncConcatStream<T> extends AsyncStream<T> {
 }
 
 class AsyncCacheStream<T> extends AsyncStream<T> {
+  private readonly previous: AsyncStream<T>
+
   private cachedInput: T[] | undefined = undefined
 
-  private constructor(private readonly previous: AsyncStream<T>) {
+  private constructor(previous: AsyncStream<T>) {
     super()
+    this.previous = previous
   }
 
   public static ofPrevious<T>(previous: AsyncStream<T>) {

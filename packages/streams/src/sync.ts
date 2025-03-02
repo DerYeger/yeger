@@ -152,8 +152,11 @@ export abstract class Stream<T> implements Iterable<T> {
 }
 
 class SourceStream<T> extends Stream<T> {
-  private constructor(private readonly source: Iterable<T>) {
+  private readonly source: Iterable<T>
+
+  private constructor(source: Iterable<T>) {
     super()
+    this.source = source
   }
 
   public static from<T>(source: Iterable<T>) {
@@ -168,11 +171,16 @@ class SourceStream<T> extends Stream<T> {
 }
 
 class MapStream<Input, Output> extends Stream<Output> {
+  private readonly previous: Stream<Input>
+  private readonly fn: Processor<Input, Output>
+
   private constructor(
-    private readonly previous: Stream<Input>,
-    private readonly fn: Processor<Input, Output>,
+    previous: Stream<Input>,
+    fn: Processor<Input, Output>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<Input, Output>(
@@ -195,11 +203,16 @@ class MapStream<Input, Output> extends Stream<Output> {
 }
 
 class FlatMapStream<Input, Output> extends Stream<Output> {
+  private readonly previous: Stream<Input>
+  private readonly fn: Processor<Input, Iterable<Output>>
+
   private constructor(
-    private readonly previous: Stream<Input>,
-    private readonly fn: Processor<Input, Iterable<Output>>,
+    previous: Stream<Input>,
+    fn: Processor<Input, Iterable<Output>>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<Input, Output>(
@@ -218,11 +231,16 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
 }
 
 class ZipStream<T, R> extends Stream<[T, R]> {
+  private readonly previous: Stream<T>
+  private readonly other: Iterable<R>
+
   private constructor(
-    private readonly previous: Stream<T>,
-    private readonly other: Iterable<R>,
+    previous: Stream<T>,
+    other: Iterable<R>,
   ) {
     super()
+    this.previous = previous
+    this.other = other
   }
 
   public static ofPrevious<T, R>(
@@ -245,11 +263,16 @@ class ZipStream<T, R> extends Stream<[T, R]> {
 }
 
 class LimitStream<T> extends Stream<T> {
+  private readonly previous: Stream<T>
+  private readonly n: number
+
   private constructor(
-    private readonly previous: Stream<T>,
-    private readonly n: number,
+    previous: Stream<T>,
+    n: number,
   ) {
     super()
+    this.previous = previous
+    this.n = n
   }
 
   public static ofPrevious<T>(previous: Stream<T>, limit: number) {
@@ -274,11 +297,16 @@ class LimitStream<T> extends Stream<T> {
 }
 
 class FilterStream<T> extends Stream<T> {
+  private readonly previous: Stream<T>
+  private readonly fn: Filter<T>
+
   private constructor(
-    private readonly previous: Stream<T>,
-    private readonly fn: Filter<T>,
+    previous: Stream<T>,
+    fn: Filter<T>,
   ) {
     super()
+    this.previous = previous
+    this.fn = fn
   }
 
   public static ofPrevious<T>(previous: Stream<T>, fn: Filter<T>) {
@@ -302,8 +330,11 @@ class FilterStream<T> extends Stream<T> {
 }
 
 class DistinctStream<T> extends Stream<T> {
-  private constructor(private readonly previous: Stream<T>) {
+  private readonly previous: Stream<T>
+
+  private constructor(previous: Stream<T>) {
     super()
+    this.previous = previous
   }
 
   public static ofPrevious<T>(previous: Stream<T>) {
@@ -325,11 +356,16 @@ class DistinctStream<T> extends Stream<T> {
 }
 
 class ConcatStream<T> extends Stream<T> {
+  private readonly previous: Stream<T>
+  private readonly sources: Iterable<T>[]
+
   private constructor(
-    private readonly previous: Stream<T>,
-    private readonly sources: Iterable<T>[],
+    previous: Stream<T>,
+    sources: Iterable<T>[],
   ) {
     super()
+    this.previous = previous
+    this.sources = sources
   }
 
   public static ofPrevious<T>(
@@ -354,10 +390,13 @@ class ConcatStream<T> extends Stream<T> {
 }
 
 class CacheStream<T> extends Stream<T> {
+  private readonly previous: Stream<T>
+
   private cachedInput: T[] | undefined = undefined
 
-  private constructor(private readonly previous: Stream<T>) {
+  private constructor(previous: Stream<T>) {
     super()
+    this.previous = previous
   }
 
   public static ofPrevious<T>(previous: Stream<T>) {
