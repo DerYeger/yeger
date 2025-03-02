@@ -3,7 +3,8 @@
   "compilerOptions": {
     "types": ["node", "vue"],
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "verbatimModuleSyntax": false
   },
   "exclude": ["node_modules", "coverage", "dist"]
 }
