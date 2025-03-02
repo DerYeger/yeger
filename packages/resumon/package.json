@@ -1,7 +1,7 @@
 {
   "name": "resumon",
   "type": "module",
-  "version": "2.0.13",
+  "version": "2.1.0",
   "description": "A tiny TypeScript result monad.",
   "author": {
     "name": "Jan Müller",

@@ -1,5 +1,11 @@
 # resumon
 
+## 2.1.0
+
+### Minor Changes
+
+- ebd01c6: enable erasableSyntaxOnly
+
 ## 2.0.13
 
 ### Patch Changes

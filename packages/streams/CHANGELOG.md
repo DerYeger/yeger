@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.3.0
+
+### Minor Changes
+
+- ebd01c6: enable erasableSyntaxOnly
+
 ## 1.2.4
 
 ### Patch Changes

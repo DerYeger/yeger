@@ -1,5 +1,11 @@
 # @yeger/turbo-graph
 
+## 2.0.13
+
+### Patch Changes
+
+- @yeger/turbo-graph-ui@2.1.6
+
 ## 2.0.12
 
 ### Patch Changes
