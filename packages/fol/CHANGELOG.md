@@ -1,5 +1,11 @@
 # @yeger/fol
 
+## 1.1.0
+
+### Minor Changes
+
+- ebd01c6: enable erasableSyntaxOnly
+
 ## 1.0.12
 
 ### Patch Changes

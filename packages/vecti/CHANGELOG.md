@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.0
+
+### Minor Changes
+
+- ebd01c6: enable erasableSyntaxOnly
+
 ## 3.0.13
 
 ### Patch Changes

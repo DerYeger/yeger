@@ -1,5 +1,17 @@
 # d3-graph-controller
 
+## 3.1.0
+
+### Minor Changes
+
+- ebd01c6: enable erasableSyntaxOnly
+
+### Patch Changes
+
+- Updated dependencies [ebd01c6]
+  - vecti@3.1.0
+  - @yeger/debounce@2.0.12
+
 ## 3.0.13
 
 ### Patch Changes
