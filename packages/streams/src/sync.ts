@@ -163,7 +163,7 @@ class SourceStream<T> extends Stream<T> {
     return new SourceStream(source)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
+  public* [Symbol.iterator](): IterableIterator<T> {
     for (const value of this.source) {
       yield value
     }
@@ -194,7 +194,7 @@ class MapStream<Input, Output> extends Stream<Output> {
     return new MapStream(previous, fn)
   }
 
-  public *[Symbol.iterator](): IterableIterator<Output> {
+  public* [Symbol.iterator](): IterableIterator<Output> {
     let index = 0
     for (const item of this.previous) {
       yield this.fn(item, index++)
@@ -222,10 +222,10 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
     return new FlatMapStream(previous, fn)
   }
 
-  public *[Symbol.iterator](): IterableIterator<Output> {
+  public* [Symbol.iterator](): IterableIterator<Output> {
     let index = 0
     for (const item of this.previous) {
-      yield * this.fn(item, index++)
+      yield* this.fn(item, index++)
     }
   }
 }
@@ -250,7 +250,7 @@ class ZipStream<T, R> extends Stream<[T, R]> {
     return new ZipStream(previous, other)
   }
 
-  public *[Symbol.iterator](): IterableIterator<[T, R]> {
+  public* [Symbol.iterator](): IterableIterator<[T, R]> {
     const otherIterator = this.other[Symbol.iterator]()
     for (const item of this.previous) {
       const otherItem = otherIterator.next()
@@ -282,7 +282,7 @@ class LimitStream<T> extends Stream<T> {
     return new LimitStream<T>(previous, limit)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
+  public* [Symbol.iterator](): IterableIterator<T> {
     let count = 0
     if (this.n <= count) {
       return
@@ -319,7 +319,7 @@ class FilterStream<T> extends Stream<T> {
     return new FilterStream<T>(previous, fn)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
+  public* [Symbol.iterator](): IterableIterator<T> {
     let index = 0
     for (const item of this.previous) {
       if (this.fn(item, index++)) {
@@ -344,7 +344,7 @@ class DistinctStream<T> extends Stream<T> {
     return new DistinctStream<T>(previous)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
+  public* [Symbol.iterator](): IterableIterator<T> {
     const set = new Set<T>()
     for (const item of this.previous) {
       if (!set.has(item)) {
@@ -381,10 +381,10 @@ class ConcatStream<T> extends Stream<T> {
     return new ConcatStream<T>(previous, sources)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
-    yield * this.previous
+  public* [Symbol.iterator](): IterableIterator<T> {
+    yield* this.previous
     for (const source of this.sources) {
-      yield * source
+      yield* source
     }
   }
 }
@@ -406,9 +406,9 @@ class CacheStream<T> extends Stream<T> {
     return new CacheStream<T>(previous)
   }
 
-  public *[Symbol.iterator](): IterableIterator<T> {
+  public* [Symbol.iterator](): IterableIterator<T> {
     if (this.cachedInput) {
-      yield * this.cachedInput
+      yield* this.cachedInput
       return
     }
     const cache: T[] = []

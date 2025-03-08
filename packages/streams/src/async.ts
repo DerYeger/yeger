@@ -167,7 +167,7 @@ class AsyncSourceStream<T> extends AsyncStream<T> {
     return new AsyncSourceStream(source)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     for await (const value of this.source) {
       yield value
     }
@@ -200,7 +200,7 @@ class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
     return new AsyncMapStream(previous, fn)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<Output> {
     for await (const item of this.previous) {
       yield this.fn(item)
     }
@@ -227,9 +227,9 @@ class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
     return new AsyncFlatMapStream(previous, fn)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<Output> {
     for await (const item of this.previous) {
-      yield * this.fn(item)
+      yield* this.fn(item)
     }
   }
 }
@@ -254,7 +254,7 @@ class AsyncZipStream<T, R> extends AsyncStream<[T, R]> {
     return new AsyncZipStream(previous, other)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<[T, R]> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<[T, R]> {
     const otherIterator =
       Symbol.asyncIterator in this.other
         ? this.other[Symbol.asyncIterator]()
@@ -292,7 +292,7 @@ class AsyncLimitStream<T> extends AsyncStream<T> {
     return new AsyncLimitStream<T>(previous, limit)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     let count = 0
     if (this.n <= count) {
       return
@@ -329,7 +329,7 @@ class AsyncFilterStream<T> extends AsyncStream<T> {
     return new AsyncFilterStream<T>(previous, fn)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     for await (const item of this.previous) {
       if (await this.fn(item)) {
         yield item
@@ -353,7 +353,7 @@ class AsyncDistinctStream<T> extends AsyncStream<T> {
     return new AsyncDistinctStream<T>(previous)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     const set = new Set<T>()
     for await (const item of this.previous) {
       if (!set.has(item)) {
@@ -390,10 +390,10 @@ class AsyncConcatStream<T> extends AsyncStream<T> {
     return new AsyncConcatStream<T>(previous, streams)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    yield * this.previous
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
+    yield* this.previous
     for (const source of this.sources) {
-      yield * source
+      yield* source
     }
   }
 }
@@ -415,9 +415,9 @@ class AsyncCacheStream<T> extends AsyncStream<T> {
     return new AsyncCacheStream<T>(previous)
   }
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
+  public async* [Symbol.asyncIterator](): AsyncIterableIterator<T> {
     if (this.cachedInput) {
-      yield * this.cachedInput
+      yield* this.cachedInput
       return
     }
     const cache: T[] = []
