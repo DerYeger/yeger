@@ -15,7 +15,7 @@
   "dependencies": {
     "@codemirror/language": "6.10.8",
     "@codemirror/legacy-modes": "6.4.3",
-    "@vueuse/core": "12.8.2",
+    "@vueuse/core": "13.0.0",
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
