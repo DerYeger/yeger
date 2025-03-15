@@ -48,6 +48,12 @@
     {
       "matchPackageNames": ["@unhead/vue"],
       "allowedVersions": "<=1.2.2"
+    },
+    {
+      "matchPackageNames": [
+        "nuxt"
+      ],
+      "allowedVersions": "<=3.15.4"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],

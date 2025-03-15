@@ -13,22 +13,22 @@
     "check:vue": "nuxi typecheck"
   },
   "dependencies": {
-    "@codemirror/language": "6.10.8",
-    "@codemirror/legacy-modes": "6.4.3",
+    "@codemirror/language": "6.11.0",
+    "@codemirror/legacy-modes": "6.5.0",
     "@vueuse/core": "13.0.0",
     "@yeger/fol": "workspace:*",
     "codemirror": "6.0.1",
     "d3-graph-controller": "workspace:*",
     "localforage": "1.10.0",
     "resumon": "workspace:*",
-    "splitpanes": "4.0.1",
+    "splitpanes": "4.0.2",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
     "yaml": "2.7.0",
     "zod": "3.24.2"
   },
   "devDependencies": {
-    "@nuxtjs/robots": "5.2.6",
+    "@nuxtjs/robots": "5.2.8",
     "@unhead/shared": "1.11.20",
     "@unocss/nuxt": "66.0.0",
     "@unocss/reset": "66.0.0",
@@ -40,7 +40,7 @@
     "nuxt-icon": "0.6.10",
     "typescript": "5.8.2",
     "ufo": "1.5.4",
-    "vite": "6.2.1",
+    "vite": "6.2.2",
     "vue": "3.5.13",
     "vue-router": "4.5.0",
     "vue-tsc": "2.2.8"

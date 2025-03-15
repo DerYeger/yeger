@@ -55,16 +55,16 @@
     "@yeger/vue-masonry-wall-core": "workspace:*"
   },
   "devDependencies": {
-    "@babel/types": "7.26.9",
+    "@babel/types": "7.26.10",
     "@types/resize-observer-browser": "0.1.11",
     "@vitejs/plugin-vue": "5.2.1",
     "@vue/test-utils": "2.4.6",
     "@yeger/tsconfig": "workspace:*",
-    "bundlesize2": "0.0.34",
+    "bundlesize2": "0.0.35",
     "flush-promises": "1.0.2",
     "jsdom": "26.0.0",
     "typescript": "5.8.2",
-    "vite": "6.2.1",
+    "vite": "6.2.2",
     "vite-plugin-lib": "workspace:*",
     "vue": "3.5.13",
     "vue-tsc": "2.2.8"
