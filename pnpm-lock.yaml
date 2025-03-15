@@ -68,8 +68,8 @@ importers:
         specifier: 13.0.2
         version: 13.0.2(typescript@4.9.5)
       taze:
-        specifier: 18.7.1
-        version: 18.7.1
+        specifier: 19.0.2
+        version: 19.0.2
       turbo:
         specifier: 2.4.4
         version: 2.4.4
@@ -1164,14 +1164,15 @@ packages:
     resolution: {integrity: sha512-C90iyzm/jLV7Lomv2UzwWUzRv9WZr1oRsFRKsX5HjQL4EXrbi9H/RtBkjCP+NF+ABZXUKpAa4F1dkoTaea4zHg==}
     hasBin: true
 
+  '@antfu/ni@24.2.0':
+    resolution: {integrity: sha512-+B9wzpv+KOhqbOgHjHcBAX7IwIKdDt4SFzYlxIPr4srANFJfjAABC7nU8KNFba+DYLymRe2EPSUfE7+reJb5UA==}
+    hasBin: true
+
   '@antfu/utils@0.7.10':
     resolution: {integrity: sha512-+562v9k4aI80m1+VuMHehNJWLOFjBnXn3tdOitzD0il5b7smkSBal4+a3oKiQTbrwMmN/TBUMDvbdoWDehgOww==}
 
   '@antfu/utils@8.1.0':
     resolution: {integrity: sha512-XPR7Jfwp0FFl/dFYPX8ZjpmU4/1mIXTjnZ1ba48BLMyKOV62/tiRjdsFcPs2hsYcSud4tzk7w3a3LjX8Fu3huA==}
-
-  '@antfu/utils@9.1.0':
-    resolution: {integrity: sha512-R+3bzxNN0ZscQg3ZVG7suqBTFP2dbdaCjKe5KY6hqNZimdyZ32KemotJPmoqQhKH28CqdgyXQGkWZlCGsGQmJw==}
 
   '@apideck/better-ajv-errors@0.3.6':
     resolution: {integrity: sha512-P+ZygBLZtkp0qqOAJJVX4oX/sFo5JR3eBWwwuqHHhK0GIgQOKWrAfiAaWX0aArHkRWHMuggFEgAZNxVPwPZYaA==}
@@ -6789,6 +6790,9 @@ packages:
     resolution: {integrity: sha512-trLf4SzuuUxfusZADLINj+dE8clK1frKdmqiJNb1Es75fmI5oY6X2mxLVUciLLjxqw/xr72Dhy+lER6dGd02FQ==}
     engines: {node: '>=10'}
 
+  fzf@0.5.2:
+    resolution: {integrity: sha512-Tt4kuxLXFKHy8KT40zwsUPUkg1CrsgY25FxA2U/j/0WgEDCk3ddc/zLTCCcbSHX9FcKtLuVaDGtGE/STWC+j3Q==}
+
   generic-pool@3.4.2:
     resolution: {integrity: sha512-H7cUpwCQSiJmAHM4c/aFu6fUfrhWXW1ncyh8ftxEPMu6AiYkHw9K8br720TGPZJbk5eOH2bynjZD1yPvdDAmag==}
     engines: {node: '>= 4'}
@@ -8677,6 +8681,9 @@ packages:
   package-manager-detector@0.2.9:
     resolution: {integrity: sha512-+vYvA/Y31l8Zk8dwxHhL3JfTuHPm6tlxM2A3GeQyl7ovYnSp1+mzAxClxaOr0qO1TtPxbQxetI7v5XqKLJZk7Q==}
 
+  package-manager-detector@1.0.0:
+    resolution: {integrity: sha512-7elnH+9zMsRo7aS72w6MeRugTpdRvInmEB4Kmm9BVvPw/SLG8gXUGQ+4wF0Mys0RSWPz0B9nuBbDe8vFeA2sfg==}
+
   packrup@0.1.2:
     resolution: {integrity: sha512-ZcKU7zrr5GlonoS9cxxrb5HVswGnyj6jQvwFBa6p5VFw7G71VAHcUKL5wyZSU/ECtPM/9gacWxy2KFQKt1gMNA==}
 
@@ -10278,8 +10285,8 @@ packages:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
     engines: {node: '>=18'}
 
-  taze@18.7.1:
-    resolution: {integrity: sha512-RO4g9GMPc05fYDS1niGnm2pqljo4HZdItcSK3yAmms25raolme1g217eXLtIvpYUgtNpndqrRdVr4Rv4Eer/GQ==}
+  taze@19.0.2:
+    resolution: {integrity: sha512-SEFTzn2Armn0nsHt4tVoVEOGLb8mxnrYfgOItBfayCbaDHi9DrRkH7UP7wqra3b04kf6dW6KYdroIQCnCAzQOA==}
     hasBin: true
 
   temp-dir@2.0.0:
@@ -10663,8 +10670,8 @@ packages:
   unconfig@7.0.0:
     resolution: {integrity: sha512-G5CJSoG6ZTxgzCJblEfgpdRK2tos9+UdD2WtecDUVfImzQ0hFjwpH5RVvGMhP4pRpC9ML7NrC4qBsBl0Ttj35A==}
 
-  unconfig@7.3.0:
-    resolution: {integrity: sha512-UWYFZinVx2ZRE5Dzp2kI4xBkNC//veYakve1BeaAa7CNrf9TckEKlBiFUSrHOuoEDgu1URhNy219ZXsprIrvjQ==}
+  unconfig@7.3.1:
+    resolution: {integrity: sha512-LH5WL+un92tGAzWS87k7LkAfwpMdm7V0IXG2FxEjZz/QxiIW5J5LkcrKQThj0aRz6+h/lFmKI9EUXmK/T0bcrw==}
 
   uncrypto@0.1.3:
     resolution: {integrity: sha512-Ql87qFHB3s/De2ClA9e0gsnS6zXG27SkTiSJwjCc9MebbfapQfuPzumMIUMi38ezPZVNFcHI9sUIepeQfw8J8Q==}
@@ -11817,11 +11824,16 @@ snapshots:
 
   '@antfu/ni@23.3.1': {}
 
+  '@antfu/ni@24.2.0':
+    dependencies:
+      ansis: 3.17.0
+      fzf: 0.5.2
+      package-manager-detector: 1.0.0
+      tinyexec: 0.3.2
+
   '@antfu/utils@0.7.10': {}
 
   '@antfu/utils@8.1.0': {}
-
-  '@antfu/utils@9.1.0': {}
 
   '@apideck/better-ajv-errors@0.3.6(ajv@8.17.1)':
     dependencies:
@@ -18691,6 +18703,8 @@ snapshots:
 
   fuse.js@7.1.0: {}
 
+  fzf@0.5.2: {}
+
   generic-pool@3.4.2: {}
 
   gensync@1.0.0-beta.2: {}
@@ -21056,6 +21070,8 @@ snapshots:
 
   package-manager-detector@0.2.9: {}
 
+  package-manager-detector@1.0.0: {}
+
   packrup@0.1.2: {}
 
   param-case@2.1.1:
@@ -23027,18 +23043,20 @@ snapshots:
       mkdirp: 3.0.1
       yallist: 5.0.0
 
-  taze@18.7.1:
+  taze@19.0.2:
     dependencies:
-      '@antfu/ni': 23.3.1
+      '@antfu/ni': 24.2.0
+      cac: 6.7.14
       find-up-simple: 1.0.1
       ofetch: 1.4.1
-      package-manager-detector: 0.2.11
+      package-manager-detector: 1.0.0
       pathe: 2.0.3
       pnpm-workspace-yaml: 0.1.2
+      restore-cursor: 5.1.0
       tinyexec: 0.3.2
-      unconfig: 7.3.0
+      tinyglobby: 0.2.12
+      unconfig: 7.3.1
       yaml: 2.7.0
-      yargs: 17.7.2
 
   temp-dir@2.0.0: {}
 
@@ -23434,9 +23452,8 @@ snapshots:
       defu: 6.1.4
       jiti: 2.4.2
 
-  unconfig@7.3.0:
+  unconfig@7.3.1:
     dependencies:
-      '@antfu/utils': 9.1.0
       '@quansync/fs': 0.1.1
       defu: 6.1.4
       jiti: 2.4.2
