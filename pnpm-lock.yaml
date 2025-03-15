@@ -89,8 +89,8 @@ importers:
         specifier: 6.4.3
         version: 6.4.3
       '@vueuse/core':
-        specifier: 12.8.2
-        version: 12.8.2(typescript@5.8.2)
+        specifier: 13.0.0
+        version: 13.0.0(vue@3.5.13(typescript@5.8.2))
       '@yeger/fol':
         specifier: workspace:*
         version: link:../../packages/fol
@@ -1159,10 +1159,6 @@ packages:
 
   '@antfu/install-pkg@1.0.0':
     resolution: {integrity: sha512-xvX6P/lo1B3ej0OsaErAjqgFYzYVcJpamjLAFLYh9vRJngBrMoUG7aVnrGTeqM7yxbyTD5p3F2+0/QUEh8Vzhw==}
-
-  '@antfu/ni@23.3.1':
-    resolution: {integrity: sha512-C90iyzm/jLV7Lomv2UzwWUzRv9WZr1oRsFRKsX5HjQL4EXrbi9H/RtBkjCP+NF+ABZXUKpAa4F1dkoTaea4zHg==}
-    hasBin: true
 
   '@antfu/ni@24.2.0':
     resolution: {integrity: sha512-+B9wzpv+KOhqbOgHjHcBAX7IwIKdDt4SFzYlxIPr4srANFJfjAABC7nU8KNFba+DYLymRe2EPSUfE7+reJb5UA==}
@@ -11835,8 +11831,6 @@ snapshots:
     dependencies:
       package-manager-detector: 0.2.9
       tinyexec: 0.3.2
-
-  '@antfu/ni@23.3.1': {}
 
   '@antfu/ni@24.2.0':
     dependencies:
