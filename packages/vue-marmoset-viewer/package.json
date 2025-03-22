@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@types/resize-observer-browser": "0.1.11",
-    "@vitejs/plugin-vue": "5.2.1",
+    "@vitejs/plugin-vue": "5.2.3",
     "@vue/test-utils": "2.4.6",
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "0.0.35",
