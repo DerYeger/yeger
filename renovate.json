@@ -46,10 +46,6 @@
       "allowedVersions": "<9"
     },
     {
-      "matchPackageNames": ["@unhead/vue"],
-      "allowedVersions": "<=1.2.2"
-    },
-    {
       "matchPackageNames": [
         "nuxt"
       ],
