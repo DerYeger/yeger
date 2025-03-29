@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@nuxtjs/robots": "5.2.8",
-    "@unhead/shared": "1.11.20",
+    "@unhead/shared": "2.0.2",
     "@unocss/nuxt": "66.0.0",
     "@unocss/reset": "66.0.0",
     "@vite-pwa/nuxt": "0.10.6",
