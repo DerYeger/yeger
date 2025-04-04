@@ -16,7 +16,7 @@
     "@yeger/tsconfig": "workspace:*",
     "critters": "0.0.25",
     "typescript": "5.8.2",
-    "vite": "6.2.4",
+    "vite": "6.2.5",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "26.1.0",
     "vue": "3.5.13",
