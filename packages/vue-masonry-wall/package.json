@@ -63,7 +63,7 @@
     "bundlesize2": "0.0.35",
     "flush-promises": "1.0.2",
     "jsdom": "26.0.0",
-    "typescript": "5.8.2",
+    "typescript": "5.8.3",
     "vite": "6.2.5",
     "vite-plugin-lib": "workspace:*",
     "vue": "3.5.13",
