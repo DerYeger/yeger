@@ -50,7 +50,7 @@
     "kolorist": "1.8.0"
   },
   "devDependencies": {
-    "@types/node": "22.14.0",
+    "@types/node": "22.14.1",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
