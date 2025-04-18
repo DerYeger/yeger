@@ -70,7 +70,7 @@ export function tsconfigPaths(options: Partial<Options> = {}): Plugin {
       const tsconfigPath = path.resolve(config.root ?? '.', tsconfig)
       const { baseUrl, paths } = await readConfig(tsconfigPath)
       if (!baseUrl || !paths) {
-        log('No paths found in tsconfig.json.')
+        log(`No paths found in ${tsconfig}.`)
         return config
       }
       const pathToAlias = pathToAliasFactory(tsconfigPath, baseUrl, verbose)
@@ -238,7 +238,7 @@ function formatToFileName(entry: string, format: string): string {
 export function library(options: Partial<Options> = {}): Plugin[] {
   const mergedOptions = mergeWithDefaults(options)
   const plugins = [
-    tsconfigPaths(),
+    tsconfigPaths(mergedOptions),
     buildConfig(mergedOptions),
     dts({
       cleanVueFileName: true,
@@ -293,7 +293,7 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
     return options
   } catch (error: any) {
     const message = getErrorMessage(error)
-    logError(`Could not read tsconfig.json: ${message}`)
+    logError(`Could not read ${configPath}: ${message}`)
     throw error
   }
 }
