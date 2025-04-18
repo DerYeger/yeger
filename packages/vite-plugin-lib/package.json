@@ -1,7 +1,7 @@
 {
   "name": "vite-plugin-lib",
   "type": "module",
-  "version": "2.1.6",
+  "version": "2.2.0",
   "description": "Vite plugin for build configuration, automatic aliases, and type declarations.",
   "author": "Jan Müller <janmueller3698@gmail.com>",
   "license": "MIT",
