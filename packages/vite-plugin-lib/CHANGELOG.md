@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.2.0
+
+### Minor Changes
+
+- d234ef9: enable custom tsconfig locations
+
 ## 2.1.6
 
 ### Patch Changes
