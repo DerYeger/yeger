@@ -42,6 +42,8 @@ export interface Options {
   verbose?: boolean
   /** Remove any temporary build files. Defaults to `true`. */
   cleanup?: boolean
+  /** Path to the tsconfig file (relative to the project root). Defaults to `./tsconfig.json` */
+  tsconfig: string
 }
 
 const defaults = {
@@ -49,6 +51,7 @@ const defaults = {
   formats: ['es'],
   manifest: 'package.json',
   cleanup: true,
+  tsconfig: './tsconfig.json',
 } satisfies Partial<Options>
 
 function mergeWithDefaults(options: Partial<Options>): Options {
@@ -59,12 +62,12 @@ function mergeWithDefaults(options: Partial<Options>): Options {
 }
 
 export function tsconfigPaths(options: Partial<Options> = {}): Plugin {
-  const { verbose } = mergeWithDefaults(options)
+  const { verbose, tsconfig } = mergeWithDefaults(options)
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
     config: async (config) => {
-      const tsconfigPath = path.resolve(config.root ?? '.', 'tsconfig.json')
+      const tsconfigPath = path.resolve(config.root ?? '.', tsconfig)
       const { baseUrl, paths } = await readConfig(tsconfigPath)
       if (!baseUrl || !paths) {
         log('No paths found in tsconfig.json.')
@@ -243,6 +246,7 @@ export function library(options: Partial<Options> = {}): Plugin[] {
       include: `${path.resolve(mergedOptions.entry, '..')}/**`,
       outDir: typesDir,
       staticImport: true,
+      tsconfigPath: mergedOptions.tsconfig,
       afterBuild: async () => {
         if (includesESFormat(mergedOptions.formats)) {
           await generateMTSDeclarations(

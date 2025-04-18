@@ -46,7 +46,8 @@ export default defineConfig({
       formats: ['es'], // optional, default is ['es']
       name: 'YourGlobalUMDName', // optional if format does not include 'umd' or 'iife'
       external: ['some-package'], // optional, default is all node_modules and builtin modules
-      manifest: 'package.json', // relative path to package.json, default is package.json
+      manifest: 'package.json', // relative path to package.json, default is package.json,
+      tsconfig: 'tsconfig.json', // relative path to tsconfig.json, default is tsconfig.json
     }),
   ],
 })
