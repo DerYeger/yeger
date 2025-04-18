@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 2.2.1
+
+### Patch Changes
+
+- 4624ead: pass options to nested plugins
+
 ## 2.2.0
 
 ### Minor Changes
