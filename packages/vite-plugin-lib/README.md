@@ -45,7 +45,16 @@ export default defineConfig({
       entry: 'src/index.ts', // file name determines output file names, default is 'src/index.ts'
       formats: ['es'], // optional, default is ['es']
       name: 'YourGlobalUMDName', // optional if format does not include 'umd' or 'iife'
-      external: ['some-package'], // optional, default is all node_modules and builtin modules
+      // optional, default externalizes all builtin modules, node_modules, dependencies, and peerDependencies
+      bundle: {
+        builtin: false,
+        dependencies: false,
+        devDependencies: true,
+        peerDependencies: false,
+        exclude: [], // individual packages or modules to externalize
+        include: [], // override the default externalization for individual packages or modules
+        nodeModules: false,
+      },
       manifest: 'package.json', // relative path to package.json, default is package.json,
       tsconfig: 'tsconfig.json', // relative path to tsconfig.json, default is tsconfig.json
     }),

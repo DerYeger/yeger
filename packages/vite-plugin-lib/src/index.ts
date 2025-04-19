@@ -30,39 +30,84 @@ export const coverage = {
   provider: 'v8' as const,
 }
 
-export interface Options {
-  /** Defaults to `src/index.ts`. */
-  entry: string
-  externalPackages?: (string | RegExp)[]
-  /** Defaults to `['es']`. */
-  formats?: LibraryFormats[]
-  /** Defaults to `package.json`. */
-  manifest: string
-  name?: string
-  verbose?: boolean
-  /** Remove any temporary build files. Defaults to `true`. */
-  cleanup?: boolean
+export interface CommonOptions {
+  verbose: boolean
+}
+
+const COMMON_DEFAULTS = {
+  verbose: false,
+} satisfies Partial<CommonOptions>
+
+export interface TSConfigPathsOptions extends CommonOptions {
   /** Path to the tsconfig file (relative to the project root). Defaults to `./tsconfig.json` */
   tsconfig: string
 }
 
-const defaults = {
+const TS_CONFIG_PATHS_OPTIONS = {
+  ...COMMON_DEFAULTS,
+  tsconfig: './tsconfig.json',
+} satisfies Partial<TSConfigPathsOptions>
+
+export interface BundleOptions {
+  /** If `false`, all builtin modules will be externalized. Defaults to `false`. */
+  builtin: boolean
+  /** If `false`, all dependencies will be externalized. Defaults to `false`. */
+  dependencies: boolean
+  /** If `false`, all devDependencies will be externalized. Defaults to `true`. */
+  devDependencies: boolean
+  /** If `false`, all dependencies will be externalized. Defaults to `false`. */
+  peerDependencies: boolean
+  /** List of packages or modules to externalize. Defaults to `[]`. */
+  exclude: (string | RegExp)[]
+  /** List of packages or modules to bundle. Acts as an override and defaults to `[]`. */
+  include: (string | RegExp)[]
+  /** If `false`, all direct imports from `node_modules` will be externalized. Defaults to `false`. */
+  nodeModules: boolean
+}
+
+const BUNDLE_DEFAULTS = {
+  builtin: false,
+  dependencies: false,
+  devDependencies: true,
+  peerDependencies: false,
+  exclude: [],
+  include: [],
+  nodeModules: false,
+} satisfies BundleOptions
+
+export interface LibraryOptions extends TSConfigPathsOptions {
+  /** Defaults to `src/index.ts`. */
+  entry: string
+  /** Bundle configuration for packages and modules. See {@link BundleOptions} for defaults. */
+  bundle: Partial<BundleOptions>
+  /** Defaults to `['es']`. */
+  formats: LibraryFormats[]
+  /** Defaults to `package.json`. */
+  manifest: string
+  name?: string
+  /** Remove any temporary build files. Defaults to `true`. */
+  cleanup: boolean
+}
+
+const LIBRARY_DEFAULTS = {
+  ...TS_CONFIG_PATHS_OPTIONS,
+  cleanup: true,
   entry: 'src/index.ts',
+  bundle: {},
   formats: ['es'],
   manifest: 'package.json',
-  cleanup: true,
-  tsconfig: './tsconfig.json',
-} satisfies Partial<Options>
+} satisfies Partial<LibraryOptions>
 
-function mergeWithDefaults(options: Partial<Options>): Options {
+function mergeWithDefaults(options: Partial<LibraryOptions>): LibraryOptions {
   return {
-    ...defaults,
+    ...LIBRARY_DEFAULTS,
     ...options,
   }
 }
 
-export function tsconfigPaths(options: Partial<Options> = {}): Plugin {
-  const { verbose, tsconfig } = mergeWithDefaults(options)
+export function tsconfigPaths(options: Partial<TSConfigPathsOptions> = {}): Plugin {
+  const tsconfig = options.tsconfig ?? TS_CONFIG_PATHS_OPTIONS.tsconfig
+  const verbose = options.verbose ?? TS_CONFIG_PATHS_OPTIONS.verbose
   return {
     name: 'vite-plugin-lib:alias',
     enforce: 'pre',
@@ -97,10 +142,20 @@ function buildConfig({
   formats,
   manifest,
   name,
-  externalPackages,
-}: Options): Plugin {
-  if (!externalPackages) {
-    log('Externalized all packages.')
+  bundle,
+  verbose,
+}: LibraryOptions): Plugin {
+  const bundleWithDefaults = { ...BUNDLE_DEFAULTS, ...bundle }
+  const packagesToExternalize = [
+    ...getBuiltinModules(bundleWithDefaults),
+    ...getDependencies(manifest, bundleWithDefaults, verbose),
+    ...bundleWithDefaults.exclude,
+  ]
+  if (!bundleWithDefaults.nodeModules) {
+    packagesToExternalize.push(/node_modules/)
+    if (verbose) {
+      log(`Externalized node_modules.`)
+    }
   }
   return {
     name: 'vite-plugin-lib:build',
@@ -118,12 +173,11 @@ function buildConfig({
             fileName: (format: string) => formatToFileName(entry, format),
           },
           rollupOptions: {
-            external: externalPackages ?? [
-              /node_modules/,
-              ...builtinModules,
-              /node:/,
-              ...getDependencies(manifest),
-            ],
+            external: (source: string, _importer: string | undefined, _isResolved: boolean) => {
+              const shouldBeExternalized = packagesToExternalize.some((rule) => matchesRule(source, rule))
+              const shouldBeBundled = bundleWithDefaults.include.some((rule) => matchesRule(source, rule))
+              return shouldBeExternalized && !shouldBeBundled
+            },
           },
         },
       }
@@ -131,16 +185,50 @@ function buildConfig({
   }
 }
 
-function getDependencies(manifest: string): string[] {
+function matchesRule(source: string, rule: string | RegExp) {
+  return typeof rule === 'string' ? rule === source : rule.test(source)
+}
+
+function getDependencies(manifest: string, bundle: BundleOptions, verbose: boolean): string[] {
   try {
     const content = readFileSync(manifest, { encoding: 'utf-8' })
-    const { dependencies = {}, peerDependencies = {} } = JSON.parse(content)
-    return Object.keys({ ...dependencies, ...peerDependencies })
+    const { dependencies = {}, devDependencies = {}, peerDependencies = {} } = JSON.parse(content)
+    const dependenciesToExternalize: string[] = []
+    if (!bundle.dependencies) {
+      const names = Object.keys(dependencies)
+      dependenciesToExternalize.push(...names)
+      if (verbose) {
+        log(`Externalized ${names.length} dependencies.`)
+      }
+    }
+    if (!bundle.devDependencies) {
+      const names = Object.keys(devDependencies)
+      dependenciesToExternalize.push(...names)
+      if (verbose) {
+        log(`Externalized ${names.length} devDependencies.`)
+      }
+    }
+    if (!bundle.peerDependencies) {
+      const names = Object.keys(peerDependencies)
+      dependenciesToExternalize.push(...names)
+      if (verbose) {
+        log(`Externalized ${names.length} peerDependencies.`)
+      }
+    }
+    return dependenciesToExternalize
   } catch (error) {
     const message = getErrorMessage(error)
     logError(`Could not read ${c.green(manifest)}: ${message}`)
     throw error
   }
+}
+
+function getBuiltinModules(bundle: BundleOptions) {
+  if (bundle.builtin) {
+    return []
+  }
+  log('Externalized builtin modules.')
+  return [...builtinModules, /node:/, /bun:/, /deno:/]
 }
 
 function logInjectedAliases(
@@ -156,7 +244,7 @@ function logInjectedAliases(
   aliasOptions
     .map(
       ({ find, replacement }) =>
-        `${c.gray('>')} ${c.green(find.toString())} ${c.gray(
+        `  ${c.gray('>')} ${c.green(find.toString())} ${c.gray(
           c.bold('->'),
         )} ${c.green(replacement.replace(base, ''))}`,
     )
@@ -235,7 +323,7 @@ function formatToFileName(entry: string, format: string): string {
   return `${entryFileName}.${format}.js`
 }
 
-export function library(options: Partial<Options> = {}): Plugin[] {
+export function library(options: Partial<LibraryOptions> = {}): Plugin[] {
   const mergedOptions = mergeWithDefaults(options)
   const plugins = [
     tsconfigPaths(mergedOptions),
@@ -311,7 +399,8 @@ function getErrorMessage(error: unknown) {
 /**
  * Remove any temporary `vite.config.ts.timestamp-*` files.
  */
-export function cleanup(options?: Partial<Pick<Options, 'verbose'>>): Plugin {
+export function cleanup(options: Partial<CommonOptions> = {}): Plugin {
+  const verbose = options.verbose ?? COMMON_DEFAULTS.verbose
   return {
     name: 'vite-plugin-lib:cleanup',
     enforce: 'post',
@@ -324,7 +413,7 @@ export function cleanup(options?: Partial<Pick<Options, 'verbose'>>): Plugin {
         rmSync(`./${file}`)
         deletedCount++
       })
-      if (options?.verbose) {
+      if (verbose) {
         log(`Removed ${deletedCount} temporary files.`)
       }
     },
