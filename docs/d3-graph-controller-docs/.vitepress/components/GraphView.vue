@@ -3,7 +3,9 @@ import { GraphController } from 'd3-graph-controller'
 import { onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
 import 'd3-graph-controller/default.css'
 
-import type { DemoGraph, DemoGraphConfig } from '../demo/model'
+import type { DemoLink } from '../demo/link'
+import type { DemoGraph, DemoGraphConfig, DemoType } from '../demo/model'
+import type { DemoNode } from '../demo/node'
 
 const props = defineProps<{
   graph: DemoGraph
@@ -14,7 +16,7 @@ const { graph, config } = toRefs(props)
 
 const el = ref<HTMLDivElement>()
 
-const controller = ref<GraphController | undefined>()
+const controller = ref<GraphController<DemoType, DemoNode, DemoLink> | undefined>()
 
 const maxWeight = ref(5)
 
@@ -72,7 +74,7 @@ function resetGraphController() {
             type="checkbox"
             :checked="controller?.nodeTypeFilter.includes(type)"
             @change="
-              controller?.filterNodesByType($event.currentTarget.checked, type)
+              controller?.filterNodesByType(($event.currentTarget as HTMLInputElement).checked, type)
             "
           >
           <label :for="`type-${type}`">{{ type }}</label>

@@ -260,7 +260,7 @@ export function library(options: Partial<Options> = {}): Plugin[] {
   ]
 
   if (mergedOptions.cleanup) {
-    plugins.push(cleanup())
+    plugins.push(cleanup(mergedOptions))
   }
 
   return plugins
@@ -311,7 +311,7 @@ function getErrorMessage(error: unknown) {
 /**
  * Remove any temporary `vite.config.ts.timestamp-*` files.
  */
-export function cleanup(): Plugin {
+export function cleanup(options?: Partial<Pick<Options, 'verbose'>>): Plugin {
   return {
     name: 'vite-plugin-lib:cleanup',
     enforce: 'post',
@@ -324,7 +324,9 @@ export function cleanup(): Plugin {
         rmSync(`./${file}`)
         deletedCount++
       })
-      log(`Removed ${deletedCount} temporary files.`)
+      if (options?.verbose) {
+        log(`Removed ${deletedCount} temporary files.`)
+      }
     },
   }
 }
