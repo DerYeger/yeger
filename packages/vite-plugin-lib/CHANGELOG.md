@@ -1,5 +1,15 @@
 # vite-plugin-lib
 
+## 3.0.0
+
+### Major Changes
+
+- 7ac1f5c: improve bundling configuration
+
+### Minor Changes
+
+- f702222: add verbose option to cleanup plugin
+
 ## 2.2.1
 
 ### Patch Changes
