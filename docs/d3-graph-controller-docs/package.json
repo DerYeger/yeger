@@ -21,9 +21,9 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.8.3",
     "unplugin-vue-components": "28.5.0",
-    "vite": "6.3.2",
+    "vite": "6.3.3",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "1.6.3",
-    "vue-tsc": "2.2.8"
+    "vue-tsc": "2.2.10"
   }
 }

@@ -49,11 +49,11 @@
     "vite-plugin-dts": "4.5.3"
   },
   "devDependencies": {
-    "@types/node": "22.14.1",
+    "@types/node": "22.15.2",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "5.8.3",
     "unbuild": "3.5.0",
-    "vite": "6.3.2"
+    "vite": "6.3.3"
   },
   "publishConfig": {
     "access": "public"
