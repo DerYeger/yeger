@@ -55,7 +55,7 @@
     "@yeger/vue-masonry-wall-core": "workspace:*"
   },
   "devDependencies": {
-    "@babel/types": "7.27.0",
+    "@babel/types": "7.27.1",
     "@types/resize-observer-browser": "0.1.11",
     "@vitejs/plugin-vue": "5.2.3",
     "@vue/test-utils": "2.4.6",

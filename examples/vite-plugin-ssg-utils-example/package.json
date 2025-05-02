@@ -10,7 +10,7 @@
     "check:tsc": "tsc"
   },
   "devDependencies": {
-    "@types/node": "22.15.2",
+    "@types/node": "22.15.3",
     "@unhead/vue": "2.0.8",
     "@vitejs/plugin-vue": "5.2.3",
     "@yeger/tsconfig": "workspace:*",
