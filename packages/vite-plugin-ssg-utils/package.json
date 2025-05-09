@@ -50,11 +50,11 @@
     "kolorist": "1.8.0"
   },
   "devDependencies": {
-    "@types/node": "22.15.3",
+    "@types/node": "22.15.17",
     "@yeger/tsconfig": "workspace:*",
     "rimraf": "6.0.1",
     "typescript": "5.8.3",
-    "vite": "6.3.4",
+    "vite": "6.3.5",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {
