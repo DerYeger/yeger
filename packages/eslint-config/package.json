@@ -46,7 +46,7 @@
     "eslint": ">=9.0.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "4.13.0",
+    "@antfu/eslint-config": "4.13.1",
     "@eslint-react/eslint-plugin": "1.49.0",
     "@eslint/eslintrc": "3.3.1",
     "astro-eslint-parser": "1.2.2",
@@ -60,7 +60,7 @@
     "eslint-plugin-md": "1.0.19",
     "eslint-plugin-react-hooks": "5.2.0",
     "eslint-plugin-react-refresh": "0.4.20",
-    "eslint-plugin-svelte": "3.5.1",
+    "eslint-plugin-svelte": "3.8.0",
     "eslint-plugin-tailwindcss": "3.18.0",
     "eslint-plugin-tsdoc": "0.4.0",
     "eslint-plugin-turbo": "2.5.3",
