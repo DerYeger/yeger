@@ -21,11 +21,11 @@
     "d3-graph-controller": "workspace:*",
     "localforage": "1.10.0",
     "resumon": "workspace:*",
-    "splitpanes": "4.0.3",
+    "splitpanes": "4.0.4",
     "vue-codemirror": "6.1.1",
     "vue-toastification": "2.0.0-rc.5",
     "yaml": "2.8.0",
-    "zod": "3.24.4"
+    "zod": "3.25.28"
   },
   "devDependencies": {
     "@nuxtjs/robots": "5.2.10",
