@@ -71,7 +71,19 @@
           "vue": "^2.7.14"
         }
       }
-    }
+    },
+    "ignoredBuiltDependencies": [
+      "core-js-pure",
+      "unrs-resolver"
+    ],
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "@prisma/client",
+      "@prisma/engines",
+      "esbuild",
+      "prisma",
+      "sharp"
+    ]
   },
   "lint-staged": {
     "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
