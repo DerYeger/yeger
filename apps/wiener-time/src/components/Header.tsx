@@ -9,10 +9,8 @@ const Header: FC = () => {
       <div className="flex h-12 w-full items-center justify-between">
         <Image src="/favicon.svg" alt="WienerTime" width={48} height={48} />
         <div className="flex">
-          <Link href="/about">
-            <a className="flex size-[48px] items-center justify-center text-xl text-gray-400 transition-colors hover:text-gray-600">
-              <Icon icon="fa:info" />
-            </a>
+          <Link href="/about" className="flex size-[48px] items-center justify-center text-xl text-gray-400 transition-colors hover:text-gray-600">
+            <Icon icon="fa:info" />
           </Link>
         </div>
       </div>

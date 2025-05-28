@@ -1,5 +1,5 @@
 // @ts-check
-import process from 'node:process'
+import process from 'process'
 
 import { z } from 'zod'
 

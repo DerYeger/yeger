@@ -224,6 +224,9 @@ importers:
       use-debounce:
         specifier: 10.0.4
         version: 10.0.4(react@18.3.1)
+      use-local-storage:
+        specifier: 3.0.0
+        version: 3.0.0(react@18.3.1)
       zod:
         specifier: 3.25.31
         version: 3.25.31
@@ -12743,6 +12746,11 @@ packages:
     engines: {node: '>= 16.0.0'}
     peerDependencies:
       react: '*'
+
+  use-local-storage@3.0.0:
+    resolution: {integrity: sha512-wlPNnBCG3ULIJMr5A+dvWqLiPWCfsN1Kwijq+sAhT5yV4ex0u6XmZuNwP+RerIOfzBuz1pwSZuzhZMiluGQHfQ==}
+    peerDependencies:
+      react: '>=16.8.1'
 
   use-sync-external-store@1.4.0:
     resolution: {integrity: sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==}
@@ -27187,6 +27195,10 @@ snapshots:
   urlpattern-polyfill@8.0.2: {}
 
   use-debounce@10.0.4(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+
+  use-local-storage@3.0.0(react@18.3.1):
     dependencies:
       react: 18.3.1
 

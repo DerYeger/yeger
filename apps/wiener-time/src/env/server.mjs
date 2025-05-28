@@ -3,7 +3,7 @@
  * This file is included in `/next.config.mjs` which ensures the app isn't built with invalid env vars.
  * It has to be a `.mjs`-file to be imported there.
  */
-import process from 'node:process'
+import process from 'process'
 
 import { env as clientEnv, formatErrors } from './client.mjs'
 import { serverSchema } from './schema.mjs'

@@ -25,10 +25,8 @@ export const Station: FC<{
 }> = ({ station }) => {
   return (
     <div className="flex items-center justify-between gap-2">
-      <Link href={`/stations/${lib.encodeStationName(station.name)}`} passHref>
-        <a className="text-neutral-700 transition-colors hover:text-black">
-          {station.name}
-        </a>
+      <Link href={`/stations/${lib.encodeStationName(station.name)}`} className="text-neutral-700 transition-colors hover:text-black">
+        {station.name}
       </Link>
       <FavoriteToggle
         stationName={station.name}
@@ -62,12 +60,10 @@ export const Stations: FC<{
 
 const SearchForYourStation: FC = () => {
   return (
-    <Link href="/stations" passHref>
-      <a className="flex items-center justify-center gap-2 text-neutral-600 transition-colors hover:text-black">
-        <Icon icon="fa:train" />
-        See all stations
-        <Icon icon="fa:bus" />
-      </a>
+    <Link href="/stations" className="flex items-center justify-center gap-2 text-neutral-600 transition-colors hover:text-black">
+      <Icon icon="fa:train" />
+      See all stations
+      <Icon icon="fa:bus" />
     </Link>
   )
 }

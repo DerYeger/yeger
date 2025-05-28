@@ -28,7 +28,6 @@ const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         .map(({ name, location }) => ({ name, location: location! })),
     [stations],
   )
-
   return (
     <>
       <main className="flex flex-1 flex-col">

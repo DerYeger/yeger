@@ -1,6 +1,7 @@
 // src/utils/trpc.ts
 import process from 'node:process'
 
+import { httpBatchLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
 import type { inferProcedureInput, inferProcedureOutput } from '@trpc/server'
 import superjson from 'superjson'
@@ -22,7 +23,9 @@ export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
       url: `${getBaseUrl()}/api/trpc`,
-      links: [],
+      links: [httpBatchLink({
+        url: `${getBaseUrl()}/api/trpc`,
+      })],
       transformer: superjson,
     }
   },
