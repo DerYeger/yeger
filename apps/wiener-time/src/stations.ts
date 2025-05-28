@@ -1,4 +1,5 @@
 import { z } from 'zod'
+
 import stationsJson from './stations.json'
 
 export const StationSchema = z.object({
@@ -11,11 +12,11 @@ export type Station = z.infer<typeof StationSchema>
 
 const stationData = z.record(z.string(), StationSchema).parse(stationsJson)
 
-const getAll = () => {
+function getAll() {
   return Object.entries(stationData).map(([, station]) => station)
 }
 
-const getByName = (name: string) => {
+function getByName(name: string) {
   return stationData[name]
 }
 

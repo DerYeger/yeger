@@ -1,45 +1,29 @@
 import { Icon } from '@iconify/react'
-import { FC, useCallback } from 'react'
-import { trpc } from '../utils/trpc'
+import type { FC } from 'react'
 
-const FavoriteToggle: FC<{ stationName: string; isFavorite?: boolean }> = ({
+const FavoriteToggle: FC<{ stationName: string, isFavorite?: boolean | undefined }> = ({
   stationName,
   isFavorite,
 }) => {
-  const utils = trpc.useContext()
-  const invalidateQueries = useCallback(
-    async () =>
-      Promise.all([
-        utils.invalidateQueries(['favorite.getAll']),
-        utils.invalidateQueries(['favorite.getByStationName', { stationName }]),
-      ]),
-    [utils, stationName]
-  )
-  const addFavorite = trpc.proxy.favorite.add.useMutation({
-    onSuccess: () => invalidateQueries(),
-  })
-  const removeFavorite = trpc.proxy.favorite.remove.useMutation({
-    onSuccess: () => invalidateQueries(),
-  })
-
-  const changeInProgress = addFavorite.isLoading || removeFavorite.isLoading
+  const addFavorite = (_stationName: string) => {} // TODO
+  const removeFavorite = (_stationName: string) => {} // TODO
 
   const toggleFavorite = () => {
     if (isFavorite) {
-      return removeFavorite.mutateAsync({ stationName })
+      return removeFavorite(stationName)
     }
-    return addFavorite.mutateAsync({ stationName })
+    return addFavorite(stationName)
   }
   return (
     <button
+      type="button"
       onClick={toggleFavorite}
-      disabled={isFavorite === undefined || changeInProgress}
-      className={`${changeInProgress && 'motion-safe:animate-pulse'}`}
+      disabled={isFavorite === undefined}
     >
       <Icon
         icon={isFavorite ? 'fa:heart' : 'fa:heart-o'}
         className={`${
-          isFavorite !== undefined && !changeInProgress
+          isFavorite !== undefined
             ? 'text-red-500'
             : 'text-gray-300'
         } text-2xl transition-colors`}

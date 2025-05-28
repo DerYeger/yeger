@@ -35,20 +35,6 @@ $ yarn lint
 
 For local development, the following environment variables have to be added to an [.env](./.env) file.
 
-#### Prisma
-
-- `DATABASE_URL`
-
-#### Next Auth
-
-- `NEXTAUTH_SECRET`
-- `NEXTAUTH_URL=http://localhost:3000`
-
-#### Next Auth Discord Provider
-
-- `DISCORD_CLIENT_ID`
-- `DISCORD_CLIENT_SECRET`
-
 #### OpenGraph
 
 - `NEXT_PUBLIC_OG_URL=http://localhost:3000`

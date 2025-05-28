@@ -1,12 +1,13 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
-import { useMemo } from 'react'
-import lib from '../lib'
-import LazyMap, { LazyMarker, LazyMarkerCluster } from '../components/Map.lazy'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { useRouter } from 'next/router'
+import { useMemo } from 'react'
+
+import LazyMap, { LazyMarker, LazyMarkerCluster } from '../components/Map.lazy'
+import lib from '../lib'
 import stations from '../stations'
 
 export const getStaticProps: GetStaticProps<{
-  stations: { name: string; stops: number[]; location?: [number, number] }[]
+  stations: { name: string, stops: number[], location?: [number, number] }[]
 }> = async () => {
   return {
     props: {
@@ -20,17 +21,17 @@ const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   stations,
 }) => {
   const router = useRouter()
-  const markers = useMemo<{ name: string; location: [number, number] }[]>(
+  const markers = useMemo<{ name: string, location: [number, number] }[]>(
     () =>
       stations
         ?.filter((station) => station.location)
         .map(({ name, location }) => ({ name, location: location! })),
-    [stations]
+    [stations],
   )
 
   return (
     <>
-      <main className='flex-1 flex flex-col'>
+      <main className="flex flex-1 flex-col">
         <LazyMap
           center={lib.centerOfVienna}
           zoom={10}

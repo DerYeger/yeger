@@ -1,4 +1,6 @@
-import { NextSeoProps } from 'next-seo'
+import type { NextSeoProps } from 'next-seo'
+
+// @ts-expect-error No types
 import { clientEnv } from './env/schema.mjs'
 
 const SEO: NextSeoProps = {

@@ -48,7 +48,7 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "vue": "^2.7.0"
+    "vue": "2.7.0"
   },
   "dependencies": {
     "@yeger/vue-masonry-wall-core": "workspace:*"

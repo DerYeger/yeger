@@ -1,9 +1,9 @@
-import { FC, ReactNode } from 'react'
-import L from 'leaflet'
 // @ts-expect-error Missing typedef
 import BaseMarkerCluster from '@changey/react-leaflet-markercluster'
+import L from 'leaflet'
+import type { FC, ReactNode } from 'react'
 
-const createClusterCustomIcon = (cluster: any) => {
+function createClusterCustomIcon(cluster: any) {
   return L.divIcon({
     html: `<span>${cluster.getChildCount()}</span>`,
     className:

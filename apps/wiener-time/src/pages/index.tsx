@@ -1,13 +1,12 @@
-import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
-import { trpc } from '../utils/trpc'
-import { FC, useMemo, useRef } from 'react'
-import Link from 'next/link'
-import FavoriteToggle from '../components/FavoriteToggle'
-import { signIn, useSession } from 'next-auth/react'
-import ViewportList from 'react-viewport-list'
-import Spinner from '../components/Spinner'
-import lib from '../lib'
 import { Icon } from '@iconify/react'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import Link from 'next/link'
+import type { FC } from 'react'
+import { useMemo, useRef } from 'react'
+import ViewportList from 'react-viewport-list'
+
+import FavoriteToggle from '../components/FavoriteToggle'
+import lib from '../lib'
 import stations from '../stations'
 
 export const getStaticProps: GetStaticProps<{
@@ -22,12 +21,12 @@ export const getStaticProps: GetStaticProps<{
 }
 
 export const Station: FC<{
-  station: { name: string; isFavorite?: boolean }
+  station: { name: string, isFavorite?: boolean }
 }> = ({ station }) => {
   return (
-    <div className='flex gap-2 items-center justify-between'>
+    <div className="flex items-center justify-between gap-2">
       <Link href={`/stations/${lib.encodeStationName(station.name)}`} passHref>
-        <a className='text-neutral-700 hover:text-black transition-colors'>
+        <a className="text-neutral-700 transition-colors hover:text-black">
           {station.name}
         </a>
       </Link>
@@ -40,11 +39,11 @@ export const Station: FC<{
 }
 
 export const Stations: FC<{
-  stations: { name: string; isFavorite?: boolean }[]
+  stations: { name: string, isFavorite?: boolean }[]
 }> = ({ stations }) => {
   const ref = useRef(null)
   return (
-    <div className='scroll-container' ref={ref}>
+    <div className="scroll-container" ref={ref}>
       <ViewportList
         viewportRef={ref}
         items={stations}
@@ -52,7 +51,7 @@ export const Stations: FC<{
         margin={16}
       >
         {(station) => (
-          <div key={station.name} className='mb-4'>
+          <div key={station.name} className="mb-4">
             <Station station={station} />
           </div>
         )}
@@ -63,11 +62,11 @@ export const Stations: FC<{
 
 const SearchForYourStation: FC = () => {
   return (
-    <Link href='/stations' passHref>
-      <a className='text-neutral-600 hover:text-black transition-colors flex gap-2 items-center justify-center'>
-        <Icon icon='fa:train' />
+    <Link href="/stations" passHref>
+      <a className="flex items-center justify-center gap-2 text-neutral-600 transition-colors hover:text-black">
+        <Icon icon="fa:train" />
         See all stations
-        <Icon icon='fa:bus' />
+        <Icon icon="fa:bus" />
       </a>
     </Link>
   )
@@ -76,51 +75,29 @@ const SearchForYourStation: FC = () => {
 const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   stations,
 }) => {
-  const session = useSession()
-  const { data: favorites } = trpc.proxy.favorite.getAll.useQuery()
   const favoriteStations = useMemo(
     () =>
       stations
         ?.map((stationName) => ({
           name: stationName,
-          isFavorite: favorites?.has(stationName),
+          isFavorite: false, // TODO
         }))
         .filter(({ isFavorite }) => isFavorite),
-    [stations, favorites]
+    [stations],
   )
 
   return (
     <>
-      <main className='flex-1 flex flex-col px-4 mt-4 items-center justify-center'>
-        {!session.data && (
-          <>
-            <div className='h-[48px]' />
-            <div className='text-neutral-500 flex flex-col gap-2 items-center'>
-              <div>
-                <button
-                  className='text-blue-600 hover:text-blue-700 transition-colors'
-                  onClick={() => signIn()}
-                >
-                  Sign in
-                </button>
-              </div>
-              <span>or</span>
+      <main className="mt-4 flex flex-1 flex-col items-center justify-center px-4">
+        <div className="flex w-full max-w-md flex-1 flex-col">
+          <h1 className="mb-4 text-3xl font-bold">Favorites</h1>
+          <Stations stations={favoriteStations} />
+          {favoriteStations.length === 0 && (
+            <div className="flex flex-1 items-center justify-center">
               <SearchForYourStation />
             </div>
-          </>
-        )}
-        {session.data && !favoriteStations && <Spinner />}
-        {session.data && favoriteStations && (
-          <div className='w-full max-w-md flex-1 flex flex-col'>
-            <h1 className='text-3xl font-bold mb-4'>Favorites</h1>
-            <Stations stations={favoriteStations} />
-            {favoriteStations.length === 0 && (
-              <div className='flex-1 flex items-center justify-center'>
-                <SearchForYourStation />
-              </div>
-            )}
-          </div>
-        )}
+          )}
+        </div>
       </main>
     </>
   )

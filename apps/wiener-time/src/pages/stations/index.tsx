@@ -1,10 +1,10 @@
-import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { useState, useMemo } from 'react'
 import { useDebounce } from 'use-debounce'
+
 import { Stations } from '..'
 import Spinner from '../../components/Spinner'
 import stations from '../../stations'
-import { trpc } from '../../utils/trpc'
 
 export const getStaticProps: GetStaticProps<{
   stations: string[]
@@ -22,19 +22,18 @@ const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [debouncedSearchQuery] = useDebounce(searchQuery, 300)
-  const { data: favorites } = trpc.proxy.favorite.getAll.useQuery()
   const mappedStations = useMemo(
     () =>
       stations.map((stationName) => ({
         name: stationName,
-        isFavorite: favorites?.has(stationName),
+        isFavorite: false, // TODO
       })),
-    [stations, favorites]
+    [stations],
   )
   const filteredStations = useMemo(() => {
     const normalizedSearchQuery = debouncedSearchQuery.toLowerCase()
     return mappedStations?.filter((station) =>
-      station.name.toLowerCase().includes(normalizedSearchQuery)
+      station.name.toLowerCase().includes(normalizedSearchQuery),
     )
   }, [mappedStations, debouncedSearchQuery])
 
@@ -42,15 +41,15 @@ const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <>
       {!mappedStations && <Spinner />}
       {mappedStations && (
-        <main className='flex-1 flex flex-col px-4 mt-4 items-center'>
-          <div className='w-full max-w-md'>
-            <div className='flex gap-4 justify-between items-center mb-4'>
-              <h1 className='text-3xl font-bold'>All</h1>
+        <main className="mt-4 flex flex-1 flex-col items-center px-4">
+          <div className="w-full max-w-md">
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <h1 className="text-3xl font-bold">All</h1>
               <input
-                type='text'
-                className='bg-gray-100 px-2 py-1 rounded border border-gray-300 min-w-0'
+                type="text"
+                className="min-w-0 rounded border border-gray-300 bg-gray-100 px-2 py-1"
                 value={searchQuery}
-                placeholder='Search'
+                placeholder="Search"
                 onChange={(event) => setSearchQuery(event.currentTarget.value)}
               />
             </div>

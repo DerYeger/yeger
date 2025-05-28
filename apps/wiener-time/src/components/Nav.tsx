@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { FC } from 'react'
+import type { FC } from 'react'
 
 const Nav: FC = () => {
   const router = useRouter()
@@ -20,13 +20,13 @@ const Nav: FC = () => {
     },
   ]
   return (
-    <nav className='bg-gray-100 border-t-gray-200 border-t-2 sticky left-0 right-0 bottom-0 flex justify-evenly z-40'>
+    <nav className="sticky inset-x-0 bottom-0 z-40 flex justify-evenly border-t-2 border-t-gray-200 bg-gray-100">
       {targets.map(({ href, icon }) => (
         <Link href={href} passHref key={href}>
           <a
             className={`${
               router.pathname === href ? 'text-gray-700' : 'text-gray-500'
-            } hover:text-black transition-colors p-4`}
+            } p-4 transition-colors hover:text-black`}
           >
             <Icon icon={icon} />
           </a>
