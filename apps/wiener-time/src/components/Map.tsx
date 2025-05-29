@@ -1,19 +1,9 @@
 import type { MapOptions } from 'leaflet'
-import L from 'leaflet'
 import type { FC } from 'react'
 import type { MapContainerProps } from 'react-leaflet'
 import { MapContainer, TileLayer } from 'react-leaflet'
 
-L.Marker.prototype.options.icon = L.icon({
-  iconUrl: '/leaflet-images/map-marker.svg',
-  iconRetinaUrl: '/leaflet-images/map-marker.svg',
-  iconSize: [24, 24],
-  iconAnchor: [12, 24],
-  shadowUrl: '/leaflet-images/marker-shadow.png',
-  shadowRetinaUrl: '/leaflet-images/marker-shadow.png',
-  shadowSize: [41, 41],
-  shadowAnchor: [12, 41],
-})
+import 'leaflet/dist/leaflet.css'
 
 const boundsPadding = 0.01
 

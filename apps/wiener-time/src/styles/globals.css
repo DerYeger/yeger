@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '~leaflet/dist/leaflet.css';
-
 .leaflet-control {
   z-index: 0 !important;
 }

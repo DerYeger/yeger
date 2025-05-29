@@ -1,32 +1,21 @@
 import { Icon } from '@iconify/react'
 import type { FC } from 'react'
 
-const FavoriteToggle: FC<{ stationName: string, isFavorite?: boolean | undefined }> = ({
-  stationName,
-  isFavorite,
-}) => {
-  const addFavorite = (_stationName: string) => {} // TODO
-  const removeFavorite = (_stationName: string) => {} // TODO
+import { useFavorites } from '../utils/useFavorites'
 
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      return removeFavorite(stationName)
-    }
-    return addFavorite(stationName)
-  }
+const FavoriteToggle: FC<{ stationName: string }> = ({
+  stationName,
+}) => {
+  const { toggleFavorite, isFavorite } = useFavorites()
+  const isFavoriteStation = isFavorite(stationName)
   return (
     <button
       type="button"
-      onClick={toggleFavorite}
-      disabled={isFavorite === undefined}
+      onClick={() => toggleFavorite(stationName)}
     >
       <Icon
-        icon={isFavorite ? 'fa:heart' : 'fa:heart-o'}
-        className={`${
-          isFavorite !== undefined
-            ? 'text-red-500'
-            : 'text-gray-300'
-        } text-2xl transition-colors`}
+        icon={isFavoriteStation ? 'fa:heart' : 'fa:heart-o'}
+        className="text-2xl text-red-500"
       />
     </button>
   )

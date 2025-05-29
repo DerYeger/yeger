@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "preview": "next start",
     "lint": "yeger-lint",
@@ -47,5 +47,8 @@
     "tailwindcss": "3.4.17",
     "tsx": "3.14.0",
     "typescript": "5.8.3"
+  },
+  "lint-staged": {
+    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

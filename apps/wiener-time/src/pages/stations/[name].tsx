@@ -167,13 +167,11 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   const markers = useMemo<[number, number][] | undefined>(
     () =>
       monitors?.map(({ locationStop }) => [
-        locationStop.geometry.coordinates[1]!,
         locationStop.geometry.coordinates[0]!,
+        locationStop.geometry.coordinates[1]!,
       ]),
     [monitors],
   )
-
-  const isFavorite = false // TODO
 
   return (
     <>
@@ -183,7 +181,6 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <h1 className="text-3xl sm:text-4xl md:text-5xl">{station.name}</h1>
           <FavoriteToggle
             stationName={station.name}
-            isFavorite={station && isFavorite}
           />
         </div>
         <div className="flex flex-1 flex-col items-center">
@@ -213,8 +210,8 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 {markers?.map((marker, index) => (
                   <LazyMarker
                     key={index}
-                    interactive={false}
                     position={marker}
+                    interactive={false}
                   />
                 ))}
               </LazyMap>

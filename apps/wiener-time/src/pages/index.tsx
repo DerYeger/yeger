@@ -30,7 +30,6 @@ export const Station: FC<{
       </Link>
       <FavoriteToggle
         stationName={station.name}
-        isFavorite={station.isFavorite}
       />
     </div>
   )

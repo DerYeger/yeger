@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 const LazyMap = dynamic(() => import('./Map'), { ssr: false })
 
 export const LazyMarker = dynamic(
-  async () => (await import('react-leaflet')).Marker,
+  async () => (await import('./Marker')),
   { ssr: false },
 )
 
