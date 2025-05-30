@@ -12,7 +12,7 @@
   "dependencies": {
     "@algolia/client-search": "5.25.0",
     "vecti": "workspace:*",
-    "vue": "3.5.14"
+    "vue": "3.5.16"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
