@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url'
 
 import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
+import pluginCypress from 'eslint-plugin-cypress'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -28,9 +29,9 @@ export default function (...configs) {
       vue: true,
       yaml: true,
     },
+    pluginCypress.configs.recommended,
     compat.extends(
       'plugin:astro/recommended',
-      'plugin:cypress/recommended',
       'plugin:md/recommended',
       'plugin:tailwindcss/recommended',
     ),
