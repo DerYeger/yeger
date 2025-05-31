@@ -5,6 +5,7 @@
 ## Apps
 
 - [formi](./apps/formi)
+- [wiener-time](./apps/wiener-time)
 
 ## Docs
 

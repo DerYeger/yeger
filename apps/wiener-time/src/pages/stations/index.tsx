@@ -2,8 +2,8 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import { useState, useMemo } from 'react'
 import { useDebounce } from 'use-debounce'
 
-import { Stations } from '..'
 import Spinner from '../../components/Spinner'
+import { Stations } from '../../components/Stations'
 import stations from '../../stations'
 
 export const getStaticProps: GetStaticProps<{
@@ -44,7 +44,7 @@ const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
         <main className="mt-4 flex flex-1 flex-col items-center px-4">
           <div className="w-full max-w-md">
             <div className="mb-4 flex items-center justify-between gap-4">
-              <h1 className="text-3xl font-bold">All</h1>
+              <h1 className="text-3xl font-bold">Stations</h1>
               <input
                 type="text"
                 className="min-w-0 rounded border border-gray-300 bg-gray-100 px-2 py-1"

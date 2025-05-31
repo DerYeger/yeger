@@ -8,7 +8,7 @@ const AboutPage: NextPage = () => {
       <NextSeo title="Impressum" />
       <aside className="sticky bottom-0 flex justify-center p-4 text-xs text-neutral-400">
         <a
-          href="https://github.com/DerYeger/wiener-time"
+          href="https://github.com/DerYeger/yeger/tree/main/apps/wiener-time"
           target="_blank"
           rel="noreferrer"
           className="flex items-center gap-1 transition-colors hover:text-neutral-600"

@@ -155,9 +155,10 @@ const MonitorComponent: FC<{ monitor: Monitor }> = ({ monitor }) => {
 const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   station,
 }) => {
+  const stopIds = useMemo(() => station?.stops ?? [], [station?.stops])
   const { data: monitors, error: monitorError } =
     trpc.monitor.getAllByStopIds.useQuery(
-      { stopIds: station?.stops ?? [] },
+      { stopIds },
       {
         refetchInterval: 30 * 1000,
         retry: 2,
@@ -167,8 +168,8 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   const markers = useMemo<[number, number][] | undefined>(
     () =>
       monitors?.map(({ locationStop }) => [
-        locationStop.geometry.coordinates[0]!,
         locationStop.geometry.coordinates[1]!,
+        locationStop.geometry.coordinates[0]!,
       ]),
     [monitors],
   )
@@ -198,7 +199,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           {monitors && monitors.length >= 1 && (
             <div className="h-[200px] w-full bg-[#F6EFE4]">
               <LazyMap
-                center={station.location}
+                center={[station.location[1], station.location[0]]}
                 zoom={16}
                 zoomControl={false}
                 touchZoom={false}

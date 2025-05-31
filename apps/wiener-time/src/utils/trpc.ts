@@ -1,9 +1,7 @@
-// src/utils/trpc.ts
-import process from 'node:process'
+import process from 'process'
 
 import { httpBatchLink } from '@trpc/client'
 import { createTRPCNext } from '@trpc/next'
-import type { inferProcedureInput, inferProcedureOutput } from '@trpc/server'
 import superjson from 'superjson'
 
 import type { AppRouter } from '../server/trpc/router'
@@ -25,28 +23,10 @@ export const trpc = createTRPCNext<AppRouter>({
       url: `${getBaseUrl()}/api/trpc`,
       links: [httpBatchLink({
         url: `${getBaseUrl()}/api/trpc`,
+        transformer: superjson,
       })],
-      transformer: superjson,
     }
   },
   ssr: false,
+  transformer: superjson,
 })
-
-/**
- * This is a helper method to infer the output of a query resolver
- */
-export type inferQueryOutput<
-  TRouteKey extends keyof AppRouter['_def']['queries'],
-> = inferProcedureOutput<AppRouter['_def']['queries'][TRouteKey]>
-
-export type inferQueryInput<
-  TRouteKey extends keyof AppRouter['_def']['queries'],
-> = inferProcedureInput<AppRouter['_def']['queries'][TRouteKey]>
-
-export type inferMutationOutput<
-  TRouteKey extends keyof AppRouter['_def']['mutations'],
-> = inferProcedureOutput<AppRouter['_def']['mutations'][TRouteKey]>
-
-export type inferMutationInput<
-  TRouteKey extends keyof AppRouter['_def']['mutations'],
-> = inferProcedureInput<AppRouter['_def']['mutations'][TRouteKey]>

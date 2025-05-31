@@ -41,7 +41,7 @@ const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <LazyMarkerCluster>
             {markers?.map(({ name, location }) => (
               <LazyMarker
-                position={location}
+                position={[location[1], location[0]]}
                 title={name}
                 key={name}
                 eventHandlers={{

@@ -14,21 +14,19 @@
 
 ## Features
 
-Built with the [t3-stack](https://github.com/t3-oss/create-t3-app), this web app shows real-time traffic data provided by the [Wiener Linien's API](https://www.data.gv.at/katalog/dataset/wiener-linien-echtzeitdaten-via-datendrehscheibe-wien).
-
-It's hosted on Vercel, with the database being provided by PlanetScale.
+This web app shows real-time traffic data provided by the [Wiener Linien's API](https://www.data.gv.at/katalog/dataset/wiener-linien-echtzeitdaten-via-datendrehscheibe-wien).
 
 ## Development
 
 ```bash
 # install dependencies
-$ yarn install
+$ pnpm install
 
 # build in watch mode
-$ yarn dev
+$ pnpm dev
 
 # lint project files
-$ yarn lint
+$ pnpm lint
 ```
 
 ### Environment

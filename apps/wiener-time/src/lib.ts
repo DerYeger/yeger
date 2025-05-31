@@ -6,13 +6,13 @@ function calculateCenter(locations: [number, number][] | undefined): [number, nu
   if (!locations || locations.length === 0) {
     return undefined
   }
-  const [totalX, totalY] = locations.reduce<[number, number]>(
-    ([accX, accY], [locX, locY]) => {
-      return [accX + locX, accY + locY]
+  const [totalLat, totalLong] = locations.reduce<[number, number]>(
+    ([accLat, accLong], [lat, long]) => {
+      return [accLat + lat, accLong + long]
     },
     [0, 0],
   )
-  return [totalX / locations.length, totalY / locations.length]
+  return [totalLat / locations.length, totalLong / locations.length]
 }
 
 const API_URL = 'https://www.wienerlinien.at'
