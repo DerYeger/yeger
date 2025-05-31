@@ -3,6 +3,8 @@ import type { FC } from 'react'
 import { Marker as BaseMarker } from 'react-leaflet'
 import type { MarkerProps } from 'react-leaflet'
 
+import lib from '../lib'
+
 const markerIcon = L.icon({
   iconUrl: '/leaflet-images/map-marker.svg',
   iconRetinaUrl: '/leaflet-images/map-marker.svg',
@@ -14,11 +16,11 @@ const markerIcon = L.icon({
   shadowAnchor: [12, 41],
 })
 
-const Marker: FC<MarkerProps> = ({ children, position, ...rest }) => {
+const Marker: FC<MarkerProps & { position: [number, number] }> = ({ children, position, ...rest }) => {
   return (
     <BaseMarker
       icon={markerIcon}
-      position={position}
+      position={lib.fixCoordinates(position)}
       {...rest}
     >
       {children}

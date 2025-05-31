@@ -45,7 +45,7 @@ function parseStations(stops: StaticStopData[]) {
         location: lib.calculateCenter(
           stops
             .filter((stop) => stop.Latitude && stop.Longitude)
-            .map((stop) => ([stop.Longitude!, stop.Latitude!])), // Wiener Linien has them mixed up
+            .map((stop) => (lib.fixCoordinates([stop.Latitude!, stop.Longitude!]))),
         ),
       },
     ]),

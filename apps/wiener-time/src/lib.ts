@@ -38,6 +38,11 @@ function decodeStationName(name: string) {
   return name.replaceAll('-:-', '/').replaceAll('-ss-', 'ß')
 }
 
+// Wiener Linien has coordinates mixed up, so we sort them desc, since Vienna's lat is much larger than the long
+function fixCoordinates(coordinates: [number, number]) {
+  return coordinates.sort((a, b) => b - a)
+}
+
 const centerOfVienna: [number, number] = [48.2082, 16.3738]
 
 const lib = {
@@ -46,6 +51,7 @@ const lib = {
   decodeStationName,
   encodeStationName,
   fetchMonitorData,
+  fixCoordinates,
 }
 
 export default lib

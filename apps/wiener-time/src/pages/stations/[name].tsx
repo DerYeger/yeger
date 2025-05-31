@@ -199,7 +199,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           {monitors && monitors.length >= 1 && (
             <div className="h-[200px] w-full bg-[#F6EFE4]">
               <LazyMap
-                center={[station.location[1], station.location[0]]}
+                center={lib.fixCoordinates(station.location)}
                 zoom={16}
                 zoomControl={false}
                 touchZoom={false}
