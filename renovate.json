@@ -1,15 +1,8 @@
 {
   "automerge": true,
   "automergeType": "branch",
-  "docker": {
-    "major": {
-      "enabled": true
-    },
-    "pinDigests": true
-  },
   "extends": [
     ":semanticPrefixFixDepsChoreOthers",
-    ":autodetectPinVersions",
     ":assignee(DerYeger)",
     ":dependencyDashboard",
     ":disableRateLimiting",
@@ -24,19 +17,37 @@
   },
   "packageRules": [
     {
+      "matchCategories": [
+        "docker"
+      ],
+      "major": {
+        "enabled": true
+      },
+      "pinDigests": true
+    },
+    {
       "matchDepTypes": [
         "pnpm.catalog.vue2"
       ],
-      "matchPackageNames": ["vue", "vue-template-compiler"],
+      "matchPackageNames": [
+        "vue",
+        "vue-template-compiler"
+      ],
       "allowedVersions": "<3"
     },
     {
-      "matchDepTypes": ["pnpm.catalog.vue2"],
-      "matchPackageNames": ["@vue/test-utils"],
+      "matchDepTypes": [
+        "pnpm.catalog.vue2"
+      ],
+      "matchPackageNames": [
+        "@vue/test-utils"
+      ],
       "allowedVersions": "<2"
     },
     {
-      "matchPackageNames": ["open"],
+      "matchPackageNames": [
+        "open"
+      ],
       "allowedVersions": "<9"
     },
     {
@@ -46,6 +57,8 @@
       "allowedVersions": "<=3.15.4"
     }
   ],
-  "schedule": ["after 12am and before 7am on Saturday"],
+  "schedule": [
+    "after 12am and before 7am on Saturday"
+  ],
   "timezone": "Europe/Vienna"
 }
