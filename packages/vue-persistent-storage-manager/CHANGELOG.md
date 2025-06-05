@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.15
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+
 ## 3.0.14
 
 ### Patch Changes

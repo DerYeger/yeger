@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.0.14
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - @yeger/turbo-graph-ui@2.1.7
+
 ## 2.0.13
 
 ### Patch Changes

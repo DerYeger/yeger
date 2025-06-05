@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.1.1
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - @yeger/debounce@2.0.13
+  - vecti@3.1.1
+
 ## 3.1.0
 
 ### Minor Changes

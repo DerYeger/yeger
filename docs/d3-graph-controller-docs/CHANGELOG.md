@@ -1,5 +1,13 @@
 # d3-graph-controller-docs
 
+## 2.0.15
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - d3-graph-controller@3.1.1
+
 ## 2.0.14
 
 ### Patch Changes

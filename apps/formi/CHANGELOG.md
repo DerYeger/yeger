@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.10
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - d3-graph-controller@3.1.1
+  - @yeger/fol@1.1.1
+  - resumon@2.1.1
+
 ## 0.2.9
 
 ### Patch Changes
