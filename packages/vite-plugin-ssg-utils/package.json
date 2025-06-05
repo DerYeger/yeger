@@ -47,14 +47,14 @@
     "vite": "2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0"
   },
   "dependencies": {
-    "kolorist": "1.8.0"
+    "kolorist": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "22.15.29",
+    "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "rimraf": "6.0.1",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "rimraf": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

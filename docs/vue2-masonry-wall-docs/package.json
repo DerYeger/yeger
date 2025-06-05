@@ -14,11 +14,11 @@
     "@yeger/vue2-masonry-wall": "workspace:*"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue2": "2.3.3",
+    "@vitejs/plugin-vue2": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
-    "vue": "2.7.16"
+    "vue": "catalog:vue2"
   }
 }

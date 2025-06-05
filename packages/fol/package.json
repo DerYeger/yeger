@@ -40,15 +40,15 @@
     "test": "vitest"
   },
   "dependencies": {
-    "ohm-js": "17.1.0"
+    "ohm-js": "catalog:"
   },
   "devDependencies": {
-    "@ohm-js/cli": "2.0.0",
-    "@types/node": "22.15.29",
+    "@ohm-js/cli": "catalog:",
+    "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "resumon": "workspace:*",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

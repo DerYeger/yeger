@@ -40,12 +40,12 @@
     "lint": "yeger-lint"
   },
   "dependencies": {
-    "@manypkg/get-packages": "3.0.0"
+    "@manypkg/get-packages": "catalog:"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

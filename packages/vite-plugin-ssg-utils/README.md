@@ -21,6 +21,7 @@ This is the case when using tools like [vite-ssg](https://github.com/antfu/vite-
 
 ```ts
 import { defineConfig } from 'vite'
+
 import SSGUtils from 'vite-plugin-ssg-utils'
 
 export default defineConfig({

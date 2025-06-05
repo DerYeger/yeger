@@ -15,8 +15,6 @@ jobs:
         uses: DerYeger/pnpm-setup-action@master
         with:
           node-version-file: .node-version
-      - name: Lint package versions
-        run: pnpm run syncpack:lint
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
       - name: Upload @yeger/debounce coverage

@@ -7,6 +7,21 @@
   ],
   "versionGroups": [
     {
+      "label": "Local",
+      "dependencies": [
+        "@yeger/*",
+        "d3-graph-controller",
+        "resumon",
+        "vecti",
+        "vite-plugin-lib",
+        "vite-plugin-ssg-utils",
+        "vue-marmoset-viewer",
+        "vue-persistent-storage-manager"
+      ],
+      "pinVersion": "workspace:*"
+    },
+    {
+      "label": "Vue 2",
       "dependencies": [
         "@vue/test-utils",
         "vue"
@@ -15,7 +30,12 @@
         "@yeger/vue2-masonry-wall",
         "@yeger/vue2-masonry-wall-docs",
         "vue-persistent-storage-manager"
-      ]
+      ],
+      "pinVersion": "catalog:vue2"
+    },
+    {
+      "label": "External",
+      "pinVersion": "catalog:"
     }
   ]
 }

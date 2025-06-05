@@ -59,18 +59,18 @@
     "@yeger/debounce": "workspace:*"
   },
   "devDependencies": {
-    "@types/resize-observer-browser": "0.1.11",
-    "@vitejs/plugin-vue": "5.2.4",
-    "@vue/test-utils": "2.4.6",
+    "@types/resize-observer-browser": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "bundlesize2": "0.0.35",
-    "cross-env": "7.0.3",
-    "flush-promises": "1.0.2",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "bundlesize2": "catalog:",
+    "cross-env": "catalog:",
+    "flush-promises": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
-    "vue": "3.5.16",
-    "vue-tsc": "2.2.10"
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
   },
   "publishConfig": {
     "access": "public"

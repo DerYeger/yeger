@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.11.1",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
@@ -15,7 +15,7 @@
     "build": "nr turbo run build",
     "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize generate lint lint:root test check:publish check:tsc check:vue",
+    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize check:publish check:tsc check:vue generate lint lint:root syncpack:lint test",
     "dev": "nr turbo run dev --parallel",
     "fix": "nr turbo run lint lint:root -- --fix",
     "codegen": "nr turbo run codegen",
@@ -38,44 +38,46 @@
     "watch": "nr turbo watch"
   },
   "devDependencies": {
-    "@antfu/ni": "25.0.0",
-    "@changesets/cli": "2.29.4",
-    "@commitlint/cli": "19.8.1",
-    "@commitlint/config-conventional": "19.8.1",
-    "@turbo/gen": "2.5.4",
-    "@types/node": "22.15.29",
-    "@vitest/coverage-v8": "3.1.4",
-    "@vitest/ui": "3.1.4",
+    "@antfu/ni": "catalog:",
+    "@changesets/cli": "catalog:",
+    "@commitlint/cli": "catalog:",
+    "@commitlint/config-conventional": "catalog:",
+    "@turbo/gen": "catalog:",
+    "@types/node": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
-    "cross-env": "7.0.3",
-    "eslint": "9.28.0",
-    "husky": "9.1.7",
-    "lint-staged": "16.1.0",
-    "publint": "0.3.12",
-    "rimraf": "6.0.1",
-    "syncpack": "13.0.4",
-    "taze": "19.1.0",
-    "turbo": "2.5.4",
-    "vercel": "42.3.0",
-    "vitest": "3.1.4"
+    "cross-env": "catalog:",
+    "eslint": "catalog:",
+    "husky": "catalog:",
+    "lint-staged": "catalog:",
+    "publint": "catalog:",
+    "rimraf": "catalog:",
+    "syncpack": "catalog:",
+    "taze": "catalog:",
+    "turbo": "catalog:",
+    "vercel": "catalog:",
+    "vitest": "catalog:"
   },
   "pnpm": {
     "overrides": {
-      "@codemirror/state": "6.5.2"
+      "@codemirror/state": "catalog:"
     },
     "packageExtensions": {
       "vue-template-compiler": {
         "peerDependencies": {
-          "vue": "2.7.14"
+          "vue": "catalog:vue2"
         }
       }
     },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
+      "core-js-pure",
       "esbuild",
-      "sharp"
+      "sharp",
+      "unrs-resolver"
     ]
   },
   "lint-staged": {

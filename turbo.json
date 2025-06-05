@@ -101,6 +101,13 @@
         ".github/**",
         ".changeset/**"
       ]
+    },
+    "//#syncpack:lint": {
+      "inputs": [
+        ".syncpackrc",
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml"
+      ]
     }
   }
 }

@@ -40,10 +40,10 @@
     "@yeger/vue-lib-adapter": "workspace:*"
   },
   "devDependencies": {
-    "@types/resize-observer-browser": "0.1.11",
+    "@types/resize-observer-browser": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

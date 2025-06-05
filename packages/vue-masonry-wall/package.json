@@ -55,19 +55,19 @@
     "@yeger/vue-masonry-wall-core": "workspace:*"
   },
   "devDependencies": {
-    "@babel/types": "7.27.3",
-    "@types/resize-observer-browser": "0.1.11",
-    "@vitejs/plugin-vue": "5.2.4",
-    "@vue/test-utils": "2.4.6",
+    "@babel/types": "catalog:",
+    "@types/resize-observer-browser": "catalog:",
+    "@vitejs/plugin-vue": "catalog:",
+    "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "bundlesize2": "0.0.35",
-    "flush-promises": "1.0.2",
-    "jsdom": "26.1.0",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "bundlesize2": "catalog:",
+    "flush-promises": "catalog:",
+    "jsdom": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
-    "vue": "3.5.16",
-    "vue-tsc": "2.2.10"
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
   },
   "publishConfig": {
     "access": "public"

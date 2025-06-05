@@ -33,16 +33,16 @@
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
-    "cac": "6.7.14",
-    "next": "15.3.3",
-    "open": "8.4.2",
-    "picocolors": "1.1.1"
+    "cac": "catalog:",
+    "next": "catalog:",
+    "open": "catalog:",
+    "picocolors": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "22.15.29",
+    "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"
   },
   "publishConfig": {

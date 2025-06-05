@@ -49,16 +49,16 @@
     "vue": "2.0.0"
   },
   "devDependencies": {
-    "@vue/test-utils": "1.3.6",
+    "@vue/test-utils": "catalog:vue2",
     "@yeger/tsconfig": "workspace:*",
-    "bundlesize2": "0.0.35",
-    "flush-promises": "1.0.2",
-    "jsdom": "26.1.0",
-    "typescript": "5.8.3",
-    "vite": "6.3.5",
+    "bundlesize2": "catalog:",
+    "flush-promises": "catalog:",
+    "jsdom": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
-    "vue": "2.7.16",
-    "vue-template-compiler": "2.7.16"
+    "vue": "catalog:vue2",
+    "vue-template-compiler": "catalog:"
   },
   "publishConfig": {
     "access": "public"
