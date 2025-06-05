@@ -34,6 +34,12 @@
       "pinVersion": "catalog:vue2"
     },
     {
+      "label": "Turbo",
+      "dependencies": [
+        "turbo"
+      ]
+    },
+    {
       "label": "External",
       "pinVersion": "catalog:"
     }

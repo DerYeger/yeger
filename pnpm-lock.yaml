@@ -360,9 +360,6 @@ catalogs:
     tsx:
       specifier: 3.14.0
       version: 3.14.0
-    turbo:
-      specifier: 2.5.4
-      version: 2.5.4
     typescript:
       specifier: 5.8.3
       version: 5.8.3
@@ -501,7 +498,7 @@ importers:
         specifier: 'catalog:'
         version: 19.1.0
       turbo:
-        specifier: 'catalog:'
+        specifier: 2.5.4
         version: 2.5.4
       vercel:
         specifier: 'catalog:'
@@ -13016,7 +13013,7 @@ snapshots:
     dependencies:
       '@babel/template': 7.27.2
       '@babel/traverse': 7.27.4
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
     transitivePeerDependencies:
       - supports-color
 
@@ -13503,7 +13500,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.27.4
       '@babel/helper-plugin-utils': 7.27.1
-      '@babel/types': 7.27.3
+      '@babel/types': 7.27.6
       esutils: 2.0.3
 
   '@babel/runtime-corejs3@7.27.4':
