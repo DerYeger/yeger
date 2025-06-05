@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.3.1
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+
 ## 1.3.0
 
 ### Minor Changes

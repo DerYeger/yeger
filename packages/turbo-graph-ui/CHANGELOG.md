@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 2.1.7
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - d3-graph-controller@3.1.1
+  - @yeger/debounce@2.0.13
+  - resumon@2.1.1
+  - @yeger/streams@1.3.1
+
 ## 2.1.6
 
 ### Patch Changes

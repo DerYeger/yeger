@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.16
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - @yeger/debounce@2.0.13
+  - @yeger/vue-lib-adapter@2.0.13
+
 ## 5.0.15
 
 ### Patch Changes

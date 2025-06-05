@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.6.1
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+
 ## 2.6.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall-docs
 
+## 2.0.20
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - @yeger/vue2-masonry-wall@5.0.20
+
 ## 2.0.19
 
 ### Patch Changes

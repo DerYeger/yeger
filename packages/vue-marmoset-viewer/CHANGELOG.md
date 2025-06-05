@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.15
+
+### Patch Changes
+
+- 1495547: migrate to pnpm catalogs and bump deps
+- Updated dependencies [1495547]
+  - @yeger/debounce@2.0.13
+
 ## 4.0.14
 
 ### Patch Changes
