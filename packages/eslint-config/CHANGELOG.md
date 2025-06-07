@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.6.2
+
+### Patch Changes
+
+- aa8ea04: bump deps
+
 ## 2.6.1
 
 ### Patch Changes
