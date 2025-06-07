@@ -106,8 +106,8 @@ catalogs:
       specifier: 18.3.23
       version: 18.3.23
     '@types/react-dom':
-      specifier: 18.3.7
-      version: 18.3.7
+      specifier: 19.1.6
+      version: 19.1.6
     '@types/resize-observer-browser':
       specifier: 0.1.11
       version: 0.1.11
@@ -322,8 +322,8 @@ catalogs:
       specifier: 18.3.1
       version: 18.3.1
     react-dom:
-      specifier: 18.3.1
-      version: 18.3.1
+      specifier: 19.1.0
+      version: 19.1.0
     react-leaflet:
       specifier: 4.2.1
       version: 4.2.1
@@ -611,7 +611,7 @@ importers:
     dependencies:
       '@changey/react-leaflet-markercluster':
         specifier: 'catalog:'
-        version: 4.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+        version: 4.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react@18.3.1)
       '@tanstack/react-query':
         specifier: 'catalog:'
         version: 5.80.5(react@18.3.1)
@@ -620,10 +620,10 @@ importers:
         version: 11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3)
       '@trpc/next':
         specifier: 'catalog:'
-        version: 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(next@15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+        version: 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(next@15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       '@trpc/react-query':
         specifier: 'catalog:'
-        version: 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+        version: 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
       '@trpc/server':
         specifier: 'catalog:'
         version: 11.3.0(typescript@5.8.3)
@@ -638,22 +638,22 @@ importers:
         version: 1.5.3(leaflet@1.9.4)
       next:
         specifier: 'catalog:'
-        version: 15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       next-seo:
         specifier: 'catalog:'
-        version: 5.15.0(next@15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 5.15.0(next@15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react:
         specifier: 'catalog:'
         version: 18.3.1
       react-dom:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.0(react@18.3.1)
       react-leaflet:
         specifier: 'catalog:'
-        version: 4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 4.2.1(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react-query:
         specifier: 'catalog:'
-        version: 3.39.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 3.39.3(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react-viewport-list:
         specifier: 'catalog:'
         version: 5.4.1(react@18.3.1)
@@ -687,7 +687,7 @@ importers:
         version: 18.3.23
       '@types/react-dom':
         specifier: 'catalog:'
-        version: 18.3.7(@types/react@18.3.23)
+        version: 19.1.6(@types/react@18.3.23)
       '@yeger/playwright-config':
         specifier: workspace:*
         version: link:../../packages/playwright-config
@@ -1184,7 +1184,7 @@ importers:
         version: 6.7.14
       next:
         specifier: 'catalog:'
-        version: 15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       open:
         specifier: 'catalog:'
         version: 8.4.2
@@ -1245,10 +1245,10 @@ importers:
         version: 18.3.1
       react-dom:
         specifier: 'catalog:'
-        version: 18.3.1(react@18.3.1)
+        version: 19.1.0(react@18.3.1)
       reactflow:
         specifier: 'catalog:'
-        version: 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       resumon:
         specifier: workspace:*
         version: link:../resumon
@@ -1276,7 +1276,7 @@ importers:
         version: 18.3.23
       '@types/react-dom':
         specifier: 'catalog:'
-        version: 18.3.7(@types/react@18.3.23)
+        version: 19.1.6(@types/react@18.3.23)
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
@@ -1288,7 +1288,7 @@ importers:
         version: 15.3.3(eslint-plugin-import-x@4.15.0(@typescript-eslint/utils@8.33.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3))(eslint-import-resolver-node@0.3.9)(eslint@9.28.0(jiti@2.4.2)))(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
       next:
         specifier: 'catalog:'
-        version: 15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       postcss:
         specifier: 'catalog:'
         version: 8.5.4
@@ -4459,10 +4459,10 @@ packages:
   '@types/prop-types@15.7.14':
     resolution: {integrity: sha512-gNMvNH49DJ7OJYv+KAKn0Xp45p8PLl6zo2YnvDIbTd4J6MER2BmWN49TG7n9LvkyihINxeKW8+3bfS2yDC9dzQ==}
 
-  '@types/react-dom@18.3.7':
-    resolution: {integrity: sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ==}
+  '@types/react-dom@19.1.6':
+    resolution: {integrity: sha512-4hOiT/dwO8Ko0gV1m/TJZYk3y0KBnY9vzDh7W+DH17b2HFSOGgdj33dhihPeuy3l0q23+4e+hoXHV6hCC4dCXw==}
     peerDependencies:
-      '@types/react': ^18.0.0
+      '@types/react': ^19.0.0
 
   '@types/react@18.3.23':
     resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
@@ -10354,6 +10354,11 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-dom@19.1.0:
+    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
+    peerDependencies:
+      react: ^19.1.0
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -10833,6 +10838,9 @@ packages:
 
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
+
+  scheduler@0.26.0:
+    resolution: {integrity: sha512-NlHwttCI/l5gCPR3D1nNXtWABUmBwvZpEQiD4IXSbIDq8BzLIK/7Ir5gTFSGZDUu37K5cMNp0hFtzO38sC7gWA==}
 
   schema-utils@4.3.2:
     resolution: {integrity: sha512-Gn/JaSk/Mt9gYubxTtSn/QCV4em9mpAPiR1rqy/Ocu19u/G9J5WWdNoUT4SiV6mFC3y6cxyFcFwdzPM3FgxGAQ==}
@@ -13740,12 +13748,12 @@ snapshots:
       human-id: 4.1.1
       prettier: 2.8.8
 
-  '@changey/react-leaflet-markercluster@4.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)':
+  '@changey/react-leaflet-markercluster@4.0.0-rc1(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       leaflet: 1.9.4
       leaflet.markercluster: 1.5.3(leaflet@1.9.4)
-      react-leaflet: 4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react-leaflet: 4.2.1(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
     transitivePeerDependencies:
       - react
       - react-dom
@@ -15279,35 +15287,35 @@ snapshots:
     dependencies:
       quansync: 0.2.10
 
-  '@react-leaflet/core@2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@react-leaflet/core@2.1.0(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
       leaflet: 1.9.4
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
 
-  '@reactflow/background@11.3.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/background@11.3.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       classcat: 5.0.5
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/controls@11.2.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/controls@11.2.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       classcat: 5.0.5
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/core@11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/core@11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@types/d3': 7.4.3
       '@types/d3-drag': 3.0.7
@@ -15318,46 +15326,46 @@ snapshots:
       d3-selection: 3.0.0
       d3-zoom: 3.0.0
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/minimap@11.7.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/minimap@11.7.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       '@types/d3-selection': 3.0.11
       '@types/d3-zoom': 3.0.8
       classcat: 5.0.5
       d3-selection: 3.0.0
       d3-zoom: 3.0.0
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/node-resizer@2.2.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/node-resizer@2.2.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       classcat: 5.0.5
       d3-drag: 3.0.0
       d3-selection: 3.0.0
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
 
-  '@reactflow/node-toolbar@1.3.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@reactflow/node-toolbar@1.3.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       classcat: 5.0.5
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       zustand: 4.5.7(@types/react@18.3.23)(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
@@ -15669,25 +15677,25 @@ snapshots:
       '@trpc/server': 11.3.0(typescript@5.8.3)
       typescript: 5.8.3
 
-  '@trpc/next@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(next@15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
+  '@trpc/next@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(next@15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
     dependencies:
       '@trpc/client': 11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3)
       '@trpc/server': 11.3.0(typescript@5.8.3)
-      next: 15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       typescript: 5.8.3
     optionalDependencies:
       '@tanstack/react-query': 5.80.5(react@18.3.1)
-      '@trpc/react-query': 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
+      '@trpc/react-query': 11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3)
 
-  '@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
+  '@trpc/react-query@11.3.0(@tanstack/react-query@5.80.5(react@18.3.1))(@trpc/client@11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3))(@trpc/server@11.3.0(typescript@5.8.3))(react-dom@19.1.0(react@18.3.1))(react@18.3.1)(typescript@5.8.3)':
     dependencies:
       '@tanstack/react-query': 5.80.5(react@18.3.1)
       '@trpc/client': 11.3.0(@trpc/server@11.3.0(typescript@5.8.3))(typescript@5.8.3)
       '@trpc/server': 11.3.0(typescript@5.8.3)
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       typescript: 5.8.3
 
   '@trpc/server@11.3.0(typescript@5.8.3)':
@@ -15958,7 +15966,7 @@ snapshots:
 
   '@types/prop-types@15.7.14': {}
 
-  '@types/react-dom@18.3.7(@types/react@18.3.23)':
+  '@types/react-dom@19.1.6(@types/react@18.3.23)':
     dependencies:
       '@types/react': 18.3.23
 
@@ -21750,13 +21758,13 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-seo@5.15.0(next@15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next-seo@5.15.0(next@15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1))(react-dom@19.1.0(react@18.3.1))(react@18.3.1):
     dependencies:
-      next: 15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      next: 15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
 
-  next@15.3.3(@playwright/test@1.52.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  next@15.3.3(@playwright/test@1.52.0)(react-dom@19.1.0(react@18.3.1))(react@18.3.1):
     dependencies:
       '@next/env': 15.3.3
       '@swc/counter': 0.1.3
@@ -21765,7 +21773,7 @@ snapshots:
       caniuse-lite: 1.0.30001721
       postcss: 8.4.31
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
       styled-jsx: 5.1.6(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.3.3
@@ -23004,24 +23012,30 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+    optional: true
+
+  react-dom@19.1.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      scheduler: 0.26.0
 
   react-is@16.13.1: {}
 
-  react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       leaflet: 1.9.4
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
 
-  react-query@3.39.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  react-query@3.39.3(react-dom@19.1.0(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.27.4
       broadcast-channel: 3.7.0
       match-sorter: 6.3.4
       react: 18.3.1
     optionalDependencies:
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
 
   react-viewport-list@5.4.1(react@18.3.1):
     dependencies:
@@ -23031,16 +23045,16 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  reactflow@11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  reactflow@11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1):
     dependencies:
-      '@reactflow/background': 11.3.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@reactflow/controls': 11.2.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@reactflow/minimap': 11.7.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@reactflow/node-resizer': 2.2.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@reactflow/node-toolbar': 1.3.14(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@reactflow/background': 11.3.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
+      '@reactflow/controls': 11.2.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
+      '@reactflow/core': 11.11.4(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
+      '@reactflow/minimap': 11.7.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
+      '@reactflow/node-resizer': 2.2.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
+      '@reactflow/node-toolbar': 1.3.14(@types/react@18.3.23)(react-dom@19.1.0(react@18.3.1))(react@18.3.1)
       react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
+      react-dom: 19.1.0(react@18.3.1)
     transitivePeerDependencies:
       - '@types/react'
       - immer
@@ -23764,6 +23778,9 @@ snapshots:
   scheduler@0.23.2:
     dependencies:
       loose-envify: 1.4.0
+    optional: true
+
+  scheduler@0.26.0: {}
 
   schema-utils@4.3.2:
     dependencies:
