@@ -340,8 +340,8 @@ catalogs:
       specifier: 4.0.4
       version: 4.0.4
     superjson:
-      specifier: 1.13.3
-      version: 1.13.3
+      specifier: 2.2.2
+      version: 2.2.2
     syncpack:
       specifier: 13.0.4
       version: 13.0.4
@@ -647,7 +647,7 @@ importers:
         version: 5.4.1(react@18.3.1)
       superjson:
         specifier: 'catalog:'
-        version: 1.13.3
+        version: 2.2.2
       use-debounce:
         specifier: 'catalog:'
         version: 10.0.4(react@18.3.1)
@@ -11229,10 +11229,6 @@ packages:
     resolution: {integrity: sha512-8EbVDiu9iN/nESwxeSxDKe0dunta1GOlHufmSSXxMD2z2/tMZpDMpvXQGsc+ajGo8y2uYUmixaSRUc/QPoQ0GA==}
     engines: {node: '>=16 || 14 >=14.17'}
     hasBin: true
-
-  superjson@1.13.3:
-    resolution: {integrity: sha512-mJiVjfd2vokfDxsQPOwJ/PtanO87LhpYY88ubI5dUB1Ab58Txbyje3+jpm+/83R/fevaq/107NNhtYBLuoTrFg==}
-    engines: {node: '>=10'}
 
   superjson@2.2.2:
     resolution: {integrity: sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q==}
@@ -24217,10 +24213,6 @@ snapshots:
       mz: 2.7.0
       pirates: 4.0.7
       ts-interface-checker: 0.1.13
-
-  superjson@1.13.3:
-    dependencies:
-      copy-anything: 3.0.5
 
   superjson@2.2.2:
     dependencies:

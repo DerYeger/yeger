@@ -117,7 +117,7 @@ catalog:
   reactflow: 11.11.4
   rimraf: 6.0.1
   splitpanes: 4.0.4
-  superjson: 1.13.3
+  superjson: 2.2.2
   syncpack: 13.0.4
   tailwind-merge: 2.6.0
   tailwindcss: 3.4.17
