@@ -56,7 +56,7 @@ watch(
 </script>
 
 <template>
-  <div class="relative size-full">
+  <div class="relative size-full" data-testid="model-input">
     <Codemirror
       :model-value="modelValue"
       :extensions="[

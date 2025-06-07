@@ -86,6 +86,7 @@ const { loading } = useAppStorage()
                   <input
                     id="formulaInput"
                     v-model="formulaInput"
+                    data-testid="formula-input"
                     name="formulaInput"
                     class="border-1 rounded border-stone-900 bg-white px-2 py-1 font-sans"
                   >
@@ -93,6 +94,7 @@ const { loading } = useAppStorage()
                 <div class="flex flex-col gap-2">
                   <span class="select-none">Formula</span>
                   <code
+                    data-testid="formula-output"
                     class="border-1 flex items-center border-current px-2 py-1"
                   >
                     <span class="flex-1 overflow-x-auto text-stone-500">

@@ -98,7 +98,7 @@ function resetGraphController(
 </script>
 
 <template>
-  <div class="font-ui relative size-full">
+  <div data-testid="model-graph" class="font-ui relative size-full">
     <div ref="el" />
     <IconButton
       name="system-uicons:reset"

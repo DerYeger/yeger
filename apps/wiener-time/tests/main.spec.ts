@@ -20,7 +20,7 @@ test('can save and remove favorites', async ({ page }) => {
 
   // Go back to the favorites page
   await page.getByTestId('nav-link-/').click()
-  await expect(page).toHaveURL('/stations')
+  await expect(page).toHaveURL('/')
 
   // The favorite stations is now visible
   await expect(page.getByTestId(`station-favorite-toggle-yes-${TEST_STATION_NAME}`)).toBeVisible()

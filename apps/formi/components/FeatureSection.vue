@@ -4,7 +4,7 @@ const { title, number } = toRefs(props)
 </script>
 
 <template>
-  <section>
+  <section :data-testid="`features-section-${title}`">
     <div
       class="mb-16 flex items-center justify-center gap-4 text-xl sm:text-2xl md:text-3xl"
     >

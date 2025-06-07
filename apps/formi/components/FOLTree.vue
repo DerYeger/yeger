@@ -16,6 +16,7 @@ const borderBreakpoints = [1, 3, 5]
 
 <template>
   <div
+    :data-testid="level === 0 ? 'fol-tree' : undefined"
     class="bg-op-25 border-1 flex size-fit flex-col items-center justify-center rounded bg-stone-900 p-2 text-stone-100 shadow"
     :class="{
       'border-stone-600': level < borderBreakpoints[0],
