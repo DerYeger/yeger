@@ -43,8 +43,8 @@ catalogs:
       specifier: 3.3.1
       version: 3.3.1
     '@iconify/react':
-      specifier: 3.2.2
-      version: 3.2.2
+      specifier: 6.0.0
+      version: 6.0.0
     '@manypkg/get-packages':
       specifier: 3.0.0
       version: 3.0.0
@@ -672,7 +672,7 @@ importers:
     devDependencies:
       '@iconify/react':
         specifier: 'catalog:'
-        version: 3.2.2(react@18.3.1)
+        version: 6.0.0(react@18.3.1)
       '@playwright/test':
         specifier: 'catalog:'
         version: 1.52.0
@@ -3249,8 +3249,8 @@ packages:
   '@iconify/collections@1.0.556':
     resolution: {integrity: sha512-/k11MrPCUOZ/UShNXcOgDtoGOqkXTkzt2MVHbVcH59w/BDydD3R8SYLOQw4owN4wMul0x55RCx7C3T+BvFTyow==}
 
-  '@iconify/react@3.2.2':
-    resolution: {integrity: sha512-z3+Jno3VcJzgNHsN5mEvYMsgCkOZkydqdIwOxjXh45+i2Vs9RGH68Y52vt39izwFSfuYUXhaW+1u7m7+IhCn/g==}
+  '@iconify/react@6.0.0':
+    resolution: {integrity: sha512-eqNscABVZS8eCpZLU/L5F5UokMS9mnCf56iS1nM9YYHdH8ZxqZL9zyjSwW60IOQFsXZkilbBiv+1paMXBhSQnw==}
     peerDependencies:
       react: '>=16'
 
@@ -14512,8 +14512,9 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
-  '@iconify/react@3.2.2(react@18.3.1)':
+  '@iconify/react@6.0.0(react@18.3.1)':
     dependencies:
+      '@iconify/types': 2.0.0
       react: 18.3.1
 
   '@iconify/types@2.0.0': {}
