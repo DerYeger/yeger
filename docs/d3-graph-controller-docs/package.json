@@ -25,5 +25,8 @@
     "vite-plugin-lib": "workspace:*",
     "vitepress": "catalog:",
     "vue-tsc": "catalog:"
+  },
+  "lint-staged": {
+    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

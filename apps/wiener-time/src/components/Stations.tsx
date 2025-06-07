@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import type { FC } from 'react'
-import ViewportList from 'react-viewport-list'
+import { ViewportList } from 'react-viewport-list'
 
 import { Station } from './Station'
 
@@ -13,8 +13,8 @@ export const Stations: FC<{
       <ViewportList
         viewportRef={ref}
         items={stations}
-        itemMinSize={24}
-        margin={16}
+        itemSize={24}
+        itemMargin={16}
       >
         {(station) => (
           <div key={station.name} className="mb-4">

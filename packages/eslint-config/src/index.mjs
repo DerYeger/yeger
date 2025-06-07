@@ -57,16 +57,6 @@ export default function (...configs) {
         ],
         'ts/no-unused-vars': 'off',
         'brace-style': ['error', '1tbs'],
-        'import/order': [
-          'error',
-          {
-            'newlines-between': 'always',
-            alphabetize: {
-              order: 'asc',
-              caseInsensitive: true,
-            },
-          },
-        ],
         'perfectionist/sort-imports': 'off',
         'perfectionist/sort-named-imports': 'off',
         'test/prefer-lowercase-title': 'off',

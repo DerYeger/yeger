@@ -1,4 +1,3 @@
-/* eslint-disable import/no-duplicates, import/order */
 // #region token
 export type CustomType = 'primary' | 'secondary'
 // #endregion token
