@@ -5,8 +5,6 @@ import { MapContainer, TileLayer } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 
-const boundsPadding = 0.01
-
 const Map: FC<
   {
     center: [number, number]
@@ -17,12 +15,8 @@ const Map: FC<
   return (
     <MapContainer
       className="h-full flex-1"
-      minZoom={11}
+      minZoom={10}
       maxZoom={20}
-      maxBounds={[
-        [48.117668 - boundsPadding, 16.18218 - boundsPadding],
-        [48.322571 + boundsPadding, 16.566511 + boundsPadding],
-      ]}
       {...rest}
     >
       <TileLayer

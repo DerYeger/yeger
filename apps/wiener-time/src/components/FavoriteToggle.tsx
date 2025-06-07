@@ -14,6 +14,7 @@ const FavoriteToggle: FC<{ stationName: string }> = ({
     <button
       type="button"
       onClick={() => toggleFavorite(stationName)}
+      data-testid={`station-favorite-toggle-${isFavoriteStation ? 'yes' : 'no'}-${stationName}`}
     >
       <Icon
         icon={isFavoriteStation ? 'fa:heart' : 'fa:heart-o'}

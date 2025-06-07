@@ -9,7 +9,7 @@ export const Station: FC<{
 }> = ({ station }) => {
   return (
     <div className="flex items-center justify-between gap-2">
-      <Link href={`/stations/${lib.encodeStationName(station.name)}`} className="text-neutral-700 transition-colors hover:text-black">
+      <Link href={`/stations/${lib.encodeStationName(station.name)}`} className="text-neutral-700 transition-colors hover:text-black" data-testid={`station-link-${station.name}`}>
         {station.name}
       </Link>
       <FavoriteToggle

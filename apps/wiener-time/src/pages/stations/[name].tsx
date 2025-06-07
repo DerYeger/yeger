@@ -117,11 +117,11 @@ const LineComponent: FC<{ line: Line, maxDepartures?: number }> = ({
     [line.departures.departure, maxDepartures],
   )
   return (
-    <div className="rounded border-2">
-      <span className="flex items-center gap-2 bg-gray-100 p-4 font-bold">
+    <div className="rounded border-2" data-testid={`line-${line.name}-${line.towards.trim()}`}>
+      <span className="flex items-center gap-2 bg-gray-100 p-4 font-bold" data-testid="line-header">
         <LineTitle line={line.name} />
         {' '}
-        {line.towards}
+        {line.towards.trim()}
       </span>
       <div className="border-b-2" />
       <div className="flex flex-col">
@@ -179,7 +179,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
       <NextSeo title={station.name} />
       <main className="flex flex-1 flex-col ">
         <div className="m-4 flex items-center justify-between">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl">{station.name}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">{station.name}</h1>
           <FavoriteToggle
             stationName={station.name}
           />

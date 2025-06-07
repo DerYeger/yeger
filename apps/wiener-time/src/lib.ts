@@ -45,13 +45,26 @@ function fixCoordinates(coordinates: [number, number]) {
 
 const centerOfVienna: [number, number] = [48.2082, 16.3738]
 
+const boundsPadding = 0.5
+
+const boundsOfVienna = [
+  [48.117668 - boundsPadding, 16.18218 - boundsPadding],
+  [48.322571 + boundsPadding, 16.566511 + boundsPadding],
+] as const
+
+function isInBounds(location: [number, number]): boolean {
+  return location[0] >= boundsOfVienna[0][0] && location[0] <= boundsOfVienna[1][0] && location[1] >= boundsOfVienna[0][1] && location[1] <= boundsOfVienna[1][1]
+}
+
 const lib = {
+  boundsOfVienna,
   calculateCenter,
   centerOfVienna,
   decodeStationName,
   encodeStationName,
   fetchMonitorData,
   fixCoordinates,
+  isInBounds,
 }
 
 export default lib

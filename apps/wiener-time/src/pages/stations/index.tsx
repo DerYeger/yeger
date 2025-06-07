@@ -48,6 +48,7 @@ const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
               <input
                 type="text"
                 className="min-w-0 rounded border border-gray-300 bg-gray-100 px-2 py-1"
+                data-testid="station-search-input"
                 value={searchQuery}
                 placeholder="Search"
                 onChange={(event) => setSearchQuery(event.currentTarget.value)}

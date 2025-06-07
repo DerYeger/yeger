@@ -11,6 +11,7 @@ const AboutPage: NextPage = () => {
           href="https://github.com/DerYeger/yeger/tree/main/apps/wiener-time"
           target="_blank"
           rel="noreferrer"
+          data-testid="repository-link"
           className="flex items-center gap-1 transition-colors hover:text-neutral-600"
         >
           An open-source project

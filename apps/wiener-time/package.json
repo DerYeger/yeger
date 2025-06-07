@@ -4,11 +4,12 @@
   "version": "1.0.1",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
     "build": "next build",
-    "preview": "next start",
+    "codegen": "rimraf src/stations.json && tsx scripts/generate.ts",
+    "dev": "next dev --turbo",
+    "e2e": "playwright test",
     "lint": "yeger-lint",
-    "codegen": "rimraf src/stations.json && tsx scripts/generate.ts"
+    "preview": "next start"
   },
   "dependencies": {
     "@changey/react-leaflet-markercluster": "catalog:",
@@ -34,10 +35,12 @@
   },
   "devDependencies": {
     "@iconify/react": "catalog:",
+    "@playwright/test": "catalog:",
     "@types/leaflet": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@yeger/playwright-config": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "catalog:",
     "eslint-config-next": "catalog:",

@@ -1,16 +1,18 @@
 {
   "name": "formi",
+  "type": "module",
   "version": "0.2.10",
   "private": true,
   "scripts": {
     "build": "nuxt build",
+    "check:vue": "nuxi typecheck",
     "dev": "nuxt dev",
+    "e2e": "playwright test",
     "generate": "nuxt generate",
     "lint": "yeger-lint",
     "nuxi": "nuxi",
-    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "check:vue": "nuxi typecheck"
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@codemirror/language": "catalog:",
@@ -29,11 +31,14 @@
   },
   "devDependencies": {
     "@nuxtjs/robots": "catalog:",
+    "@playwright/test": "catalog:",
+    "@types/node": "catalog:",
     "@unocss/nuxt": "catalog:",
     "@unocss/reset": "catalog:",
     "@vite-pwa/nuxt": "catalog:",
     "@vue/shared": "catalog:",
     "@vueuse/nuxt": "catalog:",
+    "@yeger/playwright-config": "workspace:*",
     "node-fetch-native": "catalog:",
     "nuxt": "catalog:",
     "nuxt-icon": "catalog:",

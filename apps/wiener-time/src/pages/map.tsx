@@ -25,7 +25,8 @@ const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     () =>
       stations
         ?.filter((station) => station.location)
-        .map(({ name, location }) => ({ name, location: location! })),
+        .map(({ name, location }) => ({ name, location: location! }))
+        .filter(({ location }) => lib.isInBounds(location)),
     [stations],
   )
   return (

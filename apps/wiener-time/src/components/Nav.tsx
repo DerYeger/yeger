@@ -25,6 +25,7 @@ const Nav: FC = () => {
         <Link
           href={href}
           key={href}
+          data-testid={`nav-link-${href}`}
           className={`${
             router.pathname === href ? 'text-gray-700' : 'text-gray-500'
           } p-4 transition-colors hover:text-black`}

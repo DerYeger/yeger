@@ -6,3 +6,9 @@ node_modules
 .output
 .env
 dist
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
