@@ -124,7 +124,7 @@ catalog:
   tailwindcss: 3.4.17
   tailwindcss-animate: 1.0.7
   taze: 19.1.0
-  tsx: 3.14.0
+  tsx: 4.19.4
   typescript: 5.8.3
   ufo: 1.6.1
   unbuild: 3.5.0
