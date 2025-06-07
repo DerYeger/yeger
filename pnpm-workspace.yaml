@@ -113,7 +113,7 @@ catalog:
   react-dom: 18.3.1
   react-leaflet: 4.2.1
   react-query: 3.39.3
-  react-viewport-list: 5.4.1
+  react-viewport-list: 7.1.2
   reactflow: 11.11.4
   rimraf: 6.0.1
   splitpanes: 4.0.4
