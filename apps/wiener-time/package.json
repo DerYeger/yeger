@@ -12,7 +12,6 @@
     "preview": "next start"
   },
   "dependencies": {
-    "@changey/react-leaflet-markercluster": "catalog:",
     "@tanstack/react-query": "catalog:",
     "@trpc/client": "catalog:",
     "@trpc/next": "catalog:",
@@ -26,6 +25,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "react-leaflet": "catalog:",
+    "react-leaflet-markercluster": "catalog:",
     "react-query": "catalog:",
     "react-viewport-list": "catalog:",
     "superjson": "catalog:",

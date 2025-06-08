@@ -1,5 +1,4 @@
-// @ts-expect-error Missing typedef
-import BaseMarkerCluster from '@changey/react-leaflet-markercluster'
+import BaseMarkerCluster from 'react-leaflet-markercluster'
 import L from 'leaflet'
 import type { FC, ReactNode } from 'react'
 
