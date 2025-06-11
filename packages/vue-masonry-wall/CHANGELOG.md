@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 5.0.20
+
+### Patch Changes
+
+- 69f082d: update peerDependencies
+
 ## 5.0.19
 
 ### Patch Changes

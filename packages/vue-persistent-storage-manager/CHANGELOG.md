@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.16
+
+### Patch Changes
+
+- 69f082d: update peerDependencies
+
 ## 3.0.15
 
 ### Patch Changes

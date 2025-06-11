@@ -1,5 +1,11 @@
 # vue-marmoset-viewer
 
+## 4.0.16
+
+### Patch Changes
+
+- 69f082d: update peerDependencies
+
 ## 4.0.15
 
 ### Patch Changes
