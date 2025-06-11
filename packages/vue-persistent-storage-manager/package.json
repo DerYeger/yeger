@@ -46,7 +46,7 @@
     "test": "vitest"
   },
   "peerDependencies": {
-    "vue": "2.0.0"
+    "vue": "^2.0.0"
   },
   "devDependencies": {
     "@vue/test-utils": "catalog:vue2",
