@@ -1,5 +1,12 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.16
+
+### Patch Changes
+
+- Updated dependencies [69f082d]
+  - vue-marmoset-viewer@4.0.16
+
 ## 2.0.15
 
 ### Patch Changes

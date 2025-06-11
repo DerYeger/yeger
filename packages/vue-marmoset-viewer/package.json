@@ -1,7 +1,7 @@
 {
   "name": "vue-marmoset-viewer",
   "type": "module",
-  "version": "4.0.15",
+  "version": "4.0.16",
   "private": false,
   "description": "A responsive and configurable Marmoset Viewer component for Vue.",
   "author": {
