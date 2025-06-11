@@ -17,9 +17,6 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT" src="https://img.shields.io/npm/l/resumon?color=%234DC71F">
   </a>
-  <a href="https://bundlephobia.com/package/resumon">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/resumon">
-  </a>
 </p>
 
 ## Installation

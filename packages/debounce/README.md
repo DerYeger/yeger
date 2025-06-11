@@ -17,9 +17,6 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT" src="https://img.shields.io/npm/l/@yeger/debounce?color=%234DC71F">
   </a>
-  <a href="https://bundlephobia.com/package/@yeger/debounce">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@yeger/debounce">
-  </a>
 </p>
 
 ## Features

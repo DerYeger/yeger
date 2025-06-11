@@ -30,9 +30,6 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT" src="https://img.shields.io/npm/l/d3-graph-controller?color=%234DC71F">
   </a>
-  <a href="https://bundlephobia.com/package/d3-graph-controller">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/d3-graph-controller">
-  </a>
 </p>
 
 ## Features

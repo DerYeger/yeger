@@ -19,9 +19,6 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT" src="https://img.shields.io/npm/l/vue-marmoset-viewer?color=#4DC71F">
   </a>
-  <a href="https://bundlephobia.com/package/vue-marmoset-viewer">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-marmoset-viewer">
-  </a>
 </p>
 
 > A responsive and configurable [Marmoset Viewer](https://marmoset.co/toolbag/viewer/) component for Vue.

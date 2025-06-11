@@ -31,11 +31,6 @@ const badges: Badge[] = [
     alt: 'MIT',
     src: `https://img.shields.io/npm/l/${packageName}?color=%234DC71F`,
   },
-  {
-    href: `https://bundlephobia.com/package/${packageName}`,
-    alt: 'NPM Bundle Size',
-    src: `https://img.shields.io/bundlephobia/minzip/${packageName}`,
-  },
 ]
 </script>
 

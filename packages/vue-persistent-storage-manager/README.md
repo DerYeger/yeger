@@ -19,9 +19,6 @@
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT" src="https://img.shields.io/npm/l/vue-persistent-storage-manager?color=#4DC71F">
   </a>
-  <a href="https://bundlephobia.com/package/vue-persistent-storage-manager">
-    <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/min/vue-persistent-storage-manager">
-  </a>
 </p>
 
 > Vue plugin that wraps the [StorageManager](https://developer.mozilla.org/en-US/docs/Web/API/StorageManager) API and provides the state of the `persistent-storage` permission alongside a storage estimate.

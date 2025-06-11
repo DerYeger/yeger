@@ -40,8 +40,5 @@ features:
     <a href="https://opensource.org/licenses/MIT">
       <img alt="MIT" src="https://img.shields.io/npm/l/vecti?color=%234DC71F">
     </a>
-    <a href="https://bundlephobia.com/package/vecti">
-      <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/vecti">
-    </a>
   </div>
 </div>

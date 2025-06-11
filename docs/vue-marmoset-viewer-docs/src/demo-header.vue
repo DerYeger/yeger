@@ -86,16 +86,6 @@
           src="https://img.shields.io/npm/l/vue-marmoset-viewer?color=#4DC71F"
         >
       </a>
-      <a
-        href="https://bundlephobia.com/package/vue-marmoset-viewer"
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          alt="npm bundle size"
-          src="https://img.shields.io/bundlephobia/min/vue-marmoset-viewer"
-        >
-      </a>
     </div>
   </header>
 </template>

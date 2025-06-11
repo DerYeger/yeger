@@ -46,16 +46,6 @@
         src="https://img.shields.io/npm/l/@yeger/vue-masonry-wall?color=%234DC71F"
       >
     </a>
-    <a
-      href="https://bundlephobia.com/package/@yeger/vue-masonry-wall"
-      target="_blank"
-      rel="noopener"
-    >
-      <img
-        alt="npm bundle size"
-        src="https://img.shields.io/bundlephobia/minzip/@yeger/vue-masonry-wall"
-      >
-    </a>
   </div>
 </template>
 
