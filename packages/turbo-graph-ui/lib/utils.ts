@@ -20,7 +20,7 @@ export function useGraphSettings() {
       .concat(newValue ? [[param, newValue]] : [])
       .map(([key, value]) => `${key}=${value}`)
       .join('&')
-    router.push(`/?${newSearchParams}`)
+    router.replace(`/?${newSearchParams}`)
   }
 
   function getParameter(param: GraphParameter) {

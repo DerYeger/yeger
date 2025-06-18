@@ -26,7 +26,7 @@ function GraphParameterInput({
   const urlParameter = getParameter(param)
   const onChange: ChangeEventHandler<HTMLInputElement> = debounce(
     (event) => setParameter(param, event.target.value),
-    500,
+    0,
   )
   const ref = useRef<HTMLInputElement>(null)
   useEffect(() => {
