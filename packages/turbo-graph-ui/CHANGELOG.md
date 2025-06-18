@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.1.8
+
+### Patch Changes
+
+- 067f035: prevent issues due to input debounce
+
 ## 2.1.7
 
 ### Patch Changes
