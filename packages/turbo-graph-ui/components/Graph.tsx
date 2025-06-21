@@ -1,6 +1,5 @@
 import { Stream } from '@yeger/streams'
 
-import { getEdgeGradient, getTaskColorVar } from '../lib/flow'
 import { getGraph } from '../lib/turbo'
 
 import { FlowGraph } from './FlowGraph'
@@ -32,36 +31,10 @@ export async function Graph({ tasks, filter }: GraphProps) {
   const uniqueTasks = Stream.from(graph.nodes)
     .map(({ task }) => task)
     .toSet()
-  const edgeGradients = Stream.from(uniqueTasks).flatMap((source) =>
-    Stream.from(uniqueTasks).map((target) => ({
-      id: getEdgeGradient(source, target),
-      sourceColor: `var(${getTaskColorVar(source)})`,
-      targetColor: `var(${getTaskColorVar(target)})`,
-    })),
-  )
 
   return (
     <div className="size-full">
-      <FlowGraph graph={graph} uniqueTasks={uniqueTasks}>
-        <svg>
-          <defs>
-            {edgeGradients.map(({ id, sourceColor, targetColor }) => (
-              <linearGradient
-                id={id}
-                key={id}
-                x1="0%"
-                y1="0%"
-                x2="0%"
-                y2="100%"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0" stopColor={sourceColor} />
-                <stop offset="1" stopColor={targetColor} />
-              </linearGradient>
-            ))}
-          </defs>
-        </svg>
-      </FlowGraph>
+      <FlowGraph graph={graph} uniqueTasks={uniqueTasks} />
     </div>
   )
 }

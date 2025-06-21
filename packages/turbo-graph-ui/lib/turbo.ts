@@ -69,15 +69,19 @@ async function findTurboConfig(currentPath = '.'): Promise<Data> {
 
 export interface TurboNode {
   id: string
-  package: string
+  packageName: string
+  packageDir: string
   task: string
+  framework: string | undefined
 }
 
 export interface TurboEdge {
   source: string
   sourceTask: string
+  sourceWorkspace: string
   target: string
   targetTask: string
+  targetWorkspace: string
 }
 
 export interface TurboGraph {
@@ -106,8 +110,10 @@ function createGraph(input: string): TurboGraph {
 
   const nodes: TurboNode[] = tasks.map((task) => ({
     id: task.taskId,
-    package: task.package,
+    packageName: task.package,
+    packageDir: task.directory,
     task: task.task,
+    framework: task.framework,
   }))
   const validTasks = new Set(tasks.map(({ taskId }) => taskId))
 
@@ -117,8 +123,10 @@ function createGraph(input: string): TurboGraph {
       .map((dependency) => ({
         source: dependency,
         sourceTask: dependency.substring(dependency.indexOf('#') + 1),
+        sourceWorkspace: dependency.substring(0, dependency.indexOf('#')),
         target: taskId,
         targetTask: taskId.substring(taskId.indexOf('#') + 1),
+        targetWorkspace: taskId.substring(0, taskId.indexOf('#')),
       })),
   )
   return { nodes, edges }

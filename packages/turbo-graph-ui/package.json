@@ -37,14 +37,13 @@
     "turbo": "1.0.0 || ^2.0.0"
   },
   "dependencies": {
+    "@iconify/react": "catalog:",
     "@yeger/debounce": "workspace:*",
     "@yeger/streams": "workspace:*",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "d3-dag": "catalog:",
-    "d3-graph-controller": "workspace:*",
     "d3-scale": "catalog:",
-    "d3-scale-chromatic": "catalog:",
     "execa": "catalog:",
     "lucide-react": "catalog:",
     "react": "catalog:",

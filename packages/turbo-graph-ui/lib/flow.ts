@@ -1,5 +1,5 @@
 import { Stream } from '@yeger/streams'
-import { graphStratify, sugiyama } from 'd3-dag'
+import { graphStratify, sugiyama, decrossTwoLayer, coordCenter } from 'd3-dag'
 import type { Edge, Node } from 'reactflow'
 
 import type { TurboEdge, TurboGraph, TurboNode } from './turbo'
@@ -35,9 +35,9 @@ function createHierarchy(graph: TurboGraph) {
 
 function getLongestLineLength({ nodes }: TurboGraph) {
   const length = Math.max(
-    ...Stream.from(nodes).flatMap(({ task, package: workspace }) => [
+    ...Stream.from(nodes).flatMap(({ task, packageName }) => [
       task.length,
-      workspace.length,
+      packageName.length,
     ]),
   )
   if (length < 0) {
@@ -48,8 +48,8 @@ function getLongestLineLength({ nodes }: TurboGraph) {
 
 function createSizeConfig(longestLine: number): SizeConfig {
   return {
-    width: longestLine * 10,
-    height: 80,
+    width: 64 + longestLine * 10,
+    height: 189,
     horizontalSpacing: 128,
     verticalSpacing: 128,
   }
@@ -66,10 +66,13 @@ function createFlowGraph(
   sizeConfig: SizeConfig,
 ) {
   const { width, height, horizontalSpacing, verticalSpacing } = sizeConfig
-  const layout = sugiyama().nodeSize([
-    width + horizontalSpacing,
-    height + verticalSpacing,
-  ])
+  const layout = sugiyama()
+    .nodeSize([
+      width + horizontalSpacing,
+      height + verticalSpacing,
+    ])
+    .decross(decrossTwoLayer())
+    .coord(coordCenter())
   const layoutResult = layout(hierarchy)
   const nodes = Stream.from(hierarchy.nodes())
     .map<Node<FlowNode>>(
@@ -90,9 +93,9 @@ function createFlowGraph(
     id: `edge-${edge.source}-${edge.target}`,
     source: edge.source,
     target: edge.target,
-    animated: true,
+    animated: false,
     style: {
-      stroke: `url(#${getEdgeGradient(edge.sourceTask, edge.targetTask)})`,
+      stroke: `var(${getTaskColorVar(edge.targetTask)})`,
       width: 4,
     },
   }))
@@ -105,12 +108,6 @@ function normalizeTaskName(task: string) {
     .replaceAll('#', '-')
     .replaceAll('/', '-')
     .replaceAll('@', '-')
-}
-
-export function getEdgeGradient(sourceTask: string, targetTask: string) {
-  return `edge-gradient-${normalizeTaskName(sourceTask)}-${normalizeTaskName(
-    targetTask,
-  )}`
 }
 
 export function getTaskColorVar(task: string) {

@@ -192,9 +192,6 @@ catalogs:
     d3-scale:
       specifier: 4.0.2
       version: 4.0.2
-    d3-scale-chromatic:
-      specifier: 3.1.0
-      version: 3.1.0
     d3-selection:
       specifier: 3.0.0
       version: 3.0.0
@@ -1210,6 +1207,9 @@ importers:
 
   packages/turbo-graph-ui:
     dependencies:
+      '@iconify/react':
+        specifier: 'catalog:'
+        version: 6.0.0(react@19.1.0)
       '@yeger/debounce':
         specifier: workspace:*
         version: link:../debounce
@@ -1225,15 +1225,9 @@ importers:
       d3-dag:
         specifier: 'catalog:'
         version: 1.1.0
-      d3-graph-controller:
-        specifier: workspace:*
-        version: link:../d3-graph-controller
       d3-scale:
         specifier: 'catalog:'
         version: 4.0.2
-      d3-scale-chromatic:
-        specifier: 'catalog:'
-        version: 3.1.0
       execa:
         specifier: 'catalog:'
         version: 9.6.0
@@ -6329,10 +6323,6 @@ packages:
 
   d3-quadtree@3.0.1:
     resolution: {integrity: sha512-04xDrxQTDTCFwP5H6hRhsRcb9xxv2RzkcsygFzmkSIOJy3PeRJP7sNk3VRIbKXcog561P9oU0/rVH6vDROAgUw==}
-    engines: {node: '>=12'}
-
-  d3-scale-chromatic@3.1.0:
-    resolution: {integrity: sha512-A3s5PWiZ9YCXFye1o246KoscMWqf8BsD9eRiJ3He7C9OBaxKhAd5TFCdEx/7VbKtxxTsu//1mMJFrEt572cEyQ==}
     engines: {node: '>=12'}
 
   d3-scale@4.0.2:
@@ -18352,11 +18342,6 @@ snapshots:
       d3-color: 3.1.0
 
   d3-quadtree@3.0.1: {}
-
-  d3-scale-chromatic@3.1.0:
-    dependencies:
-      d3-color: 3.1.0
-      d3-interpolate: 3.0.1
 
   d3-scale@4.0.2:
     dependencies:
