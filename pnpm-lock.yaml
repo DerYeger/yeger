@@ -1210,6 +1210,9 @@ importers:
       '@iconify/react':
         specifier: 'catalog:'
         version: 6.0.0(react@19.1.0)
+      '@manypkg/get-packages':
+        specifier: 'catalog:'
+        version: 3.0.0
       '@yeger/debounce':
         specifier: workspace:*
         version: link:../debounce

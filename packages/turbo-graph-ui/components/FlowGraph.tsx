@@ -7,6 +7,8 @@ import { useEffect, useMemo } from 'react'
 import {
   Background,
   Controls,
+  getNodesBounds,
+  getViewportForBounds,
   MiniMap,
   ReactFlow,
   useReactFlow,
@@ -26,18 +28,18 @@ import { Task } from './Task'
 export interface Props {
   children?: ReactNode
   graph: TurboGraph
-  uniqueTasks: Set<string>
+  tasks: string[]
 }
 
 const nodeTypes = {
   task: Task,
 }
 
-export function FlowGraph({ children, graph, uniqueTasks }: Props) {
+export function FlowGraph({ children, graph, tasks }: Props) {
   const { flowGraph, taskCssVars } = useMemo(() => {
     const flowGraph = convertGraph(graph)
-    const getColor = scaleOrdinal(['#FF1E56', '#0196FF', '#CD3678', '#8657A7', '#3F79D5', '#22c55e']).domain(uniqueTasks)
-    const taskColors = Stream.from(uniqueTasks).toRecord(
+    const getColor = scaleOrdinal(['#FF1E56', '#0196FF', '#CD3678', '#8657A7', '#3F79D5', '#22c55e']).domain(tasks)
+    const taskColors = Stream.from(tasks).toRecord(
       (task) => getTaskColorVar(task),
       (task) => getColor(task),
     )
@@ -49,7 +51,7 @@ export function FlowGraph({ children, graph, uniqueTasks }: Props) {
       flowGraph,
       taskCssVars,
     }
-  }, [graph, uniqueTasks])
+  }, [graph, tasks])
 
   const { setParameter } = useGraphSettings()
 
@@ -75,7 +77,7 @@ export function FlowGraph({ children, graph, uniqueTasks }: Props) {
     >
       {children}
       <Background />
-      <Controls showInteractive={false} />
+
       <MiniMap
         nodeColor={({ data }: { data: FlowNode }) =>
           `var(${getTaskColorVar(data.task)})`}
@@ -89,12 +91,29 @@ export function FlowGraph({ children, graph, uniqueTasks }: Props) {
 function ViewFitter({ graph }: { graph: TurboGraph }) {
   const reactFlow = useReactFlow()
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      reactFlow.fitView({ duration: 200 })
-    }, 200)
+    const timeout = setTimeout(() => fitViewWithOffset(), 200)
     return () => {
       clearTimeout(timeout)
     }
   }, [reactFlow, graph])
-  return null
+
+  function fitViewWithOffset() {
+    const bounds = getNodesBounds(reactFlow.getNodes())
+    const containerSize = document.querySelector('.react-flow__renderer')?.getBoundingClientRect()
+    if (!containerSize) {
+      return
+    }
+    const offset = 256
+    const { x, y, zoom } = getViewportForBounds(
+      bounds,
+      containerSize!.width - offset,
+      containerSize!.height,
+      0.1,
+      2,
+      0.1,
+    )
+    reactFlow.setViewport({ x: x + offset, y, zoom }, { duration: 200 })
+  }
+
+  return <Controls position="top-right" showInteractive={false} onFitView={fitViewWithOffset} />
 }

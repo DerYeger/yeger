@@ -4,6 +4,7 @@ import path from 'node:path'
 import { execa } from 'execa'
 import type { Result } from 'resumon'
 import { err, ok } from 'resumon'
+import { getPackages, type Package } from '@manypkg/get-packages'
 
 interface Data {
   dir: string
@@ -130,4 +131,25 @@ function createGraph(input: string): TurboGraph {
       })),
   )
   return { nodes, edges }
+}
+
+export async function getAllTasks() {
+  const { dir } = await findTurboConfig()
+  const { packages, rootPackage } = await getPackages(dir)
+  if (rootPackage) {
+    packages.push(rootPackage)
+  }
+  const tasks = await Promise.all(packages.map(getPackageTasks))
+  return [...new Set(tasks.flat())]
+    .map((t) => t.replace('//#', ''))
+    .toSorted()
+}
+
+async function getPackageTasks({ dir: packageDir }: Package) {
+  try {
+    const turboConfig = JSON.parse(await fs.readFile(`${packageDir}${path.sep}turbo.json`, { encoding: 'utf-8' }))
+    return Object.keys(turboConfig?.tasks ?? {})
+  } catch {
+    return []
+  }
 }

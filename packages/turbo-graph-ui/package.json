@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@iconify/react": "catalog:",
+    "@manypkg/get-packages": "catalog:",
     "@yeger/debounce": "workspace:*",
     "@yeger/streams": "workspace:*",
     "class-variance-authority": "catalog:",
