@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.2.1
+
+### Patch Changes
+
+- 9c7253f: only use root turbo config
+
 ## 2.2.0
 
 ### Minor Changes
