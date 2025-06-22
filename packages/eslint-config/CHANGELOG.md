@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.7.0
+
+### Minor Changes
+
+- fcfe558: re-add import plugin
+
 ## 2.6.2
 
 ### Patch Changes
