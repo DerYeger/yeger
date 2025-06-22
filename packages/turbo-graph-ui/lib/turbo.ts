@@ -60,12 +60,17 @@ async function executeCommand(
 async function findTurboConfig(currentPath = '.'): Promise<Data> {
   const files = await fs.readdir(currentPath)
   const turboConfig = files.find((file) => file === 'turbo.json')
+  const continueSearch = () => findTurboConfig(`..${path.sep}${currentPath}`)
   if (!turboConfig) {
-    return findTurboConfig(`..${path.sep}${currentPath}`)
+    return continueSearch()
   }
   const file = `${currentPath}${path.sep}${turboConfig}`
   const buffer = await fs.readFile(file)
   const config = JSON.parse(buffer.toString())
+  if (Array.isArray(config.extends)) {
+    // We have only found a package-level config
+    return continueSearch()
+  }
   return { dir: currentPath, config }
 }
 
