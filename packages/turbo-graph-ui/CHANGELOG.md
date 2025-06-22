@@ -1,5 +1,13 @@
 # @yeger/turbo-graph-ui
 
+## 2.2.0
+
+### Minor Changes
+
+- f965f50: implement checkbox-based task selection
+- 3f8c8e9: improve task node ui
+- ec11b65: reduce install size
+
 ## 2.1.8
 
 ### Patch Changes
