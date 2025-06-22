@@ -4,7 +4,7 @@
 
 > Interactive visualization of Turborepo task graphs.
 
-![Example Image](https://github.com/DerYeger/yeger/raw/main/packages/turbo-graph/docs/image.png)
+![Turbograph Example Image](https://github.com/DerYeger/yeger/raw/main/packages/turbo-graph/docs/image.png)
 
 ## Installation
 
@@ -18,35 +18,7 @@ pnpm install -D @yeger/turbo-graph
 
 ## Usage
 
-The visualization can be opened by running this package's `turbo-graph` command.
-For simple usage, create a script in your root `package.json`.
-
-```json
-{
-  "script": {
-    "graph": "turbo-graph"
-  }
-}
-```
-
-Nodes represent your workspaces, i.e., packages.
-Each workspace can have multiple nodes, each color defining the corresponding task (as seen in the toolbar).
-
-### CLI
-
-- `-o, --open`: Open the visualizer in the default browser.
-- `-p, --port <port>`: Port of the visualizer. (default: 29312)
-- `-h, --help`: Display help message
-
-### Controls
-
-By right-clicking a node, only its (transitive) dependencies and dependents are shown.
-
-Further, the checkboxes allow filtering nodes by their corresponding tasks.
-
-The graph can be zoomed using the mouse-wheel and nodes may be dragged while holding the left mouse-button.
-
-The "Reset" button centers the graph.
+A usage guide can be found in the [@yeger/turbo-graph](https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph) package.
 
 ## License
 

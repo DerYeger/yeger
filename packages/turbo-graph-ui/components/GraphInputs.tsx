@@ -77,7 +77,7 @@ export function TaskInput({ tasks }: TaskInputProps) {
       return
     }
     setParameter('tasks', serializedSelection)
-  }, [setParameter, serializedSelection])
+  }, [setParameter, serializedSelection, rawParameter])
 
   const selectedSet = new Set(selection)
 

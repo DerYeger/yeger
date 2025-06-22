@@ -4,7 +4,7 @@
 
 > Interactive visualization of Turborepo task graphs.
 
-![Example Image](https://github.com/DerYeger/yeger/raw/main/packages/turbo-graph/docs/image.png)
+![Turbograph Example Image](https://github.com/DerYeger/yeger/raw/main/packages/turbo-graph/docs/image.png)
 
 ## Installation
 
@@ -45,7 +45,7 @@ Like the `--filter` option listed below, this only applies if the `--open` open 
 
 ### Controls
 
-By double-clicking a node, its package is used as the filter.
+By double-clicking a task node, its package is used as the filter.
 
 ## License
 

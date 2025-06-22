@@ -100,8 +100,7 @@
     "lint": {
       "dependsOn": [
         "@yeger/eslint-config#build",
-        "^build",
-        "build"
+        "^build"
       ]
     },
     "//#lint:root": {

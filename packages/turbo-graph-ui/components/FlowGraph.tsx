@@ -12,6 +12,7 @@ import {
   MiniMap,
   ReactFlow,
   useReactFlow,
+  type ReactFlowInstance,
 } from 'reactflow'
 
 import 'reactflow/dist/style.css'
@@ -91,29 +92,29 @@ export function FlowGraph({ children, graph, tasks }: Props) {
 function ViewFitter({ graph }: { graph: TurboGraph }) {
   const reactFlow = useReactFlow()
   useEffect(() => {
-    const timeout = setTimeout(() => fitViewWithOffset(), 200)
+    const timeout = setTimeout(() => fitViewWithOffset(reactFlow), 200)
     return () => {
       clearTimeout(timeout)
     }
   }, [reactFlow, graph])
 
-  function fitViewWithOffset() {
-    const bounds = getNodesBounds(reactFlow.getNodes())
-    const containerSize = document.querySelector('.react-flow__renderer')?.getBoundingClientRect()
-    if (!containerSize) {
-      return
-    }
-    const offset = 256
-    const { x, y, zoom } = getViewportForBounds(
-      bounds,
-      containerSize!.width - offset,
-      containerSize!.height,
-      0.1,
-      2,
-      0.1,
-    )
-    reactFlow.setViewport({ x: x + offset, y, zoom }, { duration: 200 })
-  }
+  return <Controls position="top-right" showInteractive={false} onFitView={() => fitViewWithOffset(reactFlow)} />
+}
 
-  return <Controls position="top-right" showInteractive={false} onFitView={fitViewWithOffset} />
+function fitViewWithOffset(reactFlow: ReactFlowInstance) {
+  const bounds = getNodesBounds(reactFlow.getNodes())
+  const containerSize = document.querySelector('.react-flow__renderer')?.getBoundingClientRect()
+  if (!containerSize) {
+    return
+  }
+  const offset = 256
+  const { x, y, zoom } = getViewportForBounds(
+    bounds,
+    containerSize!.width - offset,
+    containerSize!.height,
+    0.1,
+    2,
+    0.1,
+  )
+  reactFlow.setViewport({ x: x + offset, y, zoom }, { duration: 200 })
 }
