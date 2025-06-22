@@ -23,7 +23,7 @@ For simple usage, create a script in your root `package.json`.
 
 ```json
 {
-  "script": {
+  "scripts": {
     "graph": "turbo-graph"
   }
 }
