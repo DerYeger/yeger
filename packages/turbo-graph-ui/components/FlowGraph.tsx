@@ -12,8 +12,8 @@ import {
   MiniMap,
   ReactFlow,
   useReactFlow,
-  type ReactFlowInstance,
 } from 'reactflow'
+import type { ReactFlowInstance } from 'reactflow'
 
 import 'reactflow/dist/style.css'
 import {

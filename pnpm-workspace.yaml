@@ -5,11 +5,11 @@ packages:
   - packages/*
 
 catalog:
-  '@algolia/client-search': 5.27.0
-  '@antfu/eslint-config': 4.14.1
+  '@algolia/client-search': 5.29.0
+  '@antfu/eslint-config': 4.15.0
   '@antfu/ni': 25.0.0
   '@babel/types': 7.27.6
-  '@changesets/cli': 2.29.4
+  '@changesets/cli': 2.29.5
   '@codemirror/language': 6.11.1
   '@codemirror/legacy-modes': 6.5.1
   '@codemirror/state': 6.5.2
@@ -19,14 +19,14 @@ catalog:
   '@eslint/eslintrc': 3.3.1
   '@iconify/react': 6.0.0
   '@manypkg/get-packages': 3.0.0
-  '@nuxtjs/robots': 5.2.10
+  '@nuxtjs/robots': 5.2.11
   '@ohm-js/cli': 2.0.0
-  '@playwright/test': 1.53.0
-  '@tanstack/react-query': 5.80.7
-  '@trpc/client': 11.4.1
-  '@trpc/next': 11.4.1
-  '@trpc/react-query': 11.4.1
-  '@trpc/server': 11.4.1
+  '@playwright/test': 1.53.1
+  '@tanstack/react-query': 5.81.2
+  '@trpc/client': 11.4.2
+  '@trpc/next': 11.4.2
+  '@trpc/react-query': 11.4.2
+  '@trpc/server': 11.4.2
   '@turbo/gen': 2.5.4
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
@@ -36,23 +36,23 @@ catalog:
   '@types/d3-zoom': 3.0.8
   '@types/eslint': 9.6.1
   '@types/leaflet': 1.9.18
-  '@types/node': 22.15.31
+  '@types/node': 22.15.32
   '@types/react': 19.1.8
   '@types/react-dom': 19.1.6
   '@types/resize-observer-browser': 0.1.11
   '@unhead/vue': 2.0.10
-  '@unocss/nuxt': 66.2.0
-  '@unocss/reset': 66.2.0
+  '@unocss/nuxt': 66.2.3
+  '@unocss/reset': 66.2.3
   '@vite-pwa/nuxt': 1.0.4
   '@vitejs/plugin-vue': 5.2.4
   '@vitejs/plugin-vue2': 2.3.3
-  '@vitest/coverage-v8': 3.2.3
-  '@vitest/ui': 3.2.3
+  '@vitest/coverage-v8': 3.2.4
+  '@vitest/ui': 3.2.4
   '@vue/component-compiler-utils': 3.3.0
-  '@vue/shared': 3.5.16
+  '@vue/shared': 3.5.17
   '@vue/test-utils': 2.4.6
-  '@vueuse/core': 13.3.0
-  '@vueuse/nuxt': 13.3.0
+  '@vueuse/core': 13.4.0
+  '@vueuse/nuxt': 13.4.0
   astro-eslint-parser: 1.2.2
   autoprefixer: 10.4.21
   babel-core: 7.0.0-bridge.0
@@ -60,7 +60,7 @@ catalog:
   cac: 6.7.14
   class-variance-authority: 0.7.1
   clsx: 2.1.1
-  codemirror: 6.0.1
+  codemirror: 6.0.2
   critters: 0.0.25
   cross-env: 7.0.3
   csvtojson: 2.0.10
@@ -72,18 +72,18 @@ catalog:
   d3-selection: 3.0.0
   d3-zoom: 3.0.0
   eslint: 9.29.0
-  eslint-config-next: 15.3.3
+  eslint-config-next: 15.3.4
   eslint-import-resolver-typescript: 4.4.3
   eslint-plugin-astro: 1.3.1
   eslint-plugin-cypress: 5.1.0
   eslint-plugin-format: 1.0.1
-  eslint-plugin-import: 2.31.0
+  eslint-plugin-import: 2.32.0
   eslint-plugin-jsx-a11y: 6.10.2
   eslint-plugin-markdown: 5.1.0
   eslint-plugin-md: 1.0.19
   eslint-plugin-react-hooks: 5.2.0
   eslint-plugin-react-refresh: 0.4.20
-  eslint-plugin-svelte: 3.9.2
+  eslint-plugin-svelte: 3.9.3
   eslint-plugin-tailwindcss: 3.18.0
   eslint-plugin-tsdoc: 0.4.0
   eslint-plugin-turbo: 2.5.4
@@ -95,10 +95,10 @@ catalog:
   kolorist: 1.8.0
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lint-staged: 16.1.0
+  lint-staged: 16.1.2
   localforage: 1.10.0
-  lucide-react: 0.515.0
-  next: 15.3.3
+  lucide-react: 0.522.0
+  next: 15.3.4
   next-seo: 6.8.0
   node-fetch: 3.3.2
   node-fetch-native: 1.6.6
@@ -107,7 +107,7 @@ catalog:
   ohm-js: 17.1.0
   open: 10.1.2
   picocolors: 1.1.1
-  postcss: 8.5.5
+  postcss: 8.5.6
   publint: 0.3.12
   react: 19.1.0
   react-dom: 19.1.0
@@ -131,13 +131,13 @@ catalog:
   unplugin-vue-components: 28.7.0
   use-debounce: 10.0.5
   use-local-storage: 3.0.0
-  vercel: 43.1.0
+  vercel: 43.3.0
   vite: 6.3.5
   vite-plugin-dts: 4.5.4
   vite-ssg: 27.0.1
   vitepress: 1.6.3
-  vitest: 3.2.3
-  vue: 3.5.16
+  vitest: 3.2.4
+  vue: 3.5.17
   vue-codemirror: 6.1.1
   vue-router: 4.5.1
   vue-template-compiler: 2.7.16
@@ -145,7 +145,7 @@ catalog:
   vue-tsc: 2.2.10
   yaml: 2.8.0
   yaml-eslint-parser: 1.3.0
-  zod: 3.25.64
+  zod: 3.25.67
 
 catalogMode: strict
 

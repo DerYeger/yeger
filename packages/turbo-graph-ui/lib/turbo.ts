@@ -4,7 +4,8 @@ import path from 'node:path'
 import { execa } from 'execa'
 import type { Result } from 'resumon'
 import { err, ok } from 'resumon'
-import { getPackages, type Package } from '@manypkg/get-packages'
+import { getPackages } from '@manypkg/get-packages'
+import type { Package } from '@manypkg/get-packages'
 
 interface Data {
   dir: string
