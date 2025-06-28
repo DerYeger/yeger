@@ -1,6 +1,3 @@
-# stations
-src/stations.json
-
 # Playwright
 node_modules/
 /test-results/

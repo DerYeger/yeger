@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "codegen": "rimraf src/stations.json && tsx scripts/generate.ts",
+    "codegen": "tsx scripts/generate-stations.ts",
     "dev": "next dev --turbo",
     "e2e": "playwright test",
     "lint": "yeger-lint",

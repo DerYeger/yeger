@@ -6,7 +6,7 @@
   "tasks": {
     "codegen": {
       "inputs": [
-        "scripts/generate.ts"
+        "scripts/generate-stations.ts"
       ],
       "outputs": [
         "src/stations.json"

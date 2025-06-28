@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises'
+import process from 'node:process'
 
 import csv from 'csvtojson'
 import fetch from 'node-fetch'
@@ -9,23 +10,31 @@ import { StaticStopDataSchema } from '../src/model'
 import type { StaticStopData } from '../src/model'
 
 async function fetchStaticStopData(): Promise<StaticStopData[]> {
-  const res = await fetch(
-    'https://www.wienerlinien.at/ogd_realtime/doku/ogd/wienerlinien-ogd-haltepunkte.csv',
-  )
-  const body = await res.text()
-  const json = await csv({
-    delimiter: ';',
-    checkType: true,
-    ignoreEmpty: true,
-  }).fromString(body)
-
-  const data = z
-    .array(StaticStopDataSchema)
-    .parse(json)
-    .filter(
-      (stop) => stop.StopText && stop.Latitude && stop.Longitude && stop.DIVA,
+  try {
+    const res = await fetch(
+      'https://www.wienerlinien.at/ogd_realtime/doku/ogd/wienerlinien-ogd-haltepunkte.csv',
     )
-  return data
+    const body = await res.text()
+    const json = await csv({
+      delimiter: ';',
+      checkType: true,
+      ignoreEmpty: true,
+    }).fromString(body)
+
+    const data = z
+      .array(StaticStopDataSchema)
+      .parse(json)
+      .filter(
+        (stop) => stop.StopText && stop.Latitude && stop.Longitude && stop.DIVA,
+      )
+    return data
+  } catch (error) {
+    if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'CERT_HAS_EXPIRED') {
+      console.warn('Wiener Linien API unavailable. Aborting update.')
+      process.exit(0)
+    }
+    throw error
+  }
 }
 
 function parseStations(stops: StaticStopData[]) {
@@ -60,8 +69,8 @@ async function generate() {
   const stations = parseStations(stops)
 
   console.log('Writing...')
-  await fs.writeFile('./src/stations.json', JSON.stringify(stations), {
-    flag: 'wx',
+  await fs.writeFile('./src/stations.json', JSON.stringify(stations, null, 2), {
+    flag: 'w',
   })
 
   console.log('Done')
