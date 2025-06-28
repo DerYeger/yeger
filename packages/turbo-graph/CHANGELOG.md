@@ -1,5 +1,18 @@
 # @yeger/turbo-graph
 
+## 2.2.0
+
+### Minor Changes
+
+- 5a229d6: support non-monorepos
+
+### Patch Changes
+
+- 14b055a: do not hardcode build task
+- Updated dependencies [14b055a]
+- Updated dependencies [5a229d6]
+  - @yeger/turbo-graph-ui@2.3.0
+
 ## 2.1.1
 
 ### Patch Changes

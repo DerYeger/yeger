@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 3.0.2
+
+### Patch Changes
+
+- 4b8926d: support vite v7
+
 ## 3.0.1
 
 ### Patch Changes

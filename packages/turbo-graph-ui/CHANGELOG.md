@@ -1,5 +1,15 @@
 # @yeger/turbo-graph-ui
 
+## 2.3.0
+
+### Minor Changes
+
+- 5a229d6: support non-monorepos
+
+### Patch Changes
+
+- 14b055a: do not hardcode build task
+
 ## 2.2.1
 
 ### Patch Changes
