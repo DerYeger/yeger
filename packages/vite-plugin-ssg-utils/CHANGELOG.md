@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.16
+
+### Patch Changes
+
+- 4b8926d: support vite v7
+
 ## 2.0.15
 
 ### Patch Changes
