@@ -27,7 +27,7 @@ export async function getGraph(
   }
   const { dir } = await findTurboConfig()
   const { rootPackage } = await getPackages(dir)
-  const rootPackageName = rootPackage?.packageJson.name
+  const rootPackageName = rootPackage?.packageJson.name ?? '<root>'
 
   const stdout = await executeCommand(dir, filteredTasks, filter)
   return stdout.map((output) => createGraph(output, rootPackageName))
@@ -100,27 +100,36 @@ export interface TurboGraph {
 }
 
 export interface TurboCLIJson {
-  tasks: {
-    taskId: string
-    task: string
-    package?: string
-    inputs: unknown
-    outputs: unknown[]
-    directory?: string
-    dependencies: string[]
-    dependents: string[]
-    command: string
-    framework: string
-  }[]
+  tasks: TurboCLITask[]
 }
 
-function createGraph(input: string, rootPackageName: string | undefined): TurboGraph {
+export interface TurboCLITask {
+  taskId: string
+  task: string
+  package?: string
+  inputs: unknown
+  outputs: unknown[]
+  directory?: string
+  dependencies: string[]
+  dependents: string[]
+  command: string
+  framework: string
+}
+
+function createGraph(input: string, rootPackageName: string): TurboGraph {
   const data = JSON.parse(input) as TurboCLIJson
   const tasks = data.tasks.filter(({ command }) => command !== '<NONEXISTENT>')
 
+  const getPackageName = (task: TurboCLITask) => {
+    if (task.package === '//') {
+      return rootPackageName
+    }
+    return task.package ?? rootPackageName
+  }
+
   const nodes: TurboNode[] = tasks.map((task) => ({
     id: task.taskId,
-    packageName: task.package ?? rootPackageName ?? '<root>',
+    packageName: getPackageName(task),
     packageDir: task.directory,
     task: task.task,
     framework: task.framework,

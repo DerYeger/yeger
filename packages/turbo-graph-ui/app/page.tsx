@@ -22,7 +22,7 @@ export default async function Home(
   const rawSelectedTasks = awaitedSearchParams?.tasks
   const selectedTasks = Array.isArray(rawSelectedTasks)
     ? rawSelectedTasks
-    : rawSelectedTasks?.replaceAll(',', ' ')?.split(' ') ?? ['build']
+    : rawSelectedTasks?.replaceAll(',', ' ')?.split(' ') ?? []
   const filter = awaitedSearchParams?.filter
 
   if (filter && Array.isArray(filter)) {
