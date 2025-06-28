@@ -36,6 +36,9 @@
   "peerDependencies": {
     "turbo": "1.0.0 || ^2.0.0"
   },
+  "dependencies": {
+    "jsonc-parser": "catalog:"
+  },
   "devDependencies": {
     "@iconify/react": "catalog:",
     "@manypkg/get-packages": "catalog:",

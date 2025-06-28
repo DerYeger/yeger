@@ -62,14 +62,14 @@ async function executeCommand(
 
 async function findTurboConfig(currentPath = '.'): Promise<Data> {
   const files = await fs.readdir(currentPath)
-  const turboConfig = files.find((file) => file === 'turbo.json')
+  const turboConfig = files.find((file) => file === 'turbo.json' || file === 'turbo.jsonc')
   const continueSearch = () => findTurboConfig(`..${path.sep}${currentPath}`)
   if (!turboConfig) {
     return continueSearch()
   }
   const file = `${currentPath}${path.sep}${turboConfig}`
-  const buffer = await fs.readFile(file)
-  const config = JSON.parse(buffer.toString())
+  const config = await readTurboConfig(file)
+
   if (Array.isArray(config.extends)) {
     // We have only found a package-level config
     return continueSearch()
@@ -165,9 +165,19 @@ export async function getAllTasks() {
 
 async function getPackageTasks({ dir: packageDir }: Package) {
   try {
-    const turboConfig = JSON.parse(await fs.readFile(`${packageDir}${path.sep}turbo.json`, { encoding: 'utf-8' }))
+    const turboConfig = await readTurboConfig(`${packageDir}${path.sep}turbo.json`)
     return Object.keys(turboConfig?.tasks ?? {})
   } catch {
     return []
+  }
+}
+
+async function readTurboConfig(file: string) {
+  const contents = await fs.readFile(file, { encoding: 'utf8' })
+  try {
+    return JSON.parse(contents)
+  } catch {
+    const jsoncParser = await import('jsonc-parser')
+    return jsoncParser.parse(contents, undefined, { allowTrailingComma: true })
   }
 }
