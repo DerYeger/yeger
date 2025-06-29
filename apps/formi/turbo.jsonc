@@ -12,6 +12,7 @@
       ]
     },
     "check:vue": {
+      // Prevents race conditions due to parallel executions, but dependency is not strictly required
       "dependsOn": [
         "build",
         "generate"
