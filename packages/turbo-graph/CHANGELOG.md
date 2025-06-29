@@ -1,5 +1,16 @@
 # @yeger/turbo-graph
 
+## 2.3.0
+
+### Minor Changes
+
+- b31d0c4: support jsonc config files
+
+### Patch Changes
+
+- Updated dependencies [b31d0c4]
+  - @yeger/turbo-graph-ui@2.4.0
+
 ## 2.2.0
 
 ### Minor Changes
