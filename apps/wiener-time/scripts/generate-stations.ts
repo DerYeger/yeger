@@ -69,7 +69,7 @@ async function generate() {
   const stations = parseStations(stops)
 
   console.log('Writing...')
-  await fs.writeFile('./src/stations.json', JSON.stringify(stations, null, 2), {
+  await fs.writeFile('./src/stations.json', `${JSON.stringify(stations, null, 2)}\n`, {
     flag: 'w',
   })
 
