@@ -1,7 +1,4 @@
 {
   "extends": "@yeger/tsconfig/vite",
-  "exclude": ["node_modules", "coverage", "dist"],
-  "vueCompilerOptions": {
-    "target": 2
-  }
+  "exclude": ["node_modules", "coverage", "dist"]
 }

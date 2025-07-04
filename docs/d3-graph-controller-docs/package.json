@@ -5,7 +5,6 @@
   "private": true,
   "scripts": {
     "build": "vitepress build",
-    "check:tsc": "tsc",
     "check:vue": "vue-tsc",
     "dev": "vitepress dev",
     "lint": "yeger-lint",

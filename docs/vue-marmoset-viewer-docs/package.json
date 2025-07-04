@@ -8,7 +8,6 @@
     "dev": "vite",
     "lint": "yeger-lint",
     "preview": "vite preview",
-    "check:tsc": "tsc",
     "check:vue": "vue-tsc"
   },
   "dependencies": {

@@ -6,7 +6,7 @@ exports[`GraphController > matches the snapshot 1`] = `
 >
   <svg
     height="100%"
-    style="cursor: grab;"
+    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: grab;"
     width="100%"
   >
     <g
@@ -68,7 +68,9 @@ exports[`GraphController > matches the snapshot 1`] = `
       <g
         class="nodes"
       >
-        <g>
+        <g
+          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+        >
           <circle
             class="node"
             r="16"
@@ -81,7 +83,9 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="fill: black; font-size: 1rem; stroke: none;"
           />
         </g>
-        <g>
+        <g
+          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+        >
           <circle
             class="node"
             r="16"
@@ -94,7 +98,9 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="fill: black; font-size: 1rem; stroke: none;"
           />
         </g>
-        <g>
+        <g
+          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+        >
           <circle
             class="node"
             r="16"
@@ -107,7 +113,9 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="stroke: none;"
           />
         </g>
-        <g>
+        <g
+          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
+        >
           <circle
             class="node"
             r="16"

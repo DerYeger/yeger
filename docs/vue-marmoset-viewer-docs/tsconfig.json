@@ -3,5 +3,8 @@
   "compilerOptions": {
     "types": ["node", "vue"]
   },
-  "exclude": ["node_modules", "coverage", "dist"]
+  "exclude": ["node_modules", "coverage", "dist"],
+  "vueCompilerOptions": {
+    "checkUnknownComponents": false
+  }
 }

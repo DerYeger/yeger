@@ -44,7 +44,7 @@ defineSlots<{
     column: number
     row: number
     index: number
-  }) => VNode
+  }) => VNode | VNode[] | Element | Element[]
 }>()
 
 const columns = ref<Column[]>([])

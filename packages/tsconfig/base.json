@@ -32,5 +32,9 @@
     "strict": true,
     "target": "esnext",
     "verbatimModuleSyntax": true
+  },
+  "vueCompilerOptions": {
+    "strictTemplates": true,
+    "target": "auto"
   }
 }

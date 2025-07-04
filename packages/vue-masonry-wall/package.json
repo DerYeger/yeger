@@ -42,7 +42,6 @@
     "build": "vite build",
     "bundlesize": "bundlesize",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
     "check:vue": "vue-tsc",
     "dev": "vite build --watch",
     "lint": "yeger-lint",
@@ -55,7 +54,6 @@
     "@yeger/vue-masonry-wall-core": "workspace:*"
   },
   "devDependencies": {
-    "@babel/types": "catalog:",
     "@types/resize-observer-browser": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vue/test-utils": "catalog:",

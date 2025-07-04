@@ -3,8 +3,5 @@
   "compilerOptions": {
     "types": ["node", "vue", "resize-observer-browser"]
   },
-  "exclude": ["node_modules", "coverage", "dist"],
-  "vueCompilerOptions": {
-    "target": 3
-  }
+  "exclude": ["node_modules", "coverage", "dist"]
 }
