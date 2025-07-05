@@ -1,5 +1,11 @@
 # vue-marmoset-viewer
 
+## 4.0.17
+
+### Patch Changes
+
+- 78e406a: upgrade vue-tsc to v3
+
 ## 4.0.16
 
 ### Patch Changes

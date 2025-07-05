@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 5.0.21
+
+### Patch Changes
+
+- 78e406a: upgrade vue-tsc to v3
+
 ## 5.0.20
 
 ### Patch Changes
