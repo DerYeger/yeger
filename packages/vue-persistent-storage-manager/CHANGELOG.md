@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.17
+
+### Patch Changes
+
+- 78e406a: upgrade vue-tsc to v3
+
 ## 3.0.16
 
 ### Patch Changes
