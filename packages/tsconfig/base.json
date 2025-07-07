@@ -34,7 +34,7 @@
     "verbatimModuleSyntax": true
   },
   "vueCompilerOptions": {
-    "strictTemplates": true,
-    "target": "auto"
+    "strictCssModules": true,
+    "strictTemplates": true
   }
 }

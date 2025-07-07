@@ -1914,16 +1914,6 @@
       16.3313943
     ]
   },
-  "Bahnhof Rudolfsheim (Bedarf)": {
-    "name": "Bahnhof Rudolfsheim (Bedarf)",
-    "stops": [
-      6024
-    ],
-    "location": [
-      48.19059,
-      16.3226762
-    ]
-  },
   "Bahnhof Rudolfsheim Kurzführung": {
     "name": "Bahnhof Rudolfsheim Kurzführung",
     "stops": [
@@ -2507,6 +2497,16 @@
     "location": [
       48.208870149999996,
       16.30394185
+    ]
+  },
+  "Bhf.Rdh. / Halle III - A": {
+    "name": "Bhf.Rdh. / Halle III - A",
+    "stops": [
+      7008
+    ],
+    "location": [
+      48.19059,
+      16.3226762
     ]
   },
   "Bibernellweg": {
@@ -9693,15 +9693,14 @@
   "Kagraner Brücke": {
     "name": "Kagraner Brücke",
     "stops": [
-      894,
       1018,
       3045,
       3060,
       5510
     ],
     "location": [
-      48.2394486,
-      16.43070396
+      48.23939235,
+      16.43070755
     ]
   },
   "Kagraner Friedhof": {
@@ -19666,6 +19665,7 @@
   "Steigenteschgasse": {
     "name": "Steigenteschgasse",
     "stops": [
+      884,
       892,
       3312,
       5785,
@@ -19673,8 +19673,8 @@
       8612
     ],
     "location": [
-      48.245299579999994,
-      16.43915892
+      48.24436191666667,
+      16.437747366666667
     ]
   },
   "Steinamangergasse": {
