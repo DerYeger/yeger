@@ -6,7 +6,7 @@ packages:
 
 catalog:
   '@algolia/client-search': 5.34.0
-  '@antfu/eslint-config': 4.17.0
+  '@antfu/eslint-config': 5.0.0
   '@antfu/ni': 25.0.0
   '@changesets/cli': 2.29.5
   '@codemirror/language': 6.11.2
