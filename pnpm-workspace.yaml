@@ -61,7 +61,7 @@ catalog:
   clsx: 2.1.1
   codemirror: 6.0.2
   critters: 0.0.25
-  cross-env: 7.0.3
+  cross-env: 10.0.0
   csvtojson: 2.0.10
   d3-dag: 1.1.0
   d3-drag: 3.0.0
