@@ -74,8 +74,8 @@
       6051
     ],
     "location": [
-      48.1886437,
-      16.3999762
+      48.1876914,
+      16.3995989
     ]
   },
   "Achengasse": {
@@ -523,12 +523,13 @@
   "Alte Donau U": {
     "name": "Alte Donau U",
     "stops": [
+      5246,
       8767,
       8768
     ],
     "location": [
-      48.2379893,
-      16.423718700000002
+      48.23800226666666,
+      16.423736666666667
     ]
   },
   "Alte Donau": {
@@ -1914,6 +1915,16 @@
       16.3313943
     ]
   },
+  "Bahnhof Rudolfsheim (Bedarf)": {
+    "name": "Bahnhof Rudolfsheim (Bedarf)",
+    "stops": [
+      6024
+    ],
+    "location": [
+      48.19059,
+      16.3226762
+    ]
+  },
   "Bahnhof Rudolfsheim Kurzführung": {
     "name": "Bahnhof Rudolfsheim Kurzführung",
     "stops": [
@@ -2304,8 +2315,7 @@
   "Bhf. Atzgersdorf S, Knotzenbachgasse": {
     "name": "Bhf. Atzgersdorf S, Knotzenbachgasse",
     "stops": [
-      1664,
-      1734
+      1664
     ],
     "location": [
       48.1453317,
@@ -2497,16 +2507,6 @@
     "location": [
       48.208870149999996,
       16.30394185
-    ]
-  },
-  "Bhf.Rdh. / Halle III - A": {
-    "name": "Bhf.Rdh. / Halle III - A",
-    "stops": [
-      7008
-    ],
-    "location": [
-      48.19059,
-      16.3226762
     ]
   },
   "Bibernellweg": {
@@ -3808,6 +3808,17 @@
     "location": [
       48.20626895,
       16.431264499999997
+    ]
+  },
+  "Donaupark Nord": {
+    "name": "Donaupark Nord",
+    "stops": [
+      8172,
+      8173
+    ],
+    "location": [
+      48.2432482,
+      16.4141157
     ]
   },
   "Donauspital U": {
@@ -6007,17 +6018,6 @@
     "location": [
       48.2929716,
       16.4832141
-    ]
-  },
-  "Gerasdorf, Neue Mittelschule": {
-    "name": "Gerasdorf, Neue Mittelschule",
-    "stops": [
-      3458,
-      3460
-    ],
-    "location": [
-      48.294388,
-      16.471333899999998
     ]
   },
   "Gerasdorf, Postamt": {
@@ -9693,14 +9693,15 @@
   "Kagraner Brücke": {
     "name": "Kagraner Brücke",
     "stops": [
+      894,
       1018,
       3045,
       3060,
       5510
     ],
     "location": [
-      48.23939235,
-      16.43070755
+      48.2394486,
+      16.43070396
     ]
   },
   "Kagraner Friedhof": {
@@ -10691,6 +10692,16 @@
       16.368333
     ]
   },
+  "Knotzenbachgasse": {
+    "name": "Knotzenbachgasse",
+    "stops": [
+      1657
+    ],
+    "location": [
+      48.1453317,
+      16.2936426
+    ]
+  },
   "Knödelhüttenstraße": {
     "name": "Knödelhüttenstraße",
     "stops": [
@@ -11483,11 +11494,12 @@
   "Lassallestraße": {
     "name": "Lassallestraße",
     "stops": [
-      648
+      648,
+      7428
     ],
     "location": [
-      48.2238343,
-      16.4022669
+      48.223559,
+      16.4025229
     ]
   },
   "Laudongasse": {
@@ -19665,7 +19677,6 @@
   "Steigenteschgasse": {
     "name": "Steigenteschgasse",
     "stops": [
-      884,
       892,
       3312,
       5785,
@@ -19673,8 +19684,8 @@
       8612
     ],
     "location": [
-      48.24436191666667,
-      16.437747366666667
+      48.245299579999994,
+      16.43915892
     ]
   },
   "Steinamangergasse": {
@@ -19792,13 +19803,14 @@
   "Sterngasse": {
     "name": "Sterngasse",
     "stops": [
+      1891,
       1893,
       1927,
       3677
     ],
     "location": [
-      48.1485424,
-      16.344166866666665
+      48.148464975,
+      16.34380905
     ]
   },
   "Sternwartestraße": {
@@ -21430,12 +21442,11 @@
     "stops": [
       597,
       649,
-      7420,
-      7427
+      7420
     ],
     "location": [
-      48.224112600000005,
-      16.4017661
+      48.22438890000001,
+      16.401428499999998
     ]
   },
   "Vorgartenstraße": {
@@ -22593,7 +22604,7 @@
       3113,
       3114,
       3792,
-      7388
+      7389
     ],
     "location": [
       48.23900824,
@@ -22681,7 +22692,7 @@
     "stops": [
       3989,
       3990,
-      3991
+      3992
     ],
     "location": [
       48.1522363,
