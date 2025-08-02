@@ -22,7 +22,7 @@ export default defineComponent({
   },
   data() {
     return {
-      columnWidth: [256, 128, 128, 512, 128] as [number, ...number[]],
+      columnWidth: [256, 128, 128, 512, 128] as number | [number, ...number[]],
       gap: 16,
       items: [] as { height: number }[],
       rtl: false,

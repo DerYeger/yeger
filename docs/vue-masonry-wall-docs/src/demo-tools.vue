@@ -2,7 +2,7 @@
 import { ref, toRefs, watch } from 'vue'
 
 const props = defineProps<{
-  columnWidth: [number, ...number[]]
+  columnWidth: number | [number, ...number[]]
   gap: number
   rtl: boolean
   useScrollContainer: boolean
@@ -50,6 +50,9 @@ function randomHeight() {
 
 function getWidthLabel(index: number) {
   const widths = columnWidth.value
+  if (!Array.isArray(widths)) {
+    return `${widths}px`
+  }
   return `${widths[index % widths.length]}px`
 }
 </script>

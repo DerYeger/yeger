@@ -43,6 +43,7 @@ export default function (...configs) {
       rules: {
         curly: ['error', 'all'],
         'style/brace-style': ['error', '1tbs'],
+        'style/indent': 'off',
         '@/brace-style': ['error', '1tbs'],
         'ts/explicit-member-accessibility': [
           'error',
