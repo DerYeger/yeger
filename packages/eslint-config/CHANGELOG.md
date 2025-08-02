@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 2.7.1
+
+### Patch Changes
+
+- dc463d0: update dependencies
+
 ## 2.7.0
 
 ### Minor Changes
