@@ -128,7 +128,7 @@ catalog:
   typescript: 5.9.2
   ufo: 1.6.1
   unbuild: 3.6.0
-  unplugin-vue-components: 28.8.0
+  unplugin-vue-components: 29.0.0
   use-debounce: 10.0.5
   use-local-storage: 3.0.0
   vercel: 44.6.6
