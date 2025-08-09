@@ -17,15 +17,6 @@
   },
   "packageRules": [
     {
-      "matchCategories": [
-        "docker"
-      ],
-      "major": {
-        "enabled": true
-      },
-      "pinDigests": true
-    },
-    {
       "matchDepTypes": [
         "pnpm.catalog.vue2"
       ],
@@ -43,18 +34,6 @@
         "@vue/test-utils"
       ],
       "allowedVersions": "<2"
-    },
-    {
-      "matchPackageNames": [
-        "open"
-      ],
-      "allowedVersions": "<9"
-    },
-    {
-      "matchPackageNames": [
-        "nuxt"
-      ],
-      "allowedVersions": "<=3.15.4"
     }
   ],
   "schedule": [

@@ -6,7 +6,7 @@ packages:
 
 catalog:
   '@algolia/client-search': 5.35.0
-  '@antfu/eslint-config': 5.1.0
+  '@antfu/eslint-config': 5.2.0
   '@antfu/ni': 25.0.0
   '@changesets/cli': 2.29.5
   '@codemirror/language': 6.11.2
@@ -21,11 +21,11 @@ catalog:
   '@nuxtjs/robots': 5.4.0
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.54.2
-  '@tanstack/react-query': 5.84.1
-  '@trpc/client': 11.4.3
-  '@trpc/next': 11.4.3
-  '@trpc/react-query': 11.4.3
-  '@trpc/server': 11.4.3
+  '@tanstack/react-query': 5.84.2
+  '@trpc/client': 11.4.4
+  '@trpc/next': 11.4.4
+  '@trpc/react-query': 11.4.4
+  '@trpc/server': 11.4.4
   '@turbo/gen': 2.5.5
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
@@ -35,13 +35,13 @@ catalog:
   '@types/d3-zoom': 3.0.8
   '@types/eslint': 9.6.1
   '@types/leaflet': 1.9.20
-  '@types/node': 24.1.0
+  '@types/node': 24.2.1
   '@types/react': 19.1.9
   '@types/react-dom': 19.1.7
   '@types/resize-observer-browser': 0.1.11
-  '@unhead/vue': 2.0.13
-  '@unocss/nuxt': 66.3.3
-  '@unocss/reset': 66.3.3
+  '@unhead/vue': 2.0.14
+  '@unocss/nuxt': 66.4.2
+  '@unocss/reset': 66.4.2
   '@vite-pwa/nuxt': 1.0.4
   '@vitejs/plugin-vue': 6.0.1
   '@vitejs/plugin-vue2': 2.3.3
@@ -70,8 +70,8 @@ catalog:
   d3-scale-chromatic: 3.1.0
   d3-selection: 3.0.0
   d3-zoom: 3.0.0
-  eslint: 9.32.0
-  eslint-config-next: 15.4.5
+  eslint: 9.33.0
+  eslint-config-next: 15.4.6
   eslint-import-resolver-typescript: 4.4.4
   eslint-plugin-astro: 1.3.1
   eslint-plugin-cypress: 5.1.0
@@ -95,17 +95,17 @@ catalog:
   kolorist: 1.8.0
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lint-staged: 16.1.2
+  lint-staged: 16.1.5
   localforage: 1.10.0
-  lucide-react: 0.536.0
-  next: 15.4.5
+  lucide-react: 0.539.0
+  next: 15.4.6
   next-seo: 6.8.0
   node-fetch: 3.3.2
-  node-fetch-native: 1.6.6
-  nuxt: 3.17.5
+  node-fetch-native: 1.6.7
+  nuxt: 3.18.1
   nuxt-icon: 0.6.10
   ohm-js: 17.2.1
-  open: 10.1.2
+  open: 10.2.0
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.12
@@ -131,11 +131,11 @@ catalog:
   unplugin-vue-components: 29.0.0
   use-debounce: 10.0.5
   use-local-storage: 3.0.0
-  vercel: 44.6.6
-  vite: 7.0.6
+  vercel: 44.7.3
+  vite: 7.1.1
   vite-plugin-dts: 4.5.4
   vite-ssg: 28.0.0
-  vitepress: 1.6.3
+  vitepress: 1.6.4
   vitest: 3.2.4
   vue: 3.5.18
   vue-codemirror: 6.1.1
@@ -143,9 +143,9 @@ catalog:
   vue-template-compiler: 2.7.16
   vue-toastification: 2.0.0-rc.5
   vue-tsc: 3.0.5
-  yaml: 2.8.0
+  yaml: 2.8.1
   yaml-eslint-parser: 1.3.0
-  zod: 4.0.14
+  zod: 4.0.17
 
 catalogMode: strict
 
