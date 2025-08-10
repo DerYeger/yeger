@@ -3,8 +3,7 @@ import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 import type { YAMLParseError } from 'yaml'
 import { parse } from 'yaml'
-import type { ZodError } from 'zod'
-import { z } from 'zod'
+import { ZodError, z } from 'zod'
 
 export function jsonToModel(input: unknown): Result<Model, string> {
   return parseJson(input).andThen(jsonModelToModel)
@@ -50,8 +49,15 @@ function parseJson(input: unknown): Result<JsonModel, string> {
   try {
     return new Ok(JsonModelSchema.parse(input))
   } catch (err) {
+    if (err instanceof ZodError) {
+      return new Err('An error occurred')
+    }
     const error = err as ZodError
-    const { message, path } = error.issues[0]
+    const firstIssue = error.issues[0]
+    if (!firstIssue) {
+      return new Err('An error occurred')
+    }
+    const { message, path } = firstIssue
     const messageWithPath = `${message}\nError location: ${path.join(' ⭢ ')}`
     return new Err(path.length > 0 ? messageWithPath : message)
   }
@@ -62,10 +68,11 @@ function jsonModelToModel(jsonModel: JsonModel): Result<Model, string> {
 
   const relations = Object.entries(jsonModel.relations ?? {}).map(
     ([name, data]) => {
-      if (data.length > 0 && data[0].length > 1) {
+      const relationItems = data[0]
+      if (relationItems !== undefined && relationItems.length > 1) {
         return new Relation(
           name,
-          data[0].length,
+          relationItems.length,
           new Set(data.map((entries) => entries.join(','))),
         )
       }

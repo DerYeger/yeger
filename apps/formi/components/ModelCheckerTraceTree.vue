@@ -15,7 +15,7 @@ const expanded = ref(
   isRootMismatched.value ? isMismatched.value : !isMismatched.value,
 )
 
-const borderBreakpoints = [1, 3, 5]
+const borderBreakpoints = [1, 3, 5] as const
 </script>
 
 <template>

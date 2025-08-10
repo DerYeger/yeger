@@ -33,7 +33,7 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
-    'nuxt-icon',
+    '@nuxt/icon',
   ],
 
   css: ['@/assets/css/main.css'],

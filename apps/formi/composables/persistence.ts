@@ -45,7 +45,11 @@ const inMemoryDriver: LocalForageDriver = {
     return Object.keys(inMemoryStorage).length
   },
   async key(keyIndex: number): Promise<string> {
-    return Object.keys(inMemoryStorage)[keyIndex]
+    const key = Object.keys(inMemoryStorage)[keyIndex]
+    if (key === undefined) {
+      throw new Error(`No key at index ${keyIndex}`)
+    }
+    return key
   },
   async keys(): Promise<string[]> {
     return Object.keys(inMemoryStorage)

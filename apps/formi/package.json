@@ -30,6 +30,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@nuxt/icon": "catalog:",
     "@nuxtjs/robots": "catalog:",
     "@playwright/test": "catalog:",
     "@types/node": "catalog:",
@@ -41,7 +42,6 @@
     "@yeger/playwright-config": "workspace:*",
     "node-fetch-native": "catalog:",
     "nuxt": "catalog:",
-    "nuxt-icon": "catalog:",
     "typescript": "catalog:",
     "ufo": "catalog:",
     "vite": "catalog:",

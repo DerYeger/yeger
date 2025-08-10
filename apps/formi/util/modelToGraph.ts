@@ -36,7 +36,7 @@ export function modelToGraph(model: Model): Graph {
       return
     }
     ;[...relation.data.values()]
-      .map((entry) => entry.split(','))
+      .map((entry) => entry.split(',') as [string, string])
       .forEach(([source, target]) => {
         const index = `${+source},${+target}` as const
         if (!linkData[index]) {
@@ -47,7 +47,7 @@ export function modelToGraph(model: Model): Graph {
   })
   const links: GraphLink[] = []
   Object.entries(linkData).forEach(([ident, labels]) => {
-    const [source, target] = ident.split(',')
+    const [source, target] = ident.split(',') as [string, string]
     const sourceNode = nodes[source]
     const targetNode = nodes[target]
     if (!sourceNode || !targetNode) {

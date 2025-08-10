@@ -18,6 +18,7 @@ catalog:
   '@eslint/eslintrc': 3.3.1
   '@iconify/react': 6.0.0
   '@manypkg/get-packages': 3.1.0
+  '@nuxt/icon': 2.0.0
   '@nuxtjs/robots': 5.4.0
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.54.2
@@ -102,8 +103,7 @@ catalog:
   next-seo: 6.8.0
   node-fetch: 3.3.2
   node-fetch-native: 1.6.7
-  nuxt: 3.18.1
-  nuxt-icon: 0.6.10
+  nuxt: 4.0.3
   ohm-js: 17.2.1
   open: 10.2.0
   picocolors: 1.1.1

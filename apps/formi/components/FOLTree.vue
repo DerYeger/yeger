@@ -11,7 +11,7 @@ const { fragment, level, maxDepth } = toRefs(props)
 const children = computed(() => fragment.value.children())
 const expanded = ref(true)
 
-const borderBreakpoints = [1, 3, 5]
+const borderBreakpoints = [1, 3, 5] as const
 </script>
 
 <template>
