@@ -58,7 +58,7 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.5.5",
+    "turbo": "2.5.6",
     "vercel": "catalog:",
     "vitest": "catalog:"
   },
