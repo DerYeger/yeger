@@ -131,7 +131,7 @@ catalog:
   unplugin-vue-components: 29.0.0
   use-debounce: 10.0.5
   use-local-storage: 3.0.0
-  vercel: 44.7.3
+  vercel: 46.0.1
   vite: 7.1.2
   vite-plugin-dts: 4.5.4
   vite-ssg: 28.1.0
