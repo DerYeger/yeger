@@ -47,6 +47,12 @@ jobs:
           files: packages/d3-graph-controller/coverage/coverage-final.json
           flags: d3-graph-controller
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload key-hierarchy coverage
+        uses: codecov/codecov-action@v5
+        with:
+          files: packages/key-hierarchy/coverage/coverage-final.json
+          flags: key-hierarchy
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload resumon coverage
         uses: codecov/codecov-action@v5
         with:

@@ -1,0 +1,69 @@
+{
+  "name": "key-hierarchy",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "TODO",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DerYeger",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/key-hierarchy"
+  },
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "keywords": [
+    "key",
+    "hierarchy",
+    "tanstack",
+    "query",
+    "queryKey",
+    "typescript",
+    "library"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "types": "dist/types/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
+    "dev": "vite build --watch",
+    "lint": "yeger-lint",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@tanstack/react-query": "catalog:",
+    "@tanstack/vue-query": "catalog:",
+    "@testing-library/react": "catalog:",
+    "@types/react": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "@yeger/tsconfig": "workspace:*",
+    "react": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vite-plugin-lib": "workspace:*",
+    "vue": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
+  }
+}

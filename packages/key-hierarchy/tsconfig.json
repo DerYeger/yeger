@@ -1,0 +1,4 @@
+{
+  "extends": "@yeger/tsconfig/vite",
+  "exclude": ["node_modules", "coverage", "dist"]
+}
