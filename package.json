@@ -78,7 +78,8 @@
       "core-js-pure",
       "esbuild",
       "sharp",
-      "unrs-resolver"
+      "unrs-resolver",
+      "vue-demi"
     ]
   },
   "lint-staged": {
