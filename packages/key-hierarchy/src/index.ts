@@ -38,10 +38,10 @@ export type KeyHierarchyConfig<T> = '__key' extends keyof T
 export interface KeyHierarchyOptions {
   /**
    * If enabled, all key arrays and their elements with be deeply frozen.
-   * While already present at the type level, due to. {@link DeepReadonly}, this ensures true immutability during runtime.
+   * While already present at the type level, due to {@link DeepReadonly}, this ensures true immutability during runtime.
    * @remarks **Note:** Function arguments will be cloned with {@link structuredClone} to not affect the original values.
    * @remarks **Warning:** Does not work with values that are not supported by {@link structuredClone}.
-   * @remarks **Warning:** Do not use this for `queryKey` or `mutationKey` with `@tanstack/vue-query` as it will cause issues with reactivity.
+   * @remarks **Warning:** Do not enable this for `queryKey` or `mutationKey` with `@tanstack/vue-query` as it will cause issues with reactivity.
    * @defaultValue false
    */
   freeze?: boolean

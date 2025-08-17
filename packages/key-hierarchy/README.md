@@ -21,8 +21,8 @@
 
 ## Features
 
-- **Collision-free** by design
 - **Centralized** key management for [TanStack Query](https://tanstack.com/query/latest)
+- **Collision-free** by design
 - **Declarative** API
 - **Type safe** dynamic keys
 
@@ -42,7 +42,7 @@ $ npm install key-hierarchy
 ## Usage
 
 This library provides a declarative API for defining key hierarchies.
-Key hierarchies can contain both static and dynamic segments, with dynamic segments being defined using a function that takes the dynamic part as an argument.
+Key hierarchies can contain both static and dynamic segments, with dynamic segments being defined through functions and their parameters.
 
 This approach and API ensure type safety and collision-free key management.
 With this centralized declaration of keys, no key collisions can occur, and all keys are guaranteed to be unique.
@@ -88,7 +88,7 @@ All options are optional with default values as described below.
 
 > Defaults to `false`.
 
-If set to `true`, the generated keys will be frozen, preventing any modifications. This is ensures immutability at runtime in your key hierarchy.
+If set to `true`, the generated keys will be frozen, preventing any modifications. This ensures immutability at runtime in your key hierarchy.
 
 - The return type of `defineKeyHierarchy` already prevents modification in TypeScript, even with `freeze: false`.
 - `Object.freeze()` will be called on the generated keys and all nested objects or arrays.
@@ -120,12 +120,12 @@ postsByUserKey[1][1].id = 7
 
 > Defaults to `'proxy'`.
 
-By default, the key hierarchy is dynamically using `Proxy` objects.
-If this is not suitable, the `precompute` method can be used to generate the keys at build time instead of runtime.
+By default, the key hierarchy is created dynamically with `Proxy` objects.
+If this is not suitable, the `method: 'precompute'` option can be used to generate the keys at build time instead of runtime.
 
 - This can improve performance in scenarios where the key hierarchy is large or complex.
-- But, it requires calling the functions of all dynamic segments with dummy arguments (`undefined`). Thus, it will break if the functions expect arguments to match the declared parameter types.
-- If `precompute` is used, the functions should not have any side-effects and never access the arguments.
+- But, it requires calling the functions of all dynamic segments with dummy arguments (`undefined`) within the library. Thus, it will break if the functions expect arguments to match the declared parameter types.
+- If `method: 'precompute'` is used, the functions should not have any side-effects and never access the arguments.
 
 ### TanStack Query Integration
 
