@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 1.0.2
+
+### Patch Changes
+
+- 86d75aa: add description
+
 ## 1.0.1
 
 ### Patch Changes
