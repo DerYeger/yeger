@@ -79,6 +79,41 @@ const userByIdKey = keys.users.byId(42).__key // readonly ['users', ['byId', num
 const postsByUserIdKey = keys.posts.byUserId(42) // readonly ['posts', ['byUserId', number]]
 ```
 
+### Modularization
+
+Should key hierarchy definitions grow too big to manage them within a single file, `defineKeyHierarchyModule` can be used to create modular key hierarchies.
+Defining modules this way retains type inference and ensures that keys are still unique when accessed from the root hierarchy.
+
+```ts
+// user-keys.ts
+import { defineKeyHierarchyModule } from 'key-hierarchy'
+
+export const userKeyModule = defineKeyHierarchyModule({
+  getAll: true,
+  create: true
+  byId: (_id: number) => ({
+    get: true,
+    update: true,
+    delete: true,
+  })
+})
+
+// post-keys.ts
+import { defineKeyHierarchyModule } from 'key-hierarchy'
+
+export const postKeyModule = defineKeyHierarchyModule({
+  byIdUserId: (_userId: number) => true
+})
+
+// keys.ts
+import { defineKeyHierarchy } from 'key-hierarchy'
+
+export const keys = defineKeyHierarchy({
+  users: userKeyModule,
+  posts: postKeyModule
+})
+```
+
 ### Options
 
 The following options can be configured through the optional second parameter of `defineKeyHierarchy`.

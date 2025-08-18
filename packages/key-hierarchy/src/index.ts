@@ -21,16 +21,16 @@ export type KeyHierarchyConfig<T> = '__key' extends keyof T
   : {
     [K in keyof T]: T[K] extends (...args: infer Args) => infer R
     ? (...args: Args) => R extends object
-    ? KeyHierarchyConfig<R>
+      ? KeyHierarchyConfig<R>
       : R extends boolean
       ? boolean
       : never
     : T[K] extends object
-  ? KeyHierarchyConfig<T[K]>
+    ? KeyHierarchyConfig<T[K]>
     : T[K] extends boolean
     ? boolean
     : never
-}
+  }
 
 /**
  * Options for a key hierarchy.
@@ -96,6 +96,37 @@ export function defineKeyHierarchy<T extends KeyHierarchyConfig<T>>(config: T, o
   return createProxy([], config, resolvedOptions) as KeyHierarchy<T>
 }
 
+/**
+ * Defines a key hierarchy module.
+ * @remarks This function is a no-op and is used for type inference only.
+ * @param config - The declarative {@link KeyHierarchyConfig} of the key hierarchy module.
+ * @returns The {@link KeyHierarchyConfig} of the key hierarchy module.
+ * @example
+ * ```ts
+ * const userKeyModule = defineKeyHierarchyModule({
+ *   getAll: true,
+ *   create: true
+ *   byId: (_id: number) => ({
+ *     get: true,
+ *     update: true,
+ *     delete: true,
+ *   })
+ * })
+ *
+ * const postKeyModule = defineKeyHierarchyModule({
+ *   byIdUserId: (_userId: number) => true
+ * })
+ *
+ * const keys = defineKeyHierarchy({
+ *   users: userKeyModule,
+ *   posts: postKeyModule
+ * })
+ * ```
+ */
+export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(config: T): T {
+  return config
+}
+
 function createProxy<T>(path: unknown[], currentConfig: unknown, options: Required<KeyHierarchyOptions>): unknown {
   return new Proxy(
     { 'Partially resolved key: No leaf node was reached during traversal.': true },
@@ -148,49 +179,49 @@ function createProxy<T>(path: unknown[], currentConfig: unknown, options: Requir
 }
 
 function precomputeHierarchy(path: unknown[], currentConfig: any, options: Required<KeyHierarchyOptions>): any {
-    const result: any = {}
+  const result: any = {}
 
-    // Iterate over all own properties, including symbols
-    const keys = [...Object.keys(currentConfig), ...Object.getOwnPropertySymbols(currentConfig)] as (string | symbol)[]
+  // Iterate over all own properties, including symbols
+  const keys = [...Object.keys(currentConfig), ...Object.getOwnPropertySymbols(currentConfig)] as (string | symbol)[]
 
-    for (const key of keys) {
-      const value = currentConfig[key]
-      const currentPath = [...path, key]
+  for (const key of keys) {
+    const value = currentConfig[key]
+    const currentPath = [...path, key]
 
-      if (typeof value === 'boolean') {
-        // Leaf node: return the path
-        result[key] = options.freeze ? deepFreeze(currentPath) : [...currentPath]
-      } else if (typeof value === 'object' && value !== null) {
-        // Nested object: recurse
-        const nested = precomputeHierarchy(currentPath, value, options)
-        nested.__key = options.freeze ? deepFreeze(currentPath) : [...currentPath]
-        result[key] = nested
-      } else if (typeof value === 'function') {
-        // Function: precompute the sub-config by calling with dummy arguments (assumes return is independent of args)
-        const dummies = Array.from({ length: value.length }).fill(undefined)
-        const subConfig = value(...dummies)
+    if (typeof value === 'boolean') {
+      // Leaf node: return the path
+      result[key] = options.freeze ? deepFreeze(currentPath) : [...currentPath]
+    } else if (typeof value === 'object' && value !== null) {
+      // Nested object: recurse
+      const nested = precomputeHierarchy(currentPath, value, options)
+      nested.__key = options.freeze ? deepFreeze(currentPath) : [...currentPath]
+      result[key] = nested
+    } else if (typeof value === 'function') {
+      // Function: precompute the sub-config by calling with dummy arguments (assumes return is independent of args)
+      const dummies = Array.from({ length: value.length }).fill(undefined)
+      const subConfig = value(...dummies)
 
-        // Wrap the function to build on demand without re-evaluating the config function
-        result[key] = (...args: unknown[]) => {
-          const argsPath = options.freeze ? args.map((arg) => structuredClone(arg)) : args
-          const functionPath = [...path, [key, ...argsPath]]
+      // Wrap the function to build on demand without re-evaluating the config function
+      result[key] = (...args: unknown[]) => {
+        const argsPath = options.freeze ? args.map((arg) => structuredClone(arg)) : args
+        const functionPath = [...path, [key, ...argsPath]]
 
-          if (typeof subConfig === 'boolean') {
-            // Leaf node
-            return options.freeze ? deepFreeze(functionPath) : functionPath
-          } else if (typeof subConfig === 'object' && subConfig !== null) {
-            // Nested object: build the sub-hierarchy with the dynamic path
-            const nested = precomputeHierarchy(functionPath, subConfig, options)
-            nested.__key = options.freeze ? deepFreeze(functionPath) : functionPath
-            return nested
-          } else {
-            throw new Error(`Unexpected return type from config function at key "${typeof key === 'symbol' ? String(key) : key}"`)
-          }
+        if (typeof subConfig === 'boolean') {
+          // Leaf node
+          return options.freeze ? deepFreeze(functionPath) : functionPath
+        } else if (typeof subConfig === 'object' && subConfig !== null) {
+          // Nested object: build the sub-hierarchy with the dynamic path
+          const nested = precomputeHierarchy(functionPath, subConfig, options)
+          nested.__key = options.freeze ? deepFreeze(functionPath) : functionPath
+          return nested
+        } else {
+          throw new Error(`Unexpected return type from config function at key "${typeof key === 'symbol' ? String(key) : key}"`)
         }
       }
     }
+  }
 
-    return result
+  return result
 }
 
 function deepFreeze(value: any): unknown {

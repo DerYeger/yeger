@@ -1,172 +1,107 @@
 import { describe, expect, expectTypeOf, it } from 'vitest'
 import { defineKeyHierarchy } from '~/index'
 import type { DeepReadonly } from '~/index'
+import { keyModule } from '~test/modules/key-module'
+import { TEST_AUTHOR_ID, TEST_DAY, TEST_ID, TEST_MONTH, TEST_POST_FILTER, TEST_SYMBOL, TEST_TAGS, TEST_USER, TEST_YEAR } from '~test/modules/test-data'
+import type { User, PostFilter } from '~test/modules/types'
 
-const TEST_SYMBOL = Symbol('test')
-
-interface User {
-  id: string
-  name: string
-}
-
-interface TodoFilter {
-  hidden?: boolean
-  favorite?: boolean
-}
-
-const TEST_ID = 'test-id'
-
-const TEST_USER: User = {
-  id: 'test-user-id',
-  name: 'test-name',
-}
-
-const TEST_YEAR = 2025
-const TEST_MONTH = 6
-const TEST_DAY = 15
-
-const TEST_AUTHOR_ID = 'test-author-id'
-
-const TEST_TODO_FILTER: TodoFilter = {
-  hidden: true,
-}
-
-const TEST_TAGS = ['test-tag-1', 'test-tag-2']
-
-const keys = defineKeyHierarchy({
-  todos: {
-    getAll: true,
-    create: true,
-    byId: (_id: string) => ({
-      get: true,
-      delete: true,
-      update: true,
-    }),
-    byUser: (_user: User) => ({
-      getAll: true,
-      delete: true,
-    }),
-    byMonth: (_month: number) => ({
-      byDay: (_day: number) => true,
-    }),
-    byAuthorAndYear: (_authorId: string, _year: number) => true,
-    byTags: (_tags: string[], _filter?: TodoFilter) => true,
-  },
-  users: {
-    getAll: true,
-    create: true,
-    byId: (_id: string) => ({
-      get: true,
-      delete: true,
-      update: true,
-    }),
-  },
-  [TEST_SYMBOL]: {
-    test: true,
-  },
-  5: {
-    test: true,
-  },
-  '6': {
-    test: true,
-  },
-}, { freeze: true, method: 'precompute' })
+const keys = defineKeyHierarchy(keyModule, { freeze: true, method: 'precompute' })
 
 describe('defineKeyHierarchy', () => {
-  it('todos.__key', () => {
-    const key = keys.todos.__key
-    expect(key).toStrictEqual(['todos'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos']>()
+  it('posts.__key', () => {
+    const key = keys.posts.__key
+    expect(key).toStrictEqual(['posts'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts']>()
   })
 
-  it('todos.getAll', () => {
-    const key = keys.todos.getAll
-    expect(key).toStrictEqual(['todos', 'getAll'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', 'getAll']>()
+  it('posts.getAll', () => {
+    const key = keys.posts.getAll
+    expect(key).toStrictEqual(['posts', 'getAll'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'getAll']>()
   })
 
-  it('todos.create', () => {
-    const key = keys.todos.create
-    expect(key).toStrictEqual(['todos', 'create'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', 'create']>()
+  it('posts.create', () => {
+    const key = keys.posts.create
+    expect(key).toStrictEqual(['posts', 'create'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'create']>()
   })
 
-  it('todos.byId(TEST_ID).__key', () => {
-    const key = keys.todos.byId(TEST_ID).__key
-    expect(key).toStrictEqual(['todos', ['byId', TEST_ID]])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byId', string]]>()
+  it('posts.byId(TEST_ID).__key', () => {
+    const key = keys.posts.byId(TEST_ID).__key
+    expect(key).toStrictEqual(['posts', ['byId', TEST_ID]])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string]]>()
   })
 
-  it('todos.byId(TEST_ID).get', () => {
-    const key = keys.todos.byId(TEST_ID).get
-    expect(key).toStrictEqual(['todos', ['byId', TEST_ID], 'get'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byId', string], 'get']>()
+  it('posts.byId(TEST_ID).get', () => {
+    const key = keys.posts.byId(TEST_ID).get
+    expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'get'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'get']>()
   })
 
-  it('todos.byId(TEST_ID).delete', () => {
-    const key = keys.todos.byId(TEST_ID).delete
-    expect(key).toStrictEqual(['todos', ['byId', TEST_ID], 'delete'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byId', string], 'delete']>()
+  it('posts.byId(TEST_ID).delete', () => {
+    const key = keys.posts.byId(TEST_ID).delete
+    expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'delete'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'delete']>()
   })
 
-  it('todos.byId(TEST_ID).update', () => {
-    const key = keys.todos.byId(TEST_ID).update
-    expect(key).toStrictEqual(['todos', ['byId', TEST_ID], 'update'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byId', string], 'update']>()
+  it('posts.byId(TEST_ID).update', () => {
+    const key = keys.posts.byId(TEST_ID).update
+    expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'update'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'update']>()
   })
 
-  it('todos.byUser(TEST_USER).__key', () => {
-    const key = keys.todos.byUser(TEST_USER).__key
-    expect(key).toStrictEqual(['todos', ['byUser', TEST_USER]])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byUser', DeepReadonly<User>]]>()
+  it('posts.byUser(TEST_USER).__key', () => {
+    const key = keys.posts.byUser(TEST_USER).__key
+    expect(key).toStrictEqual(['posts', ['byUser', TEST_USER]])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>]]>()
   })
 
-  it('todos.byUser(TEST_USER).getAll', () => {
-    const key = keys.todos.byUser(TEST_USER).getAll
-    expect(key).toStrictEqual(['todos', ['byUser', TEST_USER], 'getAll'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byUser', DeepReadonly<User>], 'getAll']>()
+  it('posts.byUser(TEST_USER).getAll', () => {
+    const key = keys.posts.byUser(TEST_USER).getAll
+    expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'getAll'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'getAll']>()
   })
 
-  it('todos.byUser(TEST_USER).delete', () => {
-    const key = keys.todos.byUser(TEST_USER).delete
-    expect(key).toStrictEqual(['todos', ['byUser', TEST_USER], 'delete'])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byUser', DeepReadonly<User>], 'delete']>()
+  it('posts.byUser(TEST_USER).delete', () => {
+    const key = keys.posts.byUser(TEST_USER).delete
+    expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'delete'])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'delete']>()
   })
 
-  it('todos.byMonth(TEST_MONTH).__key', () => {
-    const key = keys.todos.byMonth(TEST_MONTH).__key
-    expect(key).toStrictEqual(['todos', ['byMonth', TEST_MONTH]])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byMonth', number]]>()
+  it('posts.byMonth(TEST_MONTH).__key', () => {
+    const key = keys.posts.byMonth(TEST_MONTH).__key
+    expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH]])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number]]>()
   })
 
-  it('todos.byMonth(TEST_MONTH).byDay(TEST_DAY)', () => {
-    const key = keys.todos.byMonth(TEST_MONTH).byDay(TEST_DAY)
-    expect(key).toStrictEqual(['todos', ['byMonth', TEST_MONTH], ['byDay', TEST_DAY]])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byMonth', number], readonly ['byDay', number]]>()
+  it('posts.byMonth(TEST_MONTH).byDay(TEST_DAY)', () => {
+    const key = keys.posts.byMonth(TEST_MONTH).byDay(TEST_DAY)
+    expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH], ['byDay', TEST_DAY]])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number], readonly ['byDay', number]]>()
   })
 
-  it('todos.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)', () => {
-    const key = keys.todos.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)
-    expect(key).toStrictEqual(['todos', ['byAuthorAndYear', TEST_AUTHOR_ID, TEST_YEAR]])
-    expectTypeOf(key).toEqualTypeOf<readonly ['todos', readonly ['byAuthorAndYear', string, number]]>()
+  it('posts.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)', () => {
+    const key = keys.posts.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)
+    expect(key).toStrictEqual(['posts', ['byAuthorAndYear', TEST_AUTHOR_ID, TEST_YEAR]])
+    expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byAuthorAndYear', string, number]]>()
   })
 
-  it('todos.byTags(TEST_TAGS)', () => {
-    const key = keys.todos.byTags(TEST_TAGS)
-    expect(key).toStrictEqual(['todos', ['byTags', TEST_TAGS]])
-    expectTypeOf(key[0]).toEqualTypeOf<'todos'>()
+  it('posts.byTags(TEST_TAGS)', () => {
+    const key = keys.posts.byTags(TEST_TAGS)
+    expect(key).toStrictEqual(['posts', ['byTags', TEST_TAGS]])
+    expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
     expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
     expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<string[]>>()
-    expectTypeOf(key[1][2]).toEqualTypeOf<DeepReadonly<TodoFilter> | undefined>()
+    expectTypeOf(key[1][2]).toEqualTypeOf<DeepReadonly<PostFilter> | undefined>()
   })
 
-  it('todos.byTags(TEST_TAGS, TEST_TODO_FILTER)', () => {
-    const key = keys.todos.byTags(TEST_TAGS, TEST_TODO_FILTER)
-    expect(key).toStrictEqual(['todos', ['byTags', TEST_TAGS, TEST_TODO_FILTER]])
-    expectTypeOf(key[0]).toEqualTypeOf<'todos'>()
+  it('posts.byTags(TEST_TAGS, TEST_POST_FILTER)', () => {
+    const key = keys.posts.byTags(TEST_TAGS, TEST_POST_FILTER)
+    expect(key).toStrictEqual(['posts', ['byTags', TEST_TAGS, TEST_POST_FILTER]])
+    expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
     expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
     expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<string[]>>()
-    expectTypeOf(key[1][2]).toEqualTypeOf<DeepReadonly<TodoFilter> | undefined>()
+    expectTypeOf(key[1][2]).toEqualTypeOf<DeepReadonly<PostFilter> | undefined>()
   })
 
   it('users.__key', () => {
@@ -261,13 +196,13 @@ describe('defineKeyHierarchy', () => {
     })
 
     it('tuples are frozen', () => {
-      const key = keys.todos.byUser(TEST_USER).delete as unknown as [unknown, unknown[]]
+      const key = keys.posts.byUser(TEST_USER).delete as unknown as [unknown, unknown[]]
       expect(() => key.push('newKey')).toThrowError(TypeError)
       expect(() => key[0] = 'newKey').toThrowError(TypeError)
     })
 
     it('nested tuples are frozen', () => {
-      const key = keys.todos.byUser(TEST_USER).delete as unknown as [unknown, unknown[], unknown]
+      const key = keys.posts.byUser(TEST_USER).delete as unknown as [unknown, unknown[], unknown]
       expect(() => key[1].push('newKey')).toThrowError(TypeError)
       expect(() => key[1][1] = 'newKey').toThrowError(TypeError)
     })
@@ -275,7 +210,7 @@ describe('defineKeyHierarchy', () => {
     it('object arguments are frozen', () => {
       const user = { ...TEST_USER }
       const newUserName = `${user.name}-new`
-      const key = keys.todos.byUser(user).delete
+      const key = keys.posts.byUser(user).delete
       // @ts-expect-error We know that tags are readonly
       expect(() => key[1][1].name = newUserName).toThrowError()
       expect(user, 'User was mutated').toStrictEqual(TEST_USER)
@@ -287,7 +222,7 @@ describe('defineKeyHierarchy', () => {
     it('array arguments are frozen', () => {
       const tags = [...TEST_TAGS]
       const newTag = `${tags[0]}-new`
-      const key = keys.todos.byTags(tags)
+      const key = keys.posts.byTags(tags)
       // @ts-expect-error We know that tags are readonly
       expect(() => key[1][1][0] = newTag).toThrowError()
       expect(tags, 'Tags were mutated').toStrictEqual(TEST_TAGS)
