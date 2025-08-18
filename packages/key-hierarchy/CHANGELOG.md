@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 2.0.0
+
+### Major Changes
+
+- 9187ae5: introduce `dynamic` helper
+
 ## 1.1.0
 
 ### Minor Changes
