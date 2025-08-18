@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 1.1.0
+
+### Minor Changes
+
+- dd24dc2: implement defineKeyHierarchyModule
+
 ## 1.0.2
 
 ### Patch Changes
