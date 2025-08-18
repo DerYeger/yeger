@@ -1,21 +1,21 @@
 import { defineKeyHierarchyModule } from '~/index'
 import type { PostFilter, User } from '~test/modules/types'
 
-export const postModule = defineKeyHierarchyModule({
+export const postModule = defineKeyHierarchyModule((dynamic) => ({
   getAll: true,
   create: true,
-  byId: (_id: string) => ({
+  byId: dynamic<string>().extend({
     get: true,
     delete: true,
     update: true,
   }),
-  byUser: (_user: User) => ({
+  byUser: dynamic<User>().extend({
     getAll: true,
     delete: true,
   }),
-  byMonth: (_month: number) => ({
-    byDay: (_day: number) => true,
+  byMonth: dynamic<number>().extend({
+    byDay: dynamic<number>(),
   }),
-  byAuthorAndYear: (_authorId: string, _year: number) => true,
-  byTags: (_tags: string[], _filter?: PostFilter) => true,
-})
+  byAuthorAndYear: dynamic<{ authorId: string, year: number }>(),
+  byTags: dynamic<{ tags: string[], filter?: PostFilter }>(),
+}))

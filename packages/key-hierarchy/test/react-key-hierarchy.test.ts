@@ -2,18 +2,19 @@
 import { describe, expect, it, vi } from 'vitest'
 import { useQuery } from '@tanstack/react-query'
 import { waitFor } from '@testing-library/react'
-import { defineKeyHierarchy } from '~/index'
+import { defineKeyHierarchy, defineKeyHierarchyModule } from '~/index'
 import React, { useMemo } from 'react'
 import { withReactComponentLifecycle } from '~test/react-test-utils'
 
+const module = defineKeyHierarchyModule((dynamic) => ({
+  test: {
+    identity: dynamic<string>(),
+  },
+}))
+
 describe('defineKeyHierarchy for @tanstack/react-query', () => {
   it('works with default options', async () => {
-    const identitySpy = vi.fn((_input: string) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    })
+    const keys = defineKeyHierarchy(module)
     const queryFn = vi.fn((input) => Promise.resolve(input))
 
     const result = withReactComponentLifecycle(() => {
@@ -32,7 +33,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
     })
 
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(1)
       expect(queryFn).toHaveBeenCalledTimes(1)
       expect(result.current.query.data).toBe('1')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '1']])
@@ -40,7 +40,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
 
     result.current.setInput('2')
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(2)
       expect(queryFn).toHaveBeenCalledTimes(2)
       expect(result.current.query.data).toBe('2')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '2']])
@@ -48,12 +47,7 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
   })
 
   it('works with precomputation', async () => {
-    const identitySpy = vi.fn((_input: string) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    }, { method: 'precompute' })
+    const keys = defineKeyHierarchy(module, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
 
     const result = withReactComponentLifecycle(() => {
@@ -72,7 +66,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
     })
 
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(1)
       expect(queryFn).toHaveBeenCalledTimes(1)
       expect(result.current.query.data).toBe('1')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '1']])
@@ -80,7 +73,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
 
     result.current.setInput('2')
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(1)
       expect(queryFn).toHaveBeenCalledTimes(2)
       expect(result.current.query.data).toBe('2')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '2']])
@@ -88,12 +80,7 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
   })
 
   it('works with freeze enabled', async () => {
-    const identitySpy = vi.fn((_input: string) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    }, { freeze: true })
+    const keys = defineKeyHierarchy(module, { freeze: true })
     const queryFn = vi.fn((input) => Promise.resolve(input))
 
     const result = withReactComponentLifecycle(() => {
@@ -112,7 +99,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
     })
 
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(1)
       expect(queryFn).toHaveBeenCalledTimes(1)
       expect(result.current.query.data).toBe('1')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '1']])
@@ -120,7 +106,6 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
 
     result.current.setInput('2')
     await waitFor(() => {
-      expect(identitySpy).toHaveBeenCalledTimes(2)
       expect(queryFn).toHaveBeenCalledTimes(2)
       expect(result.current.query.data).toBe('2')
       expect(result.current.queryKey).toStrictEqual(['test', ['identity', '2']])

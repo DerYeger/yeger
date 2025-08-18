@@ -51,20 +51,20 @@ As such, it is ideal for managing [TanStack Query](https://tanstack.com/query/la
 ```ts
 import { defineKeyHierarchy } from 'key-hierarchy'
 
-const keys = defineKeyHierarchy({
+const keys = defineKeyHierarchy((dynamic) => ({
   users: {
     getAll: true,
     create: true,
-    byId: (_id: number) => ({
+    byId: dynamic<number>().extend({
       get: true,
       update: true,
       delete: true,
     }),
   },
   posts: {
-    byUserId: (_userId: number) => true,
+    byUserId: dynamic<number>(),
   },
-})
+}))
 
 // Static keys
 const getAllUsersKey = keys.users.getAll // readonly ['users', 'getAll']
@@ -88,29 +88,30 @@ Defining modules this way retains type inference and ensures that keys are still
 // user-keys.ts
 import { defineKeyHierarchyModule } from 'key-hierarchy'
 
-export const userKeyModule = defineKeyHierarchyModule({
+export const userKeyModule = defineKeyHierarchyModule((dynamic) => ({
   getAll: true,
-  create: true
-  byId: (_id: number) => ({
+  create: true,
+  byId: dynamic<number>().extend({
     get: true,
     update: true,
     delete: true,
   })
-})
+}))
 
 // post-keys.ts
 import { defineKeyHierarchyModule } from 'key-hierarchy'
 
-export const postKeyModule = defineKeyHierarchyModule({
-  byIdUserId: (_userId: number) => true
-})
+export const postKeyModule = defineKeyHierarchyModule((dynamic) => ({
+  byIdUserId: dynamic<number>()
+}))
 
 // keys.ts
 import { defineKeyHierarchy } from 'key-hierarchy'
 
 export const keys = defineKeyHierarchy({
   users: userKeyModule,
-  posts: postKeyModule
+  posts: postKeyModule,
+  config: true
 })
 ```
 
@@ -132,12 +133,12 @@ If set to `true`, the generated keys will be frozen, preventing any modification
 ```ts
 import { defineKeyHierarchy } from 'key-hierarchy'
 
-const key = defineKeyHierarchy({
+const keys = defineKeyHierarchy((dynamic) => ({
   posts: {
     create: true,
-    byUser: (_user: { id: number }) => true,
+    byUser: dynamic<{ id: number }>()
   },
-}, { freeze: true })
+}), { freeze: true })
 
 // Throws with `freeze: true`
 keys.posts.create.push('newSegment') 
@@ -173,13 +174,13 @@ Below are examples for React and Vue.
 import { useQuery } from '@tanstack/react-query'
 import { defineKeyHierarchy } from 'key-hierarchy'
 
-const keys = defineKeyHierarchy({
+const keys = defineKeyHierarchy((dynamic) => ({
   users: {
-    byId: (_id: number) => ({
+    byId: dynamic<number>().extend({
       get: true
     })
   }
-})
+}))
 
 export function useUserByIdQuery(userId: number) {
   return useQuery({
@@ -198,13 +199,13 @@ import { useQuery } from '@tanstack/vue-query'
 import { defineKeyHierarchy } from 'key-hierarchy'
 import { MaybeRefOrGetter, toValue } from 'vue'
 
-const keys = defineKeyHierarchy({
+const keys = defineKeyHierarchy((dynamic) => ({
   users: {
-    byId: (_id: MaybeRefOrGetter<number>) => ({
+    byId: dynamic<MaybeRefOrGetter<number>>().extend({
       get: true
     })
   }
-})
+}))
 
 export function useUserByIdQuery(userId: MaybeRefOrGetter<number>) {
   return useQuery({

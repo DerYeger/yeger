@@ -3,18 +3,19 @@ import { describe, expect, it, vi } from 'vitest'
 import { useQuery, VueQueryPlugin } from '@tanstack/vue-query'
 import { ref, toValue } from 'vue'
 import type { MaybeRefOrGetter } from 'vue'
-import { defineKeyHierarchy } from '~/index'
+import { defineKeyHierarchy, defineKeyHierarchyModule } from '~/index'
 import { flushPromises } from '@vue/test-utils'
 import { withVueComponentLifecycle } from '~test/vue-test-utils'
 
+const module = defineKeyHierarchyModule((dynamic) => ({
+  test: {
+    identity: dynamic<MaybeRefOrGetter<string>>(),
+  },
+}))
+
 describe('defineKeyHierarchy for @tanstack/vue-query', () => {
   it('works with default options', async () => {
-    const identitySpy = vi.fn((_input: MaybeRefOrGetter<string>) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    })
+    const keys = defineKeyHierarchy(module)
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
@@ -24,24 +25,17 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     }), { plugins: [VueQueryPlugin] })
 
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(1)
     expect(result.data.value).toBe('1')
 
     input.value = '2'
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(2)
     expect(result.data.value).toBe('2')
   })
 
   it('works with default precomputation', async () => {
-    const identitySpy = vi.fn((_input: MaybeRefOrGetter<string>) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    }, { method: 'precompute' })
+    const keys = defineKeyHierarchy(module, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
@@ -51,24 +45,17 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     }), { plugins: [VueQueryPlugin] })
 
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(1)
     expect(result.data.value).toBe('1')
 
     input.value = '2'
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(2)
     expect(result.data.value).toBe('2')
   })
 
   it('does not work with freeze enabled', async () => {
-    const identitySpy = vi.fn((_input: MaybeRefOrGetter<string>) => true)
-    const keys = defineKeyHierarchy({
-      test: {
-        identity: identitySpy,
-      },
-    }, { freeze: true })
+    const keys = defineKeyHierarchy(module, { freeze: true })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
@@ -78,13 +65,11 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     }), { plugins: [VueQueryPlugin] })
 
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(1)
     expect(result.data.value).toBe('1')
 
     input.value = '2'
     await flushPromises()
-    expect(identitySpy).toHaveBeenCalledTimes(1)
     expect(queryFn).toHaveBeenCalledTimes(1)
     expect(result.data.value).toBe('1')
   })
