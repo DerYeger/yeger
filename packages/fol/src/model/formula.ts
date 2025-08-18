@@ -51,7 +51,6 @@ export class ModelCheckerTrace implements TreeNode<ModelCheckerTrace> {
     return Math.max(...this.children().map((child) => child.depth())) + 1
   }
 
-  // TODO: remove?
   public details(): string {
     return this.formula.toFormattedString(this.variableAssignment)
   }
