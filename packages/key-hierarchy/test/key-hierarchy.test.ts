@@ -189,20 +189,26 @@ describe('defineKeyHierarchy', () => {
 
     describe('immutability', () => {
       it('__key is frozen', () => {
-        const key = keys.users.__key as unknown as unknown[]
+        const key = keys.users.__key
+        // @ts-expect-error We know that a key is readonly
         expect(() => key.push('newKey')).toThrowError(TypeError)
+        // @ts-expect-error We know that a key is readonly
         expect(() => key[0] = 'newKey').toThrowError(TypeError)
       })
 
       it('tuples are frozen', () => {
-        const key = keys.posts.byUser(TEST_USER).delete as unknown as [unknown, unknown[]]
+        const key = keys.posts.byUser(TEST_USER).delete
+        // @ts-expect-error We know that tuples are readonly
         expect(() => key.push('newKey')).toThrowError(TypeError)
+        // @ts-expect-error We know that tuples are readonly
         expect(() => key[0] = 'newKey').toThrowError(TypeError)
       })
 
       it('nested tuples are frozen', () => {
-        const key = keys.posts.byUser(TEST_USER).delete as unknown as [unknown, unknown[], unknown]
+        const key = keys.posts.byUser(TEST_USER).delete
+        // @ts-expect-error We know that tuples are readonly
         expect(() => key[1].push('newKey')).toThrowError(TypeError)
+        // @ts-expect-error We know that tuples are readonly
         expect(() => key[1][1] = 'newKey').toThrowError(TypeError)
       })
 
@@ -210,7 +216,7 @@ describe('defineKeyHierarchy', () => {
         const user = { ...TEST_USER }
         const newUserName = `${user.name}-new`
         const key = keys.posts.byUser(user).delete
-        // @ts-expect-error We know that tags are readonly
+        // @ts-expect-error We know that user is readonly
         expect(() => key[1][1].name = newUserName).toThrowError()
         expect(user, 'User was mutated').toStrictEqual(TEST_USER)
         // Original argument is not frozen
@@ -223,7 +229,7 @@ describe('defineKeyHierarchy', () => {
         const newTag = `${tags[0]}-new`
         const key = keys.posts.byTags({ tags })
         // @ts-expect-error We know that tags are readonly
-        expect(() => key[1][1][0] = newTag).toThrowError()
+        expect(() => key[1][1].tags[0] = newTag).toThrowError()
         expect(tags, 'Tags were mutated').toStrictEqual(TEST_TAGS)
         // Original argument is not frozen
         expect(() => tags[0] = newTag).not.toThrowError()

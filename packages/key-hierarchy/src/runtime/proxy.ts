@@ -1,4 +1,5 @@
 import { deepFreeze } from '~/runtime/utils'
+import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
 import type { KeyHierarchyOptions } from '~/types'
 
 export function createProxy<T>(path: unknown[], currentConfig: unknown, options: Required<KeyHierarchyOptions>): unknown {
@@ -16,7 +17,41 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
 
         const value = (currentConfig as T)[prop as keyof T]
 
-        // Handle function properties
+        // Handle DynamicExtend - create a function that returns a proxy to the extended config
+        if (typeof value === 'object' && value !== null && DYNAMIC_EXTEND in value) {
+          return (arg: unknown) => {
+            const argPath = options.freeze ? structuredClone(arg) : arg
+            const functionPath = [
+              ...path,
+              [prop, argPath],
+            ]
+
+            // Extract the extended config (symbols are not enumerable, so spread gets everything else)
+            const extendedConfig = { ...value }
+
+            // Continue with nested object using the extended config
+            return createProxy(functionPath, extendedConfig, options)
+          }
+        }
+
+        // Handle DynamicLeaf - create a function that returns the final path
+        if (typeof value === 'object' && value !== null && DYNAMIC_LEAF in value) {
+          return (arg: unknown) => {
+            const argPath = options.freeze ? structuredClone(arg) : arg
+            const functionPath = [
+              ...path,
+              [prop, argPath],
+            ]
+
+            // Leaf node reached
+            if (options.freeze) {
+              return deepFreeze(functionPath)
+            }
+            return functionPath
+          }
+        }
+
+        // Handle regular function properties (fallback for compatibility)
         if (typeof value === 'function') {
           return (arg: unknown) => {
             const result = value(arg)
@@ -37,7 +72,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
           }
         }
 
-        // Handle object properties (non-functions)
+        // Handle object properties (non-functions, non-dynamic)
         if (typeof value === 'object' && value !== null) {
           return createProxy([...path, prop], value, options)
         }

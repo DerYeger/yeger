@@ -1,6 +1,7 @@
 import { precomputeHierarchy } from '~/runtime/precompute'
 import { createProxy } from '~/runtime/proxy'
-import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy } from '~/types'
+import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
+import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtend, DynamicLeafWithExtend } from '~/types'
 
 export * from '~/types'
 
@@ -115,10 +116,14 @@ export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(config
  * })
  * ```
  */
-function dynamicHelper<T>(): ((arg: T) => true) & {
-  extend: <U extends KeyHierarchyConfig<U>>(config: U) => (arg: T) => KeyHierarchyConfig<U>
-} {
-  const leafFn = (_arg: T): true => true
-  leafFn.extend = <U>(nested: KeyHierarchyConfig<U>) => (_arg: T): KeyHierarchyConfig<U> => nested
-  return leafFn as ((arg: T) => true) & { extend: <U>(config: KeyHierarchyConfig<U>) => (arg: T) => KeyHierarchyConfig<U> }
+function dynamicHelper<T>(): DynamicLeafWithExtend<T> {
+  return {
+    [DYNAMIC_LEAF]: undefined as any as T,
+    extend<U extends KeyHierarchyConfig<U>>(config: U): DynamicExtend<T, U> {
+      return {
+        [DYNAMIC_EXTEND]: undefined as any as T,
+        ...config,
+      }
+    },
+  } as DynamicLeafWithExtend<T>
 }
