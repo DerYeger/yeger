@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.1
+
+### Patch Changes
+
+- 24bdc14: remove incorrect docstring
+
 ## 3.0.0
 
 ### Major Changes
