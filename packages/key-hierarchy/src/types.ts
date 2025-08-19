@@ -91,7 +91,7 @@ export interface KeyHierarchyOptions {
   /**
    * The method to use for key hierarchy computation.
    * `proxy` uses a {@link Proxy} to dynamically resolve keys on demand.
-   * `precompute` computes the key hierarchy upfront. For this to work, all functions for dynamic key segments must be callable with `undefined` dummy arguments and do not have side effects.
+   * `precompute` computes the key hierarchy upfront.
    * @defaultValue 'proxy'
    */
   method?: 'proxy' | 'precompute'
