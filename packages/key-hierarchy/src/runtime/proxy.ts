@@ -4,7 +4,7 @@ import type { KeyHierarchyOptions } from '~/types'
 
 export function createProxy<T>(path: unknown[], currentConfig: unknown, options: Required<KeyHierarchyOptions>): unknown {
   return new Proxy(
-    { 'Partially resolved key: No leaf node was reached during traversal.': true },
+    {},
     {
       get(_, prop: string | number | symbol) {
         // Return the frozen path for __key
@@ -51,28 +51,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
           }
         }
 
-        // Handle regular function properties (fallback for compatibility)
-        if (typeof value === 'function') {
-          return (arg: unknown) => {
-            const result = value(arg)
-            const argPath = options.freeze ? structuredClone(arg) : arg
-            const functionPath = [
-              ...path,
-              [prop, argPath],
-            ]
-            if (typeof result === 'object' && result !== null) {
-              // Continue with nested object
-              return createProxy(functionPath, result, options)
-            }
-            // Leaf node reached
-            if (options.freeze) {
-              return deepFreeze(functionPath)
-            }
-            return functionPath
-          }
-        }
-
-        // Handle object properties (non-functions, non-dynamic)
+        // Handle object properties (non-dynamic)
         if (typeof value === 'object' && value !== null) {
           return createProxy([...path, prop], value, options)
         }

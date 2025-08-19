@@ -3,7 +3,7 @@ import { createProxy } from '~/runtime/proxy'
 import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
 import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtend, DynamicLeafWithExtend } from '~/types'
 
-export * from '~/types'
+export type * from '~/types'
 
 /**
  * Represents a configuration or a builder function for a key hierarchy.

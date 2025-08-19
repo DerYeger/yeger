@@ -23,8 +23,9 @@
 
 - **Centralized** key management for [TanStack Query](https://tanstack.com/query/latest)
 - **Collision-free** by design
-- **Declarative** API
-- **Type safe** dynamic keys
+- **Declarative** and intuitive API
+- **Type safe** static and dynamic keys
+- **Tiny** at less than 1 kB gzip
 
 ## Installation
 
