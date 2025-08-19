@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.0
+
+### Major Changes
+
+- 4e5e005: enforce usage of dynamic
+
 ## 2.0.0
 
 ### Major Changes
