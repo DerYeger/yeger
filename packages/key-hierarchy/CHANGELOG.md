@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.2
+
+### Patch Changes
+
+- 46938b2: reduce bundlesize
+
 ## 3.0.1
 
 ### Patch Changes
