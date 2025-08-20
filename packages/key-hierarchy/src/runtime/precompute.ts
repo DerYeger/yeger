@@ -1,4 +1,4 @@
-import { deepFreeze } from '~/runtime/utils'
+import { createClone, deepFreeze } from '~/runtime/utils'
 import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
 import type { KeyHierarchyOptions } from '~/types'
 
@@ -24,7 +24,7 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
 
         // Create a function that returns the precomputed hierarchy for the extended config
         result[key] = (arg: unknown) => {
-          const argPath = options.freeze ? structuredClone(arg) : arg
+          const argPath = options.freeze ? createClone(arg) : arg
           const functionPath = [...path, [key, argPath]]
 
           // Precompute the sub-hierarchy with the extended config
@@ -35,7 +35,7 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
       } else if (DYNAMIC_LEAF in value) { // Check if this is a DynamicLeaf object
         // Create a function that returns the final path
         result[key] = (arg: unknown) => {
-          const argPath = options.freeze ? structuredClone(arg) : arg
+          const argPath = options.freeze ? createClone(arg) : arg
           const functionPath = [...path, [key, argPath]]
 
           // Leaf node

@@ -9,6 +9,7 @@ describe('utils', () => {
 
     it.each([
       ['null', null],
+      ['undefined', undefined],
       ['true', true],
       ['false', false],
       ['0', 0],

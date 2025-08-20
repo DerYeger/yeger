@@ -10,181 +10,289 @@ describe('defineKeyHierarchy', () => {
     describe.each([['with freeze', true], ['without freeze', false]] as const)('%s', (_, freeze) => {
       const keys = defineKeyHierarchy(keyModule, { freeze, method })
 
-      it('posts.__key', () => {
-        const key = keys.posts.__key
-        expect(key).toStrictEqual(['posts'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts']>()
-      })
-
-      it('posts.getAll', () => {
-        const key = keys.posts.getAll
-        expect(key).toStrictEqual(['posts', 'getAll'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'getAll']>()
-      })
-
-      it('posts.create', () => {
-        const key = keys.posts.create
-        expect(key).toStrictEqual(['posts', 'create'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'create']>()
-      })
-
-      it('posts.byId(TEST_ID).__key', () => {
-        const key = keys.posts.byId(TEST_ID).__key
-        expect(key).toStrictEqual(['posts', ['byId', TEST_ID]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string]]>()
-      })
-
-      it('posts.byId(TEST_ID).get', () => {
-        const key = keys.posts.byId(TEST_ID).get
-        expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'get'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'get']>()
-      })
-
-      it('posts.byId(TEST_ID).delete', () => {
-        const key = keys.posts.byId(TEST_ID).delete
-        expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'delete'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'delete']>()
-      })
-
-      it('posts.byId(TEST_ID).update', () => {
-        const key = keys.posts.byId(TEST_ID).update
-        expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'update'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'update']>()
-      })
-
-      it('posts.byUser(TEST_USER).__key', () => {
-        const key = keys.posts.byUser(TEST_USER).__key
-        expect(key).toStrictEqual(['posts', ['byUser', TEST_USER]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>]]>()
-      })
-
-      it('posts.byUser(TEST_USER).getAll', () => {
-        const key = keys.posts.byUser(TEST_USER).getAll
-        expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'getAll'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'getAll']>()
-      })
-
-      it('posts.byUser(TEST_USER).delete', () => {
-        const key = keys.posts.byUser(TEST_USER).delete
-        expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'delete'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'delete']>()
-      })
-
-      it('posts.byMonth(TEST_MONTH).__key', () => {
-        const key = keys.posts.byMonth(TEST_MONTH).__key
-        expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number]]>()
-      })
-
-      it('posts.byMonth(TEST_MONTH).byDay(TEST_DAY)', () => {
-        const key = keys.posts.byMonth(TEST_MONTH).byDay(TEST_DAY)
-        expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH], ['byDay', TEST_DAY]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number], readonly ['byDay', number]]>()
-      })
-
-      it('posts.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)', () => {
-        const key = keys.posts.byAuthorAndYear({ authorId: TEST_AUTHOR_ID, year: TEST_YEAR })
-        expect(key).toStrictEqual(['posts', ['byAuthorAndYear', { authorId: TEST_AUTHOR_ID, year: TEST_YEAR }]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byAuthorAndYear', DeepReadonly<{ authorId: string, year: number }>]]>()
-      })
-
-      it('posts.byTags(TEST_TAGS)', () => {
-        const key = keys.posts.byTags({ tags: TEST_TAGS })
-        expect(key).toStrictEqual(['posts', ['byTags', { tags: TEST_TAGS }]])
-        expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
-        expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
-        expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<{ tags: string[], filter?: PostFilter }>>()
-      })
-
-      it('posts.byTags(TEST_TAGS, TEST_POST_FILTER)', () => {
-        const key = keys.posts.byTags({ tags: TEST_TAGS, filter: TEST_POST_FILTER })
-        expect(key).toStrictEqual(['posts', ['byTags', { tags: TEST_TAGS, filter: TEST_POST_FILTER }]])
-        expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
-        expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
-        expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<{ tags: string[], filter?: PostFilter }>>()
-      })
-
-      it('users.__key', () => {
-        const key = keys.users.__key
-        expect(key).toStrictEqual(['users'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users']>()
-      })
-
-      it('users.getAll', () => {
-        const key = keys.users.getAll
-        expect(key).toStrictEqual(['users', 'getAll'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', 'getAll']>()
-      })
-
-      it('users.create', () => {
-        const key = keys.users.create
-        expect(key).toStrictEqual(['users', 'create'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', 'create']>()
-      })
-
-      it('users.byId(TEST_ID).__key', () => {
-        const key = keys.users.byId(TEST_ID).__key
-        expect(key).toStrictEqual(['users', ['byId', TEST_ID]])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string]]>()
-      })
-
-      it('users.byId(TEST_ID).get', () => {
-        const key = keys.users.byId(TEST_ID).get
-        expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'get'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'get']>()
-      })
-
-      it('users.byId(TEST_ID).delete', () => {
-        const key = keys.users.byId(TEST_ID).delete
-        expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'delete'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'delete']>()
-      })
-
-      it('users.byId(TEST_ID).update', () => {
-        const key = keys.users.byId(TEST_ID).update
-        expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'update'])
-        expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'update']>()
-      })
-
-      describe('symbol keys', () => {
-        it('[TEST_SYMBOL].__key', () => {
-          const key = keys[TEST_SYMBOL].__key
-          expect(key).toStrictEqual([TEST_SYMBOL])
-          expectTypeOf(key).toEqualTypeOf<readonly [typeof TEST_SYMBOL]>()
+      describe('post module', () => {
+        it('posts.__key', () => {
+          const key = keys.posts.__key
+          expect(key).toStrictEqual(['posts'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts']>()
         })
 
-        it('[TEST_SYMBOL].test', () => {
-          const key = keys[TEST_SYMBOL].test
-          expect(key).toStrictEqual([TEST_SYMBOL, 'test'])
-          expectTypeOf(key).toEqualTypeOf<readonly [typeof TEST_SYMBOL, 'test']>()
+        it('posts.getAll', () => {
+          const key = keys.posts.getAll
+          expect(key).toStrictEqual(['posts', 'getAll'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'getAll']>()
+        })
+
+        it('posts.create', () => {
+          const key = keys.posts.create
+          expect(key).toStrictEqual(['posts', 'create'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', 'create']>()
+        })
+
+        it('posts.byId(TEST_ID).__key', () => {
+          const key = keys.posts.byId(TEST_ID).__key
+          expect(key).toStrictEqual(['posts', ['byId', TEST_ID]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string]]>()
+        })
+
+        it('posts.byId(TEST_ID).get', () => {
+          const key = keys.posts.byId(TEST_ID).get
+          expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'get'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'get']>()
+        })
+
+        it('posts.byId(TEST_ID).delete', () => {
+          const key = keys.posts.byId(TEST_ID).delete
+          expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'delete'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'delete']>()
+        })
+
+        it('posts.byId(TEST_ID).update', () => {
+          const key = keys.posts.byId(TEST_ID).update
+          expect(key).toStrictEqual(['posts', ['byId', TEST_ID], 'update'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byId', string], 'update']>()
+        })
+
+        it('posts.byUser(TEST_USER).__key', () => {
+          const key = keys.posts.byUser(TEST_USER).__key
+          expect(key).toStrictEqual(['posts', ['byUser', TEST_USER]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>]]>()
+        })
+
+        it('posts.byUser(TEST_USER).getAll', () => {
+          const key = keys.posts.byUser(TEST_USER).getAll
+          expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'getAll'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'getAll']>()
+        })
+
+        it('posts.byUser(TEST_USER).delete', () => {
+          const key = keys.posts.byUser(TEST_USER).delete
+          expect(key).toStrictEqual(['posts', ['byUser', TEST_USER], 'delete'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byUser', DeepReadonly<User>], 'delete']>()
+        })
+
+        it('posts.byMonth(TEST_MONTH).__key', () => {
+          const key = keys.posts.byMonth(TEST_MONTH).__key
+          expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number]]>()
+        })
+
+        it('posts.byMonth(TEST_MONTH).byDay(TEST_DAY)', () => {
+          const key = keys.posts.byMonth(TEST_MONTH).byDay(TEST_DAY)
+          expect(key).toStrictEqual(['posts', ['byMonth', TEST_MONTH], ['byDay', TEST_DAY]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byMonth', number], readonly ['byDay', number]]>()
+        })
+
+        it('posts.byAuthorAndYear(TEST_AUTHOR_ID, TEST_YEAR)', () => {
+          const key = keys.posts.byAuthorAndYear({ authorId: TEST_AUTHOR_ID, year: TEST_YEAR })
+          expect(key).toStrictEqual(['posts', ['byAuthorAndYear', { authorId: TEST_AUTHOR_ID, year: TEST_YEAR }]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['posts', readonly ['byAuthorAndYear', DeepReadonly<{ authorId: string, year: number }>]]>()
+        })
+
+        it('posts.byTags(TEST_TAGS)', () => {
+          const key = keys.posts.byTags({ tags: TEST_TAGS })
+          expect(key).toStrictEqual(['posts', ['byTags', { tags: TEST_TAGS }]])
+          expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
+          expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
+          expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<{ tags: string[], filter?: PostFilter }>>()
+        })
+
+        it('posts.byTags(TEST_TAGS, TEST_POST_FILTER)', () => {
+          const key = keys.posts.byTags({ tags: TEST_TAGS, filter: TEST_POST_FILTER })
+          expect(key).toStrictEqual(['posts', ['byTags', { tags: TEST_TAGS, filter: TEST_POST_FILTER }]])
+          expectTypeOf(key[0]).toEqualTypeOf<'posts'>()
+          expectTypeOf(key[1][0]).toEqualTypeOf<'byTags'>()
+          expectTypeOf(key[1][1]).toEqualTypeOf<DeepReadonly<{ tags: string[], filter?: PostFilter }>>()
+        })
+
+        it('users.__key', () => {
+          const key = keys.users.__key
+          expect(key).toStrictEqual(['users'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users']>()
         })
       })
 
-      describe('number keys', () => {
-        it('[5].__key', () => {
-          const key = keys[5].__key
-          expect(key).toStrictEqual(['5'])
-          expectTypeOf(key).toEqualTypeOf<readonly ['5']>()
+      describe('user module', () => {
+        it('users.getAll', () => {
+          const key = keys.users.getAll
+          expect(key).toStrictEqual(['users', 'getAll'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', 'getAll']>()
         })
 
-        it('[5].test', () => {
-          const key = keys[5].test
-          expect(key).toStrictEqual(['5', 'test'])
-          expectTypeOf(key).toEqualTypeOf<readonly ['5', 'test']>()
+        it('users.create', () => {
+          const key = keys.users.create
+          expect(key).toStrictEqual(['users', 'create'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', 'create']>()
+        })
+
+        it('users.byId(TEST_ID).__key', () => {
+          const key = keys.users.byId(TEST_ID).__key
+          expect(key).toStrictEqual(['users', ['byId', TEST_ID]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string]]>()
+        })
+
+        it('users.byId(TEST_ID).get', () => {
+          const key = keys.users.byId(TEST_ID).get
+          expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'get'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'get']>()
+        })
+
+        it('users.byId(TEST_ID).delete', () => {
+          const key = keys.users.byId(TEST_ID).delete
+          expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'delete'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'delete']>()
+        })
+
+        it('users.byId(TEST_ID).update', () => {
+          const key = keys.users.byId(TEST_ID).update
+          expect(key).toStrictEqual(['users', ['byId', TEST_ID], 'update'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['users', readonly ['byId', string], 'update']>()
         })
       })
 
-      describe('numeric string keys', () => {
-        it(`['6'].__key`, () => {
-          const key = keys['6'].__key
-          expect(key).toStrictEqual(['6'])
-          expectTypeOf(key).toEqualTypeOf<readonly ['6']>()
+      describe('argument type module', () => {
+        it('argumentTypes.__key', () => {
+          const key = keys.argumentTypes.__key
+          expect(key).toStrictEqual(['argumentTypes'])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes']>()
         })
 
-        it(`users['6'].test`, () => {
-          const key = keys['6'].test
-          expect(key).toStrictEqual(['6', 'test'])
-          expectTypeOf(key).toEqualTypeOf<readonly ['6', 'test']>()
+        it('argumentTypes.null', () => {
+          const key = keys.argumentTypes.null(null)
+          expect(key).toStrictEqual(['argumentTypes', ['null', null]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['null', null]]>()
+        })
+
+        it('argumentTypes.undefined', () => {
+          const key = keys.argumentTypes.undefined(undefined)
+          expect(key).toStrictEqual(['argumentTypes', ['undefined', undefined]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['undefined', undefined]]>()
+        })
+
+        it('argumentTypes.true', () => {
+          const key = keys.argumentTypes.true(true)
+          expect(key).toStrictEqual(['argumentTypes', ['true', true]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['true', true]]>()
+        })
+
+        it('argumentTypes.false', () => {
+          const key = keys.argumentTypes.false(false)
+          expect(key).toStrictEqual(['argumentTypes', ['false', false]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['false', false]]>()
+        })
+
+        it('argumentTypes.number', () => {
+          const key = keys.argumentTypes.number(42)
+          expect(key).toStrictEqual(['argumentTypes', ['number', 42]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['number', number]]>()
+        })
+
+        it('argumentTypes.nan', () => {
+          const key = keys.argumentTypes.nan(NaN)
+          expect(key).toStrictEqual(['argumentTypes', ['nan', NaN]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['nan', number]]>()
+        })
+
+        it('argumentTypes.string', () => {
+          const key = keys.argumentTypes.string('test')
+          expect(key).toStrictEqual(['argumentTypes', ['string', 'test']])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['string', string]]>()
+        })
+
+        it('argumentTypes.symbol', () => {
+          const symbol = Symbol('test')
+          const key = keys.argumentTypes.symbol(symbol)
+          expect(key).toStrictEqual(['argumentTypes', ['symbol', symbol]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['symbol', symbol]]>()
+        })
+
+        it('argumentTypes.function', () => {
+          const myFunction = (input: string) => {
+            return input.length
+          }
+          (myFunction as any).secretProperty = 'test'
+          const key = keys.argumentTypes.function(myFunction)
+          expect(key).toStrictEqual(['argumentTypes', ['function', myFunction]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['function', typeof myFunction]]>()
+        })
+
+        it('argumentTypes.date', () => {
+          const myDate = new Date()
+          const key = keys.argumentTypes.date(myDate)
+          expect(key).toStrictEqual(['argumentTypes', ['date', myDate]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['date', DeepReadonly<Date>]]>()
+        })
+
+        it('argumentTypes.map', () => {
+          const myMap = new Map<string, number>()
+          const key = keys.argumentTypes.map(myMap)
+          expect(key).toStrictEqual(['argumentTypes', ['map', myMap]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['map', DeepReadonly<typeof myMap>]]>()
+        })
+
+        it('argumentTypes.set', () => {
+          const mySet = new Set<string>()
+          const key = keys.argumentTypes.set(mySet)
+          expect(key).toStrictEqual(['argumentTypes', ['set', mySet]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['set', DeepReadonly<typeof mySet>]]>()
+        })
+
+        it('argumentTypes.array', () => {
+          const myArray = [1, 2, 3]
+          const key = keys.argumentTypes.array(myArray)
+          expect(key).toStrictEqual(['argumentTypes', ['array', myArray]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['array', DeepReadonly<typeof myArray>]]>()
+        })
+
+        it('argumentTypes.object', () => {
+          const myObject: Record<string, number> = { a: 1, b: 2 }
+          const key = keys.argumentTypes.object(myObject)
+          expect(key).toStrictEqual(['argumentTypes', ['object', myObject]])
+          expectTypeOf(key).toEqualTypeOf<readonly ['argumentTypes', readonly ['object', DeepReadonly<typeof myObject>]]>()
+        })
+      })
+
+      describe('other modules', () => {
+        describe('symbol keys', () => {
+          it('[TEST_SYMBOL].__key', () => {
+            const key = keys[TEST_SYMBOL].__key
+            expect(key).toStrictEqual([TEST_SYMBOL])
+            expectTypeOf(key).toEqualTypeOf<readonly [typeof TEST_SYMBOL]>()
+          })
+
+          it('[TEST_SYMBOL].test', () => {
+            const key = keys[TEST_SYMBOL].test
+            expect(key).toStrictEqual([TEST_SYMBOL, 'test'])
+            expectTypeOf(key).toEqualTypeOf<readonly [typeof TEST_SYMBOL, 'test']>()
+          })
+        })
+
+        describe('number keys', () => {
+          it('[5].__key', () => {
+            const key = keys[5].__key
+            expect(key).toStrictEqual(['5'])
+            expectTypeOf(key).toEqualTypeOf<readonly ['5']>()
+          })
+
+          it('[5].test', () => {
+            const key = keys[5].test
+            expect(key).toStrictEqual(['5', 'test'])
+            expectTypeOf(key).toEqualTypeOf<readonly ['5', 'test']>()
+          })
+        })
+
+        describe('numeric string keys', () => {
+          it(`['6'].__key`, () => {
+            const key = keys['6'].__key
+            expect(key).toStrictEqual(['6'])
+            expectTypeOf(key).toEqualTypeOf<readonly ['6']>()
+          })
+
+          it(`users['6'].test`, () => {
+            const key = keys['6'].test
+            expect(key).toStrictEqual(['6', 'test'])
+            expectTypeOf(key).toEqualTypeOf<readonly ['6', 'test']>()
+          })
         })
       })
 

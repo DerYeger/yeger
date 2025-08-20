@@ -34,7 +34,7 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     expect(result.data.value).toBe('2')
   })
 
-  it('works with default precomputation', async () => {
+  it('works with precomputation', async () => {
     const keys = defineKeyHierarchy(module, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')

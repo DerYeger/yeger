@@ -12,3 +12,10 @@ export function deepFreeze(value: any): unknown {
   })
   return value
 }
+
+export function createClone<T>(value: T): T {
+  if (typeof value === 'function' || typeof value === 'symbol') {
+    return value
+  }
+  return structuredClone(value)
+}

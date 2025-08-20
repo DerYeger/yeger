@@ -1,4 +1,4 @@
-import { deepFreeze } from '~/runtime/utils'
+import { createClone, deepFreeze } from '~/runtime/utils'
 import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
 import type { KeyHierarchyOptions } from '~/types'
 
@@ -20,7 +20,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         // Handle DynamicExtend - create a function that returns a proxy to the extended config
         if (typeof value === 'object' && value !== null && DYNAMIC_EXTEND in value) {
           return (arg: unknown) => {
-            const argPath = options.freeze ? structuredClone(arg) : arg
+            const argPath = options.freeze ? createClone(arg) : arg
             const functionPath = [
               ...path,
               [prop, argPath],
@@ -37,7 +37,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         // Handle DynamicLeaf - create a function that returns the final path
         if (typeof value === 'object' && value !== null && DYNAMIC_LEAF in value) {
           return (arg: unknown) => {
-            const argPath = options.freeze ? structuredClone(arg) : arg
+            const argPath = options.freeze ? createClone(arg) : arg
             const functionPath = [
               ...path,
               [prop, argPath],
