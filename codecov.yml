@@ -13,3 +13,5 @@ coverage:
         target: 0
         threshold: 5
         base: auto
+codecov:
+  max_report_age: off
