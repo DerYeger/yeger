@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.4
+
+### Patch Changes
+
+- 58bdcf1: do not clone functions and symbols if freeze is enabled
+
 ## 3.0.3
 
 ### Patch Changes
