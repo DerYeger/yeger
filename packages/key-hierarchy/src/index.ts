@@ -1,7 +1,7 @@
 import { precomputeHierarchy } from '~/runtime/precompute'
 import { createProxy } from '~/runtime/proxy'
-import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
-import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtend, DynamicLeafWithExtend } from '~/types'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '~/types'
+import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtendedSegment, DynamicExtendableSegment } from '~/types'
 
 export type * from '~/types'
 
@@ -101,7 +101,7 @@ export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(config
 
 /**
  * Helper function to define dynamic key segments with a single argument.
- * @returns A function that can be extended with nested configuration or used as a leaf node.
+ * @returns A dynamic key segment that can optionally be extended with a nested configuration.
  * @example
  * ```ts
  * defineKeyHierarchy({
@@ -116,14 +116,14 @@ export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(config
  * })
  * ```
  */
-function dynamicHelper<T>(): DynamicLeafWithExtend<T> {
+function dynamicHelper<T>(): DynamicExtendableSegment<T> {
   return {
-    [DYNAMIC_LEAF]: undefined as any as T,
-    extend<U extends KeyHierarchyConfig<U>>(config: U): DynamicExtend<T, U> {
+    [DYNAMIC_SEGMENT]: undefined as any as T,
+    extend<U extends KeyHierarchyConfig<U>>(config: U): DynamicExtendedSegment<T, U> {
       return {
-        [DYNAMIC_EXTEND]: undefined as any as T,
+        [DYNAMIC_EXTENDED_SEGMENT]: undefined as any as T,
         ...config,
       }
     },
-  } as DynamicLeafWithExtend<T>
+  } as DynamicExtendableSegment<T>
 }

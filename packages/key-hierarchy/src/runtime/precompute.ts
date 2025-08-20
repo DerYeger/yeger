@@ -1,5 +1,5 @@
 import { createClone, deepFreeze } from '~/runtime/utils'
-import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '~/types'
 import type { KeyHierarchyOptions } from '~/types'
 
 export function precomputeHierarchy(path: unknown[], currentConfig: any, options: Required<KeyHierarchyOptions>): any {
@@ -7,7 +7,7 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
 
   // Iterate over all own properties, including symbols
   const keys = [...Object.keys(currentConfig), ...Object.getOwnPropertySymbols(currentConfig)]
-    .filter((key) => key !== DYNAMIC_LEAF && key !== DYNAMIC_EXTEND) as (string | symbol)[]
+    .filter((key) => key !== DYNAMIC_SEGMENT && key !== DYNAMIC_EXTENDED_SEGMENT) as (string | symbol)[]
 
   for (const key of keys) {
     const value = currentConfig[key]
@@ -18,7 +18,7 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
       result[key] = options.freeze ? deepFreeze(currentPath) : [...currentPath]
     } else if (typeof value === 'object' && value !== null) {
       // Check if this is a DynamicExtend object
-      if (DYNAMIC_EXTEND in value) {
+      if (DYNAMIC_EXTENDED_SEGMENT in value) {
         // Extract the extended config (symbols are not enumerable, so spread gets everything else)
         const extendedConfig = { ...value }
 
@@ -32,7 +32,7 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
           nested.__key = options.freeze ? deepFreeze(functionPath) : functionPath
           return nested
         }
-      } else if (DYNAMIC_LEAF in value) { // Check if this is a DynamicLeaf object
+      } else if (DYNAMIC_SEGMENT in value) { // Check if this is a DynamicLeaf object
         // Create a function that returns the final path
         result[key] = (arg: unknown) => {
           const argPath = options.freeze ? createClone(arg) : arg

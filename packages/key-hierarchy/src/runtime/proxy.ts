@@ -1,5 +1,5 @@
 import { createClone, deepFreeze } from '~/runtime/utils'
-import { DYNAMIC_EXTEND, DYNAMIC_LEAF } from '~/types'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '~/types'
 import type { KeyHierarchyOptions } from '~/types'
 
 export function createProxy<T>(path: unknown[], currentConfig: unknown, options: Required<KeyHierarchyOptions>): unknown {
@@ -18,7 +18,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         const value = (currentConfig as T)[prop as keyof T]
 
         // Handle DynamicExtend - create a function that returns a proxy to the extended config
-        if (typeof value === 'object' && value !== null && DYNAMIC_EXTEND in value) {
+        if (typeof value === 'object' && value !== null && DYNAMIC_EXTENDED_SEGMENT in value) {
           return (arg: unknown) => {
             const argPath = options.freeze ? createClone(arg) : arg
             const functionPath = [
@@ -35,7 +35,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         }
 
         // Handle DynamicLeaf - create a function that returns the final path
-        if (typeof value === 'object' && value !== null && DYNAMIC_LEAF in value) {
+        if (typeof value === 'object' && value !== null && DYNAMIC_SEGMENT in value) {
           return (arg: unknown) => {
             const argPath = options.freeze ? createClone(arg) : arg
             const functionPath = [

@@ -12,7 +12,7 @@ export type KeyHierarchy<
     ? `${K}`
     : K]:
     // 1) dynamic *extend*: property is a function that accepts Arg and returns a nested hierarchy
-    T[K] extends DynamicExtend<infer Arg, infer U>
+    T[K] extends DynamicExtendedSegment<infer Arg, infer U>
     ? (arg: Arg) => KeyHierarchy<
       U,
       readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
@@ -21,7 +21,7 @@ export type KeyHierarchy<
     }
 
     // 2) dynamic *leaf*: property is a function that accepts Arg and returns the final tuple
-    : T[K] extends DynamicLeaf<infer Arg>
+    : T[K] extends DynamicSegment<infer Arg>
     ? (arg: Arg) => readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
 
     // 3) nested (normal object) => recurse and expose __key
@@ -37,23 +37,28 @@ export type KeyHierarchy<
     : readonly [...Path, K extends number ? `${K}` : K]
   }
 
-export const DYNAMIC_LEAF = Symbol('DynamicLeaf')
+export const DYNAMIC_SEGMENT = Symbol('DynamicSegment')
 
-export interface DynamicLeaf<T> {
-  readonly [DYNAMIC_LEAF]: T
+export interface DynamicSegment<T> {
+  readonly [DYNAMIC_SEGMENT]: T
 }
 
-export const DYNAMIC_EXTEND = Symbol('DynamicExtend')
+export const DYNAMIC_EXTENDED_SEGMENT = Symbol('DynamicExtendedSegment')
 
-export type DynamicExtend<T, U extends KeyHierarchyConfig<U>> = U & {
-  readonly [DYNAMIC_EXTEND]: T
+export type DynamicExtendedSegment<T, U extends KeyHierarchyConfig<U>> = U & {
+  readonly [DYNAMIC_EXTENDED_SEGMENT]: T
 }
 
-export type DynamicLeafWithExtend<T> = DynamicLeaf<T> & {
-  extend: <U extends KeyHierarchyConfig<U>>(config: U) => DynamicExtend<T, U>
+export type DynamicExtendableSegment<T> = DynamicSegment<T> & {
+  /**
+   * Extends the dynamic segment with a nested configuration.
+   * @param config - The nested configuration to extend the dynamic segment with.
+   * @returns The extended dynamic segment.
+   */
+  extend: <U extends KeyHierarchyConfig<U>>(config: U) => DynamicExtendedSegment<T, U>
 }
 
-type InternalKeys = '__key' | typeof DYNAMIC_LEAF | typeof DYNAMIC_EXTEND
+type InternalKeys = '__key' | typeof DYNAMIC_SEGMENT | typeof DYNAMIC_EXTENDED_SEGMENT
 
 /**
  * Declarative configuration of a key hierarchy.
@@ -63,10 +68,10 @@ export type KeyHierarchyConfig<T> =
   '__key' extends keyof T ? never
   : {
     [K in keyof T as K extends InternalKeys ? never : K]:
-    T[K] extends DynamicLeaf<infer Arg>
-    ? DynamicLeafWithExtend<Arg>
-    : T[K] extends DynamicExtend<infer Arg, infer U>
-    ? DynamicExtend<Arg, U>
+    T[K] extends DynamicSegment<infer Arg>
+    ? DynamicExtendableSegment<Arg>
+    : T[K] extends DynamicExtendedSegment<infer Arg, infer U>
+    ? DynamicExtendedSegment<Arg, U>
     // eslint-disable-next-line ts/no-unsafe-function-type
     : T[K] extends Function
     ? never
@@ -98,7 +103,7 @@ export interface KeyHierarchyOptions {
 }
 
 /**
- * Represents a deeply readonly ver sion of a type.
+ * Represents a deeply readonly version of a type.
  */
 export type DeepReadonly<T> =
   T extends (infer R)[] ? DeepReadonlyArray<R> :
