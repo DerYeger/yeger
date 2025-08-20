@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.3
+
+### Patch Changes
+
+- 3d780f6: adjust documentation
+
 ## 3.0.2
 
 ### Patch Changes
