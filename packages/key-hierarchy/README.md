@@ -43,7 +43,7 @@ $ npm install key-hierarchy
 ## Usage
 
 This library provides a declarative API for defining key hierarchies.
-Key hierarchies can contain both static and dynamic segments, with dynamic segments being defined through functions and their parameters.
+Key hierarchies can contain both static and dynamic segments, with dynamic segments being defined through `dynamic` and its generic parameter.
 
 This approach and API ensure type safety and collision-free key management.
 With this centralized declaration of keys, no key collisions can occur, and all keys are guaranteed to be unique.
@@ -159,10 +159,7 @@ postsByUserKey[1][1].id = 7
 
 By default, the key hierarchy is created dynamically with `Proxy` objects.
 If this is not suitable, the `method: 'precompute'` option can be used to generate the keys at build time instead of runtime.
-
-- This can improve performance in scenarios where the key hierarchy is large or complex.
-- But, it requires calling the functions of all dynamic segments with dummy arguments (`undefined`) within the library. Thus, it will break if the functions expect arguments to match the declared parameter types.
-- If `method: 'precompute'` is used, the functions should not have any side-effects and never access the arguments.
+This can improve performance in scenarios where the key hierarchy is large or complex, at the cost of a more extensive upfront computation.
 
 ### TanStack Query Integration
 
