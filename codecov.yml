@@ -15,3 +15,6 @@ coverage:
         base: auto
 codecov:
   max_report_age: off
+flag_management:
+  default_rules:
+    carryforward: false
