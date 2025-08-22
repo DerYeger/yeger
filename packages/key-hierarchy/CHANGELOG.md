@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.5
+
+### Patch Changes
+
+- f4a4a9e: update documentation
+
 ## 3.0.4
 
 ### Patch Changes

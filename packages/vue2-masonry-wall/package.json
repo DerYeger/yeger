@@ -1,7 +1,7 @@
 {
   "name": "@yeger/vue2-masonry-wall",
   "type": "module",
-  "version": "5.0.22",
+  "version": "5.0.23",
   "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 2.",
   "author": {
     "name": "Jan Müller",

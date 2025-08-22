@@ -1,5 +1,12 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.17
+
+### Patch Changes
+
+- Updated dependencies [f4a4a9e]
+  - @yeger/debounce@2.0.14
+
 ## 5.0.16
 
 ### Patch Changes

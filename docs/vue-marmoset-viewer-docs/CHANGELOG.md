@@ -1,5 +1,11 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.18
+
+### Patch Changes
+
+- vue-marmoset-viewer@4.0.18
+
 ## 2.0.17
 
 ### Patch Changes

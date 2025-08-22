@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 2.0.14
+
+### Patch Changes
+
+- f4a4a9e: update documentation
+
 ## 2.0.13
 
 ### Patch Changes
