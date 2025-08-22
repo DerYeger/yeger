@@ -9,6 +9,9 @@ hero:
       text: Get Started
       link: /guide/
     - theme: alt
+      text: Open Playground
+      link: /playground/
+    - theme: alt
       text: View on GitHub
       link: https://github.com/DerYeger/yeger/tree/main/packages/key-hierarchy
 

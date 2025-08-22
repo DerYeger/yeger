@@ -56,15 +56,15 @@ export default defineConfig({
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Guide', link: '/guide/' },
-      { text: 'API', link: '/api/' },
+      { text: 'API', link: '/api/define-key-hierarchy' },
+      { text: 'Playground', link: '/playground/' },
     ],
 
     search: {
       provider: 'local',
     },
 
-    sidebar: {
-      '/guide/': [
+    sidebar: [
         {
           text: 'Guide',
           items: [
@@ -73,18 +73,20 @@ export default defineConfig({
             { text: 'TanStack Query Integration', link: '/guide/tanstack-query' },
           ],
         },
-      ],
-      '/api/': [
         {
           text: 'API Reference',
           items: [
-            { text: 'Overview', link: '/api/' },
             { text: 'defineKeyHierarchy', link: '/api/define-key-hierarchy' },
             { text: 'defineKeyHierarchyModule', link: '/api/define-key-hierarchy-module' },
           ],
         },
+        {
+          text: 'Playground',
+          items: [
+            { text: 'Playground', link: '/playground/' },
+          ],
+        },
       ],
-    },
 
     socialLinks: [
       { icon: 'twitter', link: 'https://twitter.com/DerYeger' },

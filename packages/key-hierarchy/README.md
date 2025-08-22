@@ -5,6 +5,12 @@
 </p>
 
 <p align="center">
+  <a href="https://key-hierarchy.yeger.eu">
+    Documentation
+  </a>
+</p>
+
+<p align="center">
   <a href="https://github.com/DerYeger/yeger/actions/workflows/ci.yml">
     <img alt="CI" src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F">
   </a>
