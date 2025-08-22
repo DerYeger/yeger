@@ -1,5 +1,11 @@
 # d3-graph-controller-docs
 
+## 2.0.16
+
+### Patch Changes
+
+- d3-graph-controller@3.1.2
+
 ## 2.0.15
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # vue-marmoset-viewer
 
+## 4.0.18
+
+### Patch Changes
+
+- Updated dependencies [f4a4a9e]
+  - @yeger/debounce@2.0.14
+
 ## 4.0.17
 
 ### Patch Changes

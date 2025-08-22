@@ -1,5 +1,11 @@
 # Formi
 
+## 0.2.11
+
+### Patch Changes
+
+- d3-graph-controller@3.1.2
+
 ## 0.2.10
 
 ### Patch Changes
