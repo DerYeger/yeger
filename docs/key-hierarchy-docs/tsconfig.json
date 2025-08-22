@@ -1,0 +1,10 @@
+{
+  "extends": "@yeger/tsconfig/vite",
+  "compilerOptions": {
+    "types": ["node"],
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "verbatimModuleSyntax": false
+  },
+  "exclude": ["node_modules", "coverage", "dist"]
+}

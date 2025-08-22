@@ -73,6 +73,10 @@ export default defineConfig({
         icon: 'github',
         link: 'https://github.com/DerYeger/yeger/tree/main/packages/vecti',
       },
+      {
+        icon: 'npm',
+        link: 'https://www.npmjs.com/package/vecti',
+      },
     ],
 
     footer: {

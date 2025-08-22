@@ -24,7 +24,7 @@
 - **Centralized** key management for [TanStack Query](https://tanstack.com/query/latest)
 - **Collision-free** by design
 - **Declarative** and intuitive API
-- **Type safe** static and dynamic keys
+- **Type-safe** static and dynamic keys
 - **Tiny** at less than 1 kB gzip
 
 ## Installation
@@ -45,7 +45,7 @@ $ npm install key-hierarchy
 This library provides a declarative API for defining key hierarchies.
 Key hierarchies can contain both static and dynamic segments, with dynamic segments being defined through `dynamic` and its generic parameter.
 
-This approach and API ensure type safety and collision-free key management.
+This approach and API ensure type-safety and collision-free key management.
 With this centralized declaration of keys, no key collisions can occur, and all keys are guaranteed to be unique.
 As such, it is ideal for managing [TanStack Query](https://tanstack.com/query/latest) `queryKey`s in large applications with multiple developers.
 

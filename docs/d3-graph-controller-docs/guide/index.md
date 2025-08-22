@@ -63,7 +63,7 @@ The config can then use the custom types.
 ### Model
 
 The actual model can be created using the helper methods seen below.
-They are type safe and support custom properties.
+They are type-safe and support custom properties.
 
 <<< @/guide/samples/custom-model.ts#model{0}
 

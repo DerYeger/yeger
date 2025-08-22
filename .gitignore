@@ -41,3 +41,6 @@ next-env.d.ts
 codecov
 codecov.*
 !codecov.yml
+
+# vitepress
+docs/*/.vitepress/cache
