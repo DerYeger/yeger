@@ -1,5 +1,12 @@
 # @yeger/vue2-masonry-wall
 
+## 5.1.0
+
+### Minor Changes
+
+- e5d5766: provide column count to slot
+- e5d5766: provide column and row to slot
+
 ## 5.0.23
 
 ### Patch Changes
