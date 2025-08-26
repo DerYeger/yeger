@@ -91,14 +91,14 @@ export default defineComponent({
         :min-columns="minColumns"
         :max-columns="maxColumns"
       >
-        <template #default="{ item, column, row, index }">
+        <template #default="{ item, column, columnCount, row, index }">
           <div
             class="item"
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
             :style="`height: ${item.height}px;`"
           >
             <p>Index {{ index }}</p>
-            <p>{{ `(${column}, ${row})` }}</p>
+            <p>{{ `(${column + 1}/${columnCount}, ${row})` }}</p>
             <p style="text-align: center">
               Height {{ item.height }}px
             </p>

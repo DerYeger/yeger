@@ -86,7 +86,13 @@ const heightStyle = ['-webkit-max-content', '-moz-max-content', 'max-content'] a
         "
         class="masonry-item"
       >
-        <slot :item="items[itemIndex]" :index="itemIndex">
+        <slot
+          :item="items[itemIndex]"
+          :column="columnIndex"
+          :column-count="columns.length"
+          :row="row"
+          :index="itemIndex"
+        >
           {{ items[itemIndex] }}
         </slot>
       </div>

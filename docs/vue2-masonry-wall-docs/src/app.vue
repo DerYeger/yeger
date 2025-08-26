@@ -72,12 +72,12 @@ export default defineComponent({
       :class="{ 'scroll-container': useScrollContainer }"
     >
       <DemoTools
-        :column-width.sync="columnWidth"
-        :gap.sync="gap"
-        :rtl.sync="rtl"
-        :use-scroll-container.sync="useScrollContainer"
-        :min-columns.sync="minColumns"
-        :max-columns.sync="maxColumns"
+        v-model:column-width="columnWidth"
+        v-model:gap="gap"
+        v-model:rtl="rtl"
+        v-model:use-scroll-container="useScrollContainer"
+        v-model:min-columns="minColumns"
+        v-model:max-columns="maxColumns"
         @create-item="addItem($event)"
         @create-items="addItems()"
         @clear-items="items = []"
@@ -91,15 +91,16 @@ export default defineComponent({
         :min-columns="minColumns"
         :max-columns="maxColumns"
       >
-        <template #default="{ item, index }">
+        <template #default="{ item, column, columnCount, row, index }">
           <div
             class="item"
             :class="{ secondary: index % 2 === 0, accent: index % 2 === 1 }"
             :style="`height: ${item}px;`"
           >
             <p>Index {{ index }}</p>
+            <p>{{ `(${column + 1}/${columnCount}, ${row})` }}</p>
             <p style="text-align: center">
-              Height {{ item }}px
+              Height {{ item.height }}px
             </p>
             <button class="primary" @click="removeItem(index)">
               Remove

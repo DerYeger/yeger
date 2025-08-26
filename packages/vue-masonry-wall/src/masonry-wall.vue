@@ -42,6 +42,7 @@ defineSlots<{
   default?: (props: {
     item: T
     column: number
+    columnCount: number
     row: number
     index: number
   }) => VNode | VNode[] | Element | Element[]
@@ -99,6 +100,7 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
         <slot
           :item="items[itemIndex]!"
           :column="columnIndex"
+          :column-count="columns.length"
           :row="row"
           :index="itemIndex"
         >
