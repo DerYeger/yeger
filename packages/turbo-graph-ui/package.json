@@ -42,6 +42,7 @@
   "devDependencies": {
     "@iconify/react": "catalog:",
     "@manypkg/get-packages": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
     "@types/d3-scale": "catalog:",
     "@types/d3-scale-chromatic": "catalog:",
     "@types/node": "catalog:",
@@ -66,7 +67,7 @@
     "resumon": "workspace:*",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:",
     "typescript": "catalog:"
   },
   "publishConfig": {

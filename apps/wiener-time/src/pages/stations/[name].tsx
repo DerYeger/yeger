@@ -117,20 +117,20 @@ const LineComponent: FC<{ line: Line, maxDepartures?: number }> = ({
     [line.departures.departure, maxDepartures],
   )
   return (
-    <div className="rounded border-2" data-testid={`line-${line.name}-${line.towards.trim()}`}>
+    <div className="overflow-hidden rounded border-2 border-gray-200" data-testid={`line-${line.name}-${line.towards.trim()}`}>
       <span className="flex items-center gap-2 bg-gray-100 p-4 font-bold" data-testid="line-header">
         <LineTitle line={line.name} />
         {' '}
         {line.towards.trim()}
       </span>
-      <div className="border-b-2" />
+      <div className="border-b-2 border-gray-200" />
       <div className="flex flex-col">
         {shownDepartures.map((departure, index) => (
           <div
             key={index}
-            className={`border-b-${
-              index === shownDepartures.length - 1 ? '0' : '2'
-            } px-4 py-2`}
+            className={`${
+              index === shownDepartures.length - 1 ? 'border-b-0' : 'border-b-2'
+            } border-gray-200 px-4 py-2`}
           >
             <DepartureListItem departure={departure} />
           </div>
@@ -177,7 +177,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   return (
     <>
       <NextSeo title={station.name} />
-      <main className="flex flex-1 flex-col ">
+      <main className="flex flex-1 flex-col">
         <div className="m-4 flex items-center justify-between">
           <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">{station.name}</h1>
           <FavoriteToggle

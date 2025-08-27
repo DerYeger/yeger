@@ -1,17 +1,16 @@
 #!/usr/bin/env node
 import { argv, exit } from 'node:process'
 
-import ESLint from 'eslint/use-at-your-own-risk'
+import { ESLint } from 'eslint'
 import colors from 'picocolors'
 
-const { FlatESLint } = ESLint
 const { green } = colors
 
 async function main() {
   // 1. Create an instance.
   const fix = argv.includes('--fix')
 
-  const eslint = new FlatESLint({ fix })
+  const eslint = new ESLint({ fix })
 
   // 2. Lint files.
   const results = await eslint.lintFiles([
@@ -22,7 +21,7 @@ async function main() {
   )
 
   if (fix) {
-    await FlatESLint.outputFixes(results)
+    await ESLint.outputFixes(results)
   }
 
   // 3. Format the results.

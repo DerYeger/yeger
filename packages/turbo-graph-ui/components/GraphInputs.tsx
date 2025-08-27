@@ -133,7 +133,7 @@ interface CheckboxProps {
 
 function Checkbox({ checked, onChange, label }: CheckboxProps) {
   return (
-    <label className="group flex cursor-pointer items-center space-x-3">
+    <label className="group flex cursor-pointer items-center gap-3">
       <div className="relative">
         <input type="checkbox" checked={checked} onChange={(e) => onChange(e.target.checked)} className="sr-only" />
         <div

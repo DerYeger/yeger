@@ -33,7 +33,7 @@
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run check:tsc check:vue",
-    "update": "taze -l -r -w --exclude @vue/test-utils,vue,/tailwind/",
+    "update": "taze -l -r -w --exclude @vue/test-utils,vue",
     "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"
@@ -75,6 +75,7 @@
     },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
+      "@tailwindcss/oxide",
       "core-js-pure",
       "esbuild",
       "sharp",

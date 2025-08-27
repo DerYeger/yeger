@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url'
 
 import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
-import pluginCypress from 'eslint-plugin-cypress'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -29,13 +28,8 @@ export default function (...configs) {
       vue: true,
       yaml: true,
     },
-    pluginCypress.configs.recommended,
-    compat.extends(
-      'plugin:astro/recommended',
-      'plugin:md/recommended',
-      'plugin:tailwindcss/recommended',
-    ),
-    compat.plugins('jsx-a11y', 'md', 'tailwindcss', 'tsdoc'),
+    compat.extends('plugin:astro/recommended', 'plugin:md/recommended'),
+    compat.plugins('jsx-a11y', 'md', 'tsdoc'),
     {
       ignores: ['**/vite.config.ts.*'],
     },
@@ -82,8 +76,6 @@ export default function (...configs) {
         'style/arrow-parens': ['error', 'always'],
         'style/operator-linebreak': 'off',
         'style/quote-props': 'off',
-        'tailwindcss/enforces-shorthand': 'error',
-        'tailwindcss/no-custom-classname': 'off',
         'tsdoc/syntax': 'error',
         // The following unicorn rules are disabled due to implementation issues
         'unicorn/error-message': 'off',

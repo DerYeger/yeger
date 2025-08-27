@@ -36,6 +36,7 @@
   "devDependencies": {
     "@iconify/react": "catalog:",
     "@playwright/test": "catalog:",
+    "@tailwindcss/postcss": "catalog:",
     "@types/leaflet": "catalog:",
     "@types/node": "catalog:",
     "@types/react": "catalog:",

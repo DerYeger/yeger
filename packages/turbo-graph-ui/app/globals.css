@@ -1,77 +1,76 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@import "tw-animate-css";
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 4.9%;
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(0 0% 4.9%);
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 4.9%;
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(0 0% 4.9%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 4.9%;
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(0 0% 4.9%);
 
-    --primary: 0 0% 11.2%;
-    --primary-foreground: 0 0% 98%;
+    --primary: hsl(0 0% 11.2%);
+    --primary-foreground: hsl(0 0% 98%);
 
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 11.2%;
+    --secondary: hsl(0 0% 96.1%);
+    --secondary-foreground: hsl(0 0% 11.2%);
 
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: hsl(0 0% 96.1%);
+    --muted-foreground: hsl(215.4 16.3% 46.9%);
 
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 11.2%;
+    --accent: hsl(0 0% 96.1%);
+    --accent-foreground: hsl(0 0% 11.2%);
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: hsl(0 84.2% 60.2%);
+    --destructive-foreground: hsl(0 0% 98%);
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 0 0% 4.9%;
+    --border: hsl(214.3 31.8% 91.4%);
+    --input: hsl(214.3 31.8% 91.4%);
+    --ring: hsl(0 0% 4.9%);
 
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 98%;
+    --background: hsl(0 0% 0%);
+    --foreground: hsl(0 0% 98%);
 
-    --card: 0 0% 4.9%;
-    --card-foreground: 0 0% 98%;
+    --card: hsl(0 0% 4.9%);
+    --card-foreground: hsl(0 0% 98%);
 
-    --popover: 0 0% 4.9%;
-    --popover-foreground: 0 0% 98%;
+    --popover: hsl(0 0% 4.9%);
+    --popover-foreground: hsl(0 0% 98%);
 
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 11.2%;
+    --primary: hsl(0 0% 98%);
+    --primary-foreground: hsl(0 0% 11.2%);
 
-    --secondary: 0 0% 17.5%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: hsl(0 0% 17.5%);
+    --secondary-foreground: hsl(0 0% 98%);
 
-    --muted: 0 0% 17.5%;
-    --muted-foreground: 0 0% 65.1%;
+    --muted: hsl(0 0% 17.5%);
+    --muted-foreground: hsl(0 0% 65.1%);
 
-    --accent: 0 0% 17.5%;
-    --accent-foreground: 0 0% 98%;
+    --accent: hsl(0 0% 17.5%);
+    --accent-foreground: hsl(0 0% 98%);
 
-    --destructive: 0 0% 30.6%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: hsl(0 0% 30.6%);
+    --destructive-foreground: hsl(0 0% 98%);
 
-    --border: 0 0% 17.5%;
-    --input: 0 0% 17.5%;
-    --ring: hsl(212.7, 0%, 83.9);
+    --border: hsl(0 0% 17.5%);
+    --input: hsl(0 0% 17.5%);
+    --ring: hsl(212.7, 0%, 83.9%);
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-(--background) text-(--foreground);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }
 
@@ -82,12 +81,12 @@
 .react-flow__controls button {
   background-color: var(--bg-color);
   color: var(--text-color);
-  border: 1px solid hsl(var(--foreground));
+  border: 1px solid var(--foreground);
   border-bottom: none;
 }
 
 .react-flow__controls button:hover {
-  background-color: hsl(var(--secondary));
+  background-color: var(--secondary);
 }
 
 .react-flow__controls button:first-child {
@@ -95,28 +94,28 @@
 }
 
 .react-flow__controls button:last-child {
-  border-bottom: 1px solid hsl(var(--foreground));
+  border-bottom: 1px solid var(--foreground);
   border-radius: 0 0 5px 5px;
 }
 
 .react-flow__controls button path {
-  fill: hsl(var(--foreground));
+  fill: var(--foreground);
 }
 
 .react-flow__controls button:disabled path {
-  fill: hsl(var(--muted-foreground));
+  fill: var(--muted-foreground);
 }
 
 .react-flow__attribution {
-  background: hsl(var(--background)) !important;
+  background: var(--background) !important;
 }
 
 .react-flow__attribution a {
-  color: hsl(var(--muted-foreground)) !important;
+  color: var(--muted-foreground) !important;
 }
 
 .react-flow__minimap {
-  background: hsl(var(--background)) !important;
+  background: var(--background) !important;
 }
 
 .task-node::before {
