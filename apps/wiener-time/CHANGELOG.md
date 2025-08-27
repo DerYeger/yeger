@@ -1,5 +1,11 @@
 # wiener-time
 
+## 1.1.0
+
+### Minor Changes
+
+- 166d0c1: migrate to tailwind v4
+
 ## 1.0.1
 
 ### Patch Changes

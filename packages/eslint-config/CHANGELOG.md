@@ -1,5 +1,12 @@
 # @yeger/eslint-config
 
+## 3.0.0
+
+### Major Changes
+
+- 166d0c1: drop tailwind plugin
+- 166d0c1: drop cypress plugin
+
 ## 2.7.2
 
 ### Patch Changes
