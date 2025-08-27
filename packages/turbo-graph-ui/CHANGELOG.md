@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.5.0
+
+### Minor Changes
+
+- 166d0c1: migrate to tailwind v4
+
 ## 2.4.0
 
 ### Minor Changes
