@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.6.0
+
+### Minor Changes
+
+- 80f44b5: implement task execution
+
 ## 2.5.0
 
 ### Minor Changes
