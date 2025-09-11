@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   icons: ['/favicon.ico'],
 }
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home() {
   const tasks = await getAllTasks()
 
