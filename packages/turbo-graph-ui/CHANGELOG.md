@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.6.1
+
+### Patch Changes
+
+- 1bb1e2f: fetch tasks on render
+
 ## 2.6.0
 
 ### Minor Changes
