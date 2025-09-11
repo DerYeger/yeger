@@ -52,7 +52,7 @@ async function executeCommand(
   }
 }
 
-async function findRootTurboConfig(currentPath = '.'): Promise<{
+export async function findRootTurboConfig(currentPath = '.'): Promise<{
   dir: string
   config: TurboConfig
 }> {

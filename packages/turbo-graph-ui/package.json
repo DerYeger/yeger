@@ -36,13 +36,11 @@
   "peerDependencies": {
     "turbo": "1.0.0 || ^2.0.0"
   },
-  "dependencies": {
-    "jsonc-parser": "catalog:"
-  },
   "devDependencies": {
     "@iconify/react": "catalog:",
     "@manypkg/get-packages": "catalog:",
     "@tailwindcss/postcss": "catalog:",
+    "@tanstack/react-query": "catalog:",
     "@types/d3-scale": "catalog:",
     "@types/d3-scale-chromatic": "catalog:",
     "@types/node": "catalog:",
@@ -58,6 +56,7 @@
     "d3-scale": "catalog:",
     "eslint-config-next": "catalog:",
     "execa": "catalog:",
+    "jsonc-parser": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "postcss": "catalog:",

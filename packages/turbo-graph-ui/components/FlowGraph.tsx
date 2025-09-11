@@ -67,6 +67,12 @@ export function FlowGraph({ children, graph, tasks }: Props) {
       nodeTypes={nodeTypes}
       minZoom={0.1}
       style={taskCssVars}
+      noWheelClassName="nowheel"
+      noDragClassName="nodrag"
+      noPanClassName="nodrag"
+      zoomOnScroll
+      zoomOnPinch
+      panOnScroll={false}
       edgesFocusable={false}
       edgesUpdatable={false}
       nodesDraggable={false}
@@ -92,7 +98,7 @@ export function FlowGraph({ children, graph, tasks }: Props) {
 function ViewFitter({ graph }: { graph: TurboGraph }) {
   const reactFlow = useReactFlow()
   useEffect(() => {
-    const timeout = setTimeout(() => fitViewWithOffset(reactFlow), 200)
+    const timeout = setTimeout(() => fitViewWithOffset(reactFlow), 500)
     return () => {
       clearTimeout(timeout)
     }
@@ -107,7 +113,7 @@ function fitViewWithOffset(reactFlow: ReactFlowInstance) {
   if (!containerSize) {
     return
   }
-  const offset = 256
+  const offset = document.getElementById('sidebar')?.getBoundingClientRect().width ?? 0
   const { x, y, zoom } = getViewportForBounds(
     bounds,
     containerSize!.width - offset,

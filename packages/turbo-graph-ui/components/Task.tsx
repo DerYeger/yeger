@@ -5,6 +5,9 @@ import { TASK_WIDTH_VAR, TASK_HEIGHT_VAR, getTaskColorVar } from '../lib/flow'
 import type { FlowNode } from '../lib/flow'
 import { Wrench, Play, TestTube, Shield, Bug, Box } from 'lucide-react'
 import { Handle, Position } from 'reactflow'
+import { useEffect } from 'react'
+import { useTaskRun } from '../lib/useRunQueries'
+import { LogOutput } from './LogOutput'
 
 export interface TaskProps {
   data: FlowNode
@@ -12,22 +15,25 @@ export interface TaskProps {
 
 export function Task({ data }: TaskProps) {
   const { task, packageName, packageDir, framework, isTerminal, isOrigin } = data
+  const taskId = data.id
+  const state = useTaskRun(taskId)
+  useEffect(() => { }, [state.lines.length])
   return (
     <div className="flex flex-col">
       {isOrigin
         ? null
         : (
-            <Handle type="target" position={Position.Top} isConnectable={false} />
-          )}
+          <Handle type="target" position={Position.Top} isConnectable={false} />
+        )}
       <div
-        className="task-node rounded-lg bg-neutral-900 p-4 font-mono text-sm"
+        className="task-node rounded-lg border border-neutral-400/20 bg-neutral-900 p-4 font-mono text-sm flex flex-col gap-2"
         style={{
           width: `var(${TASK_WIDTH_VAR})`,
           height: `var(${TASK_HEIGHT_VAR})`,
         }}
       >
         {/* Header section */}
-        <div className="mb-4 flex items-center gap-3">
+        <div className="flex items-center gap-3">
           <div
             className="text-md flex size-6 items-center justify-center text-lg font-bold text-white"
           >
@@ -40,7 +46,7 @@ export function Task({ data }: TaskProps) {
         </div>
 
         {/* Command section */}
-        <div className="rounded border-2 border-solid  bg-black p-3" style={{ borderColor: `var(${getTaskColorVar(task)})` }}>
+        <div className="rounded border border-solid bg-black p-3" style={{ borderColor: `var(${getTaskColorVar(task)})` }}>
           <div className="flex items-center gap-3">
             <div className="text-white">
               <TaskIcon task={task} />
@@ -48,16 +54,22 @@ export function Task({ data }: TaskProps) {
             <span className="font-medium text-white">{task}</span>
           </div>
         </div>
+        <div className="h-32 rounded-md border border-white/10 bg-black/20">
+          <LogOutput
+            items={state.lines.map((l) => ({ id: l.id, text: l.raw, kind: l.kind }))}
+            containerClassName="h-full overflow-x-hidden overflow-y-auto bg-neutral-950 p-2 [mask-image:linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%]"
+          />
+        </div>
       </div>
       {isTerminal
         ? null
         : (
-            <Handle
-              type="source"
-              position={Position.Bottom}
-              isConnectable={false}
-            />
-          )}
+          <Handle
+            type="source"
+            position={Position.Bottom}
+            isConnectable={false}
+          />
+        )}
     </div>
   )
 }

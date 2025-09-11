@@ -66,6 +66,7 @@
 
   body {
     @apply bg-(--background) text-(--foreground);
+    --sidebar-width: 20rem;
   }
 
   button:not(:disabled),
@@ -124,7 +125,7 @@
   inset: -2px;
   border-radius: inherit;
   background: linear-gradient(130deg, #ff1e56, #cd3678, #8657a7, #0196ff, #3f79d5);
-  filter: blur(8px);
+  filter: blur(3px);
   z-index: -1;
   opacity: 0.5;
 }

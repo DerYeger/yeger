@@ -32,7 +32,6 @@ function createHierarchy(graph: TurboGraph) {
     })),
   ])
 }
-
 function getLongestLineLength({ nodes }: TurboGraph) {
   const length = Math.max(
     ...Stream.from(nodes).flatMap(({ task, packageName }) => [
@@ -48,8 +47,8 @@ function getLongestLineLength({ nodes }: TurboGraph) {
 
 function createSizeConfig(longestLine: number): SizeConfig {
   return {
-    width: 64 + longestLine * 10,
-    height: 189,
+    width: Math.max(512, 64 + longestLine * 10),
+    height: 262,
     horizontalSpacing: 128,
     verticalSpacing: 128,
   }

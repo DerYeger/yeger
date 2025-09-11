@@ -1,33 +1,31 @@
-import { getGraph } from '../lib/turbo'
+'use client'
 
 import { FlowGraph } from './FlowGraph'
+import { useGraphQuery } from '../lib/useGraphQuery'
+import { useGraphSettings } from '../lib/utils'
 
-export interface GraphProps {
-  tasks: string[]
-  selectedTasks: string[]
-  filter: string | undefined
-}
+export function Graph({ tasks }: { tasks: string[] }) {
+  const { getParameter } = useGraphSettings()
+  const tasksParam = getParameter('tasks') ?? ''
+  const selectedTasks = tasksParam.length ? tasksParam.split(' ').filter(Boolean) : []
+  const filterParam = getParameter('filter') ?? undefined
 
-export async function Graph({ tasks, selectedTasks, filter }: GraphProps) {
-  const graphResult = await getGraph(selectedTasks, filter)
+  const { data, error, isLoading } = useGraphQuery({
+    tasks: selectedTasks,
+    ...(filterParam !== undefined ? { filter: filterParam } : {}),
+  })
 
-  if (graphResult.isError) {
-    const error = graphResult.getError()
-    const searchTerm = 'error preparing engine:'
-    const searchIndex = error.message.lastIndexOf(searchTerm)
-    const message =
-      searchIndex > 0
-        ? error.message.substring(searchIndex + searchTerm.length)
-        : error.message
+  if (isLoading) {
+    return <div className="flex size-full items-center justify-center p-4 pl-(--sidebar-width)"><span className="text-sm text-neutral-400">Loading graph…</span></div>
+  }
+  if (error) {
     return (
-      <div className="flex size-full items-center justify-center p-4 pl-[256px]">
-        <code className="text-justify text-sm text-red-500">{message}</code>
+      <div className="flex size-full items-center justify-center p-4 pl-(--sidebar-width)">
+        <code className="text-justify text-sm text-red-500">{error.message}</code>
       </div>
     )
   }
-
-  const graph = graphResult.get()
-
+  const graph = data!
   return (
     <div className="size-full">
       <FlowGraph graph={graph} tasks={tasks} />
