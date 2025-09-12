@@ -8,7 +8,7 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 // API Route to execute turborepo tasks and stream logs via Server-Sent Events (text/event-stream)
-async function buildResponseFromArgs(tasks: string[], filter?: string, signal?: AbortSignal, options?: { force?: boolean }) {
+async function buildResponseFromArgs(tasks: string[], filter: string | undefined, signal: AbortSignal, options: { force?: boolean }) {
   const { dir } = await findRootTurboConfig()
   const args: string[] = ['run', ...tasks]
   if (filter) {
@@ -144,16 +144,6 @@ async function buildResponseFromArgs(tasks: string[], filter?: string, signal?: 
       'X-Accel-Buffering': 'no',
     },
   })
-}
-
-export async function POST(req: NextRequest) {
-  const body = await req.json().catch(() => undefined) as { tasks?: string[], filter?: string }
-  const tasks = body?.tasks?.filter(Boolean) ?? []
-  if (tasks.length === 0) {
-    return new Response('Missing tasks', { status: 400 })
-  }
-  const filter = body?.filter
-  return buildResponseFromArgs(tasks, filter)
 }
 
 export async function GET(req: NextRequest) {

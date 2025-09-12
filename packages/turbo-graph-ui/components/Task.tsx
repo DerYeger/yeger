@@ -5,7 +5,6 @@ import { TASK_WIDTH_VAR, TASK_HEIGHT_VAR, getTaskColorVar } from '../lib/flow'
 import type { FlowNode } from '../lib/flow'
 import { Wrench, Play, TestTube, Shield, Bug, Box } from 'lucide-react'
 import { Handle, Position } from 'reactflow'
-import { useEffect } from 'react'
 import { useTaskRun } from '../lib/useRunQueries'
 import { LogOutput } from './LogOutput'
 
@@ -17,7 +16,6 @@ export function Task({ data }: TaskProps) {
   const { task, packageName, packageDir, framework, isTerminal, isOrigin } = data
   const taskId = data.id
   const state = useTaskRun(taskId)
-  useEffect(() => { }, [state.lines.length])
   return (
     <div className="flex flex-col">
       {isOrigin

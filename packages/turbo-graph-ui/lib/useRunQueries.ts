@@ -159,34 +159,14 @@ export function useRunTasks() {
         client.setQueryData<RunState>(['runStream'], (prev) => {
           const state = { ...(prev ?? DEFAULT_STATE), tasks: { ...((prev ?? DEFAULT_STATE).tasks) } }
           for (const rawLine of lines) {
-            const clean = stripAnsi(rawLine)
+            const clean = stripAnsi(rawLine).trimStart()
             let id: string | undefined
             let content: string | undefined
-            const c1 = clean.indexOf(':')
-            if (c1 > 0) {
-              const c2 = clean.indexOf(':', c1 + 1)
-              if (c2 > 0) {
-                const pkg = clean.slice(0, c1).trim()
-                const task = clean.slice(c1 + 1, c2).trim()
-                if (pkg && task) {
-                  id = `${pkg}#${task}`
-                  content = clean.slice(c2 + 1).trimStart()
-                }
-              }
-            }
-            if (!id) {
-              const hashPos = clean.indexOf('#')
-              if (hashPos > 0) {
-                const colon = clean.indexOf(':', hashPos + 1)
-                if (colon > 0) {
-                  const workspace = clean.slice(0, hashPos).trim()
-                  const task = clean.slice(hashPos + 1, colon).trim()
-                  if (workspace && task) {
-                    id = `${workspace}#${task}`
-                    content = clean.slice(colon + 1).trimStart()
-                  }
-                }
-              }
+            const firstSpaceIndex = clean.indexOf(' ')
+            if (firstSpaceIndex > 1 && clean[firstSpaceIndex - 1] === ':') {
+              // we have a package prefix like "pkg:task: " or "task: "
+              id = clean.slice(0, firstSpaceIndex - 1)
+              content = clean.slice(firstSpaceIndex + 1).trim()
             }
             if (!id) {
               const trimmed = clean.trimEnd()

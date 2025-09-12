@@ -108,15 +108,20 @@ export interface TurboCLITask {
 }
 
 function createGraph(input: string, rootPackageName: string): TurboGraph {
-  const data = JSON.parse(input) as TurboCLIJson
-  const tasks = data.tasks.filter(({ command }) => command !== '<NONEXISTENT>')
-
   const getPackageName = (task: TurboCLITask) => {
     if (task.package === '//') {
       return rootPackageName
     }
     return task.package ?? rootPackageName
   }
+
+  const data = JSON.parse(input) as TurboCLIJson
+  const tasks = data.tasks.filter(({ command }) => command !== '<NONEXISTENT>').map((task) => ({
+    ...task,
+    // Align task id with turbo CLI format
+    taskId: task.package !== undefined ? `${getPackageName(task)}:${task.task}` : task.task,
+    dependencies: task.dependencies.map((dependency) => dependency.replace('#', ':')),
+  }))
 
   const nodes: TurboNode[] = tasks.map((task) => ({
     id: task.taskId,
@@ -132,13 +137,14 @@ function createGraph(input: string, rootPackageName: string): TurboGraph {
       .filter((dependency) => validTasks.has(dependency))
       .map((dependency) => ({
         source: dependency,
-        sourceTask: dependency.substring(dependency.indexOf('#') + 1),
-        sourceWorkspace: dependency.substring(0, dependency.indexOf('#')),
+        sourceTask: dependency.substring(dependency.indexOf(':') + 1),
+        sourceWorkspace: dependency.substring(0, dependency.indexOf(':')),
         target: taskId,
-        targetTask: taskId.substring(taskId.indexOf('#') + 1),
-        targetWorkspace: taskId.substring(0, taskId.indexOf('#')),
+        targetTask: taskId.substring(taskId.indexOf(':') + 1),
+        targetWorkspace: taskId.substring(0, taskId.indexOf(':')),
       })),
   )
+
   return { nodes, edges }
 }
 

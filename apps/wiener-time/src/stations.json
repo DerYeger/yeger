@@ -1339,11 +1339,12 @@
   "Aspern Nord S U": {
     "name": "Aspern Nord S U",
     "stops": [
+      2860,
       8139
     ],
     "location": [
-      48.2356589,
-      16.5043964
+      48.235135299999996,
+      16.504288600000002
     ]
   },
   "Aspern Nord SU": {
@@ -1355,6 +1356,16 @@
     "location": [
       48.23377405,
       16.504504150000002
+    ]
+  },
+  "Aspern Nord U": {
+    "name": "Aspern Nord U",
+    "stops": [
+      2870
+    ],
+    "location": [
+      48.2346117,
+      16.5042706
     ]
   },
   "Aspern Nord": {
@@ -2238,12 +2249,13 @@
   "Berresgasse": {
     "name": "Berresgasse",
     "stops": [
+      2865,
       5847,
       5850
     ],
     "location": [
-      48.2412859,
-      16.48558115
+      48.24127493333333,
+      16.485570666666664
     ]
   },
   "Bertl-Hayde-Gasse": {
@@ -2304,11 +2316,12 @@
   "Bhf. Atzgersdorf S, Knotzenbachgasse": {
     "name": "Bhf. Atzgersdorf S, Knotzenbachgasse",
     "stops": [
-      1664
+      1664,
+      1734
     ],
     "location": [
-      48.1453317,
-      16.2936426
+      48.145949099999996,
+      16.29057935
     ]
   },
   "Bhf. Atzgersdorf S": {
@@ -4293,8 +4306,8 @@
       2181
     ],
     "location": [
-      48.2912861,
-      16.3864431
+      48.29126815,
+      16.38651945
     ]
   },
   "Edmund-Reim-Gasse": {
@@ -11508,12 +11521,11 @@
     "name": "Lassallestraße",
     "stops": [
       7,
-      648,
-      7428
+      648
     ],
     "location": [
-      48.22222233333333,
-      16.399604866666667
+      48.22169165,
+      16.398017850000002
     ]
   },
   "Laudongasse": {
@@ -16314,15 +16326,14 @@
   "Raxstraße, Rudolfshügelgasse": {
     "name": "Raxstraße, Rudolfshügelgasse",
     "stops": [
-      299,
       1928,
       2254,
       2260,
       5721
     ],
     "location": [
-      48.165798179999996,
-      16.36396814
+      48.165560325,
+      16.363848224999998
     ]
   },
   "Rebhangasse": {
@@ -17413,12 +17424,14 @@
   "Scheedgasse": {
     "name": "Scheedgasse",
     "stops": [
+      2864,
+      2867,
       8067,
       8072
     ],
     "location": [
-      48.240627849999996,
-      16.48737775
+      48.240599425,
+      16.487541725
     ]
   },
   "Scheffelstraße": {
@@ -17888,6 +17901,17 @@
     "location": [
       48.211493675,
       16.319006575
+    ]
+  },
+  "Schukowitzgasse": {
+    "name": "Schukowitzgasse",
+    "stops": [
+      2862,
+      2869
+    ],
+    "location": [
+      48.2392607,
+      16.4990514
     ]
   },
   "Schwanngasse": {
@@ -19759,6 +19783,17 @@
       16.466945600000003
     ]
   },
+  "Stemolakgasse": {
+    "name": "Stemolakgasse",
+    "stops": [
+      2863,
+      2868
+    ],
+    "location": [
+      48.2386774,
+      16.493396500000003
+    ]
+  },
   "Stephansplatz U": {
     "name": "Stephansplatz U",
     "stops": [
@@ -19963,12 +19998,11 @@
     "name": "Strebersdorf, Edmund-Hawranek-Platz",
     "stops": [
       978,
-      3126,
       5726
     ],
     "location": [
-      48.29106696666667,
-      16.386127166666665
+      48.291065,
+      16.3859984
     ]
   },
   "Strebersdorfer Platz": {
@@ -21437,11 +21471,12 @@
     "name": "Vorgartenstraße U",
     "stops": [
       597,
-      649
+      649,
+      7427
     ],
     "location": [
-      48.224402850000004,
-      16.40145395
+      48.224029800000004,
+      16.4018956
     ]
   },
   "Vorgartenstraße": {
@@ -22612,7 +22647,7 @@
       3113,
       3114,
       3792,
-      7389
+      7388
     ],
     "location": [
       48.23900824,
