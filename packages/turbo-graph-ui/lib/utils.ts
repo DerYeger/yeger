@@ -1,7 +1,7 @@
 import { Stream } from '@yeger/streams'
 import { clsx } from 'clsx'
 import type { ClassValue } from 'clsx'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
@@ -11,7 +11,6 @@ export function cn(...inputs: ClassValue[]) {
 export type GraphParameter = 'tasks' | 'filter'
 
 export function useGraphSettings() {
-  const router = useRouter()
   const searchParams = useSearchParams()
 
   function setParameter(param: GraphParameter, newValue: string | null) {
@@ -20,7 +19,7 @@ export function useGraphSettings() {
       .concat(newValue ? [[param, newValue]] : [])
       .map(([key, value]) => `${key}=${value}`)
       .join('&')
-    router.replace(`/?${newSearchParams}`)
+    window.history.replaceState(null, '', `?${newSearchParams}`)
   }
 
   function getParameter(param: GraphParameter) {
