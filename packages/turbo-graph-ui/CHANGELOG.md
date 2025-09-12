@@ -1,5 +1,12 @@
 # @yeger/turbo-graph-ui
 
+## 2.6.2
+
+### Patch Changes
+
+- 68e70c5: support task running in single package workspace
+- 3a003c3: do not re-render on input change
+
 ## 2.6.1
 
 ### Patch Changes
