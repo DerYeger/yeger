@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://vecti.yeger.eu">
+  <a href="https://vecti.janmueller.dev">
     Documentation
   </a>
 </p>

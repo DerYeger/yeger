@@ -5,10 +5,10 @@
 </p>
 
 <p align="center">
-  <a href="https://graph-controller.yeger.eu">
+  <a href="https://graph-controller.janmueller.dev">
     Documentation
   </a> ·
-  <a href="https://graph-controller.yeger.eu/demo/">
+  <a href="https://graph-controller.janmueller.dev/demo/">
     Demo
   </a>
 </p>

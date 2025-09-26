@@ -33,7 +33,7 @@
 ## Links
 
 - [Marmoset Viewer](https://marmoset.co/toolbag/viewer/)
-- [Demo](https://vue-marmoset-viewer.yeger.eu/)
+- [Demo](https://vue-marmoset-viewer.janmueller.dev/)
 
 ## Installation
 

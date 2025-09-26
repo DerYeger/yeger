@@ -22,7 +22,7 @@ export default defineComponent({
       2.
     </p>
     <p class="row" style="justify-content: center">
-      <a href="https://vue-masonry-wall.yeger.eu/" rel="noopener">
+      <a href="https://vue-masonry-wall.janmueller.dev/" rel="noopener">
         Vue 3 version
       </a>
       <a

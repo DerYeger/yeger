@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://key-hierarchy.yeger.eu">
+  <a href="https://key-hierarchy.janmueller.dev">
     Documentation
   </a>
 </p>

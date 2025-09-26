@@ -35,7 +35,7 @@
 
 ## Links
 
-- [Demo](https://vue-masonry-wall.yeger.eu/)
+- [Demo](https://vue-masonry-wall.janmueller.dev/)
 - [Vue 2 version](https://github.com/DerYeger/yeger/tree/main/packages/vue2-masonry-wall)
 
 ## Installation

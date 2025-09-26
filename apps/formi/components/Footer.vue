@@ -15,7 +15,7 @@ const resources: Link[] = [
     text: 'Graph Library',
   },
   {
-    to: 'https://apollo.yeger.eu',
+    to: 'https://apollo.janmueller.dev',
     text: 'Apollo',
   },
 ]

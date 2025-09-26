@@ -1,3 +1,3 @@
 # Formi
 
-> [formi.yeger.eu](https://formi.yeger.eu)
+> [formi.janmueller.dev](https://formi.janmueller.dev)

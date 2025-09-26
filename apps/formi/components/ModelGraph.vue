@@ -58,7 +58,7 @@ function resetGraphController(
   controller.value = new GraphController(
     el.value!,
     graph.value,
-    // See https://graph-controller.yeger.eu/config/ for more options
+    // See https://graph-controller.janmueller.dev/config/ for more options
     defineGraphConfig({
       nodeRadius: 10,
       autoResize: true,

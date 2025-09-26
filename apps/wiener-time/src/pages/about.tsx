@@ -31,7 +31,7 @@ const AboutPage: NextPage = () => {
             <p>
               E-Mail:
               {' '}
-              <a href="mailto:mail%40jan-mueller.at">mail@jan-mueller.at</a>
+              <a href="mailto:mail%40janmueller.dev">mail@janmueller.dev</a>
               {' '}
             </p>
           </div>

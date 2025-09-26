@@ -263,6 +263,17 @@
       16.3768401
     ]
   },
+  "Akkonplatz": {
+    "name": "Akkonplatz",
+    "stops": [
+      2884,
+      2885
+    ],
+    "location": [
+      48.20132955,
+      16.31449255
+    ]
+  },
   "Alaudagasse U": {
     "name": "Alaudagasse U",
     "stops": [
@@ -1925,6 +1936,16 @@
       16.3313943
     ]
   },
+  "Bahnhof Rudolfsheim (Bedarf)": {
+    "name": "Bahnhof Rudolfsheim (Bedarf)",
+    "stops": [
+      6024
+    ],
+    "location": [
+      48.19059,
+      16.3226762
+    ]
+  },
   "Bahnhof Rudolfsheim Kurzführung": {
     "name": "Bahnhof Rudolfsheim Kurzführung",
     "stops": [
@@ -2249,13 +2270,14 @@
   "Berresgasse": {
     "name": "Berresgasse",
     "stops": [
-      2865,
+      2866,
       5847,
-      5850
+      5850,
+      8068
     ],
     "location": [
-      48.24127493333333,
-      16.485570666666664
+      48.241073525,
+      16.485132
     ]
   },
   "Bertl-Hayde-Gasse": {
@@ -2509,16 +2531,6 @@
     "location": [
       48.208870149999996,
       16.30394185
-    ]
-  },
-  "Bhf.Rdh. / Halle III - A": {
-    "name": "Bhf.Rdh. / Halle III - A",
-    "stops": [
-      7008
-    ],
-    "location": [
-      48.19059,
-      16.3226762
     ]
   },
   "Bibernellweg": {
@@ -5241,11 +5253,12 @@
     "name": "Floridsdorf",
     "stops": [
       4645,
-      4646
+      4646,
+      7351
     ],
     "location": [
-      48.25620465,
-      16.4004613
+      48.22503816666667,
+      16.3737394
     ]
   },
   "Floridsdorfer Brücke": {
@@ -7080,16 +7093,6 @@
       16.47235795
     ]
   },
-  "Hagedornweg": {
-    "name": "Hagedornweg",
-    "stops": [
-      8636
-    ],
-    "location": [
-      48.2327568,
-      16.4926554
-    ]
-  },
   "Haidersberggasse": {
     "name": "Haidersberggasse",
     "stops": [
@@ -8217,8 +8220,8 @@
     "stops": [
       1078,
       1079,
-      2483,
-      2490
+      2490,
+      8080
     ],
     "location": [
       48.236299075,
@@ -9717,14 +9720,15 @@
   "Kagraner Brücke": {
     "name": "Kagraner Brücke",
     "stops": [
+      894,
       1018,
       3045,
       3060,
       5510
     ],
     "location": [
-      48.23939235,
-      16.43070755
+      48.2394486,
+      16.43070396
     ]
   },
   "Kagraner Friedhof": {
@@ -11521,11 +11525,12 @@
     "name": "Lassallestraße",
     "stops": [
       7,
-      648
+      648,
+      7428
     ],
     "location": [
-      48.22169165,
-      16.398017850000002
+      48.22222233333333,
+      16.399604866666667
     ]
   },
   "Laudongasse": {
@@ -12678,11 +12683,12 @@
   "Margeritenweg": {
     "name": "Margeritenweg",
     "stops": [
-      8070
+      8070,
+      8636
     ],
     "location": [
-      48.231949,
-      16.4942634
+      48.232352899999995,
+      16.4934594
     ]
   },
   "Margetinstraße": {
@@ -15588,26 +15594,6 @@
       16.354404674999998
     ]
   },
-  "Pilotengasse": {
-    "name": "Pilotengasse",
-    "stops": [
-      8632
-    ],
-    "location": [
-      48.2205306,
-      16.4882177
-    ]
-  },
-  "Pirquetgasse": {
-    "name": "Pirquetgasse",
-    "stops": [
-      8068
-    ],
-    "location": [
-      48.2404693,
-      16.483816
-    ]
-  },
   "Plachygasse": {
     "name": "Plachygasse",
     "stops": [
@@ -16888,12 +16874,11 @@
   "Rothenburgstraße": {
     "name": "Rothenburgstraße",
     "stops": [
-      684,
-      7351
+      684
     ],
     "location": [
-      48.1629389,
-      16.31964435
+      48.1631726,
+      16.3189931
     ]
   },
   "Rothneusiedl": {
@@ -17376,17 +17361,6 @@
     "location": [
       48.2378786,
       16.2977928
-    ]
-  },
-  "Schanzstraße, Akkonplatz": {
-    "name": "Schanzstraße, Akkonplatz",
-    "stops": [
-      2884,
-      2885
-    ],
-    "location": [
-      48.20132955,
-      16.31449255
     ]
   },
   "Schartlgasse": {
@@ -19116,11 +19090,12 @@
   "Soldanellenweg": {
     "name": "Soldanellenweg",
     "stops": [
+      8632,
       8643
     ],
     "location": [
-      48.2201954,
-      16.4885501
+      48.220363,
+      16.488383900000002
     ]
   },
   "Sommarugagasse": {
@@ -19205,7 +19180,7 @@
     "stops": [
       3184,
       3196,
-      7384
+      7383
     ],
     "location": [
       48.241101433333334,
@@ -19673,7 +19648,6 @@
   "Steigenteschgasse": {
     "name": "Steigenteschgasse",
     "stops": [
-      884,
       892,
       3312,
       5785,
@@ -19681,8 +19655,8 @@
       8612
     ],
     "location": [
-      48.24436191666667,
-      16.437747366666667
+      48.245299579999994,
+      16.43915892
     ]
   },
   "Steinamangergasse": {
@@ -21471,12 +21445,11 @@
     "name": "Vorgartenstraße U",
     "stops": [
       597,
-      649,
-      7427
+      649
     ],
     "location": [
-      48.224029800000004,
-      16.4018956
+      48.224402850000004,
+      16.40145395
     ]
   },
   "Vorgartenstraße": {
@@ -22647,7 +22620,7 @@
       3113,
       3114,
       3792,
-      7388
+      7389
     ],
     "location": [
       48.23900824,
