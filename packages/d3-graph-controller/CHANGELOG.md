@@ -1,5 +1,13 @@
 # d3-graph-controller
 
+## 3.1.3
+
+### Patch Changes
+
+- 002e857: update docs urls
+- Updated dependencies [002e857]
+  - vecti@3.1.2
+
 ## 3.1.2
 
 ### Patch Changes

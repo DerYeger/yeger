@@ -1,5 +1,13 @@
 # vue-marmoset-viewer-docs
 
+## 2.0.19
+
+### Patch Changes
+
+- 002e857: update docs urls
+- Updated dependencies [002e857]
+  - vue-marmoset-viewer@4.0.19
+
 ## 2.0.18
 
 ### Patch Changes

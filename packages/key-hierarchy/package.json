@@ -1,7 +1,7 @@
 {
   "name": "key-hierarchy",
   "type": "module",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "A tiny TypeScript library for managing key hierarchies. The perfect companion for TanStack Query.",
   "author": {
     "name": "Jan Müller",

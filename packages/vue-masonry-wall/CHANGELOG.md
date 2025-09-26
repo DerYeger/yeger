@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.1.1
+
+### Patch Changes
+
+- 002e857: update docs urls
+- Updated dependencies [002e857]
+  - @yeger/vue-masonry-wall-core@5.0.18
+
 ## 5.1.0
 
 ### Minor Changes

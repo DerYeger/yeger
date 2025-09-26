@@ -1,5 +1,11 @@
 # wiener-time
 
+## 1.1.1
+
+### Patch Changes
+
+- 002e857: update docs urls
+
 ## 1.1.0
 
 ### Minor Changes
