@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.6
+
+### Patch Changes
+
+- 002e857: update docs urls
+
 ## 3.0.5
 
 ### Patch Changes

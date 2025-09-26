@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.18
+
+### Patch Changes
+
+- 002e857: update docs urls
+
 ## 5.0.17
 
 ### Patch Changes

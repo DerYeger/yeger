@@ -1,5 +1,13 @@
 # Formi
 
+## 0.2.12
+
+### Patch Changes
+
+- 002e857: update docs urls
+- Updated dependencies [002e857]
+  - d3-graph-controller@3.1.3
+
 ## 0.2.11
 
 ### Patch Changes

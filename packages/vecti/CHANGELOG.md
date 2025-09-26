@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.2
+
+### Patch Changes
+
+- 002e857: update docs urls
+
 ## 3.1.1
 
 ### Patch Changes
