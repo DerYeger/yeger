@@ -5,7 +5,7 @@ packages:
   - packages/*
 
 catalog:
-  '@algolia/client-search': 5.37.0
+  '@algolia/client-search': 5.39.0
   '@antfu/eslint-config': 5.4.1
   '@antfu/ni': 26.0.1
   '@changesets/cli': 2.29.7
@@ -21,16 +21,16 @@ catalog:
   '@nuxt/icon': 2.0.0
   '@nuxtjs/robots': 5.5.5
   '@ohm-js/cli': 2.0.1
-  '@playwright/test': 1.55.0
+  '@playwright/test': 1.55.1
   '@tailwindcss/postcss': 4.1.13
-  '@tanstack/react-query': 5.89.0
-  '@tanstack/vue-query': 5.89.0
+  '@tanstack/react-query': 5.90.2
+  '@tanstack/vue-query': 5.90.2
   '@testing-library/react': 16.3.0
-  '@trpc/client': 11.5.1
-  '@trpc/next': 11.5.1
-  '@trpc/react-query': 11.5.1
-  '@trpc/server': 11.5.1
-  '@turbo/gen': 2.5.6
+  '@trpc/client': 11.6.0
+  '@trpc/next': 11.6.0
+  '@trpc/react-query': 11.6.0
+  '@trpc/server': 11.6.0
+  '@turbo/gen': 2.5.8
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
   '@types/d3-scale': 4.0.9
@@ -40,19 +40,19 @@ catalog:
   '@types/eslint': 9.6.1
   '@types/leaflet': 1.9.20
   '@types/node': 24.5.2
-  '@types/react': 19.1.13
+  '@types/react': 19.1.14
   '@types/react-dom': 19.1.9
   '@types/resize-observer-browser': 0.1.11
   '@unhead/vue': 2.0.17
-  '@unocss/nuxt': 66.5.1
-  '@unocss/reset': 66.5.1
+  '@unocss/nuxt': 66.5.2
+  '@unocss/reset': 66.5.2
   '@vite-pwa/nuxt': 1.0.4
   '@vitejs/plugin-vue': 6.0.1
   '@vitejs/plugin-vue2': 2.3.3
   '@vitest/coverage-v8': 3.2.4
   '@vitest/ui': 3.2.4
   '@vue/component-compiler-utils': 3.3.0
-  '@vue/shared': 3.5.21
+  '@vue/shared': 3.5.22
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 13.9.0
   '@vueuse/nuxt': 13.9.0
@@ -75,7 +75,7 @@ catalog:
   d3-selection: 3.0.0
   d3-zoom: 3.0.0
   eslint: 9.36.0
-  eslint-config-next: 15.5.3
+  eslint-config-next: 15.5.4
   eslint-import-resolver-typescript: 4.4.4
   eslint-plugin-astro: 1.3.1
   eslint-plugin-format: 1.0.2
@@ -84,10 +84,10 @@ catalog:
   eslint-plugin-markdown: 5.1.0
   eslint-plugin-md: 1.0.19
   eslint-plugin-react-hooks: 5.2.0
-  eslint-plugin-react-refresh: 0.4.20
-  eslint-plugin-svelte: 3.12.3
+  eslint-plugin-react-refresh: 0.4.22
+  eslint-plugin-svelte: 3.12.4
   eslint-plugin-tsdoc: 0.4.0
-  eslint-plugin-turbo: 2.5.6
+  eslint-plugin-turbo: 2.5.8
   eslint-plugin-yml: 1.18.0
   execa: 9.6.0
   flush-promises: 1.0.2
@@ -97,10 +97,10 @@ catalog:
   kolorist: 1.8.0
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lint-staged: 16.1.6
+  lint-staged: 16.2.1
   localforage: 1.10.0
   lucide-react: 0.544.0
-  next: 15.5.3
+  next: 15.5.4
   next-seo: 6.8.0
   node-fetch: 3.3.2
   node-fetch-native: 1.6.7
@@ -124,29 +124,29 @@ catalog:
   tailwind-merge: 3.3.1
   tailwindcss: 4.1.13
   taze: 19.7.0
-  tsx: 4.20.5
-  tw-animate-css: 1.3.8
+  tsx: 4.20.6
+  tw-animate-css: 1.4.0
   typescript: 5.9.2
   ufo: 1.6.1
   unbuild: 3.6.1
-  unplugin-vue-components: 29.0.0
+  unplugin-vue-components: 29.1.0
   use-debounce: 10.0.6
   use-local-storage: 3.0.0
-  vercel: 48.1.0
-  vite: 7.1.6
+  vercel: 48.1.6
+  vite: 7.1.7
   vite-plugin-dts: 4.5.4
   vite-ssg: 28.1.0
   vitepress: 1.6.4
   vitest: 3.2.4
-  vue: 3.5.21
+  vue: 3.5.22
   vue-codemirror: 6.1.1
   vue-router: 4.5.1
   vue-template-compiler: 2.7.16
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.0.7
+  vue-tsc: 3.0.8
   yaml: 2.8.1
   yaml-eslint-parser: 1.3.0
-  zod: 4.1.9
+  zod: 4.1.11
 
 catalogMode: strict
 
