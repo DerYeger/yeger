@@ -1347,6 +1347,17 @@
       16.5046389
     ]
   },
+  "Aspern Nord S U, Mayrederbrücke": {
+    "name": "Aspern Nord S U, Mayrederbrücke",
+    "stops": [
+      2861,
+      2870
+    ],
+    "location": [
+      48.2347195,
+      16.5034621
+    ]
+  },
   "Aspern Nord S U": {
     "name": "Aspern Nord S U",
     "stops": [
@@ -1367,16 +1378,6 @@
     "location": [
       48.23377405,
       16.504504150000002
-    ]
-  },
-  "Aspern Nord U": {
-    "name": "Aspern Nord U",
-    "stops": [
-      2870
-    ],
-    "location": [
-      48.2346117,
-      16.5042706
     ]
   },
   "Aspern Nord": {
@@ -1934,16 +1935,6 @@
     "location": [
       48.1735195,
       16.3313943
-    ]
-  },
-  "Bahnhof Rudolfsheim (Bedarf)": {
-    "name": "Bahnhof Rudolfsheim (Bedarf)",
-    "stops": [
-      6024
-    ],
-    "location": [
-      48.19059,
-      16.3226762
     ]
   },
   "Bahnhof Rudolfsheim Kurzführung": {
@@ -2531,6 +2522,16 @@
     "location": [
       48.208870149999996,
       16.30394185
+    ]
+  },
+  "Bhf.Rdh. / Halle III - A": {
+    "name": "Bhf.Rdh. / Halle III - A",
+    "stops": [
+      7008
+    ],
+    "location": [
+      48.19059,
+      16.3226762
     ]
   },
   "Bibernellweg": {
@@ -5647,6 +5648,17 @@
     "location": [
       48.2032575,
       16.4025723
+    ]
+  },
+  "Friederike-Mayröcker-Straße": {
+    "name": "Friederike-Mayröcker-Straße",
+    "stops": [
+      8182,
+      8183
+    ],
+    "location": [
+      48.2323649,
+      16.5082681
     ]
   },
   "Friedjunggasse": {
@@ -10206,6 +10218,17 @@
       16.38023795
     ]
   },
+  "Karoline-Perin-Gasse": {
+    "name": "Karoline-Perin-Gasse",
+    "stops": [
+      8187,
+      8188
+    ],
+    "location": [
+      48.2330351,
+      16.51132235
+    ]
+  },
   "Karthäuserstraße": {
     "name": "Karthäuserstraße",
     "stops": [
@@ -12199,6 +12222,17 @@
     "location": [
       48.1789617,
       16.392192299999998
+    ]
+  },
+  "Lilly-Dillenz-Straße": {
+    "name": "Lilly-Dillenz-Straße",
+    "stops": [
+      8185,
+      8186
+    ],
+    "location": [
+      48.23160495,
+      16.51353225
     ]
   },
   "Lindauergasse": {
@@ -16312,14 +16346,15 @@
   "Raxstraße, Rudolfshügelgasse": {
     "name": "Raxstraße, Rudolfshügelgasse",
     "stops": [
+      299,
       1928,
       2254,
       2260,
       5721
     ],
     "location": [
-      48.165560325,
-      16.363848224999998
+      48.165798179999996,
+      16.36396814
     ]
   },
   "Rebhangasse": {
@@ -19180,7 +19215,7 @@
     "stops": [
       3184,
       3196,
-      7383
+      7384
     ],
     "location": [
       48.241101433333334,
