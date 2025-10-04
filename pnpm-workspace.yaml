@@ -83,7 +83,7 @@ catalog:
   eslint-plugin-jsx-a11y: 6.10.2
   eslint-plugin-markdown: 5.1.0
   eslint-plugin-md: 1.0.19
-  eslint-plugin-react-hooks: 5.2.0
+  eslint-plugin-react-hooks: 6.1.1
   eslint-plugin-react-refresh: 0.4.22
   eslint-plugin-svelte: 3.12.4
   eslint-plugin-tsdoc: 0.4.0
