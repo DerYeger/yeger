@@ -14,7 +14,7 @@ interface Options {
 }
 
 async function run() {
-  const source = path.dirname(await import.meta.resolve('@yeger/turbo-graph-ui').replace('file://', ''))
+  const source = path.dirname(import.meta.resolve('@yeger/turbo-graph-ui').replace('file://', ''))
   const hostname = 'localhost'
   const defaultPort = 29312
 
@@ -47,7 +47,7 @@ async function run() {
           if (options.open) {
             let urlToOpen = `${url}/?`
             if (tasks.length > 0) {
-              urlToOpen = `${urlToOpen}tasks=${tasks.join(' ')}`
+              urlToOpen = `${urlToOpen}${tasks.map((task) => `task=${task}`).join('&')}`
             }
             if (options.filter) {
               if (tasks.length > 0) {

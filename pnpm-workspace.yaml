@@ -104,6 +104,7 @@ catalog:
   next-seo: 6.8.0
   node-fetch: 3.3.2
   node-fetch-native: 1.6.7
+  nuqs: ^2.7.1
   nuxt: 4.1.2
   ohm-js: 17.2.1
   open: 10.2.0

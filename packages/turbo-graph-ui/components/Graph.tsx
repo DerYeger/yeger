@@ -2,17 +2,15 @@
 
 import { FlowGraph } from './FlowGraph'
 import { useGraphQuery } from '../lib/useGraphQuery'
-import { useGraphSettings } from '../lib/utils'
+import { useFilterInput, useTaskSelection } from '../lib/parameters'
 
 export function Graph({ tasks }: { tasks: string[] }) {
-  const { getParameter } = useGraphSettings()
-  const tasksParam = getParameter('tasks') ?? ''
-  const selectedTasks = tasksParam.length ? tasksParam.split(' ').filter(Boolean) : []
-  const filterParam = getParameter('filter') ?? undefined
+  const [selectedTasks] = useTaskSelection()
+  const [filter] = useFilterInput()
 
   const { data, error, isLoading } = useGraphQuery({
     tasks: selectedTasks,
-    ...(filterParam !== undefined ? { filter: filterParam } : {}),
+    ...(filter !== null ? { filter } : {}),
   })
 
   if (isLoading) {

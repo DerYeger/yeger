@@ -59,6 +59,7 @@
     "jsonc-parser": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
+    "nuqs": "catalog:",
     "postcss": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

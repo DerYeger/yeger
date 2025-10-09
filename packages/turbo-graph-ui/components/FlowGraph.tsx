@@ -23,8 +23,8 @@ import {
 } from '../lib/flow'
 import type { FlowNode } from '../lib/flow'
 import type { TurboGraph } from '../lib/turbo'
-import { useGraphSettings } from '../lib/utils'
 import { Task } from './Task'
+import { useFilterInput } from '../lib/parameters'
 
 export interface Props {
   children?: ReactNode
@@ -54,10 +54,10 @@ export function FlowGraph({ children, graph, tasks }: Props) {
     }
   }, [graph, tasks])
 
-  const { setParameter } = useGraphSettings()
+  const [, setFilter] = useFilterInput()
 
   const onNodeClicked = (_: unknown, { data }: { data: FlowNode }) => {
-    setParameter('filter', data.packageName)
+    setFilter(data.packageName)
   }
 
   return (
