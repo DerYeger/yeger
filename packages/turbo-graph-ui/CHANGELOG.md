@@ -1,5 +1,12 @@
 # @yeger/turbo-graph-ui
 
+## 2.7.0
+
+### Minor Changes
+
+- 809d65d: use nuqs for input state management
+- 809d65d: improve keyboard navigation
+
 ## 2.6.2
 
 ### Patch Changes
