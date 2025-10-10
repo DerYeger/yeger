@@ -2,7 +2,7 @@
   "name": "@yeger/turbo-graph-ui",
   "type": "module",
   "version": "2.7.0",
-  "description": "Interactive visualization of Turborepo task graphs.",
+  "description": "Interactive visualization and execution of Turborepo task graphs.",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
@@ -17,6 +17,13 @@
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },
+  "keywords": [
+    "turborepo",
+    "turbo",
+    "graph",
+    "visualization",
+    "monorepo"
+  ],
   "exports": {
     ".": {
       "import": "./next.config.mjs"

@@ -83,6 +83,7 @@ function createFlowGraph(
             isTerminal: node.nchildren() === 0,
             isOrigin: node.nparents() === 0,
           },
+          focusable: false,
           position: { x: node.x, y: node.y },
           type: 'task',
         }) as const,

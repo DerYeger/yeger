@@ -46,7 +46,7 @@ export function RunControls() {
               title="Abort run"
               onClick={onAbort}
               disabled={!isRunning}
-              className="inline-flex items-center rounded-md border border-white/30 bg-red-600 p-1.5 text-white hover:enabled:bg-red-500 focus-visible:bg-red-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none disabled:opacity-50 transition-all"
+              className="inline-flex items-center rounded-md border border-white/30 bg-red-600 p-1.5 text-white hocus:enabled:bg-red-500 disabled:opacity-50 transition-all"
             >
               <Ban className="size-4" />
             </button>
@@ -56,7 +56,7 @@ export function RunControls() {
               title={canRun ? 'Run selected tasks' : 'Select tasks first'}
               onClick={onRun}
               disabled={!canRun}
-              className="inline-flex items-center rounded-md border border-white/30 bg-green-600 p-1.5 text-white hover:enabled:bg-green-500 focus-visible:bg-green-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none disabled:opacity-50 transition-all"
+              className="inline-flex items-center rounded-md border border-white/30 bg-green-600 p-1.5 text-white hocus:enabled:bg-green-500 disabled:opacity-50 transition-all"
             >
               {isRunning
 

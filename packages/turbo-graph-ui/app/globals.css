@@ -1,5 +1,7 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
+
+@custom-variant hocus (&:where(:hover, :focus-visible));
 
 @layer base {
   :root {
@@ -72,6 +74,10 @@
   button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-(--ring);
   }
 }
 

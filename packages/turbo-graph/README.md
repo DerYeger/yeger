@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/@yeger/turbo-graph?color=a1b858&label=)](https://npmjs.com/package/@yeger/turbo-graph)
 
-> Interactive visualization of Turborepo task graphs.
+> Interactive visualization and execution of Turborepo task graphs.
 
 ![Turbograph Example Image](https://github.com/DerYeger/yeger/raw/main/packages/turbo-graph/docs/image.png)
 

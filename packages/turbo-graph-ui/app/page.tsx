@@ -6,7 +6,7 @@ import { TaskInput, FilterInput, RunControls } from '../components/ParameterInpu
 
 export const metadata: Metadata = {
   title: 'Turbo Graph',
-  description: 'Interactive visualization of Turborepo task graphs.',
+  description: 'Interactive visualization and execution of Turborepo task graphs.',
   icons: ['/favicon.ico'],
 }
 
