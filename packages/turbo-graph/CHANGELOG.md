@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [cb2751e]
+  - @yeger/turbo-graph-ui@2.8.0
+
 ## 2.3.5
 
 ### Patch Changes

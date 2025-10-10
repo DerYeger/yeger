@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.0
+
+### Minor Changes
+
+- cb2751e: improve focus styles
+
 ## 2.7.0
 
 ### Minor Changes
