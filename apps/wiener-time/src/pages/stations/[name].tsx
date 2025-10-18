@@ -6,7 +6,8 @@ import type {
   InferGetStaticPropsType,
   NextPage,
 } from 'next'
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
+import { generateNextSeo } from 'next-seo/pages'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 
@@ -176,7 +177,9 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <>
-      <NextSeo title={station.name} />
+      <Head>
+        {generateNextSeo({ title: station.name })}
+      </Head>
       <main className="flex flex-1 flex-col">
         <div className="m-4 flex items-center justify-between">
           <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">{station.name}</h1>

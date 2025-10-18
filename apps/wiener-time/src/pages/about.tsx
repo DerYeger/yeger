@@ -1,11 +1,14 @@
 import { Icon } from '@iconify/react'
 import type { NextPage } from 'next'
-import { NextSeo } from 'next-seo'
+import Head from 'next/head'
+import { generateNextSeo } from 'next-seo/pages'
 
 const AboutPage: NextPage = () => {
   return (
     <>
-      <NextSeo title="Impressum" />
+      <Head>
+        {generateNextSeo({ title: 'Impressum' })}
+      </Head>
       <aside className="sticky bottom-0 flex justify-center p-4 text-xs text-neutral-400">
         <a
           href="https://github.com/DerYeger/yeger/tree/main/apps/wiener-time"
