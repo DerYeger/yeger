@@ -155,7 +155,7 @@ const MonitorComponent: FC<{ monitor: Monitor }> = ({ monitor }) => {
 const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   station,
 }) => {
-  const stopIds = useMemo(() => station?.stops ?? [], [station?.stops])
+  const stopIds = useMemo(() => station.stops, [station.stops])
   const { data: monitors, error: monitorError } =
     trpc.monitor.getAllByStopIds.useQuery(
       { stopIds },

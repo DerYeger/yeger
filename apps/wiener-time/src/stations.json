@@ -2666,11 +2666,12 @@
     "name": "Blumengärten Hirschstetten",
     "stops": [
       3110,
-      3118
+      3118,
+      7457
     ],
     "location": [
-      48.23587125,
-      16.47170665
+      48.235888200000005,
+      16.471697666666667
     ]
   },
   "Borkowskigasse": {
@@ -4315,12 +4316,11 @@
   "Edmund-Hawranek-Platz": {
     "name": "Edmund-Hawranek-Platz",
     "stops": [
-      2180,
       2181
     ],
     "location": [
-      48.29126815,
-      16.38651945
+      48.2914654,
+      16.3866542
     ]
   },
   "Edmund-Reim-Gasse": {
@@ -6849,6 +6849,16 @@
       16.33751274
     ]
   },
+  "Gunertweg": {
+    "name": "Gunertweg",
+    "stops": [
+      2538
+    ],
+    "location": [
+      48.251004,
+      16.4769528
+    ]
+  },
   "Guneschgasse": {
     "name": "Guneschgasse",
     "stops": [
@@ -8086,12 +8096,11 @@
     "stops": [
       598,
       618,
-      2746,
-      3572
+      2746
     ],
     "location": [
-      48.2209735,
-      16.407582675
+      48.221023366666664,
+      16.407653800000002
     ]
   },
   "Himberger Straße": {
@@ -8208,11 +8217,12 @@
     "name": "Hirschstetten S",
     "stops": [
       1071,
-      1084
+      1084,
+      7458
     ],
     "location": [
-      48.232697,
-      16.46803705
+      48.23281266666667,
+      16.468137366666667
     ]
   },
   "Hirschstetten, Ort": {
@@ -8232,12 +8242,13 @@
     "stops": [
       1078,
       1079,
+      2483,
       2490,
       8080
     ],
     "location": [
-      48.236299075,
-      16.46234175
+      48.23608606,
+      16.46251872
     ]
   },
   "Hlawkagasse": {
@@ -11548,12 +11559,11 @@
     "name": "Lassallestraße",
     "stops": [
       7,
-      648,
-      7428
+      648
     ],
     "location": [
-      48.22222233333333,
-      16.399604866666667
+      48.22169165,
+      16.398017850000002
     ]
   },
   "Laudongasse": {
@@ -14585,7 +14595,8 @@
   "Ober St. Veit U, Franz-Boos-Gasse": {
     "name": "Ober St. Veit U, Franz-Boos-Gasse",
     "stops": [
-      5063
+      5063,
+      5242
     ],
     "location": [
       48.1919435,
@@ -19215,7 +19226,7 @@
     "stops": [
       3184,
       3196,
-      7384
+      7383
     ],
     "location": [
       48.241101433333334,
@@ -19917,8 +19928,8 @@
       8966
     ],
     "location": [
-      48.1805221,
-      16.2607463
+      48.18044423333333,
+      16.259892933333337
     ]
   },
   "Stockholmer Platz": {
@@ -20007,11 +20018,12 @@
     "name": "Strebersdorf, Edmund-Hawranek-Platz",
     "stops": [
       978,
+      3126,
       5726
     ],
     "location": [
-      48.291065,
-      16.3859984
+      48.29106696666667,
+      16.386127166666665
     ]
   },
   "Strebersdorfer Platz": {
@@ -20296,16 +20308,6 @@
     "location": [
       48.27744175,
       16.49570515
-    ]
-  },
-  "Süßenbrunner Straße / Breitenleer Straße": {
-    "name": "Süßenbrunner Straße / Breitenleer Straße",
-    "stops": [
-      2538
-    ],
-    "location": [
-      48.251004,
-      16.4769528
     ]
   },
   "Süßenbrunner Straße / Oberfeldgasse": {
@@ -21480,11 +21482,12 @@
     "name": "Vorgartenstraße U",
     "stops": [
       597,
-      649
+      649,
+      7427
     ],
     "location": [
-      48.224402850000004,
-      16.40145395
+      48.224029800000004,
+      16.4018956
     ]
   },
   "Vorgartenstraße": {
