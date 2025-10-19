@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 3.0.1
+
+### Patch Changes
+
+- 1dba16f: update deps
+
 ## 3.0.0
 
 ### Major Changes
