@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 1.3.2
+
+### Patch Changes
+
+- 5641000: remove async modifier from AsyncStream.concat
+
 ## 1.3.1
 
 ### Patch Changes

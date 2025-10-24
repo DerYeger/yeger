@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.1
+
+### Patch Changes
+
+- caca9c0: update next to v16
+
 ## 2.8.0
 
 ### Minor Changes

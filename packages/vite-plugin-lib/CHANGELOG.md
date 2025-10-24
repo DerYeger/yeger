@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 3.0.3
+
+### Patch Changes
+
+- 5641000: update coverage preset for vitest v4
+
 ## 3.0.2
 
 ### Patch Changes
