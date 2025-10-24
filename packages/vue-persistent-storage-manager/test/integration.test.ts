@@ -7,13 +7,13 @@ import flushPromises from 'flush-promises'
 import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
 import Vue from 'vue'
 
-import { VuePersistentStorageManager } from '~/index'
+import { VuePersistentStorageManager } from '../src/index'
 import {
   defineGlobals,
   persistentStoragePermission,
   redefineGlobals,
   testEstimate,
-} from '~test/test-utils'
+} from './test-utils'
 
 const TestComponent = {
   template: `

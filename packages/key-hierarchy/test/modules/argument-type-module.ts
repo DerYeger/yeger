@@ -1,4 +1,4 @@
-import { defineKeyHierarchyModule } from '~/index'
+import { defineKeyHierarchyModule } from '../../src/index'
 
 export const argumentTypeModule = defineKeyHierarchyModule((dynamic) => ({
   null: dynamic<null>(),

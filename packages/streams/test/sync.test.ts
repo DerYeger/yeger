@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { Stream } from '~/index'
-import { TestUtils } from '~test/test-utils'
+import { Stream } from '../src/index'
+import { TestUtils } from './test-utils'
 
 describe('sync streams', () => {
   it('works with complex chains', () => {

@@ -1,8 +1,8 @@
-import { defineKeyHierarchyModule } from '~/index'
-import { argumentTypeModule } from '~test/modules/argument-type-module'
-import { postModule } from '~test/modules/posts-module'
-import { TEST_SYMBOL } from '~test/modules/test-data'
-import { userModule } from '~test/modules/user-module'
+import { defineKeyHierarchyModule } from '../../src/index'
+import { argumentTypeModule } from './argument-type-module'
+import { postModule } from './posts-module'
+import { TEST_SYMBOL } from './test-data'
+import { userModule } from './user-module'
 
 const otherModules = defineKeyHierarchyModule({
   [TEST_SYMBOL]: {

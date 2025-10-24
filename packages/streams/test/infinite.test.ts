@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { AsyncStream, Stream } from '~/index'
+import { AsyncStream, Stream } from '../src/index'
 
 function* naturalNumbers() {
   let i = 0

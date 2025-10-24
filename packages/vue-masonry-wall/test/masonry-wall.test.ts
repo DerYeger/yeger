@@ -11,7 +11,7 @@ import {
 } from 'vitest'
 import { defineComponent } from 'vue'
 
-import MasonryWall from '~/index'
+import MasonryWall from '../src/index'
 
 let observeMock = vi.fn()
 let unobserveMock = vi.fn()

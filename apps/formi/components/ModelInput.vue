@@ -4,7 +4,7 @@ import { yaml } from '@codemirror/legacy-modes/mode/yaml'
 import { EditorView } from 'codemirror'
 import { Codemirror } from 'vue-codemirror'
 
-import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
+import { jsonToModel, yamlToJson } from '../util/yamlToModel'
 
 const props = withDefaults(
   defineProps<{ modelValue: string, disabled?: boolean }>(),
@@ -76,7 +76,7 @@ watch(
       <Icon v-if="error" name="mdi:alert-circle" class="text-red-500" />
       <CopyButton :content="modelValue" />
     </div>
-    <Status v-if="error" class="border-t-1 absolute inset-x-0 bottom-0">
+    <Status v-if="error" class="border-t absolute inset-x-0 bottom-0">
       <code class="text-red-500">{{ error }}</code>
     </Status>
   </div>

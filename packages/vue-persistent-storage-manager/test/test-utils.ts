@@ -3,8 +3,8 @@ import flushPromises from 'flush-promises'
 import { expect, vi } from 'vitest'
 import type { VueConstructor } from 'vue'
 
-import type { PluginOptions } from '~/index'
-import { VuePersistentStorageManager } from '~/index'
+import type { PluginOptions } from '../src/index'
+import { VuePersistentStorageManager } from '../src/index'
 
 export function localStorageMock(): Storage {
   return {

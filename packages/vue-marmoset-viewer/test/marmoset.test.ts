@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { loadMarmoset, marmosetScriptId } from '~/marmoset'
+import { loadMarmoset, marmosetScriptId } from '../src/marmoset'
 
 function testScript() {
   const scripts = document.head.getElementsByTagName('script')

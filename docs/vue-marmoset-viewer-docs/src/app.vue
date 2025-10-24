@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import DemoFooter from '~/demo-footer.vue'
-import DemoHeader from '~/demo-header.vue'
+import DemoFooter from './demo-footer.vue'
+import DemoHeader from './demo-header.vue'
 
 export default defineComponent({
   name: 'App',

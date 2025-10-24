@@ -3,9 +3,9 @@ import { describe, expect, it, vi } from 'vitest'
 import { useQuery, VueQueryPlugin } from '@tanstack/vue-query'
 import { ref, toValue } from 'vue'
 import type { MaybeRefOrGetter } from 'vue'
-import { defineKeyHierarchy, defineKeyHierarchyModule } from '~/index'
+import { defineKeyHierarchy, defineKeyHierarchyModule } from '../src/index'
 import { flushPromises } from '@vue/test-utils'
-import { withVueComponentLifecycle } from '~test/vue-test-utils'
+import { withVueComponentLifecycle } from './vue-test-utils'
 
 const module = defineKeyHierarchyModule((dynamic) => ({
   test: {

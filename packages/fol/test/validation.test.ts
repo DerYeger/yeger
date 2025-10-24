@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { Validator } from '~/index'
-import { TestData } from '~test/test-utils'
+import { Validator } from '../src/index'
+import { TestData } from './test-utils'
 
 describe('FOL validation', () => {
   describe('of models', () => {

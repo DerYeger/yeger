@@ -1,4 +1,5 @@
-import type { FOLFragment, Model, VariableAssignment } from '~/model'
+import type { FOLFragment } from './formula'
+import type { Model, VariableAssignment } from './model'
 
 export interface Term extends FOLFragment {
   interpret: (model: Model, variableAssignment: VariableAssignment) => number

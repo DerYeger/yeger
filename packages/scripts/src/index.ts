@@ -1,1 +1,1 @@
-export * from '~/generate-readme'
+export * from './generate-readme'

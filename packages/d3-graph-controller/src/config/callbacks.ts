@@ -1,5 +1,5 @@
-import type { NodeTypeToken } from '~/model/graph'
-import type { GraphNode } from '~/model/node'
+import type { NodeTypeToken } from '../model/graph'
+import type { GraphNode } from '../model/node'
 
 /**
  * Callback configuration.

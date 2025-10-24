@@ -1,4 +1,4 @@
-import { AsyncStream, Stream } from '~/index'
+import { AsyncStream, Stream } from '../src/index'
 
 function fibonacci(n: number): number {
   if (n <= 1) {

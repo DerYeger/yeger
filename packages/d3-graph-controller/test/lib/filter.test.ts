@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
 
-import { filterGraph } from '~/lib/filter'
-import type { GraphLink } from '~/model/link'
-import type { TestNodeType } from '~test/test-data'
-import TestData from '~test/test-data'
+import { filterGraph } from '../../src/lib/filter'
+import type { GraphLink } from '../../src/model/link'
+import type { TestNodeType } from '../test-data'
+import TestData from '../test-data'
 
 describe('filter', () => {
   it('can filter nothing', () => {

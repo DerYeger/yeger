@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { Vector } from '~/index'
+import { Vector } from '../src/index'
 
 describe('Vector', () => {
   describe('can be initialized', () => {

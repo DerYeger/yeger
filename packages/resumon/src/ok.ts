@@ -1,5 +1,5 @@
-import type { Result, Succeeded } from '~/result'
-import { IllegalStateError } from '~/result'
+import type { Result, Succeeded } from './result'
+import { IllegalStateError } from './result'
 
 export class Ok<D, E> implements Result<D, E>, Succeeded<D> {
   public readonly isOk = true

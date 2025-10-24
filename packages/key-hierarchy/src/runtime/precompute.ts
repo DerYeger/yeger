@@ -1,6 +1,6 @@
-import { createClone, deepFreeze } from '~/runtime/utils'
-import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '~/types'
-import type { KeyHierarchyOptions } from '~/types'
+import { createClone, deepFreeze } from './utils'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '../types'
+import type { KeyHierarchyOptions } from '../types'
 
 export function precomputeHierarchy(path: unknown[], currentConfig: any, options: Required<KeyHierarchyOptions>): any {
   const result: any = {}

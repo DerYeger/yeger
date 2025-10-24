@@ -1,4 +1,4 @@
-import type { Link } from '~~/types/types'
+import type { Link } from '../types/types'
 
 export function useLinks() {
   const homeLink = { to: '/', text: 'Home' } satisfies Link

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useNotification } from '~~/composables/notifications'
+import { useNotification } from '../composables/notifications'
 
 const props = defineProps<{ content: string }>()
 const emit = defineEmits(['copied'])

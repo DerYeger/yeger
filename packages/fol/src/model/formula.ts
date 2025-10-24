@@ -1,4 +1,5 @@
-import type { BoundVariable, Model, Term, VariableAssignment } from '~/model'
+import type { VariableAssignment, Model } from './model'
+import type { BoundVariable, Term } from './term'
 
 export interface TreeNode<T extends TreeNode<T>> {
   text: () => string

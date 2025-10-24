@@ -3,10 +3,10 @@ import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { loadMarmoset } from '~/marmoset'
-import MarmosetViewer from '~/marmoset-viewer.vue'
+import { loadMarmoset } from '../src/marmoset'
+import MarmosetViewer from '../src/marmoset-viewer.vue'
 
-vi.mock('~/marmoset')
+vi.mock('../src/marmoset')
 
 const testFileName = 'test.mview'
 

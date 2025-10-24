@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 import { afterEach, describe, expect, it } from 'vitest'
 
-import type { Options } from '~/index'
-import SSGUtils from '~/index'
+import type { Options } from '../src/index'
+import SSGUtils from '../src/index'
 
 describe('The plugin', () => {
   afterEach(() => {

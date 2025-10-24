@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import type { Result } from '~/index'
-import { Err, err, ok } from '~/index'
+import type { Result } from '../src/index'
+import { Err, err, ok } from '../src/index'
 
 describe('Right', () => {
   describe('can be initialized', () => {

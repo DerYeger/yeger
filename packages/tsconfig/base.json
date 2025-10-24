@@ -3,7 +3,6 @@
   "compilerOptions": {
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "${configDir}",
     "declaration": false,
     "erasableSyntaxOnly": true,
     "esModuleInterop": true,
@@ -23,10 +22,6 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "paths": {
-      "~/*": ["src/*"],
-      "~test/*": ["test/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,

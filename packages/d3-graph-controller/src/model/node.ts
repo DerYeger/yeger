@@ -1,7 +1,7 @@
 import type { SimulationNodeDatum } from 'd3-force'
 
-import type { NodeTypeToken } from '~/model/graph'
-import type { Label } from '~/model/shared'
+import type { NodeTypeToken } from './graph'
+import type { Label } from './shared'
 
 /**
  * Node representing a datum of a graph.

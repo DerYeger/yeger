@@ -3,9 +3,9 @@ import type { Simulation } from 'd3-force'
 import type { Selection } from 'd3-selection'
 import type { ZoomBehavior } from 'd3-zoom'
 
-import type { NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+import type { NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 
 export type Canvas = Selection<SVGGElement, undefined, null, undefined>
 

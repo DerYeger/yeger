@@ -8,12 +8,12 @@ import {
 } from 'd3-force'
 import type { Vector } from 'vecti'
 
-import type { GraphConfig } from '~/config/config'
-import type { GraphSimulation } from '~/lib/types'
-import { getNodeRadius } from '~/lib/utils'
-import type { Graph, NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+import type { GraphConfig } from '../config/config'
+import type { GraphSimulation } from './types'
+import { getNodeRadius } from './utils'
+import type { Graph, NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 
 export interface DefineSimulationParams<
   T extends NodeTypeToken,

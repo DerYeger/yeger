@@ -1,4 +1,4 @@
-import { jsonToModel, yamlToJson } from '~~/util/yamlToModel'
+import { jsonToModel, yamlToJson } from '../util/yamlToModel'
 
 const modelInput = `domain: [1, 2, 3]
 

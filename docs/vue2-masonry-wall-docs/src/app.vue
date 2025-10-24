@@ -2,9 +2,9 @@
 import MasonryWall from '@yeger/vue2-masonry-wall'
 import { defineComponent, ref } from 'vue'
 
-import DemoFooter from '~/demo-footer.vue'
-import DemoHeader from '~/demo-header.vue'
-import DemoTools from '~/demo-tools.vue'
+import DemoFooter from './demo-footer.vue'
+import DemoHeader from './demo-header.vue'
+import DemoTools from './demo-tools.vue'
 
 export default defineComponent({
   name: 'App',
@@ -87,7 +87,7 @@ export default defineComponent({
         :column-width="columnWidth"
         :gap="gap"
         :rtl="rtl"
-        :scroll-container="useScrollContainer ? scrollContainer : undefined"
+        :scroll-container="useScrollContainer ? scrollContainer : null"
         :min-columns="minColumns"
         :max-columns="maxColumns"
       >

@@ -1,6 +1,6 @@
 import { bench } from 'vitest'
 
-import { TestUtils } from '~test/test-utils'
+import { TestUtils } from './test-utils'
 
 bench(
   'streams',

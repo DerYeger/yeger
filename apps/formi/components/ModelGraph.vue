@@ -13,7 +13,7 @@ import {
   defineGraphConfig,
 } from 'd3-graph-controller'
 
-import { modelToGraph } from '~~/util/modelToGraph'
+import { modelToGraph } from '../util/modelToGraph'
 
 const props = defineProps<{
   model: Model

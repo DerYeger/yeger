@@ -12,7 +12,7 @@ import {
   persistentStoragePermission,
   redefineGlobals,
   testEstimate,
-} from '~test/test-utils'
+} from './test-utils'
 
 describe('VuePersistentStorageManager in browser environment', () => {
   beforeAll(() => {

@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-import BadgeList from '~/badge-list.vue'
-import GithubLogo from '~/github-logo.vue'
+import BadgeList from './badge-list.vue'
+import GithubLogo from './github-logo.vue'
 
 export default defineComponent({
   components: { BadgeList, GithubLogo },

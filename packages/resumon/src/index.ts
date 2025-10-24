@@ -1,3 +1,3 @@
-export * from '~/err'
-export * from '~/ok'
-export * from '~/result'
+export * from './err'
+export * from './ok'
+export * from './result'

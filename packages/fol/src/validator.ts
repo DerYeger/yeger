@@ -1,7 +1,7 @@
 import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
-import type { Model } from '~/model'
+import type { Model } from './model'
 
 export type ValidationResult = Result<null, string>
 

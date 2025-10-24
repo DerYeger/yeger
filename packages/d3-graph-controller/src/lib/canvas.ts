@@ -1,7 +1,7 @@
 import { zoomIdentity } from 'd3-zoom'
 
-import type { Canvas, GraphHost, Zoom } from '~/lib/types'
-import { terminateEvent } from '~/lib/utils'
+import type { Canvas, GraphHost, Zoom } from './types'
+import { terminateEvent } from './utils'
 
 export interface DefineCanvasParams {
   readonly applyZoom: boolean

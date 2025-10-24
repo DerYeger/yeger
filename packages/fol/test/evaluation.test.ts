@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { FOL, Function, Model } from '~/index'
-import { TestData } from '~test/test-utils'
+import { FOL, Function, Model } from '../src/index'
+import { TestData } from './test-utils'
 
 describe('FOL semantics', () => {
   it.each([

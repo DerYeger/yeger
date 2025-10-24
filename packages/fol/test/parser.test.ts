@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { FOL } from '~/index'
-import { TestData } from '~test/test-utils'
+import { FOL } from '../src/index'
+import { TestData } from './test-utils'
 
 describe('FOL parser', () => {
   it.each(TestData.validFormulas)('can parse "%s"', (formula) => {

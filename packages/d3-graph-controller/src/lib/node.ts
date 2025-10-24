@@ -1,9 +1,9 @@
-import type { GraphConfig } from '~/config/config'
-import type { Canvas, Drag, NodeSelection } from '~/lib/types'
-import { getNodeRadius, terminateEvent } from '~/lib/utils'
-import type { Graph, NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+import type { GraphConfig } from '../config/config'
+import type { Canvas, Drag, NodeSelection } from './types'
+import { getNodeRadius, terminateEvent } from './utils'
+import type { Graph, NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 
 export function defineNodeSelection<
   T extends NodeTypeToken,

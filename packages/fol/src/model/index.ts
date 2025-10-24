@@ -1,3 +1,3 @@
-export * from '~/model/formula'
-export * from '~/model/model'
-export * from '~/model/term'
+export * from './formula'
+export * from './model'
+export * from './term'

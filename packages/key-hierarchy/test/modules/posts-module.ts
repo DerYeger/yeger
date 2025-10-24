@@ -1,5 +1,5 @@
-import { defineKeyHierarchyModule } from '~/index'
-import type { PostFilter, User } from '~test/modules/types'
+import { defineKeyHierarchyModule } from '../../src/index'
+import type { PostFilter, User } from './types'
 
 export const postModule = defineKeyHierarchyModule((dynamic) => ({
   getAll: true,

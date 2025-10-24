@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { AsyncStream, Stream } from '~/index'
-import { TestUtils } from '~test/test-utils'
+import { AsyncStream, Stream } from '../src/index'
+import { TestUtils } from './test-utils'
 
 describe('async streams', () => {
   it('works with complex chains', async () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { deepFreeze } from '~/runtime/utils'
+import { deepFreeze } from '../src/runtime/utils'
 
 describe('utils', () => {
   describe('deepFreeze', () => {

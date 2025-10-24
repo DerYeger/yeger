@@ -1,10 +1,10 @@
 import { Vector } from 'vecti'
 
-import type { GraphConfig } from '~/config/config'
-import { getNodeRadius } from '~/lib/utils'
-import type { NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+import type { GraphConfig } from '../config/config'
+import { getNodeRadius } from './utils'
+import type { NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 
 // ##################################################
 // COMMON

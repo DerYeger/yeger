@@ -1,7 +1,7 @@
 import type { PluginObject } from 'vue'
 import type _Vue from 'vue'
 
-import component from '~/masonry-wall.vue'
+import component from './masonry-wall.vue'
 
 type InstallableComponent = typeof component & PluginObject<never>
 

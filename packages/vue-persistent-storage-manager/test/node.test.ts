@@ -1,7 +1,7 @@
 import { createLocalVue } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 
-import { checkPluginInstallation, checkStorageEstimate } from '~test/test-utils'
+import { checkPluginInstallation, checkStorageEstimate } from './test-utils'
 
 describe('VuePersistentStorageManager in node environment', () => {
   it('can be installed without options', () => {

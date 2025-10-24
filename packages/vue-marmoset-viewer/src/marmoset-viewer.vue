@@ -2,8 +2,8 @@
 import { debounce } from '@yeger/debounce'
 import { defineComponent } from 'vue'
 
-import type { Marmoset } from '~/marmoset'
-import { loadMarmoset, marmosetViewerDefaultOptions } from '~/marmoset'
+import type { Marmoset } from './marmoset'
+import { loadMarmoset, marmosetViewerDefaultOptions } from './marmoset'
 
 export default defineComponent({
   props: {

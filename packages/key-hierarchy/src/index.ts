@@ -1,9 +1,9 @@
-import { precomputeHierarchy } from '~/runtime/precompute'
-import { createProxy } from '~/runtime/proxy'
-import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '~/types'
-import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtendedSegment, DynamicExtendableSegment } from '~/types'
+import { precomputeHierarchy } from './runtime/precompute'
+import { createProxy } from './runtime/proxy'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from './types'
+import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtendedSegment, DynamicExtendableSegment } from './types'
 
-export type * from '~/types'
+export type * from './types'
 
 /**
  * Represents a configuration or a builder function for a key hierarchy.

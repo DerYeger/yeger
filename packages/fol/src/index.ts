@@ -1,19 +1,19 @@
 import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
-import grammar from '~/fol.ohm-bundle'
+import grammar from './fol.ohm-bundle'
 import type {
   Formula,
   Model,
   ModelCheckerMode,
   ModelCheckerTrace,
-} from '~/model'
-import { parse } from '~/parser'
+} from './model'
+import { parse } from './parser'
 
+export * from './fol.ohm-bundle'
+export * from './model'
+export * from './validator'
 export type { MatchResult } from 'ohm-js'
-export * from '~/fol.ohm-bundle'
-export * from '~/model'
-export * from '~/validator'
 
 function evaluate(model: Model, formula: string): Result<boolean, string> {
   return parse(formula).andThen<boolean>((parsedFormula) => {

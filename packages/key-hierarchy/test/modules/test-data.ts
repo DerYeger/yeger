@@ -1,4 +1,4 @@
-import type { PostFilter, User } from '~test/modules/types'
+import type { PostFilter, User } from './types'
 
 export const TEST_SYMBOL = Symbol('test')
 

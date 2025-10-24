@@ -1,8 +1,8 @@
-import { defineGraphConfig } from '~/config/config'
-import type { Graph } from '~/model/graph'
-import { defineGraph } from '~/model/graph'
-import { defineLink } from '~/model/link'
-import { defineNodeWithDefaults } from '~/model/node'
+import { defineGraphConfig } from '../src/config/config'
+import type { Graph } from '../src/model/graph'
+import { defineGraph } from '../src/model/graph'
+import { defineLink } from '../src/model/link'
+import { defineNodeWithDefaults } from '../src/model/node'
 
 export type TestNodeType = 'first' | 'second'
 

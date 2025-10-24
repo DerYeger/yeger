@@ -3,15 +3,15 @@ import { select } from 'd3-selection'
 import type { D3ZoomEvent } from 'd3-zoom'
 import { Vector } from 'vecti'
 
-import type { GraphConfig } from '~/config/config'
-import type { LinkFilter } from '~/config/filter'
-import { defineCanvas, updateCanvasTransform } from '~/lib/canvas'
-import { defineDrag } from '~/lib/drag'
-import { filterGraph } from '~/lib/filter'
-import { createLinks, defineLinkSelection, updateLinks } from '~/lib/link'
-import { createMarkers, defineMarkerSelection } from '~/lib/marker'
-import { createNodes, defineNodeSelection, updateNodes } from '~/lib/node'
-import { defineSimulation } from '~/lib/simulation'
+import type { GraphConfig } from './config/config'
+import type { LinkFilter } from './config/filter'
+import { defineCanvas, updateCanvasTransform } from './lib/canvas'
+import { defineDrag } from './lib/drag'
+import { filterGraph } from './lib/filter'
+import { createLinks, defineLinkSelection, updateLinks } from './lib/link'
+import { createMarkers, defineMarkerSelection } from './lib/marker'
+import { createNodes, defineNodeSelection, updateNodes } from './lib/node'
+import { defineSimulation } from './lib/simulation'
 import type {
   Canvas,
   Drag,
@@ -20,12 +20,12 @@ import type {
   MarkerSelection,
   NodeSelection,
   Zoom,
-} from '~/lib/types'
-import { isNumber } from '~/lib/utils'
-import { defineZoom } from '~/lib/zoom'
-import type { Graph, NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+} from './lib/types'
+import { isNumber } from './lib/utils'
+import { defineZoom } from './lib/zoom'
+import type { Graph, NodeTypeToken } from './model/graph'
+import type { GraphLink } from './model/link'
+import type { GraphNode } from './model/node'
 
 /**
  * Controller for a graph view.

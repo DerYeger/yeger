@@ -1,9 +1,9 @@
 import type { Selection } from 'd3-selection'
 
-import type { Drag, GraphSimulation, Zoom } from '~/lib/types'
-import type { NodeTypeToken } from '~/model/graph'
-import type { GraphLink } from '~/model/link'
-import type { GraphNode } from '~/model/node'
+import type { Drag, GraphSimulation, Zoom } from '../lib/types'
+import type { NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 
 /**
  * Modifier for the drag.

@@ -1,9 +1,9 @@
 import { describe, expect, expectTypeOf, it } from 'vitest'
-import { defineKeyHierarchy } from '~/index'
-import type { DeepReadonly } from '~/index'
-import { keyModule } from '~test/modules/key-module'
-import { TEST_AUTHOR_ID, TEST_DAY, TEST_ID, TEST_MONTH, TEST_POST_FILTER, TEST_SYMBOL, TEST_TAGS, TEST_USER, TEST_YEAR } from '~test/modules/test-data'
-import type { User, PostFilter } from '~test/modules/types'
+import { defineKeyHierarchy } from '../src/index'
+import type { DeepReadonly } from '../src/index'
+import { keyModule } from './modules/key-module'
+import { TEST_AUTHOR_ID, TEST_DAY, TEST_ID, TEST_MONTH, TEST_POST_FILTER, TEST_SYMBOL, TEST_TAGS, TEST_USER, TEST_YEAR } from './modules/test-data'
+import type { User, PostFilter } from './modules/types'
 
 describe('defineKeyHierarchy', () => {
   describe.each(['proxy', 'precompute'] as const)('method: %s', (method) => {

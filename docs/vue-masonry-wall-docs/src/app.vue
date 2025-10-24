@@ -2,9 +2,9 @@
 import MasonryWall from '@yeger/vue-masonry-wall'
 import { defineComponent, ref } from 'vue'
 
-import DemoFooter from '~/demo-footer.vue'
-import DemoHeader from '~/demo-header.vue'
-import DemoTools from '~/demo-tools.vue'
+import DemoFooter from './demo-footer.vue'
+import DemoHeader from './demo-header.vue'
+import DemoTools from './demo-tools.vue'
 
 export default defineComponent({
   name: 'App',

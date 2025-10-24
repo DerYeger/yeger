@@ -1,8 +1,8 @@
 import type { SimulationLinkDatum } from 'd3-force'
 
-import type { NodeTypeToken } from '~/model/graph'
-import type { GraphNode } from '~/model/node'
-import type { Label } from '~/model/shared'
+import type { NodeTypeToken } from './graph'
+import type { GraphNode } from './node'
+import type { Label } from './shared'
 
 /**
  * Link defining an edge from one node to another.

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { defineGraphConfig } from '~/config/config'
+import { defineGraphConfig } from '../src/config/config'
 
 describe('Config', () => {
   describe('can be defined', () => {

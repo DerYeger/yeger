@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { beforeAll, describe, expect, it } from 'vitest'
 
-import { MarmosetViewer } from '~/index'
+import { MarmosetViewer } from '../src/index'
 
 const TestComponent = {
   template: '<marmoset-viewer src="test.mview" />',

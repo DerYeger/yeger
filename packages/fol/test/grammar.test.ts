@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
-import { FOL } from '~/index'
-import { TestData } from '~test/test-utils'
+import { FOL } from '../src/index'
+import { TestData } from './test-utils'
 
 describe('FOL grammar', () => {
   it.each(TestData.validFormulas)('parses valid formula "%s"', (formula) => {

@@ -1,4 +1,4 @@
-import { AsyncStream } from '~/async'
+import { AsyncStream } from './async'
 
 export type Processor<Input, Output> = (value: Input, index: number) => Output
 

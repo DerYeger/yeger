@@ -2,10 +2,10 @@ import type { NonterminalNode } from 'ohm-js'
 import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
-import type { FOLSemantics } from '~/fol.ohm-bundle'
-import grammar from '~/fol.ohm-bundle'
-import { BoundVariable, ConstantTerm, FunctionTerm } from '~/model'
-import type { Formula, Term } from '~/model'
+import type { FOLSemantics } from './fol.ohm-bundle'
+import grammar from './fol.ohm-bundle'
+import { BoundVariable, ConstantTerm, FunctionTerm } from './model'
+import type { Formula, Term } from './model'
 import {
   AndFormula,
   BiImplicationFormula,
@@ -18,7 +18,7 @@ import {
   ParenthesizedFormula,
   RelationFormula,
   UniversalQuantorFormula,
-} from '~/model/formula'
+} from './model/formula'
 
 const semantics: FOLSemantics = grammar
   .createSemantics()
