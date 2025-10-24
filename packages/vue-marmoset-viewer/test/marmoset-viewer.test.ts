@@ -49,11 +49,11 @@ let unobserveMock = vi.fn()
 function mockResizeObserver() {
   observeMock = vi.fn()
   unobserveMock = vi.fn()
-  const resizeObserverMock = vi.fn().mockImplementation(() => ({
-    disconnect: vi.fn(),
-    observe: observeMock,
-    unobserve: unobserveMock,
-  }))
+  const resizeObserverMock = class MockResizeObserver {
+    public disconnect = vi.fn()
+    public observe = observeMock
+    public unobserve = unobserveMock
+  }
   window.ResizeObserver = window.ResizeObserver || resizeObserverMock
 }
 

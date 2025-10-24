@@ -92,4 +92,53 @@ describe('sync streams', () => {
     const streamResult = Stream.fromSingle(1).toArray()
     expect(streamResult).toEqual([1])
   })
+
+  it('can filter duplicates', () => {
+    const streamResult = Stream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
+      .distinct()
+      .toArray()
+    expect(streamResult).toEqual([1, 2, 3, 4])
+  })
+
+  it('can concat streams', () => {
+    const streamResult = Stream.from([1, 2, 3])
+      .concat(Stream.from([4, 5, 6]))
+      .toArray()
+    expect(streamResult).toEqual([1, 2, 3, 4, 5, 6])
+  })
+
+  it('can cache streams', () => {
+    let called = 0
+    const source = Stream.fromSingle(1).map((x) => {
+      called++
+      return x
+    })
+    const stream = source.cache()
+    expect(stream.toArray()).toEqual([1])
+    expect(called).toBe(1)
+    expect(stream.toArray()).toEqual([1])
+    expect(called).toBe(1)
+  })
+
+    it('can check some', () => {
+      const streamResultTrue = Stream.from([1, 2, 3, 4, 5]).some(
+        (x) => x % 2 === 0,
+      )
+      const streamResultFalse = Stream.from([1, 3, 5]).some(
+        (x) => x % 2 === 0,
+      )
+      expect(streamResultTrue).toBe(true)
+      expect(streamResultFalse).toBe(false)
+    })
+
+    it('can check every', () => {
+      const streamResultTrue = Stream.from([2, 4, 6]).every(
+        (x) => x % 2 === 0,
+      )
+      const streamResultFalse = Stream.from([1, 2, 3]).every(
+        (x) => x % 2 === 0,
+      )
+      expect(streamResultTrue).toBe(true)
+      expect(streamResultFalse).toBe(false)
+    })
 })

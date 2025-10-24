@@ -92,8 +92,10 @@ describe('GraphController', () => {
         TestData.graph.links.length,
       )
 
-      controller.linkFilter = (link: GraphLink<TestNodeType>) =>
+      const linkFilter = (link: GraphLink<TestNodeType>) =>
         link.source.id === link.target.id
+      controller.linkFilter = linkFilter
+      expect(controller.linkFilter).toBe(linkFilter)
 
       expect(container.querySelectorAll('.link').length).toEqual(1)
     })
@@ -126,6 +128,34 @@ describe('GraphController', () => {
       controller.filterNodesByType(true, 'second')
       currentlyExcluded.pop()
       checkIncludedNodes()
+    })
+
+    it('can toggle node labels', () => {
+      controller.showNodeLabels = true
+      expect(
+        [...container.querySelectorAll('.node__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1'),
+      ).toBe(true)
+      expect(controller.showNodeLabels).toBe(true)
+
+      controller.showNodeLabels = false
+      expect(
+        [...container.querySelectorAll('.node__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0'),
+      ).toBe(true)
+      expect(controller.showNodeLabels).toBe(false)
+    })
+
+    it('can toggle link labels', () => {
+      controller.showLinkLabels = true
+      expect(
+        [...container.querySelectorAll('.link__label')].some((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1'),
+      ).toBe(true)
+      expect(controller.showLinkLabels).toBe(true)
+
+      controller.showLinkLabels = false
+      expect(
+        [...container.querySelectorAll('.link__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0'),
+      ).toBe(true)
+      expect(controller.showLinkLabels).toBe(false)
     })
   })
 })
