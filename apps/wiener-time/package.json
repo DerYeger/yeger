@@ -6,7 +6,7 @@
   "scripts": {
     "build": "next build",
     "codegen": "tsx scripts/generate-stations.ts",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "e2e": "playwright test",
     "lint": "yeger-lint",
     "preview": "next start"

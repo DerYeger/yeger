@@ -36,7 +36,7 @@
   "scripts": {
     "build": "next build",
     "check:publish": "publint run --strict",
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "lint": "yeger-lint",
     "preview": "next start"
   },
