@@ -142,7 +142,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return this.reduce((acc, value) => acc + separator + value, '')
   }
 
-  public async concat(...streams: AsyncIterable<T>[]) {
+  public concat(...streams: AsyncIterable<T>[]) {
     return AsyncConcatStream.ofPrevious(this, ...streams)
   }
 

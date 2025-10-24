@@ -118,4 +118,60 @@ describe('async streams', () => {
     const streamResult = await AsyncStream.fromSingle(1).toArray()
     expect(streamResult).toEqual([1])
   })
+
+  it('can filter duplicates', async () => {
+    const streamResult = await AsyncStream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
+      .distinct()
+      .toArray()
+    expect(streamResult).toEqual([1, 2, 3, 4])
+  })
+
+  it('can concat streams', async () => {
+    const streamResult = await AsyncStream.from([1, 2, 3])
+      .concat(AsyncStream.from([4, 5, 6]))
+      .toArray()
+    expect(streamResult).toEqual([1, 2, 3, 4, 5, 6])
+  })
+
+  it('can cache streams', async () => {
+    let called = 0
+    const source = AsyncStream.fromSingle(1).map((x) => {
+      called++
+      return x
+    })
+    const stream = source.cache()
+    expect(await stream.toArray()).toEqual([1])
+    expect(called).toBe(1)
+    expect(await stream.toArray()).toEqual([1])
+    expect(called).toBe(1)
+  })
+
+  it('can find an element', async () => {
+    const streamResult = await AsyncStream.from([1, 2, 3, 4, 5]).find(
+      (x) => x % 2 === 0,
+    )
+    expect(streamResult).toEqual(2)
+  })
+
+  it('can check some', async () => {
+    const streamResultTrue = await AsyncStream.from([1, 2, 3, 4, 5]).some(
+      (x) => x % 2 === 0,
+    )
+    const streamResultFalse = await AsyncStream.from([1, 3, 5]).some(
+      (x) => x % 2 === 0,
+    )
+    expect(streamResultTrue).toBe(true)
+    expect(streamResultFalse).toBe(false)
+  })
+
+  it('can check every', async () => {
+    const streamResultTrue = await AsyncStream.from([2, 4, 6]).every(
+      (x) => x % 2 === 0,
+    )
+    const streamResultFalse = await AsyncStream.from([1, 2, 3]).every(
+      (x) => x % 2 === 0,
+    )
+    expect(streamResultTrue).toBe(true)
+    expect(streamResultFalse).toBe(false)
+  })
 })

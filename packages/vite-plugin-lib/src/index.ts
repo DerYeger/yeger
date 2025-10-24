@@ -25,8 +25,8 @@ const typesDir = 'dist/types'
 
 export const coverage = {
   enabled: !!process.env.COVERAGE,
-  all: true,
   include: ['src/**/*.*'],
+  exclude: ['*.d.ts', '*.ohm', '.gitignore'],
   provider: 'v8' as const,
 }
 
