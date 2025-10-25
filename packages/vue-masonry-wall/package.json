@@ -56,11 +56,11 @@
   "devDependencies": {
     "@types/resize-observer-browser": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
     "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "bundlesize2": "catalog:",
     "flush-promises": "catalog:",
-    "jsdom": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",

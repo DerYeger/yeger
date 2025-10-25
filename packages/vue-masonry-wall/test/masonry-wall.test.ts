@@ -9,7 +9,7 @@ import {
   it,
   vi,
 } from 'vitest'
-import { defineComponent } from 'vue'
+import { defineComponent, h, resolveComponent } from 'vue'
 
 import MasonryWall from '../src/index'
 
@@ -24,11 +24,14 @@ function mockResizeObserver() {
     public observe = observeMock
     public unobserve = unobserveMock
   }
-  window.ResizeObserver = window.ResizeObserver || resizeObserverMock
+  vi.stubGlobal('ResizeObserver', resizeObserverMock)
 }
 
 const TestComponent = defineComponent({
-  template: '<masonry-wall :items="[1, 2, 3]" />',
+  render() {
+    const MasonryWallComponent = resolveComponent('masonry-wall')
+    return h(MasonryWallComponent, { items: [1, 2, 3] })
+  },
 })
 
 describe('MasonryWall', () => {

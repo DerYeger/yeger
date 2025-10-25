@@ -14,6 +14,7 @@
     "key-hierarchy": "workspace:*"
   },
   "devDependencies": {
+    "@algolia/client-search": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
     "vite": "catalog:",

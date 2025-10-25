@@ -1,12 +1,8 @@
-/* eslint-disable no-restricted-globals */
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { loadMarmoset } from '../src/marmoset'
 import MarmosetViewer from '../src/marmoset-viewer.vue'
-
-vi.mock('../src/marmoset')
 
 const testFileName = 'test.mview'
 
@@ -43,6 +39,15 @@ class WebViewerMock {
   }
 }
 
+const mocks = vi.hoisted(() => ({
+  loadMarmoset: vi.fn(),
+}))
+
+vi.mock('../src/marmoset', async (importOriginal) => ({
+  ...(await importOriginal()),
+  loadMarmoset: mocks.loadMarmoset,
+}))
+
 let observeMock = vi.fn()
 let unobserveMock = vi.fn()
 
@@ -54,18 +59,15 @@ function mockResizeObserver() {
     public observe = observeMock
     public unobserve = unobserveMock
   }
-  window.ResizeObserver = window.ResizeObserver || resizeObserverMock
+  vi.stubGlobal('ResizeObserver', resizeObserverMock)
 }
 
 describe('MarmosetViewer', () => {
   beforeAll(() => {
-    // @ts-expect-error Types are not configured
-    loadMarmoset.mockResolvedValue(
+    mocks.loadMarmoset.mockResolvedValue(
       new Promise<void>((resolve) => {
-        Object.assign(global.window, {
-          marmoset: {
-            WebViewer: WebViewerMock,
-          },
+        vi.stubGlobal('marmoset', {
+          WebViewer: WebViewerMock,
         })
         resolve()
       }),

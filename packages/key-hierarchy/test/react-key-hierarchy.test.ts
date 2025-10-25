@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest'
 import { useQuery } from '@tanstack/react-query'
 import { waitFor } from '@testing-library/react'

@@ -160,6 +160,7 @@ function buildConfig({
   return {
     name: 'vite-plugin-lib:build',
     enforce: 'pre',
+    apply: 'build',
     config: async (config) => {
       return {
         ...config,

@@ -52,6 +52,7 @@
     "@tanstack/vue-query": "catalog:",
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
     "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "react": "catalog:",

@@ -6,7 +6,7 @@ exports[`GraphController > matches the snapshot 1`] = `
 >
   <svg
     height="100%"
-    style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); cursor: grab;"
+    style="cursor: grab;"
     width="100%"
   >
     <g
@@ -18,7 +18,7 @@ exports[`GraphController > matches the snapshot 1`] = `
         <g>
           <path
             class="link"
-            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+            style="marker-end: url("#link-arrow-gray"); stroke: gray;"
           />
           <text
             class="link__label"
@@ -31,7 +31,7 @@ exports[`GraphController > matches the snapshot 1`] = `
         <g>
           <path
             class="link"
-            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+            style="marker-end: url("#link-arrow-gray"); stroke: gray;"
           />
           <text
             class="link__label"
@@ -44,7 +44,7 @@ exports[`GraphController > matches the snapshot 1`] = `
         <g>
           <path
             class="link"
-            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+            style="marker-end: url("#link-arrow-gray"); stroke: gray;"
           />
           <text
             class="link__label"
@@ -57,7 +57,7 @@ exports[`GraphController > matches the snapshot 1`] = `
         <g>
           <path
             class="link"
-            style="marker-end: url(#link-arrow-gray); stroke: gray;"
+            style="marker-end: url("#link-arrow-gray"); stroke: gray;"
           />
           <text
             class="link__label"
@@ -68,9 +68,7 @@ exports[`GraphController > matches the snapshot 1`] = `
       <g
         class="nodes"
       >
-        <g
-          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-        >
+        <g>
           <circle
             class="node"
             r="16"
@@ -83,9 +81,7 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="fill: black; font-size: 1rem; stroke: none;"
           />
         </g>
-        <g
-          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-        >
+        <g>
           <circle
             class="node"
             r="16"
@@ -98,9 +94,7 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="fill: black; font-size: 1rem; stroke: none;"
           />
         </g>
-        <g
-          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-        >
+        <g>
           <circle
             class="node"
             r="16"
@@ -113,9 +107,7 @@ exports[`GraphController > matches the snapshot 1`] = `
             style="stroke: none;"
           />
         </g>
-        <g
-          style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"
-        >
+        <g>
           <circle
             class="node"
             r="16"

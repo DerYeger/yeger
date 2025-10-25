@@ -1,4 +1,3 @@
-// @vitest-environment jsdom
 import { describe, expect, it, vi } from 'vitest'
 import { useQuery, VueQueryPlugin } from '@tanstack/vue-query'
 import { ref, toValue } from 'vue'

@@ -1,12 +1,16 @@
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
 import { beforeAll, describe, expect, it } from 'vitest'
+import { defineComponent, resolveComponent, h } from 'vue'
 
 import { MarmosetViewer } from '../src/index'
 
-const TestComponent = {
-  template: '<marmoset-viewer src="test.mview" />',
-}
+const TestComponent = defineComponent({
+  render() {
+    const MarmosetViewerComponent = resolveComponent('marmoset-viewer')
+    return h(MarmosetViewerComponent, { src: 'test.mview' })
+  },
+})
 
 describe('MarmosetViewer', () => {
   beforeAll(() => {

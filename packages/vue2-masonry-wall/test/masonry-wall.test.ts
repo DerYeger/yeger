@@ -24,7 +24,7 @@ function mockResizeObserver() {
     public observe = observeMock
     public unobserve = unobserveMock
   }
-  window.ResizeObserver = window.ResizeObserver || resizeObserverMock
+  vi.stubGlobal('ResizeObserver', resizeObserverMock)
 }
 
 type MasonryWallType = InstanceType<typeof MasonryWall>

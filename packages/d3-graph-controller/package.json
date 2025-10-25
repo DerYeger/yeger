@@ -62,9 +62,9 @@
     "@types/d3-zoom": "catalog:",
     "@types/node": "catalog:",
     "@types/resize-observer-browser": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
-    "jsdom": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-lib": "workspace:*"

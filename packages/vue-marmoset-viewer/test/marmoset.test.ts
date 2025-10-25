@@ -2,21 +2,25 @@ import { describe, expect, it } from 'vitest'
 
 import { loadMarmoset, marmosetScriptId } from '../src/marmoset'
 
-function testScript() {
-  const scripts = document.head.getElementsByTagName('script')
-  expect(scripts.length).toBe(1)
-  expect(scripts[0]?.id).toEqual(marmosetScriptId)
-}
-
 describe('Marmoset', () => {
   it('loads the Marmoset script exactly once', async () => {
-    expect(document.head.getElementsByTagName('script').length).toBe(0)
+    const getScripts = () => document.head.getElementsByTagName('script')
+    const getScriptCount = () => getScripts().length
+    const initialScriptCount = getScriptCount()
+
+    const assertScripts = () => {
+      const scripts = document.head.getElementsByTagName('script')
+      expect(scripts.length).toBe(initialScriptCount + 1)
+      expect(scripts[scripts.length - 1]?.id).toEqual(marmosetScriptId)
+    }
+
     const first = loadMarmoset()
     const second = loadMarmoset()
     document.getElementById(marmosetScriptId)?.dispatchEvent(new Event('load'))
     await Promise.all([first, second])
-    testScript()
+    assertScripts()
+
     await loadMarmoset()
-    testScript()
+    assertScripts()
   })
 })
