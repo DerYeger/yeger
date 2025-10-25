@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 3.0.4
+
+### Patch Changes
+
+- 4ec68cc: only apply build configuration to build step
+
 ## 3.0.3
 
 ### Patch Changes
