@@ -26,7 +26,6 @@
     "react-dom": "catalog:",
     "react-leaflet": "catalog:",
     "react-leaflet-markercluster": "catalog:",
-    "react-query": "catalog:",
     "react-viewport-list": "catalog:",
     "superjson": "catalog:",
     "use-debounce": "catalog:",

@@ -6,51 +6,9 @@ settings:
 
 catalogs:
   default:
-    '@algolia/client-search':
-      specifier: 5.41.0
-      version: 5.41.0
-    '@antfu/eslint-config':
-      specifier: 6.0.0
-      version: 6.0.0
-    '@antfu/ni':
-      specifier: 27.0.0
-      version: 27.0.0
-    '@changesets/cli':
-      specifier: 2.29.7
-      version: 2.29.7
-    '@codemirror/language':
-      specifier: 6.11.3
-      version: 6.11.3
-    '@codemirror/legacy-modes':
-      specifier: 6.5.2
-      version: 6.5.2
-    '@commitlint/cli':
-      specifier: 20.1.0
-      version: 20.1.0
-    '@commitlint/config-conventional':
-      specifier: 20.0.0
-      version: 20.0.0
-    '@eslint-react/eslint-plugin':
-      specifier: 2.2.3
-      version: 2.2.3
-    '@eslint/eslintrc':
-      specifier: 3.3.1
-      version: 3.3.1
     '@iconify/react':
       specifier: 6.0.2
       version: 6.0.2
-    '@manypkg/get-packages':
-      specifier: 3.1.0
-      version: 3.1.0
-    '@nuxt/icon':
-      specifier: 2.1.0
-      version: 2.1.0
-    '@nuxtjs/robots':
-      specifier: 5.5.6
-      version: 5.5.6
-    '@ohm-js/cli':
-      specifier: 2.0.1
-      version: 2.0.1
     '@playwright/test':
       specifier: 1.56.1
       version: 1.56.1
@@ -60,12 +18,6 @@ catalogs:
     '@tanstack/react-query':
       specifier: 5.90.5
       version: 5.90.5
-    '@tanstack/vue-query':
-      specifier: 5.90.5
-      version: 5.90.5
-    '@testing-library/react':
-      specifier: 16.3.0
-      version: 16.3.0
     '@trpc/client':
       specifier: 11.6.0
       version: 11.6.0
@@ -78,30 +30,6 @@ catalogs:
     '@trpc/server':
       specifier: 11.6.0
       version: 11.6.0
-    '@turbo/gen':
-      specifier: 2.5.8
-      version: 2.5.8
-    '@types/d3-drag':
-      specifier: 3.0.7
-      version: 3.0.7
-    '@types/d3-force':
-      specifier: 3.0.10
-      version: 3.0.10
-    '@types/d3-scale':
-      specifier: 4.0.9
-      version: 4.0.9
-    '@types/d3-scale-chromatic':
-      specifier: 3.1.0
-      version: 3.1.0
-    '@types/d3-selection':
-      specifier: 3.0.11
-      version: 3.0.11
-    '@types/d3-zoom':
-      specifier: 3.0.8
-      version: 3.0.8
-    '@types/eslint':
-      specifier: 9.6.1
-      version: 9.6.1
     '@types/leaflet':
       specifier: 1.9.21
       version: 1.9.21
@@ -114,180 +42,21 @@ catalogs:
     '@types/react-dom':
       specifier: 19.2.2
       version: 19.2.2
-    '@types/resize-observer-browser':
-      specifier: 0.1.11
-      version: 0.1.11
-    '@unhead/vue':
-      specifier: 2.0.19
-      version: 2.0.19
-    '@unocss/nuxt':
-      specifier: 66.5.4
-      version: 66.5.4
-    '@unocss/reset':
-      specifier: 66.5.4
-      version: 66.5.4
-    '@vite-pwa/nuxt':
-      specifier: 1.0.7
-      version: 1.0.7
-    '@vitejs/plugin-vue':
-      specifier: 6.0.1
-      version: 6.0.1
-    '@vitejs/plugin-vue2':
-      specifier: 2.3.4
-      version: 2.3.4
-    '@vitest/browser-playwright':
-      specifier: 4.0.3
-      version: 4.0.3
-    '@vitest/coverage-v8':
-      specifier: 4.0.3
-      version: 4.0.3
-    '@vitest/ui':
-      specifier: 4.0.3
-      version: 4.0.3
-    '@vue/component-compiler-utils':
-      specifier: 3.3.0
-      version: 3.3.0
-    '@vue/shared':
-      specifier: 3.5.22
-      version: 3.5.22
-    '@vue/test-utils':
-      specifier: 2.4.6
-      version: 2.4.6
-    '@vueuse/core':
-      specifier: 14.0.0
-      version: 14.0.0
-    '@vueuse/nuxt':
-      specifier: 14.0.0
-      version: 14.0.0
-    astro-eslint-parser:
-      specifier: 1.2.2
-      version: 1.2.2
     autoprefixer:
       specifier: 10.4.21
       version: 10.4.21
-    babel-core:
-      specifier: 7.0.0-bridge.0
-      version: 7.0.0-bridge.0
-    bundlesize2:
-      specifier: 0.0.35
-      version: 0.0.35
-    cac:
-      specifier: 6.7.14
-      version: 6.7.14
-    class-variance-authority:
-      specifier: 0.7.1
-      version: 0.7.1
-    clsx:
-      specifier: 2.1.1
-      version: 2.1.1
-    codemirror:
-      specifier: 6.0.2
-      version: 6.0.2
-    critters:
-      specifier: 0.0.25
-      version: 0.0.25
-    cross-env:
-      specifier: 10.1.0
-      version: 10.1.0
     csvtojson:
       specifier: 2.0.13
       version: 2.0.13
-    d3-dag:
-      specifier: 1.1.0
-      version: 1.1.0
-    d3-drag:
-      specifier: 3.0.0
-      version: 3.0.0
-    d3-force:
-      specifier: 3.0.0
-      version: 3.0.0
-    d3-scale:
-      specifier: 4.0.2
-      version: 4.0.2
-    d3-selection:
-      specifier: 3.0.0
-      version: 3.0.0
-    d3-zoom:
-      specifier: 3.0.0
-      version: 3.0.0
-    eslint:
-      specifier: 9.38.0
-      version: 9.38.0
     eslint-config-next:
       specifier: 16.0.0
       version: 16.0.0
-    eslint-import-resolver-typescript:
-      specifier: 4.4.4
-      version: 4.4.4
-    eslint-plugin-astro:
-      specifier: 1.3.1
-      version: 1.3.1
-    eslint-plugin-format:
-      specifier: 1.0.2
-      version: 1.0.2
-    eslint-plugin-import:
-      specifier: 2.32.0
-      version: 2.32.0
-    eslint-plugin-jsx-a11y:
-      specifier: 6.10.2
-      version: 6.10.2
-    eslint-plugin-markdown:
-      specifier: 5.1.0
-      version: 5.1.0
-    eslint-plugin-md:
-      specifier: 1.0.19
-      version: 1.0.19
-    eslint-plugin-react-hooks:
-      specifier: 7.0.1
-      version: 7.0.1
-    eslint-plugin-react-refresh:
-      specifier: 0.4.24
-      version: 0.4.24
-    eslint-plugin-svelte:
-      specifier: 3.12.5
-      version: 3.12.5
-    eslint-plugin-tsdoc:
-      specifier: 0.4.0
-      version: 0.4.0
-    eslint-plugin-turbo:
-      specifier: 2.5.8
-      version: 2.5.8
-    eslint-plugin-yml:
-      specifier: 1.19.0
-      version: 1.19.0
-    execa:
-      specifier: 9.6.0
-      version: 9.6.0
-    flush-promises:
-      specifier: 1.0.2
-      version: 1.0.2
-    husky:
-      specifier: 9.1.7
-      version: 9.1.7
-    jsdom:
-      specifier: 27.0.1
-      version: 27.0.1
-    jsonc-parser:
-      specifier: 3.3.1
-      version: 3.3.1
-    kolorist:
-      specifier: 1.8.0
-      version: 1.8.0
     leaflet:
       specifier: 1.9.4
       version: 1.9.4
     leaflet.markercluster:
       specifier: 1.5.3
       version: 1.5.3
-    lint-staged:
-      specifier: 16.2.6
-      version: 16.2.6
-    localforage:
-      specifier: 1.10.0
-      version: 1.10.0
-    lucide-react:
-      specifier: 0.548.0
-      version: 0.548.0
     next:
       specifier: 16.0.0
       version: 16.0.0
@@ -297,30 +66,9 @@ catalogs:
     node-fetch:
       specifier: 3.3.2
       version: 3.3.2
-    node-fetch-native:
-      specifier: 1.6.7
-      version: 1.6.7
-    nuqs:
-      specifier: 2.7.2
-      version: 2.7.2
-    nuxt:
-      specifier: 4.2.0
-      version: 4.2.0
-    ohm-js:
-      specifier: 17.2.1
-      version: 17.2.1
-    open:
-      specifier: 10.2.0
-      version: 10.2.0
-    picocolors:
-      specifier: 1.1.1
-      version: 1.1.1
     postcss:
       specifier: 8.5.6
       version: 8.5.6
-    publint:
-      specifier: 0.3.15
-      version: 0.3.15
     react:
       specifier: 19.2.0
       version: 19.2.0
@@ -333,112 +81,33 @@ catalogs:
     react-leaflet-markercluster:
       specifier: 5.0.0-rc.0
       version: 5.0.0-rc.0
-    react-query:
-      specifier: 3.39.3
-      version: 3.39.3
     react-viewport-list:
       specifier: 7.1.2
       version: 7.1.2
-    reactflow:
-      specifier: 11.11.4
-      version: 11.11.4
     rimraf:
       specifier: 6.0.1
       version: 6.0.1
-    splitpanes:
-      specifier: 4.0.4
-      version: 4.0.4
     superjson:
       specifier: 2.2.3
       version: 2.2.3
-    syncpack:
-      specifier: 13.0.4
-      version: 13.0.4
-    tailwind-merge:
-      specifier: 3.3.1
-      version: 3.3.1
     tailwindcss:
       specifier: 4.1.16
       version: 4.1.16
-    taze:
-      specifier: 19.8.1
-      version: 19.8.1
     tsx:
       specifier: 4.20.6
       version: 4.20.6
-    tw-animate-css:
-      specifier: 1.4.0
-      version: 1.4.0
     typescript:
       specifier: 5.9.3
       version: 5.9.3
-    ufo:
-      specifier: 1.6.1
-      version: 1.6.1
-    unbuild:
-      specifier: 3.6.1
-      version: 3.6.1
-    unplugin-vue-components:
-      specifier: 30.0.0
-      version: 30.0.0
     use-debounce:
       specifier: 10.0.6
       version: 10.0.6
     use-local-storage:
       specifier: 3.0.0
       version: 3.0.0
-    vercel:
-      specifier: 48.6.0
-      version: 48.6.0
-    vite:
-      specifier: 7.1.12
-      version: 7.1.12
-    vite-plugin-dts:
-      specifier: 4.5.4
-      version: 4.5.4
-    vite-ssg:
-      specifier: 28.2.2
-      version: 28.2.2
-    vitepress:
-      specifier: 1.6.4
-      version: 1.6.4
-    vitest:
-      specifier: 4.0.3
-      version: 4.0.3
-    vue:
-      specifier: 3.5.22
-      version: 3.5.22
-    vue-codemirror:
-      specifier: 6.1.1
-      version: 6.1.1
-    vue-router:
-      specifier: 4.6.3
-      version: 4.6.3
-    vue-template-compiler:
-      specifier: 2.7.16
-      version: 2.7.16
-    vue-toastification:
-      specifier: 2.0.0-rc.5
-      version: 2.0.0-rc.5
-    vue-tsc:
-      specifier: 3.1.2
-      version: 3.1.2
-    yaml:
-      specifier: 2.8.1
-      version: 2.8.1
-    yaml-eslint-parser:
-      specifier: 1.3.0
-      version: 1.3.0
     zod:
       specifier: 4.1.12
       version: 4.1.12
-  vue2:
-    '@vue/test-utils':
-      specifier: 1.3.6
-      version: 1.3.6
-    vue:
-      specifier: 2.7.16
-      version: 2.7.16
 
 overrides:
   '@codemirror/state': 6.5.2
@@ -623,7 +292,7 @@ importers:
         version: 11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3)
       '@trpc/next':
         specifier: 'catalog:'
-        version: 11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/react-query@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(next@16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
+        version: 11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/react-query@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(next@16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
       '@trpc/react-query':
         specifier: 'catalog:'
         version: 11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)
@@ -641,10 +310,10 @@ importers:
         version: 1.5.3(leaflet@1.9.4)
       next:
         specifier: 'catalog:'
-        version: 16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       next-seo:
         specifier: 'catalog:'
-        version: 7.0.1(next@16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
+        version: 7.0.1(next@16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
       react:
         specifier: 'catalog:'
         version: 19.2.0
@@ -657,9 +326,6 @@ importers:
       react-leaflet-markercluster:
         specifier: 'catalog:'
         version: 5.0.0-rc.0(leaflet.markercluster@1.5.3(leaflet@1.9.4))(leaflet@1.9.4)(react-dom@19.2.0(react@19.2.0))(react-leaflet@5.0.0(leaflet@1.9.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0)
-      react-query:
-        specifier: 'catalog:'
-        version: 3.39.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react-viewport-list:
         specifier: 'catalog:'
         version: 7.1.2(react@19.2.0)
@@ -6109,10 +5775,6 @@ packages:
   bidi-js@1.0.3:
     resolution: {integrity: sha512-RKshQI1R3YQ+n9YJz2QQ147P66ELpa1FQEg20Dk8oW9t2KgLbpDLLp9aGZ7y8WHSshDknG0bknqGw5/tyCs5tw==}
 
-  big-integer@1.6.52:
-    resolution: {integrity: sha512-QxD8cf2eVqJOOz63z6JIN9BzvVs/dlySa5HGSBH5xtR8dPteIRQnBxxKqkNTiT6jbDTF6jAfrd4oMcND9RGbQg==}
-    engines: {node: '>=0.6'}
-
   binary-extensions@2.3.0:
     resolution: {integrity: sha512-Ceh+7ox5qe7LJuLHoY0feh3pHuUDHAcRUeyL2VYghZwfpkNIy/+8Ocg0a3UuSoYzavmylwuLWQOf3hl0jjMMIw==}
     engines: {node: '>=8'}
@@ -6144,9 +5806,6 @@ packages:
   braces@3.0.3:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
-
-  broadcast-channel@3.7.0:
-    resolution: {integrity: sha512-cIAKJXAxGJceNZGTZSBzMxzyOn72cVgPnKx4dc6LRjQgbaJUQqhy5rzL3zbMxkMWsGKkv2hSFkPRMEXfoMZ2Mg==}
 
   browserslist@4.26.3:
     resolution: {integrity: sha512-lAUU+02RFBuCKQPj/P6NgjlbCnLBMp4UtgTx7vNHd3XSIJF87s9a5rA3aH2yw3GS9DqZAUbOtZdCCiZeVRqt0w==}
@@ -7101,9 +6760,6 @@ packages:
   detect-libc@2.1.1:
     resolution: {integrity: sha512-ecqj/sy1jcK1uWrwpR67UhYrIFQ+5WlGxth34WquCbamhFA6hkkwiu37o6J5xCHdo1oixJRfVRw+ywV+Hq/0Aw==}
     engines: {node: '>=8'}
-
-  detect-node@2.1.0:
-    resolution: {integrity: sha512-T0NIuQpnTvFDATNuHN5roPwSBG83rFsuO+MXXH9/3N1eFbn4wcPjttvjMLEPWJ0RGUYgQE7cGgS3tNxbqCGM7g==}
 
   devalue@5.4.2:
     resolution: {integrity: sha512-MwPZTKEPK2k8Qgfmqrd48ZKVvzSQjgW0lXLxiIBA8dQjtf/6mw6pggHNLcyDKyf+fI6eXxlQwPsfaCMTU5U+Bw==}
@@ -9002,9 +8658,6 @@ packages:
     resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
     engines: {node: '>=14'}
 
-  js-sha3@0.8.0:
-    resolution: {integrity: sha512-gF1cRrHhIzNfToc802P800N8PpXS+evLLXfsVpowqmAFR9uwbi89WvXg2QspOmXL8QL86J4T1EpFu+yUkwJY3Q==}
-
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -9446,9 +9099,6 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  match-sorter@6.3.4:
-    resolution: {integrity: sha512-jfZW7cWS5y/1xswZo8VBOdudUiSd9nifYRWphc9M5D/ee4w4AoXLgBEdRbgVaxbMuagBPeUC5y2Hi8DO6o9aDg==}
-
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
@@ -9629,9 +9279,6 @@ packages:
     resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
-  microseconds@0.2.0:
-    resolution: {integrity: sha512-n7DHHMjR1avBbSpsTBj6fmMGh2AGrifVV4e+WYc3Q9lO+xnSZ3NyhcBND3vzzatt05LFhoKFRxrIyklmLlUtyA==}
-
   mime-db@1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}
     engines: {node: '>= 0.6'}
@@ -9788,9 +9435,6 @@ packages:
   nano-spawn@2.0.0:
     resolution: {integrity: sha512-tacvGzUY5o2D8CBh2rrwxyNojUsZNU2zjNTzKQrkgGJQTbGAfArVWXSKMBokBeeg6C7OLRGUEyoFlYbfeWQIqw==}
     engines: {node: '>=20.17'}
-
-  nano-time@1.0.0:
-    resolution: {integrity: sha512-flnngywOoQ0lLQOTRNexn2gGSNuM9bKj9RZAWSzhQ+UJYaAFG9bac4DW9VHjUAzrOaIcajHybCTHe/bkvozQqA==}
 
   nanoid@3.3.11:
     resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
@@ -10048,9 +9692,6 @@ packages:
   object.values@1.2.1:
     resolution: {integrity: sha512-gXah6aZrcUxjWg2zR2MwouP2eHlCBzdV4pygudehaKXSGW4v2AsRQUK+lwwXhii6KFZcunEnmSUoYp5CXibxtA==}
     engines: {node: '>= 0.4'}
-
-  oblivious-set@1.0.0:
-    resolution: {integrity: sha512-z+pI07qxo4c2CulUHCDf9lcqDlMSo72N/4rLUpRXf6fu+q8vjt8y0xS+Tlf8NTJDdTXHbdeO1n3MlbctwEoXZw==}
 
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==}
@@ -10811,18 +10452,6 @@ packages:
       leaflet: ^1.9.0
       react: ^19.0.0
       react-dom: ^19.0.0
-
-  react-query@3.39.3:
-    resolution: {integrity: sha512-nLfLz7GiohKTJDuT4us4X3h/8unOh+00MLb2yJoGTPjxKs2bc1iDhkNx2bd5MKklXnOD3NrVZ+J2UXujA5In4g==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: '*'
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
 
   react-viewport-list@7.1.2:
     resolution: {integrity: sha512-CfmkYyoFufSdJ95nTgENAHtWOn1XwxcUZPBSueOPzOvz59A31qHgYpADYuiSUfZ5ypR3MfyWMUgRAOMsNDDl8Q==}
@@ -12283,9 +11912,6 @@ packages:
   universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
-
-  unload@2.2.0:
-    resolution: {integrity: sha512-B60uB5TNBLtN6/LsgAf3udH9saB5p7gqJwcFfbOEZ8BcBHnGwCf6G/TGiEqkRAxX7zAFIUtzdrXQSdL3Q/wqNA==}
 
   unocss@66.5.4:
     resolution: {integrity: sha512-yNajR8ADgvOzLhDkMKAXVE/SHM4sDrtVhhCnhBjiUMOR0LHIYO7cqunJJudbccrsfJbRTn/odSTBGu9f2IaXOg==}
@@ -16562,11 +16188,11 @@ snapshots:
       '@trpc/server': 11.6.0(typescript@5.9.3)
       typescript: 5.9.3
 
-  '@trpc/next@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/react-query@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(next@16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)':
+  '@trpc/next@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/react-query@11.6.0(@tanstack/react-query@5.90.5(react@19.2.0))(@trpc/client@11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3))(@trpc/server@11.6.0(typescript@5.9.3))(next@16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)(typescript@5.9.3)':
     dependencies:
       '@trpc/client': 11.6.0(@trpc/server@11.6.0(typescript@5.9.3))(typescript@5.9.3)
       '@trpc/server': 11.6.0(typescript@5.9.3)
-      next: 16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      next: 16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
       typescript: 5.9.3
@@ -18551,8 +18177,6 @@ snapshots:
     dependencies:
       require-from-string: 2.0.2
 
-  big-integer@1.6.52: {}
-
   binary-extensions@2.3.0: {}
 
   bindings@1.5.0:
@@ -18585,17 +18209,6 @@ snapshots:
   braces@3.0.3:
     dependencies:
       fill-range: 7.1.1
-
-  broadcast-channel@3.7.0:
-    dependencies:
-      '@babel/runtime': 7.28.4
-      detect-node: 2.1.0
-      js-sha3: 0.8.0
-      microseconds: 0.2.0
-      nano-time: 1.0.0
-      oblivious-set: 1.0.0
-      rimraf: 3.0.2
-      unload: 2.2.0
 
   browserslist@4.26.3:
     dependencies:
@@ -19392,8 +19005,6 @@ snapshots:
 
   detect-libc@2.1.1: {}
 
-  detect-node@2.1.0: {}
-
   devalue@5.4.2: {}
 
   devlop@1.1.0:
@@ -19860,7 +19471,7 @@ snapshots:
       eslint: 9.38.0(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0)(eslint@9.38.0(jiti@2.6.1))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint@9.38.0(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.38.0(jiti@2.6.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.38.0(jiti@2.6.1))
       eslint-plugin-react: 7.37.5(eslint@9.38.0(jiti@2.6.1))
       eslint-plugin-react-hooks: 7.0.1(eslint@9.38.0(jiti@2.6.1))
@@ -19929,7 +19540,7 @@ snapshots:
       tinyglobby: 0.2.15
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint@9.38.0(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.38.0(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -20070,7 +19681,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint@9.38.0(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.46.2(eslint@9.38.0(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.38.0(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -21835,8 +21446,6 @@ snapshots:
 
   js-cookie@3.0.5: {}
 
-  js-sha3@0.8.0: {}
-
   js-tokens@4.0.0: {}
 
   js-tokens@9.0.1: {}
@@ -22268,11 +21877,6 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  match-sorter@6.3.4:
-    dependencies:
-      '@babel/runtime': 7.28.4
-      remove-accents: 0.5.0
-
   math-intrinsics@1.1.0: {}
 
   mdast-comment-marker@1.1.2: {}
@@ -22652,8 +22256,6 @@ snapshots:
       braces: 3.0.3
       picomatch: 2.3.1
 
-  microseconds@0.2.0: {}
-
   mime-db@1.52.0: {}
 
   mime-db@1.54.0: {}
@@ -22776,10 +22378,6 @@ snapshots:
 
   nano-spawn@2.0.0: {}
 
-  nano-time@1.0.0:
-    dependencies:
-      big-integer: 1.6.52
-
   nanoid@3.3.11: {}
 
   nanoid@5.1.6: {}
@@ -22796,10 +22394,34 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-seo@7.0.1(next@16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0):
+  next-seo@7.0.1(next@16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react@19.2.0):
     dependencies:
-      next: 16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      next: 16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       react: 19.2.0
+
+  next@16.0.0(@babel/core@7.28.4)(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+    dependencies:
+      '@next/env': 16.0.0
+      '@swc/helpers': 0.5.15
+      caniuse-lite: 1.0.30001747
+      postcss: 8.4.31
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
+      styled-jsx: 5.1.6(@babel/core@7.28.4)(react@19.2.0)
+    optionalDependencies:
+      '@next/swc-darwin-arm64': 16.0.0
+      '@next/swc-darwin-x64': 16.0.0
+      '@next/swc-linux-arm64-gnu': 16.0.0
+      '@next/swc-linux-arm64-musl': 16.0.0
+      '@next/swc-linux-x64-gnu': 16.0.0
+      '@next/swc-linux-x64-musl': 16.0.0
+      '@next/swc-win32-arm64-msvc': 16.0.0
+      '@next/swc-win32-x64-msvc': 16.0.0
+      '@playwright/test': 1.56.1
+      sharp: 0.34.4
+    transitivePeerDependencies:
+      - '@babel/core'
+      - babel-plugin-macros
 
   next@16.0.0(@playwright/test@1.56.1)(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
@@ -23223,8 +22845,6 @@ snapshots:
       call-bound: 1.0.4
       define-properties: 1.2.1
       es-object-atoms: 1.1.1
-
-  oblivious-set@1.0.0: {}
 
   ofetch@1.4.1:
     dependencies:
@@ -24025,15 +23645,6 @@ snapshots:
       '@react-leaflet/core': 3.0.0(leaflet@1.9.4)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       leaflet: 1.9.4
       react: 19.2.0
-      react-dom: 19.2.0(react@19.2.0)
-
-  react-query@3.39.3(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
-    dependencies:
-      '@babel/runtime': 7.28.4
-      broadcast-channel: 3.7.0
-      match-sorter: 6.3.4
-      react: 19.2.0
-    optionalDependencies:
       react-dom: 19.2.0(react@19.2.0)
 
   react-viewport-list@7.1.2(react@19.2.0):
@@ -25294,6 +24905,13 @@ snapshots:
 
   style-mod@4.1.2: {}
 
+  styled-jsx@5.1.6(@babel/core@7.28.4)(react@19.2.0):
+    dependencies:
+      client-only: 0.0.1
+      react: 19.2.0
+    optionalDependencies:
+      '@babel/core': 7.28.4
+
   styled-jsx@5.1.6(react@19.2.0):
     dependencies:
       client-only: 0.0.1
@@ -25960,11 +25578,6 @@ snapshots:
   universalify@0.1.2: {}
 
   universalify@2.0.1: {}
-
-  unload@2.2.0:
-    dependencies:
-      '@babel/runtime': 7.28.4
-      detect-node: 2.1.0
 
   unocss@66.5.4(@unocss/webpack@66.5.4(webpack@5.102.0))(postcss@8.5.6)(vite@7.1.12(@types/node@24.9.1)(jiti@2.6.1)(lightningcss@1.30.2)(terser@5.44.0)(tsx@4.20.6)(yaml@2.8.1)):
     dependencies:
