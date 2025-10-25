@@ -15,7 +15,7 @@
     "build": "nr turbo run build",
     "bundlesize": "nr turbo run bundlesize",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize check:publish check:tsc check:vue generate lint lint:root syncpack:lint test",
+    "ci": "cross-env COVERAGE=true nr turbo run build bundlesize check:publish check:tsc check:vue e2e generate lint lint:root syncpack:lint test",
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
     "e2e": "nr turbo e2e",
