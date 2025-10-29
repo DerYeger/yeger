@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 2.3.8
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+  - @yeger/turbo-graph-ui@2.8.1
+
 ## 2.3.7
 
 ### Patch Changes

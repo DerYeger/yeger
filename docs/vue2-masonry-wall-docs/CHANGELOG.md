@@ -1,5 +1,12 @@
 # @yeger/vue2-masonry-wall-docs
 
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies [0ed5cf9]
+  - @yeger/vue2-masonry-wall@5.1.2
+
 ## 2.0.25
 
 ### Patch Changes

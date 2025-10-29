@@ -1,5 +1,11 @@
 # wiener-time
 
+## 1.1.2
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 1.1.1
 
 ### Patch Changes

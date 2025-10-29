@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.18
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 3.0.17
 
 ### Patch Changes

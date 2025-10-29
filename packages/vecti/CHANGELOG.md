@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.3
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 3.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.17
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 2.0.16
 
 ### Patch Changes

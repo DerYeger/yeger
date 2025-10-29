@@ -1,5 +1,15 @@
 # @yeger/streams
 
+## 1.4.0
+
+### Minor Changes
+
+- 0ed5cf9: add sync and async entrypoints
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 1.3.2
 
 ### Patch Changes
