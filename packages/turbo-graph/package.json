@@ -32,11 +32,11 @@
     "index.mjs"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "tsdown",
     "check:publish": "publint run --strict",
-    "dev": "vite build --watch",
+    "dev": "tsdown --watch",
     "lint": "yeger-lint",
-    "preview": "node dist/index.mjs"
+    "preview": "node dist/index.js"
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
@@ -48,9 +48,8 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-lib": "workspace:*"
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   },
   "publishConfig": {
     "access": "public"

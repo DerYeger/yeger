@@ -1,9 +1,0 @@
-{
-  "files": [
-    {
-      "path": "./dist/*.mjs",
-      "maxSize": "1.6KB",
-      "compression": "brotli"
-    }
-  ]
-}

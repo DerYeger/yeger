@@ -43,14 +43,6 @@
       ]
     },
     "codegen": {},
-    "bundlesize": {
-      "dependsOn": [
-        "build"
-      ],
-      "inputs": [
-        "dist/**"
-      ]
-    },
     "preview": {
       "dependsOn": [
         "build",

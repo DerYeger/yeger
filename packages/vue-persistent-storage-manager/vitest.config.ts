@@ -1,10 +1,12 @@
-import { coverage } from 'vite-plugin-lib'
-import { mergeConfig } from 'vitest/config'
+import { defineConfig } from 'vitest/config'
+import { configuration } from '@yeger/vitest-utils'
 
-import config from './vite.config'
-
-export default mergeConfig(config, {
+export default defineConfig({
   test: {
-    coverage,
+    ...configuration.coverage,
+    ...configuration.idempotent,
+    sequence: {
+      shuffle: false,
+    },
   },
 })

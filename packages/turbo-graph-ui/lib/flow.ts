@@ -1,4 +1,4 @@
-import { Stream } from '@yeger/streams'
+import { Stream } from '@yeger/streams/sync'
 import { graphStratify, sugiyama, decrossTwoLayer, coordCenter } from 'd3-dag'
 import type { Edge, Node } from 'reactflow'
 

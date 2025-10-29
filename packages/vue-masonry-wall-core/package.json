@@ -20,19 +20,20 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist/*"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
-    "dev": "vite build --watch",
+    "dev": "tsdown --watch",
     "lint": "yeger-lint"
   },
   "dependencies": {
@@ -42,9 +43,8 @@
   "devDependencies": {
     "@types/resize-observer-browser": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-lib": "workspace:*"
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   },
   "publishConfig": {
     "access": "public"

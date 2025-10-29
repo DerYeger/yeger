@@ -1,4 +1,4 @@
 {
-  "extends": "@yeger/tsconfig/vite",
+  "extends": "@yeger/tsconfig/bundler",
   "exclude": ["node_modules", "coverage", "dist"]
 }
