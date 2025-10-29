@@ -1,6 +1,6 @@
 'use client'
 
-import { Stream } from '@yeger/streams'
+import { Stream } from '@yeger/streams/sync'
 import { scaleOrdinal } from 'd3-scale'
 import type { ReactNode } from 'react'
 import { useEffect, useMemo } from 'react'

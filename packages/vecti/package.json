@@ -27,30 +27,28 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
-  "types": "dist/types/index.d.mts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "tsdown",
     "check:tsc": "tsc",
     "check:publish": "publint run --strict",
-    "dev": "vite build --watch",
+    "dev": "tsdown --watch",
     "lint": "yeger-lint",
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "catalog:",
-    "@vue/component-compiler-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-lib": "workspace:*"
+    "@yeger/vitest-utils": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   },
   "publishConfig": {
     "access": "public"

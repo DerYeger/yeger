@@ -1,5 +1,5 @@
 {
-  "extends": "@yeger/tsconfig/vite",
+  "extends": "@yeger/tsconfig/bundler",
   "compilerOptions": {
     "types": ["node"]
   },

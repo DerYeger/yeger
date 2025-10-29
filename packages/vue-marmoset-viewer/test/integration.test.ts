@@ -1,5 +1,4 @@
-import { mount } from '@vue/test-utils'
-import flushPromises from 'flush-promises'
+import { flushPromises, mount } from '@vue/test-utils'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { defineComponent, resolveComponent, h } from 'vue'
 

@@ -1,0 +1,49 @@
+{
+  "name": "@yeger/vitest-utils",
+  "type": "module",
+  "version": "0.0.0",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/vitest-utils"
+  },
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/*"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
+    "dev": "tsdown --watch",
+    "lint": "yeger-lint"
+  },
+  "peerDependencies": {
+    "vitest": "^4.0.0"
+  },
+  "devDependencies": {
+    "@yeger/tsconfig": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

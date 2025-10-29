@@ -21,35 +21,34 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/types/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     }
   },
-  "types": "./dist/types/index.d.mts",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "vite build",
+    "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
-    "dev": "vite build --watch",
+    "dev": "tsdown --watch",
     "lint": "yeger-lint",
     "test": "vitest"
   },
   "dependencies": {
-    "ohm-js": "catalog:"
+    "ohm-js": "catalog:",
+    "resumon": "workspace:*"
   },
   "devDependencies": {
     "@ohm-js/cli": "catalog:",
-    "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "resumon": "workspace:*",
-    "typescript": "catalog:",
-    "vite": "catalog:",
-    "vite-plugin-lib": "workspace:*"
+    "@yeger/vitest-utils": "workspace:*",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   },
   "publishConfig": {
     "access": "public"

@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
-import { cleanup, tsconfigPaths } from 'vite-plugin-lib'
+import { cleanup } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [tsconfigPaths(), cleanup()],
+  plugins: [cleanup()],
   optimizeDeps: {
     include: ['vue'],
   },

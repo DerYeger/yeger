@@ -1,6 +1,5 @@
-import { mount } from '@vue/test-utils'
-import flushPromises from 'flush-promises'
-import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import { flushPromises, mount } from '@vue/test-utils'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import MarmosetViewer from '../src/marmoset-viewer.vue'
 
@@ -63,7 +62,7 @@ function mockResizeObserver() {
 }
 
 describe('MarmosetViewer', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     mocks.loadMarmoset.mockResolvedValue(
       new Promise<void>((resolve) => {
         vi.stubGlobal('marmoset', {
@@ -72,9 +71,6 @@ describe('MarmosetViewer', () => {
         resolve()
       }),
     )
-  })
-
-  beforeEach(() => {
     mockResizeObserver()
     unloadMock.mockReset()
     resizeMock.mockReset()

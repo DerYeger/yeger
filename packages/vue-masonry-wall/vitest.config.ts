@@ -1,16 +1,17 @@
-import { coverage } from 'vite-plugin-lib'
-import { mergeConfig } from 'vitest/config'
+import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
+import { configuration } from '@yeger/vitest-utils'
 
-import config from './vite.config'
-
-export default mergeConfig(config, {
+export default defineConfig({
+  plugins: [vue()],
   test: {
+    ...configuration.coverage,
+    ...configuration.idempotent,
     browser: {
       enabled: true,
       provider: playwright(),
       instances: [{ browser: 'chromium' }],
     },
-    coverage,
   },
 })
