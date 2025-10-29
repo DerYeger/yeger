@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.19
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+- Updated dependencies [0ed5cf9]
+  - @yeger/vue-lib-adapter@2.0.14
+  - @yeger/debounce@2.0.15
+
 ## 5.0.18
 
 ### Patch Changes

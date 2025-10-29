@@ -1,5 +1,11 @@
 # @yeger/vue-lib-adapter
 
+## 2.0.14
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 2.0.13
 
 ### Patch Changes

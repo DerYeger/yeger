@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.1.4
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+- Updated dependencies [0ed5cf9]
+  - @yeger/debounce@2.0.15
+  - vecti@3.1.3
+
 ## 3.1.3
 
 ### Patch Changes

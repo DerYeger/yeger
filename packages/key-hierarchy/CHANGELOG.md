@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.7
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 3.0.6
 
 ### Patch Changes

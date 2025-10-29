@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.13
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+
 ## 1.0.12
 
 ### Patch Changes

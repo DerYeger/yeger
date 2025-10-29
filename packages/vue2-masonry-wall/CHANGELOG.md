@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall
 
+## 5.1.2
+
+### Patch Changes
+
+- 0ed5cf9: use tsdown for bundling
+- Updated dependencies [0ed5cf9]
+  - @yeger/vue-masonry-wall-core@5.0.19
+
 ## 5.1.1
 
 ### Patch Changes

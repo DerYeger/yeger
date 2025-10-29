@@ -1,7 +1,7 @@
 {
   "name": "vecti",
   "type": "module",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "A tiny TypeScript library for 2D vector math.",
   "author": {
     "name": "Jan Müller",
