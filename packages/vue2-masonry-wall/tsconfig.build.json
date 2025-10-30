@@ -3,5 +3,5 @@
   "compilerOptions": {
     "isolatedDeclarations": false
   },
-  "exclude": ["node_modules", "coverage", "dist"]
+  "include": ["src", "shims-vue.d.ts"]
 }

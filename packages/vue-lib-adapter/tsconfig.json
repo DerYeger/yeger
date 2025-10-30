@@ -1,7 +1,4 @@
 {
-  "extends": "@yeger/tsconfig/bundler",
-  "compilerOptions": {
-    "types": ["node"]
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
+  "extends": "@yeger/tsconfig/lib",
+  "include": ["src"]
 }

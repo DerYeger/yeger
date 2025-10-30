@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { AsyncStream, Stream } from '../src/index'
+import { AsyncStream } from '../src/index'
 import { TestUtils } from './test-utils'
 
 describe('async streams', () => {
@@ -93,20 +93,6 @@ describe('async streams', () => {
       [2, 5],
       [3, 6],
     ])
-  })
-
-  it('can transform to async', async () => {
-    const a = await AsyncStream.from([1, 2, 3])
-      .map((x) => 2 * x)
-      .filter((x) => x % 3 !== 0)
-      .toArray()
-    const b = await Stream.from([1, 2, 3])
-      .map((x) => 2 * x)
-      .toAsync()
-      .filter((x) => x % 3 !== 0)
-      .toArray()
-    expect(a).toEqual([2, 4])
-    expect(b).toEqual([2, 4])
   })
 
   it('can be empty', async () => {

@@ -43,17 +43,21 @@ function Stable<T extends NodeTypeToken, Node extends GraphNode<T>>(
 /**
  * Collection of built-in position initializers.
  */
-export const PositionInitializers = {
+export const PositionInitializers: {
   /**
    * Initializes node positions to a graph's center.
    */
-  Centered,
+  Centered: PositionInitializer<string, GraphNode<string>>
   /**
    * Randomly initializes node positions within the visible area.
    */
-  Randomized,
+  Randomized: PositionInitializer<string, GraphNode<string>>
   /**
    * Initializes node positions based on other graph.
    */
+  Stable: typeof Stable
+} = {
+  Centered,
+  Randomized,
   Stable,
 }

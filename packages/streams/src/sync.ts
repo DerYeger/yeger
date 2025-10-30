@@ -1,11 +1,9 @@
-import { AsyncStream } from './async'
-
 export type Processor<Input, Output> = (value: Input, index: number) => Output
 
 export type Filter<Input> = Processor<Input, boolean>
 
 export abstract class Stream<T> implements Iterable<T> {
-  public static empty<T>() {
+  public static empty<T>(): Stream<T> {
     return Stream.from<T>([])
   }
 
@@ -23,11 +21,11 @@ export abstract class Stream<T> implements Iterable<T> {
     return Stream.from([value])
   }
 
-  public toSet() {
+  public toSet(): Set<T> {
     return new Set(this)
   }
 
-  public toArray() {
+  public toArray(): T[] {
     return Array.from(this)
   }
 
@@ -45,34 +43,34 @@ export abstract class Stream<T> implements Iterable<T> {
 
   public abstract [Symbol.iterator](): IterableIterator<T>
 
-  public map<R>(fn: Processor<T, R>) {
+  public map<R>(fn: Processor<T, R>): Stream<R> {
     return MapStream.ofPrevious(this, fn)
   }
 
-  public flatMap<R>(fn: Processor<T, Iterable<R>>) {
+  public flatMap<R>(fn: Processor<T, Iterable<R>>): Stream<R> {
     return FlatMapStream.ofPrevious(this, fn)
   }
 
-  public zip<R>(other: Iterable<R>) {
+  public zip<R>(other: Iterable<R>): Stream<[T, R]> {
     return ZipStream.ofPrevious(this, other)
   }
 
-  public limit(limit: number) {
+  public limit(limit: number): Stream<T> {
     return LimitStream.ofPrevious(this, limit)
   }
 
-  public filter(fn: Filter<T>) {
+  public filter(fn: Filter<T>): Stream<T> {
     return FilterStream.ofPrevious(this, fn)
   }
 
-  public filterNonNull() {
+  public filterNonNull(): Stream<NonNullable<T>> {
     return FilterStream.ofPrevious(
       this,
       (value) => value !== null && value !== undefined,
     ) as FilterStream<NonNullable<T>>
   }
 
-  public reduce<R>(fn: (acc: R, value: T, index: number) => R, initialValue: R) {
+  public reduce<R>(fn: (acc: R, value: T, index: number) => R, initialValue: R): R {
     let acc = initialValue
     let index = 0
     for (const item of this) {
@@ -81,14 +79,14 @@ export abstract class Stream<T> implements Iterable<T> {
     return acc
   }
 
-  public sum(fn: T extends number ? void : Processor<T, number>) {
+  public sum(fn: T extends number ? void : Processor<T, number>): number {
     const add = fn
       ? (a: number, b: T, index: number) => a + fn(b, index)
       : (a: number, b: number) => a + b
     return this.reduce((acc, value, index) => add(acc, value as T & number, index), 0)
   }
 
-  public forEach(fn: Processor<T, void>) {
+  public forEach(fn: Processor<T, void>): Stream<T> {
     let index = 0
     for (const item of this) {
       fn(item, index++)
@@ -96,15 +94,11 @@ export abstract class Stream<T> implements Iterable<T> {
     return this
   }
 
-  public toAsync() {
-    return AsyncStream.from(this)
-  }
-
-  public distinct() {
+  public distinct(): Stream<T> {
     return DistinctStream.ofPrevious(this)
   }
 
-  public find(fn: Filter<T>) {
+  public find(fn: Filter<T>): T | undefined {
     let index = 0
     for (const item of this) {
       if (fn(item, index++)) {
@@ -114,7 +108,7 @@ export abstract class Stream<T> implements Iterable<T> {
     return undefined
   }
 
-  public some(fn: Filter<T>) {
+  public some(fn: Filter<T>): boolean {
     let index = 0
     for (const item of this) {
       if (fn(item, index++)) {
@@ -124,7 +118,7 @@ export abstract class Stream<T> implements Iterable<T> {
     return false
   }
 
-  public every(fn: Filter<T>) {
+  public every(fn: Filter<T>): boolean {
     let index = 0
     for (const item of this) {
       if (!fn(item, index++)) {
@@ -134,19 +128,19 @@ export abstract class Stream<T> implements Iterable<T> {
     return true
   }
 
-  public join(separator: string) {
+  public join(separator: string): string {
     return this.reduce((acc, value) => acc + separator + value, '')
   }
 
-  public concat(...sources: Iterable<T>[]) {
+  public concat(...sources: Iterable<T>[]): Stream<T> {
     return ConcatStream.ofPrevious(this, sources)
   }
 
-  public append(...value: T[]) {
+  public append(...value: T[]): Stream<T> {
     return this.concat(Stream.from(value))
   }
 
-  public cache() {
+  public cache(): Stream<T> {
     return CacheStream.ofPrevious(this)
   }
 }

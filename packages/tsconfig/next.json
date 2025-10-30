@@ -1,10 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "./web.json",
+  "extends": "./bundler.json",
   "compilerOptions": {
     "incremental": false,
     "moduleResolution": "bundler",
     "noEmit": true,
-    "plugins": [{ "name": "next" }]
+    "plugins": [{ "name": "next" }],
+    "sourceMap": false
   }
 }

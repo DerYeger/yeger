@@ -7,10 +7,8 @@
   "files": [
     "base.json",
     "bundler.json",
-    "cli.json",
     "lib.json",
-    "next.json",
-    "web.json"
+    "next.json"
   ],
   "scripts": {
     "check:publish": "publint run --strict",

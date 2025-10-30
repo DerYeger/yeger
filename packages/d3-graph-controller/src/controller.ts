@@ -298,7 +298,7 @@ export class GraphController<
    * @param include - Whether the type will be included or removed from the filter.
    * @param nodeType - The type to be added or removed from the filter.
    */
-  public filterNodesByType(include: boolean, nodeType: T) {
+  public filterNodesByType(include: boolean, nodeType: T): void {
     if (include) {
       this._nodeTypeFilter.push(nodeType)
     } else {

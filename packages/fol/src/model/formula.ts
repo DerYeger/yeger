@@ -708,8 +708,8 @@ export class BooleanLiteral implements Formula {
     return this.name
   }
 
-  public static readonly True = new BooleanLiteral('\u22A4', true)
-  public static readonly False = new BooleanLiteral('\u22A5', false)
+  public static readonly True: BooleanLiteral = new BooleanLiteral('\u22A4', true)
+  public static readonly False: BooleanLiteral = new BooleanLiteral('\u22A5', false)
 }
 
 export class RelationFormula implements Formula {

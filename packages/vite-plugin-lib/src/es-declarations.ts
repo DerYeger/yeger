@@ -10,7 +10,7 @@ export async function generateMTSDeclarations(
   typesDir: string,
   deleteSourceFiles: boolean,
   verbose: boolean | undefined,
-) {
+): Promise<void> {
   const files = await collectFiles(typesDir)
   for (const file of files) {
     await createMTSImports(file, verbose)

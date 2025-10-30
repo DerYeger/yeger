@@ -1,6 +1,7 @@
 import process from 'node:process'
 
 import { defineConfig, devices } from '@playwright/test'
+import type { PlaywrightTestConfig } from '@playwright/test'
 
 export interface Options {
   ports?: {
@@ -12,7 +13,7 @@ export interface Options {
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-export function definePlaywrightConfig({ ports = {} }: Options) {
+export function definePlaywrightConfig({ ports = {} }: Options): PlaywrightTestConfig {
   const isCI = !!process.env.CI
   const devPort = ports.dev ?? 4173
   const previewPort = ports.preview ?? 5173

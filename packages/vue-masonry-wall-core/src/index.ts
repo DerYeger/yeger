@@ -56,7 +56,7 @@ export function useMasonryWall<T>({
   vue,
   wall,
   watch,
-}: HookProps<T>) {
+}: HookProps<T>): { getColumnWidthTarget: (columnIndex: number) => number } {
   function countIteratively(
     containerWidth: number,
     gap: number,

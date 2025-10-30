@@ -9,6 +9,7 @@ import type {
   ModelCheckerTrace,
 } from './model'
 import { parse } from './parser'
+import type { MatchResult } from 'ohm-js'
 
 export * from './fol.ohm-bundle'
 export * from './model'
@@ -54,9 +55,9 @@ function trace(
 }
 
 export const FOL = {
-  evaluate,
-  match: (formula: string) => grammar.match(formula),
-  parse,
-  trace,
-  traceEvaluation,
+  evaluate: evaluate satisfies typeof evaluate as typeof evaluate,
+  match: (formula: string): MatchResult => grammar.match(formula),
+  parse: parse satisfies typeof parse as typeof parse,
+  trace: trace satisfies typeof trace as typeof trace,
+  traceEvaluation: traceEvaluation satisfies typeof traceEvaluation as typeof traceEvaluation,
 } as const

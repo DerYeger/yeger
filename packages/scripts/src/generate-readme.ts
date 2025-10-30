@@ -4,7 +4,7 @@ import process from 'node:process'
 import type { Package } from '@manypkg/get-packages'
 import { getPackages } from '@manypkg/get-packages'
 
-export async function generateReadme() {
+export async function generateReadme(): Promise<void> {
   const { packages, rootPackage } = await getPackages(process.cwd())
   const packagesByType = groupBy(
     packages,

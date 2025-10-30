@@ -7,7 +7,7 @@
 export function debounce<Args extends any[]>(
   cb: (...args: Args) => void,
   delay?: number,
-) {
+): (...args: Args) => void {
   let timeout: any
   return (...args: Args) => {
     if (timeout !== undefined) {

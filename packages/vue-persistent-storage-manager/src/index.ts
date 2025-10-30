@@ -22,7 +22,7 @@ export class VuePersistentStorageManager {
   /**
    * Indicates that the StorageManager API is available.
    */
-  public readonly isAvailable =
+  public readonly isAvailable: boolean =
     typeof navigator !== 'undefined' &&
     navigator?.storage?.persist !== undefined
 
