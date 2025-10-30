@@ -2,7 +2,8 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "./base.json",
   "compilerOptions": {
-    "moduleResolution": "bundler",
-    "sourceMap": false
+    "declaration": false,
+    "isolatedDeclarations": false,
+    "moduleResolution": "bundler"
   }
 }

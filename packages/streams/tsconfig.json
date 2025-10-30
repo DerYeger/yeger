@@ -1,7 +1,3 @@
 {
-  "extends": "@yeger/tsconfig/bundler",
-  "compilerOptions": {
-    "types": ["node"]
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
+  "extends": ["./tsconfig.base.json", "./tsconfig.build.json"]
 }

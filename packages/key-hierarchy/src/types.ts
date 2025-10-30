@@ -37,13 +37,13 @@ export type KeyHierarchy<
     : readonly [...Path, K extends number ? `${K}` : K]
   }
 
-export const DYNAMIC_SEGMENT = Symbol('DynamicSegment')
+export const DYNAMIC_SEGMENT: unique symbol = Symbol('DynamicSegment')
 
 export interface DynamicSegment<T> {
   readonly [DYNAMIC_SEGMENT]: T
 }
 
-export const DYNAMIC_EXTENDED_SEGMENT = Symbol('DynamicExtendedSegment')
+export const DYNAMIC_EXTENDED_SEGMENT: unique symbol = Symbol('DynamicExtendedSegment')
 
 export type DynamicExtendedSegment<T, U extends KeyHierarchyConfig<U>> = U & {
   readonly [DYNAMIC_EXTENDED_SEGMENT]: T

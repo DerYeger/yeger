@@ -1,7 +1,7 @@
 import process from 'node:process'
 import type { TestUserConfig } from 'vitest/config'
 
-export const configuration = {
+export const configuration: Record<string, TestUserConfig> = {
   coverage: {
     coverage: {
       enabled: !!process.env.COVERAGE,
@@ -20,4 +20,4 @@ export const configuration = {
     unstubEnvs: true,
     unstubGlobals: true,
   },
-} satisfies Record<string, TestUserConfig>
+}

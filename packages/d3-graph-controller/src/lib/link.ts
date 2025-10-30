@@ -1,7 +1,7 @@
 import type { Vector } from 'vecti'
 
 import type { GraphConfig } from '../config/config'
-import Paths from './paths'
+import { Paths } from './paths'
 import type { Canvas, LinkSelection } from './types'
 import { getLinkId, getMarkerUrl } from './utils'
 import type { Graph, NodeTypeToken } from '../model/graph'

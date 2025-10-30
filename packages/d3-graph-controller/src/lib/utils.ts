@@ -16,7 +16,7 @@ export function getNodeRadius<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->(config: GraphConfig<T, Node, Link>, node: Node) {
+>(config: GraphConfig<T, Node, Link>, node: Node): number {
   return isNumber(config.nodeRadius)
     ? config.nodeRadius
     : config.nodeRadius(node)

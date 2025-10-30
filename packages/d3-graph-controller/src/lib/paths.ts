@@ -216,17 +216,17 @@ function reflexiveLinkTextTransform<
 // EXPORT
 // ##################################################
 
-export default {
+export const Paths = {
   line: {
-    labelTransform: lineLinkTextTransform,
-    path: paddedLinePath,
+    labelTransform: lineLinkTextTransform satisfies typeof lineLinkTextTransform as typeof lineLinkTextTransform,
+    path: paddedLinePath satisfies typeof paddedLinePath as typeof paddedLinePath,
   },
   arc: {
-    labelTransform: bidirectionalLinkTextTransform,
-    path: paddedArcPath,
+    labelTransform: bidirectionalLinkTextTransform satisfies typeof bidirectionalLinkTextTransform as typeof bidirectionalLinkTextTransform,
+    path: paddedArcPath satisfies typeof paddedArcPath as typeof paddedArcPath,
   },
   reflexive: {
-    labelTransform: reflexiveLinkTextTransform,
-    path: paddedReflexivePath,
+    labelTransform: reflexiveLinkTextTransform satisfies typeof reflexiveLinkTextTransform as typeof reflexiveLinkTextTransform,
+    path: paddedReflexivePath satisfies typeof paddedReflexivePath as typeof paddedReflexivePath,
   },
 }

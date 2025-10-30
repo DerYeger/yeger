@@ -1,9 +1,5 @@
 {
-  "extends": "@yeger/tsconfig/bundler",
-  "compilerOptions": {
-    "types": ["node", "vue", "resize-observer-browser"]
-  },
-  "exclude": ["node_modules", "coverage", "dist"],
+  "extends": ["./tsconfig.base.json", "./tsconfig.build.json"],
   "vueCompilerOptions": {
     "dataAttributes": ["data-index"]
   }

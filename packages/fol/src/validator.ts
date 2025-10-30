@@ -76,5 +76,5 @@ function validateModel(model: Model): ValidationResult {
 }
 
 export const Validator = {
-  validateModel,
+  validateModel: validateModel satisfies typeof validateModel as typeof validateModel,
 } as const

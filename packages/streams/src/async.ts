@@ -9,7 +9,7 @@ export type AsyncFlatMap<Input, Output> = (
 ) => Iterable<Output> | AsyncIterable<Output>
 
 export abstract class AsyncStream<T> implements AsyncIterable<T> {
-  public static empty<T>() {
+  public static empty<T>(): AsyncStream<T> {
     return AsyncStream.from<T>([])
   }
 
@@ -55,27 +55,27 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
 
   public abstract [Symbol.asyncIterator](): AsyncIterableIterator<T>
 
-  public map<R>(fn: AsyncProcessor<T, R>) {
+  public map<R>(fn: AsyncProcessor<T, R>): AsyncStream<R> {
     return AsyncMapStream.ofPrevious(this, fn)
   }
 
-  public flatMap<R>(fn: AsyncFlatMap<T, R>) {
+  public flatMap<R>(fn: AsyncFlatMap<T, R>): AsyncStream<R> {
     return AsyncFlatMapStream.ofPrevious(this, fn)
   }
 
-  public zip<R>(other: Iterable<R> | AsyncIterable<R>) {
+  public zip<R>(other: Iterable<R> | AsyncIterable<R>): AsyncStream<[T, R]> {
     return AsyncZipStream.ofPrevious(this, other)
   }
 
-  public limit(limit: number) {
+  public limit(limit: number): AsyncStream<T> {
     return AsyncLimitStream.ofPrevious(this, limit)
   }
 
-  public filter(fn: AsyncFilter<T>) {
+  public filter(fn: AsyncFilter<T>): AsyncStream<T> {
     return AsyncFilterStream.ofPrevious(this, fn)
   }
 
-  public filterNonNull() {
+  public filterNonNull(): AsyncStream<NonNullable<T>> {
     return AsyncFilterStream.ofPrevious(
       this,
       async (x) => x !== null && x !== undefined,
@@ -85,7 +85,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
   public async reduce<R>(
     fn: (acc: R, value: T) => R | Promise<R>,
     initialValue: R | Promise<R>,
-  ) {
+  ): Promise<R> {
     let acc = await initialValue
     for await (const item of this) {
       acc = await fn(acc, item)
@@ -93,25 +93,25 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return acc
   }
 
-  public async sum(fn: T extends number ? void : AsyncProcessor<T, number>) {
+  public async sum(fn: T extends number ? void : AsyncProcessor<T, number>): Promise<number> {
     const add = fn
       ? async (a: number, b: T) => a + (await fn(b))
       : (a: number, b: number) => a + b
     return this.reduce((acc, value) => add(acc, value as T & number), 0)
   }
 
-  public async forEach(fn: AsyncProcessor<T, void>) {
+  public async forEach(fn: AsyncProcessor<T, void>): Promise<AsyncStream<T>> {
     for await (const item of this) {
       fn(item)
     }
     return this
   }
 
-  public distinct() {
+  public distinct(): AsyncStream<T> {
     return AsyncDistinctStream.ofPrevious(this)
   }
 
-  public async find(fn: AsyncFilter<T>) {
+  public async find(fn: AsyncFilter<T>): Promise<T | undefined> {
     for await (const item of this) {
       if (await fn(item)) {
         return item
@@ -120,7 +120,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return undefined
   }
 
-  public async some(fn: AsyncFilter<T>) {
+  public async some(fn: AsyncFilter<T>): Promise<boolean> {
     for await (const item of this) {
       if (await fn(item)) {
         return true
@@ -129,7 +129,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return false
   }
 
-  public async every(fn: AsyncFilter<T>) {
+  public async every(fn: AsyncFilter<T>): Promise<boolean> {
     for await (const item of this) {
       if (!(await fn(item))) {
         return false
@@ -138,19 +138,19 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
     return true
   }
 
-  public join(separator: string) {
+  public join(separator: string): Promise<string> {
     return this.reduce((acc, value) => acc + separator + value, '')
   }
 
-  public concat(...streams: AsyncIterable<T>[]) {
+  public concat(...streams: AsyncIterable<T>[]): AsyncStream<T> {
     return AsyncConcatStream.ofPrevious(this, ...streams)
   }
 
-  public append(...value: T[]) {
+  public append(...value: T[]): AsyncStream<T> {
     return this.concat(AsyncStream.from(value))
   }
 
-  public cache() {
+  public cache(): AsyncStream<T> {
     return AsyncCacheStream.ofPrevious(this)
   }
 }

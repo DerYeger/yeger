@@ -2,7 +2,6 @@ import { existsSync, readFileSync, readdirSync, rmSync } from 'node:fs'
 import { readFile } from 'node:fs/promises'
 import { builtinModules } from 'node:module'
 import path from 'node:path'
-import process from 'node:process'
 
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
@@ -22,13 +21,6 @@ import { log, logError, logWarn } from './logger'
 export * as dts from 'vite-plugin-dts'
 
 const typesDir = 'dist/types'
-
-export const coverage = {
-  enabled: !!process.env.COVERAGE,
-  include: ['src/**/*.*'],
-  exclude: ['*.d.ts', '*.ohm', '.gitignore'],
-  provider: 'v8' as const,
-}
 
 export interface CommonOptions {
   verbose: boolean
