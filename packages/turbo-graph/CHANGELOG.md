@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 2.3.9
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+  - @yeger/turbo-graph-ui@2.8.1
+
 ## 2.3.8
 
 ### Patch Changes

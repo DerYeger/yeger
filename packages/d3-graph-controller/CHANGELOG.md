@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.1.5
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+- Updated dependencies [3684aaf]
+  - @yeger/debounce@2.0.16
+  - vecti@3.1.4
+
 ## 3.1.4
 
 ### Patch Changes

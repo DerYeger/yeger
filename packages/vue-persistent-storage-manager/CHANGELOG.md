@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.19
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 3.0.18
 
 ### Patch Changes

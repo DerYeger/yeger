@@ -1,5 +1,11 @@
 # @yeger/playwright-config
 
+## 0.0.2
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 0.0.1
 
 ### Patch Changes

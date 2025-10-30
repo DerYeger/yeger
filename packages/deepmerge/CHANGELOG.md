@@ -1,5 +1,11 @@
 # @yeger/deepmerge
 
+## 2.0.16
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 2.0.15
 
 ### Patch Changes

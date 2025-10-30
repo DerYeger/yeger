@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.14
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 1.0.13
 
 ### Patch Changes

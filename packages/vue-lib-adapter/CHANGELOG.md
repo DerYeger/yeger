@@ -1,5 +1,11 @@
 # @yeger/vue-lib-adapter
 
+## 2.0.15
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 2.0.14
 
 ### Patch Changes
