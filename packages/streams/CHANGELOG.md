@@ -1,5 +1,15 @@
 # @yeger/streams
 
+## 2.0.0
+
+### Major Changes
+
+- 3684aaf: remove Stream.toAsync
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 1.4.0
 
 ### Minor Changes

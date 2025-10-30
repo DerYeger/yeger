@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.20
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+- Updated dependencies [3684aaf]
+  - @yeger/vue-lib-adapter@2.0.15
+  - @yeger/debounce@2.0.16
+
 ## 5.0.19
 
 ### Patch Changes

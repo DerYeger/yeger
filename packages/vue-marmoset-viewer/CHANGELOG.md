@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.21
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+- Updated dependencies [3684aaf]
+  - @yeger/debounce@2.0.16
+
 ## 4.0.20
 
 ### Patch Changes

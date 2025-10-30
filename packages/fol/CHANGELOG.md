@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.3
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+- Updated dependencies [3684aaf]
+  - resumon@2.1.3
+
 ## 1.1.2
 
 ### Patch Changes

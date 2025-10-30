@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.18
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 2.0.17
 
 ### Patch Changes

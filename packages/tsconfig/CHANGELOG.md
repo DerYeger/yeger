@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 2.1.2
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 2.1.1
 
 ### Patch Changes

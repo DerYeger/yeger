@@ -1,5 +1,15 @@
 # vite-plugin-lib
 
+## 4.0.0
+
+### Major Changes
+
+- 3684aaf: remove vitest coverage preset
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 3.0.4
 
 ### Patch Changes

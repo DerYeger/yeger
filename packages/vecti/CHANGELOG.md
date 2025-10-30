@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.4
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 3.1.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.8
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+
 ## 3.0.7
 
 ### Patch Changes

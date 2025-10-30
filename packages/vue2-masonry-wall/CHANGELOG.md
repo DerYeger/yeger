@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall
 
+## 5.1.3
+
+### Patch Changes
+
+- 3684aaf: build with isolatedDeclarations
+- Updated dependencies [3684aaf]
+  - @yeger/vue-masonry-wall-core@5.0.20
+
 ## 5.1.2
 
 ### Patch Changes
