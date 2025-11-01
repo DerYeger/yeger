@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.19.0",
+  "packageManager": "pnpm@10.20.0",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
@@ -57,7 +57,7 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.5.8",
+    "turbo": "2.6.0",
     "vercel": "catalog:",
     "vitest": "catalog:"
   },
