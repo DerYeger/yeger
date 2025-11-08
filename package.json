@@ -19,7 +19,6 @@
     "dev": "nr turbo run dev --parallel",
     "e2e": "nr turbo e2e",
     "fix": "nr turbo run lint lint:root -- --fix",
-    "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=@yeger/scripts... && generate-readme",
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
@@ -33,7 +32,6 @@
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run check:tsc check:vue",
     "update": "taze -l -r -w --exclude @vue/test-utils,vue",
-    "vercel": "vercel",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"
   },
@@ -42,7 +40,6 @@
     "@changesets/cli": "catalog:",
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
-    "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
@@ -54,8 +51,7 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.6.0",
-    "vercel": "catalog:"
+    "turbo": "2.6.0"
   },
   "pnpm": {
     "overrides": {
@@ -64,7 +60,7 @@
     "packageExtensions": {
       "vue-template-compiler": {
         "peerDependencies": {
-          "vue": "catalog:vue2"
+          "vue": "2.7.16"
         }
       }
     },
