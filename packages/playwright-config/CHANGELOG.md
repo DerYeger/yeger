@@ -1,5 +1,11 @@
 # @yeger/playwright-config
 
+## 0.0.3
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 0.0.2
 
 ### Patch Changes

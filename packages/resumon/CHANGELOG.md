@@ -1,5 +1,11 @@
 # resumon
 
+## 2.1.4
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 2.1.3
 
 ### Patch Changes

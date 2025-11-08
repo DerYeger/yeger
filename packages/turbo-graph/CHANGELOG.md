@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 2.3.10
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+  - @yeger/turbo-graph-ui@2.8.1
+
 ## 2.3.9
 
 ### Patch Changes

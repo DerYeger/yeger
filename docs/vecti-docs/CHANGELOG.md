@@ -1,5 +1,12 @@
 # vecti-docs
 
+## 2.0.19
+
+### Patch Changes
+
+- Updated dependencies [fccce5b]
+  - vecti@3.1.5
+
 ## 2.0.18
 
 ### Patch Changes

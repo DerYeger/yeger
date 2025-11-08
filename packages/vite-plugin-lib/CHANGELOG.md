@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 4.0.1
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 4.0.0
 
 ### Major Changes

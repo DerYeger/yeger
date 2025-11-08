@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.4
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+- Updated dependencies [fccce5b]
+  - resumon@2.1.4
+
 ## 1.1.3
 
 ### Patch Changes

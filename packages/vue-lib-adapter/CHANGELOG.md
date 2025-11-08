@@ -1,5 +1,11 @@
 # @yeger/vue-lib-adapter
 
+## 2.0.16
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 2.0.15
 
 ### Patch Changes
