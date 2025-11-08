@@ -26,15 +26,15 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./default.css": {
       "import": "./default.css"
     }
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "files": [
     "default.css",
     "dist"
@@ -62,11 +62,15 @@
     "@types/d3-zoom": "catalog:",
     "@types/resize-observer-browser": "catalog:",
     "@vitest/browser-playwright": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
+    "publint": "catalog:",
     "tsdown": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "vitest": "catalog:"
   },
   "publishConfig": {
     "access": "public"

@@ -44,8 +44,6 @@
     "@commitlint/config-conventional": "catalog:",
     "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
-    "@vitest/ui": "catalog:",
     "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
@@ -53,13 +51,11 @@
     "eslint": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
-    "publint": "catalog:",
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
     "turbo": "2.6.0",
-    "vercel": "catalog:",
-    "vitest": "catalog:"
+    "vercel": "catalog:"
   },
   "pnpm": {
     "overrides": {

@@ -24,12 +24,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "files": [
     "LICENSE",
     "dist"
@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
+    "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"

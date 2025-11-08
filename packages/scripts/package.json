@@ -19,12 +19,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "bin": {
     "generate-readme": "bin/generate-readme.js"
   },
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
+    "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
   },

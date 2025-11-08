@@ -13,5 +13,8 @@
   "scripts": {
     "check:publish": "publint run --strict",
     "lint": "yeger-lint"
+  },
+  "devDependencies": {
+    "publint": "catalog:"
   }
 }

@@ -11409,6 +11409,17 @@
       16.336995299999998
     ]
   },
+  "Lammaschgasse": {
+    "name": "Lammaschgasse",
+    "stops": [
+      8170,
+      8171
+    ],
+    "location": [
+      48.273337350000006,
+      16.441433449999998
+    ]
+  },
   "Landesgerichtsstraße": {
     "name": "Landesgerichtsstraße",
     "stops": [
@@ -11574,12 +11585,11 @@
     "name": "Lassallestraße",
     "stops": [
       7,
-      648,
-      7428
+      648
     ],
     "location": [
-      48.22222233333333,
-      16.399604866666667
+      48.22169165,
+      16.398017850000002
     ]
   },
   "Laudongasse": {
@@ -21499,11 +21509,12 @@
     "name": "Vorgartenstraße U",
     "stops": [
       597,
-      649
+      649,
+      7427
     ],
     "location": [
-      48.224402850000004,
-      16.40145395
+      48.224029800000004,
+      16.4018956
     ]
   },
   "Vorgartenstraße": {

@@ -30,12 +30,12 @@
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     }
   },
-  "types": "dist/index.d.ts",
+  "types": "dist/index.d.mts",
   "files": [
     "dist"
   ],
@@ -53,12 +53,16 @@
     "@testing-library/react": "catalog:",
     "@types/react": "catalog:",
     "@vitest/browser-playwright": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
     "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
+    "publint": "catalog:",
     "react": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
+    "vitest": "catalog:",
     "vue": "catalog:"
   },
   "publishConfig": {

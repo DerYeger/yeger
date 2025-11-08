@@ -68,6 +68,7 @@
     "next": "catalog:",
     "nuqs": "catalog:",
     "postcss": "catalog:",
+    "publint": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",
     "reactflow": "catalog:",

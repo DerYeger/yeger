@@ -36,7 +36,7 @@
     "check:publish": "publint run --strict",
     "dev": "tsdown --watch",
     "lint": "yeger-lint",
-    "preview": "node dist/index.js"
+    "preview": "node dist/index.mjs"
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",
@@ -48,6 +48,7 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
+    "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
   },
