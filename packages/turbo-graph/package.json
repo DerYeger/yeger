@@ -48,6 +48,7 @@
   "devDependencies": {
     "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
+    "@yeger/vitest-utils": "workspace:*",
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"

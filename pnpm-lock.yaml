@@ -1302,6 +1302,9 @@ importers:
       '@yeger/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
+      '@yeger/vitest-utils':
+        specifier: workspace:*
+        version: link:../vitest-utils
       publint:
         specifier: 'catalog:'
         version: 0.3.15
