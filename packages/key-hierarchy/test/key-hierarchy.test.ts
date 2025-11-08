@@ -296,6 +296,7 @@ describe('defineKeyHierarchy', () => {
         })
       })
 
+      // oxlint-disable-next-line no-conditional-tests
       if (freeze) {
         describe('immutability', () => {
           it('__key is frozen', () => {
@@ -327,7 +328,7 @@ describe('defineKeyHierarchy', () => {
             const newUserName = `${user.name}-new`
             const key = keys.posts.byUser(user).delete
             // @ts-expect-error We know that user is readonly
-            expect(() => key[1][1].name = newUserName).toThrowError()
+            expect(() => key[1][1].name = newUserName).toThrowError(TypeError)
             expect(user, 'User was mutated').toStrictEqual(TEST_USER)
             // Original argument is not frozen
             expect(() => user.name = newUserName).not.toThrowError()
@@ -339,7 +340,7 @@ describe('defineKeyHierarchy', () => {
             const newTag = `${tags[0]}-new`
             const key = keys.posts.byTags({ tags })
             // @ts-expect-error We know that tags are readonly
-            expect(() => key[1][1].tags[0] = newTag).toThrowError()
+            expect(() => key[1][1].tags[0] = newTag).toThrowError(TypeError)
             expect(tags, 'Tags were mutated').toStrictEqual(TEST_TAGS)
             // Original argument is not frozen
             expect(() => tags[0] = newTag).not.toThrowError()

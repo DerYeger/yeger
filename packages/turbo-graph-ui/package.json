@@ -37,7 +37,7 @@
     "build": "next build",
     "check:publish": "publint run --strict",
     "dev": "next dev",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "next start"
   },
   "peerDependencies": {
@@ -50,6 +50,7 @@
     "@tanstack/react-query": "catalog:",
     "@types/d3-scale": "catalog:",
     "@types/d3-scale-chromatic": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
@@ -61,7 +62,6 @@
     "clsx": "catalog:",
     "d3-dag": "catalog:",
     "d3-scale": "catalog:",
-    "eslint-config-next": "catalog:",
     "execa": "catalog:",
     "jsonc-parser": "catalog:",
     "lucide-react": "catalog:",

@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import flushPromises from 'flush-promises'
 import { expect, vi } from 'vitest'
 import type { VueConstructor } from 'vue'

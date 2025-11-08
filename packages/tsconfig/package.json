@@ -12,9 +12,10 @@
   ],
   "scripts": {
     "check:publish": "publint run --strict",
-    "lint": "yeger-lint"
+    "lint": "oxlint"
   },
   "devDependencies": {
-    "publint": "catalog:"
+    "publint": "catalog:",
+        "@yeger/oxlint-config": "workspace:*"
   }
 }

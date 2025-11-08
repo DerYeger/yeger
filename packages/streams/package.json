@@ -46,13 +46,14 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc --noEmit",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
     "@yeger/tsconfig": "workspace:*",
+        "@yeger/oxlint-config": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
     "publint": "catalog:",
     "tsdown": "catalog:",

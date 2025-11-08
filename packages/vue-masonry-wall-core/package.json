@@ -34,7 +34,7 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint"
+    "lint": "oxlint"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*",
@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "@types/resize-observer-browser": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "publint": "catalog:",
     "tsdown": "catalog:",

@@ -41,7 +41,7 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "peerDependencies": {
@@ -49,6 +49,7 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "@vitest/ui": "catalog:",
     "@vue/test-utils": "catalog:vue2",
     "@yeger/tsconfig": "workspace:*",

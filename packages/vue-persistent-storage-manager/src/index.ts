@@ -103,7 +103,7 @@ export class VuePersistentStorageManager {
     if (typeof localStorage === 'undefined') {
       return
     }
-    // eslint-disable-next-line ts/no-this-alias
+    // oxlint-disable-next-line no-this-alias
     const self = this
     if (typeof localStorage.originalSetItem === 'undefined') {
       localStorage.originalSetItem = localStorage.setItem

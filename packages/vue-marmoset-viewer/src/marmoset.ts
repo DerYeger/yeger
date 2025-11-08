@@ -87,7 +87,6 @@ export declare interface Marmoset {
   noUserInterface?: boolean
 }
 
-// eslint-disable-next-line ts/no-namespace
 export declare namespace Marmoset {
   export class WebViewer {
     /**

@@ -40,7 +40,7 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "peerDependencies": {
@@ -54,6 +54,7 @@
     "@vitest/ui": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
+        "@yeger/oxlint-config": "workspace:*",
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",

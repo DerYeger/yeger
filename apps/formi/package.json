@@ -9,7 +9,7 @@
     "dev": "nuxt dev",
     "e2e": "playwright test",
     "generate": "nuxt generate",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "nuxi": "nuxi",
     "postinstall": "nuxt prepare",
     "preview": "nuxt preview"
@@ -39,6 +39,7 @@
     "@vite-pwa/nuxt": "catalog:",
     "@vue/shared": "catalog:",
     "@vueuse/nuxt": "catalog:",
+    "@yeger/oxlint-config": "workspace:*",
     "@yeger/playwright-config": "workspace:*",
     "node-fetch-native": "catalog:",
     "nuxt": "catalog:",

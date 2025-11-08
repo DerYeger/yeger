@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import { afterEach, describe, expect, it } from 'vitest'
 
 import type { Options } from '../src/index'

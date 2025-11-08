@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "build": "vite-ssg build",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "vite preview",
     "check:tsc": "tsc"
   },
@@ -16,6 +16,7 @@
     "critters": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "catalog:",
     "vue": "catalog:",

@@ -7,7 +7,7 @@
     "build": "vitepress build",
     "check:vue": "vue-tsc",
     "dev": "vitepress dev",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "vitepress serve"
   },
   "dependencies": {
@@ -20,12 +20,10 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
     "unplugin-vue-components": "catalog:",
+    "@yeger/oxlint-config": "workspace:*",
     "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "catalog:",
     "vue-tsc": "catalog:"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

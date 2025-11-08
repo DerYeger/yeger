@@ -38,7 +38,7 @@
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
-    "lint": "yeger-lint"
+    "lint": "oxlint"
   },
   "peerDependencies": {
     "typescript": "*",
@@ -51,6 +51,7 @@
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "publint": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:"

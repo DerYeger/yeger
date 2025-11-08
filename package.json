@@ -18,13 +18,13 @@
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
     "e2e": "nr turbo e2e",
-    "fix": "nr turbo run lint lint:root -- --fix",
+    "fix": "nr turbo run lint lint:root -- --fix --fix-suggestions",
     "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=@yeger/scripts... && generate-readme",
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
     "lint": "nr turbo run lint lint:root",
-    "lint:root": "eslint \"{.changeset,.github,.husky,.vscode,turbo}/**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
+    "lint:root": "oxlint \"{.changeset,.github,.husky,.vscode}/**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}\" \"./*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}\"",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "syncpack:fix": "syncpack fix-mismatches",
@@ -44,13 +44,13 @@
     "@commitlint/config-conventional": "catalog:",
     "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
-    "@yeger/eslint-config": "workspace:*",
+    "@yeger/oxlint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "catalog:",
-    "eslint": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
+    "oxlint": "catalog:",
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
@@ -79,6 +79,6 @@
     ]
   },
   "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
+    "*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,vue,astro,svelte}": "oxlint"
   }
 }

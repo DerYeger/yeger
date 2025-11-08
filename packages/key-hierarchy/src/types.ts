@@ -72,7 +72,6 @@ export type KeyHierarchyConfig<T> =
     ? DynamicExtendableSegment<Arg>
     : T[K] extends DynamicExtendedSegment<infer Arg, infer U>
     ? DynamicExtendedSegment<Arg, U>
-    // eslint-disable-next-line ts/no-unsafe-function-type
     : T[K] extends Function
     ? never
     : T[K] extends object
@@ -107,7 +106,6 @@ export interface KeyHierarchyOptions {
  */
 export type DeepReadonly<T> =
   T extends (infer R)[] ? DeepReadonlyArray<R> :
-  // eslint-disable-next-line ts/no-unsafe-function-type
   T extends Function ? T :
   T extends object ? DeepReadonlyObject<T> :
   T

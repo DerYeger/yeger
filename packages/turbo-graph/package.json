@@ -35,7 +35,7 @@
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "node dist/index.mjs"
   },
   "dependencies": {
@@ -49,6 +49,7 @@
     "@types/node": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
+        "@yeger/oxlint-config": "workspace:*",
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"

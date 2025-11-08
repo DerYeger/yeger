@@ -43,7 +43,7 @@
     "check:publish": "publint run --strict",
     "check:vue": "vue-tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "peerDependencies": {
@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "@types/resize-observer-browser": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "@vitejs/plugin-vue": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",

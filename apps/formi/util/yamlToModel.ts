@@ -93,7 +93,7 @@ function jsonModelToModel(jsonModel: JsonModel): Result<Model, string> {
   )
 
   const model = new Model(
-    new Set([...domain]),
+    new Set(domain),
     jsonModel.constants ?? {},
     functions,
     relations,

@@ -22,15 +22,13 @@ export function convertGraph(graph: TurboGraph) {
 
 function createHierarchy(graph: TurboGraph) {
   const stratify = graphStratify()
-  return stratify([
-    ...graph.nodes.map((node) => ({
+  return stratify(graph.nodes.map((node) => ({
       ...node,
       id: node.id,
       parentIds: graph.edges
         .filter((edge) => edge.target === node.id)
         .map(({ source }) => source),
-    })),
-  ])
+    })))
 }
 function getLongestLineLength({ nodes }: TurboGraph) {
   const length = Math.max(

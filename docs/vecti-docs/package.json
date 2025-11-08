@@ -6,7 +6,7 @@
   "scripts": {
     "build": "vitepress build",
     "dev": "vitepress dev",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "vitepress serve"
   },
   "dependencies": {
@@ -17,6 +17,7 @@
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "catalog:"

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import { Icon } from '@iconify/react'
 import type {
   GetStaticPaths,
@@ -80,7 +79,7 @@ const DepartureListItem: FC<{ departure: Departure }> = ({ departure }) => {
   }
 
   return (
-    <div className="flex h-[40px] items-center justify-between">
+    <div className="flex h-10 items-center justify-between">
       <div className="flex flex-col">
         {departureTime()}
         {delay !== 0 && (

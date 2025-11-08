@@ -8,7 +8,7 @@
     "codegen": "tsx scripts/generate-stations.ts",
     "dev": "next dev",
     "e2e": "playwright test",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "preview": "next start"
   },
   "dependencies": {
@@ -43,15 +43,12 @@
     "@yeger/playwright-config": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "catalog:",
-    "eslint-config-next": "catalog:",
     "node-fetch": "catalog:",
     "postcss": "catalog:",
+    "@yeger/oxlint-config": "workspace:*",
     "rimraf": "catalog:",
     "tailwindcss": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

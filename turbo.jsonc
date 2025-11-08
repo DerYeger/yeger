@@ -91,14 +91,10 @@
     },
     "lint": {
       "dependsOn": [
-        "@yeger/eslint-config#build",
         "^build"
       ]
     },
     "//#lint:root": {
-      "dependsOn": [
-        "@yeger/eslint-config#build"
-      ],
       "inputs": [
         "./*",
         ".vscode/**",

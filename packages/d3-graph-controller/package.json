@@ -44,7 +44,7 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "dependencies": {
@@ -64,6 +64,7 @@
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",

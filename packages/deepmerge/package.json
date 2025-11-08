@@ -26,11 +26,12 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint"
+    "lint": "oxlint"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "publint": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "tsdown": "catalog:",
     "typescript": "catalog:"
   }

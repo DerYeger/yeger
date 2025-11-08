@@ -44,7 +44,7 @@
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -62,13 +62,11 @@
     "react": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "vitest": "catalog:",
     "vue": "catalog:"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

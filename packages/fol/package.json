@@ -36,7 +36,7 @@
     "check:tsc": "tsc",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
+    "lint": "oxlint",
     "test": "vitest"
   },
   "dependencies": {
@@ -52,6 +52,7 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
+        "@yeger/oxlint-config": "workspace:*",
     "vitest": "catalog:"
   },
   "publishConfig": {
