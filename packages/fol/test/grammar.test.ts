@@ -10,12 +10,9 @@ describe('FOL grammar', () => {
     // console.log(FOL.parse(formula))
   })
 
-  it.each(TestData.invalidFormulas)(
-    'does not parse invalid formula "%s"',
-    (formula) => {
-      const result = FOL.match(formula)
-      expect(result.failed(), result.message).toBe(true)
-      // console.log(result.message)
-    },
-  )
+  it.each(TestData.invalidFormulas)('does not parse invalid formula "%s"', (formula) => {
+    const result = FOL.match(formula)
+    expect(result.failed(), result.message).toBe(true)
+    // console.log(result.message)
+  })
 })

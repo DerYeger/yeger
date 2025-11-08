@@ -40,11 +40,7 @@ export function defineLink<
   T extends NodeTypeToken = NodeTypeToken,
   SourceNode extends GraphNode<T> = GraphNode<T>,
   TargetNode extends GraphNode<T> = SourceNode,
-  Link extends GraphLink<T, SourceNode, TargetNode> = GraphLink<
-    T,
-    SourceNode,
-    TargetNode
-  >,
+  Link extends GraphLink<T, SourceNode, TargetNode> = GraphLink<T, SourceNode, TargetNode>,
 >(data: Link): Link {
   return {
     ...data,

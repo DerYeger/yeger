@@ -29,9 +29,7 @@ describe('sync streams', () => {
         continue
       }
       count++
-      forOfResult += TestUtils.fibonacci(
-        Number.parseInt(`${item * 2}.5`, 10) % 20,
-      )
+      forOfResult += TestUtils.fibonacci(Number.parseInt(`${item * 2}.5`, 10) % 20)
       if (count === TestUtils.limit) {
         break
       }
@@ -94,9 +92,7 @@ describe('sync streams', () => {
   })
 
   it('can filter duplicates', () => {
-    const streamResult = Stream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
-      .distinct()
-      .toArray()
+    const streamResult = Stream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]).distinct().toArray()
     expect(streamResult).toEqual([1, 2, 3, 4])
   })
 
@@ -120,25 +116,17 @@ describe('sync streams', () => {
     expect(called).toBe(1)
   })
 
-    it('can check some', () => {
-      const streamResultTrue = Stream.from([1, 2, 3, 4, 5]).some(
-        (x) => x % 2 === 0,
-      )
-      const streamResultFalse = Stream.from([1, 3, 5]).some(
-        (x) => x % 2 === 0,
-      )
-      expect(streamResultTrue).toBe(true)
-      expect(streamResultFalse).toBe(false)
-    })
+  it('can check some', () => {
+    const streamResultTrue = Stream.from([1, 2, 3, 4, 5]).some((x) => x % 2 === 0)
+    const streamResultFalse = Stream.from([1, 3, 5]).some((x) => x % 2 === 0)
+    expect(streamResultTrue).toBe(true)
+    expect(streamResultFalse).toBe(false)
+  })
 
-    it('can check every', () => {
-      const streamResultTrue = Stream.from([2, 4, 6]).every(
-        (x) => x % 2 === 0,
-      )
-      const streamResultFalse = Stream.from([1, 2, 3]).every(
-        (x) => x % 2 === 0,
-      )
-      expect(streamResultTrue).toBe(true)
-      expect(streamResultFalse).toBe(false)
-    })
+  it('can check every', () => {
+    const streamResultTrue = Stream.from([2, 4, 6]).every((x) => x % 2 === 0)
+    const streamResultFalse = Stream.from([1, 2, 3]).every((x) => x % 2 === 0)
+    expect(streamResultTrue).toBe(true)
+    expect(streamResultFalse).toBe(false)
+  })
 })

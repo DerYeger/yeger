@@ -35,27 +35,18 @@ describe('FOL semantics', () => {
     ['(ff || tt) && tt', true],
   ])('evaluates "%s" to %b', (formula, expected) => {
     expect(FOL.evaluate(TestData.testModel, formula).get()).toBe(expected)
-    const trace = FOL.traceEvaluation(
-      'lazy',
-      expected,
-      TestData.testModel,
-      formula,
-    ).get()
+    const trace = FOL.traceEvaluation('lazy', expected, TestData.testModel, formula).get()
     expect(trace.actual).toBe(expected)
     expect(trace.expected).toBe(expected)
   })
 
   describe('evaluates correctly', () => {
     it('negative existential quantors', () => {
-      expect(
-        FOL.evaluate(TestData.testModel, 'exists x. MyRelation(x,x)').get(),
-      ).toBe(false)
+      expect(FOL.evaluate(TestData.testModel, 'exists x. MyRelation(x,x)').get()).toBe(false)
     })
 
     it('negative universal quantors', () => {
-      expect(
-        FOL.evaluate(TestData.testModel, 'forall x. MyRelation(x,x)').get(),
-      ).toBe(false)
+      expect(FOL.evaluate(TestData.testModel, 'forall x. MyRelation(x,x)').get()).toBe(false)
     })
   })
 
@@ -68,12 +59,7 @@ describe('FOL semantics', () => {
     })
 
     describe('on missing functions', () => {
-      const model = new Model(
-        new Set([1]),
-        { a: 1 },
-        [new Function('f', 1, {})],
-        [],
-      )
+      const model = new Model(new Set([1]), { a: 1 }, [new Function('f', 1, {})], [])
 
       it('if function is missing', () => {
         expect(FOL.evaluate(model, 'g(a) = a').getErrorOrUndefined()).toEqual(

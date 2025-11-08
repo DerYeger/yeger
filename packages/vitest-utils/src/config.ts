@@ -41,7 +41,11 @@ export interface ConfigurationOptions {
 /**
  * Define a Vitest test configuration with coverage, idempotent settings, and browser support.
  */
-export function defineTestConfig({ coverage = true, idempotent = true, browser }: ConfigurationOptions = {}): TestUserConfig {
+export function defineTestConfig({
+  coverage = true,
+  idempotent = true,
+  browser,
+}: ConfigurationOptions = {}): TestUserConfig {
   const config: TestUserConfig = {}
 
   if (coverage) {

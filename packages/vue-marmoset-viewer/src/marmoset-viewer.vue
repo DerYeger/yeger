@@ -74,11 +74,7 @@ export default defineComponent({
   },
   methods: {
     loadViewer() {
-      this.viewer = new window.marmoset.WebViewer(
-        this.width,
-        this.height,
-        this.src,
-      )
+      this.viewer = new window.marmoset.WebViewer(this.width, this.height, this.src)
       this.viewerHost.appendChild(this.viewer.domRoot)
       this.viewer.onLoad = () => this.$emit('load')
       if (this.responsive) {
@@ -103,10 +99,7 @@ export default defineComponent({
     },
     onResize() {
       try {
-        this.viewer?.resize(
-          this.viewerHost.clientWidth,
-          this.viewerHost.clientHeight,
-        )
+        this.viewer?.resize(this.viewerHost.clientWidth, this.viewerHost.clientHeight)
       } catch {
         // marmoset.js throws a typeError on resize
       }

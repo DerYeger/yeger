@@ -14,7 +14,11 @@ export function Graph({ tasks }: { tasks: string[] }) {
   })
 
   if (isLoading) {
-    return <div className="flex size-full items-center justify-center p-4 pl-(--sidebar-width)"><span className="text-sm text-neutral-400">Loading graph…</span></div>
+    return (
+      <div className="flex size-full items-center justify-center p-4 pl-(--sidebar-width)">
+        <span className="text-sm text-neutral-400">Loading graph…</span>
+      </div>
+    )
   }
   if (error) {
     return (

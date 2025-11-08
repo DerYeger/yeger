@@ -1,6 +1,5 @@
 {
   "name": "@yeger/tsconfig",
-  "type": "module",
   "version": "2.1.2",
   "private": true,
   "description": "",
@@ -10,9 +9,9 @@
     "lib.json",
     "next.json"
   ],
+  "type": "module",
   "scripts": {
-    "check:publish": "publint run --strict",
-    "lint": "yeger-lint"
+    "check:publish": "publint run --strict"
   },
   "devDependencies": {
     "publint": "catalog:"

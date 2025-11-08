@@ -41,20 +41,14 @@ const semantics: FOLSemantics = grammar
       return new ConstantTerm(parsedName)
     },
     Function(name, _leftParen, terms, _rightParen) {
-      return new FunctionTerm(
-        name.parseString(),
-        terms.parseTermList(this.args.boundVariables),
-      )
+      return new FunctionTerm(name.parseString(), terms.parseTermList(this.args.boundVariables))
     },
   })
   .addOperation<Term[]>('parseTermList(boundVariables)', {
     TermList(terms) {
       return terms
         .asIteration()
-        .children
-        .map((term: NonterminalNode) =>
-          term.parseTerm(this.args.boundVariables),
-        )
+        .children.map((term: NonterminalNode) => term.parseTerm(this.args.boundVariables))
     },
   })
   .addOperation<Formula>('parseFormula(boundVariables)', {
@@ -83,40 +77,23 @@ const semantics: FOLSemantics = grammar
       )
     },
     UnaryFormula_paren(_leftParen, inner, _rightParen) {
-      return new ParenthesizedFormula(
-        inner.parseFormula(this.args.boundVariables),
-      )
+      return new ParenthesizedFormula(inner.parseFormula(this.args.boundVariables))
     },
     UnaryFormula_not(_not, inner) {
       return new NotFormula(inner.parseFormula(this.args.boundVariables))
     },
     UnaryFormula_universal(_quantor, variable, _dot, inner) {
       const parsedVariable = variable.parseVariable(this.args.boundVariables)
-      const newBoundVariables = new Set([
-        ...this.args.boundVariables,
-        parsedVariable.name,
-      ])
-      return new UniversalQuantorFormula(
-        parsedVariable,
-        inner.parseFormula(newBoundVariables),
-      )
+      const newBoundVariables = new Set([...this.args.boundVariables, parsedVariable.name])
+      return new UniversalQuantorFormula(parsedVariable, inner.parseFormula(newBoundVariables))
     },
     UnaryFormula_existential(_quantor, variable, _dot, inner) {
       const parsedVariable = variable.parseVariable(this.args.boundVariables)
-      const newBoundVariables = new Set([
-        ...this.args.boundVariables,
-        parsedVariable.name,
-      ])
-      return new ExistentialQuantorFormula(
-        parsedVariable,
-        inner.parseFormula(newBoundVariables),
-      )
+      const newBoundVariables = new Set([...this.args.boundVariables, parsedVariable.name])
+      return new ExistentialQuantorFormula(parsedVariable, inner.parseFormula(newBoundVariables))
     },
     Relation_regular(name, _leftParen, terms, _rightParen) {
-      return new RelationFormula(
-        name.parseString(),
-        terms.parseTermList(this.args.boundVariables),
-      )
+      return new RelationFormula(name.parseString(), terms.parseTermList(this.args.boundVariables))
     },
     Relation_equality(firstTerm, _equality, secondTerm) {
       return new EqualityRelationFormula(

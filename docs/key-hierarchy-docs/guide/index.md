@@ -31,8 +31,8 @@ const keys = defineKeyHierarchy((dynamic) => ({
 }))
 
 // Type-safe, consistent keys
-keys.users.getAll           // ['users', 'getAll']
-keys.users.byId(123).get    // ['users', ['byId', 123], 'get']
+keys.users.getAll // ['users', 'getAll']
+keys.users.byId(123).get // ['users', ['byId', 123], 'get']
 ```
 
 ## Key Benefits

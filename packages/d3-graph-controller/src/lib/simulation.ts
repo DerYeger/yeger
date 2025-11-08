@@ -1,11 +1,4 @@
-import {
-  forceCollide,
-  forceLink,
-  forceManyBody,
-  forceSimulation,
-  forceX,
-  forceY,
-} from 'd3-force'
+import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY } from 'd3-force'
 import type { Vector } from 'vecti'
 
 import type { GraphConfig } from '../config/config'
@@ -48,10 +41,7 @@ export function defineSimulation<
 
   const chargeForce = config.simulation.forces.charge
   if (chargeForce && chargeForce.enabled) {
-    simulation.force(
-      'charge',
-      forceManyBody<Node>().strength(chargeForce.strength),
-    )
+    simulation.force('charge', forceManyBody<Node>().strength(chargeForce.strength))
   }
 
   const collisionForce = config.simulation.forces.collision

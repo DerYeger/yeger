@@ -22,10 +22,9 @@ export type NodeModifier<T extends NodeTypeToken, Node extends GraphNode<T>> = (
 /**
  * Modifier for node labels.
  */
-export type NodeLabelModifier<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = (selection: Selection<SVGTextElement, Node, SVGGElement, undefined>) => void
+export type NodeLabelModifier<T extends NodeTypeToken, Node extends GraphNode<T>> = (
+  selection: Selection<SVGTextElement, Node, SVGGElement, undefined>,
+) => void
 
 /**
  * Modifier for link paths.

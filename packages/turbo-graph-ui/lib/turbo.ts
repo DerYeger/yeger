@@ -39,13 +39,9 @@ async function executeCommand(
         args.push(`--filter=${part.trim()}`)
       }
     }
-    const { stdout } = await execa(
-      `node_modules${path.sep}.bin${path.sep}turbo`,
-      args,
-      {
-        cwd: dir,
-      },
-    )
+    const { stdout } = await execa(`node_modules${path.sep}.bin${path.sep}turbo`, args, {
+      cwd: dir,
+    })
     return ok(stdout)
   } catch (error) {
     return err(error as Error)
@@ -116,12 +112,14 @@ function createGraph(input: string, rootPackageName: string): TurboGraph {
   }
 
   const data = JSON.parse(input) as TurboCLIJson
-  const tasks = data.tasks.filter(({ command }) => command !== '<NONEXISTENT>').map((task) => ({
-    ...task,
-    // Align task id with turbo CLI format
-    taskId: task.package !== undefined ? `${getPackageName(task)}:${task.task}` : task.task,
-    dependencies: task.dependencies.map((dependency) => dependency.replace('#', ':')),
-  }))
+  const tasks = data.tasks
+    .filter(({ command }) => command !== '<NONEXISTENT>')
+    .map((task) => ({
+      ...task,
+      // Align task id with turbo CLI format
+      taskId: task.package !== undefined ? `${getPackageName(task)}:${task.task}` : task.task,
+      dependencies: task.dependencies.map((dependency) => dependency.replace('#', ':')),
+    }))
 
   const nodes: TurboNode[] = tasks.map((task) => ({
     id: task.taskId,
@@ -156,9 +154,7 @@ export async function getAllTasks() {
     packages.push(rootPackage)
   }
   const tasks = await Promise.all(packages.map(getPackageTasks))
-  return [...new Set(tasks.flat())]
-    .map((t) => t.replace('//#', ''))
-    .toSorted()
+  return [...new Set(tasks.flat())].map((t) => t.replace('//#', '')).toSorted()
 }
 
 async function getPackageTasks({ dir: packageDir }: Package) {

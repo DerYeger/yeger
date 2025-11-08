@@ -11,9 +11,7 @@ const { trace, level, maxDepth, isRootMismatched } = toRefs(props)
 
 const children = computed(() => trace.value.children())
 const isMismatched = computed(() => trace.value.actual !== trace.value.expected)
-const expanded = ref(
-  isRootMismatched.value ? isMismatched.value : !isMismatched.value,
-)
+const expanded = ref(isRootMismatched.value ? isMismatched.value : !isMismatched.value)
 
 const borderBreakpoints = [1, 3, 5] as const
 </script>

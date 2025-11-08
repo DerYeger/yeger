@@ -7,7 +7,7 @@ import lib from '../lib'
 import stations from '../stations'
 
 export const getStaticProps: GetStaticProps<{
-  stations: { name: string, stops: number[], location?: [number, number] }[]
+  stations: { name: string; stops: number[]; location?: [number, number] }[]
 }> = async () => {
   return {
     props: {
@@ -17,11 +17,9 @@ export const getStaticProps: GetStaticProps<{
   }
 }
 
-const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  stations,
-}) => {
+const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ stations }) => {
   const router = useRouter()
-  const markers = useMemo<{ name: string, location: [number, number] }[]>(
+  const markers = useMemo<{ name: string; location: [number, number] }[]>(
     () =>
       stations
         ?.filter((station) => station.location)
@@ -46,8 +44,7 @@ const MapPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 title={name}
                 key={name}
                 eventHandlers={{
-                  click: () =>
-                    router.push(`/stations/${lib.encodeStationName(name)}`),
+                  click: () => router.push(`/stations/${lib.encodeStationName(name)}`),
                 }}
               />
             ))}

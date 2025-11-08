@@ -67,10 +67,7 @@ export default defineComponent({
 <template>
   <div id="app">
     <DemoHeader />
-    <main
-      ref="scrollContainer"
-      :class="{ 'scroll-container': useScrollContainer }"
-    >
+    <main ref="scrollContainer" :class="{ 'scroll-container': useScrollContainer }">
       <DemoTools
         :column-width="columnWidth"
         :gap="gap"
@@ -105,12 +102,8 @@ export default defineComponent({
           >
             <p>Index {{ index }}</p>
             <p>{{ `(${column + 1}/${columnCount}, ${row})` }}</p>
-            <p style="text-align: center">
-              Height {{ item.height }}px
-            </p>
-            <button class="primary" @click="removeItem(index)">
-              Remove
-            </button>
+            <p style="text-align: center">Height {{ item.height }}px</p>
+            <button class="primary" @click="removeItem(index)">Remove</button>
           </div>
         </template>
       </MasonryWall>

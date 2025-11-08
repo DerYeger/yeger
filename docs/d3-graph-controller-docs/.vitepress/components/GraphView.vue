@@ -49,34 +49,25 @@ function resetGraphController() {
 <template>
   <div>
     <div class="settings card">
-      <button @click="resetGraphController()">
-        Reset
-      </button>
+      <button @click="resetGraphController()">Reset</button>
       <div>
         <label for="maxWeight">Link Filter: {{ maxWeight }}</label>
-        <input
-          id="maxWeight"
-          v-model="maxWeight"
-          type="range"
-          min="0"
-          max="5"
-        >
+        <input id="maxWeight" v-model="maxWeight" type="range" min="0" max="5" />
       </div>
       <div>
         <span>Included Node Types</span>
-        <div
-          v-for="type of controller?.nodeTypes"
-          :key="type"
-          class="type-checkbox"
-        >
+        <div v-for="type of controller?.nodeTypes" :key="type" class="type-checkbox">
           <input
             :id="`type-${type}`"
             type="checkbox"
             :checked="controller?.nodeTypeFilter.includes(type)"
             @change="
-              controller?.filterNodesByType(($event.currentTarget as HTMLInputElement).checked, type)
+              controller?.filterNodesByType(
+                ($event.currentTarget as HTMLInputElement).checked,
+                type,
+              )
             "
-          >
+          />
           <label :for="`type-${type}`">{{ type }}</label>
         </div>
       </div>

@@ -21,12 +21,8 @@ function useRandomGraph() {
 
 <template>
   <div class="graph-select-buttons">
-    <button @click="useDemoGraph()">
-      Example
-    </button>
-    <button @click="useRandomGraph()">
-      Random
-    </button>
+    <button @click="useDemoGraph()">Example</button>
+    <button @click="useRandomGraph()">Random</button>
   </div>
   <GraphView :graph="graph" :config="config" class="graph-view" />
 </template>

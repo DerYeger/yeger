@@ -102,14 +102,14 @@ export const userKeyModule = defineKeyHierarchyModule((dynamic) => ({
     get: true,
     update: true,
     delete: true,
-  })
+  }),
 }))
 
 // post-keys.ts
 import { defineKeyHierarchyModule } from 'key-hierarchy'
 
 export const postKeyModule = defineKeyHierarchyModule((dynamic) => ({
-  byIdUserId: dynamic<number>()
+  byIdUserId: dynamic<number>(),
 }))
 
 // keys.ts
@@ -118,7 +118,7 @@ import { defineKeyHierarchy } from 'key-hierarchy'
 export const keys = defineKeyHierarchy({
   users: userKeyModule,
   posts: postKeyModule,
-  config: true
+  config: true,
 })
 ```
 
@@ -140,15 +140,18 @@ If set to `true`, the generated keys will be frozen, preventing any modification
 ```ts
 import { defineKeyHierarchy } from 'key-hierarchy'
 
-const keys = defineKeyHierarchy((dynamic) => ({
-  posts: {
-    create: true,
-    byUser: dynamic<{ id: number }>()
-  },
-}), { freeze: true })
+const keys = defineKeyHierarchy(
+  (dynamic) => ({
+    posts: {
+      create: true,
+      byUser: dynamic<{ id: number }>(),
+    },
+  }),
+  { freeze: true },
+)
 
 // Throws with `freeze: true`
-keys.posts.create.push('newSegment') 
+keys.posts.create.push('newSegment')
 
 // Prevents modifications with `freeze: true`
 keys.posts.create = ['newSegment']
@@ -181,15 +184,15 @@ import { defineKeyHierarchy } from 'key-hierarchy'
 const keys = defineKeyHierarchy((dynamic) => ({
   users: {
     byId: dynamic<number>().extend({
-      get: true
-    })
-  }
+      get: true,
+    }),
+  },
 }))
 
 export function useUserByIdQuery(userId: number) {
   return useQuery({
     queryKey: keys.users.byId(userId).get,
-    queryFn: () => fetchUserById(userId)
+    queryFn: () => fetchUserById(userId),
   })
 }
 ```
@@ -206,15 +209,15 @@ import { MaybeRefOrGetter, toValue } from 'vue'
 const keys = defineKeyHierarchy((dynamic) => ({
   users: {
     byId: dynamic<MaybeRefOrGetter<number>>().extend({
-      get: true
-    })
-  }
+      get: true,
+    }),
+  },
 }))
 
 export function useUserByIdQuery(userId: MaybeRefOrGetter<number>) {
   return useQuery({
     queryKey: keys.users.byId(userId).get,
-    queryFn: () => fetchUserById(toValue(userId))
+    queryFn: () => fetchUserById(toValue(userId)),
   })
 }
 ```

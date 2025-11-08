@@ -17,7 +17,10 @@ export default async function Home() {
 
   return (
     <>
-      <div id="sidebar" className="absolute inset-y-0 left-0 z-10 flex max-h-screen w-(--sidebar-width) flex-col gap-4 overflow-hidden p-4">
+      <div
+        id="sidebar"
+        className="absolute inset-y-0 left-0 z-10 flex max-h-screen w-(--sidebar-width) flex-col gap-4 overflow-hidden p-4"
+      >
         <RunControls />
         <FilterInput />
         <div className="grow overflow-hidden">

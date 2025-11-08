@@ -23,9 +23,7 @@ describe('infinite', () => {
   })
 
   it('async stream works', async () => {
-    const firstTenNumbers = await AsyncStream.from(asyncNaturalNumbers())
-      .limit(10)
-      .toArray()
+    const firstTenNumbers = await AsyncStream.from(asyncNaturalNumbers()).limit(10).toArray()
     expect(firstTenNumbers).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   })
 })

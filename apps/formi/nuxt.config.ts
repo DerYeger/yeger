@@ -28,13 +28,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: [
-    '@nuxtjs/robots',
-    '@unocss/nuxt',
-    '@vite-pwa/nuxt',
-    '@vueuse/nuxt',
-    '@nuxt/icon',
-  ],
+  modules: ['@nuxtjs/robots', '@unocss/nuxt', '@vite-pwa/nuxt', '@vueuse/nuxt', '@nuxt/icon'],
 
   css: ['@/assets/css/main.css'],
 
@@ -47,8 +41,7 @@ export default defineNuxtConfig({
     manifest: {
       name: appName,
       short_name: appName,
-      description:
-        'Formi is a web-application for model checking first-order-logic formulas.',
+      description: 'Formi is a web-application for model checking first-order-logic formulas.',
       background_color: '#f5f5f4',
       theme_color: '#f5f5f4',
       icons: [

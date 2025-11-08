@@ -58,19 +58,21 @@ export function RunControls() {
               disabled={!canRun}
               className="inline-flex items-center rounded-md border border-white/30 bg-green-600 p-1.5 text-white hocus:enabled:bg-green-500 disabled:opacity-50 transition-all"
             >
-              {isRunning
-
-                ? (
-                  <LoaderCircle className="size-4 animate-spin" />
-                )
-                : (
-                  <Play className="size-4" />
-                )}
+              {isRunning ? (
+                <LoaderCircle className="size-4 animate-spin" />
+              ) : (
+                <Play className="size-4" />
+              )}
             </button>
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <Checkbox label="force" checked={forceFlag} onChange={onToggleForce} disabled={isRunning} />
+          <Checkbox
+            label="force"
+            checked={forceFlag}
+            onChange={onToggleForce}
+            disabled={isRunning}
+          />
         </div>
       </div>
       <div className="rounded-md border border-white/10 bg-black/20">
@@ -89,7 +91,10 @@ export function FilterInput() {
   const isRunning = useIsRunning()
   const [filter, setFilter] = useFilterInput()
 
-  const debouncedSetFilter = useMemo(() => debounce((value: string) => setFilter(value.trim() || null), 500), [setFilter])
+  const debouncedSetFilter = useMemo(
+    () => debounce((value: string) => setFilter(value.trim() || null), 500),
+    [setFilter],
+  )
   return (
     <Container>
       <div className="flex justify-between gap-2">
@@ -129,7 +134,7 @@ export function TaskInput({ tasks }: TaskInputProps) {
 
   const isSelectAll = selection.length === tasks.length
   const onChangeIsSelectAll = (newSelectAll: boolean) => {
-    setSelection(() => newSelectAll ? tasks : [])
+    setSelection(() => (newSelectAll ? tasks : []))
   }
 
   function onChange(task: string, action: 'add' | 'remove') {
@@ -156,7 +161,14 @@ export function TaskInput({ tasks }: TaskInputProps) {
         className="font-mono text-xs"
       />
       <div className="flex flex-col gap-2 p-2 -m-2 overflow-y-auto font-mono [mask-image:linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%]">
-        {!search ? <Checkbox label="All" checked={isSelectAll} onChange={onChangeIsSelectAll} disabled={isRunning} /> : null}
+        {!search ? (
+          <Checkbox
+            label="All"
+            checked={isSelectAll}
+            onChange={onChangeIsSelectAll}
+            disabled={isRunning}
+          />
+        ) : null}
         {filteredTasks.map((task) => (
           <Checkbox
             key={task}
@@ -166,9 +178,9 @@ export function TaskInput({ tasks }: TaskInputProps) {
             disabled={isRunning}
           />
         ))}
-        {filteredTasks.length === 0
-          ? (<div className="text-sm text-neutral-500">No matching tasks</div>)
-          : null}
+        {filteredTasks.length === 0 ? (
+          <div className="text-sm text-neutral-500">No matching tasks</div>
+        ) : null}
       </div>
     </Container>
   )

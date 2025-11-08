@@ -1,21 +1,29 @@
 {
   "name": "@yeger/scripts",
-  "type": "module",
   "version": "1.0.15",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/scripts"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
+  "bin": {
+    "generate-readme": "bin/generate-readme.js"
   },
+  "files": [
+    "bin/*",
+    "dist/*"
+  ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -24,20 +32,14 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "bin": {
-    "generate-readme": "bin/generate-readme.js"
+  "publishConfig": {
+    "access": "public"
   },
-  "files": [
-    "bin/*",
-    "dist/*"
-  ],
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
-    "dev": "tsdown --watch",
-    "lint": "yeger-lint"
+    "dev": "tsdown --watch"
   },
   "dependencies": {
     "@manypkg/get-packages": "catalog:"
@@ -47,8 +49,5 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

@@ -43,11 +43,7 @@ export interface MarkerConfig {
 function defaultMarkerConfig(size: number): MarkerConfig {
   return {
     size,
-    padding: <
-      T extends NodeTypeToken,
-      Node extends GraphNode<T>,
-      Link extends GraphLink<T, Node>,
-    >(
+    padding: <T extends NodeTypeToken, Node extends GraphNode<T>, Link extends GraphLink<T, Node>>(
       node: Node,
       config: GraphConfig<T, Node, Link>,
     ) => getNodeRadius(config, node) + 2 * size,

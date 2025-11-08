@@ -92,7 +92,7 @@ export default defineComponent({
           max="256"
           :value="gap"
           @input="$emit('update:gap', +$event.target.value)"
-        >
+        />
         <span>{{ gap }}px</span>
       </div>
       <div class="row">
@@ -104,7 +104,7 @@ export default defineComponent({
           max="10"
           :value="minColumns"
           @input="$emit('update:min-columns', +$event.target.value)"
-        >
+        />
         <span>{{ minColumns }}</span>
       </div>
       <div class="row">
@@ -116,7 +116,7 @@ export default defineComponent({
           max="10"
           :value="maxColumns"
           @input="$emit('update:max-columns', +$event.target.value)"
-        >
+        />
         <span>{{ maxColumns }}</span>
       </div>
       <div class="row">
@@ -126,7 +126,7 @@ export default defineComponent({
           type="checkbox"
           :checked="rtl"
           @change="$emit('update:rtl', $event.target.checked)"
-        >
+        />
       </div>
       <div class="row">
         <label for="useScrollContainer">Scroll Container</label>
@@ -135,64 +135,34 @@ export default defineComponent({
           type="checkbox"
           :checked="useScrollContainer"
           @change="$emit('update:use-scroll-container', $event.target.checked)"
-        >
+        />
       </div>
     </section>
     <section id="columns">
       <h2>Columns</h2>
       <div class="row">
         <label for="width">1st Column</label>
-        <input
-          id="width"
-          v-model="colWidth1"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="width" v-model="colWidth1" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(0) }}</span>
       </div>
       <div class="row">
         <label for="2nd-width">2nd Column</label>
-        <input
-          id="2nd-width"
-          v-model="colWidth2"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="2nd-width" v-model="colWidth2" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(1) }}</span>
       </div>
       <div class="row">
         <label for="3rd-width">3rd Column</label>
-        <input
-          id="3rd-width"
-          v-model="colWidth3"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="3rd-width" v-model="colWidth3" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(2) }}</span>
       </div>
       <div class="row">
         <label for="4th-width">4th Column</label>
-        <input
-          id="4th-width"
-          v-model="colWidth4"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="4th-width" v-model="colWidth4" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(3) }}</span>
       </div>
       <div class="row">
         <label for="5th-width">5th Column</label>
-        <input
-          id="5th-width"
-          v-model="colWidth5"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="5th-width" v-model="colWidth5" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(4) }}</span>
       </div>
     </section>
@@ -200,28 +170,14 @@ export default defineComponent({
       <h2>New Item</h2>
       <div class="row">
         <label for="height">Height</label>
-        <input
-          id="height"
-          v-model="newItemHeight"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="height" v-model="newItemHeight" type="range" min="128" max="512" />
         <span>{{ newItemHeight }}px</span>
       </div>
       <div class="row button-row">
-        <button class="primary" @click="$emit('create-item', newItemHeight)">
-          Create
-        </button>
-        <button class="primary" @click="$emit('create-item', randomHeight())">
-          Random
-        </button>
-        <button class="primary" @click="$emit('create-items')">
-          Random (10)
-        </button>
-        <button class="secondary" @click="$emit('clear-items')">
-          Clear
-        </button>
+        <button class="primary" @click="$emit('create-item', newItemHeight)">Create</button>
+        <button class="primary" @click="$emit('create-item', randomHeight())">Random</button>
+        <button class="primary" @click="$emit('create-items')">Random (10)</button>
+        <button class="secondary" @click="$emit('clear-items')">Clear</button>
       </div>
     </section>
   </div>

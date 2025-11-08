@@ -1,15 +1,14 @@
 {
   "name": "wiener-time",
-  "type": "module",
   "version": "1.1.2",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "next build",
-    "codegen": "tsx scripts/generate-stations.ts",
     "dev": "next dev",
     "e2e": "playwright test",
-    "lint": "yeger-lint",
-    "preview": "next start"
+    "preview": "next start",
+    "update-stations": "tsx scripts/generate-stations.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "catalog:",
@@ -43,15 +42,11 @@
     "@yeger/playwright-config": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "autoprefixer": "catalog:",
-    "eslint-config-next": "catalog:",
     "node-fetch": "catalog:",
     "postcss": "catalog:",
     "rimraf": "catalog:",
     "tailwindcss": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

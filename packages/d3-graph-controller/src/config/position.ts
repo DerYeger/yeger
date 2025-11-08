@@ -4,22 +4,21 @@ import type { GraphNode } from '../model/node'
 /**
  * Initializes a node's position in context of a graph's width and height.
  */
-export type PositionInitializer<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = (node: Node, width: number, height: number) => [number, number]
+export type PositionInitializer<T extends NodeTypeToken, Node extends GraphNode<T>> = (
+  node: Node,
+  width: number,
+  height: number,
+) => [number, number]
 
-const Centered: PositionInitializer<NodeTypeToken, GraphNode> = (
-  _,
-  width,
-  height,
-) => [width / 2, height / 2]
+const Centered: PositionInitializer<NodeTypeToken, GraphNode> = (_, width, height) => [
+  width / 2,
+  height / 2,
+]
 
-const Randomized: PositionInitializer<NodeTypeToken, GraphNode> = (
-  _,
-  width,
-  height,
-) => [randomInRange(0, width), randomInRange(0, height)]
+const Randomized: PositionInitializer<NodeTypeToken, GraphNode> = (_, width, height) => [
+  randomInRange(0, width),
+  randomInRange(0, height),
+]
 
 function randomInRange(min: number, max: number): number {
   return Math.random() * (max - min) + min

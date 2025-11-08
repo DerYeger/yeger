@@ -10,9 +10,19 @@ export interface CheckboxProps {
 
 export function Checkbox({ checked, onChange, label, disabled }: CheckboxProps) {
   return (
-    <label htmlFor={`checkbox-${label}`} className={cn('group flex items-center gap-2', disabled ? 'opacity-60' : 'cursor-pointer')}>
+    <label
+      htmlFor={`checkbox-${label}`}
+      className={cn('group flex items-center gap-2', disabled ? 'opacity-60' : 'cursor-pointer')}
+    >
       <div className="relative">
-        <input type="checkbox" id={`checkbox-${label}`} checked={checked} onChange={(e) => onChange(e.target.checked)} disabled={disabled} className="sr-only" />
+        <input
+          type="checkbox"
+          id={`checkbox-${label}`}
+          checked={checked}
+          onChange={(e) => onChange(e.target.checked)}
+          disabled={disabled}
+          className="sr-only"
+        />
         <div
           className={cn(`
           flex size-5 items-center justify-center rounded-md border
@@ -22,11 +32,21 @@ export function Checkbox({ checked, onChange, label, disabled }: CheckboxProps) 
         `)}
         >
           <Check
-            className={cn('size-3 text-white transition-all duration-200', checked ? 'scale-100 opacity-100' : 'scale-75 opacity-0')}
+            className={cn(
+              'size-3 text-white transition-all duration-200',
+              checked ? 'scale-100 opacity-100' : 'scale-75 opacity-0',
+            )}
           />
         </div>
       </div>
-      <span className={cn('select-none text-white/90 transition-colors text-sm', !disabled && 'group-hover:text-white group-focus-within:text-white')}>{label}</span>
+      <span
+        className={cn(
+          'select-none text-white/90 transition-colors text-sm',
+          !disabled && 'group-hover:text-white group-focus-within:text-white',
+        )}
+      >
+        {label}
+      </span>
     </label>
   )
 }

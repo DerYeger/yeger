@@ -2,12 +2,21 @@ import { createClone, deepFreeze } from './utils'
 import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '../types'
 import type { KeyHierarchyOptions } from '../types'
 
-export function precomputeHierarchy(path: unknown[], currentConfig: any, options: Required<KeyHierarchyOptions>): any {
+export function precomputeHierarchy(
+  path: unknown[],
+  currentConfig: any,
+  options: Required<KeyHierarchyOptions>,
+): any {
   const result: any = {}
 
   // Iterate over all own properties, including symbols
-  const keys = [...Object.keys(currentConfig), ...Object.getOwnPropertySymbols(currentConfig)]
-    .filter((key) => key !== DYNAMIC_SEGMENT && key !== DYNAMIC_EXTENDED_SEGMENT) as (string | symbol)[]
+  const keys = [
+    ...Object.keys(currentConfig),
+    ...Object.getOwnPropertySymbols(currentConfig),
+  ].filter((key) => key !== DYNAMIC_SEGMENT && key !== DYNAMIC_EXTENDED_SEGMENT) as (
+    | string
+    | symbol
+  )[]
 
   for (const key of keys) {
     const value = currentConfig[key]
@@ -32,7 +41,8 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
           nested.__key = options.freeze ? deepFreeze(functionPath) : functionPath
           return nested
         }
-      } else if (DYNAMIC_SEGMENT in value) { // Check if this is a DynamicLeaf object
+      } else if (DYNAMIC_SEGMENT in value) {
+        // Check if this is a DynamicLeaf object
         // Create a function that returns the final path
         result[key] = (arg: unknown) => {
           const argPath = options.freeze ? createClone(arg) : arg
@@ -41,7 +51,8 @@ export function precomputeHierarchy(path: unknown[], currentConfig: any, options
           // Leaf node
           return options.freeze ? deepFreeze(functionPath) : functionPath
         }
-      } else { // Regular nested object: recurse
+      } else {
+        // Regular nested object: recurse
         const nested = precomputeHierarchy(currentPath, value, options)
         nested.__key = options.freeze ? deepFreeze(currentPath) : [...currentPath]
         result[key] = nested

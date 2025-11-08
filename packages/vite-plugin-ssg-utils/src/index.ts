@@ -26,7 +26,6 @@ function setupResizeObserver({ resizeObserver }: Options) {
   }
 
   if (resizeObserver === true) {
-    // eslint-disable-next-line no-restricted-globals
     global.ResizeObserver = class ResizeObserver {
       public constructor() {}
       public disconnect() {}
@@ -36,7 +35,6 @@ function setupResizeObserver({ resizeObserver }: Options) {
 
     log('Using dummy ResizeObserver')
   } else {
-    // eslint-disable-next-line no-restricted-globals
     global.ResizeObserver = resizeObserver
 
     log('Using provided ResizeObserver')
@@ -44,7 +42,6 @@ function setupResizeObserver({ resizeObserver }: Options) {
 }
 
 function log(text: string) {
-  // eslint-disable-next-line no-console
   console.log(`\n${gray('[vite-plugin-ssg-utils]')} ${yellow(text)}`)
 }
 

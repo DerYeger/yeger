@@ -23,11 +23,7 @@ export function createMarkers<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->({
-  config,
-  graph,
-  selection,
-}: CreateMarkerParams<T, Node, Link>): MarkerSelection | undefined {
+>({ config, graph, selection }: CreateMarkerParams<T, Node, Link>): MarkerSelection | undefined {
   return selection
     ?.data(getUniqueColors(graph), (d) => d)
     .join((enter) => {
@@ -61,8 +57,5 @@ function makeLine(points: [number, number][]): string {
     return 'M0,0'
   }
   const [startX, startY] = start
-  return rest.reduce(
-    (line, [x, y]) => `${line}L${x},${y}`,
-    `M${startX},${startY}`,
-  )
+  return rest.reduce((line, [x, y]) => `${line}L${x},${y}`, `M${startX},${startY}`)
 }

@@ -28,12 +28,7 @@ const keyValue = computed(() => props.keyFunction(inputValue.value || props.plac
     variant="dynamic"
   >
     {{ label }}(
-    <input
-      v-model="inputValue"
-      :placeholder="placeholder"
-      class="inline-input"
-      type="text"
-    >)
+    <input v-model="inputValue" :placeholder="placeholder" class="inline-input" type="text" />)
   </TreeNode>
 </template>
 

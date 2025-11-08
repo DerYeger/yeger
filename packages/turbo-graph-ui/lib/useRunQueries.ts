@@ -69,7 +69,7 @@ export function useRunTasks() {
   const client = useQueryClient()
   const mutation = useMutation({
     mutationKey: ['runStream', 'start'],
-    mutationFn: async (vars: { tasks: string[], filter?: string, force?: boolean }) => {
+    mutationFn: async (vars: { tasks: string[]; filter?: string; force?: boolean }) => {
       const { tasks, filter, force } = vars
       if (!tasks.length) {
         return
@@ -134,11 +134,11 @@ export function useRunTasks() {
         let i = 0
         while (i < input.length) {
           const ch = input.charCodeAt(i)
-          if (ch === 0x1B /* ESC */ && input[i + 1] === '[') {
+          if (ch === 0x1b /* ESC */ && input[i + 1] === '[') {
             i += 2
             while (i < input.length) {
               const code = input.charCodeAt(i)
-              if (code >= 0x40 && code <= 0x7E) {
+              if (code >= 0x40 && code <= 0x7e) {
                 i += 1
                 break
               }
@@ -157,7 +157,7 @@ export function useRunTasks() {
         lastActivity = Date.now()
         const lines = data.split(/\n/).filter(Boolean)
         client.setQueryData<RunState>(['runStream'], (prev) => {
-          const state = { ...(prev ?? DEFAULT_STATE), tasks: { ...((prev ?? DEFAULT_STATE).tasks) } }
+          const state = { ...(prev ?? DEFAULT_STATE), tasks: { ...(prev ?? DEFAULT_STATE).tasks } }
           for (const rawLine of lines) {
             const clean = stripAnsi(rawLine).trimStart()
             let id: string | undefined
@@ -217,7 +217,11 @@ export function useRunTasks() {
       es.addEventListener('end', () => {
         ended = true
         client.setQueryData<RunState>(['runStream'], (prev) => {
-          const state = { ...(prev ?? DEFAULT_STATE), isRunning: false, tasks: { ...((prev ?? DEFAULT_STATE).tasks) } }
+          const state = {
+            ...(prev ?? DEFAULT_STATE),
+            isRunning: false,
+            tasks: { ...(prev ?? DEFAULT_STATE).tasks },
+          }
           for (const id of seenKeys) {
             const t = ensureTask(state, id)
             t.running = false
@@ -238,16 +242,19 @@ export function useRunTasks() {
     },
   })
 
-  return useCallback((tasks: string[], filter?: string, opts?: { force?: boolean }) => {
-    const vars: { tasks: string[], filter?: string, force?: boolean } = { tasks }
-    if (filter !== undefined) {
-      vars.filter = filter
-    }
-    if (opts?.force !== undefined) {
-      vars.force = opts.force
-    }
-    return mutation.mutate(vars)
-  }, [mutation])
+  return useCallback(
+    (tasks: string[], filter?: string, opts?: { force?: boolean }) => {
+      const vars: { tasks: string[]; filter?: string; force?: boolean } = { tasks }
+      if (filter !== undefined) {
+        vars.filter = filter
+      }
+      if (opts?.force !== undefined) {
+        vars.force = opts.force
+      }
+      return mutation.mutate(vars)
+    },
+    [mutation],
+  )
 }
 
 export function useAbortRun() {

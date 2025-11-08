@@ -22,22 +22,17 @@ export function convertGraph(graph: TurboGraph) {
 
 function createHierarchy(graph: TurboGraph) {
   const stratify = graphStratify()
-  return stratify([
-    ...graph.nodes.map((node) => ({
+  return stratify(
+    graph.nodes.map((node) => ({
       ...node,
       id: node.id,
-      parentIds: graph.edges
-        .filter((edge) => edge.target === node.id)
-        .map(({ source }) => source),
+      parentIds: graph.edges.filter((edge) => edge.target === node.id).map(({ source }) => source),
     })),
-  ])
+  )
 }
 function getLongestLineLength({ nodes }: TurboGraph) {
   const length = Math.max(
-    ...Stream.from(nodes).flatMap(({ task, packageName }) => [
-      task.length,
-      packageName.length,
-    ]),
+    ...Stream.from(nodes).flatMap(({ task, packageName }) => [task.length, packageName.length]),
   )
   if (length < 0) {
     return 1
@@ -66,10 +61,7 @@ function createFlowGraph(
 ) {
   const { width, height, horizontalSpacing, verticalSpacing } = sizeConfig
   const layout = sugiyama()
-    .nodeSize([
-      width + horizontalSpacing,
-      height + verticalSpacing,
-    ])
+    .nodeSize([width + horizontalSpacing, height + verticalSpacing])
     .decross(decrossTwoLayer())
     .coord(coordCenter())
   const layoutResult = layout(hierarchy)
@@ -103,11 +95,7 @@ function createFlowGraph(
 }
 
 function normalizeTaskName(task: string) {
-  return task
-    .replaceAll(':', '-')
-    .replaceAll('#', '-')
-    .replaceAll('/', '-')
-    .replaceAll('@', '-')
+  return task.replaceAll(':', '-').replaceAll('#', '-').replaceAll('/', '-').replaceAll('@', '-')
 }
 
 export function getTaskColorVar(task: string) {

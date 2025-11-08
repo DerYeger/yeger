@@ -39,7 +39,7 @@ const badges: Badge[] = [
     <h2>Status</h2>
     <div id="badges">
       <a v-for="badge of badges" :key="badge.src" :href="badge.href">
-        <img :alt="badge.alt" :src="badge.src">
+        <img :alt="badge.alt" :src="badge.src" />
       </a>
     </div>
   </div>

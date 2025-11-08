@@ -1,28 +1,33 @@
 {
   "name": "d3-graph-controller",
-  "type": "module",
   "version": "3.1.6",
   "description": "A TypeScript library for visualizing and simulating directed, interactive graphs.",
+  "keywords": [
+    "controller",
+    "d3",
+    "graph"
+  ],
+  "homepage": "https://graph-controller.janmueller.dev",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://graph-controller.janmueller.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/d3-graph-controller"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "d3",
-    "graph",
-    "controller"
+  "files": [
+    "default.css",
+    "dist"
   ],
+  "type": "module",
   "sideEffects": false,
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -34,17 +39,14 @@
       "import": "./default.css"
     }
   },
-  "types": "./dist/index.d.mts",
-  "files": [
-    "default.css",
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "dependencies": {
@@ -71,8 +73,5 @@
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

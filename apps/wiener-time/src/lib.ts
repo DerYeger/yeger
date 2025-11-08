@@ -1,6 +1,4 @@
-import {
-  MonitorResponseSchema,
-} from './model'
+import { MonitorResponseSchema } from './model'
 
 function calculateCenter(locations: [number, number][] | undefined): [number, number] | undefined {
   if (!locations || locations.length === 0) {
@@ -18,9 +16,7 @@ function calculateCenter(locations: [number, number][] | undefined): [number, nu
 const API_URL = 'https://www.wienerlinien.at'
 
 async function fetchMonitorData(stopIds: number[]) {
-  const res = await fetch(
-    `${API_URL}/ogd_realtime/monitor?rbl=${stopIds.join(',')}`,
-  )
+  const res = await fetch(`${API_URL}/ogd_realtime/monitor?rbl=${stopIds.join(',')}`)
   const monitorResponse = MonitorResponseSchema.parse(await res.json())
   if (monitorResponse.message.messageCode !== 1) {
     throw new Error(monitorResponse.message.value)
@@ -53,7 +49,12 @@ const boundsOfVienna = [
 ] as const
 
 function isInBounds(location: [number, number]): boolean {
-  return location[0] >= boundsOfVienna[0][0] && location[0] <= boundsOfVienna[1][0] && location[1] >= boundsOfVienna[0][1] && location[1] <= boundsOfVienna[1][1]
+  return (
+    location[0] >= boundsOfVienna[0][0] &&
+    location[0] <= boundsOfVienna[1][0] &&
+    location[1] >= boundsOfVienna[0][1] &&
+    location[1] <= boundsOfVienna[1][1]
+  )
 }
 
 const lib = {

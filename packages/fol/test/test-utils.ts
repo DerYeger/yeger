@@ -74,22 +74,14 @@ const validModels: Model[] = [testModel]
 const invalidModels: [string, Model][] = [
   [
     'non-total function',
-    new Model(
-      new Set([1]),
-      {},
-      [new Function('f', 2, { '1,1': 1, '1,2': 1, '2,1': 1 })],
-      [],
-    ),
+    new Model(new Set([1]), {}, [new Function('f', 2, { '1,1': 1, '1,2': 1, '2,1': 1 })], []),
   ],
   ['out-of-range constant', new Model(new Set([1]), { c: 2 }, [], [])],
   [
     'out-of-domain function',
     new Model(new Set([1]), {}, [new Function('f', 1, { '1': 1, '2': 1 })], []),
   ],
-  [
-    'out-of-range function',
-    new Model(new Set([1]), {}, [new Function('f', 1, { '1': 2 })], []),
-  ],
+  ['out-of-range function', new Model(new Set([1]), {}, [new Function('f', 1, { '1': 2 })], [])],
 ]
 
 export const TestData = {

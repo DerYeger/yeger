@@ -53,22 +53,23 @@ export function LogOutput({
       style={{ overscrollBehavior: 'contain', touchAction: 'pan-y', ...style }}
       draggable={false}
     >
-      {title
-        ? (
-          <div className="mb-1 text-[10px] uppercase tracking-wide text-neutral-400">{title}</div>
-        )
-        : null}
-      {items.length === 0
-        ? (
-          <span className="text-neutral-600 text-sm">{emptyText}</span>
-        )
-        : (
-          <div className="font-mono text-sm pr-2">
-            {items.map((l) => (
-              <div key={l.id} className={`${lineClassName} break-words ${l.kind === 'error' ? 'text-red-400' : ''}`}>{l.text}</div>
-            ))}
-          </div>
-        )}
+      {title ? (
+        <div className="mb-1 text-[10px] uppercase tracking-wide text-neutral-400">{title}</div>
+      ) : null}
+      {items.length === 0 ? (
+        <span className="text-neutral-600 text-sm">{emptyText}</span>
+      ) : (
+        <div className="font-mono text-sm pr-2">
+          {items.map((l) => (
+            <div
+              key={l.id}
+              className={`${lineClassName} break-words ${l.kind === 'error' ? 'text-red-400' : ''}`}
+            >
+              {l.text}
+            </div>
+          ))}
+        </div>
+      )}
       {footer}
     </div>
   )

@@ -1,13 +1,12 @@
 {
   "name": "d3-graph-controller-docs",
-  "type": "module",
   "version": "2.0.20",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vitepress build",
     "check:vue": "vue-tsc",
     "dev": "vitepress dev",
-    "lint": "yeger-lint",
     "preview": "vitepress serve"
   },
   "dependencies": {
@@ -23,8 +22,5 @@
     "vite-plugin-lib": "workspace:*",
     "vitepress": "catalog:",
     "vue-tsc": "catalog:"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

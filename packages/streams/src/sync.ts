@@ -11,9 +11,7 @@ export abstract class Stream<T> implements Iterable<T> {
     return SourceStream.from(source)
   }
 
-  public static fromObject<T>(
-    source: Record<string | number | symbol, T>,
-  ): Stream<[string, T]> {
+  public static fromObject<T>(source: Record<string | number | symbol, T>): Stream<[string, T]> {
     return Stream.from(Object.entries(source))
   }
 
@@ -34,10 +32,7 @@ export abstract class Stream<T> implements Iterable<T> {
     return new Map(stream)
   }
 
-  public toRecord<U>(
-    key: Processor<T, string>,
-    value: Processor<T, U>,
-  ): Record<string, U> {
+  public toRecord<U>(key: Processor<T, string>, value: Processor<T, U>): Record<string, U> {
     return Object.fromEntries(this.map((x, index) => [key(x, index), value?.(x, index)] as const))
   }
 
@@ -157,7 +152,7 @@ class SourceStream<T> extends Stream<T> {
     return new SourceStream(source)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     for (const value of this.source) {
       yield value
     }
@@ -168,27 +163,22 @@ class MapStream<Input, Output> extends Stream<Output> {
   private readonly previous: Stream<Input>
   private readonly fn: Processor<Input, Output>
 
-  private constructor(
-    previous: Stream<Input>,
-    fn: Processor<Input, Output>,
-  ) {
+  private constructor(previous: Stream<Input>, fn: Processor<Input, Output>) {
     super()
     this.previous = previous
     this.fn = fn
   }
 
-  public static ofPrevious<Input, Output>(
-    previous: Stream<Input>,
-    fn: Processor<Input, Output>,
-  ) {
+  public static ofPrevious<Input, Output>(previous: Stream<Input>, fn: Processor<Input, Output>) {
     if (previous instanceof MapStream) {
       return new MapStream<Input, Output>(previous.previous, (value, index) =>
-        fn(previous.fn(value, index), index))
+        fn(previous.fn(value, index), index),
+      )
     }
     return new MapStream(previous, fn)
   }
 
-  public* [Symbol.iterator](): IterableIterator<Output> {
+  public *[Symbol.iterator](): IterableIterator<Output> {
     let index = 0
     for (const item of this.previous) {
       yield this.fn(item, index++)
@@ -200,10 +190,7 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
   private readonly previous: Stream<Input>
   private readonly fn: Processor<Input, Iterable<Output>>
 
-  private constructor(
-    previous: Stream<Input>,
-    fn: Processor<Input, Iterable<Output>>,
-  ) {
+  private constructor(previous: Stream<Input>, fn: Processor<Input, Iterable<Output>>) {
     super()
     this.previous = previous
     this.fn = fn
@@ -216,7 +203,7 @@ class FlatMapStream<Input, Output> extends Stream<Output> {
     return new FlatMapStream(previous, fn)
   }
 
-  public* [Symbol.iterator](): IterableIterator<Output> {
+  public *[Symbol.iterator](): IterableIterator<Output> {
     let index = 0
     for (const item of this.previous) {
       yield* this.fn(item, index++)
@@ -228,23 +215,17 @@ class ZipStream<T, R> extends Stream<[T, R]> {
   private readonly previous: Stream<T>
   private readonly other: Iterable<R>
 
-  private constructor(
-    previous: Stream<T>,
-    other: Iterable<R>,
-  ) {
+  private constructor(previous: Stream<T>, other: Iterable<R>) {
     super()
     this.previous = previous
     this.other = other
   }
 
-  public static ofPrevious<T, R>(
-    previous: Stream<T>,
-    other: Iterable<R>,
-  ): ZipStream<T, R> {
+  public static ofPrevious<T, R>(previous: Stream<T>, other: Iterable<R>): ZipStream<T, R> {
     return new ZipStream(previous, other)
   }
 
-  public* [Symbol.iterator](): IterableIterator<[T, R]> {
+  public *[Symbol.iterator](): IterableIterator<[T, R]> {
     const otherIterator = this.other[Symbol.iterator]()
     for (const item of this.previous) {
       const otherItem = otherIterator.next()
@@ -260,10 +241,7 @@ class LimitStream<T> extends Stream<T> {
   private readonly previous: Stream<T>
   private readonly n: number
 
-  private constructor(
-    previous: Stream<T>,
-    n: number,
-  ) {
+  private constructor(previous: Stream<T>, n: number) {
     super()
     this.previous = previous
     this.n = n
@@ -276,7 +254,7 @@ class LimitStream<T> extends Stream<T> {
     return new LimitStream<T>(previous, limit)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     let count = 0
     if (this.n <= count) {
       return
@@ -294,10 +272,7 @@ class FilterStream<T> extends Stream<T> {
   private readonly previous: Stream<T>
   private readonly fn: Filter<T>
 
-  private constructor(
-    previous: Stream<T>,
-    fn: Filter<T>,
-  ) {
+  private constructor(previous: Stream<T>, fn: Filter<T>) {
     super()
     this.previous = previous
     this.fn = fn
@@ -313,7 +288,7 @@ class FilterStream<T> extends Stream<T> {
     return new FilterStream<T>(previous, fn)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     let index = 0
     for (const item of this.previous) {
       if (this.fn(item, index++)) {
@@ -338,7 +313,7 @@ class DistinctStream<T> extends Stream<T> {
     return new DistinctStream<T>(previous)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     const set = new Set<T>()
     for (const item of this.previous) {
       if (!set.has(item)) {
@@ -353,29 +328,20 @@ class ConcatStream<T> extends Stream<T> {
   private readonly previous: Stream<T>
   private readonly sources: Iterable<T>[]
 
-  private constructor(
-    previous: Stream<T>,
-    sources: Iterable<T>[],
-  ) {
+  private constructor(previous: Stream<T>, sources: Iterable<T>[]) {
     super()
     this.previous = previous
     this.sources = sources
   }
 
-  public static ofPrevious<T>(
-    previous: Stream<T>,
-    sources: Iterable<T>[],
-  ): Stream<T> {
+  public static ofPrevious<T>(previous: Stream<T>, sources: Iterable<T>[]): Stream<T> {
     if (previous instanceof ConcatStream) {
-      return new ConcatStream<T>(
-        previous.previous,
-        previous.sources.concat(...sources),
-      )
+      return new ConcatStream<T>(previous.previous, previous.sources.concat(...sources))
     }
     return new ConcatStream<T>(previous, sources)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     yield* this.previous
     for (const source of this.sources) {
       yield* source
@@ -400,7 +366,7 @@ class CacheStream<T> extends Stream<T> {
     return new CacheStream<T>(previous)
   }
 
-  public* [Symbol.iterator](): IterableIterator<T> {
+  public *[Symbol.iterator](): IterableIterator<T> {
     if (this.cachedInput) {
       yield* this.cachedInput
       return

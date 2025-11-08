@@ -2,40 +2,34 @@
  * Represents a key hierarchy for a given object type.
  * Dynamically derived based on a provided {@link KeyHierarchyConfig}.
  */
-export type KeyHierarchy<
-  T,
-  Path extends readonly unknown[] = [],
-> = {
-    readonly [K in keyof T as K extends InternalKeys
+export type KeyHierarchy<T, Path extends readonly unknown[] = []> = {
+  readonly [K in keyof T as K extends InternalKeys
     ? never
     : K extends number
-    ? `${K}`
-    : K]:
-    // 1) dynamic *extend*: property is a function that accepts Arg and returns a nested hierarchy
-    T[K] extends DynamicExtendedSegment<infer Arg, infer U>
+      ? `${K}`
+      : K]: T[K] extends DynamicExtendedSegment<infer Arg, infer U> // 1) dynamic *extend*: property is a function that accepts Arg and returns a nested hierarchy
     ? (arg: Arg) => KeyHierarchy<
-      U,
-      readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
-    > & {
-      readonly __key: readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
-    }
-
-    // 2) dynamic *leaf*: property is a function that accepts Arg and returns the final tuple
-    : T[K] extends DynamicSegment<infer Arg>
-    ? (arg: Arg) => readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
-
-    // 3) nested (normal object) => recurse and expose __key
-    : T[K] extends object
-    ? KeyHierarchy<
-      T[K],
-      readonly [...Path, K extends number ? `${K}` : K]
-    > & {
-      readonly __key: readonly [...Path, K extends number ? `${K}` : K]
-    }
-
-    // 4) plain leaf (true) => final tuple
-    : readonly [...Path, K extends number ? `${K}` : K]
-  }
+        U,
+        readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
+      > & {
+        readonly __key: readonly [
+          ...Path,
+          readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>],
+        ]
+      }
+    : // 2) dynamic *leaf*: property is a function that accepts Arg and returns the final tuple
+      T[K] extends DynamicSegment<infer Arg>
+      ? (
+          arg: Arg,
+        ) => readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]
+      : // 3) nested (normal object) => recurse and expose __key
+        T[K] extends object
+        ? KeyHierarchy<T[K], readonly [...Path, K extends number ? `${K}` : K]> & {
+            readonly __key: readonly [...Path, K extends number ? `${K}` : K]
+          }
+        : // 4) plain leaf (true) => final tuple
+          readonly [...Path, K extends number ? `${K}` : K]
+}
 
 export const DYNAMIC_SEGMENT: unique symbol = Symbol('DynamicSegment')
 
@@ -64,21 +58,19 @@ type InternalKeys = '__key' | typeof DYNAMIC_SEGMENT | typeof DYNAMIC_EXTENDED_S
  * Declarative configuration of a key hierarchy.
  * @remarks **Note:** May not contain `__key` as a property at any place.
  */
-export type KeyHierarchyConfig<T> =
-  '__key' extends keyof T ? never
+export type KeyHierarchyConfig<T> = '__key' extends keyof T
+  ? never
   : {
-    [K in keyof T as K extends InternalKeys ? never : K]:
-    T[K] extends DynamicSegment<infer Arg>
-    ? DynamicExtendableSegment<Arg>
-    : T[K] extends DynamicExtendedSegment<infer Arg, infer U>
-    ? DynamicExtendedSegment<Arg, U>
-    // eslint-disable-next-line ts/no-unsafe-function-type
-    : T[K] extends Function
-    ? never
-    : T[K] extends object
-    ? KeyHierarchyConfig<T[K]>
-    : true
-  }
+      [K in keyof T as K extends InternalKeys ? never : K]: T[K] extends DynamicSegment<infer Arg>
+        ? DynamicExtendableSegment<Arg>
+        : T[K] extends DynamicExtendedSegment<infer Arg, infer U>
+          ? DynamicExtendedSegment<Arg, U>
+          : T[K] extends Function
+            ? never
+            : T[K] extends object
+              ? KeyHierarchyConfig<T[K]>
+              : true
+    }
 
 /**
  * Options for a key hierarchy.
@@ -105,21 +97,22 @@ export interface KeyHierarchyOptions {
 /**
  * Represents a deeply readonly version of a type.
  */
-export type DeepReadonly<T> =
-  T extends (infer R)[] ? DeepReadonlyArray<R> :
-  // eslint-disable-next-line ts/no-unsafe-function-type
-  T extends Function ? T :
-  T extends object ? DeepReadonlyObject<T> :
-  T
+export type DeepReadonly<T> = T extends (infer R)[]
+  ? DeepReadonlyArray<R>
+  : T extends Function
+    ? T
+    : T extends object
+      ? DeepReadonlyObject<T>
+      : T
 
 /**
  * Represents a deeply readonly version of an array.
  */
-export interface DeepReadonlyArray<T> extends ReadonlyArray<DeepReadonly<T>> { }
+export interface DeepReadonlyArray<T> extends ReadonlyArray<DeepReadonly<T>> {}
 
 /**
  * Represents a deeply readonly version of an object.
  */
 export type DeepReadonlyObject<T> = {
-  readonly [P in keyof T]: DeepReadonly<T[P]>;
+  readonly [P in keyof T]: DeepReadonly<T[P]>
 }

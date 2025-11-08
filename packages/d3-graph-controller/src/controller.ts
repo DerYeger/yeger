@@ -94,11 +94,7 @@ export class GraphController<
     this.resetView()
 
     this.graph.nodes.forEach((node) => {
-      const [x, y] = config.positionInitializer(
-        node,
-        this.effectiveWidth,
-        this.effectiveHeight,
-      )
+      const [x, y] = config.positionInitializer(node, this.effectiveWidth, this.effectiveHeight)
       node.x = node.x ?? x
       node.y = node.y ?? y
     })
@@ -107,13 +103,8 @@ export class GraphController<
     this._nodeTypeFilter = [...this.nodeTypes]
 
     if (config.initial) {
-      const {
-        includeUnlinked,
-        nodeTypeFilter,
-        linkFilter,
-        showLinkLabels,
-        showNodeLabels,
-      } = config.initial
+      const { includeUnlinked, nodeTypeFilter, linkFilter, showLinkLabels, showNodeLabels } =
+        config.initial
       this._includeUnlinked = includeUnlinked ?? this._includeUnlinked
       this._showLinkLabels = showLinkLabels ?? this._showLinkLabels
       this._showNodeLabels = showNodeLabels ?? this._showNodeLabels
@@ -247,11 +238,7 @@ export class GraphController<
 
     const alpha = this.config.simulation.alphas.resize
 
-    this.restart(
-      isNumber(alpha)
-        ? alpha
-        : alpha({ oldWidth, oldHeight, newWidth, newHeight }),
-    )
+    this.restart(isNumber(alpha) ? alpha : alpha({ oldWidth, oldHeight, newWidth, newHeight }))
   }
 
   /**
@@ -302,9 +289,7 @@ export class GraphController<
     if (include) {
       this._nodeTypeFilter.push(nodeType)
     } else {
-      this._nodeTypeFilter = this._nodeTypeFilter.filter(
-        (type) => type !== nodeType,
-      )
+      this._nodeTypeFilter = this._nodeTypeFilter.filter((type) => type !== nodeType)
     }
     this.filterGraph(this.focusedNode)
     this.restart(this.config.simulation.alphas.filter.type)
@@ -344,13 +329,9 @@ export class GraphController<
     this.drag = defineDrag({
       config: this.config,
       onDragStart: () =>
-        this.simulation
-          ?.alphaTarget(this.config.simulation.alphas.drag.start)
-          .restart(),
+        this.simulation?.alphaTarget(this.config.simulation.alphas.drag.start).restart(),
       onDragEnd: () =>
-        this.simulation
-          ?.alphaTarget(this.config.simulation.alphas.drag.end)
-          .restart(),
+        this.simulation?.alphaTarget(this.config.simulation.alphas.drag.end).restart(),
     })
   }
 
@@ -416,10 +397,7 @@ export class GraphController<
       this.focusedNode = undefined
     }
 
-    if (
-      nodeToFocus !== undefined &&
-      this._nodeTypeFilter.includes(nodeToFocus.type)
-    ) {
+    if (nodeToFocus !== undefined && this._nodeTypeFilter.includes(nodeToFocus.type)) {
       nodeToFocus.isFocused = true
       this.focusedNode = nodeToFocus
     }

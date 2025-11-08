@@ -5,8 +5,8 @@
 Dependency-free HTML diffing library written in TypeScript.
 
 > This is a fork of [diff-htmls](https://github.com/ericmakesapps/diff-htmls) and [html-diff-ts](https://github.com/deadusr/html-diff-ts), which are TypeScript ports
-of [HtmlDiff.NET](https://github.com/Rohland/htmldiff.net) which is itself a C# port of
-the Ruby implementation, [HtmlDiff](https://github.com/myobie/htmldiff/).
+> of [HtmlDiff.NET](https://github.com/Rohland/htmldiff.net) which is itself a C# port of
+> the Ruby implementation, [HtmlDiff](https://github.com/myobie/htmldiff/).
 > This fork drops CJS support to fix various issues in modern ESM projects.
 
 ## Installation
@@ -112,15 +112,15 @@ const oldHtml = '<img src="./old.png" title="title-1" />'
 const newHtml = '<img src="./new.png" title="title-1" />'
 
 const result = diff(oldHtml, newHtml, {
-    blocksExpression: [
-      {
-        // match <img/> tag
-        exp: /<img[\s\S]+?\/>/g,
-        // compare only by title="" attribute
-        compareBy: /title="[\s\S]+?"/g,
-      },
-    ],
-  })
+  blocksExpression: [
+    {
+      // match <img/> tag
+      exp: /<img[\s\S]+?\/>/g,
+      // compare only by title="" attribute
+      compareBy: /title="[\s\S]+?"/g,
+    },
+  ],
+})
 ```
 
 Result:
@@ -142,15 +142,15 @@ const oldHtml = '<img src="./old.png" title="old-title" />'
 const newHtml = '<img src="./new.png" title="new-title" />'
 
 const result = diff(oldHtml, newHtml, {
-    blocksExpression: [
-      {
-        // match <img/> tag
-        exp: /<img[\s\S]+?\/>/g,
-        // compare only by title="" attribute
-        compareBy: /title="[\s\S]+?"/g,
-      },
-    ],
-  })
+  blocksExpression: [
+    {
+      // match <img/> tag
+      exp: /<img[\s\S]+?\/>/g,
+      // compare only by title="" attribute
+      compareBy: /title="[\s\S]+?"/g,
+    },
+  ],
+})
 ```
 
 Result:

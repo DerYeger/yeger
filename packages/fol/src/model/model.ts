@@ -14,12 +14,8 @@ export class Model {
   ) {
     this.domain = domain
     this.constants = constants
-    this.functions = Object.fromEntries(
-      functions.map((func) => [func.name, func]),
-    )
-    this.relations = Object.fromEntries(
-      relations.map((relation) => [relation.name, relation]),
-    )
+    this.functions = Object.fromEntries(functions.map((func) => [func.name, func]))
+    this.relations = Object.fromEntries(relations.map((relation) => [relation.name, relation]))
   }
 
   public getConstantByName(name: string): number | undefined {
@@ -49,11 +45,7 @@ export class Function {
   public readonly arity: number
   public readonly data: Record<string, number>
 
-  public constructor(
-    name: string,
-    arity: number,
-    data: Record<string, number>,
-  ) {
+  public constructor(name: string, arity: number, data: Record<string, number>) {
     this.name = name
     this.arity = arity
     this.data = data
@@ -68,18 +60,14 @@ export class Function {
     const result = this.data[args.join(',')]
     if (result === undefined) {
       throw new Error(
-        `Function ${this.name} is not total. ${this.name}(${args.join(
-          ', ',
-        )}) is not defined.`,
+        `Function ${this.name} is not total. ${this.name}(${args.join(', ')}) is not defined.`,
       )
     }
     return result
   }
 
   public isTotal(domain: number[]): boolean {
-    return generateAllArguments(domain, this.arity).every(
-      (args) => this.data[args] !== undefined,
-    )
+    return generateAllArguments(domain, this.arity).every((args) => this.data[args] !== undefined)
   }
 }
 
@@ -88,11 +76,7 @@ export class Relation {
   public readonly arity: number
   public readonly data: Set<string>
 
-  public constructor(
-    name: string,
-    arity: number,
-    data: Set<string>,
-  ) {
+  public constructor(name: string, arity: number, data: Set<string>) {
     this.name = name
     this.arity = arity
     this.data = data

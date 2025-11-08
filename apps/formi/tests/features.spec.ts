@@ -18,7 +18,8 @@ test.describe('features page', () => {
     const demo = modelSection.getByTestId('demo-card').getByTestId('model-input')
     await demo.scrollIntoViewIfNeeded()
     await expect(demo).toBeVisible()
-    await expect(demo).toContainText(`
+    await expect(demo).toContainText(
+      `
 domain: [1, 2, 3]
 
 constants:  a: 1  b: 2
@@ -33,7 +34,9 @@ relations:
   W:
     - 1,1
     - 2,3
-`, { useInnerText: true })
+`,
+      { useInnerText: true },
+    )
   })
 
   test('has a graph section', async ({ page }) => {
@@ -57,7 +60,9 @@ relations:
     const formulaSection = page.getByTestId('features-section-Formulas')
     await formulaSection.scrollIntoViewIfNeeded()
     await expect(formulaSection).toBeVisible()
-    await expect(formulaSection.getByTestId('feature-paragraph').filter({ visible: true })).toHaveCount(2)
+    await expect(
+      formulaSection.getByTestId('feature-paragraph').filter({ visible: true }),
+    ).toHaveCount(2)
 
     const parsingDemo = formulaSection.getByTestId('demo-card').nth(0)
     await parsingDemo.scrollIntoViewIfNeeded()
@@ -79,7 +84,9 @@ relations:
     await expect(modelCheckingSection).toBeVisible()
     await expect(modelCheckingSection.getByTestId('feature-paragraph')).toBeVisible()
 
-    const demo = modelCheckingSection.getByTestId('demo-card').getByTestId('model-checker-trace-root')
+    const demo = modelCheckingSection
+      .getByTestId('demo-card')
+      .getByTestId('model-checker-trace-root')
     await demo.scrollIntoViewIfNeeded()
     await expect(demo).toBeVisible()
     await expect(demo.locator('code').nth(0)).toHaveText('∃x. W(x,x) ∧ f(b) = x')

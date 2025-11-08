@@ -15,13 +15,13 @@ export interface Options {
 export function withVueComponentLifecycle<T>(
   composable: () => T,
   options: Options = {},
-): { result: T, app: App, cleanup: () => Promise<void> } {
+): { result: T; app: App; cleanup: () => Promise<void> } {
   const { plugins = [], autoCleanup = true } = options
   let result: T
   const app = createApp({
     setup() {
       result = composable()
-      return () => { }
+      return () => {}
     },
   })
   plugins.forEach((plugin) => app.use(plugin))
@@ -42,8 +42,8 @@ export function withVueComponentLifecycle<T>(
     app,
     cleanup: autoCleanup
       ? () => {
-        throw new Error('Auto cleanup is enabled, no manual cleanup is possible')
-      }
+          throw new Error('Auto cleanup is enabled, no manual cleanup is possible')
+        }
       : cleanup,
   }
 }

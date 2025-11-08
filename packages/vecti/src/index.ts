@@ -21,10 +21,7 @@ export class Vector {
    * @param y - The component of the y-axis.
    * @returns The vector.
    */
-  public constructor(
-    x: number,
-    y: number,
-  ) {
+  public constructor(x: number, y: number) {
     this.x = x
     this.y = y
   }

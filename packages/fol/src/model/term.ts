@@ -41,10 +41,7 @@ export class FunctionTerm implements Term {
   public readonly name: string
   public readonly argumentTerms: Term[]
 
-  public constructor(
-    name: string,
-    argumentTerms: Term[],
-  ) {
+  public constructor(name: string, argumentTerms: Term[]) {
     this.name = name
     this.argumentTerms = argumentTerms
   }
@@ -67,10 +64,7 @@ export class FunctionTerm implements Term {
       .join(',')})`
   }
 
-  public interpret(
-    model: Model,
-    variableAssignment: VariableAssignment,
-  ): number {
+  public interpret(model: Model, variableAssignment: VariableAssignment): number {
     const func = model.getFunctionByName(this.name)
     if (func === undefined) {
       throw new Error(`Model is missing the function ${this.name}.`)

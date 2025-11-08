@@ -42,7 +42,6 @@ async function run() {
         })
         .listen(options.port, () => {
           const url = `http://${hostname}:${options.port}`
-          // eslint-disable-next-line no-console
           console.log(`${c.green('turbo-graph:')} Listening on ${c.cyan(url)}`)
           if (options.open) {
             let urlToOpen = `${url}/?`
@@ -57,7 +56,6 @@ async function run() {
             }
             open(urlToOpen)
           } else if (tasks.length > 0 || options.filter) {
-          // eslint-disable-next-line no-console
             console.log(
               `${c.yellow('turbo-graph:')} Use ${c.cyan(
                 '--open',

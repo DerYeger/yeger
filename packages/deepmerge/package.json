@@ -1,6 +1,5 @@
 {
   "name": "@yeger/deepmerge",
-  "type": "module",
   "version": "2.0.17",
   "private": true,
   "repository": {
@@ -8,6 +7,12 @@
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/deepmerge"
   },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "type": "module",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -16,17 +21,11 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "LICENSE",
-    "dist"
-  ],
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
-    "dev": "tsdown --watch",
-    "lint": "yeger-lint"
+    "dev": "tsdown --watch"
   },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",

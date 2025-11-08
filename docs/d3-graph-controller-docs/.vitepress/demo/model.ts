@@ -19,11 +19,7 @@ export type DemoGraphController = GraphController<DemoType, DemoNode, DemoLink>
 
 export type DemoGraphConfig = GraphConfig<DemoType, DemoNode, DemoLink>
 
-export const demoGraphConfig: DemoGraphConfig = defineGraphConfig<
-  DemoType,
-  DemoNode,
-  DemoLink
->({
+export const demoGraphConfig: DemoGraphConfig = defineGraphConfig<DemoType, DemoNode, DemoLink>({
   autoResize: true,
   nodeRadius: (node: DemoNode) => node.radiusMultiplier * 32,
   simulation: {

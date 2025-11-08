@@ -21,11 +21,7 @@ export function defineDrag<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->({
-  config,
-  onDragStart,
-  onDragEnd,
-}: DefineDragParams<T, Node, Link>): Drag<T, Node> {
+>({ config, onDragStart, onDragEnd }: DefineDragParams<T, Node, Link>): Drag<T, Node> {
   const drg = drag<SVGGElement, Node, Node>()
     .filter((event: MouseEvent | TouchEvent) => {
       if (event.type === 'mousedown') {

@@ -16,6 +16,6 @@ export const postModule = defineKeyHierarchyModule((dynamic) => ({
   byMonth: dynamic<number>().extend({
     byDay: dynamic<number>(),
   }),
-  byAuthorAndYear: dynamic<{ authorId: string, year: number }>(),
-  byTags: dynamic<{ tags: string[], filter?: PostFilter }>(),
+  byAuthorAndYear: dynamic<{ authorId: string; year: number }>(),
+  byTags: dynamic<{ tags: string[]; filter?: PostFilter }>(),
 }))

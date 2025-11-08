@@ -6,7 +6,8 @@ test.describe('app page', () => {
 
     const modelInput = page.getByTestId('model-input')
     await expect(modelInput).toBeVisible()
-    await expect(modelInput).toContainText(`
+    await expect(modelInput).toContainText(
+      `
 domain: [1, 2, 3]
 
 constants:  a: 1  b: 2
@@ -21,7 +22,9 @@ relations:
   W:
     - 1,1
     - 2,3
-`, { useInnerText: true })
+`,
+      { useInnerText: true },
+    )
   })
 
   test('has a model graph', async ({ page }) => {

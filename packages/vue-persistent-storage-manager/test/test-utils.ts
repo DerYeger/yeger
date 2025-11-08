@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 import flushPromises from 'flush-promises'
 import { expect, vi } from 'vitest'
 import type { VueConstructor } from 'vue'
@@ -66,10 +65,7 @@ export function redefineGlobals(): void {
   })
 }
 
-export function checkStorageEstimate(
-  vm: VueConstructor,
-  expected: StorageEstimate,
-): void {
+export function checkStorageEstimate(vm: VueConstructor, expected: StorageEstimate): void {
   expect(vm.prototype.$storageManager.storageEstimate).toEqual(expected)
   expect(vm.prototype.$storageEstimate).toEqual(expected)
 }

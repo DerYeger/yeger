@@ -5,10 +5,9 @@ import type { Graph, NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
 
-export function defineNodeSelection<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
->(canvas: Canvas): NodeSelection<T, Node> {
+export function defineNodeSelection<T extends NodeTypeToken, Node extends GraphNode<T>>(
+  canvas: Canvas,
+): NodeSelection<T, Node> {
   return canvas.append('g').classed('nodes', true).selectAll('circle')
 }
 
@@ -57,7 +56,8 @@ export function createNodes<
           onNodeContext(d)
         })
         .on('pointerdown', (event: PointerEvent, d) =>
-          onPointerDown(event, d, onNodeSelected ?? onNodeContext))
+          onPointerDown(event, d, onNodeSelected ?? onNodeContext),
+        )
         .style('fill', (d) => d.color)
 
       config.modifiers.node?.(nodeCircle)

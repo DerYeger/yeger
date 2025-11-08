@@ -2,12 +2,7 @@ import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
 import grammar from './fol.ohm-bundle'
-import type {
-  Formula,
-  Model,
-  ModelCheckerMode,
-  ModelCheckerTrace,
-} from './model'
+import type { Formula, Model, ModelCheckerMode, ModelCheckerTrace } from './model'
 import { parse } from './parser'
 import type { MatchResult } from 'ohm-js'
 

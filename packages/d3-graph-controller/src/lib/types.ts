@@ -9,14 +9,16 @@ import type { GraphNode } from '../model/node'
 
 export type Canvas = Selection<SVGGElement, undefined, null, undefined>
 
-export type Drag<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = DragBehavior<SVGGElement, Node, Node>
-export type NodeDragEvent<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = D3DragEvent<SVGCircleElement, Node, Node>
+export type Drag<T extends NodeTypeToken, Node extends GraphNode<T>> = DragBehavior<
+  SVGGElement,
+  Node,
+  Node
+>
+export type NodeDragEvent<T extends NodeTypeToken, Node extends GraphNode<T>> = D3DragEvent<
+  SVGCircleElement,
+  Node,
+  Node
+>
 
 export type GraphHost = Selection<HTMLDivElement, undefined, null, undefined>
 
@@ -32,16 +34,13 @@ export type LinkSelection<
   Link extends GraphLink<T, Node>,
 > = Selection<SVGGElement, Link, SVGGElement, undefined>
 
-export type MarkerSelection = Selection<
-  SVGMarkerElement,
-  string,
+export type MarkerSelection = Selection<SVGMarkerElement, string, SVGGElement, undefined>
+
+export type NodeSelection<T extends NodeTypeToken, Node extends GraphNode<T>> = Selection<
+  SVGGElement,
+  Node,
   SVGGElement,
   undefined
 >
-
-export type NodeSelection<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = Selection<SVGGElement, Node, SVGGElement, undefined>
 
 export type Zoom = ZoomBehavior<SVGSVGElement, undefined>

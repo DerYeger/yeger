@@ -1,11 +1,5 @@
-/* eslint-disable react/no-array-index-key */
 import { Icon } from '@iconify/react'
-import type {
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-  NextPage,
-} from 'next'
+import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
 import Head from 'next/head'
 import { generateNextSeo } from 'next-seo/pages'
 import type { FC } from 'react'
@@ -80,14 +74,11 @@ const DepartureListItem: FC<{ departure: Departure }> = ({ departure }) => {
   }
 
   return (
-    <div className="flex h-[40px] items-center justify-between">
+    <div className="flex h-10 items-center justify-between">
       <div className="flex flex-col">
         {departureTime()}
         {delay !== 0 && (
-          <span
-            className="text-xs"
-            style={{ color: delay > 0 ? 'red' : 'orange' }}
-          >
+          <span className="text-xs" style={{ color: delay > 0 ? 'red' : 'orange' }}>
             {formatDelay(delay)}
           </span>
         )}
@@ -109,20 +100,18 @@ const LineTitle: FC<{ line: string }> = ({ line }) => {
   return <span className={`rounded px-2 text-white ${classes}`}>{line}</span>
 }
 
-const LineComponent: FC<{ line: Line, maxDepartures?: number }> = ({
-  line,
-  maxDepartures = 4,
-}) => {
+const LineComponent: FC<{ line: Line; maxDepartures?: number }> = ({ line, maxDepartures = 4 }) => {
   const shownDepartures = useMemo(
     () => line.departures?.departure.slice(0, maxDepartures) ?? [],
     [line.departures.departure, maxDepartures],
   )
   return (
-    <div className="overflow-hidden rounded border-2 border-gray-200" data-testid={`line-${line.name}-${line.towards.trim()}`}>
+    <div
+      className="overflow-hidden rounded border-2 border-gray-200"
+      data-testid={`line-${line.name}-${line.towards.trim()}`}
+    >
       <span className="flex items-center gap-2 bg-gray-100 p-4 font-bold" data-testid="line-header">
-        <LineTitle line={line.name} />
-        {' '}
-        {line.towards.trim()}
+        <LineTitle line={line.name} /> {line.towards.trim()}
       </span>
       <div className="border-b-2 border-gray-200" />
       <div className="flex flex-col">
@@ -153,18 +142,15 @@ const MonitorComponent: FC<{ monitor: Monitor }> = ({ monitor }) => {
   )
 }
 
-const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  station,
-}) => {
+const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ station }) => {
   const stopIds = useMemo(() => station.stops, [station.stops])
-  const { data: monitors, error: monitorError } =
-    trpc.monitor.getAllByStopIds.useQuery(
-      { stopIds },
-      {
-        refetchInterval: 30 * 1000,
-        retry: 2,
-      },
-    )
+  const { data: monitors, error: monitorError } = trpc.monitor.getAllByStopIds.useQuery(
+    { stopIds },
+    {
+      refetchInterval: 30 * 1000,
+      retry: 2,
+    },
+  )
 
   const markers = useMemo<[number, number][] | undefined>(
     () =>
@@ -177,27 +163,21 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <>
-      <Head>
-        {generateNextSeo({ title: station.name })}
-      </Head>
+      <Head>{generateNextSeo({ title: station.name })}</Head>
       <main className="flex flex-1 flex-col">
         <div className="m-4 flex items-center justify-between">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">{station.name}</h1>
-          <FavoriteToggle
-            stationName={station.name}
-          />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">
+            {station.name}
+          </h1>
+          <FavoriteToggle stationName={station.name} />
         </div>
         <div className="flex flex-1 flex-col items-center">
           {!monitors && !monitorError && <Spinner />}
           {!monitors && monitorError && (
-            <div className="flex flex-1 items-center justify-center">
-              {monitorError.message}
-            </div>
+            <div className="flex flex-1 items-center justify-center">{monitorError.message}</div>
           )}
           {monitors?.length === 0 && (
-            <div className="flex flex-1 items-center justify-center">
-              No data available :(
-            </div>
+            <div className="flex flex-1 items-center justify-center">No data available :(</div>
           )}
           {monitors && monitors.length >= 1 && (
             <div className="h-[200px] w-full bg-[#F6EFE4]">
@@ -212,11 +192,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 dragging={false}
               >
                 {markers?.map((marker, index) => (
-                  <LazyMarker
-                    key={index}
-                    position={marker}
-                    interactive={false}
-                  />
+                  <LazyMarker key={index} position={marker} interactive={false} />
                 ))}
               </LazyMap>
             </div>

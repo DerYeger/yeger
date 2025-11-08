@@ -6,10 +6,7 @@ import { getPackages } from '@manypkg/get-packages'
 
 export async function generateReadme(): Promise<void> {
   const { packages, rootPackage } = await getPackages(process.cwd())
-  const packagesByType = groupBy(
-    packages,
-    (pkg) => pkg.relativeDir.split('/')[0] ?? 'other',
-  )
+  const packagesByType = groupBy(packages, (pkg) => pkg.relativeDir.split('/')[0] ?? 'other')
   const output = Object.entries(packagesByType)
     .map(([type, pkgs]) => createSection(type, pkgs))
     .join('\n\n')

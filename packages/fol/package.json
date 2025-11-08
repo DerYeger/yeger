@@ -1,23 +1,27 @@
 {
   "name": "@yeger/fol",
-  "type": "module",
   "version": "1.1.4",
   "description": "FOL grammar and parser.",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/fol",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/fol",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/fol"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "sideEffects": false,
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -26,17 +30,15 @@
       }
     }
   },
-  "types": "./dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "dependencies": {
@@ -53,8 +55,5 @@
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

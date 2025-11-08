@@ -32,22 +32,9 @@ const postId = ref('post-456')
 
 <template>
   <div class="key-hierarchy-demo">
-    <StaticTreeNode
-      label="users"
-      :key-value="keys.users.__key"
-      :level="0"
-      partial
-    />
-    <StaticTreeNode
-      label="getAll"
-      :key-value="keys.users.getAll"
-      :level="1"
-    />
-    <StaticTreeNode
-      label="create"
-      :key-value="keys.users.create"
-      :level="1"
-    />
+    <StaticTreeNode label="users" :key-value="keys.users.__key" :level="0" partial />
+    <StaticTreeNode label="getAll" :key-value="keys.users.getAll" :level="1" />
+    <StaticTreeNode label="create" :key-value="keys.users.create" :level="1" />
 
     <!-- Dynamic byId with extensions -->
     <DynamicTreeNode
@@ -60,21 +47,9 @@ const postId = ref('post-456')
     />
 
     <!-- Extended keys under byId -->
-    <StaticTreeNode
-      label="get"
-      :key-value="keys.users.byId(userId).get"
-      :level="2"
-    />
-    <StaticTreeNode
-      label="update"
-      :key-value="keys.users.byId(userId).update"
-      :level="2"
-    />
-    <StaticTreeNode
-      label="delete"
-      :key-value="keys.users.byId(userId).delete"
-      :level="2"
-    />
+    <StaticTreeNode label="get" :key-value="keys.users.byId(userId).get" :level="2" />
+    <StaticTreeNode label="update" :key-value="keys.users.byId(userId).update" :level="2" />
+    <StaticTreeNode label="delete" :key-value="keys.users.byId(userId).delete" :level="2" />
 
     <!-- Posts under byId, shown like a static node (no container background or collapse) -->
     <StaticTreeNode
@@ -83,11 +58,7 @@ const postId = ref('post-456')
       :level="2"
       partial
     />
-    <StaticTreeNode
-      label="getAll"
-      :key-value="keys.users.byId(userId).posts.getAll"
-      :level="3"
-    />
+    <StaticTreeNode label="getAll" :key-value="keys.users.byId(userId).posts.getAll" :level="3" />
     <DynamicTreeNode
       v-model="postId"
       label="byId"

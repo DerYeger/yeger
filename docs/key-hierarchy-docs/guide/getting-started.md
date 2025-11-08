@@ -19,6 +19,7 @@ npm install key-hierarchy
 ```
 
 :::
+
 ## Usage
 
 ### Defining a key hierarchy
@@ -90,10 +91,10 @@ Static keys are the simplest form - they represent fixed endpoints:
 ```typescript
 const keys = defineKeyHierarchy({
   posts: {
-    getAll: true,    // → ['posts', 'getAll']
-    create: true,    // → ['posts', 'create']
+    getAll: true, // → ['posts', 'getAll']
+    create: true, // → ['posts', 'create']
   },
-  config: true,      // → ['config']
+  config: true, // → ['config']
 })
 ```
 
@@ -105,12 +106,12 @@ Dynamic keys accept parameters and can optionally be extended with nested keys:
 const keys = defineKeyHierarchy((dynamic) => ({
   posts: {
     // Dynamic key as terminal (end of hierarchy)
-    byTag: dynamic<string>(),  // Usage: keys.posts.byTag('tech')
-    
+    byTag: dynamic<string>(), // Usage: keys.posts.byTag('tech')
+
     // Dynamic key with extensions
     byId: dynamic<number>().extend({
-      get: true,     // Usage: keys.posts.byId(42).get
-      update: true,  // Usage: keys.posts.byId(42).update
+      get: true, // Usage: keys.posts.byId(42).get
+      update: true, // Usage: keys.posts.byId(42).update
     }),
   },
 }))

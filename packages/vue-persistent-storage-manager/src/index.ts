@@ -23,8 +23,7 @@ export class VuePersistentStorageManager {
    * Indicates that the StorageManager API is available.
    */
   public readonly isAvailable: boolean =
-    typeof navigator !== 'undefined' &&
-    navigator?.storage?.persist !== undefined
+    typeof navigator !== 'undefined' && navigator?.storage?.persist !== undefined
 
   /**
    * Contains storage quota and usage information.
@@ -87,9 +86,7 @@ export class VuePersistentStorageManager {
   }
 
   private _refreshIsPersistent() {
-    navigator.storage
-      .persisted()
-      .then((persisted) => (this._isPersistent = persisted))
+    navigator.storage.persisted().then((persisted) => (this._isPersistent = persisted))
   }
 
   private _refreshStorageEstimate() {
@@ -103,7 +100,7 @@ export class VuePersistentStorageManager {
     if (typeof localStorage === 'undefined') {
       return
     }
-    // eslint-disable-next-line ts/no-this-alias
+    // oxlint-disable-next-line no-this-alias
     const self = this
     if (typeof localStorage.originalSetItem === 'undefined') {
       localStorage.originalSetItem = localStorage.setItem

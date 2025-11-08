@@ -18,11 +18,7 @@ export function Task({ data }: TaskProps) {
   const state = useTaskRun(taskId)
   return (
     <div className="flex flex-col">
-      {isOrigin
-        ? null
-        : (
-          <Handle type="target" position={Position.Top} isConnectable={false} />
-        )}
+      {isOrigin ? null : <Handle type="target" position={Position.Top} isConnectable={false} />}
       <div
         className="task-node rounded-lg border border-neutral-400/20 bg-neutral-900 p-4 font-mono text-sm flex flex-col gap-2"
         style={{
@@ -32,9 +28,7 @@ export function Task({ data }: TaskProps) {
       >
         {/* Header section */}
         <div className="flex items-center gap-3">
-          <div
-            className="text-md flex size-6 items-center justify-center text-lg font-bold text-white"
-          >
+          <div className="text-md flex size-6 items-center justify-center text-lg font-bold text-white">
             <PackageIcon framework={framework} packageName={packageName} />
           </div>
           <div>
@@ -44,7 +38,10 @@ export function Task({ data }: TaskProps) {
         </div>
 
         {/* Command section */}
-        <div className="rounded border border-solid bg-black p-3" style={{ borderColor: `var(${getTaskColorVar(task)})` }}>
+        <div
+          className="rounded border border-solid bg-black p-3"
+          style={{ borderColor: `var(${getTaskColorVar(task)})` }}
+        >
           <div className="flex items-center gap-3">
             <div className="text-white">
               <TaskIcon task={task} />
@@ -59,15 +56,9 @@ export function Task({ data }: TaskProps) {
           />
         </div>
       </div>
-      {isTerminal
-        ? null
-        : (
-          <Handle
-            type="source"
-            position={Position.Bottom}
-            isConnectable={false}
-          />
-        )}
+      {isTerminal ? null : (
+        <Handle type="source" position={Position.Bottom} isConnectable={false} />
+      )}
     </div>
   )
 }

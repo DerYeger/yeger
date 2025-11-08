@@ -22,9 +22,7 @@ const resources: Link[] = [
 </script>
 
 <template>
-  <footer
-    class="align-start mx-auto mt-8 flex w-fit flex-wrap justify-between gap-12"
-  >
+  <footer class="align-start mx-auto mt-8 flex w-fit flex-wrap justify-between gap-12">
     <FooterColumn title="Resources">
       <a
         v-for="link of resources"

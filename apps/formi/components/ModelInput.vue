@@ -6,12 +6,9 @@ import { Codemirror } from 'vue-codemirror'
 
 import { jsonToModel, yamlToJson } from '../util/yamlToModel'
 
-const props = withDefaults(
-  defineProps<{ modelValue: string, disabled?: boolean }>(),
-  {
-    disabled: false,
-  },
-)
+const props = withDefaults(defineProps<{ modelValue: string; disabled?: boolean }>(), {
+  disabled: false,
+})
 
 const emit = defineEmits(['update:modelValue', 'update:model'])
 
@@ -37,8 +34,7 @@ watch(
 
     if (
       newResult.isOk &&
-      JSON.stringify(newResult.get()) ===
-      JSON.stringify(oldResult?.getOrUndefined())
+      JSON.stringify(newResult.get()) === JSON.stringify(oldResult?.getOrUndefined())
     ) {
       return
     }
@@ -59,10 +55,7 @@ watch(
   <div class="relative size-full" data-testid="model-input">
     <Codemirror
       :model-value="modelValue"
-      :extensions="[
-        language,
-        EditorView.contentAttributes.of({ 'aria-label': 'Model Input' }),
-      ]"
+      :extensions="[language, EditorView.contentAttributes.of({ 'aria-label': 'Model Input' })]"
       :style="{
         width: '100%',
         height: '100%',

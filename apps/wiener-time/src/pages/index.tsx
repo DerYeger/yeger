@@ -14,9 +14,7 @@ export const getStaticProps: GetStaticProps<{
   }
 }
 
-const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  stations,
-}) => {
+const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ stations }) => {
   return (
     <>
       <main className="mt-4 flex flex-1 flex-col items-center justify-center px-4">

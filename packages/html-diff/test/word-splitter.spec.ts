@@ -127,7 +127,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns tags with attributes ', () => {
+    it('returns tags with attributes', () => {
       const string = '<tag attribute="value1" >some text </tag>'
       const expectedWords = [['<tag attribute="value1" >'], ['</tag>']]
 
@@ -135,19 +135,15 @@ describe('WordSplitter', () => {
         expect.arrayContaining(expectedWords),
       )
 
-      const hardString =
-        '<tag style="font-weight: 500; &font-face:"Roboto";" >some text </tag>'
-      const expectedWords2 = [
-        ['<tag style="font-weight: 500; &font-face:"Roboto";" >'],
-        ['</tag>'],
-      ]
+      const hardString = '<tag style="font-weight: 500; &font-face:"Roboto";" >some text </tag>'
+      const expectedWords2 = [['<tag style="font-weight: 500; &font-face:"Roboto";" >'], ['</tag>']]
 
       expect(WordSplitter.convertHtmlToListOfWords(hardString)).toEqual(
         expect.arrayContaining(expectedWords2),
       )
     })
 
-    it('returns entities ', () => {
+    it('returns entities', () => {
       const string = '&entity; &other'
       const expectedWords = [['&entity;'], ['&other']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -203,9 +199,9 @@ describe('WordSplitter', () => {
       const blockExp = { exp: /\d\d\.\d\d\.\d\d\d\d/g }
       const blockExp2 = { exp: /\d\d-\d\d-\d\d\d\d/g }
       const expectedDates = [['19.02.2022'], [' '], ['11-12-2022']]
-      expect(
-        WordSplitter.convertHtmlToListOfWords(stringWithDate, [blockExp, blockExp2]),
-      ).toEqual(expect.arrayContaining(expectedDates))
+      expect(WordSplitter.convertHtmlToListOfWords(stringWithDate, [blockExp, blockExp2])).toEqual(
+        expect.arrayContaining(expectedDates),
+      )
     })
     it(`will return first - match from (blockExp.compareBy) from
             second - part of the text from (blockExp.exp) match`, () => {

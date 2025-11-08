@@ -28,9 +28,7 @@ describe('diff', () => {
           },
         ],
       }),
-    ).toBe(
-      ' text <del class="diffmod">19.12.2022</del><ins class="diffmod">20.12.2022</ins>',
-    )
+    ).toBe(' text <del class="diffmod">19.12.2022</del><ins class="diffmod">20.12.2022</ins>')
   })
   it(`when blocksExpression.compareBy specified - will group part of string that match (blocksExpression.exp)
         into one token and compare by match from (blocksExpression.compareBy)`, () => {
