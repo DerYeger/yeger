@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.20
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 3.0.19
 
 ### Patch Changes

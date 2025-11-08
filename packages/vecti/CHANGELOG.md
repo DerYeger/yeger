@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.5
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 3.1.4
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @yeger/vue-masonry-wall-core
 
+## 5.0.21
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+- Updated dependencies [fccce5b]
+  - @yeger/vue-lib-adapter@2.0.16
+  - @yeger/debounce@2.0.17
+
 ## 5.0.20
 
 ### Patch Changes

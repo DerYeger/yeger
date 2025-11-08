@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.9
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 3.0.8
 
 ### Patch Changes

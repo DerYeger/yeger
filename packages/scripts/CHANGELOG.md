@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.15
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 1.0.14
 
 ### Patch Changes

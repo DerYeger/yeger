@@ -1,5 +1,11 @@
 # vite-plugin-ssg-utils
 
+## 2.0.19
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 2.0.18
 
 ### Patch Changes

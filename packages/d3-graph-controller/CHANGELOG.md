@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.1.6
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+- Updated dependencies [fccce5b]
+  - @yeger/debounce@2.0.17
+  - vecti@3.1.5
+
 ## 3.1.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 4.0.22
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+- Updated dependencies [fccce5b]
+  - @yeger/debounce@2.0.17
+
 ## 4.0.21
 
 ### Patch Changes

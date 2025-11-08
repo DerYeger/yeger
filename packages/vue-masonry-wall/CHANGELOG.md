@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.1.4
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+- Updated dependencies [fccce5b]
+  - @yeger/vue-masonry-wall-core@5.0.21
+
 ## 5.1.3
 
 ### Patch Changes

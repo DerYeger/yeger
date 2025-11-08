@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 2.0.1
+
+### Patch Changes
+
+- fccce5b: build with mts and mjs extension
+
 ## 2.0.0
 
 ### Major Changes

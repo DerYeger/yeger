@@ -1,5 +1,12 @@
 # key-hierarchy-docs
 
+## 3.0.9
+
+### Patch Changes
+
+- Updated dependencies [fccce5b]
+  - key-hierarchy@3.0.9
+
 ## 3.0.8
 
 ### Patch Changes
