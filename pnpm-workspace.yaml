@@ -14,7 +14,7 @@ catalog:
   '@codemirror/state': 6.5.2
   '@commitlint/cli': 20.1.0
   '@commitlint/config-conventional': 20.0.0
-  '@eslint-react/eslint-plugin': 2.3.5
+  '@eslint-react/eslint-plugin': 2.3.7
   '@eslint/eslintrc': 3.3.1
   '@iconify/react': 6.0.2
   '@manypkg/get-packages': 3.1.0
@@ -23,8 +23,8 @@ catalog:
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.56.1
   '@tailwindcss/postcss': 4.1.17
-  '@tanstack/react-query': 5.90.9
-  '@tanstack/vue-query': 5.91.1
+  '@tanstack/react-query': 5.90.10
+  '@tanstack/vue-query': 5.91.2
   '@testing-library/react': 16.3.0
   '@trpc/client': 11.7.1
   '@trpc/next': 11.7.1
@@ -39,18 +39,18 @@ catalog:
   '@types/eslint': 9.6.1
   '@types/leaflet': 1.9.21
   '@types/node': 24.10.1
-  '@types/react': 19.2.5
+  '@types/react': 19.2.6
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
   '@unhead/vue': 2.0.19
-  '@unocss/nuxt': 66.5.6
-  '@unocss/reset': 66.5.6
+  '@unocss/nuxt': 66.5.9
+  '@unocss/reset': 66.5.9
   '@vite-pwa/nuxt': 1.0.7
-  '@vitejs/plugin-vue': 6.0.1
+  '@vitejs/plugin-vue': 6.0.2
   '@vitejs/plugin-vue2': 2.3.4
-  '@vitest/browser-playwright': 4.0.9
-  '@vitest/coverage-v8': 4.0.9
-  '@vitest/ui': 4.0.9
+  '@vitest/browser-playwright': 4.0.13
+  '@vitest/coverage-v8': 4.0.13
+  '@vitest/ui': 4.0.13
   '@vue/shared': 3.5.24
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.0.0
@@ -95,14 +95,14 @@ catalog:
   kolorist: 1.8.0
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lint-staged: 16.2.6
+  lint-staged: 16.2.7
   localforage: 1.10.0
-  lucide-react: 0.553.0
+  lucide-react: 0.554.0
   next: 16.0.3
   next-seo: 7.0.1
   node-fetch: 3.3.2
   node-fetch-native: 1.6.7
-  nuqs: 2.7.3
+  nuqs: 2.8.1
   nuxt: 4.2.1
   ohm-js: 17.2.1
   open: 10.2.0
@@ -116,14 +116,14 @@ catalog:
   react-query: 3.39.3
   react-viewport-list: 7.1.2
   reactflow: 11.11.4
-  rimraf: 6.1.0
+  rimraf: 6.1.2
   splitpanes: 4.0.4
   superjson: 2.2.5
   syncpack: 13.0.4
   tailwind-merge: 3.4.0
   tailwindcss: 4.1.17
   taze: 19.9.0
-  tsdown: 0.16.4
+  tsdown: 0.16.6
   tsx: 4.20.6
   tw-animate-css: 1.4.0
   typescript: 5.9.3
@@ -132,18 +132,18 @@ catalog:
   unplugin-vue-components: 30.0.0
   use-debounce: 10.0.6
   use-local-storage: 3.0.0
-  vercel: 48.10.2
-  vite: 7.2.2
+  vercel: 48.10.10
+  vite: 7.2.4
   vite-plugin-dts: 4.5.4
   vite-ssg: 28.2.2
   vitepress: 1.6.4
-  vitest: 4.0.9
+  vitest: 4.0.13
   vue: 3.5.24
   vue-codemirror: 6.1.1
   vue-router: 4.6.3
   vue-template-compiler: 2.7.16
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.1.3
+  vue-tsc: 3.1.4
   yaml: 2.8.1
   yaml-eslint-parser: 1.3.0
   zod: 4.1.12
