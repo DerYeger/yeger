@@ -1,0 +1,57 @@
+{
+  "name": "@yeger/html-diff",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Dependency-free HTML diffing library written in TypeScript.",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/html-diff",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DerYeger/yeger.git",
+    "directory": "packages/html-diff"
+  },
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      }
+    }
+  },
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
+    "dev": "tsdown --watch",
+    "lint": "yeger-lint",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "catalog:",
+    "@vitest/ui": "catalog:",
+    "@yeger/tsconfig": "workspace:*",
+    "@yeger/vitest-utils": "workspace:*",
+    "publint": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
+  }
+}

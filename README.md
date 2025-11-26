@@ -26,6 +26,7 @@
 - [@yeger/deepmerge](./packages/deepmerge)
 - [@yeger/eslint-config](./packages/eslint-config)
 - [@yeger/fol](./packages/fol)
+- [@yeger/html-diff](./packages/html-diff)
 - [@yeger/playwright-config](./packages/playwright-config)
 - [@yeger/scripts](./packages/scripts)
 - [@yeger/streams](./packages/streams)
