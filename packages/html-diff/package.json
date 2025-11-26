@@ -1,7 +1,7 @@
 {
   "name": "@yeger/html-diff",
   "type": "module",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Dependency-free HTML diffing library written in TypeScript.",
   "author": {
     "name": "Jan Müller",
