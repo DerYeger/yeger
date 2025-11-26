@@ -31,6 +31,13 @@ jobs:
           files: packages/fol/coverage/coverage-final.json
           flags: fol
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload @yeger/html-diff coverage
+        uses: codecov/codecov-action@v5
+        with:
+          disable_search: true
+          files: packages/html-diff/coverage/coverage-final.json
+          flags: html-diff
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/streams coverage
         uses: codecov/codecov-action@v5
         with:
