@@ -4,6 +4,8 @@ packages:
   - examples/*
   - packages/*
 
+minimumReleaseAge: 1440
+
 catalog:
   '@algolia/client-search': 5.44.0
   '@antfu/eslint-config': 6.2.0

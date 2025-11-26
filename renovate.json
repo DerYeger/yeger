@@ -17,6 +17,12 @@
   },
   "packageRules": [
     {
+      "matchDatasources": [
+        "npm"
+      ],
+      "minimumReleaseAge": "2 days"
+    },
+    {
       "matchDepTypes": [
         "pnpm.catalog.vue2"
       ],
