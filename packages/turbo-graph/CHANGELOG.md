@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.3.11
+
+### Patch Changes
+
+- dc3d556: bump next
+- Updated dependencies [dc3d556]
+  - @yeger/turbo-graph-ui@2.8.2
+
 ## 2.3.10
 
 ### Patch Changes
