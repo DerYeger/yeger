@@ -5247,11 +5247,13 @@
       3852,
       5070,
       5737,
-      7348
+      7348,
+      7350,
+      7351
     ],
     "location": [
-      48.2569689,
-      16.40000559090909
+      48.256888592307696,
+      16.400133738461534
     ]
   },
   "Floridsdorf SU": {
@@ -5268,12 +5270,11 @@
     "name": "Floridsdorf",
     "stops": [
       4645,
-      4646,
-      7351
+      4646
     ],
     "location": [
-      48.22503816666667,
-      16.3737394
+      48.25620465,
+      16.4004613
     ]
   },
   "Floridsdorfer Brücke": {
@@ -8111,11 +8112,12 @@
     "stops": [
       598,
       618,
-      2746
+      2746,
+      3572
     ],
     "location": [
-      48.221023366666664,
-      16.407653800000002
+      48.2209735,
+      16.407582675
     ]
   },
   "Himberger Straße": {
@@ -8651,16 +8653,6 @@
     "location": [
       48.26678995,
       16.29634205
-    ]
-  },
-  "Hörlgasse": {
-    "name": "Hörlgasse",
-    "stops": [
-      7432
-    ],
-    "location": [
-      48.2160056,
-      16.3608905
     ]
   },
   "Hörndlwald": {
@@ -11709,16 +11701,6 @@
       16.369873650000002
     ]
   },
-  "Laxenburger Straße, Gudrunstraße": {
-    "name": "Laxenburger Straße, Gudrunstraße",
-    "stops": [
-      7447
-    ],
-    "location": [
-      48.1784975,
-      16.3721464
-    ]
-  },
   "Laxenburger Straße, Troststraße": {
     "name": "Laxenburger Straße, Troststraße",
     "stops": [
@@ -12486,11 +12468,12 @@
     "name": "Ludwig-Koeßler-Platz",
     "stops": [
       2504,
-      2505
+      2505,
+      3602
     ],
     "location": [
-      48.1957221,
-      16.40928275
+      48.195789966666666,
+      16.409327666666666
     ]
   },
   "Ludwig-Reindl-Gasse": {
@@ -14566,16 +14549,6 @@
     "location": [
       48.23169682857144,
       16.353439614285712
-    ]
-  },
-  "Nußdorfer Straße, Alserbachstraße": {
-    "name": "Nußdorfer Straße, Alserbachstraße",
-    "stops": [
-      7358
-    ],
-    "location": [
-      48.2244088,
-      16.3571805
     ]
   },
   "Nußdorfer Straße": {
@@ -17607,11 +17580,12 @@
       960,
       1503,
       2672,
+      3568,
       3834
     ],
     "location": [
-      48.19431086666666,
-      16.407294483333335
+      48.19428577142857,
+      16.407321857142858
     ]
   },
   "Schlachthausgasse": {
@@ -19160,6 +19134,17 @@
       16.330258
     ]
   },
+  "Sofienalpenstraße, Roßkopfgasse": {
+    "name": "Sofienalpenstraße, Roßkopfgasse",
+    "stops": [
+      3921,
+      3922
+    ],
+    "location": [
+      48.2471756,
+      16.2189477
+    ]
+  },
   "Soldanellenweg": {
     "name": "Soldanellenweg",
     "stops": [
@@ -19352,12 +19337,11 @@
       148,
       188,
       211,
-      382,
-      7433
+      382
     ],
     "location": [
-      48.2222184,
-      16.353279980000003
+      48.222266275,
+      16.353304225000002
     ]
   },
   "Spittelau S U": {
@@ -22685,7 +22669,7 @@
       3113,
       3114,
       3792,
-      7388
+      7389
     ],
     "location": [
       48.23900824,
