@@ -51,7 +51,7 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.6.2"
+    "turbo": "2.6.3"
   },
   "pnpm": {
     "overrides": {
