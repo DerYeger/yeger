@@ -5,6 +5,7 @@ packages:
   - packages/*
 
 minimumReleaseAge: 1440
+trustPolicy: no-downgrade
 
 catalog:
   '@algolia/client-search': 5.45.0
