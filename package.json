@@ -51,28 +51,7 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.6.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "@codemirror/state": "catalog:"
-    },
-    "packageExtensions": {
-      "vue-template-compiler": {
-        "peerDependencies": {
-          "vue": "2.7.16"
-        }
-      }
-    },
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@tailwindcss/oxide",
-      "core-js-pure",
-      "esbuild",
-      "sharp",
-      "unrs-resolver",
-      "vue-demi"
-    ]
+    "turbo": "2.6.3"
   },
   "lint-staged": {
     "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
