@@ -19,7 +19,6 @@
     "@types/d3-selection": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
-    "unplugin-vue-components": "catalog:",
     "vite": "catalog:",
     "vite-plugin-lib": "workspace:*",
     "vitepress": "catalog:",

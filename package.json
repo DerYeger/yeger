@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.24.0",
+  "packageManager": "pnpm@10.25.0",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
@@ -31,7 +31,7 @@
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run check:tsc check:vue",
-    "update": "taze -l -r -w --exclude @vue/test-utils,vue",
+    "update": "taze",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"
   },
