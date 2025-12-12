@@ -17,6 +17,9 @@
         "build",
         "generate"
       ]
+    },
+    "generate": {
+      "dependsOn": ["e2e"]
     }
   }
 }

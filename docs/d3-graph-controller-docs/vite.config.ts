@@ -1,15 +1,9 @@
-import Components from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vite'
 import { cleanup } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    Components({
-      include: [/\.vue/, /\.md/],
-      dirs: '.vitepress/components',
-      dts: '.vitepress/components.d.ts',
-    }),
     cleanup(),
   ],
   optimizeDeps: {
