@@ -1,5 +1,13 @@
 # @yeger/turbo-graph
 
+## 2.3.12
+
+### Patch Changes
+
+- c02aa68: bump next
+- Updated dependencies [c02aa68]
+  - @yeger/turbo-graph-ui@2.8.3
+
 ## 2.3.11
 
 ### Patch Changes
