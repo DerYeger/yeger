@@ -274,8 +274,8 @@ catalogs:
       specifier: 1.10.0
       version: 1.10.0
     lucide-react:
-      specifier: 0.559.0
-      version: 0.559.0
+      specifier: 0.560.0
+      version: 0.560.0
     next:
       specifier: 16.0.10
       version: 16.0.10
@@ -1389,7 +1389,7 @@ importers:
         version: 3.3.1
       lucide-react:
         specifier: 'catalog:'
-        version: 0.559.0(react@19.2.3)
+        version: 0.560.0(react@19.2.3)
       next:
         specifier: 'catalog:'
         version: 16.0.10(@playwright/test@1.57.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -8632,8 +8632,8 @@ packages:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
 
-  lucide-react@0.559.0:
-    resolution: {integrity: sha512-3ymrkBPXWk3U2bwUDg6TdA6hP5iGDMgPEAMLhchEgTQmA+g0Zk24tOtKtXMx35w1PizTmsBC3RhP88QYm+7mHQ==}
+  lucide-react@0.560.0:
+    resolution: {integrity: sha512-NwKoUA/aBShsdL8WE5lukV2F/tjHzQRlonQs7fkNGI1sCT0Ay4a9Ap3ST2clUUkcY+9eQ0pBe2hybTQd2fmyDA==}
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
@@ -19720,7 +19720,7 @@ snapshots:
     dependencies:
       yallist: 4.0.0
 
-  lucide-react@0.559.0(react@19.2.3):
+  lucide-react@0.560.0(react@19.2.3):
     dependencies:
       react: 19.2.3
 
