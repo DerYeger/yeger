@@ -5,6 +5,7 @@ import type { PlaywrightTestConfig } from '@playwright/test'
 
 export interface Options {
   ports?: {
+    flag?: string
     dev?: number
     preview?: number
   }
@@ -19,6 +20,7 @@ export function definePlaywrightConfig({ ports = {} }: Options): PlaywrightTestC
   const previewPort = ports.preview ?? 5173
   const port = isCI ? previewPort : devPort
   const baseURL = `http://localhost:${port}`
+  const portFlag = ports.flag ?? '--port'
   return defineConfig({
     testDir: './tests',
     fullyParallel: true,
@@ -37,7 +39,7 @@ export function definePlaywrightConfig({ ports = {} }: Options): PlaywrightTestC
       },
     ],
     webServer: {
-      command: `nr ${isCI ? 'preview' : 'dev'} --port=${port}`,
+      command: `nr ${isCI ? 'preview' : 'dev'} ${portFlag}=${port}`,
       url: baseURL,
       reuseExistingServer: !isCI,
     },

@@ -12,7 +12,7 @@
     "lint": "yeger-lint",
     "nuxi": "nuxi",
     "postinstall": "nuxt prepare",
-    "preview": "nuxt preview"
+    "preview": "serve .output/public"
   },
   "dependencies": {
     "@codemirror/language": "catalog:",
@@ -42,6 +42,7 @@
     "@yeger/playwright-config": "workspace:*",
     "node-fetch-native": "catalog:",
     "nuxt": "catalog:",
+    "serve": "catalog:",
     "typescript": "catalog:",
     "ufo": "catalog:",
     "vite": "catalog:",

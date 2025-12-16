@@ -71,7 +71,8 @@
     },
     "e2e": {
       "dependsOn": [
-        "build"
+        "build",
+        "generate"
       ],
       "inputs": [
         "playwright.config.ts",

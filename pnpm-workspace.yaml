@@ -113,6 +113,7 @@ catalog:
   react-viewport-list: 7.1.2
   reactflow: 11.11.4
   rimraf: 6.1.2
+  serve: 14.2.5
   splitpanes: 4.0.4
   superjson: 2.2.6
   syncpack: 13.0.4
