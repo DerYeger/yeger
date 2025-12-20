@@ -28,7 +28,7 @@ catalog:
   '@trpc/client': 11.8.0
   '@trpc/next': 11.8.0
   '@trpc/react-query': 11.8.0
-  '@trpc/server': 11.7.2
+  '@trpc/server': 11.8.0
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
   '@types/d3-scale': 4.0.9
