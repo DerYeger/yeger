@@ -1362,12 +1362,11 @@
     "name": "Aspern Nord S U",
     "stops": [
       2860,
-      2874,
       8139
     ],
     "location": [
-      48.23496076666667,
-      16.5042826
+      48.235135299999996,
+      16.5043335
     ]
   },
   "Aspern Nord SU": {
@@ -1390,6 +1389,17 @@
     "location": [
       48.23454895,
       16.5047377
+    ]
+  },
+  "Aspern, Oberdorfstraße": {
+    "name": "Aspern, Oberdorfstraße",
+    "stops": [
+      3429,
+      3430
+    ],
+    "location": [
+      48.2172536,
+      16.4811435
     ]
   },
   "Aspern, Sportplatz": {
@@ -2669,11 +2679,12 @@
     "stops": [
       3110,
       3118,
-      7457
+      7457,
+      8190
     ],
     "location": [
-      48.235888200000005,
-      16.471697666666667
+      48.235896675000006,
+      16.471693175
     ]
   },
   "Borkowskigasse": {
@@ -4318,13 +4329,11 @@
   "Edmund-Hawranek-Platz": {
     "name": "Edmund-Hawranek-Platz",
     "stops": [
-      83,
-      2180,
-      2181
+      2180
     ],
     "location": [
-      48.2914375,
-      16.38663023333333
+      48.2914654,
+      16.3866542
     ]
   },
   "Edmund-Reim-Gasse": {
@@ -6050,6 +6059,17 @@
     "location": [
       48.2929716,
       16.4832141
+    ]
+  },
+  "Gerasdorf, Neue Mittelschule": {
+    "name": "Gerasdorf, Neue Mittelschule",
+    "stops": [
+      3458,
+      3460
+    ],
+    "location": [
+      48.294388,
+      16.471333899999998
     ]
   },
   "Gerasdorf, Postamt": {
@@ -8252,20 +8272,6 @@
     "location": [
       48.23480320000001,
       16.466454533333334
-    ]
-  },
-  "Hirschstetten, Süßenbrunner Straße": {
-    "name": "Hirschstetten, Süßenbrunner Straße",
-    "stops": [
-      1078,
-      1079,
-      2483,
-      2490,
-      8080
-    ],
-    "location": [
-      48.23608606,
-      16.46251872
     ]
   },
   "Hlawkagasse": {
@@ -11577,11 +11583,12 @@
     "name": "Lassallestraße",
     "stops": [
       7,
-      648
+      648,
+      7428
     ],
     "location": [
-      48.22169165,
-      16.398017850000002
+      48.22222233333333,
+      16.399604866666667
     ]
   },
   "Laudongasse": {
@@ -13297,16 +13304,6 @@
       16.446764950000002
     ]
   },
-  "Meriangasse": {
-    "name": "Meriangasse",
-    "stops": [
-      3122
-    ],
-    "location": [
-      48.2913519,
-      16.3846689
-    ]
-  },
   "Merkurweg": {
     "name": "Merkurweg",
     "stops": [
@@ -14594,8 +14591,7 @@
   "Ober St. Veit U, Franz-Boos-Gasse": {
     "name": "Ober St. Veit U, Franz-Boos-Gasse",
     "stops": [
-      5063,
-      5242
+      5063
     ],
     "location": [
       48.1919435,
@@ -14631,13 +14627,11 @@
       2406,
       2592,
       2595,
-      3429,
-      3430,
       8652
     ],
     "location": [
-      48.21750001666667,
-      16.4804982
+      48.217623225,
+      16.480175550000002
     ]
   },
   "Oberdöbling S": {
@@ -14720,6 +14714,17 @@
     "location": [
       48.2414564,
       16.4737638
+    ]
+  },
+  "Oberfeldgasse": {
+    "name": "Oberfeldgasse",
+    "stops": [
+      2484,
+      2489
+    ],
+    "location": [
+      48.2432333,
+      16.46894885
     ]
   },
   "Obergfellplatz": {
@@ -19238,7 +19243,7 @@
     "stops": [
       3184,
       3196,
-      7383
+      7384
     ],
     "location": [
       48.241101433333334,
@@ -20025,16 +20030,20 @@
       16.297294275
     ]
   },
-  "Strebersdorf, Edmund-Hawranek-Platz": {
-    "name": "Strebersdorf, Edmund-Hawranek-Platz",
+  "Strebersdorf, Meriangasse": {
+    "name": "Strebersdorf, Meriangasse",
     "stops": [
+      83,
       978,
+      2181,
+      3122,
       3126,
+      3473,
       5726
     ],
     "location": [
-      48.29106696666667,
-      16.386127166666665
+      48.29126647142857,
+      16.386134442857145
     ]
   },
   "Strebersdorfer Platz": {
@@ -20321,17 +20330,6 @@
       16.49570515
     ]
   },
-  "Süßenbrunner Straße / Oberfeldgasse": {
-    "name": "Süßenbrunner Straße / Oberfeldgasse",
-    "stops": [
-      2484,
-      2489
-    ],
-    "location": [
-      48.2432333,
-      16.46894885
-    ]
-  },
   "Süßenbrunner Straße, Oberfeldgasse": {
     "name": "Süßenbrunner Straße, Oberfeldgasse",
     "stops": [
@@ -20345,11 +20343,16 @@
   "Süßenbrunner Straße": {
     "name": "Süßenbrunner Straße",
     "stops": [
-      3193
+      1078,
+      1079,
+      2483,
+      2490,
+      3193,
+      8080
     ],
     "location": [
-      48.2427846,
-      16.4689848
+      48.237202483333334,
+      16.4635964
     ]
   },
   "Süßenbrunnerstraße": {
@@ -21493,12 +21496,11 @@
     "name": "Vorgartenstraße U",
     "stops": [
       597,
-      649,
-      7427
+      649
     ],
     "location": [
-      48.224029800000004,
-      16.4018956
+      48.224402850000004,
+      16.40145395
     ]
   },
   "Vorgartenstraße": {
@@ -22669,7 +22671,7 @@
       3113,
       3114,
       3792,
-      7389
+      7388
     ],
     "location": [
       48.23900824,

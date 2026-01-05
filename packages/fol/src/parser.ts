@@ -1,4 +1,4 @@
-import type { NonterminalNode } from 'ohm-js'
+import type { FailedMatchResult, NonterminalNode } from 'ohm-js'
 import type { Result } from 'resumon'
 import { Err, Ok } from 'resumon'
 
@@ -137,5 +137,5 @@ export function parse(formula: string): Result<Formula, string> {
   if (matchResult.succeeded()) {
     return new Ok(semantics(matchResult).parseFormula(new Set()))
   }
-  return new Err(matchResult.message ?? 'An unknown error occurred')
+  return new Err((matchResult as FailedMatchResult).message ?? 'An unknown error occurred')
 }
