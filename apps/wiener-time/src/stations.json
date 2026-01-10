@@ -1362,11 +1362,12 @@
     "name": "Aspern Nord S U",
     "stops": [
       2860,
+      2874,
       8139
     ],
     "location": [
-      48.235135299999996,
-      16.5043335
+      48.23496076666667,
+      16.5042826
     ]
   },
   "Aspern Nord SU": {
@@ -1946,6 +1947,16 @@
     "location": [
       48.1735195,
       16.3313943
+    ]
+  },
+  "Bahnhof Rudolfsheim (Bedarf)": {
+    "name": "Bahnhof Rudolfsheim (Bedarf)",
+    "stops": [
+      6024
+    ],
+    "location": [
+      48.19059,
+      16.3226762
     ]
   },
   "Bahnhof Rudolfsheim Kurzführung": {
@@ -2534,16 +2545,6 @@
     "location": [
       48.208870149999996,
       16.30394185
-    ]
-  },
-  "Bhf.Rdh. / Halle III - A": {
-    "name": "Bhf.Rdh. / Halle III - A",
-    "stops": [
-      7008
-    ],
-    "location": [
-      48.19059,
-      16.3226762
     ]
   },
   "Bibernellweg": {
@@ -14591,7 +14592,8 @@
   "Ober St. Veit U, Franz-Boos-Gasse": {
     "name": "Ober St. Veit U, Franz-Boos-Gasse",
     "stops": [
-      5063
+      5063,
+      5242
     ],
     "location": [
       48.1919435,
@@ -22759,12 +22761,11 @@
     "stops": [
       3989,
       3990,
-      3991,
       3992
     ],
     "location": [
-      48.1522363,
-      16.449149999999996
+      48.1522383,
+      16.449197899999998
     ]
   },
   "Zentralfriedhof 3.Tor": {
