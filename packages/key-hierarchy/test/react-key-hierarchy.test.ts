@@ -2,7 +2,8 @@ import { describe, expect, it, vi } from 'vitest'
 import { useQuery } from '@tanstack/react-query'
 import { waitFor } from '@testing-library/react'
 import { defineKeyHierarchy, defineKeyHierarchyModule } from '../src/index'
-import React, { useMemo } from 'react'
+import * as React from 'react'
+import { useMemo } from 'react'
 import { withReactComponentLifecycle } from './react-test-utils'
 
 const module = defineKeyHierarchyModule((dynamic) => ({
