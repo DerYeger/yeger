@@ -16,13 +16,13 @@ const markerIcon = L.icon({
   shadowAnchor: [12, 41],
 })
 
-const Marker: FC<MarkerProps & { position: [number, number] }> = ({ children, position, ...rest }) => {
+const Marker: FC<MarkerProps & { position: [number, number] }> = ({
+  children,
+  position,
+  ...rest
+}) => {
   return (
-    <BaseMarker
-      icon={markerIcon}
-      position={lib.fixCoordinates(position)}
-      {...rest}
-    >
+    <BaseMarker icon={markerIcon} position={lib.fixCoordinates(position)} {...rest}>
       {children}
     </BaseMarker>
   )

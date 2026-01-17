@@ -34,8 +34,7 @@ export default defineComponent({
     document.documentElement.setAttribute('lang', 'en')
     const metaElement = document.createElement('meta')
     metaElement.setAttribute('name', 'description')
-    metaElement.content =
-      'A responsive and configurable Marmoset Viewer component for Vue.'
+    metaElement.content = 'A responsive and configurable Marmoset Viewer component for Vue.'
     document.getElementsByTagName('head')[0]?.appendChild(metaElement)
   },
   methods: {
@@ -61,22 +60,17 @@ export default defineComponent({
         <section id="settings">
           <div class="row">
             <label>Model</label>
-            <button
-              v-for="file of files"
-              :key="file"
-              :disabled="src === file"
-              @click="src = file"
-            >
+            <button v-for="file of files" :key="file" :disabled="src === file" @click="src = file">
               {{ capitalize(file) }}
             </button>
           </div>
           <div>
             <label for="autostart">Autostart</label>
-            <input id="autostart" v-model="autoStart" type="checkbox">
+            <input id="autostart" v-model="autoStart" type="checkbox" />
           </div>
           <div>
             <label for="responsive">Responsive</label>
-            <input id="responsive" v-model="responsive" type="checkbox">
+            <input id="responsive" v-model="responsive" type="checkbox" />
           </div>
           <div>
             <label for="width">
@@ -90,7 +84,7 @@ export default defineComponent({
               min="200"
               max="800"
               :disabled="responsive"
-            >
+            />
           </div>
           <div>
             <label for="height">
@@ -104,15 +98,13 @@ export default defineComponent({
               max="600"
               min="200"
               type="range"
-            >
+            />
           </div>
         </section>
         <section id="emits">
           <div>
             <label for="emitLog">Emits</label>
-            <button @click="emits = []">
-              Clear
-            </button>
+            <button @click="emits = []">Clear</button>
           </div>
           <textarea id="emitLog" v-model="emitLog" readonly />
         </section>

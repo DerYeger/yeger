@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { Link } from '../types/types'
 
-const props = defineProps<{ link: Link, description?: string }>()
+const props = defineProps<{ link: Link; description?: string }>()
 
 const { link, description } = toRefs(props)
 </script>

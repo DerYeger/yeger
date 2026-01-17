@@ -69,9 +69,16 @@ test('has a map for all stations', async ({ page }) => {
   await expect(map).toBeVisible()
 
   async function zoomUntilAnyStationVisible() {
-    const visibleStations = await map.locator('.leaflet-marker-pane .leaflet-marker-icon:not(.marker-cluster)').filter({ visible: true }).all()
+    const visibleStations = await map
+      .locator('.leaflet-marker-pane .leaflet-marker-icon:not(.marker-cluster)')
+      .filter({ visible: true })
+      .all()
     if (visibleStations.length === 0) {
-      await map.locator('.leaflet-marker-pane .marker-cluster').filter({ visible: true }).first().click({ force: true })
+      await map
+        .locator('.leaflet-marker-pane .marker-cluster')
+        .filter({ visible: true })
+        .first()
+        .click({ force: true })
       return zoomUntilAnyStationVisible()
     }
     return visibleStations[0]!
@@ -89,5 +96,8 @@ test('has an about page', async ({ page }) => {
   await expect(page).toHaveURL('/about')
 
   await expect(page.locator('main')).toHaveText(/Impressum/)
-  await expect(page.getByTestId('repository-link')).toHaveAttribute('href', 'https://github.com/DerYeger/yeger/tree/main/apps/wiener-time')
+  await expect(page.getByTestId('repository-link')).toHaveAttribute(
+    'href',
+    'https://github.com/DerYeger/yeger/tree/main/apps/wiener-time',
+  )
 })

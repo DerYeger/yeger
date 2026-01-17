@@ -30,7 +30,8 @@ const borderBreakpoints = [1, 3, 5] as const
       :class="{ 'cursor-pointer': children.length > 0 }"
       style="white-space: nowrap"
       @click="expanded = !expanded"
-    >{{ expanded ? fragment.text() : fragment.toFormattedString() }}</code>
+      >{{ expanded ? fragment.text() : fragment.toFormattedString() }}</code
+    >
     <div
       v-show="expanded && children.length > 0"
       class="mt-2 flex size-fit flex-row justify-evenly gap-2"

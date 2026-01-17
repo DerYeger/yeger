@@ -1,8 +1,6 @@
 <template>
   <header>
-    <h1 style="margin-bottom: 0.5rem">
-      vue-marmoset-viewer
-    </h1>
+    <h1 style="margin-bottom: 0.5rem">vue-marmoset-viewer</h1>
     <a
       href="https://github.com/DerYeger/yeger/tree/main/packages/vue-marmoset-viewer/"
       target="_blank"
@@ -27,11 +25,9 @@
     </a>
     <p class="subtitle" style="margin-top: 0.5rem">
       A responsive and configurable
-      <a
-        href="https://marmoset.co/toolbag/viewer/"
-        target="_blank"
-        rel="noopener"
-      >Marmoset Viewer</a>
+      <a href="https://marmoset.co/toolbag/viewer/" target="_blank" rel="noopener"
+        >Marmoset Viewer</a
+      >
       component for Vue.
     </p>
     <div class="row" style="justify-content: center">
@@ -43,17 +39,10 @@
         <img
           alt="CI"
           src="https://img.shields.io/github/actions/workflow/status/DerYeger/yeger/ci.yml?branch=main&label=ci&logo=github&color=#4DC71F"
-        >
+        />
       </a>
-      <a
-        href="https://www.npmjs.com/package/vue-marmoset-viewer"
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          alt="NPM"
-          src="https://img.shields.io/npm/v/vue-marmoset-viewer?logo=npm"
-        >
+      <a href="https://www.npmjs.com/package/vue-marmoset-viewer" target="_blank" rel="noopener">
+        <img alt="NPM" src="https://img.shields.io/npm/v/vue-marmoset-viewer?logo=npm" />
       </a>
       <a
         href="https://app.codecov.io/gh/DerYeger/yeger/tree/main/packages/vue-marmoset-viewer"
@@ -63,27 +52,16 @@
         <img
           alt="Coverage"
           src="https://codecov.io/gh/DerYeger/yeger/branch/main/graph/badge.svg?token=DjcvNlg4hd&flag=vue-marmoset-viewer"
-        >
+        />
       </a>
-      <a
-        href="https://www.npmjs.com/package/vue"
-        target="_blank"
-        rel="noopener"
-      >
+      <a href="https://www.npmjs.com/package/vue" target="_blank" rel="noopener">
         <img
           alt="npm peer dependency version"
           src="https://img.shields.io/npm/dependency-version/vue-marmoset-viewer/peer/vue"
-        >
+        />
       </a>
-      <a
-        href="https://opensource.org/licenses/MIT"
-        target="_blank"
-        rel="noopener"
-      >
-        <img
-          alt="MIT"
-          src="https://img.shields.io/npm/l/vue-marmoset-viewer?color=#4DC71F"
-        >
+      <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener">
+        <img alt="MIT" src="https://img.shields.io/npm/l/vue-marmoset-viewer?color=#4DC71F" />
       </a>
     </div>
   </header>

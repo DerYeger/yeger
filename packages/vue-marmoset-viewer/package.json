@@ -1,31 +1,36 @@
 {
   "name": "vue-marmoset-viewer",
-  "type": "module",
   "version": "4.0.22",
   "private": false,
   "description": "A responsive and configurable Marmoset Viewer component for Vue.",
+  "keywords": [
+    "3d",
+    "component",
+    "marmoset",
+    "plugin",
+    "vue"
+  ],
+  "homepage": "https://vue-marmoset-viewer.janmueller.dev",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://vue-marmoset-viewer.janmueller.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vue-marmoset-viewer"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "vue",
-    "plugin",
-    "component",
-    "marmoset",
-    "3d"
+  "files": [
+    "dist/*",
+    "src/**/*.vue"
   ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -34,24 +39,15 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist/*",
-    "src/**/*.vue"
-  ],
-  "engines": {
-    "node": ">=12"
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
-    "check:vue": "vue-tsc",
+    "check:tsc": "vue-tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
-  },
-  "peerDependencies": {
-    "vue": "^3.0.5"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*"
@@ -73,7 +69,10 @@
     "vue": "catalog:",
     "vue-tsc": "catalog:"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "vue": "^3.0.5"
+  },
+  "engines": {
+    "node": ">=12"
   }
 }

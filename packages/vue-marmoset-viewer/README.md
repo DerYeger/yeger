@@ -71,12 +71,7 @@ Vue.use(MarmosetViewer)
 
 ```vue
 <template>
-  <marmoset-viewer
-    src="/file.mview"
-    :width="800"
-    :height="600"
-    :auto-start="true"
-  />
+  <marmoset-viewer src="/file.mview" :width="800" :height="600" :auto-start="true" />
 </template>
 ```
 

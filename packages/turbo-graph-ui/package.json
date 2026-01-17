@@ -1,47 +1,46 @@
 {
   "name": "@yeger/turbo-graph-ui",
-  "type": "module",
   "version": "2.8.3",
   "description": "Interactive visualization and execution of Turborepo task graphs.",
+  "keywords": [
+    "graph",
+    "monorepo",
+    "turbo",
+    "turborepo",
+    "visualization"
+  ],
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph-ui",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph-ui",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/turbo-graph-ui"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "turborepo",
-    "turbo",
-    "graph",
-    "visualization",
-    "monorepo"
+  "files": [
+    ".next",
+    "next.config.mjs"
   ],
+  "type": "module",
   "exports": {
     ".": {
       "import": "./next.config.mjs"
     }
   },
-  "files": [
-    ".next",
-    "next.config.mjs"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "next build",
     "check:publish": "publint run --strict",
     "dev": "next dev",
-    "lint": "yeger-lint",
     "preview": "next start"
-  },
-  "peerDependencies": {
-    "turbo": "1.0.0 || ^2.0.0"
   },
   "devDependencies": {
     "@iconify/react": "catalog:",
@@ -61,7 +60,6 @@
     "clsx": "catalog:",
     "d3-dag": "catalog:",
     "d3-scale": "catalog:",
-    "eslint-config-next": "catalog:",
     "execa": "catalog:",
     "jsonc-parser": "catalog:",
     "lucide-react": "catalog:",
@@ -78,7 +76,7 @@
     "tw-animate-css": "catalog:",
     "typescript": "catalog:"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "turbo": "1.0.0 || ^2.0.0"
   }
 }

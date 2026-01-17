@@ -20,10 +20,7 @@ export interface Force<Subject> {
 /**
  * Simulation force applied to nodes.
  */
-export type NodeForce<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> = Force<Node>
+export type NodeForce<T extends NodeTypeToken, Node extends GraphNode<T>> = Force<Node>
 
 /**
  * Collision force applied to nodes.

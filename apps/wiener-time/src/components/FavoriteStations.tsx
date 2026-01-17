@@ -10,7 +10,11 @@ import { Stations } from './Stations'
 
 const SearchForYourStation: FC = () => {
   return (
-    <Link href="/stations" className="flex items-center justify-center gap-2 text-neutral-600 transition-colors hover:text-black" data-testid="search-favorites">
+    <Link
+      href="/stations"
+      className="flex items-center justify-center gap-2 text-neutral-600 transition-colors hover:text-black"
+      data-testid="search-favorites"
+    >
       <Icon icon="fa:train" />
       See all stations
       <Icon icon="fa:bus" />
@@ -18,9 +22,7 @@ const SearchForYourStation: FC = () => {
   )
 }
 
-export const FavoriteStations: FC<{ stations: string[] }> = ({
-  stations,
-}) => {
+export const FavoriteStations: FC<{ stations: string[] }> = ({ stations }) => {
   const { favorites } = useFavorites()
   const favoriteStations = useMemo(
     () =>

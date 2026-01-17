@@ -1,119 +1,60 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "ui": "stream",
-  "globalEnv": [
-    "CI"
-  ],
+  "globalEnv": ["CI"],
   "tasks": {
     "check:publish": {
-      "dependsOn": [
-        "build",
-        "generate"
-      ]
+      "dependsOn": ["build", "generate"],
     },
     "check:tsc": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ]
-    },
-    "check:vue": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ]
+      "dependsOn": ["^build", "codegen"],
     },
     "build": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "dependsOn": ["^build", "codegen"],
+      "outputs": ["dist/**", ".next/**"],
     },
     "generate": {
-      "dependsOn": [
-        "build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "dependsOn": ["build"],
+      "outputs": ["dist/**", ".next/**"],
     },
+    "//#quality": {
+      "dependsOn": ["//#lint", "//#format"],
+    },
+    "//#quality:fix": {
+      "dependsOn": ["//#lint:fix", "//#format:fix"],
+    },
+    "//#lint": {},
+    "//#lint:fix": {},
+    "//#format": {},
+    "//#format:fix": {},
     "codegen": {},
     "preview": {
-      "dependsOn": [
-        "build",
-        "generate"
-      ],
-      "cache": false
+      "dependsOn": ["build", "generate"],
+      "cache": false,
     },
     "bench": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ],
-      "cache": false
+      "dependsOn": ["^build", "codegen"],
+      "cache": false,
     },
     "test": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ],
-      "outputs": [
-        "coverage/**"
-      ],
-      "env": [
-        "COVERAGE"
-      ]
+      "dependsOn": ["^build", "codegen"],
+      "outputs": ["coverage/**"],
+      "env": ["COVERAGE"],
     },
     "e2e": {
-      "dependsOn": [
-        "build",
-        "generate"
-      ],
-      "inputs": [
-        "playwright.config.ts",
-        "tests"
-      ],
-      "outputs": [
-        "playwright-report",
-        "test-results"
-      ]
+      "dependsOn": ["build", "generate"],
+      "inputs": ["playwright.config.ts", "tests"],
+      "outputs": ["playwright-report", "test-results"],
     },
     "dev": {
-      "dependsOn": [
-        "^build",
-        "codegen"
-      ],
-      "cache": false
-    },
-    "lint": {
-      "dependsOn": [
-        "@yeger/eslint-config#build",
-        "^build"
-      ]
+      "dependsOn": ["^build", "codegen"],
+      "cache": false,
     },
     "//#lint:root": {
-      "dependsOn": [
-        "@yeger/eslint-config#build"
-      ],
-      "inputs": [
-        "./*",
-        ".vscode/**",
-        ".husky/**",
-        ".github/**",
-        ".changeset/**"
-      ]
+      "inputs": ["./*", ".vscode/**", ".husky/**", ".github/**", ".changeset/**"],
     },
     "//#syncpack:lint": {
-      "inputs": [
-        ".syncpackrc",
-        "pnpm-lock.yaml",
-        "pnpm-workspace.yaml"
-      ]
-    }
-  }
+      "inputs": [".syncpackrc", "pnpm-lock.yaml", "pnpm-workspace.yaml"],
+    },
+  },
 }

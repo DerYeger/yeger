@@ -64,7 +64,6 @@ The latter accepts a `number` array of length 2, with the first element being th
 ```ts
 import { Vector } from 'vecti'
 
-// eslint-disable-next-line no-new
 new Vector(42, 7) // == Vector { x: 42, y: 7 }
 
 Vector.of([42, 7]) // == Vector { x: 42, y: 7 }

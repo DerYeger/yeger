@@ -91,8 +91,8 @@ const keys = defineKeyHierarchy({
   },
 })
 
-keys.users.getAll   // readonly ['users', 'getAll']
-keys.users.create   // readonly ['users', 'create']
+keys.users.getAll // readonly ['users', 'getAll']
+keys.users.create // readonly ['users', 'create']
 ```
 
 ### Dynamic Keys
@@ -107,7 +107,7 @@ const keys = defineKeyHierarchy((dynamic) => ({
   },
 }))
 
-keys.users.byId(42)              // readonly ['users', ['byId', 42]]
+keys.users.byId(42) // readonly ['users', ['byId', 42]]
 keys.users.byEmail('user@ex.com') // readonly ['users', ['byEmail', 'user@ex.com']]
 ```
 
@@ -126,9 +126,9 @@ const keys = defineKeyHierarchy((dynamic) => ({
   },
 }))
 
-keys.users.byId(42).get     // readonly ['users', ['byId', 42], 'get']
-keys.users.byId(42).update  // readonly ['users', ['byId', 42], 'update']
-keys.users.byId(42).posts   // readonly ['users', ['byId', 42], 'posts']
+keys.users.byId(42).get // readonly ['users', ['byId', 42], 'get']
+keys.users.byId(42).update // readonly ['users', ['byId', 42], 'update']
+keys.users.byId(42).posts // readonly ['users', ['byId', 42], 'posts']
 ```
 
 ### Partial Keys with `__key`
@@ -148,8 +148,8 @@ const keys = defineKeyHierarchy((dynamic) => ({
   },
 }))
 
-keys.users.byId(42).__key           // readonly ['users', ['byId', 42]]
-keys.users.byId(42).profile.__key   // readonly ['users', ['byId', 42], 'profile']
+keys.users.byId(42).__key // readonly ['users', ['byId', 42]]
+keys.users.byId(42).profile.__key // readonly ['users', ['byId', 42], 'profile']
 ```
 
 ## Examples
@@ -168,9 +168,9 @@ const keys = defineKeyHierarchy({
   },
 })
 
-console.log(keys.health)        // ['health']
-console.log(keys.config.app)    // ['config', 'app']
-console.log(keys.config.user)   // ['config', 'user']
+console.log(keys.health) // ['health']
+console.log(keys.config.app) // ['config', 'app']
+console.log(keys.config.user) // ['config', 'user']
 ```
 
 ### Dynamic Key Usage
@@ -194,19 +194,19 @@ const keys = defineKeyHierarchy((dynamic) => ({
 }))
 
 // Static keys
-keys.users.getAll   // ['users', 'getAll']
-keys.users.create   // ['users', 'create']
+keys.users.getAll // ['users', 'getAll']
+keys.users.create // ['users', 'create']
 
 // Dynamic keys
-keys.users.byId(42).get          // ['users', ['byId', 42], 'get']
-keys.users.byId(42).update       // ['users', ['byId', 42], 'update']
-keys.posts.byUserId(42)          // ['posts', ['byUserId', 42]]
-keys.posts.byTag('javascript')   // ['posts', ['byTag', 'javascript']]
+keys.users.byId(42).get // ['users', ['byId', 42], 'get']
+keys.users.byId(42).update // ['users', ['byId', 42], 'update']
+keys.posts.byUserId(42) // ['posts', ['byUserId', 42]]
+keys.posts.byTag('javascript') // ['posts', ['byTag', 'javascript']]
 
 // Complex parameters
-keys.users.search({ 
-  query: 'john', 
-  filters: { role: 'admin' } 
+keys.users.search({
+  query: 'john',
+  filters: { role: 'admin' },
 }) // ['users', ['search', { query: 'john', filters: { role: 'admin' } }]]
 ```
 
@@ -263,7 +263,7 @@ keys.users.byId(42).posts.byId('post-123').get
 keys.users.byFilter({
   role: 'admin',
   status: 'active',
-  dateRange: { start: new Date('2023-01-01'), end: new Date('2023-12-31') }
+  dateRange: { start: new Date('2023-01-01'), end: new Date('2023-12-31') },
 })
 ```
 

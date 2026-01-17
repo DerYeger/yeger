@@ -43,10 +43,8 @@ describe('Utils', () => {
       expect(Utils.wrapText('text', 'span', '')).toBe('<span class="">text</span>')
     })
 
-    it('set passed css class to tag ', () => {
-      expect(Utils.wrapText('text', 'span', 'bold')).toBe(
-        '<span class="bold">text</span>',
-      )
+    it('set passed css class to tag', () => {
+      expect(Utils.wrapText('text', 'span', 'bold')).toBe('<span class="bold">text</span>')
     })
   })
   describe('isStartOfTag()', () => {

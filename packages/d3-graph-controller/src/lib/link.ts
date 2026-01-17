@@ -62,9 +62,7 @@ export function createLinks<
       return linkGroup
     })
 
-  result
-    ?.select('.link__label')
-    .attr('opacity', (d) => (d.label && showLabels ? 1 : 0))
+  result?.select('.link__label').attr('opacity', (d) => (d.label && showLabels ? 1 : 0))
 
   return result
 }
@@ -93,12 +91,7 @@ function updateLinkPaths<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->({
-  center,
-  config,
-  graph,
-  selection,
-}: UpdateLinksParams<T, Node, Link>): void {
+>({ center, config, graph, selection }: UpdateLinksParams<T, Node, Link>): void {
   selection?.selectAll<SVGPathElement, Link>('path').attr('d', (d) => {
     if (
       d.source.x === undefined ||
@@ -126,12 +119,7 @@ function updateLinkLabels<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->({
-  config,
-  center,
-  graph,
-  selection,
-}: UpdateLinksParams<T, Node, Link>): void {
+>({ config, center, graph, selection }: UpdateLinksParams<T, Node, Link>): void {
   selection?.select('.link__label').attr('transform', (d) => {
     if (
       d.source.x === undefined ||
@@ -170,11 +158,7 @@ function areBidirectionallyConnected<
 >(graph: Graph<T, Node, Link>, source: Node, target: Node): boolean {
   return (
     source.id !== target.id &&
-    graph.links.some(
-      (l) => l.target.id === source.id && l.source.id === target.id,
-    ) &&
-    graph.links.some(
-      (l) => l.target.id === target.id && l.source.id === source.id,
-    )
+    graph.links.some((l) => l.target.id === source.id && l.source.id === target.id) &&
+    graph.links.some((l) => l.target.id === target.id && l.source.id === source.id)
   )
 }

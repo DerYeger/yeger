@@ -2,7 +2,11 @@ import { createClone, deepFreeze } from './utils'
 import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from '../types'
 import type { KeyHierarchyOptions } from '../types'
 
-export function createProxy<T>(path: unknown[], currentConfig: unknown, options: Required<KeyHierarchyOptions>): unknown {
+export function createProxy<T>(
+  path: unknown[],
+  currentConfig: unknown,
+  options: Required<KeyHierarchyOptions>,
+): unknown {
   return new Proxy(
     {},
     {
@@ -21,10 +25,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         if (typeof value === 'object' && value !== null && DYNAMIC_EXTENDED_SEGMENT in value) {
           return (arg: unknown) => {
             const argPath = options.freeze ? createClone(arg) : arg
-            const functionPath = [
-              ...path,
-              [prop, argPath],
-            ]
+            const functionPath = [...path, [prop, argPath]]
 
             // Extract the extended config (symbols are not enumerable, so spread gets everything else)
             const extendedConfig = { ...value }
@@ -38,10 +39,7 @@ export function createProxy<T>(path: unknown[], currentConfig: unknown, options:
         if (typeof value === 'object' && value !== null && DYNAMIC_SEGMENT in value) {
           return (arg: unknown) => {
             const argPath = options.freeze ? createClone(arg) : arg
-            const functionPath = [
-              ...path,
-              [prop, argPath],
-            ]
+            const functionPath = [...path, [prop, argPath]]
 
             // Leaf node reached
             if (options.freeze) {

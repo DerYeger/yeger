@@ -1,14 +1,6 @@
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import Vue, { defineComponent } from 'vue'
 
 import MasonryWall from '../src/index'
@@ -227,8 +219,7 @@ describe('MasonryWall', () => {
     })
     await flushPromises()
 
-    const [firstNew, secondNew, thirdNew] =
-      wall.findAll('.masonry-column').wrappers
+    const [firstNew, secondNew, thirdNew] = wall.findAll('.masonry-column').wrappers
     expect(firstNew?.element.childElementCount).toEqual(0)
     expect(secondNew?.element.childElementCount).toEqual(3)
     expect(thirdNew?.element.childElementCount).toEqual(0)
@@ -257,21 +248,18 @@ describe('MasonryWall', () => {
         return ''
       },
     })
-    await wrapper
-      .setProps({
-        items: [1, 2],
-        maxColumns: 20,
-      })
+    await wrapper.setProps({
+      items: [1, 2],
+      maxColumns: 20,
+    })
     await flushPromises()
-    const unconstrainedColumns =
-      wrapper.findAll('.masonry-column').wrappers
+    const unconstrainedColumns = wrapper.findAll('.masonry-column').wrappers
     expect(unconstrainedColumns.length).toEqual(10)
 
-    await wrapper
-      .setProps({
-        items: [1, 2],
-        maxColumns: 1,
-      })
+    await wrapper.setProps({
+      items: [1, 2],
+      maxColumns: 1,
+    })
     await flushPromises()
     const columns = wrapper.findAll('.masonry-column').wrappers
     expect(columns.length).toEqual(1)

@@ -39,9 +39,7 @@ describe('Config', () => {
           },
         },
       }
-      expect(customMerge.simulation.forces).toStrictEqual(
-        customConfig.simulation.forces,
-      )
+      expect(customMerge.simulation.forces).toStrictEqual(customConfig.simulation.forces)
     })
   })
 })

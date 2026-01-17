@@ -3,14 +3,10 @@ import type { Selection } from 'd3-selection'
 
 const config = defineGraphConfig({
   modifiers: {
-    link: (
-      selection: Selection<SVGPathElement, GraphLink, SVGGElement, undefined>,
-    ) => {
+    link: (selection: Selection<SVGPathElement, GraphLink, SVGGElement, undefined>) => {
       // Customize link paths
     },
-    linkLabel: (
-      selection: Selection<SVGTextElement, GraphLink, SVGGElement, undefined>,
-    ) => {
+    linkLabel: (selection: Selection<SVGTextElement, GraphLink, SVGGElement, undefined>) => {
       // Customize link labels
     },
   },

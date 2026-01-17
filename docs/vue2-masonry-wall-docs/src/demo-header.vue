@@ -12,19 +12,12 @@ export default defineComponent({
 <template>
   <header class="secondary">
     <div class="row">
-      <h1 id="title">
-        @yeger/vue2-masonry-wall
-      </h1>
+      <h1 id="title">@yeger/vue2-masonry-wall</h1>
       <GithubLogo />
     </div>
-    <p id="subtitle">
-      Responsive masonry layout with SSR support and zero dependencies for Vue
-      2.
-    </p>
+    <p id="subtitle">Responsive masonry layout with SSR support and zero dependencies for Vue 2.</p>
     <p class="row" style="justify-content: center">
-      <a href="https://vue-masonry-wall.janmueller.dev/" rel="noopener">
-        Vue 3 version
-      </a>
+      <a href="https://vue-masonry-wall.janmueller.dev/" rel="noopener"> Vue 3 version </a>
       <a
         href="https://github.com/DerYeger/yeger/blob/main/packages/vue2-masonry-wall/README.md"
         target="_blank"

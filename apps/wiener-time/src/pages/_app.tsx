@@ -12,9 +12,7 @@ import { trpc } from '../utils/trpc'
 const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <>
-      <Head>
-        {generateDefaultSeo(SEO)}
-      </Head>
+      <Head>{generateDefaultSeo(SEO)}</Head>
       <div className="flex min-h-[calc(100vh-50px)] flex-col">
         <Header />
         <Component {...pageProps} />

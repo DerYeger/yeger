@@ -49,8 +49,7 @@ export default defineConfig({
   // theme and its config
   themeConfig: {
     editLink: {
-      pattern:
-        'https://github.com/DerYeger/yeger/tree/main/docs/d3-graph-controller-docs/:path',
+      pattern: 'https://github.com/DerYeger/yeger/tree/main/docs/d3-graph-controller-docs/:path',
       text: 'Suggest changes to this page',
     },
 

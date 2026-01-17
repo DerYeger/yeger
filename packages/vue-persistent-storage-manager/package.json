@@ -1,29 +1,33 @@
 {
   "name": "vue-persistent-storage-manager",
-  "type": "module",
   "version": "3.0.20",
   "private": false,
   "description": "Vue plugin that wraps the StorageManager API and provides the state of the persistent-storage permission alongside a storage estimate.",
+  "keywords": [
+    "persistent-storage",
+    "plugin",
+    "storagemanager",
+    "vue"
+  ],
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vue-persistent-storage-manager",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vue-persistent-storage-manager",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vue-persistent-storage-manager"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "vue",
-    "plugin",
-    "storagemanager",
-    "persistent-storage"
+  "files": [
+    "dist/*"
   ],
+  "type": "module",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -32,20 +36,15 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist/*"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
-  },
-  "peerDependencies": {
-    "vue": "^2.0.0"
   },
   "devDependencies": {
     "@vitest/coverage-v8": "catalog:",
@@ -62,7 +61,7 @@
     "vue": "catalog:vue2",
     "vue-template-compiler": "catalog:"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "vue": "^2.0.0"
   }
 }

@@ -66,37 +66,24 @@ function parseJson(input: unknown): Result<JsonModel, string> {
 function jsonModelToModel(jsonModel: JsonModel): Result<Model, string> {
   const domain = jsonModel.domain.map((element) => +element)
 
-  const relations = Object.entries(jsonModel.relations ?? {}).map(
-    ([name, data]) => {
-      const relationItems = data[0]
-      if (relationItems !== undefined && relationItems.length > 1) {
-        return new Relation(
-          name,
-          relationItems.length,
-          new Set(data.map((entries) => entries.join(','))),
-        )
-      }
+  const relations = Object.entries(jsonModel.relations ?? {}).map(([name, data]) => {
+    const relationItems = data[0]
+    if (relationItems !== undefined && relationItems.length > 1) {
       return new Relation(
         name,
-        1,
-        new Set(data.map(([element]) => element.toString())),
+        relationItems.length,
+        new Set(data.map((entries) => entries.join(','))),
       )
-    },
-  )
+    }
+    return new Relation(name, 1, new Set(data.map(([element]) => element.toString())))
+  })
 
-  const functions = Object.entries(jsonModel.functions ?? {}).map(
-    ([name, data]) => {
-      const mapping = new Map<string, number>()
-      data.forEach(([arg, result]) => mapping.set(arg.toString(), result))
-      return new Function(name, 1, Object.fromEntries(mapping.entries()))
-    },
-  )
+  const functions = Object.entries(jsonModel.functions ?? {}).map(([name, data]) => {
+    const mapping = new Map<string, number>()
+    data.forEach(([arg, result]) => mapping.set(arg.toString(), result))
+    return new Function(name, 1, Object.fromEntries(mapping.entries()))
+  })
 
-  const model = new Model(
-    new Set([...domain]),
-    jsonModel.constants ?? {},
-    functions,
-    relations,
-  )
+  const model = new Model(new Set(domain), jsonModel.constants ?? {}, functions, relations)
   return new Ok(model)
 }

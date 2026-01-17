@@ -1,22 +1,26 @@
 {
   "name": "@yeger/vue-masonry-wall-core",
-  "type": "module",
   "version": "5.0.21",
+  "homepage": "https://vue-masonry-wall.janmueller.dev",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://vue-masonry-wall.janmueller.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vue-masonry-wall-core"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
+  "files": [
+    "dist/*"
+  ],
+  "type": "module",
   "sideEffects": false,
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -25,16 +29,14 @@
       }
     }
   },
-  "types": "./dist/index.d.mts",
-  "files": [
-    "dist/*"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
-    "dev": "tsdown --watch",
-    "lint": "yeger-lint"
+    "dev": "tsdown --watch"
   },
   "dependencies": {
     "@yeger/debounce": "workspace:*",
@@ -46,8 +48,5 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

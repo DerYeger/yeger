@@ -30,15 +30,11 @@ export interface ReflexivePathParams<
   readonly center: Vector
 }
 
-function getX<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  node: Node,
-): number {
+function getX<T extends NodeTypeToken, Node extends GraphNode<T>>(node: Node): number {
   return node.x ?? 0
 }
 
-function getY<T extends NodeTypeToken, Node extends GraphNode<T>>(
-  node: Node,
-): number {
+function getY<T extends NodeTypeToken, Node extends GraphNode<T>>(node: Node): number {
   return node.y ?? 0
 }
 
@@ -218,15 +214,18 @@ function reflexiveLinkTextTransform<
 
 export const Paths = {
   line: {
-    labelTransform: lineLinkTextTransform satisfies typeof lineLinkTextTransform as typeof lineLinkTextTransform,
+    labelTransform:
+      lineLinkTextTransform satisfies typeof lineLinkTextTransform as typeof lineLinkTextTransform,
     path: paddedLinePath satisfies typeof paddedLinePath as typeof paddedLinePath,
   },
   arc: {
-    labelTransform: bidirectionalLinkTextTransform satisfies typeof bidirectionalLinkTextTransform as typeof bidirectionalLinkTextTransform,
+    labelTransform:
+      bidirectionalLinkTextTransform satisfies typeof bidirectionalLinkTextTransform as typeof bidirectionalLinkTextTransform,
     path: paddedArcPath satisfies typeof paddedArcPath as typeof paddedArcPath,
   },
   reflexive: {
-    labelTransform: reflexiveLinkTextTransform satisfies typeof reflexiveLinkTextTransform as typeof reflexiveLinkTextTransform,
+    labelTransform:
+      reflexiveLinkTextTransform satisfies typeof reflexiveLinkTextTransform as typeof reflexiveLinkTextTransform,
     path: paddedReflexivePath satisfies typeof paddedReflexivePath as typeof paddedReflexivePath,
   },
 }

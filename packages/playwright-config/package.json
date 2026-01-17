@@ -1,22 +1,26 @@
 {
   "name": "@yeger/playwright-config",
-  "type": "module",
   "version": "0.0.3",
   "private": true,
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/playwright-config"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
+  "files": [
+    "dist/*"
+  ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -25,20 +29,12 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist/*"
-  ],
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "postinstall": "playwright install"
-  },
-  "peerDependencies": {
-    "@playwright/test": "catalog:"
   },
   "devDependencies": {
     "@playwright/test": "catalog:",
@@ -47,5 +43,8 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
+  },
+  "peerDependencies": {
+    "@playwright/test": "catalog:"
   }
 }

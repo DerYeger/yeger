@@ -1,13 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
-} from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, resolveComponent } from 'vue'
 
 import MasonryWall from '../src/index'
@@ -290,8 +282,7 @@ describe('MasonryWall', () => {
         maxColumns: 20,
       })
       .then(flushPromises)
-    const unconstrainedColumns =
-      wrapper.findAll<HTMLDivElement>('.masonry-column')
+    const unconstrainedColumns = wrapper.findAll<HTMLDivElement>('.masonry-column')
     expect(unconstrainedColumns.length).toEqual(10)
 
     await wrapper

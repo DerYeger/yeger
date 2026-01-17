@@ -1,32 +1,36 @@
 {
   "name": "key-hierarchy",
-  "type": "module",
   "version": "3.0.9",
   "description": "A tiny TypeScript library for managing key hierarchies. The perfect companion for TanStack Query.",
+  "keywords": [
+    "hierarchy",
+    "key",
+    "library",
+    "query",
+    "queryKey",
+    "tanstack",
+    "typescript"
+  ],
+  "homepage": "https://key-hierarchy.janmueller.dev",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://key-hierarchy.janmueller.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/key-hierarchy"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "key",
-    "hierarchy",
-    "tanstack",
-    "query",
-    "queryKey",
-    "typescript",
-    "library"
+  "files": [
+    "dist"
   ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -35,16 +39,14 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -64,11 +66,5 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "vue": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

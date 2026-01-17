@@ -13,12 +13,7 @@ export interface DefineZoomParams<
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
 > {
-  readonly canvasContainer: () => Selection<
-    SVGSVGElement,
-    unknown,
-    null,
-    undefined
-  >
+  readonly canvasContainer: () => Selection<SVGSVGElement, unknown, null, undefined>
   readonly config: GraphConfig<T, Node, Link>
   readonly min: number
   readonly max: number
@@ -29,13 +24,7 @@ export function defineZoom<
   T extends NodeTypeToken,
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
->({
-  canvasContainer,
-  config,
-  min,
-  max,
-  onZoom,
-}: DefineZoomParams<T, Node, Link>): Zoom {
+>({ canvasContainer, config, min, max, onZoom }: DefineZoomParams<T, Node, Link>): Zoom {
   const z = zoom<SVGSVGElement, undefined>()
     .scaleExtent([min, max])
     .filter((event) => event.button === 0 || event.touches?.length >= 2)

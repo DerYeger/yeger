@@ -3,9 +3,7 @@ import { cleanup } from 'vite-plugin-lib'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    cleanup(),
-  ],
+  plugins: [cleanup()],
   optimizeDeps: {
     include: ['vue'],
   },

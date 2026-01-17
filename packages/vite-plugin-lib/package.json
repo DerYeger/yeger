@@ -1,26 +1,31 @@
 {
   "name": "vite-plugin-lib",
-  "type": "module",
   "version": "4.0.1",
   "description": "Vite plugin for build configuration, automatic aliases, and type declarations.",
-  "author": "Jan Müller <janmueller3698@gmail.com>",
-  "license": "MIT",
-  "funding": "https://github.com/sponsors/DerYeger",
+  "keywords": [
+    "aliases",
+    "declarations",
+    "library",
+    "vite-plugin"
+  ],
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-lib",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
+  "author": "Jan Müller <janmueller3698@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vite-plugin-lib"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "vite-plugin",
-    "declarations",
-    "library",
-    "aliases"
+  "funding": "https://github.com/sponsors/DerYeger",
+  "files": [
+    "dist",
+    "LICENSE"
   ],
+  "type": "module",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -29,20 +34,13 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "LICENSE",
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
-    "lint": "yeger-lint"
-  },
-  "peerDependencies": {
-    "typescript": "*",
-    "vite": "2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+    "check:tsc": "tsc"
   },
   "dependencies": {
     "picocolors": "catalog:",
@@ -55,7 +53,8 @@
     "typescript": "catalog:",
     "vite": "catalog:"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "typescript": "*",
+    "vite": "2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
   }
 }

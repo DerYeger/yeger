@@ -5,20 +5,7 @@ import { TestUtils } from './test-utils'
 
 describe('async streams', () => {
   it('works with complex chains', async () => {
-    const res = await AsyncStream.from([
-      null,
-      0,
-      1,
-      2,
-      undefined,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-    ])
+    const res = await AsyncStream.from([null, 0, 1, 2, undefined, 3, 4, 5, 6, 7, 8, 9])
       .filterNonNull()
       .limit(6)
       .filter((x) => x % 2 !== 0)
@@ -36,9 +23,7 @@ describe('async streams', () => {
         continue
       }
       count++
-      forOfResult += TestUtils.fibonacci(
-        Number.parseInt(`${item * 2}.5`, 10) % 20,
-      )
+      forOfResult += TestUtils.fibonacci(Number.parseInt(`${item * 2}.5`, 10) % 20)
       if (count === TestUtils.limit) {
         break
       }
@@ -66,9 +51,7 @@ describe('async streams', () => {
   })
 
   it('can create a map with a mapper', async () => {
-    const streamResult = await AsyncStream.from([1, 2]).toMap((x) =>
-      x.toString(),
-    )
+    const streamResult = await AsyncStream.from([1, 2]).toMap((x) => x.toString())
     expect(streamResult).toEqual(
       new Map([
         ['1', 1],
@@ -85,9 +68,7 @@ describe('async streams', () => {
   })
 
   it('can zip', async () => {
-    const streamResult = await AsyncStream.from([1, 2, 3])
-      .zip([4, 5, 6])
-      .toArray()
+    const streamResult = await AsyncStream.from([1, 2, 3]).zip([4, 5, 6]).toArray()
     expect(streamResult).toEqual([
       [1, 4],
       [2, 5],
@@ -106,9 +87,7 @@ describe('async streams', () => {
   })
 
   it('can filter duplicates', async () => {
-    const streamResult = await AsyncStream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4])
-      .distinct()
-      .toArray()
+    const streamResult = await AsyncStream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]).distinct().toArray()
     expect(streamResult).toEqual([1, 2, 3, 4])
   })
 
@@ -133,30 +112,20 @@ describe('async streams', () => {
   })
 
   it('can find an element', async () => {
-    const streamResult = await AsyncStream.from([1, 2, 3, 4, 5]).find(
-      (x) => x % 2 === 0,
-    )
+    const streamResult = await AsyncStream.from([1, 2, 3, 4, 5]).find((x) => x % 2 === 0)
     expect(streamResult).toEqual(2)
   })
 
   it('can check some', async () => {
-    const streamResultTrue = await AsyncStream.from([1, 2, 3, 4, 5]).some(
-      (x) => x % 2 === 0,
-    )
-    const streamResultFalse = await AsyncStream.from([1, 3, 5]).some(
-      (x) => x % 2 === 0,
-    )
+    const streamResultTrue = await AsyncStream.from([1, 2, 3, 4, 5]).some((x) => x % 2 === 0)
+    const streamResultFalse = await AsyncStream.from([1, 3, 5]).some((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)
     expect(streamResultFalse).toBe(false)
   })
 
   it('can check every', async () => {
-    const streamResultTrue = await AsyncStream.from([2, 4, 6]).every(
-      (x) => x % 2 === 0,
-    )
-    const streamResultFalse = await AsyncStream.from([1, 2, 3]).every(
-      (x) => x % 2 === 0,
-    )
+    const streamResultTrue = await AsyncStream.from([2, 4, 6]).every((x) => x % 2 === 0)
+    const streamResultFalse = await AsyncStream.from([1, 2, 3]).every((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)
     expect(streamResultFalse).toBe(false)
   })

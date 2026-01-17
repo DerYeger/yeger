@@ -1,13 +1,12 @@
 {
   "name": "key-hierarchy-docs",
-  "type": "module",
   "version": "3.0.9",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vitepress build",
-    "check:vue": "vue-tsc",
+    "check:tsc": "vue-tsc",
     "dev": "vitepress dev",
-    "lint": "yeger-lint",
     "preview": "vitepress serve"
   },
   "dependencies": {
@@ -21,8 +20,5 @@
     "vitepress": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

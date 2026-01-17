@@ -1,11 +1,10 @@
 {
   "name": "vite-plugin-ssg-utils-example",
-  "type": "module",
   "version": "2.0.13",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vite-ssg build",
-    "lint": "yeger-lint",
     "preview": "vite preview",
     "check:tsc": "tsc"
   },

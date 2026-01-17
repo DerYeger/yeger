@@ -6,7 +6,7 @@ import { defineKeyHierarchy, defineKeyHierarchyModule } from '../src/index'
 import { flushPromises } from '@vue/test-utils'
 import { withVueComponentLifecycle } from './vue-test-utils'
 
-const module = defineKeyHierarchyModule((dynamic) => ({
+const keyModule = defineKeyHierarchyModule((dynamic) => ({
   test: {
     identity: dynamic<MaybeRefOrGetter<string>>(),
   },
@@ -14,14 +14,18 @@ const module = defineKeyHierarchyModule((dynamic) => ({
 
 describe('defineKeyHierarchy for @tanstack/vue-query', () => {
   it('works with default options', async () => {
-    const keys = defineKeyHierarchy(module)
+    const keys = defineKeyHierarchy(keyModule)
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
-    const { result } = withVueComponentLifecycle(() => useQuery({
-      queryKey: keys.test.identity(input),
-      queryFn: () => queryFn(toValue(input)),
-    }), { plugins: [VueQueryPlugin] })
+    const { result } = withVueComponentLifecycle(
+      () =>
+        useQuery({
+          queryKey: keys.test.identity(input),
+          queryFn: () => queryFn(toValue(input)),
+        }),
+      { plugins: [VueQueryPlugin] },
+    )
 
     await flushPromises()
     expect(queryFn).toHaveBeenCalledTimes(1)
@@ -34,14 +38,18 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
   })
 
   it('works with precomputation', async () => {
-    const keys = defineKeyHierarchy(module, { method: 'precompute' })
+    const keys = defineKeyHierarchy(keyModule, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
-    const { result } = withVueComponentLifecycle(() => useQuery({
-      queryKey: keys.test.identity(input),
-      queryFn: () => queryFn(toValue(input)),
-    }), { plugins: [VueQueryPlugin] })
+    const { result } = withVueComponentLifecycle(
+      () =>
+        useQuery({
+          queryKey: keys.test.identity(input),
+          queryFn: () => queryFn(toValue(input)),
+        }),
+      { plugins: [VueQueryPlugin] },
+    )
 
     await flushPromises()
     expect(queryFn).toHaveBeenCalledTimes(1)
@@ -54,14 +62,18 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
   })
 
   it('does not work with freeze enabled', async () => {
-    const keys = defineKeyHierarchy(module, { freeze: true })
+    const keys = defineKeyHierarchy(keyModule, { freeze: true })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
 
-    const { result } = withVueComponentLifecycle(() => useQuery({
-      queryKey: keys.test.identity(input),
-      queryFn: () => queryFn(toValue(input)),
-    }), { plugins: [VueQueryPlugin] })
+    const { result } = withVueComponentLifecycle(
+      () =>
+        useQuery({
+          queryKey: keys.test.identity(input),
+          queryFn: () => queryFn(toValue(input)),
+        }),
+      { plugins: [VueQueryPlugin] },
+    )
 
     await flushPromises()
     expect(queryFn).toHaveBeenCalledTimes(1)

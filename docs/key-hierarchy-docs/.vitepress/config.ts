@@ -48,8 +48,7 @@ export default defineConfig({
   // theme and its config
   themeConfig: {
     editLink: {
-      pattern:
-        'https://github.com/DerYeger/yeger/tree/main/docs/key-hierarchy-docs/:path',
+      pattern: 'https://github.com/DerYeger/yeger/tree/main/docs/key-hierarchy-docs/:path',
       text: 'Suggest changes to this page',
     },
 
@@ -65,28 +64,26 @@ export default defineConfig({
     },
 
     sidebar: [
-        {
-          text: 'Guide',
-          items: [
-            { text: 'Introduction', link: '/guide/' },
-            { text: 'Getting Started', link: '/guide/getting-started' },
-            { text: 'TanStack Query Integration', link: '/guide/tanstack-query' },
-          ],
-        },
-        {
-          text: 'API Reference',
-          items: [
-            { text: 'defineKeyHierarchy', link: '/api/define-key-hierarchy' },
-            { text: 'defineKeyHierarchyModule', link: '/api/define-key-hierarchy-module' },
-          ],
-        },
-        {
-          text: 'Playground',
-          items: [
-            { text: 'Playground', link: '/playground/' },
-          ],
-        },
-      ],
+      {
+        text: 'Guide',
+        items: [
+          { text: 'Introduction', link: '/guide/' },
+          { text: 'Getting Started', link: '/guide/getting-started' },
+          { text: 'TanStack Query Integration', link: '/guide/tanstack-query' },
+        ],
+      },
+      {
+        text: 'API Reference',
+        items: [
+          { text: 'defineKeyHierarchy', link: '/api/define-key-hierarchy' },
+          { text: 'defineKeyHierarchyModule', link: '/api/define-key-hierarchy-module' },
+        ],
+      },
+      {
+        text: 'Playground',
+        items: [{ text: 'Playground', link: '/playground/' }],
+      },
+    ],
 
     socialLinks: [
       { icon: 'twitter', link: 'https://twitter.com/DerYeger' },

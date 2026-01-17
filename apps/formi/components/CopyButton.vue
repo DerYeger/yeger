@@ -5,8 +5,7 @@ const props = defineProps<{ content: string }>()
 const emit = defineEmits(['copied'])
 const { content } = toRefs(props)
 
-const isClipboardSupported =
-  typeof navigator !== 'undefined' && !!navigator.clipboard
+const isClipboardSupported = typeof navigator !== 'undefined' && !!navigator.clipboard
 
 const { info } = useNotification()
 

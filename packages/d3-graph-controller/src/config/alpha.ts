@@ -40,10 +40,7 @@ export interface ResizeContext {
 /**
  * Alpha value configuration for controlling simulation activity.
  */
-export interface AlphaConfig<
-  T extends NodeTypeToken,
-  Node extends GraphNode<T>,
-> {
+export interface AlphaConfig<T extends NodeTypeToken, Node extends GraphNode<T>> {
   /**
    * Target alpha values for dragging.
    */

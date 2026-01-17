@@ -27,16 +27,11 @@ export function filterGraph<
   linkFilter,
 }: GraphFilterParams<T, Node, Link>): Graph<T, Node, Link> {
   const links = graph.links.filter(
-    (d) =>
-      filter.includes(d.source.type) &&
-      filter.includes(d.target.type) &&
-      linkFilter(d),
+    (d) => filter.includes(d.source.type) && filter.includes(d.target.type) && linkFilter(d),
   )
 
   const isLinked = (node: Node) =>
-    links.find(
-      (link) => link.source.id === node.id || link.target.id === node.id,
-    ) !== undefined
+    links.find((link) => link.source.id === node.id || link.target.id === node.id) !== undefined
   const nodes = graph.nodes.filter(
     (d) => filter.includes(d.type) && (includeUnlinked || isLinked(d)),
   )
@@ -74,11 +69,7 @@ function getIncomingLinksTransitively<
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node): Link[] {
-  return getLinksInDirectionTransitively(
-    graph,
-    source,
-    (link, node) => link.target.id === node.id,
-  )
+  return getLinksInDirectionTransitively(graph, source, (link, node) => link.target.id === node.id)
 }
 
 function getOutgoingLinksTransitively<
@@ -86,11 +77,7 @@ function getOutgoingLinksTransitively<
   Node extends GraphNode<T>,
   Link extends GraphLink<T, Node>,
 >(graph: Graph<T, Node, Link>, source: Node): Link[] {
-  return getLinksInDirectionTransitively(
-    graph,
-    source,
-    (link, node) => link.source.id === node.id,
-  )
+  return getLinksInDirectionTransitively(graph, source, (link, node) => link.source.id === node.id)
 }
 
 function getLinksInDirectionTransitively<

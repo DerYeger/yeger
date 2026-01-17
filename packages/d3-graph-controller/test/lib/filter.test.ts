@@ -53,8 +53,7 @@ describe('filter', () => {
       filter: ['first', 'second'],
       focusedNode: undefined,
       includeUnlinked: true,
-      linkFilter: (link: GraphLink<TestNodeType>) =>
-        link.source.id === link.target.id,
+      linkFilter: (link: GraphLink<TestNodeType>) => link.source.id === link.target.id,
       graph: TestData.graph,
     })
     expect(filteredResult.links.length).toEqual(1)

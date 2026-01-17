@@ -1,7 +1,6 @@
 import c from 'picocolors'
 
 export function log(text: string): void {
-  // eslint-disable-next-line no-console
   console.log(`${c.cyan('[vite:lib]')} ${text}`)
 }
 

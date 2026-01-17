@@ -17,9 +17,7 @@ export const getStaticProps: GetStaticProps<{
   }
 }
 
-const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  stations,
-}) => {
+const SearchPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ stations }) => {
   const [searchQuery, setSearchQuery] = useState<string>('')
   const [debouncedSearchQuery] = useDebounce(searchQuery, 300)
   const mappedStations = useMemo(

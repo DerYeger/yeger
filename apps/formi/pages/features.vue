@@ -12,21 +12,18 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
 
 <template>
   <div v-once class="flex flex-col items-center gap-16 md:gap-32">
-    <h1
-      class="text-center text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl"
-    >
+    <h1 class="text-center text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl">
       Formi's Features
     </h1>
     <FeatureSection title="Models" :number="1">
       <FeatureParagraph>
         <p>
-          The intuitive YAML-based editor enables users to quickly define models
-          through textual input. At the same time, the portable format can be
-          used to store and share models.
+          The intuitive YAML-based editor enables users to quickly define models through textual
+          input. At the same time, the portable format can be used to store and share models.
         </p>
         <p>
-          On-the-fly validation warns about issues, such as non-total functions,
-          but does not prevent model checking if possible.
+          On-the-fly validation warns about issues, such as non-total functions, but does not
+          prevent model checking if possible.
         </p>
       </FeatureParagraph>
       <DemoCard>
@@ -36,9 +33,9 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
     <FeatureSection title="Graphs" :number="2">
       <FeatureParagraph>
         <p>
-          Interactive graphs visualize model domains, constants, functions, and
-          relations. Touch input and mouse input are supported. Zooming and
-          panning ensure that even the largest models can be inspected.
+          Interactive graphs visualize model domains, constants, functions, and relations. Touch
+          input and mouse input are supported. Zooming and panning ensure that even the largest
+          models can be inspected.
         </p>
       </FeatureParagraph>
       <DemoCard>
@@ -47,10 +44,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
     </FeatureSection>
     <FeatureSection title="Formulas" :number="3">
       <FeatureParagraph>
-        <p>
-          Formulas are parsed in real-time, with helpful error messages for
-          syntax errors.
-        </p>
+        <p>Formulas are parsed in real-time, with helpful error messages for syntax errors.</p>
       </FeatureParagraph>
       <DemoCard class="flex flex-col items-center justify-center gap-6 p-4">
         <span>{{ formula }}</span>
@@ -59,30 +53,24 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
       </DemoCard>
       <FeatureParagraph>
         <p>
-          The ASTs of formulas are visualized and display operator precedence.
-          Any non-terminal node can be expanded and collapsed to reveal or hide
-          sub-formulas respectively.
+          The ASTs of formulas are visualized and display operator precedence. Any non-terminal node
+          can be expanded and collapsed to reveal or hide sub-formulas respectively.
         </p>
       </FeatureParagraph>
       <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">
-        <FOLTree
-          :fragment="parsedFormula"
-          :max-depth="parsedFormula.depth()"
-          :level="0"
-        />
+        <FOLTree :fragment="parsedFormula" :max-depth="parsedFormula.depth()" :level="0" />
       </DemoCard>
     </FeatureSection>
     <FeatureSection title="Model Checking" :number="4">
       <FeatureParagraph>
         <p>
-          Every evaluation step of the recursive model checking algorithm is
-          represented as a node in the evaluation tree. This ensures that
-          results are always tangible.
+          Every evaluation step of the recursive model checking algorithm is represented as a node
+          in the evaluation tree. This ensures that results are always tangible.
         </p>
         <p>
-          A checkmark indicates that the (sub-)formula must be modelled by the
-          model, a cross represents the opposite. The colors green and red show
-          whether the actual result matches the expected result or not.
+          A checkmark indicates that the (sub-)formula must be modelled by the model, a cross
+          represents the opposite. The colors green and red show whether the actual result matches
+          the expected result or not.
         </p>
       </FeatureParagraph>
       <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">

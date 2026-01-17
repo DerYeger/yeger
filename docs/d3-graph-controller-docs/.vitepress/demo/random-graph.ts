@@ -1,8 +1,4 @@
-import {
-  PositionInitializers,
-  defineGraph,
-  defineGraphConfig,
-} from 'd3-graph-controller'
+import { PositionInitializers, defineGraph, defineGraphConfig } from 'd3-graph-controller'
 
 import type { DemoGraph, DemoGraphConfig } from './model'
 import type { DemoNode } from './node'

@@ -123,9 +123,7 @@ describe('MarmosetViewer', () => {
     })
     await flushPromises()
     expect(wrapper.emitted().load?.length).toBe(1)
-    const host = wrapper.find<HTMLDivElement>(
-      '.marmoset-viewer-host__responsive',
-    )
+    const host = wrapper.find<HTMLDivElement>('.marmoset-viewer-host__responsive')
     expect(host.element).toBeDefined()
     const viewer = wrapper.find<HTMLDivElement>(`#${testDomRootId}`)
     expect(viewer.text()).toEqual(testFileName)

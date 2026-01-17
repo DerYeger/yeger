@@ -1,10 +1,5 @@
 import { debounce } from '@yeger/debounce'
-import type {
-  LifecycleHook,
-  VueRef,
-  VueVersion,
-  Watch,
-} from '@yeger/vue-lib-adapter'
+import type { LifecycleHook, VueRef, VueVersion, Watch } from '@yeger/vue-lib-adapter'
 
 export type NonEmptyArray<T> = [T, ...T[]]
 
@@ -65,20 +60,13 @@ export function useMasonryWall<T>({
   ): number {
     const nextWidth = getColumnWidthTarget(count)
     if (consumed + gap + nextWidth <= containerWidth) {
-      return countIteratively(
-        containerWidth,
-        gap,
-        count + 1,
-        consumed + gap + nextWidth,
-      )
+      return countIteratively(containerWidth, gap, count + 1, consumed + gap + nextWidth)
     }
     return count
   }
 
   function getColumnWidthTarget(columnIndex: number): number {
-    const widths = Array.isArray(columnWidth.value)
-      ? columnWidth.value
-      : [columnWidth.value]
+    const widths = Array.isArray(columnWidth.value) ? columnWidth.value : [columnWidth.value]
     return widths[columnIndex % widths.length] as number
   }
 
@@ -112,9 +100,7 @@ export function useMasonryWall<T>({
 
   if (ssrColumns.value > 0) {
     const newColumns = createColumns(ssrColumns.value)
-    items.value.forEach((_: T, i: number) =>
-      newColumns[i % ssrColumns.value]!.push(i),
-    )
+    items.value.forEach((_: T, i: number) => newColumns[i % ssrColumns.value]!.push(i))
     columns.value = newColumns
   }
 
@@ -135,9 +121,7 @@ export function useMasonryWall<T>({
       columnDivs.reverse()
     }
     const target = columnDivs.reduce((prev, curr) =>
-      curr.getBoundingClientRect().height < prev.getBoundingClientRect().height
-        ? curr
-        : prev,
+      curr.getBoundingClientRect().height < prev.getBoundingClientRect().height ? curr : prev,
     )
     columns.value[+target.dataset.index!]!.push(itemIndex)
     await fillColumns(itemIndex + 1, assignedRedrawId)
@@ -166,9 +150,7 @@ export function useMasonryWall<T>({
   }
 
   const resizeObserver =
-    typeof ResizeObserver === 'undefined'
-      ? undefined
-      : new ResizeObserver(debounce(() => redraw()))
+    typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(debounce(() => redraw()))
 
   onMounted(() => {
     redraw()

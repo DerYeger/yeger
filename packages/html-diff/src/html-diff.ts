@@ -85,10 +85,7 @@ export class HtmlDiff {
   }
 
   public splitInputsIntoWords(): void {
-    const words = WordSplitter.convertHtmlToListOfWords(
-      this.oldText,
-      this.blockExpressions,
-    )
+    const words = WordSplitter.convertHtmlToListOfWords(this.oldText, this.blockExpressions)
     words.forEach((el, idx) => {
       if (el[1]) {
         this.originalWordsInOld.set(idx, el[1])
@@ -99,10 +96,7 @@ export class HtmlDiff {
     // free memory, allow it for GC
     this.oldText = ''
 
-    const newWords = WordSplitter.convertHtmlToListOfWords(
-      this.newText,
-      this.blockExpressions,
-    )
+    const newWords = WordSplitter.convertHtmlToListOfWords(this.newText, this.blockExpressions)
 
     newWords.forEach((el, idx) => {
       if (el[1]) {
@@ -140,23 +134,17 @@ export class HtmlDiff {
   }
 
   private processInsertOperation(opp: Operation, cssClass: string) {
-    const text = this.newWords.filter(
-      (_s, pos) => pos >= opp.startInNew && pos < opp.endInNew,
-    )
+    const text = this.newWords.filter((_s, pos) => pos >= opp.startInNew && pos < opp.endInNew)
     this.insertTag('ins', cssClass, text)
   }
 
   private processDeleteOperation(opp: Operation, cssClass: string) {
-    const text = this.oldWords.filter(
-      (_s, pos) => pos >= opp.startInOld && pos < opp.endInOld,
-    )
+    const text = this.oldWords.filter((_s, pos) => pos >= opp.startInOld && pos < opp.endInOld)
     this.insertTag('del', cssClass, text)
   }
 
   private processEqualOperation(opp: Operation) {
-    const result = this.newWords.filter(
-      (_s, pos) => pos >= opp.startInNew && pos < opp.endInNew,
-    )
+    const result = this.newWords.filter((_s, pos) => pos >= opp.startInNew && pos < opp.endInNew)
     this.content.push(result.join(''))
   }
 
@@ -228,10 +216,7 @@ export class HtmlDiff {
 
       if (!matchStartsAtCurrentPositionInOld && !matchStartsAtCurrentPositionInNew) {
         action = 'replace'
-      } else if (
-        matchStartsAtCurrentPositionInOld &&
-        !matchStartsAtCurrentPositionInNew
-      ) {
+      } else if (matchStartsAtCurrentPositionInOld && !matchStartsAtCurrentPositionInNew) {
         action = 'insert'
       } else if (!matchStartsAtCurrentPositionInOld) {
         action = 'delete'
@@ -240,27 +225,23 @@ export class HtmlDiff {
       }
 
       if (action !== 'none') {
-        operations.push(
-        {
-            action,
-            startInOld: positionInOld,
-            endInOld: match.startInOld,
-            startInNew: positionInNew,
-            endInNew: match.startInNew,
-          },
-        )
+        operations.push({
+          action,
+          startInOld: positionInOld,
+          endInOld: match.startInOld,
+          startInNew: positionInNew,
+          endInNew: match.startInNew,
+        })
       }
 
       if (match.size !== 0) {
-        operations.push(
-          {
-            action: 'equal',
-            startInOld: match.startInOld,
-            endInOld: match.endInOld,
-            startInNew: match.startInNew,
-            endInNew: match.endInNew,
-          },
-        )
+        operations.push({
+          action: 'equal',
+          startInOld: match.startInOld,
+          endInOld: match.endInOld,
+          startInNew: match.startInNew,
+          endInNew: match.endInNew,
+        })
       }
 
       positionInOld = match.endInOld
@@ -270,7 +251,7 @@ export class HtmlDiff {
     return operations
   }
 
-  private* removeOrphans(matches: Match[]) {
+  private *removeOrphans(matches: Match[]) {
     let prev = null! as Match
     let curr = null! as Match
 

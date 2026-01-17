@@ -10,12 +10,9 @@ describe('FOL validation', () => {
       expect(result.isOk, result.getErrorOrUndefined()).toBe(true)
     })
 
-    it.each(TestData.invalidModels)(
-      'does not accept model with %s',
-      (_, model) => {
-        const result = Validator.validateModel(model)
-        expect(result.isError).toBe(true)
-      },
-    )
+    it.each(TestData.invalidModels)('does not accept model with %s', (_, model) => {
+      const result = Validator.validateModel(model)
+      expect(result.isError).toBe(true)
+    })
   })
 })

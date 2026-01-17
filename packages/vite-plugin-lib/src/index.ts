@@ -6,13 +6,7 @@ import path from 'node:path'
 import c from 'picocolors'
 import type { CompilerOptions } from 'typescript'
 import ts from 'typescript'
-import type {
-  Alias,
-  AliasOptions,
-  LibraryFormats,
-  Plugin,
-  UserConfig,
-} from 'vite'
+import type { Alias, AliasOptions, LibraryFormats, Plugin, UserConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 
 import { generateMTSDeclarations } from './es-declarations'
@@ -129,14 +123,7 @@ export function tsconfigPaths(options: Partial<TSConfigPathsOptions> = {}): Plug
   }
 }
 
-function buildConfig({
-  entry,
-  formats,
-  manifest,
-  name,
-  bundle,
-  verbose,
-}: LibraryOptions): Plugin {
+function buildConfig({ entry, formats, manifest, name, bundle, verbose }: LibraryOptions): Plugin {
   const bundleWithDefaults = { ...BUNDLE_DEFAULTS, ...bundle }
   const packagesToExternalize = [
     ...getBuiltinModules(bundleWithDefaults),
@@ -167,8 +154,12 @@ function buildConfig({
           },
           rollupOptions: {
             external: (source: string, _importer: string | undefined, _isResolved: boolean) => {
-              const shouldBeExternalized = packagesToExternalize.some((rule) => matchesRule(source, rule))
-              const shouldBeBundled = bundleWithDefaults.include.some((rule) => matchesRule(source, rule))
+              const shouldBeExternalized = packagesToExternalize.some((rule) =>
+                matchesRule(source, rule),
+              )
+              const shouldBeBundled = bundleWithDefaults.include.some((rule) =>
+                matchesRule(source, rule),
+              )
               return shouldBeExternalized && !shouldBeBundled
             },
           },
@@ -224,11 +215,7 @@ function getBuiltinModules(bundle: BundleOptions) {
   return [...builtinModules, /node:/, /bun:/, /deno:/]
 }
 
-function logInjectedAliases(
-  aliasOptions: Alias[],
-  config: UserConfig,
-  verbose?: boolean,
-) {
+function logInjectedAliases(aliasOptions: Alias[], config: UserConfig, verbose?: boolean) {
   log(`Injected ${c.green(aliasOptions.length)} aliases.`)
   if (!verbose) {
     return
@@ -261,12 +248,7 @@ function pathToAliasFactory(
       logWarn('Using the first existing replacement.')
     }
     const find = alias.replace('/*', '')
-    const replacement = getFirstExistingReplacement(
-      tsconfigPath,
-      baseUrl,
-      replacements,
-      find,
-    )
+    const replacement = getFirstExistingReplacement(tsconfigPath, baseUrl, replacements, find)
     if (!replacement) {
       if (verbose) {
         logWarn(`No replacement found for alias ${c.green(alias)}.`)
@@ -303,10 +285,7 @@ function getFirstExistingReplacement(
 }
 
 function formatToFileName(entry: string, format: string): string {
-  const entryFileName = entry.substring(
-    entry.lastIndexOf('/') + 1,
-    entry.lastIndexOf('.'),
-  )
+  const entryFileName = entry.substring(entry.lastIndexOf('/') + 1, entry.lastIndexOf('.'))
   if (format === 'es') {
     return `${entryFileName}.mjs`
   }
@@ -366,11 +345,7 @@ async function readConfig(configPath: string): Promise<CompilerOptions> {
 
     const { config } = ts.parseConfigFileTextToJson(configPath, configFileText)
 
-    const { options } = ts.parseJsonConfigFileContent(
-      config,
-      ts.sys,
-      path.dirname(configPath),
-    )
+    const { options } = ts.parseJsonConfigFileContent(config, ts.sys, path.dirname(configPath))
     return options
   } catch (error: any) {
     const message = getErrorMessage(error)
@@ -384,8 +359,7 @@ function includesESFormat(formats?: LibraryFormats[]) {
 }
 
 function getErrorMessage(error: unknown) {
-  const isObject =
-    typeof error === 'object' && error !== null && 'message' in error
+  const isObject = typeof error === 'object' && error !== null && 'message' in error
   return isObject ? error.message : String(error)
 }
 

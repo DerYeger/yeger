@@ -73,7 +73,7 @@ describe('WordSplitter', () => {
         },
       })
 
-      const word = '<tag attribute=\'value\' />'
+      const word = "<tag attribute='value' />"
 
       expect(finder.normalizeForIndex(word)).toEqual('<tag/>')
     })
@@ -123,7 +123,7 @@ describe('WordSplitter', () => {
     })
   })
   describe('findMatch()', () => {
-    it('if matches weren\'t found - return null', () => {
+    it("if matches weren't found - return null", () => {
       const oldWords = ['this', ' ', 'is', ' ', 'old', ' ', 'text']
       const newWords = ['different', 'words', 'here']
       const finder = new MatchFinder({

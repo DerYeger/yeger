@@ -1,26 +1,25 @@
 <script setup lang="ts">
 import NodeKey from './NodeKey.vue'
 
-withDefaults(defineProps<{
-  level?: number
-  partial?: boolean
-  keyValue: readonly unknown[]
-  icon?: string
-  variant?: 'static' | 'dynamic'
-}>(), {
-  level: 0,
-  partial: false,
-  icon: '📄',
-  variant: 'static',
-})
+withDefaults(
+  defineProps<{
+    level?: number
+    partial?: boolean
+    keyValue: readonly unknown[]
+    icon?: string
+    variant?: 'static' | 'dynamic'
+  }>(),
+  {
+    level: 0,
+    partial: false,
+    icon: '📄',
+    variant: 'static',
+  },
+)
 </script>
 
 <template>
-  <div
-    class="tree-node"
-    :class="[variant, { partial }]"
-    :style="{ '--level': String(level) }"
-  >
+  <div class="tree-node" :class="[variant, { partial }]" :style="{ '--level': String(level) }">
     <span class="node-icon">{{ icon }}</span>
     <span class="node-label">
       <slot />

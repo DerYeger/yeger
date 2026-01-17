@@ -1,16 +1,26 @@
 import { precomputeHierarchy } from './runtime/precompute'
 import { createProxy } from './runtime/proxy'
 import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from './types'
-import type { KeyHierarchyConfig, KeyHierarchyOptions, KeyHierarchy, DynamicExtendedSegment, DynamicExtendableSegment } from './types'
+import type {
+  KeyHierarchyConfig,
+  KeyHierarchyOptions,
+  KeyHierarchy,
+  DynamicExtendedSegment,
+  DynamicExtendableSegment,
+} from './types'
 
 export type * from './types'
 
 /**
  * Represents a configuration or a builder function for a key hierarchy.
  */
-export type ConfigOrBuilder<T extends KeyHierarchyConfig<T>> = T | ((dynamic: typeof dynamicHelper) => T)
+export type ConfigOrBuilder<T extends KeyHierarchyConfig<T>> =
+  | T
+  | ((dynamic: typeof dynamicHelper) => T)
 
-function resolveConfigOrBuilder<T extends KeyHierarchyConfig<T>>(configOrBuilder: ConfigOrBuilder<T>): T {
+function resolveConfigOrBuilder<T extends KeyHierarchyConfig<T>>(
+  configOrBuilder: ConfigOrBuilder<T>,
+): T {
   return typeof configOrBuilder === 'function' ? configOrBuilder(dynamicHelper) : configOrBuilder
 }
 
@@ -49,7 +59,10 @@ function resolveConfigOrBuilder<T extends KeyHierarchyConfig<T>>(configOrBuilder
  * console.log(keys.posts.byAuthorAndYear({ authorId: 'id', year: 2023 })) // readonly ['posts', ['byAuthorAndYear', { authorId: 'id', year: 2023 }]]
  * ```
  */
-export function defineKeyHierarchy<T extends KeyHierarchyConfig<T>>(configOrBuilder: ConfigOrBuilder<T>, options: KeyHierarchyOptions = {}): KeyHierarchy<T> {
+export function defineKeyHierarchy<T extends KeyHierarchyConfig<T>>(
+  configOrBuilder: ConfigOrBuilder<T>,
+  options: KeyHierarchyOptions = {},
+): KeyHierarchy<T> {
   const resolvedOptions: Required<KeyHierarchyOptions> = {
     freeze: false,
     method: 'proxy',
@@ -95,7 +108,9 @@ export function defineKeyHierarchy<T extends KeyHierarchyConfig<T>>(configOrBuil
  * })
  * ```
  */
-export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(configOrBuilder: ConfigOrBuilder<T>): T {
+export function defineKeyHierarchyModule<T extends KeyHierarchyConfig<T>>(
+  configOrBuilder: ConfigOrBuilder<T>,
+): T {
   return resolveConfigOrBuilder(configOrBuilder)
 }
 

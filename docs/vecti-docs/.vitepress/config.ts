@@ -57,8 +57,7 @@ export default defineConfig({
   themeConfig: {
     logo: '/logo.svg',
     editLink: {
-      pattern:
-        'https://github.com/DerYeger/yeger/tree/main/docs/vecti-docs/:path',
+      pattern: 'https://github.com/DerYeger/yeger/tree/main/docs/vecti-docs/:path',
       text: 'Suggest changes to this page',
     },
 

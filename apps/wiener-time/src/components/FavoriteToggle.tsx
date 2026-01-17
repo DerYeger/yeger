@@ -5,9 +5,7 @@ import type { FC } from 'react'
 
 import { useFavorites } from '../utils/useFavorites'
 
-const FavoriteToggle: FC<{ stationName: string }> = ({
-  stationName,
-}) => {
+const FavoriteToggle: FC<{ stationName: string }> = ({ stationName }) => {
   const { toggleFavorite, isFavorite } = useFavorites()
   const isFavoriteStation = isFavorite(stationName)
   return (

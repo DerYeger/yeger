@@ -1,28 +1,32 @@
 {
   "name": "resumon",
-  "type": "module",
   "version": "2.1.4",
   "description": "A tiny TypeScript result monad.",
+  "keywords": [
+    "monad",
+    "result",
+    "typescript"
+  ],
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/resumon",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/resumon",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/resumon"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "result",
-    "monad",
-    "typescript"
+  "files": [
+    "dist"
   ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -31,16 +35,14 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -52,8 +54,5 @@
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

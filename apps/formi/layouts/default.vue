@@ -12,9 +12,7 @@ const { accessibleDescription } = useLogo()
 </script>
 
 <template>
-  <div
-    class="min-h-full w-full bg-stone-100 p-4 font-sans text-stone-900 md:p-16"
-  >
+  <div class="min-h-full w-full bg-stone-100 p-4 font-sans text-stone-900 md:p-16">
     <header class="flex items-center gap-4 sm:gap-16">
       <span class="relative flex items-center gap-2 text-2xl font-bold">
         Formi
@@ -24,7 +22,7 @@ const { accessibleDescription } = useLogo()
           :height="48"
           class="display-none md:display-block drop-shadow-custom mb--2 mt--3 select-none"
           :alt="accessibleDescription"
-        >
+        />
       </span>
       <div class="flex-1" />
       <NuxtLink

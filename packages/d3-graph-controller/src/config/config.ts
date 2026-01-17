@@ -107,9 +107,7 @@ export function defineGraphConfig<
   T extends NodeTypeToken = NodeTypeToken,
   Node extends GraphNode<T> = GraphNode<T>,
   Link extends GraphLink<T, Node> = GraphLink<T, Node>,
->(
-  config: DeepPartial<GraphConfig<T, Node, Link>> = {},
-): GraphConfig<T, Node, Link> {
+>(config: DeepPartial<GraphConfig<T, Node, Link>> = {}): GraphConfig<T, Node, Link> {
   return merge.withOptions(
     { mergeArrays: false },
     defaultGraphConfig<T, Node, Link>(),

@@ -1,0 +1,40 @@
+{
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "react",
+    "react-perf",
+    "nextjs",
+    "oxc",
+    "import",
+    "jsdoc",
+    "jsx-a11y",
+    "node",
+    "promise",
+    "vitest",
+    "vue"
+  ],
+  "settings": {
+    "jsdoc": {
+      "tagNamePreference": {
+        "defaultValue": "defaultValue",
+        "remarks": "remarks"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["docs/**/samples/**/*.ts"],
+      "rules": {
+        "no-unused-vars": "allow"
+      }
+    },
+    {
+      "files": ["packages/{fol,key-hierarchy,vue-persistent-storage-manager}/test/**/*.ts"],
+      "rules": {
+        "valid-expect": "allow"
+      }
+    }
+  ]
+}

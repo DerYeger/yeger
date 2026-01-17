@@ -38,10 +38,7 @@ export function defineCanvas({
     .style('cursor', 'grab')
 
   if (applyZoom) {
-    svg.call(
-      zoom.transform,
-      zoomIdentity.translate(xOffset, yOffset).scale(scale),
-    )
+    svg.call(zoom.transform, zoomIdentity.translate(xOffset, yOffset).scale(scale))
   }
 
   return svg.append('g')

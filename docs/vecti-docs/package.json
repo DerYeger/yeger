@@ -1,12 +1,11 @@
 {
   "name": "vecti-docs",
-  "type": "module",
   "version": "2.0.19",
   "private": true,
+  "type": "module",
   "scripts": {
     "build": "vitepress build",
     "dev": "vitepress dev",
-    "lint": "yeger-lint",
     "preview": "vitepress serve"
   },
   "dependencies": {

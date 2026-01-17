@@ -1,23 +1,27 @@
 {
   "name": "@yeger/html-diff",
-  "type": "module",
   "version": "1.0.0",
   "description": "Dependency-free HTML diffing library written in TypeScript.",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/html-diff",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/html-diff",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/html-diff"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
   "sideEffects": false,
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -26,16 +30,14 @@
       }
     }
   },
-  "types": "./dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -47,11 +49,5 @@
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
   }
 }

@@ -6,9 +6,7 @@ import { generateNextSeo } from 'next-seo/pages'
 const AboutPage: NextPage = () => {
   return (
     <>
-      <Head>
-        {generateNextSeo({ title: 'Impressum' })}
-      </Head>
+      <Head>{generateNextSeo({ title: 'Impressum' })}</Head>
       <aside className="sticky bottom-0 flex justify-center p-4 text-xs text-neutral-400">
         <a
           href="https://github.com/DerYeger/yeger/tree/main/apps/wiener-time"
@@ -32,32 +30,27 @@ const AboutPage: NextPage = () => {
               <p>Österreich</p>
             </div>
             <p>
-              E-Mail:
-              {' '}
-              <a href="mailto:mail%40janmueller.dev">mail@janmueller.dev</a>
-              {' '}
+              E-Mail: <a href="mailto:mail%40janmueller.dev">mail@janmueller.dev</a>{' '}
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl">Haftungsausschluss</h2>
             <p>
-              Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt
-              erstellt, jedoch wird für die Richtigkeit, Vollständigkeit und
-              Aktualität der Inhalte keine Haftung übernommen. Auch für die
-              Inhalte externer Links wird trotz sorgfältiger inhaltlicher
-              Kontrolle keine Haftung übernommen, da ausschliesslich die
-              Betreiber der jeweiligen Seiten für deren Inhalt verantwortlich
-              sind.
+              Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt, jedoch wird
+              für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte keine Haftung
+              übernommen. Auch für die Inhalte externer Links wird trotz sorgfältiger inhaltlicher
+              Kontrolle keine Haftung übernommen, da ausschliesslich die Betreiber der jeweiligen
+              Seiten für deren Inhalt verantwortlich sind.
             </p>
           </div>
 
           <div>
             <h2 className="text-2xl">Urheberrecht</h2>
             <p>
-              Alle Inhalte dieser Website (Texte, Bilder, Quelltexte und
-              sonstige Dateien) unterliegen dem Urheberrecht. Eine Nutzung ist
-              ohne ausdrückliche schriftliche Genehmigung nicht gestattet.
+              Alle Inhalte dieser Website (Texte, Bilder, Quelltexte und sonstige Dateien)
+              unterliegen dem Urheberrecht. Eine Nutzung ist ohne ausdrückliche schriftliche
+              Genehmigung nicht gestattet.
             </p>
           </div>
         </section>

@@ -6,8 +6,7 @@ import type { Label } from './shared'
 /**
  * Node representing a datum of a graph.
  */
-export interface GraphNode<T extends NodeTypeToken = NodeTypeToken>
-  extends SimulationNodeDatum {
+export interface GraphNode<T extends NodeTypeToken = NodeTypeToken> extends SimulationNodeDatum {
   /**
    * The type of the node.
    */

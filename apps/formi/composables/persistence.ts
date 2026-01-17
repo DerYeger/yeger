@@ -16,10 +16,7 @@ function setLoading() {
 }
 
 function clearLoading() {
-  pendingClear = setTimeout(
-    () => (loading.value = false),
-    1000,
-  ) as unknown as number
+  pendingClear = setTimeout(() => (loading.value = false), 1000) as unknown as number
 }
 
 const inMemoryStorage: Record<string, string> = {}
@@ -54,9 +51,7 @@ const inMemoryDriver: LocalForageDriver = {
   async keys(): Promise<string[]> {
     return Object.keys(inMemoryStorage)
   },
-  async iterate<T, U>(
-    iteratee: (value: T, key: string, iterationNumber: number) => U,
-  ): Promise<U> {
+  async iterate<T, U>(iteratee: (value: T, key: string, iterationNumber: number) => U): Promise<U> {
     for (const [key, value] of Object.entries(inMemoryStorage)) {
       const result = iteratee(value as T, key, 0)
       if (result !== undefined) {
@@ -122,9 +117,5 @@ export function useFormulaInput() {
 
 export function useModelCheckerMode() {
   const { storage } = useAppStorage()
-  return useStorageAsync<ModelCheckerMode>(
-    'model-checker-mode',
-    'lazy',
-    storage,
-  )
+  return useStorageAsync<ModelCheckerMode>('model-checker-mode', 'lazy', storage)
 }

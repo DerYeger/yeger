@@ -24,12 +24,15 @@ async function fetchStaticStopData(): Promise<StaticStopData[]> {
     const data = z
       .array(StaticStopDataSchema)
       .parse(json)
-      .filter(
-        (stop) => stop.StopText && stop.Latitude && stop.Longitude && stop.DIVA,
-      )
+      .filter((stop) => stop.StopText && stop.Latitude && stop.Longitude && stop.DIVA)
     return data
   } catch (error) {
-    if (typeof error === 'object' && error !== null && 'code' in error && error.code === 'CERT_HAS_EXPIRED') {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'code' in error &&
+      error.code === 'CERT_HAS_EXPIRED'
+    ) {
       console.warn('Wiener Linien API unavailable. Aborting update.')
       process.exit(0)
     }
@@ -40,10 +43,7 @@ async function fetchStaticStopData(): Promise<StaticStopData[]> {
 function parseStations(stops: StaticStopData[]) {
   const stations = new Map<string, StaticStopData[]>()
   stops.forEach((stop) => {
-    stations?.set(stop.StopText!, [
-      ...(stations?.get(stop.StopText!) ?? []),
-      stop,
-    ])
+    stations?.set(stop.StopText!, [...(stations?.get(stop.StopText!) ?? []), stop])
   })
   return Object.fromEntries(
     [...stations.entries()].sort().map(([name, stops]) => [
@@ -54,7 +54,7 @@ function parseStations(stops: StaticStopData[]) {
         location: lib.calculateCenter(
           stops
             .filter((stop) => stop.Latitude && stop.Longitude)
-            .map((stop) => (lib.fixCoordinates([stop.Latitude!, stop.Longitude!]))),
+            .map((stop) => lib.fixCoordinates([stop.Latitude!, stop.Longitude!])),
         ),
       },
     ]),

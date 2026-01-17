@@ -1,24 +1,29 @@
 {
   "name": "vite-plugin-ssg-utils",
-  "type": "module",
   "version": "2.0.19",
   "description": "Utils for vite-ssg and other Vite SSG or SSR tools.",
-  "author": "Jan Müller <janmueller3698@gmail.com>",
-  "license": "MIT",
-  "funding": "https://github.com/sponsors/DerYeger",
+  "keywords": [
+    "vite-plugin",
+    "vite-ssg"
+  ],
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vite-plugin-ssg-utils",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
+  "author": "Jan Müller <janmueller3698@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vite-plugin-ssg-utils"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "vite-plugin",
-    "vite-ssg"
+  "funding": "https://github.com/sponsors/DerYeger",
+  "files": [
+    "dist",
+    "LICENSE"
   ],
+  "type": "module",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -27,24 +32,15 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "LICENSE",
-    "dist"
-  ],
-  "engines": {
-    "node": ">=14"
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
-  },
-  "peerDependencies": {
-    "vite": "2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
   },
   "dependencies": {
     "kolorist": "catalog:"
@@ -59,7 +55,10 @@
     "typescript": "catalog:",
     "vitest": "catalog:"
   },
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "vite": "2.0.0 || ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }

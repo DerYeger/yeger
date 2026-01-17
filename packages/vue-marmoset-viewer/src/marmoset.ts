@@ -24,9 +24,7 @@ export function loadMarmoset(): Promise<void> {
       return
     }
     if (loadingInProgress) {
-      document
-        .getElementById(marmosetScriptId)
-        ?.addEventListener('load', () => resolve())
+      document.getElementById(marmosetScriptId)?.addEventListener('load', () => resolve())
       return
     }
     loadingInProgress = true
@@ -87,7 +85,6 @@ export declare interface Marmoset {
   noUserInterface?: boolean
 }
 
-// eslint-disable-next-line ts/no-namespace
 export declare namespace Marmoset {
   export class WebViewer {
     /**

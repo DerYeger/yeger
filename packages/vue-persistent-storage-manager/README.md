@@ -62,11 +62,7 @@ In this case, `watchStorage` will default to `false`.
       :disabled="!$storageManager.isAvailable || $storageManager.isPersistent"
       @click="$storageManager.requestPersistentStorage()"
     >
-      {{
-        $storageManager.isPersistent
-          ? 'Persistence granted'
-          : 'Request persistence'
-      }}
+      {{ $storageManager.isPersistent ? 'Persistence granted' : 'Request persistence' }}
     </button>
     <p>{{ (100 * $storageEstimate.usage) / $storageEstimate.quota }}%</p>
     <p>{{ $storageEstimate.usage / 1000000 }}MB</p>

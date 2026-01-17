@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
   try {
-    const body = await req.json().catch(() => ({})) as { tasks?: string[], filter?: string }
+    const body = (await req.json().catch(() => ({}))) as { tasks?: string[]; filter?: string }
     const tasks = (body.tasks ?? []).filter(Boolean)
     const filter = body.filter
     const result = await getGraph(tasks, filter)

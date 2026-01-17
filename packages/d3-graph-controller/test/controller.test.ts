@@ -21,15 +21,11 @@ describe('GraphController', () => {
   })
 
   it('renders nodes', () => {
-    expect(container.querySelectorAll('.node').length).toEqual(
-      TestData.graph.nodes.length,
-    )
+    expect(container.querySelectorAll('.node').length).toEqual(TestData.graph.nodes.length)
   })
 
   it('renders links', () => {
-    expect(container.querySelectorAll('.link').length).toEqual(
-      TestData.graph.links.length,
-    )
+    expect(container.querySelectorAll('.link').length).toEqual(TestData.graph.links.length)
   })
 
   describe('can be configured', () => {
@@ -65,8 +61,7 @@ describe('GraphController', () => {
           TestData.graph,
           defineGraphConfig<TestNodeType>({
             initial: {
-              linkFilter: (link: GraphLink<TestNodeType>) =>
-                link.source.id === link.target.id,
+              linkFilter: (link: GraphLink<TestNodeType>) => link.source.id === link.target.id,
             },
           }),
         )
@@ -78,9 +73,7 @@ describe('GraphController', () => {
 
   describe('has settings that', () => {
     it('can exclude unlinked nodes', () => {
-      expect(container.querySelectorAll('.node').length).toEqual(
-        TestData.graph.nodes.length,
-      )
+      expect(container.querySelectorAll('.node').length).toEqual(TestData.graph.nodes.length)
 
       controller.includeUnlinked = false
 
@@ -88,12 +81,9 @@ describe('GraphController', () => {
     })
 
     it('can filter links', () => {
-      expect(container.querySelectorAll('.link').length).toEqual(
-        TestData.graph.links.length,
-      )
+      expect(container.querySelectorAll('.link').length).toEqual(TestData.graph.links.length)
 
-      const linkFilter = (link: GraphLink<TestNodeType>) =>
-        link.source.id === link.target.id
+      const linkFilter = (link: GraphLink<TestNodeType>) => link.source.id === link.target.id
       controller.linkFilter = linkFilter
       expect(controller.linkFilter).toBe(linkFilter)
 
@@ -105,9 +95,7 @@ describe('GraphController', () => {
 
       const checkIncludedNodes = () => {
         expect(container.querySelectorAll('.node').length).toEqual(
-          TestData.graph.nodes.filter(
-            (node) => !currentlyExcluded.includes(node.type),
-          ).length,
+          TestData.graph.nodes.filter((node) => !currentlyExcluded.includes(node.type)).length,
         )
       }
 
@@ -133,13 +121,17 @@ describe('GraphController', () => {
     it('can toggle node labels', () => {
       controller.showNodeLabels = true
       expect(
-        [...container.querySelectorAll('.node__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1'),
+        [...container.querySelectorAll('.node__label')].every(
+          (label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1',
+        ),
       ).toBe(true)
       expect(controller.showNodeLabels).toBe(true)
 
       controller.showNodeLabels = false
       expect(
-        [...container.querySelectorAll('.node__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0'),
+        [...container.querySelectorAll('.node__label')].every(
+          (label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0',
+        ),
       ).toBe(true)
       expect(controller.showNodeLabels).toBe(false)
     })
@@ -147,13 +139,17 @@ describe('GraphController', () => {
     it('can toggle link labels', () => {
       controller.showLinkLabels = true
       expect(
-        [...container.querySelectorAll('.link__label')].some((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1'),
+        [...container.querySelectorAll('.link__label')].some(
+          (label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '1',
+        ),
       ).toBe(true)
       expect(controller.showLinkLabels).toBe(true)
 
       controller.showLinkLabels = false
       expect(
-        [...container.querySelectorAll('.link__label')].every((label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0'),
+        [...container.querySelectorAll('.link__label')].every(
+          (label) => (label as SVGTextElement).attributes.getNamedItem('opacity')?.value === '0',
+        ),
       ).toBe(true)
       expect(controller.showLinkLabels).toBe(false)
     })

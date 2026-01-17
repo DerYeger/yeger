@@ -1,29 +1,28 @@
 {
   "name": "@yeger/turbo-graph",
-  "type": "module",
   "version": "2.3.12",
   "description": "Interactive visualization and execution of Turborepo task graphs.",
+  "keywords": [
+    "graph",
+    "monorepo",
+    "turbo",
+    "turborepo",
+    "visualization"
+  ],
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/turbo-graph",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/turbo-graph"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "turborepo",
-    "turbo",
-    "graph",
-    "visualization",
-    "monorepo"
-  ],
   "bin": {
     "turbo-graph": "index.mjs"
   },
@@ -31,11 +30,14 @@
     "dist",
     "index.mjs"
   ],
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "preview": "node dist/index.mjs"
   },
   "dependencies": {
@@ -52,8 +54,5 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

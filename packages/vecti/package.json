@@ -1,29 +1,33 @@
 {
   "name": "vecti",
-  "type": "module",
   "version": "3.1.5",
   "description": "A tiny TypeScript library for 2D vector math.",
+  "keywords": [
+    "2d",
+    "math",
+    "typescript",
+    "vector"
+  ],
+  "homepage": "https://vecti.janmueller.dev",
+  "bugs": {
+    "url": "https://github.com/DerYeger/yeger/issues"
+  },
+  "license": "MIT",
   "author": {
     "name": "Jan Müller",
     "url": "https://github.com/DerYeger"
   },
-  "license": "MIT",
-  "homepage": "https://vecti.janmueller.dev",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
     "directory": "packages/vecti"
   },
-  "bugs": {
-    "url": "https://github.com/DerYeger/yeger/issues"
-  },
-  "keywords": [
-    "vector",
-    "math",
-    "2d",
-    "typescript"
+  "files": [
+    "dist"
   ],
+  "type": "module",
   "sideEffects": false,
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
@@ -32,16 +36,14 @@
       }
     }
   },
-  "types": "dist/index.d.mts",
-  "files": [
-    "dist"
-  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsdown",
     "check:tsc": "tsc",
     "check:publish": "publint run --strict",
     "dev": "tsdown --watch",
-    "lint": "yeger-lint",
     "test": "vitest"
   },
   "devDependencies": {
@@ -53,8 +55,5 @@
     "tsdown": "catalog:",
     "typescript": "catalog:",
     "vitest": "catalog:"
-  },
-  "publishConfig": {
-    "access": "public"
   }
 }

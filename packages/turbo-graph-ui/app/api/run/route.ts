@@ -8,7 +8,12 @@ export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 // API Route to execute turborepo tasks and stream logs via Server-Sent Events (text/event-stream)
-async function buildResponseFromArgs(tasks: string[], filter: string | undefined, signal: AbortSignal, options: { force?: boolean }) {
+async function buildResponseFromArgs(
+  tasks: string[],
+  filter: string | undefined,
+  signal: AbortSignal,
+  options: { force?: boolean },
+) {
   const { dir } = await findRootTurboConfig()
   const args: string[] = ['run', ...tasks]
   if (filter) {
@@ -38,7 +43,7 @@ async function buildResponseFromArgs(tasks: string[], filter: string | undefined
     }
     try {
       await writer.write(encoder.encode(text))
-    } catch { }
+    } catch {}
   }
   const safe = {
     async send(kind: string, data: string) {
@@ -61,7 +66,7 @@ async function buildResponseFromArgs(tasks: string[], filter: string | undefined
         setTimeout(async () => {
           try {
             await writer.close()
-          } catch { }
+          } catch {}
           for (const off of listeners) {
             off()
           }
@@ -69,72 +74,71 @@ async function buildResponseFromArgs(tasks: string[], filter: string | undefined
       }
     },
   }
+  ;(async () => {
+    try {
+      await write(`: ${' '.repeat(2048)}\n\n`)
+      await write('retry: 10000\n\n')
+      await safe.send('start', JSON.stringify({ args }))
+      heartbeat = setInterval(() => {
+        void safe.send('heartbeat', String(Date.now()))
+      }, 15000)
 
-    ; (async () => {
-      try {
-        await write(`: ${' '.repeat(2048)}\n\n`)
-        await write('retry: 10000\n\n')
-        await safe.send('start', JSON.stringify({ args }))
-        heartbeat = setInterval(() => {
-          void safe.send('heartbeat', String(Date.now()))
-        }, 15000)
-
-        child.stdout.setEncoding('utf8')
-        child.stderr.setEncoding('utf8')
-        // If the client disconnects (aborts the request), terminate the child and finish the stream
-        if (signal) {
-          const onAbort = () => {
-            try {
-              child.kill('SIGTERM')
-            } catch { }
-            void safe.finish(null)
-          }
-          signal.addEventListener('abort', onAbort)
-          listeners.push(() => signal.removeEventListener('abort', onAbort))
+      child.stdout.setEncoding('utf8')
+      child.stderr.setEncoding('utf8')
+      // If the client disconnects (aborts the request), terminate the child and finish the stream
+      if (signal) {
+        const onAbort = () => {
+          try {
+            child.kill('SIGTERM')
+          } catch {}
+          void safe.finish(null)
         }
-        const onStdout = (chunk: string) => {
-          if (isClosed) {
-            return
-          }
-          chunk
-            .split(/\r?\n/)
-            .filter(Boolean)
-            .forEach((line) => {
-              void safe.send('log', line)
-            })
-        }
-        const onStderr = (chunk: string) => {
-          if (isClosed) {
-            return
-          }
-          chunk
-            .split(/\r?\n/)
-            .filter(Boolean)
-            .forEach((line) => {
-              void safe.send('stderr', line)
-            })
-        }
-        const onClose = (code: number | null) => {
-          void safe.finish(code)
-        }
-        const onError = (err: Error) => {
-          void safe.send('stderr', err.message)
-        }
-        child.stdout.on('data', onStdout)
-        child.stderr.on('data', onStderr)
-        child.on('close', onClose)
-        child.on('error', onError)
-        listeners.push(
-          () => child.stdout.off('data', onStdout),
-          () => child.stderr.off('data', onStderr),
-          () => child.off('close', onClose),
-          () => child.off('error', onError),
-        )
-      } catch (err) {
-        await safe.send('error', (err as Error)?.message ?? 'stream error')
-        await safe.finish(1)
+        signal.addEventListener('abort', onAbort)
+        listeners.push(() => signal.removeEventListener('abort', onAbort))
       }
-    })()
+      const onStdout = (chunk: string) => {
+        if (isClosed) {
+          return
+        }
+        chunk
+          .split(/\r?\n/)
+          .filter(Boolean)
+          .forEach((line) => {
+            void safe.send('log', line)
+          })
+      }
+      const onStderr = (chunk: string) => {
+        if (isClosed) {
+          return
+        }
+        chunk
+          .split(/\r?\n/)
+          .filter(Boolean)
+          .forEach((line) => {
+            void safe.send('stderr', line)
+          })
+      }
+      const onClose = (code: number | null) => {
+        void safe.finish(code)
+      }
+      const onError = (err: Error) => {
+        void safe.send('stderr', err.message)
+      }
+      child.stdout.on('data', onStdout)
+      child.stderr.on('data', onStderr)
+      child.on('close', onClose)
+      child.on('error', onError)
+      listeners.push(
+        () => child.stdout.off('data', onStdout),
+        () => child.stderr.off('data', onStderr),
+        () => child.off('close', onClose),
+        () => child.off('error', onError),
+      )
+    } catch (err) {
+      await safe.send('error', (err as Error)?.message ?? 'stream error')
+      await safe.finish(1)
+    }
+  })()
 
   return new Response(readable, {
     headers: {
@@ -153,7 +157,12 @@ export async function GET(req: NextRequest) {
   const tasks: string[] = []
   if (tasksParam.length > 0) {
     for (const t of tasksParam) {
-      tasks.push(...t.split(',').map((s) => s.trim()).filter(Boolean))
+      tasks.push(
+        ...t
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean),
+      )
     }
   }
   const filter = url.searchParams.get('filter') ?? undefined

@@ -22,8 +22,7 @@ const emit = defineEmits<{
   (e: 'update:maxColumns', value: number): void
 }>()
 
-const { columnWidth, gap, rtl, useScrollContainer, minColumns, maxColumns } =
-  toRefs(props)
+const { columnWidth, gap, rtl, useScrollContainer, minColumns, maxColumns } = toRefs(props)
 
 const newItemHeight = ref(128)
 
@@ -70,7 +69,7 @@ function getWidthLabel(index: number) {
           max="256"
           :value="gap"
           @input="emit('update:gap', +($event.target as any).value)"
-        >
+        />
         <span>{{ gap }}px</span>
       </div>
       <div class="row">
@@ -82,7 +81,7 @@ function getWidthLabel(index: number) {
           max="10"
           :value="minColumns"
           @input="emit('update:minColumns', +($event.target as any).value)"
-        >
+        />
         <span>{{ minColumns }}</span>
       </div>
       <div class="row">
@@ -94,7 +93,7 @@ function getWidthLabel(index: number) {
           max="10"
           :value="maxColumns"
           @input="emit('update:maxColumns', +($event.target as any).value)"
-        >
+        />
         <span>{{ maxColumns }}</span>
       </div>
       <div class="row">
@@ -104,7 +103,7 @@ function getWidthLabel(index: number) {
           type="checkbox"
           :checked="rtl"
           @change="emit('update:rtl', ($event.target as any).checked)"
-        >
+        />
       </div>
       <div class="row">
         <label for="useScrollContainer">Scroll Container</label>
@@ -112,67 +111,35 @@ function getWidthLabel(index: number) {
           id="useScrollContainer"
           type="checkbox"
           :checked="useScrollContainer"
-          @change="
-            emit('update:useScrollContainer', ($event.target as any).checked)
-          "
-        >
+          @change="emit('update:useScrollContainer', ($event.target as any).checked)"
+        />
       </div>
     </section>
     <section id="columns">
       <h2>Columns</h2>
       <div class="row">
         <label for="width">1st Column</label>
-        <input
-          id="width"
-          v-model="colWidth1"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="width" v-model="colWidth1" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(0) }}</span>
       </div>
       <div class="row">
         <label for="2nd-width">2nd Column</label>
-        <input
-          id="2nd-width"
-          v-model="colWidth2"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="2nd-width" v-model="colWidth2" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(1) }}</span>
       </div>
       <div class="row">
         <label for="3rd-width">3rd Column</label>
-        <input
-          id="3rd-width"
-          v-model="colWidth3"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="3rd-width" v-model="colWidth3" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(2) }}</span>
       </div>
       <div class="row">
         <label for="4th-width">4th Column</label>
-        <input
-          id="4th-width"
-          v-model="colWidth4"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="4th-width" v-model="colWidth4" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(3) }}</span>
       </div>
       <div class="row">
         <label for="5th-width">5th Column</label>
-        <input
-          id="5th-width"
-          v-model="colWidth5"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="5th-width" v-model="colWidth5" type="range" min="128" max="512" />
         <span>{{ getWidthLabel(4) }}</span>
       </div>
     </section>
@@ -180,28 +147,14 @@ function getWidthLabel(index: number) {
       <h2>Items</h2>
       <div class="row">
         <label for="height">Height</label>
-        <input
-          id="height"
-          v-model="newItemHeight"
-          type="range"
-          min="128"
-          max="512"
-        >
+        <input id="height" v-model="newItemHeight" type="range" min="128" max="512" />
         <span>{{ newItemHeight }}px</span>
       </div>
       <div class="row button-row">
-        <button class="primary" @click="emit('createItem', newItemHeight)">
-          Create
-        </button>
-        <button class="primary" @click="emit('createItem', randomHeight())">
-          Random
-        </button>
-        <button class="primary" @click="emit('createItems')">
-          Random (10)
-        </button>
-        <button class="secondary" @click="emit('clearItems')">
-          Clear
-        </button>
+        <button class="primary" @click="emit('createItem', newItemHeight)">Create</button>
+        <button class="primary" @click="emit('createItem', randomHeight())">Random</button>
+        <button class="primary" @click="emit('createItems')">Random (10)</button>
+        <button class="secondary" @click="emit('clearItems')">Clear</button>
       </div>
     </section>
   </div>

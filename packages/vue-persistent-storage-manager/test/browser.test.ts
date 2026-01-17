@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-globals */
 // @vitest-environment jsdom
 
 import { createLocalVue } from '@vue/test-utils'
@@ -102,9 +101,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
   it('handles denied persistence', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
-    await expect(
-      vm.prototype.$storageManager.requestPersistentStorage(),
-    ).resolves.toBe(false)
+    await expect(vm.prototype.$storageManager.requestPersistentStorage()).resolves.toBe(false)
     expect(vm.prototype.$storageManager.isPersistent).toBe(false)
   })
 
@@ -112,9 +109,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     global.navigator.storage.persist = () => Promise.resolve(true)
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
-    await expect(
-      vm.prototype.$storageManager.requestPersistentStorage(),
-    ).resolves.toBe(true)
+    await expect(vm.prototype.$storageManager.requestPersistentStorage()).resolves.toBe(true)
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)
   })
 

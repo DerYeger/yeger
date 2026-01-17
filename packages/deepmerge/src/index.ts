@@ -7,29 +7,21 @@ type TIndexValue<T, K extends PropertyKey, D = never> = T extends any
     : D
   : never
 
-type TPartialKeys<T, K extends keyof T> = Omit<T, K> &
-  Partial<Pick<T, K>> extends infer O
+type TPartialKeys<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>> extends infer O
   ? { [P in keyof O]: O[P] }
   : never
 
 type TFunction = (...a: any[]) => any
 
-type TPrimitives =
-  | string
-  | number
-  | boolean
-  | bigint
-  | symbol
-  | Date
-  | TFunction
+type TPrimitives = string | number | boolean | bigint | symbol | Date | TFunction
 
 type TMerged<T> = [T] extends [Array<any>]
   ? { [K in keyof T]: TMerged<T[K]> }
   : [T] extends [TPrimitives]
-      ? T
-      : [T] extends [object]
-          ? TPartialKeys<{ [K in TAllKeys<T>]: TMerged<TIndexValue<T, K>> }, never>
-          : T
+    ? T
+    : [T] extends [object]
+      ? TPartialKeys<{ [K in TAllKeys<T>]: TMerged<TIndexValue<T, K>> }, never>
+      : T
 
 function isObject(obj: any) {
   if (typeof obj === 'object' && obj !== null) {
@@ -51,9 +43,7 @@ interface IObject {
 function merge<T extends IObject[]>(...objects: T): TMerged<T[number]> {
   return objects.reduce((result, current) => {
     if (Array.isArray(current)) {
-      throw new TypeError(
-        'Arguments provided to deepmerge must be objects, not arrays.',
-      )
+      throw new TypeError('Arguments provided to deepmerge must be objects, not arrays.')
     }
 
     Object.keys(current).forEach((key) => {
@@ -86,10 +76,7 @@ const defaultOptions: IOptions = {
 
 merge.options = defaultOptions
 
-merge.withOptions = <T extends IObject[]>(
-  options: Partial<IOptions>,
-  ...objects: T
-) => {
+merge.withOptions = <T extends IObject[]>(options: Partial<IOptions>, ...objects: T) => {
   merge.options = {
     mergeArrays: true,
     ...options,

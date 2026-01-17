@@ -209,20 +209,11 @@ describe('WordSplitter', () => {
     it('if there is tags inside - will put them before new tag', () => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['<strong>', 'text', ' ', 'inside', '</strong>'])
-      expect(htmlDiff.content).toEqual([
-        '<strong><ins class="">text inside</ins></strong>',
-      ])
+      expect(htmlDiff.content).toEqual(['<strong><ins class="">text inside</ins></strong>'])
     })
     it('works with multiple tags inside', () => {
       const htmlDiff = new HtmlDiff('', '')
-      htmlDiff.insertTag('ins', '', [
-        '<strong>',
-        'text',
-        '</strong>',
-        '<b>',
-        'inside',
-        '</b>',
-      ])
+      htmlDiff.insertTag('ins', '', ['<strong>', 'text', '</strong>', '<b>', 'inside', '</b>'])
       expect(htmlDiff.content).toEqual([
         '<strong><ins class="">text</ins></strong><b><ins class="">inside</ins></b>',
       ])
@@ -230,9 +221,7 @@ describe('WordSplitter', () => {
     it('expect img tags - will put them inside the tag', () => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['<strong>', '<img />', 'text', '</strong>'])
-      expect(htmlDiff.content).toEqual([
-        '<strong><ins class=""><img />text</ins></strong>',
-      ])
+      expect(htmlDiff.content).toEqual(['<strong><ins class=""><img />text</ins></strong>'])
     })
   })
 })

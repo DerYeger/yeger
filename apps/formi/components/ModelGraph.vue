@@ -52,9 +52,7 @@ function resetGraphController(
     return
   }
   const defaultPositionInitializer =
-    graph.value.nodes.length > 1
-      ? PositionInitializers.Randomized
-      : PositionInitializers.Centered
+    graph.value.nodes.length > 1 ? PositionInitializers.Randomized : PositionInitializers.Centered
   controller.value = new GraphController(
     el.value!,
     graph.value,

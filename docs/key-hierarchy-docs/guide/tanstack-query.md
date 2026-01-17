@@ -85,24 +85,24 @@ One of the biggest benefits is precise cache invalidation. You can invalidate sp
 ```typescript
 function useUpdateUser() {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: updateUser,
     onSuccess: (updatedUser) => {
       // Invalidate specific user queries
       queryClient.invalidateQueries({
-        queryKey: keys.users.byId(updatedUser.id).get
+        queryKey: keys.users.byId(updatedUser.id).get,
       })
-      
+
       queryClient.invalidateQueries({
-        queryKey: keys.users.byId(updatedUser.id).posts.getAll
+        queryKey: keys.users.byId(updatedUser.id).posts.getAll,
       })
-      
+
       // Also invalidate the users list
       queryClient.invalidateQueries({
-        queryKey: keys.users.getAll
+        queryKey: keys.users.getAll,
       })
-    }
+    },
   })
 }
 ```
@@ -116,33 +116,33 @@ import { deepEqual } from 'fast-equals'
 
 function useDeleteUser() {
   const queryClient = useQueryClient()
-  
+
   return useMutation({
     mutationFn: deleteUser,
     onSuccess: (deletedUserId) => {
       // Remove specific user queries
       queryClient.removeQueries({
-        queryKey: keys.users.byId(deletedUserId).get
+        queryKey: keys.users.byId(deletedUserId).get,
       })
-      
+
       queryClient.removeQueries({
-        queryKey: keys.users.byId(deletedUserId).posts.getAll
+        queryKey: keys.users.byId(deletedUserId).posts.getAll,
       })
-      
+
       // Invalidate users list
       queryClient.invalidateQueries({
-        queryKey: keys.users.getAll
+        queryKey: keys.users.getAll,
       })
-      
+
       // Use predicate for more complex patterns
       queryClient.invalidateQueries({
         predicate: (query) => {
           const userQueryKey = keys.users.byId(deletedUserId)
           // Invalidate any sub-query for the deleted user
           return deepEqual(userQueryKey, query.queryKey.slice(0, userQueryKey.length))
-        }
+        },
       })
-    }
+    },
   })
 }
 ```

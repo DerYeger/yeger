@@ -28,17 +28,20 @@
   cursor: pointer;
   stroke: none;
   stroke-width: 2px;
-  transition: filter 0.25s ease, stroke 0.25s ease, stroke-dasharray 0.25s ease;
+  transition:
+    filter 0.25s ease,
+    stroke 0.25s ease,
+    stroke-dasharray 0.25s ease;
 }
 
 .node:hover:not(.focused) {
-   filter: brightness(80%);
-   stroke: var(--color-stroke);
-   stroke-dasharray: 4px;
+  filter: brightness(80%);
+  stroke: var(--color-stroke);
+  stroke-dasharray: 4px;
 }
 
 .node.focused {
-   stroke: var(--color-stroke);
+  stroke: var(--color-stroke);
 }
 
 .link__label,

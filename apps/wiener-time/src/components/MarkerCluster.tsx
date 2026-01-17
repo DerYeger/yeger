@@ -13,10 +13,7 @@ function createClusterCustomIcon(cluster: any) {
 
 const MarkerCluster: FC<{ children: ReactNode }> = ({ children }) => {
   return (
-    <BaseMarkerCluster
-      iconCreateFunction={createClusterCustomIcon}
-      showCoverageOnHover={false}
-    >
+    <BaseMarkerCluster iconCreateFunction={createClusterCustomIcon} showCoverageOnHover={false}>
       {children}
     </BaseMarkerCluster>
   )

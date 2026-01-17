@@ -79,9 +79,7 @@ export class WordSplitter {
         }
 
         // Check if we need to group the next text sequence/block;
-        const newBlockLocation = this.blockLocations.find(
-          (el) => el.wordBoundaries.starts === idx,
-        )
+        const newBlockLocation = this.blockLocations.find((el) => el.wordBoundaries.starts === idx)
 
         if (newBlockLocation) {
           blockLocation = newBlockLocation

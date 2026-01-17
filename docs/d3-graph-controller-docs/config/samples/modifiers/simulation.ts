@@ -1,9 +1,4 @@
-import {
-  GraphLink,
-  GraphNode,
-  GraphSimulation,
-  defineGraphConfig,
-} from 'd3-graph-controller'
+import { GraphLink, GraphNode, GraphSimulation, defineGraphConfig } from 'd3-graph-controller'
 
 const config = defineGraphConfig({
   modifiers: {

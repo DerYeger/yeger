@@ -16,11 +16,7 @@ import {
 import type { ReactFlowInstance } from 'reactflow'
 
 import 'reactflow/dist/style.css'
-import {
-  TASK_WIDTH_VAR,
-  convertGraph,
-  getTaskColorVar,
-} from '../lib/flow'
+import { TASK_WIDTH_VAR, convertGraph, getTaskColorVar } from '../lib/flow'
 import type { FlowNode } from '../lib/flow'
 import type { TurboGraph } from '../lib/turbo'
 import { Task } from './Task'
@@ -39,7 +35,14 @@ const nodeTypes = {
 export function FlowGraph({ children, graph, tasks }: Props) {
   const { flowGraph, taskCssVars } = useMemo(() => {
     const flowGraph = convertGraph(graph)
-    const getColor = scaleOrdinal(['#FF1E56', '#0196FF', '#CD3678', '#8657A7', '#3F79D5', '#22c55e']).domain(tasks)
+    const getColor = scaleOrdinal([
+      '#FF1E56',
+      '#0196FF',
+      '#CD3678',
+      '#8657A7',
+      '#3F79D5',
+      '#22c55e',
+    ]).domain(tasks)
     const taskColors = Stream.from(tasks).toRecord(
       (task) => getTaskColorVar(task),
       (task) => getColor(task),
@@ -86,8 +89,7 @@ export function FlowGraph({ children, graph, tasks }: Props) {
       <Background />
 
       <MiniMap
-        nodeColor={({ data }: { data: FlowNode }) =>
-          `var(${getTaskColorVar(data.task)})`}
+        nodeColor={({ data }: { data: FlowNode }) => `var(${getTaskColorVar(data.task)})`}
         nodeStrokeColor="#000000"
       />
       <ViewFitter graph={graph} />
@@ -104,7 +106,13 @@ function ViewFitter({ graph }: { graph: TurboGraph }) {
     }
   }, [reactFlow, graph])
 
-  return <Controls position="top-right" showInteractive={false} onFitView={() => fitViewWithOffset(reactFlow)} />
+  return (
+    <Controls
+      position="top-right"
+      showInteractive={false}
+      onFitView={() => fitViewWithOffset(reactFlow)}
+    />
+  )
 }
 
 function fitViewWithOffset(reactFlow: ReactFlowInstance) {

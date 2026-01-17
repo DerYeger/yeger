@@ -5,10 +5,7 @@ import type { Model } from './model'
 
 export type ValidationResult = Result<null, string>
 
-function allElementsAreInRange(
-  elements: number[],
-  domain: Set<number>,
-): ValidationResult {
+function allElementsAreInRange(elements: number[], domain: Set<number>): ValidationResult {
   for (const element of elements) {
     if (Number.isNaN(element) || !domain.has(element)) {
       return new Err(`${element} is not part of the domain`)
@@ -24,10 +21,7 @@ function allValuesAreInRange(
   return allElementsAreInRange(Object.values(record), domain)
 }
 
-function allKeysAreInRange(
-  record: Record<string, unknown>,
-  domain: Set<number>,
-): ValidationResult {
+function allKeysAreInRange(record: Record<string, unknown>, domain: Set<number>): ValidationResult {
   const keys = Object.keys(record)
     .flatMap((key) => key.split(','))
     .map((key) => Number.parseInt(key))

@@ -1,36 +1,35 @@
 {
   "name": "yeger-monorepo",
-  "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@10.28.0",
   "description": "Monorepo for `@yeger` and related NPM packages",
   "repository": {
     "url": "https://github.com/DerYeger/yeger"
   },
-  "engines": {
-    "node": ">=14.0.0"
-  },
+  "type": "module",
   "scripts": {
     "build": "nr turbo run build",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build check:publish check:tsc check:vue e2e generate lint lint:root syncpack:lint test",
+    "check:tsc": "nr turbo run check:tsc",
+    "ci": "cross-env COVERAGE=true nr turbo run build check:publish check:tsc e2e generate quality syncpack:lint test",
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
-    "e2e": "nr turbo e2e",
-    "fix": "nr turbo run lint lint:root -- --fix",
+    "e2e": "nr turbo run e2e",
+    "fix": "nr turbo run quality:fix",
+    "format": "oxfmt --check",
+    "format:fix": "oxfmt .",
+    "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=@yeger/scripts... && generate-readme",
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
-    "lint": "nr turbo run lint lint:root",
-    "lint:root": "eslint \"{.changeset,.github,.husky,.vscode,turbo}/**/*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\" \"./*.{astro,html,js,jsx,json,md,ts,tsx,vue,yaml,yml}\"",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint . --fix --fix-suggestions",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "syncpack:fix": "syncpack fix-mismatches",
     "syncpack:lint": "syncpack list-mismatches",
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
-    "typecheck": "nr turbo run check:tsc check:vue",
     "update": "taze",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"
@@ -41,19 +40,23 @@
     "@commitlint/cli": "catalog:",
     "@commitlint/config-conventional": "catalog:",
     "@types/node": "catalog:",
-    "@yeger/eslint-config": "workspace:*",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "cross-env": "catalog:",
-    "eslint": "catalog:",
     "husky": "catalog:",
     "lint-staged": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
     "turbo": "2.7.4"
   },
   "lint-staged": {
-    "*.{astro,cjs,html,js,jsx,json,md,mjs,mts,svelte,ts,tsx,vue,yaml,yml}": "eslint --fix"
-  }
+    "*": "oxlint"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@10.28.0"
 }
