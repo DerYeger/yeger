@@ -17,13 +17,13 @@
     "e2e": "nr turbo run e2e",
     "fix": "nr turbo run quality:fix",
     "format": "oxfmt --check",
-    "format:fix": "oxfmt .",
+    "format:fix": "oxfmt",
     "generate": "nr turbo run generate",
     "generate-readme": "nr turbo build --filter=@yeger/scripts... && generate-readme",
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
-    "lint": "oxlint .",
-    "lint:fix": "oxlint . --fix",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "syncpack:fix": "syncpack fix-mismatches",
@@ -54,7 +54,7 @@
     "vitest": "catalog:"
   },
   "lint-staged": {
-    "*": "oxlint"
+    "*": "pnpm run turbo quality:fix --"
   },
   "engines": {
     "node": ">=14.0.0"
