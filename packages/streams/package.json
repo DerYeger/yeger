@@ -47,7 +47,7 @@
     "bench": "vitest bench",
     "build": "tsdown",
     "check:publish": "publint run --strict",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "tsc",
     "dev": "tsdown --watch",
     "test": "vitest"
   },

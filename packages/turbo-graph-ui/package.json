@@ -39,6 +39,7 @@
   "scripts": {
     "build": "next build",
     "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
     "dev": "next dev",
     "preview": "next start"
   },

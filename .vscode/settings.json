@@ -1,9 +1,6 @@
 {
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
   "markdownlint.config": {
     "MD024": false,
     "MD033": false
   },
-  "vitest.commandLine": "pnpm test --run"
 }

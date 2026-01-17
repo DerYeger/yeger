@@ -23,7 +23,7 @@
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
     "lint": "oxlint .",
-    "lint:fix": "oxlint . --fix --fix-suggestions",
+    "lint:fix": "oxlint . --fix",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "syncpack:fix": "syncpack fix-mismatches",
@@ -50,7 +50,8 @@
     "rimraf": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.7.4"
+    "turbo": "2.7.4",
+    "vitest": "catalog:"
   },
   "lint-staged": {
     "*": "oxlint"

@@ -37,6 +37,7 @@
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
     "dev": "tsdown --watch",
     "preview": "node dist/index.mjs"
   },
