@@ -83,7 +83,8 @@ catalog:
   nuxt: 4.2.2
   ohm-js: 17.3.0
   open: 11.0.0
-  oxlint: 1.26.0
+  oxfmt: 0.24.0
+  oxlint: 1.39.0
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.16
@@ -131,7 +132,7 @@ catalogs:
 
 cleanupUnusedCatalogs: true
 
-minimumReleaseAge: 1440
+minimumReleaseAge: 2880
 
 onlyBuiltDependencies:
   - '@parcel/watcher'
@@ -153,6 +154,5 @@ trustPolicy: no-downgrade
 
 trustPolicyExclude:
   - chokidar@4.0.3
-  - eslint-import-resolver-typescript@3.10.1
   - semver@5.7.2 || 6.3.1
   - vite@5.4.21

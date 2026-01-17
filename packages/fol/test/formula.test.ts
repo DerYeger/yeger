@@ -7,6 +7,5 @@ describe('FOL formula', () => {
   it.each(TestData.validFormulas)('has correct formattedString for "%s"', (formula) => {
     const result = FOL.parse(formula)
     expect(result.get().toFormattedString()).toMatchSnapshot()
-    // console.log(result)
   })
 })

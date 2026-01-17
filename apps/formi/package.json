@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "check:vue": "nuxi typecheck",
+    "check:tsc": "nuxi typecheck",
     "dev": "nuxt dev",
     "e2e": "playwright test",
     "generate": "nuxt generate",

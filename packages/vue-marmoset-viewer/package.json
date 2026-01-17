@@ -45,7 +45,7 @@
   "scripts": {
     "build": "tsdown",
     "check:publish": "publint run --strict",
-    "check:vue": "vue-tsc",
+    "check:tsc": "vue-tsc",
     "dev": "tsdown --watch",
     "test": "vitest"
   },

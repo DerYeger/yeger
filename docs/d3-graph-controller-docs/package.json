@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "vitepress build",
-    "check:vue": "vue-tsc",
+    "check:tsc": "vue-tsc",
     "dev": "vitepress dev",
     "preview": "vitepress serve"
   },

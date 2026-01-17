@@ -9,9 +9,6 @@
     "check:tsc": {
       "dependsOn": ["^build", "codegen"],
     },
-    "check:vue": {
-      "dependsOn": ["^build", "codegen"],
-    },
     "build": {
       "dependsOn": ["^build", "codegen"],
       "outputs": ["dist/**", ".next/**"],

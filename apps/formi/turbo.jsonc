@@ -5,7 +5,7 @@
     "build": {
       "outputs": [".nuxt/**", ".output/**", "dist/**"],
     },
-    "check:vue": {
+    "check:tsc": {
       // Prevents race conditions due to parallel executions, but dependency is not strictly required
       "dependsOn": ["build", "generate"],
     },

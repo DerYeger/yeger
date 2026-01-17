@@ -10,10 +10,11 @@
   "scripts": {
     "build": "nr turbo run build",
     "changeset": "changeset",
-    "ci": "cross-env COVERAGE=true nr turbo run build check:publish check:tsc check:vue e2e generate quality syncpack:lint test",
+    "check:tsc": "nr turbo run check:tsc",
+    "ci": "cross-env COVERAGE=true nr turbo run build check:publish check:tsc e2e generate quality syncpack:lint test",
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
-    "e2e": "nr turbo e2e",
+    "e2e": "nr turbo run e2e",
     "fix": "nr turbo run quality:fix",
     "format": "oxfmt --check",
     "format:fix": "oxfmt .",
@@ -29,7 +30,6 @@
     "syncpack:lint": "syncpack list-mismatches",
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
-    "typecheck": "nr turbo run check:tsc check:vue",
     "update": "taze",
     "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"

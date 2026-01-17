@@ -9,7 +9,6 @@ describe('FOL parser', () => {
     expect(result).toMatchSnapshot()
     const outputString = result.toFormattedString()
     expect(FOL.parse(outputString).get().toFormattedString()).toEqual(outputString)
-    // console.log(result)
   })
 
   it('can parse operators', () => {
