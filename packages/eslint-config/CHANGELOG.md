@@ -1,5 +1,11 @@
 # @yeger/eslint-config
 
+## 3.1.0
+
+### Minor Changes
+
+- a998b91: update @antfu/eslint-config to v7
+
 ## 3.0.1
 
 ### Patch Changes
