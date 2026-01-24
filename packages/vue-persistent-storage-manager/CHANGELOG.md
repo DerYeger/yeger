@@ -1,5 +1,11 @@
 # vue-persistent-storage-manager
 
+## 3.0.21
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 3.0.20
 
 ### Patch Changes

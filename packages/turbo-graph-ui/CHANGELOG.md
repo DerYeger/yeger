@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.4
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 2.8.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # wiener-time
 
+## 1.1.3
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 1.1.2
 
 ### Patch Changes
