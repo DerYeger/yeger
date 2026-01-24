@@ -214,7 +214,7 @@ describe('MasonryWall', () => {
       },
     })
 
-    wrapper.setProps({
+    await wrapper.setProps({
       items: [1, 2, 3],
     })
     await flushPromises()

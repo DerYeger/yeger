@@ -85,6 +85,7 @@ catalog:
   open: 11.0.0
   oxfmt: 0.26.0
   oxlint: 1.41.0
+  oxlint-tsgolint: 0.11.1
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.17
@@ -94,7 +95,6 @@ catalog:
   react-leaflet-markercluster: 5.0.0-rc.0
   react-viewport-list: 7.1.2
   reactflow: 11.11.4
-  rimraf: 6.1.2
   serve: 14.2.5
   splitpanes: 4.0.4
   superjson: 2.2.6

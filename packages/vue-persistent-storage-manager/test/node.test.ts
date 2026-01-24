@@ -4,19 +4,19 @@ import { describe, expect, it } from 'vitest'
 import { checkPluginInstallation, checkStorageEstimate } from './test-utils'
 
 describe('VuePersistentStorageManager in node environment', () => {
-  it('can be installed without options', () => {
+  it('can be installed without options', async () => {
     const vm = createLocalVue()
-    checkPluginInstallation(vm)
+    await checkPluginInstallation(vm)
   })
 
-  it('can be installed with watchStorage set to true', () => {
+  it('can be installed with watchStorage set to true', async () => {
     const vm = createLocalVue()
-    checkPluginInstallation(vm, { watchStorage: true })
+    await checkPluginInstallation(vm, { watchStorage: true })
   })
 
-  it('can be installed with watchStorage set to false', () => {
+  it('can be installed with watchStorage set to false', async () => {
     const vm = createLocalVue()
-    checkPluginInstallation(vm, { watchStorage: false })
+    await checkPluginInstallation(vm, { watchStorage: false })
   })
 
   it('can be installed multiple times', async () => {
@@ -26,9 +26,9 @@ describe('VuePersistentStorageManager in node environment', () => {
     await checkPluginInstallation(second, { watchStorage: true })
   })
 
-  it('provides an empty StorageEstimate', () => {
+  it('provides an empty StorageEstimate', async () => {
     const vm = createLocalVue()
-    checkPluginInstallation(vm)
+    await checkPluginInstallation(vm)
     checkStorageEstimate(vm, {})
   })
 

@@ -74,5 +74,3 @@ export function LogOutput({
     </div>
   )
 }
-
-export default LogOutput

@@ -44,7 +44,6 @@
     "autoprefixer": "catalog:",
     "node-fetch": "catalog:",
     "postcss": "catalog:",
-    "rimraf": "catalog:",
     "tailwindcss": "catalog:",
     "tsx": "catalog:",
     "typescript": "catalog:"
