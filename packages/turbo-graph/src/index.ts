@@ -34,7 +34,7 @@ async function run() {
     const app = next({ dev: false, dir: source, port: options.port })
     const handle = app.getRequestHandler()
 
-    app.prepare().then(() => {
+    void app.prepare().then(() => {
       createServer(handle)
         .once('error', (err) => {
           console.error(err)
@@ -54,7 +54,7 @@ async function run() {
               }
               urlToOpen = `${urlToOpen}filter=${options.filter}`
             }
-            open(urlToOpen)
+            void open(urlToOpen)
           } else if (tasks.length > 0 || options.filter) {
             console.log(
               `${c.yellow('turbo-graph:')} Use ${c.cyan(
@@ -67,4 +67,4 @@ async function run() {
   }
 }
 
-run()
+void run()

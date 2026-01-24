@@ -358,9 +358,16 @@ function includesESFormat(formats?: LibraryFormats[]) {
   return formats?.includes('es') ?? true
 }
 
-function getErrorMessage(error: unknown) {
-  const isObject = typeof error === 'object' && error !== null && 'message' in error
-  return isObject ? error.message : String(error)
+function getErrorMessage(error: unknown): string {
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof error.message === 'string'
+  ) {
+    return error.message
+  }
+  return String(error)
 }
 
 /**

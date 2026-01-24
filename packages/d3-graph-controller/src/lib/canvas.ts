@@ -38,6 +38,7 @@ export function defineCanvas({
     .style('cursor', 'grab')
 
   if (applyZoom) {
+    // oxlint-disable-next-line typescript/unbound-method
     svg.call(zoom.transform, zoomIdentity.translate(xOffset, yOffset).scale(scale))
   }
 

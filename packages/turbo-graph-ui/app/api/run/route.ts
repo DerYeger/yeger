@@ -74,6 +74,7 @@ async function buildResponseFromArgs(
       }
     },
   }
+  // oxlint-disable-next-line typescript/no-floating-promises
   ;(async () => {
     try {
       await write(`: ${' '.repeat(2048)}\n\n`)

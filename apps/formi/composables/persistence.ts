@@ -62,7 +62,7 @@ const inMemoryDriver: LocalForageDriver = {
   },
 }
 
-localforage.defineDriver(inMemoryDriver)
+void localforage.defineDriver(inMemoryDriver)
 
 export function useLocalForage() {
   const localForage = localforage.createInstance({

@@ -133,12 +133,11 @@ export function TaskInput({ tasks }: TaskInputProps) {
   const isRunning = useIsRunning()
 
   const isSelectAll = selection.length === tasks.length
-  const onChangeIsSelectAll = (newSelectAll: boolean) => {
+  const onChangeIsSelectAll = (newSelectAll: boolean) =>
     setSelection(() => (newSelectAll ? tasks : []))
-  }
 
-  function onChange(task: string, action: 'add' | 'remove') {
-    setSelection((selection) => {
+  async function onChange(task: string, action: 'add' | 'remove') {
+    await setSelection((selection) => {
       if (action === 'remove') {
         return selection.filter((t) => t !== task)
       } else {
@@ -160,7 +159,7 @@ export function TaskInput({ tasks }: TaskInputProps) {
         disabled={isRunning}
         className="font-mono text-xs"
       />
-      <div className="flex flex-col gap-2 p-2 -m-2 overflow-y-auto font-mono [mask-image:linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] [mask-repeat:no-repeat] [mask-size:100%_100%]">
+      <div className="flex flex-col gap-2 p-2 -m-2 overflow-y-auto font-mono mask-[linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] mask-no-repeat mask-size-[100%_100%]">
         {!search ? (
           <Checkbox
             label="All"

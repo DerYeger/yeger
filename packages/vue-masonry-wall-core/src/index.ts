@@ -152,8 +152,8 @@ export function useMasonryWall<T>({
   const resizeObserver =
     typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(debounce(() => redraw()))
 
-  onMounted(() => {
-    redraw()
+  onMounted(async () => {
+    await redraw()
     resizeObserver?.observe(wall.value)
   })
 

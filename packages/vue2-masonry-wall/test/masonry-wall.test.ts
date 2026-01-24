@@ -79,12 +79,12 @@ describe('MasonryWall', () => {
     const columns = wrapper.findAll('.masonry-column')
     expect(columns.length).toEqual(1)
     expect(wrapper.findAll('.masonry-item').length).toEqual(2)
-    wrapper.setProps({
+    await wrapper.setProps({
       items: [1, 2, 3],
     })
     await flushPromises()
     expect(wrapper.findAll('.masonry-item').length).toEqual(3)
-    wrapper.setProps({
+    await wrapper.setProps({
       items: [1],
     })
     await flushPromises()
@@ -114,7 +114,7 @@ describe('MasonryWall', () => {
     await flushPromises()
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
     expect(wrapper.emitted('redraw-skip')).toBeUndefined()
-    wrapper.setProps({
+    await wrapper.setProps({
       columnWidth: 300,
     })
     await flushPromises()
@@ -131,7 +131,7 @@ describe('MasonryWall', () => {
     await flushPromises()
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
     expect(wrapper.emitted('redraw-skip')).toBeUndefined()
-    wrapper.setProps({
+    await wrapper.setProps({
       gap: 42,
     })
     await flushPromises()
@@ -147,7 +147,7 @@ describe('MasonryWall', () => {
     })
     await flushPromises()
     expect(wrapper.emitted('redraw')?.length).toEqual(1)
-    wrapper.setProps({
+    await wrapper.setProps({
       rtl: true,
     })
     await flushPromises()
@@ -177,7 +177,7 @@ describe('MasonryWall', () => {
         return ''
       },
     })
-    wrapper.setProps({
+    await wrapper.setProps({
       items: [1, 2],
     })
     await flushPromises()

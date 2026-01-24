@@ -15,7 +15,7 @@ export async function generateMTSDeclarations(
   for (const file of files) {
     await createMTSImports(file, verbose)
     if (deleteSourceFiles) {
-      unlink(file)
+      await unlink(file)
     }
   }
   log(`Generated ${files.length} MTS declarations.`)

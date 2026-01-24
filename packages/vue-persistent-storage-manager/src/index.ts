@@ -1,3 +1,4 @@
+// oxlint-disable typescript/unbound-method
 import type { PluginFunction } from 'vue'
 import Vue from 'vue'
 
@@ -54,7 +55,7 @@ export class VuePersistentStorageManager {
     }
     this._refreshIsPersistent()
     this._refreshStorageEstimate()
-    navigator.permissions
+    void navigator.permissions
       ?.query({ name: 'persistent-storage' })
       ?.then((persistentStoragePermission) => {
         persistentStoragePermission.onchange = () => this._refreshIsPersistent()
@@ -86,11 +87,11 @@ export class VuePersistentStorageManager {
   }
 
   private _refreshIsPersistent() {
-    navigator.storage.persisted().then((persisted) => (this._isPersistent = persisted))
+    void navigator.storage.persisted().then((persisted) => (this._isPersistent = persisted))
   }
 
   private _refreshStorageEstimate() {
-    navigator.storage.estimate().then(({ quota, usage }) => {
+    void navigator.storage.estimate().then(({ quota, usage }) => {
       Vue.set(this.storageEstimate, 'quota', quota)
       Vue.set(this.storageEstimate, 'usage', usage)
     })

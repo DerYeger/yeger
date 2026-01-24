@@ -4,6 +4,7 @@ import component from './masonry-wall.vue'
 
 export type MasonryWallComponent = typeof component
 
+// oxlint-disable-next-line typescript/no-redundant-type-constituents
 type MasonryWallPlugin = MasonryWallComponent & Plugin
 
 const MasonryWall: MasonryWallPlugin =

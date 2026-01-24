@@ -92,7 +92,7 @@ export abstract class AsyncStream<T> implements AsyncIterable<T> {
 
   public async forEach(fn: AsyncProcessor<T, void>): Promise<AsyncStream<T>> {
     for await (const item of this) {
-      fn(item)
+      await fn(item)
     }
     return this
   }

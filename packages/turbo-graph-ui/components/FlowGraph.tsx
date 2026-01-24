@@ -59,9 +59,7 @@ export function FlowGraph({ children, graph, tasks }: Props) {
 
   const [, setFilter] = useFilterInput()
 
-  const onNodeClicked = (_: unknown, { data }: { data: FlowNode }) => {
-    setFilter(data.packageName)
-  }
+  const onNodeClicked = (_: unknown, { data }: { data: FlowNode }) => setFilter(data.packageName)
 
   return (
     <ReactFlow

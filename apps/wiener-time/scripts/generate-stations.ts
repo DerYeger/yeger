@@ -46,18 +46,20 @@ function parseStations(stops: StaticStopData[]) {
     stations?.set(stop.StopText!, [...(stations?.get(stop.StopText!) ?? []), stop])
   })
   return Object.fromEntries(
-    [...stations.entries()].sort().map(([name, stops]) => [
-      name,
-      {
+    [...stations.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([name, stops]) => [
         name,
-        stops: stops.map((stop) => stop.StopID),
-        location: lib.calculateCenter(
-          stops
-            .filter((stop) => stop.Latitude && stop.Longitude)
-            .map((stop) => lib.fixCoordinates([stop.Latitude!, stop.Longitude!])),
-        ),
-      },
-    ]),
+        {
+          name,
+          stops: stops.map((stop) => stop.StopID),
+          location: lib.calculateCenter(
+            stops
+              .filter((stop) => stop.Latitude && stop.Longitude)
+              .map((stop) => lib.fixCoordinates([stop.Latitude!, stop.Longitude!])),
+          ),
+        },
+      ]),
   )
 }
 
@@ -76,4 +78,4 @@ async function generate() {
   console.log('Done')
 }
 
-generate()
+void generate()
