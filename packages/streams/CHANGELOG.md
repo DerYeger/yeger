@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 2.0.2
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 2.0.1
 
 ### Patch Changes

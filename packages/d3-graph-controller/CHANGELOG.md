@@ -1,5 +1,11 @@
 # d3-graph-controller
 
+## 3.1.7
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 3.1.6
 
 ### Patch Changes

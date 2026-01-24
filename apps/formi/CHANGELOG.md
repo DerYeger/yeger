@@ -1,5 +1,13 @@
 # Formi
 
+## 0.2.16
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+- Updated dependencies [5fed79d]
+  - d3-graph-controller@3.1.7
+
 ## 0.2.15
 
 ### Patch Changes

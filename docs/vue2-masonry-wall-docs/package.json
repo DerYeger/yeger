@@ -1,6 +1,6 @@
 {
   "name": "@yeger/vue2-masonry-wall-docs",
-  "version": "2.0.28",
+  "version": "2.0.29",
   "private": true,
   "type": "module",
   "scripts": {

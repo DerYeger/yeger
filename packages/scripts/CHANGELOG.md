@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.16
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 1.0.15
 
 ### Patch Changes

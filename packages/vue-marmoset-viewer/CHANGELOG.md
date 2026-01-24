@@ -1,5 +1,11 @@
 # vue-marmoset-viewer
 
+## 4.0.23
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+
 ## 4.0.22
 
 ### Patch Changes

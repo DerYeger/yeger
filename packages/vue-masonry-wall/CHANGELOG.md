@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 5.1.5
+
+### Patch Changes
+
+- 5fed79d: handle dangling promises
+- Updated dependencies [5fed79d]
+  - @yeger/vue-masonry-wall-core@5.0.22
+
 ## 5.1.4
 
 ### Patch Changes
