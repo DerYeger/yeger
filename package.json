@@ -23,7 +23,8 @@
     "graph": "nr turbo build --filter=@yeger/turbo-graph... && turbo-graph --open",
     "install-hooks": "husky",
     "lint": "oxlint --type-aware",
-    "lint:fix": "oxlint --fix",
+    "lint:fix": "oxlint --type-aware --fix",
+    "lint-staged": "lint-staged",
     "preview": "nr turbo run preview",
     "syncpack": "syncpack",
     "syncpack:fix": "syncpack fix-mismatches",
@@ -54,7 +55,7 @@
     "vitest": "catalog:"
   },
   "lint-staged": {
-    "*": "pnpm run turbo quality:fix --"
+    "*": "oxfmt --no-error-on-unmatched-pattern"
   },
   "engines": {
     "node": ">=14.0.0"

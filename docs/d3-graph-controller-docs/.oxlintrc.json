@@ -1,0 +1,14 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": ["../../.oxlintrc.json"],
+  "overrides": [
+    {
+      "files": ["**/samples/**/*.ts"],
+      "rules": {
+        "no-unassigned-import": "off",
+        "no-unsafe-type-assertion": "off",
+        "no-unused-vars": "off"
+      }
+    }
+  ]
+}
