@@ -11,7 +11,7 @@
     "build": "nr turbo run build",
     "changeset": "changeset",
     "check:tsc": "nr turbo run check:tsc",
-    "ci": "cross-env COVERAGE=true nr turbo run build check:publish check:tsc e2e generate quality syncpack:lint test",
+    "ci": "nr build && cross-env COVERAGE=true nr turbo run check:publish check:tsc e2e generate quality syncpack:lint test",
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
     "e2e": "nr turbo run e2e",
@@ -51,7 +51,7 @@
     "oxlint-tsgolint": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.7.5",
+    "turbo": "2.8.0",
     "vitest": "catalog:"
   },
   "lint-staged": {
@@ -60,5 +60,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@10.28.1"
+  "packageManager": "pnpm@10.28.2"
 }
