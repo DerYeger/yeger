@@ -1,6 +1,6 @@
 {
   "name": "@yeger/turbo-graph",
-  "version": "2.3.14",
+  "version": "2.3.15",
   "description": "Interactive visualization and execution of Turborepo task graphs.",
   "keywords": [
     "graph",
