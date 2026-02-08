@@ -1,3 +1,5 @@
+// @vitest-environment node
+
 import { createLocalVue } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 

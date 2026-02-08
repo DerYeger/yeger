@@ -1,5 +1,3 @@
-// @vitest-environment jsdom
-
 import type { Wrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
@@ -44,7 +42,7 @@ describe('VuePersistentStorageManager', () => {
   it('provides the StorageEstimate', async () => {
     const wrapper = mount(TestComponent)
     testStorageEstimate(wrapper, {})
-    Object.defineProperty(global.navigator.storage, 'estimate', {
+    Object.defineProperty(globalThis.navigator.storage, 'estimate', {
       value: () => Promise.resolve(testEstimate),
     })
     localStorage.setItem('test', 'test')
@@ -55,7 +53,7 @@ describe('VuePersistentStorageManager', () => {
   it('provides the state of persistent-storage', async () => {
     const wrapper = mount(TestComponent)
     expect(wrapper.find('#persistent').text()).toEqual('false')
-    global.navigator.storage.persisted = () => Promise.resolve(true)
+    globalThis.navigator.storage.persisted = () => Promise.resolve(true)
     persistentStoragePermission.onchange()
     await flushPromises()
     expect(wrapper.find('#persistent').text()).toEqual('true')

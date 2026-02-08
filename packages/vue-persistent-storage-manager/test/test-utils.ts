@@ -30,14 +30,14 @@ export const persistentStoragePermission = {
 }
 
 export function defineGlobals(): void {
-  Object.defineProperty(global.navigator, 'storage', {
+  Object.defineProperty(globalThis.navigator, 'storage', {
     value: {
       estimate: () => Promise.resolve({}),
       persist: () => Promise.resolve(false),
       persisted: () => Promise.resolve(false),
     },
   })
-  Object.defineProperty(global.navigator, 'permissions', {
+  Object.defineProperty(globalThis.navigator, 'permissions', {
     value: {
       query: ({ name }: PermissionDescriptor) => {
         if (name === 'persistent-storage') {
@@ -51,13 +51,13 @@ export function defineGlobals(): void {
 }
 
 export function redefineGlobals(): void {
-  Object.defineProperty(global.navigator.storage, 'estimate', {
+  Object.defineProperty(globalThis.navigator.storage, 'estimate', {
     value: () => Promise.resolve({}),
   })
-  Object.defineProperty(global.navigator.storage, 'persist', {
+  Object.defineProperty(globalThis.navigator.storage, 'persist', {
     value: () => Promise.resolve(false),
   })
-  Object.defineProperty(global.navigator.storage, 'persisted', {
+  Object.defineProperty(globalThis.navigator.storage, 'persisted', {
     value: () => Promise.resolve(false),
   })
   Object.defineProperty(window, 'localStorage', {

@@ -47,13 +47,13 @@
     "test": "vitest"
   },
   "devDependencies": {
+    "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
     "@vue/test-utils": "catalog:vue2",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
     "flush-promises": "catalog:",
-    "jsdom": "catalog:",
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
