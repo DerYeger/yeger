@@ -59,15 +59,15 @@
     "stops": [2093, 2550],
     "location": [48.1426643, 16.33863475]
   },
-  "Aderklaaer Straße U": {
-    "name": "Aderklaaer Straße U",
-    "stops": [2937, 3952],
-    "location": [48.264194700000004, 16.452177300000002]
-  },
   "Aderklaaer Straße": {
     "name": "Aderklaaer Straße",
     "stops": [4183, 4188, 5952, 5953],
     "location": [48.26317805000001, 16.451454175000002]
+  },
+  "Aderklaaer Straße U": {
+    "name": "Aderklaaer Straße U",
+    "stops": [2937, 3952],
+    "location": [48.264194700000004, 16.452177300000002]
   },
   "Adolf-Loos-Gasse": {
     "name": "Adolf-Loos-Gasse",
@@ -99,6 +99,11 @@
     "stops": [908, 915],
     "location": [48.24978965, 16.52557415]
   },
+  "Ährengrubenweg": {
+    "name": "Ährengrubenweg",
+    "stops": [1358, 1374],
+    "location": [48.25357595, 16.3119099]
+  },
   "Aichholzgasse": {
     "name": "Aichholzgasse",
     "stops": [3206, 3214],
@@ -124,15 +129,15 @@
     "stops": [2884, 2885],
     "location": [48.20132955, 16.31449255]
   },
-  "Alaudagasse U": {
-    "name": "Alaudagasse U",
-    "stops": [2882, 2900, 2932, 2939, 3170, 5587],
-    "location": [48.15306533333333, 16.382059283333334]
-  },
   "Alaudagasse": {
     "name": "Alaudagasse",
     "stops": [4131, 4136],
     "location": [48.1534978, 16.3823692]
+  },
+  "Alaudagasse U": {
+    "name": "Alaudagasse U",
+    "stops": [2882, 2900, 2932, 2939, 3170, 5587],
+    "location": [48.15306533333333, 16.382059283333334]
   },
   "Albern": {
     "name": "Albern",
@@ -144,15 +149,15 @@
     "stops": [5009, 5212],
     "location": [48.158366900000004, 16.4946766]
   },
-  "Alberner Hafenzufahrtsstraße West": {
-    "name": "Alberner Hafenzufahrtsstraße West",
-    "stops": [5005, 5022],
-    "location": [48.1733248, 16.4704041]
-  },
   "Alberner Hafenzufahrtsstraße": {
     "name": "Alberner Hafenzufahrtsstraße",
     "stops": [5006, 5021, 5034],
     "location": [48.17207173333333, 16.472413333333332]
+  },
+  "Alberner Hafenzufahrtsstraße West": {
+    "name": "Alberner Hafenzufahrtsstraße West",
+    "stops": [5005, 5022],
+    "location": [48.1733248, 16.4704041]
   },
   "Alberner Straße": {
     "name": "Alberner Straße",
@@ -184,6 +189,11 @@
     "stops": [71, 3368, 3369, 3437],
     "location": [48.18248675, 16.38141475]
   },
+  "Alfred-Pischof-Gasse": {
+    "name": "Alfred-Pischof-Gasse",
+    "stops": [8046],
+    "location": [48.2196687, 16.5291539]
+  },
   "Algenweg": {
     "name": "Algenweg",
     "stops": [930],
@@ -209,15 +219,20 @@
     "stops": [3273],
     "location": [48.2058648, 16.241199]
   },
+  "Alsegger Straße": {
+    "name": "Alsegger Straße",
+    "stops": [142, 194],
+    "location": [48.2316887, 16.3244234]
+  },
   "Alsegger Straße, Czartoryskigasse": {
     "name": "Alsegger Straße, Czartoryskigasse",
     "stops": [8852, 8853],
     "location": [48.22897795, 16.32370025]
   },
-  "Alsegger Straße": {
-    "name": "Alsegger Straße",
-    "stops": [142, 194],
-    "location": [48.2316887, 16.3244234]
+  "Alser Straße": {
+    "name": "Alser Straße",
+    "stops": [4606, 4623, 5662, 5666],
+    "location": [48.216830125, 16.341812524999998]
   },
   "Alser Straße U": {
     "name": "Alser Straße U",
@@ -229,11 +244,6 @@
     "stops": [660],
     "location": [48.2149641, 16.3487094]
   },
-  "Alser Straße": {
-    "name": "Alser Straße",
-    "stops": [4606, 4623, 5662, 5666],
-    "location": [48.216830125, 16.341812524999998]
-  },
   "Alserbachstraße": {
     "name": "Alserbachstraße",
     "stops": [1273],
@@ -244,35 +254,35 @@
     "stops": [783],
     "location": [48.168559, 16.3497424]
   },
-  "Alte Donau U": {
-    "name": "Alte Donau U",
-    "stops": [8174, 8767, 8768],
-    "location": [48.23800226666666, 16.423736666666667]
-  },
   "Alte Donau": {
     "name": "Alte Donau",
     "stops": [3061, 3077, 4104, 4125],
     "location": [48.237405975, 16.4248663]
   },
-  "Alterlaa U": {
-    "name": "Alterlaa U",
-    "stops": [1819, 1950, 1963, 2545, 3725],
-    "location": [48.1507811, 16.31698624]
+  "Alte Donau U": {
+    "name": "Alte Donau U",
+    "stops": [8174, 8767, 8768],
+    "location": [48.23800226666666, 16.423736666666667]
   },
   "Alterlaa": {
     "name": "Alterlaa",
     "stops": [4631, 4638],
     "location": [48.150717, 16.316873049999998]
   },
-  "Altes Landgut U": {
-    "name": "Altes Landgut U",
-    "stops": [789, 806],
-    "location": [48.16073985, 16.38364035]
+  "Alterlaa U": {
+    "name": "Alterlaa U",
+    "stops": [1819, 1950, 1963, 2545, 3725],
+    "location": [48.1507811, 16.31698624]
   },
   "Altes Landgut": {
     "name": "Altes Landgut",
     "stops": [2234, 2249, 3842, 4130, 4137],
     "location": [48.16153559999999, 16.38335198]
+  },
+  "Altes Landgut U": {
+    "name": "Altes Landgut U",
+    "stops": [789, 806],
+    "location": [48.16073985, 16.38364035]
   },
   "Althanstraße": {
     "name": "Althanstraße",
@@ -324,15 +334,15 @@
     "stops": [3133, 3146],
     "location": [48.1876615, 16.3474562]
   },
-  "Am Kanal, Hasenleitengasse": {
-    "name": "Am Kanal, Hasenleitengasse",
-    "stops": [743, 752],
-    "location": [48.163535100000004, 16.4183198]
-  },
   "Am Kanal": {
     "name": "Am Kanal",
     "stops": [731, 738, 798, 800],
     "location": [48.170175099999994, 16.410302324999996]
+  },
+  "Am Kanal, Hasenleitengasse": {
+    "name": "Am Kanal, Hasenleitengasse",
+    "stops": [743, 752],
+    "location": [48.163535100000004, 16.4183198]
   },
   "Am Krautgarten": {
     "name": "Am Krautgarten",
@@ -359,6 +369,11 @@
     "stops": [2413, 2414, 2415, 3759],
     "location": [48.16202365, 16.29135865]
   },
+  "Am Schöpfwerk": {
+    "name": "Am Schöpfwerk",
+    "stops": [504, 513, 4630, 4639],
+    "location": [48.16127765, 16.324652475]
+  },
   "Am Schöpfwerk >": {
     "name": "Am Schöpfwerk >",
     "stops": [7391],
@@ -373,11 +388,6 @@
     "name": "Am Schöpfwerk, Eibesbrunnergasse",
     "stops": [5819, 5820],
     "location": [48.160509149999996, 16.32995255]
-  },
-  "Am Schöpfwerk": {
-    "name": "Am Schöpfwerk",
-    "stops": [504, 513, 4630, 4639],
-    "location": [48.16127765, 16.324652475]
   },
   "Am Spiegeln": {
     "name": "Am Spiegeln",
@@ -419,11 +429,6 @@
     "stops": [1309],
     "location": [48.2517816, 16.3696491]
   },
-  "An den Steinfeldern": {
-    "name": "An den Steinfeldern",
-    "stops": [1825, 1874, 2764, 2782],
-    "location": [48.137269200000006, 16.29848455]
-  },
   "An den alten Schanzen": {
     "name": "An den alten Schanzen",
     "stops": [3361, 8634, 8640],
@@ -433,6 +438,11 @@
     "name": "An den langen Lüssen",
     "stops": [1219, 1222, 5766],
     "location": [48.2526269, 16.34193906666667]
+  },
+  "An den Steinfeldern": {
+    "name": "An den Steinfeldern",
+    "stops": [1825, 1874, 2764, 2782],
+    "location": [48.137269200000006, 16.29848455]
   },
   "An der Bien": {
     "name": "An der Bien",
@@ -469,20 +479,15 @@
     "stops": [3240, 8969],
     "location": [48.18428955, 16.2648741]
   },
-  "Anschützgasse": {
-    "name": "Anschützgasse",
-    "stops": [1535, 1559],
-    "location": [48.190338499999996, 16.3230355]
+  "Anton-Böck-Gasse": {
+    "name": "Anton-Böck-Gasse",
+    "stops": [989],
+    "location": [48.2963662, 16.3900229]
   },
   "Anton-Bosch-Gasse": {
     "name": "Anton-Bosch-Gasse",
     "stops": [8786, 8787],
     "location": [48.269489750000005, 16.38732345]
-  },
-  "Anton-Böck-Gasse": {
-    "name": "Anton-Böck-Gasse",
-    "stops": [989],
-    "location": [48.2963662, 16.3900229]
   },
   "Anton-Krieger-Gasse": {
     "name": "Anton-Krieger-Gasse",
@@ -589,6 +594,11 @@
     "stops": [3342, 3346],
     "location": [48.24197395, 16.53057775]
   },
+  "Aspern Nord": {
+    "name": "Aspern Nord",
+    "stops": [4275, 4278],
+    "location": [48.23454895, 16.5047377]
+  },
   "Aspern Nord  S U": {
     "name": "Aspern Nord  S U",
     "stops": [3826],
@@ -599,30 +609,25 @@
     "stops": [5241],
     "location": [48.2337681, 16.5046389]
   },
+  "Aspern Nord S U": {
+    "name": "Aspern Nord S U",
+    "stops": [2860, 2874, 8139],
+    "location": [48.23496076666667, 16.5042826]
+  },
   "Aspern Nord S U, Mayrederbrücke": {
     "name": "Aspern Nord S U, Mayrederbrücke",
     "stops": [2861, 2870],
     "location": [48.2347195, 16.5034621]
-  },
-  "Aspern Nord S U": {
-    "name": "Aspern Nord S U",
-    "stops": [2860, 8139],
-    "location": [48.235135299999996, 16.5043335]
   },
   "Aspern Nord SU": {
     "name": "Aspern Nord SU",
     "stops": [3339, 3911],
     "location": [48.23377405, 16.504504150000002]
   },
-  "Aspern Nord": {
-    "name": "Aspern Nord",
-    "stops": [4275, 4278],
-    "location": [48.23454895, 16.5047377]
-  },
   "Aspern, Oberdorfstraße": {
     "name": "Aspern, Oberdorfstraße",
-    "stops": [3429, 3430],
-    "location": [48.2172536, 16.4811435]
+    "stops": [2406, 3429, 3430, 8652],
+    "location": [48.217518475, 16.48057755]
   },
   "Aspern, Sportplatz": {
     "name": "Aspern, Sportplatz",
@@ -634,35 +639,35 @@
     "stops": [1080],
     "location": [48.2171489, 16.4871038]
   },
-  "Aspernallee, Schule": {
-    "name": "Aspernallee, Schule",
-    "stops": [2535, 2537],
-    "location": [48.19684785, 16.4439847]
-  },
   "Aspernallee": {
     "name": "Aspernallee",
     "stops": [5825],
     "location": [48.1970155, 16.4450537]
+  },
+  "Aspernallee, Schule": {
+    "name": "Aspernallee, Schule",
+    "stops": [2535, 2537],
+    "location": [48.19684785, 16.4439847]
   },
   "Asperner Heldenplatz": {
     "name": "Asperner Heldenplatz",
     "stops": [5702, 8590],
     "location": [48.21677475, 16.483151200000002]
   },
+  "Aspernstraße": {
+    "name": "Aspernstraße",
+    "stops": [4251, 4272],
+    "location": [48.22260145, 16.47486425]
+  },
   "Aspernstraße U": {
     "name": "Aspernstraße U",
     "stops": [1024, 1052, 2823, 8054, 8055, 8682, 8683, 8685],
     "location": [48.222792174999995, 16.475084325]
   },
-  "Aspernstraße, Oberdorfstraße": {
-    "name": "Aspernstraße, Oberdorfstraße",
-    "stops": [1025, 1051, 8056, 8630, 8651],
-    "location": [48.219860260000004, 16.48133482]
-  },
-  "Aspernstraße": {
-    "name": "Aspernstraße",
-    "stops": [4251, 4272],
-    "location": [48.22260145, 16.47486425]
+  "Aßmayergasse": {
+    "name": "Aßmayergasse",
+    "stops": [1692, 1693, 1718, 1748],
+    "location": [48.178820975, 16.33778585]
   },
   "Attemsgasse": {
     "name": "Attemsgasse",
@@ -724,25 +729,25 @@
     "stops": [2877, 2881],
     "location": [48.203652649999995, 16.316648450000002]
   },
-  "Augasse  (Schleife)": {
-    "name": "Augasse  (Schleife)",
-    "stops": [104],
-    "location": [48.2298546, 16.3569918]
-  },
   "Augasse": {
     "name": "Augasse",
     "stops": [100, 119],
     "location": [48.2299773, 16.3573826]
   },
-  "Auhof, Umspannwerk": {
-    "name": "Auhof, Umspannwerk",
-    "stops": [3253],
-    "location": [48.2019972, 16.2345514]
+  "Augasse  (Schleife)": {
+    "name": "Augasse  (Schleife)",
+    "stops": [104],
+    "location": [48.2298546, 16.3569918]
   },
   "Auhof": {
     "name": "Auhof",
     "stops": [3244, 5821],
     "location": [48.2074603, 16.2193879]
+  },
+  "Auhof, Umspannwerk": {
+    "name": "Auhof, Umspannwerk",
+    "stops": [3253],
+    "location": [48.2019972, 16.2345514]
   },
   "Aumannplatz": {
     "name": "Aumannplatz",
@@ -763,11 +768,6 @@
     "name": "Autokaderstraße",
     "stops": [2178, 2183],
     "location": [48.2771578, 16.3881634]
-  },
-  "Aßmayergasse": {
-    "name": "Aßmayergasse",
-    "stops": [1692, 1693, 1718, 1748],
-    "location": [48.178820975, 16.33778585]
   },
   "Bacherplatz": {
     "name": "Bacherplatz",
@@ -804,25 +804,25 @@
     "stops": [3249, 3280, 5797, 5822],
     "location": [48.208934525, 16.2239603]
   },
-  "Bahnhof Brigittenau Kurzführung": {
-    "name": "Bahnhof Brigittenau Kurzführung",
-    "stops": [6403],
-    "location": [48.235982, 16.3656246]
-  },
   "Bahnhof Brigittenau": {
     "name": "Bahnhof Brigittenau",
     "stops": [6003],
     "location": [48.235976, 16.3666757]
   },
-  "Bahnhof Favoriten Kurzführung": {
-    "name": "Bahnhof Favoriten Kurzführung",
-    "stops": [6409],
-    "location": [48.1758139, 16.3701252]
+  "Bahnhof Brigittenau Kurzführung": {
+    "name": "Bahnhof Brigittenau Kurzführung",
+    "stops": [6403],
+    "location": [48.235982, 16.3656246]
   },
   "Bahnhof Favoriten": {
     "name": "Bahnhof Favoriten",
     "stops": [6010],
     "location": [48.1783178, 16.3730357]
+  },
+  "Bahnhof Favoriten Kurzführung": {
+    "name": "Bahnhof Favoriten Kurzführung",
+    "stops": [6409],
+    "location": [48.1758139, 16.3701252]
   },
   "Bahnhof Floridsdorf": {
     "name": "Bahnhof Floridsdorf",
@@ -859,30 +859,25 @@
     "stops": [6501],
     "location": [48.2441605, 16.4343907]
   },
-  "Bahnhof Meidling S U": {
-    "name": "Bahnhof Meidling S U",
-    "stops": [470, 477],
-    "location": [48.174457000000004, 16.3309317]
-  },
   "Bahnhof Meidling": {
     "name": "Bahnhof Meidling",
     "stops": [4614, 4615],
     "location": [48.1735195, 16.3313943]
   },
-  "Bahnhof Rudolfsheim (Bedarf)": {
-    "name": "Bahnhof Rudolfsheim (Bedarf)",
-    "stops": [6024],
-    "location": [48.19059, 16.3226762]
-  },
-  "Bahnhof Rudolfsheim Kurzführung": {
-    "name": "Bahnhof Rudolfsheim Kurzführung",
-    "stops": [6407],
-    "location": [48.1902247, 16.3225414]
+  "Bahnhof Meidling S U": {
+    "name": "Bahnhof Meidling S U",
+    "stops": [470, 477],
+    "location": [48.174457000000004, 16.3309317]
   },
   "Bahnhof Rudolfsheim": {
     "name": "Bahnhof Rudolfsheim",
     "stops": [6008],
     "location": [48.1901948, 16.3223168]
+  },
+  "Bahnhof Rudolfsheim Kurzführung": {
+    "name": "Bahnhof Rudolfsheim Kurzführung",
+    "stops": [6407],
+    "location": [48.1902247, 16.3225414]
   },
   "Bahnhof Simmering (Bedarf)": {
     "name": "Bahnhof Simmering (Bedarf)",
@@ -909,15 +904,15 @@
     "stops": [3332, 8661, 8673],
     "location": [48.20610630000001, 16.51523303333333]
   },
-  "Barawitzkagasse, Hohe Warte": {
-    "name": "Barawitzkagasse, Hohe Warte",
-    "stops": [2961, 2988],
-    "location": [48.2446571, 16.3560216]
-  },
   "Barawitzkagasse": {
     "name": "Barawitzkagasse",
-    "stops": [199, 203],
-    "location": [48.2445763, 16.3556758]
+    "stops": [199, 203, 2961, 2988],
+    "location": [48.244616699999995, 16.3558487]
+  },
+  "Bärenmühldurchgang": {
+    "name": "Bärenmühldurchgang",
+    "stops": [1679, 1704],
+    "location": [48.1995962, 16.3662894]
   },
   "Barichgasse": {
     "name": "Barichgasse",
@@ -1049,15 +1044,15 @@
     "stops": [6405],
     "location": [48.2224099, 16.3212568]
   },
-  "Bhf. Atzgersdorf S, Knotzenbachgasse": {
-    "name": "Bhf. Atzgersdorf S, Knotzenbachgasse",
-    "stops": [1664, 1734],
-    "location": [48.145949099999996, 16.29057935]
-  },
   "Bhf. Atzgersdorf S": {
     "name": "Bhf. Atzgersdorf S",
     "stops": [1651, 1665, 3754, 8134],
     "location": [48.14793002500001, 16.288883775]
+  },
+  "Bhf. Atzgersdorf S, Knotzenbachgasse": {
+    "name": "Bhf. Atzgersdorf S, Knotzenbachgasse",
+    "stops": [1664, 1734],
+    "location": [48.145949099999996, 16.29057935]
   },
   "Bhf. Blumental S": {
     "name": "Bhf. Blumental S",
@@ -1069,6 +1064,11 @@
     "stops": [1308],
     "location": [48.2499213, 16.3651845]
   },
+  "Bhf. Hütteldorf": {
+    "name": "Bhf. Hütteldorf",
+    "stops": [2811],
+    "location": [48.1963808, 16.2613392]
+  },
   "Bhf. Hütteldorf S U": {
     "name": "Bhf. Hütteldorf S U",
     "stops": [3242, 3282, 3283, 3349],
@@ -1078,11 +1078,6 @@
     "name": "Bhf. Hütteldorf SU",
     "stops": [8935],
     "location": [48.1960095, 16.2604768]
-  },
-  "Bhf. Hütteldorf": {
-    "name": "Bhf. Hütteldorf",
-    "stops": [2811],
-    "location": [48.1963808, 16.2613392]
   },
   "Bhf. Kaiserebersdorf S": {
     "name": "Bhf. Kaiserebersdorf S",
@@ -1099,6 +1094,11 @@
     "stops": [2959],
     "location": [48.1726209, 16.3319827]
   },
+  "Bhf. Meidling S U": {
+    "name": "Bhf. Meidling S U",
+    "stops": [500, 518, 1683],
+    "location": [48.17481746666667, 16.331722199999998]
+  },
   "Bhf. Meidling S U, Eichenstraße": {
     "name": "Bhf. Meidling S U, Eichenstraße",
     "stops": [1706, 2331, 2567, 3200],
@@ -1108,11 +1108,6 @@
     "name": "Bhf. Meidling S U, Schedifkaplatz",
     "stops": [1847, 8750],
     "location": [48.1728995, 16.330671199999998]
-  },
-  "Bhf. Meidling S U": {
-    "name": "Bhf. Meidling S U",
-    "stops": [500, 518, 1683],
-    "location": [48.17481746666667, 16.331722199999998]
   },
   "Bhf. Strebersdorf S": {
     "name": "Bhf. Strebersdorf S",
@@ -1138,6 +1133,11 @@
     "name": "Bhf.Otg.-Bedarf (Einzieher)",
     "stops": [6406, 7542],
     "location": [48.208870149999996, 16.30394185]
+  },
+  "Bhf.Rdh. / Halle III - A": {
+    "name": "Bhf.Rdh. / Halle III - A",
+    "stops": [7008],
+    "location": [48.19059, 16.3226762]
   },
   "Bibernellweg": {
     "name": "Bibernellweg",
@@ -1194,25 +1194,45 @@
     "stops": [272, 377],
     "location": [48.2108786, 16.340624499999997]
   },
-  "Blumengasse": {
-    "name": "Blumengasse",
-    "stops": [525, 551],
-    "location": [48.221461250000004, 16.331780600000002]
-  },
   "Blumengärten Hirschstetten": {
     "name": "Blumengärten Hirschstetten",
     "stops": [3110, 3118, 7457, 8190],
     "location": [48.235896675000006, 16.471693175]
+  },
+  "Blumengasse": {
+    "name": "Blumengasse",
+    "stops": [525, 551],
+    "location": [48.221461250000004, 16.331780600000002]
   },
   "Borkowskigasse": {
     "name": "Borkowskigasse",
     "stops": [1291],
     "location": [48.2371307, 16.3306263]
   },
+  "Börnergasse": {
+    "name": "Börnergasse",
+    "stops": [1229, 1266],
+    "location": [48.247704999999996, 16.3313539]
+  },
+  "Börse": {
+    "name": "Börse",
+    "stops": [5, 19, 45, 1270, 2947, 3703, 5201],
+    "location": [48.21560798571428, 16.365760671428575]
+  },
+  "Börsegasse": {
+    "name": "Börsegasse",
+    "stops": [3700],
+    "location": [48.2160655, 16.3669631]
+  },
   "Boschstraße, Halteraugasse": {
     "name": "Boschstraße, Halteraugasse",
     "stops": [774],
     "location": [48.2519191, 16.3657773]
+  },
+  "Bösendorferstraße, Karlsplatz U": {
+    "name": "Bösendorferstraße, Karlsplatz U",
+    "stops": [31],
+    "location": [48.2012607, 16.3705564]
   },
   "Brachlessing-Mühle": {
     "name": "Brachlessing-Mühle",
@@ -1324,35 +1344,25 @@
     "stops": [5558, 5560],
     "location": [48.25198195, 16.3983278]
   },
+  "Brückengasse": {
+    "name": "Brückengasse",
+    "stops": [1575, 1588, 5575],
+    "location": [48.19074773333333, 16.34784696666667]
+  },
   "Brunnengasse": {
     "name": "Brunnengasse",
-    "stops": [248, 274, 1380, 1391],
-    "location": [48.21007045, 16.3357399]
+    "stops": [1380, 1391],
+    "location": [48.209046799999996, 16.33541875]
+  },
+  "Brunnenmarkt": {
+    "name": "Brunnenmarkt",
+    "stops": [248, 274],
+    "location": [48.2110941, 16.336061049999998]
   },
   "Brunner Straße / Erlaaer Straße": {
     "name": "Brunner Straße / Erlaaer Straße",
     "stops": [1844, 1907, 2322],
     "location": [48.146078966666664, 16.295906366666667]
-  },
-  "Brunner Straße, Erlaaer Straße": {
-    "name": "Brunner Straße, Erlaaer Straße",
-    "stops": [1663, 1810, 1828],
-    "location": [48.146061, 16.296933466666665]
-  },
-  "Brunner Straße, Ketzergasse": {
-    "name": "Brunner Straße, Ketzergasse",
-    "stops": [2784, 3562],
-    "location": [48.1294483, 16.2977928]
-  },
-  "Bruno-Marek-Allee": {
-    "name": "Bruno-Marek-Allee",
-    "stops": [3446, 3447, 3576],
-    "location": [48.22844236666666, 16.393247799999997]
-  },
-  "Brückengasse": {
-    "name": "Brückengasse",
-    "stops": [1575, 1588, 5575],
-    "location": [48.19074773333333, 16.34784696666667]
   },
   "Brünner Straße / Hanreitergasse": {
     "name": "Brünner Straße / Hanreitergasse",
@@ -1369,10 +1379,25 @@
     "stops": [2206, 2221],
     "location": [48.26855395, 16.404072499999998]
   },
+  "Brunner Straße, Erlaaer Straße": {
+    "name": "Brunner Straße, Erlaaer Straße",
+    "stops": [1663, 1810, 1828],
+    "location": [48.146061, 16.296933466666665]
+  },
+  "Brunner Straße, Ketzergasse": {
+    "name": "Brunner Straße, Ketzergasse",
+    "stops": [2784, 3562],
+    "location": [48.1294483, 16.2977928]
+  },
   "Brünnlbadgasse": {
     "name": "Brünnlbadgasse",
     "stops": [219, 235, 1372],
     "location": [48.215427, 16.345682033333333]
+  },
+  "Bruno-Marek-Allee": {
+    "name": "Bruno-Marek-Allee",
+    "stops": [3446, 3447, 3576],
+    "location": [48.22844236666666, 16.393247799999997]
   },
   "Brüßlgasse": {
     "name": "Brüßlgasse",
@@ -1419,40 +1444,10 @@
     "stops": [460, 461, 508, 628, 1431],
     "location": [48.20247736, 16.33731334]
   },
-  "Burggasse": {
-    "name": "Burggasse",
-    "stops": [361, 375],
-    "location": [48.2042753, 16.3400451]
-  },
   "Burgring": {
     "name": "Burgring",
     "stops": [14, 50, 1570],
     "location": [48.203809299999996, 16.363819033333332]
-  },
-  "Bärenmühldurchgang": {
-    "name": "Bärenmühldurchgang",
-    "stops": [1679, 1704],
-    "location": [48.1995962, 16.3662894]
-  },
-  "Börnergasse": {
-    "name": "Börnergasse",
-    "stops": [1229, 1266],
-    "location": [48.247704999999996, 16.3313539]
-  },
-  "Börse": {
-    "name": "Börse",
-    "stops": [5, 19, 45, 1270, 2947, 3703, 5201],
-    "location": [48.21560798571428, 16.365760671428575]
-  },
-  "Börsegasse": {
-    "name": "Börsegasse",
-    "stops": [3700],
-    "location": [48.2160655, 16.3669631]
-  },
-  "Bösendorferstraße, Karlsplatz U": {
-    "name": "Bösendorferstraße, Karlsplatz U",
-    "stops": [31],
-    "location": [48.2012607, 16.3705564]
   },
   "Camillo-Sitte-Gasse": {
     "name": "Camillo-Sitte-Gasse",
@@ -1469,15 +1464,15 @@
     "stops": [209, 214],
     "location": [48.2281162, 16.354831349999998]
   },
-  "Carabelligasse, Ruthnergasse": {
-    "name": "Carabelligasse, Ruthnergasse",
-    "stops": [1319],
-    "location": [48.2796478, 16.4245541]
-  },
   "Carabelligasse": {
     "name": "Carabelligasse",
     "stops": [990, 2200, 2201],
     "location": [48.28022766666667, 16.41130096666667]
+  },
+  "Carabelligasse, Ruthnergasse": {
+    "name": "Carabelligasse, Ruthnergasse",
+    "stops": [1319],
+    "location": [48.2796478, 16.4245541]
   },
   "Carl-Appel-Straße": {
     "name": "Carl-Appel-Straße",
@@ -1534,15 +1529,15 @@
     "stops": [301, 341, 4806],
     "location": [48.182339033333335, 16.37372446666667]
   },
-  "Computerstraße, Gutheil-Schoder-Gasse": {
-    "name": "Computerstraße, Gutheil-Schoder-Gasse",
-    "stops": [1899],
-    "location": [48.1599309, 16.337139]
-  },
   "Computerstraße": {
     "name": "Computerstraße",
     "stops": [538, 1898, 1916],
     "location": [48.1577197, 16.341687500000003]
+  },
+  "Computerstraße, Gutheil-Schoder-Gasse": {
+    "name": "Computerstraße, Gutheil-Schoder-Gasse",
+    "stops": [1899],
+    "location": [48.1599309, 16.337139]
   },
   "Concordiaplatz": {
     "name": "Concordiaplatz",
@@ -1609,6 +1604,11 @@
     "stops": [8506, 8536],
     "location": [48.217092, 16.4322796]
   },
+  "Dänenstraße": {
+    "name": "Dänenstraße",
+    "stops": [1268, 1282, 2966],
+    "location": [48.23716866666666, 16.334542933333335]
+  },
   "Danzergasse": {
     "name": "Danzergasse",
     "stops": [8589, 8593],
@@ -1634,15 +1634,10 @@
     "stops": [788, 808],
     "location": [48.16397555, 16.374441599999997]
   },
-  "Davidgasse / Knöllgasse": {
-    "name": "Davidgasse / Knöllgasse",
-    "stops": [712, 720],
-    "location": [48.17527775, 16.35675825]
-  },
   "Davidgasse": {
     "name": "Davidgasse",
-    "stops": [1875, 1883],
-    "location": [48.175442450000006, 16.35628665]
+    "stops": [712, 720, 1875, 1883],
+    "location": [48.175360100000006, 16.35652245]
   },
   "Deindorfstraße": {
     "name": "Deindorfstraße",
@@ -1684,6 +1679,31 @@
     "stops": [2743],
     "location": [48.1357525, 16.2824137]
   },
+  "Döblerhofstraße": {
+    "name": "Döblerhofstraße",
+    "stops": [5038],
+    "location": [48.1853138, 16.4153643]
+  },
+  "Döblinger Bad": {
+    "name": "Döblinger Bad",
+    "stops": [212],
+    "location": [48.2512013, 16.3569649]
+  },
+  "Döblinger Friedhof": {
+    "name": "Döblinger Friedhof",
+    "stops": [1284],
+    "location": [48.2392727, 16.3285332]
+  },
+  "Döblinger Hauptstraße, Gatterburggasse": {
+    "name": "Döblinger Hauptstraße, Gatterburggasse",
+    "stops": [197, 205],
+    "location": [48.238907749999996, 16.3546472]
+  },
+  "Döblinger Steg": {
+    "name": "Döblinger Steg",
+    "stops": [1202, 1211],
+    "location": [48.24085515, 16.3654899]
+  },
   "Dobrowskygasse": {
     "name": "Dobrowskygasse",
     "stops": [1921, 1934],
@@ -1704,6 +1724,11 @@
     "stops": [4108, 4121, 5759, 5760],
     "location": [48.228758025, 16.41051345]
   },
+  "Donaumarina": {
+    "name": "Donaumarina",
+    "stops": [4255, 4268],
+    "location": [48.20626895, 16.431264499999997]
+  },
   "Donaumarina U": {
     "name": "Donaumarina U",
     "stops": [659, 5790],
@@ -1714,35 +1739,30 @@
     "stops": [5824],
     "location": [48.2078165, 16.4284618]
   },
-  "Donaumarina": {
-    "name": "Donaumarina",
-    "stops": [4255, 4268],
-    "location": [48.20626895, 16.431264499999997]
-  },
   "Donaupark Nord": {
     "name": "Donaupark Nord",
     "stops": [8172, 8173, 8773, 8774],
     "location": [48.2432482, 16.4141157]
-  },
-  "Donauspital U": {
-    "name": "Donauspital U",
-    "stops": [1011, 1021, 2404, 5704],
-    "location": [48.219520599999996, 16.4651108]
   },
   "Donauspital": {
     "name": "Donauspital",
     "stops": [2408, 2426, 4252, 4271],
     "location": [48.219771975, 16.464989525]
   },
-  "Donaustadtbrücke U": {
-    "name": "Donaustadtbrücke U",
-    "stops": [8507, 8535, 8647, 8648],
-    "location": [48.212328775, 16.44000515]
+  "Donauspital U": {
+    "name": "Donauspital U",
+    "stops": [1011, 1021, 2404, 5704],
+    "location": [48.219520599999996, 16.4651108]
   },
   "Donaustadtbrücke": {
     "name": "Donaustadtbrücke",
     "stops": [4256, 4267, 8044, 8045],
     "location": [48.211990525, 16.439957975]
+  },
+  "Donaustadtbrücke U": {
+    "name": "Donaustadtbrücke U",
+    "stops": [8507, 8535, 8647, 8648],
+    "location": [48.212328775, 16.44000515]
   },
   "Donaustadtstraße": {
     "name": "Donaustadtstraße",
@@ -1764,20 +1784,30 @@
     "stops": [1101, 1109, 1136],
     "location": [48.269244566666664, 16.439295466666664]
   },
+  "Dörfelstraße": {
+    "name": "Dörfelstraße",
+    "stops": [471, 476, 1640, 1691, 3221, 4727],
+    "location": [48.17578093333333, 16.3353005]
+  },
   "Dorfmeistergasse": {
     "name": "Dorfmeistergasse",
     "stops": [3760, 8126],
     "location": [48.1645118, 16.296157899999997]
   },
-  "Dornbach, Güpferlingstraße": {
-    "name": "Dornbach, Güpferlingstraße",
-    "stops": [8896],
-    "location": [48.2262222, 16.3079169]
+  "Dörmanngasse": {
+    "name": "Dörmanngasse",
+    "stops": [8013, 8028],
+    "location": [48.22267025, 16.534144050000002]
   },
   "Dornbach": {
     "name": "Dornbach",
     "stops": [560, 1349, 1356, 1369, 8200],
     "location": [48.22594808, 16.30840912]
+  },
+  "Dornbach, Güpferlingstraße": {
+    "name": "Dornbach, Güpferlingstraße",
+    "stops": [8896],
+    "location": [48.2262222, 16.3079169]
   },
   "Dornbacher Straße": {
     "name": "Dornbacher Straße",
@@ -1829,20 +1859,25 @@
     "stops": [8859, 8862],
     "location": [48.25846545, 16.287695749999997]
   },
-  "Dresdner Straße U": {
-    "name": "Dresdner Straße U",
-    "stops": [318, 323, 2951, 2957],
-    "location": [48.237296775000004, 16.37916225]
-  },
   "Dresdner Straße": {
     "name": "Dresdner Straße",
     "stops": [4642, 4649],
     "location": [48.23723245, 16.38006505]
   },
+  "Dresdner Straße U": {
+    "name": "Dresdner Straße U",
+    "stops": [318, 323, 2951, 2957],
+    "location": [48.237296775000004, 16.37916225]
+  },
   "Duchekgasse": {
     "name": "Duchekgasse",
     "stops": [8040, 8664],
     "location": [48.20922935, 16.517390499999998]
+  },
+  "Dückegasse": {
+    "name": "Dückegasse",
+    "stops": [2602, 3915],
+    "location": [48.24794125, 16.427797050000002]
   },
   "Dumreichergasse": {
     "name": "Dumreichergasse",
@@ -1853,51 +1888,6 @@
     "name": "Dunantgasse",
     "stops": [1060, 1314, 8782],
     "location": [48.260095166666666, 16.38903173333333]
-  },
-  "Dänenstraße": {
-    "name": "Dänenstraße",
-    "stops": [1268, 1282, 2966],
-    "location": [48.23716866666666, 16.334542933333335]
-  },
-  "Döblerhofstraße": {
-    "name": "Döblerhofstraße",
-    "stops": [5038],
-    "location": [48.1853138, 16.4153643]
-  },
-  "Döblinger Bad": {
-    "name": "Döblinger Bad",
-    "stops": [212],
-    "location": [48.2512013, 16.3569649]
-  },
-  "Döblinger Friedhof": {
-    "name": "Döblinger Friedhof",
-    "stops": [1284],
-    "location": [48.2392727, 16.3285332]
-  },
-  "Döblinger Hauptstraße, Gatterburggasse": {
-    "name": "Döblinger Hauptstraße, Gatterburggasse",
-    "stops": [197, 205],
-    "location": [48.238907749999996, 16.3546472]
-  },
-  "Döblinger Steg": {
-    "name": "Döblinger Steg",
-    "stops": [1202, 1211],
-    "location": [48.24085515, 16.3654899]
-  },
-  "Dörfelstraße": {
-    "name": "Dörfelstraße",
-    "stops": [471, 476, 1640, 1691, 3221, 4727],
-    "location": [48.17578093333333, 16.3353005]
-  },
-  "Dörmanngasse": {
-    "name": "Dörmanngasse",
-    "stops": [8013, 8028],
-    "location": [48.22267025, 16.534144050000002]
-  },
-  "Dückegasse": {
-    "name": "Dückegasse",
-    "stops": [2602, 3915],
-    "location": [48.24794125, 16.427797050000002]
   },
   "Eberstorferweg": {
     "name": "Eberstorferweg",
@@ -2064,35 +2054,35 @@
     "stops": [1034, 1042],
     "location": [48.209824999999995, 16.53634945]
   },
-  "Enkplatz U, Grillgasse": {
-    "name": "Enkplatz U, Grillgasse",
-    "stops": [412, 435, 799, 2036],
-    "location": [48.1740931, 16.41637945]
+  "Enkplatz": {
+    "name": "Enkplatz",
+    "stops": [4936, 4939],
+    "location": [48.17470865, 16.414749]
   },
   "Enkplatz U": {
     "name": "Enkplatz U",
     "stops": [2606],
     "location": [48.1759217, 16.4148254]
   },
+  "Enkplatz U, Grillgasse": {
+    "name": "Enkplatz U, Grillgasse",
+    "stops": [412, 435, 799, 2036],
+    "location": [48.1740931, 16.41637945]
+  },
   "Enkplatz, Grillgasse": {
     "name": "Enkplatz, Grillgasse",
     "stops": [2009, 5634],
     "location": [48.17446305, 16.4160291]
   },
-  "Enkplatz": {
-    "name": "Enkplatz",
-    "stops": [4936, 4939],
-    "location": [48.17470865, 16.414749]
+  "Erdberg": {
+    "name": "Erdberg",
+    "stops": [2509, 2516, 4900, 4917],
+    "location": [48.1911006, 16.41442335]
   },
   "Erdberg U": {
     "name": "Erdberg U",
     "stops": [7461],
     "location": [48.1908236, 16.4146906]
-  },
-  "Erdberg": {
-    "name": "Erdberg",
-    "stops": [2509, 2516, 4900, 4917],
-    "location": [48.1911006, 16.41442335]
   },
   "Erdbergstraße": {
     "name": "Erdbergstraße",
@@ -2134,15 +2124,15 @@
     "stops": [1311, 1317],
     "location": [48.23730725, 16.3228738]
   },
-  "Ernst-Happel-Stadion (Bedarfshaltestelle)": {
-    "name": "Ernst-Happel-Stadion (Bedarfshaltestelle)",
-    "stops": [2677],
-    "location": [48.2088582, 16.4188947]
-  },
   "Ernst-Happel-Stadion": {
     "name": "Ernst-Happel-Stadion",
     "stops": [2418, 2424],
     "location": [48.208801300000005, 16.41921815]
+  },
+  "Ernst-Happel-Stadion (Bedarfshaltestelle)": {
+    "name": "Ernst-Happel-Stadion (Bedarfshaltestelle)",
+    "stops": [2677],
+    "location": [48.2088582, 16.4188947]
   },
   "Ernst-Krenek-Gasse": {
     "name": "Ernst-Krenek-Gasse",
@@ -2169,26 +2159,6 @@
     "stops": [282, 295, 2502],
     "location": [48.1965504, 16.395846933333335]
   },
-  "Esterhazygasse": {
-    "name": "Esterhazygasse",
-    "stops": [682, 773, 1574],
-    "location": [48.19502146666667, 16.351497100000003]
-  },
-  "Etrichstraße": {
-    "name": "Etrichstraße",
-    "stops": [2053, 2059, 3422],
-    "location": [48.14829663333333, 16.461912033333334]
-  },
-  "Ettenreichgasse, Schulzentrum": {
-    "name": "Ettenreichgasse, Schulzentrum",
-    "stops": [2006, 2017],
-    "location": [48.1686489, 16.37408675]
-  },
-  "Evangelischer Friedhof": {
-    "name": "Evangelischer Friedhof",
-    "stops": [757],
-    "location": [48.1797973, 16.3601808]
-  },
   "Eßling, Friedhof": {
     "name": "Eßling, Friedhof",
     "stops": [8006, 8035, 8048],
@@ -2213,6 +2183,26 @@
     "name": "Eßling, Wegmayersiedlung",
     "stops": [3331],
     "location": [48.2022786, 16.5150773]
+  },
+  "Esterhazygasse": {
+    "name": "Esterhazygasse",
+    "stops": [682, 773, 1574],
+    "location": [48.19502146666667, 16.351497100000003]
+  },
+  "Etrichstraße": {
+    "name": "Etrichstraße",
+    "stops": [2053, 2059, 3422],
+    "location": [48.14829663333333, 16.461912033333334]
+  },
+  "Ettenreichgasse, Schulzentrum": {
+    "name": "Ettenreichgasse, Schulzentrum",
+    "stops": [2006, 2017],
+    "location": [48.1686489, 16.37408675]
+  },
+  "Evangelischer Friedhof": {
+    "name": "Evangelischer Friedhof",
+    "stops": [757],
+    "location": [48.1797973, 16.3601808]
   },
   "Fabergasse": {
     "name": "Fabergasse",
@@ -2269,6 +2259,11 @@
     "stops": [828, 858],
     "location": [48.254084399999996, 16.35981255]
   },
+  "Feßtgasse": {
+    "name": "Feßtgasse",
+    "stops": [530, 546, 1382, 1389, 7326],
+    "location": [48.21054518, 16.32519504]
+  },
   "Feuerwache Am Steinhof": {
     "name": "Feuerwache Am Steinhof",
     "stops": [3299, 8910, 8911],
@@ -2278,11 +2273,6 @@
     "name": "Feuerwache Grinzing",
     "stops": [863, 864],
     "location": [48.26143775, 16.332539699999998]
-  },
-  "Feßtgasse": {
-    "name": "Feßtgasse",
-    "stops": [530, 546, 1382, 1389, 7326],
-    "location": [48.21054518, 16.32519504]
   },
   "Fichtnergasse": {
     "name": "Fichtnergasse",
@@ -2334,6 +2324,11 @@
     "stops": [358, 378],
     "location": [48.212662449999996, 16.34545295]
   },
+  "Floridsdorf": {
+    "name": "Floridsdorf",
+    "stops": [4645, 4646],
+    "location": [48.25620465, 16.4004613]
+  },
   "Floridsdorf S U": {
     "name": "Floridsdorf S U",
     "stops": [1120, 1125, 2172, 2189, 2343, 2345, 2359, 3852, 5070, 5737, 7348, 7350, 7351],
@@ -2343,11 +2338,6 @@
     "name": "Floridsdorf SU",
     "stops": [8781],
     "location": [48.2566862, 16.4010452]
-  },
-  "Floridsdorf": {
-    "name": "Floridsdorf",
-    "stops": [4645, 4646],
-    "location": [48.25620465, 16.4004613]
   },
   "Floridsdorfer Brücke": {
     "name": "Floridsdorfer Brücke",
@@ -2364,25 +2354,20 @@
     "stops": [1234, 1263],
     "location": [48.240600900000004, 16.33820355]
   },
+  "Flötzersteigbrücke": {
+    "name": "Flötzersteigbrücke",
+    "stops": [180, 184],
+    "location": [48.206697, 16.2906288]
+  },
   "Flugfeldstraße": {
     "name": "Flugfeldstraße",
     "stops": [1029, 1047],
     "location": [48.2156435, 16.5045895]
   },
-  "Flurschützstraße / Längenfeldgasse": {
-    "name": "Flurschützstraße / Längenfeldgasse",
-    "stops": [1762, 1796],
-    "location": [48.17853045, 16.340534650000002]
-  },
-  "Flurschützstraße, Längenfeldgasse": {
-    "name": "Flurschützstraße, Längenfeldgasse",
-    "stops": [1717, 1749],
-    "location": [48.179375050000004, 16.34006305]
-  },
-  "Flötzersteigbrücke": {
-    "name": "Flötzersteigbrücke",
-    "stops": [180, 184],
-    "location": [48.206697, 16.2906288]
+  "Flurschützstraße": {
+    "name": "Flurschützstraße",
+    "stops": [1717, 1749, 1762, 1796],
+    "location": [48.17895275000001, 16.34029885]
   },
   "Forchheimergasse": {
     "name": "Forchheimergasse",
@@ -2509,15 +2494,15 @@
     "stops": [8814, 8831],
     "location": [48.2054817, 16.2567623]
   },
-  "Friedensbrücke U": {
-    "name": "Friedensbrücke U",
-    "stops": [352, 385],
-    "location": [48.227149749999995, 16.36524735]
-  },
   "Friedensbrücke": {
     "name": "Friedensbrücke",
     "stops": [4404, 4433],
     "location": [48.22783495, 16.3639717]
+  },
+  "Friedensbrücke U": {
+    "name": "Friedensbrücke U",
+    "stops": [352, 385],
+    "location": [48.227149749999995, 16.36524735]
   },
   "Friedensgasse": {
     "name": "Friedensgasse",
@@ -2549,15 +2534,15 @@
     "stops": [3314, 3317],
     "location": [48.234465150000005, 16.472227699999998]
   },
-  "Frohes-Schaffen-Weg": {
-    "name": "Frohes-Schaffen-Weg",
-    "stops": [8481, 8493],
-    "location": [48.2758216, 16.440863]
-  },
   "Frödenplatz": {
     "name": "Frödenplatz",
     "stops": [2257, 2261, 2551, 5723],
     "location": [48.155530925, 16.35930725]
+  },
+  "Frohes-Schaffen-Weg": {
+    "name": "Frohes-Schaffen-Weg",
+    "stops": [8481, 8493],
+    "location": [48.2758216, 16.440863]
   },
   "Frömmlgasse": {
     "name": "Frömmlgasse",
@@ -2584,15 +2569,15 @@
     "stops": [2371, 2379],
     "location": [48.25324105, 16.41455135]
   },
-  "Funkengerngasse": {
-    "name": "Funkengerngasse",
-    "stops": [8900, 8902],
-    "location": [48.215380100000004, 16.2936336]
-  },
   "Fünfhausgasse": {
     "name": "Fünfhausgasse",
     "stops": [2722, 2723],
     "location": [48.189015, 16.335328949999997]
+  },
+  "Funkengerngasse": {
+    "name": "Funkengerngasse",
+    "stops": [8900, 8902],
+    "location": [48.215380100000004, 16.2936336]
   },
   "Gadnergasse": {
     "name": "Gadnergasse",
@@ -2604,15 +2589,20 @@
     "stops": [3796, 3799],
     "location": [48.149092800000005, 16.396594049999997]
   },
+  "Gasometer": {
+    "name": "Gasometer",
+    "stops": [4934, 4941],
+    "location": [48.18485855, 16.4172328]
+  },
   "Gasometer U": {
     "name": "Gasometer U",
     "stops": [2600],
     "location": [48.1854755, 16.4175023]
   },
-  "Gasometer": {
-    "name": "Gasometer",
-    "stops": [4934, 4941],
-    "location": [48.18485855, 16.4172328]
+  "Gaßmannstraße": {
+    "name": "Gaßmannstraße",
+    "stops": [1773, 1784],
+    "location": [48.17427735, 16.3130552]
   },
   "Gatterburggasse": {
     "name": "Gatterburggasse",
@@ -2644,15 +2634,15 @@
     "stops": [2163, 2197, 2225, 2387, 3003, 5547],
     "location": [48.2263309, 16.370144633333332]
   },
-  "Gaßmannstraße": {
-    "name": "Gaßmannstraße",
-    "stops": [1773, 1784],
-    "location": [48.17427735, 16.3130552]
-  },
   "Gebirgsgasse": {
     "name": "Gebirgsgasse",
     "stops": [1645, 1672, 8145],
     "location": [48.1518647, 16.264028166666666]
+  },
+  "Geibelgasse": {
+    "name": "Geibelgasse",
+    "stops": [1561, 3154, 3159],
+    "location": [48.191628066666674, 16.3311473]
   },
   "Geiereckstraße": {
     "name": "Geiereckstraße",
@@ -2729,15 +2719,15 @@
     "stops": [8855, 8867],
     "location": [48.2391261, 16.28354105]
   },
-  "Gersthof S": {
-    "name": "Gersthof S",
-    "stops": [143, 193, 521, 2968, 2981, 3871, 3874],
-    "location": [48.2311412, 16.328892514285716]
-  },
   "Gersthof": {
     "name": "Gersthof",
     "stops": [5786],
     "location": [48.2317934, 16.3290362]
+  },
+  "Gersthof S": {
+    "name": "Gersthof S",
+    "stops": [143, 193, 521, 2968, 2981, 3871, 3874],
+    "location": [48.2311412, 16.328892514285716]
   },
   "Gersthofer Friedhof": {
     "name": "Gersthofer Friedhof",
@@ -2889,6 +2879,11 @@
     "stops": [8883],
     "location": [48.2298846, 16.2822879]
   },
+  "Gräßlplatz": {
+    "name": "Gräßlplatz",
+    "stops": [733, 4704],
+    "location": [48.176188249999996, 16.3983233]
+  },
   "Gredlerstraße": {
     "name": "Gredlerstraße",
     "stops": [133, 5525],
@@ -2908,6 +2903,11 @@
     "name": "Grellgasse",
     "stops": [1155, 1172],
     "location": [48.28593055, 16.43500155]
+  },
+  "Grenzackerstraße": {
+    "name": "Grenzackerstraße",
+    "stops": [787, 809, 1941, 1974],
+    "location": [48.16503905, 16.3683937]
   },
   "Grenzgasse": {
     "name": "Grenzgasse",
@@ -2934,15 +2934,15 @@
     "stops": [5910, 5932],
     "location": [48.0774774, 16.3124848]
   },
-  "Grillgasse S": {
-    "name": "Grillgasse S",
-    "stops": [797, 816],
-    "location": [48.167193, 16.40847875]
-  },
   "Grillgasse": {
     "name": "Grillgasse",
     "stops": [2586, 5644],
     "location": [48.17400775, 16.4162582]
+  },
+  "Grillgasse S": {
+    "name": "Grillgasse S",
+    "stops": [797, 816],
+    "location": [48.167193, 16.40847875]
   },
   "Grimmgasse": {
     "name": "Grimmgasse",
@@ -2969,15 +2969,15 @@
     "stops": [2451],
     "location": [48.1569167, 16.3432476]
   },
-  "Groß-Enzersdorf, Stadtmauer": {
-    "name": "Groß-Enzersdorf, Stadtmauer",
-    "stops": [1035, 1041],
-    "location": [48.2051584, 16.549222299999997]
-  },
   "Groß-Enzersdorf": {
     "name": "Groß-Enzersdorf",
     "stops": [1036],
     "location": [48.1998118, 16.549402]
+  },
+  "Groß-Enzersdorf, Stadtmauer": {
+    "name": "Groß-Enzersdorf, Stadtmauer",
+    "stops": [1035, 1041],
+    "location": [48.2051584, 16.549222299999997]
   },
   "Großbauerstraße": {
     "name": "Großbauerstraße",
@@ -2989,15 +2989,20 @@
     "stops": [3848, 8553, 8598],
     "location": [48.20217879999999, 16.47336256666667]
   },
+  "Großfeldsiedlung": {
+    "name": "Großfeldsiedlung",
+    "stops": [4184, 4189],
+    "location": [48.27102045, 16.4478744]
+  },
   "Großfeldsiedlung U": {
     "name": "Großfeldsiedlung U",
     "stops": [1076, 1100],
     "location": [48.2700877, 16.4478429]
   },
-  "Großfeldsiedlung": {
-    "name": "Großfeldsiedlung",
-    "stops": [4184, 4189],
-    "location": [48.27102045, 16.4478744]
+  "Großjedlersdorf": {
+    "name": "Großjedlersdorf",
+    "stops": [1150, 1177, 2208, 2219, 2444],
+    "location": [48.27682957999999, 16.40831976]
   },
   "Großjedlersdorf,  Jochbergengasse": {
     "name": "Großjedlersdorf,  Jochbergengasse",
@@ -3009,11 +3014,6 @@
     "stops": [3108],
     "location": [48.2799407, 16.4012249]
   },
-  "Großjedlersdorf": {
-    "name": "Großjedlersdorf",
-    "stops": [1150, 1177, 2208, 2219, 2444],
-    "location": [48.27682957999999, 16.40831976]
-  },
   "Großmarktstraße": {
     "name": "Großmarktstraße",
     "stops": [3179, 3182, 3403, 3722],
@@ -3024,20 +3024,15 @@
     "stops": [2553, 2554],
     "location": [48.13952025, 16.39243935]
   },
-  "Gruschaplatz": {
-    "name": "Gruschaplatz",
-    "stops": [1543, 1552, 2268],
-    "location": [48.1954566, 16.28236576666667]
-  },
-  "Gräßlplatz": {
-    "name": "Gräßlplatz",
-    "stops": [733, 4704],
-    "location": [48.176188249999996, 16.3983233]
-  },
   "Grünhaufenbrücke": {
     "name": "Grünhaufenbrücke",
     "stops": [5827, 5838],
     "location": [48.192266849999996, 16.4522222]
+  },
+  "Gruschaplatz": {
+    "name": "Gruschaplatz",
+    "stops": [1543, 1552, 2268],
+    "location": [48.1954566, 16.28236576666667]
   },
   "Gschweidlgasse": {
     "name": "Gschweidlgasse",
@@ -3054,15 +3049,15 @@
     "stops": [2518, 2519],
     "location": [48.185176, 16.428309050000003]
   },
-  "Gumpendorfer Straße U": {
-    "name": "Gumpendorfer Straße U",
-    "stops": [396, 430, 1577, 1586],
-    "location": [48.190449325, 16.337682524999998]
-  },
   "Gumpendorfer Straße": {
     "name": "Gumpendorfer Straße",
     "stops": [4611, 4618, 5619, 5657, 5670],
     "location": [48.19069186, 16.33751274]
+  },
+  "Gumpendorfer Straße U": {
+    "name": "Gumpendorfer Straße U",
+    "stops": [396, 430, 1577, 1586],
+    "location": [48.190449325, 16.337682524999998]
   },
   "Gunertweg": {
     "name": "Gunertweg",
@@ -3079,6 +3074,11 @@
     "stops": [96, 123, 2960, 2989],
     "location": [48.24466455, 16.361478925]
   },
+  "Günselgasse": {
+    "name": "Günselgasse",
+    "stops": [3295, 3303],
+    "location": [48.2167957, 16.25512285]
+  },
   "Guntherstraße": {
     "name": "Guntherstraße",
     "stops": [533, 543],
@@ -3089,25 +3089,15 @@
     "stops": [5912, 5930],
     "location": [48.048285, 16.31213445]
   },
+  "Gürtelbrücke": {
+    "name": "Gürtelbrücke",
+    "stops": [634, 642, 1198, 1201],
+    "location": [48.2372564, 16.365395575]
+  },
   "Gusenleithnergasse": {
     "name": "Gusenleithnergasse",
     "stops": [1541, 1554],
     "location": [48.1946173, 16.29001345]
-  },
-  "Gustav-Pick-Gasse": {
-    "name": "Gustav-Pick-Gasse",
-    "stops": [1237, 1258],
-    "location": [48.242042749999996, 16.32597745]
-  },
-  "Gutheil-Schoder-Gasse": {
-    "name": "Gutheil-Schoder-Gasse",
-    "stops": [520, 539, 5902, 5940],
-    "location": [48.159592325000006, 16.335652324999998]
-  },
-  "Gutraterplatz": {
-    "name": "Gutraterplatz",
-    "stops": [566, 583, 1411, 1530],
-    "location": [48.207818024999995, 16.30927105]
   },
   "Gußhausstraße": {
     "name": "Gußhausstraße",
@@ -3119,35 +3109,35 @@
     "stops": [785, 811, 1896],
     "location": [48.166687700000004, 16.358623766666664]
   },
-  "Gymnasiumstraße": {
-    "name": "Gymnasiumstraße",
-    "stops": [1276, 1297],
-    "location": [48.23003115, 16.3452643]
-  },
-  "Günselgasse": {
-    "name": "Günselgasse",
-    "stops": [3295, 3303],
-    "location": [48.2167957, 16.25512285]
-  },
-  "Gürtelbrücke": {
-    "name": "Gürtelbrücke",
-    "stops": [634, 642, 1198, 1201],
-    "location": [48.2372564, 16.365395575]
+  "Gustav-Pick-Gasse": {
+    "name": "Gustav-Pick-Gasse",
+    "stops": [1237, 1258],
+    "location": [48.242042749999996, 16.32597745]
   },
   "Gütenbachstraße": {
     "name": "Gütenbachstraße",
     "stops": [3944],
     "location": [48.1381864, 16.2413247]
   },
-  "HEERESGESCHICHTLICHES MUSEUM": {
-    "name": "HEERESGESCHICHTLICHES MUSEUM",
-    "stops": [2895],
-    "location": [48.2010691, 16.3591568]
+  "Gutheil-Schoder-Gasse": {
+    "name": "Gutheil-Schoder-Gasse",
+    "stops": [520, 539, 5902, 5940],
+    "location": [48.159592325000006, 16.335652324999998]
+  },
+  "Gutraterplatz": {
+    "name": "Gutraterplatz",
+    "stops": [566, 583, 1411, 1530],
+    "location": [48.207818024999995, 16.30927105]
+  },
+  "Gymnasiumstraße": {
+    "name": "Gymnasiumstraße",
+    "stops": [1276, 1297],
+    "location": [48.23003115, 16.3452643]
   },
   "Haberlandtgasse": {
     "name": "Haberlandtgasse",
-    "stops": [8644],
-    "location": [48.218747, 16.4901042]
+    "stops": [1025, 1051, 8056, 8630, 8651],
+    "location": [48.219860260000004, 16.48133482]
   },
   "Haberlgasse": {
     "name": "Haberlgasse",
@@ -3224,15 +3214,30 @@
     "stops": [2354, 2365],
     "location": [48.16012565, 16.4613536]
   },
-  "Handelskai S U": {
-    "name": "Handelskai S U",
-    "stops": [591, 624],
-    "location": [48.240977799999996, 16.38406255]
+  "Hämmerlegasse": {
+    "name": "Hämmerlegasse",
+    "stops": [1984, 1998],
+    "location": [48.13885785, 16.394222499999998]
   },
   "Handelskai": {
     "name": "Handelskai",
     "stops": [4643, 4648],
     "location": [48.2418573, 16.38567505]
+  },
+  "Handelskai S U": {
+    "name": "Handelskai S U",
+    "stops": [591, 624],
+    "location": [48.240977799999996, 16.38406255]
+  },
+  "Hänflingweg": {
+    "name": "Hänflingweg",
+    "stops": [3296, 3302],
+    "location": [48.2182801, 16.257719]
+  },
+  "Hänischgasse": {
+    "name": "Hänischgasse",
+    "stops": [8024],
+    "location": [48.2319011, 16.5428982]
   },
   "Hannah-Arendt-Platz": {
     "name": "Hannah-Arendt-Platz",
@@ -3269,15 +3274,15 @@
     "stops": [2660],
     "location": [48.198728, 16.2936247]
   },
-  "Hardeggasse U": {
-    "name": "Hardeggasse U",
-    "stops": [2403, 2411, 8050, 8051, 8103, 8104],
-    "location": [48.221073249999996, 16.45806875]
-  },
   "Hardeggasse": {
     "name": "Hardeggasse",
     "stops": [1010, 1012, 4253, 4270],
     "location": [48.221220375, 16.4581174]
+  },
+  "Hardeggasse U": {
+    "name": "Hardeggasse U",
+    "stops": [2403, 2411, 8050, 8051, 8103, 8104],
+    "location": [48.221073249999996, 16.45806875]
   },
   "Hardtgasse": {
     "name": "Hardtgasse",
@@ -3319,15 +3324,15 @@
     "stops": [942],
     "location": [48.1562455, 16.4214909]
   },
-  "Hasenleitengasse, Schemmerlstraße": {
-    "name": "Hasenleitengasse, Schemmerlstraße",
-    "stops": [2082],
-    "location": [48.1627232, 16.4181851]
-  },
   "Hasenleitengasse": {
     "name": "Hasenleitengasse",
     "stops": [735],
     "location": [48.1617285, 16.4177179]
+  },
+  "Hasenleitengasse, Schemmerlstraße": {
+    "name": "Hasenleitengasse, Schemmerlstraße",
+    "stops": [2082],
+    "location": [48.1627232, 16.4181851]
   },
   "Haspelmeistergasse": {
     "name": "Haspelmeistergasse",
@@ -3339,10 +3344,15 @@
     "stops": [1064, 3100, 3107, 3224],
     "location": [48.277359575000006, 16.405047175]
   },
+  "Haßlwanderweg": {
+    "name": "Haßlwanderweg",
+    "stops": [69, 8558],
+    "location": [48.2126296, 16.47902345]
+  },
   "Hauffgasse": {
     "name": "Hauffgasse",
-    "stops": [2021, 2038, 5633, 5645],
-    "location": [48.177518150000004, 16.41290295]
+    "stops": [434, 2021, 2038, 5633, 5645],
+    "location": [48.17756308, 16.412953260000002]
   },
   "Hauptbahnhof Ost": {
     "name": "Hauptbahnhof Ost",
@@ -3369,6 +3379,11 @@
     "stops": [77, 668, 1573, 1590],
     "location": [48.1975484, 16.353928574999998]
   },
+  "Hausfeldstraße": {
+    "name": "Hausfeldstraße",
+    "stops": [4274, 4279],
+    "location": [48.2334599, 16.485680000000002]
+  },
   "Hausfeldstraße  U": {
     "name": "Hausfeldstraße  U",
     "stops": [3011, 5234],
@@ -3384,10 +3399,10 @@
     "stops": [2703, 2736, 8637],
     "location": [48.233560600000004, 16.4869571]
   },
-  "Hausfeldstraße": {
-    "name": "Hausfeldstraße",
-    "stops": [4274, 4279],
-    "location": [48.2334599, 16.485680000000002]
+  "Häußlergasse": {
+    "name": "Häußlergasse",
+    "stops": [1507, 1513],
+    "location": [48.238210699999996, 16.43963235]
   },
   "Haussteinstraße": {
     "name": "Haussteinstraße",
@@ -3399,25 +3414,25 @@
     "stops": [1116, 1129],
     "location": [48.260292500000006, 16.4157057]
   },
-  "Haßlwanderweg": {
-    "name": "Haßlwanderweg",
-    "stops": [69, 8558],
-    "location": [48.2126296, 16.47902345]
-  },
   "Hederichgasse": {
     "name": "Hederichgasse",
     "stops": [4837],
     "location": [48.1527936, 16.4055188]
   },
-  "Heiligenstadt, 12.-Februar-Platz": {
-    "name": "Heiligenstadt, 12.-Februar-Platz",
-    "stops": [95, 124],
-    "location": [48.248943249999996, 16.362732049999998]
+  "HEERESGESCHICHTLICHES MUSEUM": {
+    "name": "HEERESGESCHICHTLICHES MUSEUM",
+    "stops": [2895],
+    "location": [48.2010691, 16.3591568]
   },
   "Heiligenstadt": {
     "name": "Heiligenstadt",
     "stops": [4402, 4435, 7041],
     "location": [48.2488984, 16.365945033333333]
+  },
+  "Heiligenstadt, 12.-Februar-Platz": {
+    "name": "Heiligenstadt, 12.-Februar-Platz",
+    "stops": [95, 124],
+    "location": [48.248943249999996, 16.362732049999998]
   },
   "Heiligenstädter Brücke": {
     "name": "Heiligenstädter Brücke",
@@ -3429,15 +3444,15 @@
     "stops": [3881],
     "location": [48.2600354, 16.3464186]
   },
-  "Heinestraße, Taborstraße": {
-    "name": "Heinestraße, Taborstraße",
-    "stops": [328, 1003],
-    "location": [48.222275249999996, 16.38234225]
-  },
   "Heinestraße": {
     "name": "Heinestraße",
     "stops": [2686],
     "location": [48.2217994, 16.3821806]
+  },
+  "Heinestraße, Taborstraße": {
+    "name": "Heinestraße, Taborstraße",
+    "stops": [328, 1003],
+    "location": [48.222275249999996, 16.38234225]
   },
   "Heinrich-Drimmel-Platz": {
     "name": "Heinrich-Drimmel-Platz",
@@ -3519,15 +3534,15 @@
     "stops": [1360, 1371],
     "location": [48.21516765, 16.340902999999997]
   },
-  "Herrengasse U": {
-    "name": "Herrengasse U",
-    "stops": [2938],
-    "location": [48.2105883, 16.3656785]
-  },
   "Herrengasse": {
     "name": "Herrengasse",
     "stops": [4907, 4910],
     "location": [48.2093311, 16.3651171]
+  },
+  "Herrengasse U": {
+    "name": "Herrengasse U",
+    "stops": [2938],
+    "location": [48.2105883, 16.3656785]
   },
   "Hertha-Kräftner-Gasse": {
     "name": "Hertha-Kräftner-Gasse",
@@ -3584,25 +3599,25 @@
     "stops": [3751, 8137],
     "location": [48.1532581, 16.26403415]
   },
-  "Heustadelgasse, Schule": {
-    "name": "Heustadelgasse, Schule",
-    "stops": [8653, 8681],
-    "location": [48.21497305, 16.4838564]
-  },
   "Heustadelgasse": {
     "name": "Heustadelgasse",
     "stops": [8656, 8678],
     "location": [48.21081275, 16.4973581]
   },
-  "Hietzing U": {
-    "name": "Hietzing U",
-    "stops": [137, 573, 574, 1596, 1610, 2671, 3847, 5580, 8119, 8143],
-    "location": [48.187896280000004, 16.30379357]
+  "Heustadelgasse, Schule": {
+    "name": "Heustadelgasse, Schule",
+    "stops": [8653, 8681],
+    "location": [48.21497305, 16.4838564]
   },
   "Hietzing": {
     "name": "Hietzing",
     "stops": [2814, 4409, 4428],
     "location": [48.1877274, 16.30369776666667]
+  },
+  "Hietzing U": {
+    "name": "Hietzing U",
+    "stops": [137, 573, 574, 1596, 1610, 2671, 3847, 5580, 8119, 8143],
+    "location": [48.187896280000004, 16.30379357]
   },
   "Hilde-Hannak-Gasse": {
     "name": "Hilde-Hannak-Gasse",
@@ -3691,8 +3706,18 @@
   },
   "Hochsatzengasse": {
     "name": "Hochsatzengasse",
-    "stops": [1466, 1544, 1551, 2295],
-    "location": [48.19707085, 16.276969899999997]
+    "stops": [1466],
+    "location": [48.1979915, 16.2770507]
+  },
+  "Höchstädtplatz": {
+    "name": "Höchstädtplatz",
+    "stops": [319, 322, 2168, 2494, 2497, 2999],
+    "location": [48.239257733333325, 16.376849083333333]
+  },
+  "Hödlgasse": {
+    "name": "Hödlgasse",
+    "stops": [3809],
+    "location": [48.1494973, 16.2956369]
   },
   "Hoechlegasse": {
     "name": "Hoechlegasse",
@@ -3739,6 +3764,11 @@
     "stops": [1771, 1786],
     "location": [48.1741156, 16.3165991]
   },
+  "Höhenstraße, Rohrerwiese": {
+    "name": "Höhenstraße, Rohrerwiese",
+    "stops": [8860, 8861],
+    "location": [48.26678995, 16.29634205]
+  },
   "Hoher Markt": {
     "name": "Hoher Markt",
     "stops": [56, 2904, 2922],
@@ -3768,6 +3798,16 @@
     "name": "Horeischygasse",
     "stops": [8953],
     "location": [48.183475, 16.2767543]
+  },
+  "Hörndlwald": {
+    "name": "Hörndlwald",
+    "stops": [8960],
+    "location": [48.174454, 16.2648965]
+  },
+  "Hörtengasse": {
+    "name": "Hörtengasse",
+    "stops": [2071, 2087],
+    "location": [48.16239965, 16.44450565]
   },
   "Hosnedlgasse Nord": {
     "name": "Hosnedlgasse Nord",
@@ -3819,51 +3859,6 @@
     "stops": [8551, 8600],
     "location": [48.2026468, 16.4648705]
   },
-  "Hämmerlegasse": {
-    "name": "Hämmerlegasse",
-    "stops": [1984, 1998],
-    "location": [48.13885785, 16.394222499999998]
-  },
-  "Hänflingweg": {
-    "name": "Hänflingweg",
-    "stops": [3296, 3302],
-    "location": [48.2182801, 16.257719]
-  },
-  "Hänischgasse": {
-    "name": "Hänischgasse",
-    "stops": [8024],
-    "location": [48.2319011, 16.5428982]
-  },
-  "Häußlergasse": {
-    "name": "Häußlergasse",
-    "stops": [1507, 1513],
-    "location": [48.238210699999996, 16.43963235]
-  },
-  "Höchstädtplatz": {
-    "name": "Höchstädtplatz",
-    "stops": [319, 322, 2168, 2494, 2497, 2999],
-    "location": [48.239257733333325, 16.376849083333333]
-  },
-  "Hödlgasse": {
-    "name": "Hödlgasse",
-    "stops": [3809],
-    "location": [48.1494973, 16.2956369]
-  },
-  "Höhenstraße, Rohrerwiese": {
-    "name": "Höhenstraße, Rohrerwiese",
-    "stops": [8860, 8861],
-    "location": [48.26678995, 16.29634205]
-  },
-  "Hörndlwald": {
-    "name": "Hörndlwald",
-    "stops": [8960],
-    "location": [48.174454, 16.2648965]
-  },
-  "Hörtengasse": {
-    "name": "Hörtengasse",
-    "stops": [2071, 2087],
-    "location": [48.16239965, 16.44450565]
-  },
   "Hüttelberg": {
     "name": "Hüttelberg",
     "stops": [3236],
@@ -3874,20 +3869,25 @@
     "stops": [8816, 8829],
     "location": [48.214506150000005, 16.24959825]
   },
-  "Hütteldorf, Bujattigasse": {
-    "name": "Hütteldorf, Bujattigasse",
-    "stops": [1461, 1462, 3310, 5791, 5814],
-    "location": [48.202628219999994, 16.25554506]
-  },
   "Hütteldorf": {
     "name": "Hütteldorf",
     "stops": [4401, 4436],
     "location": [48.1970005, 16.26074635]
   },
+  "Hütteldorf, Bujattigasse": {
+    "name": "Hütteldorf, Bujattigasse",
+    "stops": [1461, 1462, 3310, 5791, 5814],
+    "location": [48.202628219999994, 16.25554506]
+  },
   "Hütteldorfer Friedhof": {
     "name": "Hütteldorfer Friedhof",
     "stops": [3275],
     "location": [48.2042544, 16.2446485]
+  },
+  "Hütteldorfer Straße": {
+    "name": "Hütteldorfer Straße",
+    "stops": [4928, 4933, 7429],
+    "location": [48.19971593333333, 16.311647866666664]
   },
   "Hütteldorfer Straße /  Lützowgasse": {
     "name": "Hütteldorfer Straße /  Lützowgasse",
@@ -3908,11 +3908,6 @@
     "name": "Hütteldorfer Straße, Lützowgasse",
     "stops": [7302],
     "location": [48.1973029, 16.2951338]
-  },
-  "Hütteldorfer Straße": {
-    "name": "Hütteldorfer Straße",
-    "stops": [4928, 4933, 7429],
-    "location": [48.19971593333333, 16.311647866666664]
   },
   "Hüttenbrennergasse": {
     "name": "Hüttenbrennergasse",
@@ -4029,6 +4024,26 @@
     "stops": [1613, 1636],
     "location": [48.1771138, 16.28369825]
   },
+  "Jägermaiszufahrt": {
+    "name": "Jägermaiszufahrt",
+    "stops": [8655, 8679],
+    "location": [48.21230335, 16.495197599999997]
+  },
+  "Jägerstraße": {
+    "name": "Jägerstraße",
+    "stops": [4641, 4650],
+    "location": [48.2352191, 16.3686969]
+  },
+  "Jägerstraße U": {
+    "name": "Jägerstraße U",
+    "stops": [1199, 2157, 2167, 2193, 2204],
+    "location": [48.235790480000006, 16.3700641]
+  },
+  "Jägerwaldsiedlung": {
+    "name": "Jägerwaldsiedlung",
+    "stops": [3286],
+    "location": [48.2238702, 16.2464182]
+  },
   "Jahngasse": {
     "name": "Jahngasse",
     "stops": [3142],
@@ -4043,6 +4058,11 @@
     "name": "Jakov-Lind-Straße",
     "stops": [2744, 2745],
     "location": [48.2243759, 16.3962931]
+  },
+  "Jasmingasse": {
+    "name": "Jasmingasse",
+    "stops": [8644],
+    "location": [48.218747, 16.4901042]
   },
   "Jedlersdorf S": {
     "name": "Jedlersdorf S",
@@ -4139,25 +4159,20 @@
     "stops": [5725],
     "location": [48.2014284, 16.3796922]
   },
+  "Johnstraße": {
+    "name": "Johnstraße",
+    "stops": [4925, 4926],
+    "location": [48.1976143, 16.32055615]
+  },
   "Johnstraße U": {
     "name": "Johnstraße U",
     "stops": [900, 1449, 1473, 2618, 2887],
     "location": [48.19867529999999, 16.319384739999997]
   },
-  "Johnstraße, Linzer Straße": {
-    "name": "Johnstraße, Linzer Straße",
-    "stops": [571, 578],
-    "location": [48.19276685, 16.31478]
-  },
   "Johnstraße, Schuselkagasse": {
     "name": "Johnstraße, Schuselkagasse",
     "stops": [898],
     "location": [48.1994884, 16.3189931]
-  },
-  "Johnstraße": {
-    "name": "Johnstraße",
-    "stops": [4925, 4926],
-    "location": [48.1976143, 16.32055615]
   },
   "Josef- Ressel-Straße": {
     "name": "Josef- Ressel-Straße",
@@ -4204,6 +4219,11 @@
     "stops": [8756, 8777],
     "location": [48.24598215, 16.4013012]
   },
+  "Josef-Österreicher-Gasse": {
+    "name": "Josef-Österreicher-Gasse",
+    "stops": [1809, 1829],
+    "location": [48.14732765, 16.30178585]
+  },
   "Josef-Prangl-Straße": {
     "name": "Josef-Prangl-Straße",
     "stops": [3168, 5237],
@@ -4214,25 +4234,20 @@
     "stops": [3268],
     "location": [48.2113066, 16.2331321]
   },
-  "Josef-Österreicher-Gasse": {
-    "name": "Josef-Österreicher-Gasse",
-    "stops": [1809, 1829],
-    "location": [48.14732765, 16.30178585]
-  },
   "Josefstädter Str. / Lederergasse": {
     "name": "Josefstädter Str. / Lederergasse",
     "stops": [251, 270],
     "location": [48.20964845, 16.348745299999997]
   },
-  "Josefstädter Straße U": {
-    "name": "Josefstädter Straße U",
-    "stops": [249, 273, 365, 458],
-    "location": [48.21129165, 16.339155775000002]
-  },
   "Josefstädter Straße": {
     "name": "Josefstädter Straße",
     "stops": [4607, 4622, 5661, 5667],
     "location": [48.211599925, 16.339160275]
+  },
+  "Josefstädter Straße U": {
+    "name": "Josefstädter Straße U",
+    "stops": [249, 273, 365, 458],
+    "location": [48.21129165, 16.339155775000002]
   },
   "Joseph-Roth-Gasse": {
     "name": "Joseph-Roth-Gasse",
@@ -4289,35 +4304,20 @@
     "stops": [1147],
     "location": [48.2760248, 16.4214909]
   },
-  "Jägermaiszufahrt": {
-    "name": "Jägermaiszufahrt",
-    "stops": [8655, 8679],
-    "location": [48.21230335, 16.495197599999997]
-  },
-  "Jägerstraße U": {
-    "name": "Jägerstraße U",
-    "stops": [1199, 2157, 2167, 2193, 2204],
-    "location": [48.235790480000006, 16.3700641]
-  },
-  "Jägerstraße": {
-    "name": "Jägerstraße",
-    "stops": [4641, 4650],
-    "location": [48.2352191, 16.3686969]
-  },
-  "Jägerwaldsiedlung": {
-    "name": "Jägerwaldsiedlung",
-    "stops": [3286],
-    "location": [48.2238702, 16.2464182]
-  },
-  "KUNST HAUS WIEN": {
-    "name": "KUNST HAUS WIEN",
-    "stops": [2889],
-    "location": [48.2052362, 16.3582135]
+  "Kagran": {
+    "name": "Kagran",
+    "stops": [4102, 4127],
+    "location": [48.2432333, 16.4332498]
   },
   "Kagran >": {
     "name": "Kagran >",
     "stops": [8611],
     "location": [48.2436879, 16.4330791]
+  },
+  "Kagran U": {
+    "name": "Kagran U",
+    "stops": [880, 881, 1516, 2555, 2634, 3052, 3057, 3058, 3067, 3085],
+    "location": [48.24345521, 16.433600130000002]
   },
   "Kagran U 26A": {
     "name": "Kagran U 26A",
@@ -4328,16 +4328,6 @@
     "name": "Kagran U Ausstiegstelle 26A",
     "stops": [2637],
     "location": [48.2436461, 16.4334564]
-  },
-  "Kagran U": {
-    "name": "Kagran U",
-    "stops": [880, 881, 1516, 2555, 2634, 3052, 3057, 3058, 3067, 3085],
-    "location": [48.24345521, 16.433600130000002]
-  },
-  "Kagran": {
-    "name": "Kagran",
-    "stops": [4102, 4127],
-    "location": [48.2432333, 16.4332498]
   },
   "Kagraner Anger": {
     "name": "Kagraner Anger",
@@ -4354,15 +4344,15 @@
     "stops": [2664, 2665, 8181],
     "location": [48.25361183333333, 16.44590103333333]
   },
-  "Kagraner Platz U": {
-    "name": "Kagraner Platz U",
-    "stops": [885, 923, 998, 2375, 3066, 3313, 3318, 5961],
-    "location": [48.25027568750001, 16.4432143875]
-  },
   "Kagraner Platz": {
     "name": "Kagraner Platz",
     "stops": [891, 1067, 2701, 4181, 4186],
     "location": [48.25020958, 16.443231880000003]
+  },
+  "Kagraner Platz U": {
+    "name": "Kagraner Platz U",
+    "stops": [885, 923, 998, 2375, 3066, 3313, 3318, 5961],
+    "location": [48.25027568750001, 16.4432143875]
   },
   "Kahlenberg": {
     "name": "Kahlenberg",
@@ -4409,20 +4399,25 @@
     "stops": [3884, 3885],
     "location": [48.26841045, 16.42049825]
   },
-  "Kaisermühlen-VIC U": {
-    "name": "Kaisermühlen-VIC U",
-    "stops": [65, 72, 5509, 5520],
-    "location": [48.232414275, 16.41613015]
-  },
   "Kaisermühlen-VIC": {
     "name": "Kaisermühlen-VIC",
     "stops": [4106, 4123],
     "location": [48.2327598, 16.4163076]
   },
+  "Kaisermühlen-VIC U": {
+    "name": "Kaisermühlen-VIC U",
+    "stops": [65, 72, 5509, 5520],
+    "location": [48.232414275, 16.41613015]
+  },
   "Kaisermühlenstraße": {
     "name": "Kaisermühlenstraße",
     "stops": [3194, 8537, 8571],
     "location": [48.213298, 16.441364566666667]
+  },
+  "Kaiserstraße": {
+    "name": "Kaiserstraße",
+    "stops": [362, 374],
+    "location": [48.20182955, 16.340503249999998]
   },
   "Kaiserstraße / Burggasse": {
     "name": "Kaiserstraße / Burggasse",
@@ -4434,10 +4429,15 @@
     "stops": [1405],
     "location": [48.2061043, 16.3393938]
   },
-  "Kaiserstraße, Westbahnstraße": {
-    "name": "Kaiserstraße, Westbahnstraße",
-    "stops": [1444, 1478],
-    "location": [48.2018295, 16.340516700000002]
+  "Kaiserstraße, Burggasse": {
+    "name": "Kaiserstraße, Burggasse",
+    "stops": [361, 375],
+    "location": [48.2042753, 16.3400451]
+  },
+  "Kaiserstraße, Neustiftgasse": {
+    "name": "Kaiserstraße, Neustiftgasse",
+    "stops": [366, 367],
+    "location": [48.2060115, 16.3397127]
   },
   "Kalksburg, Kirchenplatz": {
     "name": "Kalksburg, Kirchenplatz",
@@ -4484,15 +4484,15 @@
     "stops": [2511, 2514],
     "location": [48.186274999999995, 16.422766449999997]
   },
-  "Kardinal-Nagl-Platz U": {
-    "name": "Kardinal-Nagl-Platz U",
-    "stops": [257, 263],
-    "location": [48.197458600000004, 16.401620100000002]
-  },
   "Kardinal-Nagl-Platz": {
     "name": "Kardinal-Nagl-Platz",
     "stops": [2524, 4902, 4915],
     "location": [48.19743863333333, 16.400826600000002]
+  },
+  "Kardinal-Nagl-Platz U": {
+    "name": "Kardinal-Nagl-Platz U",
+    "stops": [257, 263],
+    "location": [48.197458600000004, 16.401620100000002]
   },
   "Karl-Bednarik-Gasse": {
     "name": "Karl-Bednarik-Gasse",
@@ -4524,6 +4524,11 @@
     "stops": [1647, 1669],
     "location": [48.14948235, 16.277109099999997]
   },
+  "Karlsplatz": {
+    "name": "Karlsplatz",
+    "stops": [4109, 4120, 4202, 4213, 4416, 4421, 5943, 7316, 7354],
+    "location": [48.207037388888885, 16.3662305]
+  },
   "Karlsplatz / Lothringerstraße": {
     "name": "Karlsplatz / Lothringerstraße",
     "stops": [2610],
@@ -4534,15 +4539,15 @@
     "stops": [1490, 1502, 1680, 1756, 2611, 5407, 5573],
     "location": [48.20056448571428, 16.368381185714288]
   },
-  "Karlsplatz": {
-    "name": "Karlsplatz",
-    "stops": [4109, 4120, 4202, 4213, 4416, 4421, 5943, 7316, 7354],
-    "location": [48.207037388888885, 16.3662305]
-  },
   "Karmeliterplatz": {
     "name": "Karmeliterplatz",
     "stops": [1001, 1020, 2391, 2396],
     "location": [48.215873949999995, 16.38023795]
+  },
+  "Kärntner Straße": {
+    "name": "Kärntner Straße",
+    "stops": [2901],
+    "location": [48.2036976, 16.3697659]
   },
   "Karoline-Perin-Gasse": {
     "name": "Karoline-Perin-Gasse",
@@ -4564,6 +4569,11 @@
     "stops": [823],
     "location": [48.1720937, 16.3413342]
   },
+  "Käthe-Recheis-Gasse": {
+    "name": "Käthe-Recheis-Gasse",
+    "stops": [3904, 3906],
+    "location": [48.2286638, 16.51227905]
+  },
   "Kefedergrundgasse": {
     "name": "Kefedergrundgasse",
     "stops": [1119, 1126],
@@ -4579,25 +4589,25 @@
     "stops": [5411, 8916, 8923],
     "location": [48.21954503333333, 16.295597966666666]
   },
-  "Kendlerstraße U": {
-    "name": "Kendlerstraße U",
-    "stops": [559, 575],
-    "location": [48.20399095, 16.3080561]
-  },
   "Kendlerstraße": {
     "name": "Kendlerstraße",
     "stops": [4929, 4932],
     "location": [48.20457465, 16.30914755]
   },
-  "Keplerplatz U": {
-    "name": "Keplerplatz U",
-    "stops": [748, 762],
-    "location": [48.17811115, 16.376031599999997]
+  "Kendlerstraße U": {
+    "name": "Kendlerstraße U",
+    "stops": [559, 575],
+    "location": [48.20399095, 16.3080561]
   },
   "Keplerplatz": {
     "name": "Keplerplatz",
     "stops": [4103, 4126],
     "location": [48.179276200000004, 16.3761933]
+  },
+  "Keplerplatz U": {
+    "name": "Keplerplatz U",
+    "stops": [748, 762],
+    "location": [48.17811115, 16.376031599999997]
   },
   "Kerbelgasse": {
     "name": "Kerbelgasse",
@@ -4646,8 +4656,8 @@
   },
   "Kirchengasse": {
     "name": "Kirchengasse",
-    "stops": [703],
-    "location": [48.199674, 16.3528686]
+    "stops": [703, 1486, 1487],
+    "location": [48.201376466666666, 16.352125966666666]
   },
   "Kirchfeldgasse": {
     "name": "Kirchfeldgasse",
@@ -4784,11 +4794,6 @@
     "stops": [351, 386],
     "location": [48.22863985, 16.368333]
   },
-  "Knotzenbachgasse": {
-    "name": "Knotzenbachgasse",
-    "stops": [1657],
-    "location": [48.1453317, 16.2936426]
-  },
   "Knödelhüttenstraße": {
     "name": "Knödelhüttenstraße",
     "stops": [3289],
@@ -4799,6 +4804,16 @@
     "stops": [401, 425, 1884],
     "location": [48.17734736666667, 16.358195533333333]
   },
+  "Knöllgasse, Troststraße": {
+    "name": "Knöllgasse, Troststraße",
+    "stops": [1876, 1882],
+    "location": [48.17277665, 16.3537085]
+  },
+  "Knotzenbachgasse": {
+    "name": "Knotzenbachgasse",
+    "stops": [1657],
+    "location": [48.1453317, 16.2936426]
+  },
   "Kohlgasse": {
     "name": "Kohlgasse",
     "stops": [3145],
@@ -4808,6 +4823,11 @@
     "name": "Kolbegasse",
     "stops": [2129, 2137],
     "location": [48.144564450000004, 16.36039195]
+  },
+  "Kölblgasse": {
+    "name": "Kölblgasse",
+    "stops": [305, 337],
+    "location": [48.191114049999996, 16.38571545]
   },
   "Kollarzgasse": {
     "name": "Kollarzgasse",
@@ -4839,15 +4859,15 @@
     "stops": [676, 693],
     "location": [48.1880268, 16.372909999999997]
   },
+  "Königsklostergasse": {
+    "name": "Königsklostergasse",
+    "stops": [2892],
+    "location": [48.201147, 16.3593185]
+  },
   "Konstanziagasse": {
     "name": "Konstanziagasse",
     "stops": [966, 968, 1008, 1055, 2631],
     "location": [48.22785232, 16.45778998]
-  },
-  "Kopalgasse": {
-    "name": "Kopalgasse",
-    "stops": [434],
-    "location": [48.1777428, 16.4131545]
   },
   "Korbergasse": {
     "name": "Korbergasse",
@@ -4939,15 +4959,15 @@
     "stops": [8876, 8890],
     "location": [48.2246422, 16.2836983]
   },
-  "Krieau U": {
-    "name": "Krieau U",
-    "stops": [2690, 2698],
-    "location": [48.215320250000005, 16.413388050000002]
-  },
   "Krieau": {
     "name": "Krieau",
     "stops": [4258, 4265],
     "location": [48.21471865, 16.4137878]
+  },
+  "Krieau U": {
+    "name": "Krieau U",
+    "stops": [2690, 2698],
+    "location": [48.215320250000005, 16.413388050000002]
   },
   "Kronawettergasse": {
     "name": "Kronawettergasse",
@@ -4994,6 +5014,21 @@
     "stops": [2327, 5592],
     "location": [48.154196, 16.30193405]
   },
+  "Küniglberg, ORF-Zentrum": {
+    "name": "Küniglberg, ORF-Zentrum",
+    "stops": [1722, 1729, 5231],
+    "location": [48.175482433333336, 16.291717266666666]
+  },
+  "KUNST HAUS WIEN": {
+    "name": "KUNST HAUS WIEN",
+    "stops": [2889],
+    "location": [48.2052362, 16.3582135]
+  },
+  "Kürschnergasse": {
+    "name": "Kürschnergasse",
+    "stops": [1106, 1138],
+    "location": [48.27616535, 16.446109149999998]
+  },
   "Kurt-Tichy-Gasse": {
     "name": "Kurt-Tichy-Gasse",
     "stops": [1975, 1976],
@@ -5008,36 +5043,6 @@
     "name": "Kutschkergasse",
     "stops": [177, 187],
     "location": [48.2261623, 16.344792650000002]
-  },
-  "Kärntner Straße": {
-    "name": "Kärntner Straße",
-    "stops": [2901],
-    "location": [48.2036976, 16.3697659]
-  },
-  "Käthe-Recheis-Gasse": {
-    "name": "Käthe-Recheis-Gasse",
-    "stops": [3904, 3906],
-    "location": [48.2286638, 16.51227905]
-  },
-  "Kölblgasse": {
-    "name": "Kölblgasse",
-    "stops": [305, 337],
-    "location": [48.191114049999996, 16.38571545]
-  },
-  "Königsklostergasse": {
-    "name": "Königsklostergasse",
-    "stops": [2892],
-    "location": [48.201147, 16.3593185]
-  },
-  "Küniglberg, ORF-Zentrum": {
-    "name": "Küniglberg, ORF-Zentrum",
-    "stops": [1722, 1729, 5231],
-    "location": [48.175482433333336, 16.291717266666666]
-  },
-  "Kürschnergasse": {
-    "name": "Kürschnergasse",
-    "stops": [1106, 1138],
-    "location": [48.27616535, 16.446109149999998]
   },
   "Laaer Berg, Kurpark Nordeingang": {
     "name": "Laaer Berg, Kurpark Nordeingang",
@@ -5089,6 +5094,11 @@
     "stops": [238, 1346],
     "location": [48.2144972, 16.35696935]
   },
+  "Landstraße": {
+    "name": "Landstraße",
+    "stops": [4412, 4425, 4904, 4913],
+    "location": [48.20635125, 16.385223625000002]
+  },
   "Landstraße S U": {
     "name": "Landstraße S U",
     "stops": [253, 259, 2681],
@@ -5098,11 +5108,6 @@
     "name": "Landstraße, Wien Mitte S U",
     "stops": [161, 176],
     "location": [48.20577805, 16.385540300000002]
-  },
-  "Landstraße": {
-    "name": "Landstraße",
-    "stops": [4412, 4425, 4904, 4913],
-    "location": [48.20635125, 16.385223625000002]
   },
   "Landwehrstraße": {
     "name": "Landwehrstraße",
@@ -5119,20 +5124,30 @@
     "stops": [217, 237, 356, 380],
     "location": [48.214934150000005, 16.350957349999998]
   },
+  "Längenfeldgasse": {
+    "name": "Längenfeldgasse",
+    "stops": [4437, 4438, 4612, 4617, 5561, 5577],
+    "location": [48.18492046666666, 16.33506093333333]
+  },
+  "Längenfeldgasse U": {
+    "name": "Längenfeldgasse U",
+    "stops": [3130, 3162, 5402],
+    "location": [48.18529576666666, 16.335381366666667]
+  },
   "Langfeldgasse": {
     "name": "Langfeldgasse",
     "stops": [1108, 1144],
     "location": [48.2697977, 16.44319865]
   },
-  "Langobardenstraße, Kapellenweg": {
-    "name": "Langobardenstraße, Kapellenweg",
-    "stops": [2590, 2594],
-    "location": [48.21880985, 16.4702918]
-  },
   "Langobardenstraße": {
     "name": "Langobardenstraße",
     "stops": [1009, 1013, 1510, 5705, 8098],
     "location": [48.22466738, 16.45459734]
+  },
+  "Langobardenstraße, Kapellenweg": {
+    "name": "Langobardenstraße, Kapellenweg",
+    "stops": [2590, 2594],
+    "location": [48.21880985, 16.4702918]
   },
   "Langsulzgasse": {
     "name": "Langsulzgasse",
@@ -5149,15 +5164,15 @@
     "stops": [8214],
     "location": [48.2476781, 16.2188399]
   },
+  "Lassallestraße": {
+    "name": "Lassallestraße",
+    "stops": [7, 648],
+    "location": [48.22169165, 16.398017850000002]
+  },
   "Lassallestraße U": {
     "name": "Lassallestraße U",
     "stops": [645],
     "location": [48.2232837, 16.4027789]
-  },
-  "Lassallestraße": {
-    "name": "Lassallestraße",
-    "stops": [7, 648, 7428],
-    "location": [48.22222233333333, 16.399604866666667]
   },
   "Laudongasse": {
     "name": "Laudongasse",
@@ -5193,11 +5208,6 @@
     "name": "Laxenburger Straße / Gudrunstraße",
     "stops": [761, 765, 4805, 4809],
     "location": [48.1786218, 16.372930174999997]
-  },
-  "Laxenburger Straße / Raxstraße": {
-    "name": "Laxenburger Straße / Raxstraße",
-    "stops": [787, 809, 1941, 1974],
-    "location": [48.16503905, 16.3683937]
   },
   "Laxenburger Straße / Sahulkastraße": {
     "name": "Laxenburger Straße / Sahulkastraße",
@@ -5289,6 +5299,11 @@
     "stops": [2705, 2719],
     "location": [48.223155, 16.39559245]
   },
+  "Leopoldau": {
+    "name": "Leopoldau",
+    "stops": [4185, 4190],
+    "location": [48.2775285, 16.451791]
+  },
   "Leopoldau S U": {
     "name": "Leopoldau S U",
     "stops": [1103, 1142, 1164, 2663],
@@ -5298,11 +5313,6 @@
     "name": "Leopoldau, Betriebsgarage",
     "stops": [8484, 8490],
     "location": [48.280299400000004, 16.4302225]
-  },
-  "Leopoldau": {
-    "name": "Leopoldau",
-    "stops": [4185, 4190],
-    "location": [48.2775285, 16.451791]
   },
   "Leopoldauer Platz": {
     "name": "Leopoldauer Platz",
@@ -5399,10 +5409,20 @@
     "stops": [8008],
     "location": [48.2143296, 16.5418202]
   },
+  "Liesing": {
+    "name": "Liesing",
+    "stops": [2305],
+    "location": [48.1346794, 16.2828988]
+  },
   "Liesing S": {
     "name": "Liesing S",
     "stops": [1656, 1660, 1818, 1913, 3903],
     "location": [48.1349096, 16.283254519999996]
+  },
+  "Liesing-Feuerwache": {
+    "name": "Liesing-Feuerwache",
+    "stops": [1822],
+    "location": [48.1340319, 16.2900404]
   },
   "Liesing, Bad": {
     "name": "Liesing, Bad",
@@ -5433,16 +5453,6 @@
     "name": "Liesing, Schulzentrum",
     "stops": [1910, 1911],
     "location": [48.140416450000004, 16.28050925]
-  },
-  "Liesing": {
-    "name": "Liesing",
-    "stops": [2305],
-    "location": [48.1346794, 16.2828988]
-  },
-  "Liesing-Feuerwache": {
-    "name": "Liesing-Feuerwache",
-    "stops": [1822],
-    "location": [48.1340319, 16.2900404]
   },
   "Liesinger-Flur-Gasse": {
     "name": "Liesinger-Flur-Gasse",
@@ -5479,25 +5489,25 @@
     "stops": [1281, 1293],
     "location": [48.2366042, 16.33778585]
   },
+  "Linzer Straße": {
+    "name": "Linzer Straße",
+    "stops": [571, 578, 879, 902],
+    "location": [48.19250785, 16.3155211]
+  },
   "Linzer Straße, Flötzersteig": {
     "name": "Linzer Straße, Flötzersteig",
     "stops": [3232],
     "location": [48.200638, 16.265732]
   },
+  "Linzer Straße, Hochsatzengasse": {
+    "name": "Linzer Straße, Hochsatzengasse",
+    "stops": [1544, 1551, 2295],
+    "location": [48.19676396666667, 16.276942966666667]
+  },
   "Linzer Straße, Lützowgasse": {
     "name": "Linzer Straße, Lützowgasse",
     "stops": [7301],
     "location": [48.1943927, 16.2960052]
-  },
-  "Linzer Straße, Reinlgasse": {
-    "name": "Linzer Straße, Reinlgasse",
-    "stops": [570, 579, 1558],
-    "location": [48.1933647, 16.311459199999998]
-  },
-  "Linzer Straße": {
-    "name": "Linzer Straße",
-    "stops": [879, 902],
-    "location": [48.19224885, 16.3162622]
   },
   "Lisztstraße": {
     "name": "Lisztstraße",
@@ -5559,46 +5569,6 @@
     "stops": [1063, 2587],
     "location": [48.17188405, 16.413927049999998]
   },
-  "Ludwig-Koeßler-Platz": {
-    "name": "Ludwig-Koeßler-Platz",
-    "stops": [2504, 2505, 3602],
-    "location": [48.195789966666666, 16.409327666666666]
-  },
-  "Ludwig-Reindl-Gasse": {
-    "name": "Ludwig-Reindl-Gasse",
-    "stops": [911, 922],
-    "location": [48.25159615, 16.4601723]
-  },
-  "Lukschgasse": {
-    "name": "Lukschgasse",
-    "stops": [2106, 2112],
-    "location": [48.20263185, 16.4054514]
-  },
-  "Lusthaus, Aspernallee": {
-    "name": "Lusthaus, Aspernallee",
-    "stops": [2135, 2139],
-    "location": [48.19293155, 16.43946165]
-  },
-  "Lusthaus": {
-    "name": "Lusthaus",
-    "stops": [2136, 4822, 4825],
-    "location": [48.190931400000004, 16.439789533333332]
-  },
-  "Luzegasse": {
-    "name": "Luzegasse",
-    "stops": [2072, 2726],
-    "location": [48.159960850000004, 16.4503852]
-  },
-  "Längenfeldgasse U": {
-    "name": "Längenfeldgasse U",
-    "stops": [3130, 3162, 5402],
-    "location": [48.18529576666666, 16.335381366666667]
-  },
-  "Längenfeldgasse": {
-    "name": "Längenfeldgasse",
-    "stops": [4437, 4438, 4612, 4617, 5561, 5577],
-    "location": [48.18492046666666, 16.33506093333333]
-  },
   "Löschniggasse": {
     "name": "Löschniggasse",
     "stops": [2731, 2738],
@@ -5614,10 +5584,40 @@
     "stops": [2318],
     "location": [48.1360343, 16.2782096]
   },
+  "Ludwig-Koeßler-Platz": {
+    "name": "Ludwig-Koeßler-Platz",
+    "stops": [2504, 2505, 3602],
+    "location": [48.195789966666666, 16.409327666666666]
+  },
+  "Ludwig-Reindl-Gasse": {
+    "name": "Ludwig-Reindl-Gasse",
+    "stops": [911, 922],
+    "location": [48.25159615, 16.4601723]
+  },
+  "Lukschgasse": {
+    "name": "Lukschgasse",
+    "stops": [2106, 2112],
+    "location": [48.20263185, 16.4054514]
+  },
+  "Lusthaus": {
+    "name": "Lusthaus",
+    "stops": [2136, 4822, 4825],
+    "location": [48.190931400000004, 16.439789533333332]
+  },
+  "Lusthaus, Aspernallee": {
+    "name": "Lusthaus, Aspernallee",
+    "stops": [2135, 2139],
+    "location": [48.19293155, 16.43946165]
+  },
   "Lützowgasse": {
     "name": "Lützowgasse",
     "stops": [1469, 1540, 1555],
     "location": [48.19530086666666, 16.295217666666666]
+  },
+  "Luzegasse": {
+    "name": "Luzegasse",
+    "stops": [2072, 2726],
+    "location": [48.159960850000004, 16.4503852]
   },
   "Maculangasse": {
     "name": "Maculangasse",
@@ -5633,6 +5633,11 @@
     "name": "Malzgasse",
     "stops": [3374],
     "location": [48.2212009, 16.3775363]
+  },
+  "Männertreugasse": {
+    "name": "Männertreugasse",
+    "stops": [795, 818],
+    "location": [48.159856, 16.40475525]
   },
   "Mannswörther Straße": {
     "name": "Mannswörther Straße",
@@ -5659,25 +5664,25 @@
     "stops": [8076],
     "location": [48.2053679, 16.4745274]
   },
-  "Margaretengürtel U": {
-    "name": "Margaretengürtel U",
-    "stops": [397, 429],
-    "location": [48.1883083, 16.3419765]
-  },
   "Margaretengürtel": {
     "name": "Margaretengürtel",
     "stops": [4415, 4422, 5421, 5576],
     "location": [48.188315800000005, 16.343155499999998]
   },
-  "Margaretenplatz, Schönbrunner Straße": {
-    "name": "Margaretenplatz, Schönbrunner Straße",
-    "stops": [670, 698, 1701],
-    "location": [48.19201533333334, 16.35672533333333]
+  "Margaretengürtel U": {
+    "name": "Margaretengürtel U",
+    "stops": [397, 429],
+    "location": [48.1883083, 16.3419765]
   },
   "Margaretenplatz": {
     "name": "Margaretenplatz",
     "stops": [1684],
     "location": [48.1910691, 16.3578093]
+  },
+  "Margaretenplatz, Schönbrunner Straße": {
+    "name": "Margaretenplatz, Schönbrunner Straße",
+    "stops": [670, 698, 1701],
+    "location": [48.19201533333334, 16.35672533333333]
   },
   "Margeritenweg": {
     "name": "Margeritenweg",
@@ -5721,8 +5726,8 @@
   },
   "Mariahilfer Straße, Geibelgasse": {
     "name": "Mariahilfer Straße, Geibelgasse",
-    "stops": [1533, 1561, 3154, 3159],
-    "location": [48.191666500000004, 16.331344925]
+    "stops": [8163],
+    "location": [48.1917818, 16.3319378]
   },
   "Marienbrücke": {
     "name": "Marienbrücke",
@@ -5784,6 +5789,11 @@
     "stops": [162, 175],
     "location": [48.207547149999996, 16.3865599]
   },
+  "Märzstraße": {
+    "name": "Märzstraße",
+    "stops": [569, 580, 882, 901],
+    "location": [48.196433125, 16.315220150000002]
+  },
   "Matschgasse": {
     "name": "Matschgasse",
     "stops": [181, 183],
@@ -5799,15 +5809,15 @@
     "stops": [4730],
     "location": [48.2110672, 16.3885227]
   },
-  "Matzleinsdorfer Platz S": {
-    "name": "Matzleinsdorfer Platz S",
-    "stops": [400, 426, 756, 768, 851, 3853],
-    "location": [48.18035938333333, 16.359138783333332]
-  },
   "Matzleinsdorfer Platz": {
     "name": "Matzleinsdorfer Platz",
     "stops": [5674, 5675],
     "location": [48.1792732, 16.35766555]
+  },
+  "Matzleinsdorfer Platz S": {
+    "name": "Matzleinsdorfer Platz S",
+    "stops": [400, 426, 756, 768, 851, 3853],
+    "location": [48.18035938333333, 16.359138783333332]
   },
   "Matzleinsdorferplatz": {
     "name": "Matzleinsdorferplatz",
@@ -5879,15 +5889,15 @@
     "stops": [2316],
     "location": [48.1382764, 16.2820274]
   },
-  "Meidling Hauptstraße U": {
-    "name": "Meidling Hauptstraße U",
-    "stops": [1766, 1792, 1850, 3207],
-    "location": [48.18351845000001, 16.328495025000002]
-  },
   "Meidling Hauptstraße": {
     "name": "Meidling Hauptstraße",
     "stops": [4424],
     "location": [48.1836966, 16.3278505]
+  },
+  "Meidling Hauptstraße U": {
+    "name": "Meidling Hauptstraße U",
+    "stops": [1766, 1792, 1850, 3207],
+    "location": [48.18351845000001, 16.328495025000002]
   },
   "Meidling, Hauptstraße": {
     "name": "Meidling, Hauptstraße",
@@ -5934,25 +5944,20 @@
     "stops": [3255],
     "location": [48.2076848, 16.2491401]
   },
-  "Messe Prater >": {
-    "name": "Messe Prater >",
-    "stops": [2709],
-    "location": [48.2182143, 16.4035156]
-  },
-  "Messe Prater U": {
-    "name": "Messe Prater U",
-    "stops": [2714],
-    "location": [48.2175918, 16.4038569]
+  "Messe": {
+    "name": "Messe",
+    "stops": [4259, 4264],
+    "location": [48.21776835, 16.4049978]
   },
   "Messe Prater": {
     "name": "Messe Prater",
     "stops": [3, 29],
     "location": [48.217906, 16.4066327]
   },
-  "Messe": {
-    "name": "Messe",
-    "stops": [4259, 4264],
-    "location": [48.21776835, 16.4049978]
+  "Messe Prater U": {
+    "name": "Messe Prater U",
+    "stops": [2709, 2714],
+    "location": [48.217903050000004, 16.40368625]
   },
   "Meyerbeergasse": {
     "name": "Meyerbeergasse",
@@ -5969,6 +5974,11 @@
     "stops": [2926],
     "location": [48.2083673, 16.3664151]
   },
+  "Michelbeuern": {
+    "name": "Michelbeuern",
+    "stops": [5756, 5757],
+    "location": [48.2210423, 16.3437731]
+  },
   "Michelbeuern - AKH": {
     "name": "Michelbeuern - AKH",
     "stops": [4605, 4624],
@@ -5978,11 +5988,6 @@
     "name": "Michelbeuern U AKH",
     "stops": [455, 1342],
     "location": [48.2220538, 16.3431802]
-  },
-  "Michelbeuern": {
-    "name": "Michelbeuern",
-    "stops": [5756, 5757],
-    "location": [48.2210423, 16.3437731]
   },
   "Minciostraße": {
     "name": "Minciostraße",
@@ -6034,6 +6039,11 @@
     "stops": [2715],
     "location": [48.2182502, 16.401171]
   },
+  "Möllersdorf": {
+    "name": "Möllersdorf",
+    "stops": [5914, 5928],
+    "location": [48.027962099999996, 16.30020035]
+  },
   "Mommsengasse": {
     "name": "Mommsengasse",
     "stops": [691],
@@ -6083,46 +6093,6 @@
     "name": "Moschingergasse",
     "stops": [3290],
     "location": [48.2197525, 16.2404624]
-  },
-  "Murlingengasse": {
-    "name": "Murlingengasse",
-    "stops": [475],
-    "location": [48.1762692, 16.3358095]
-  },
-  "Murraygasse": {
-    "name": "Murraygasse",
-    "stops": [3111, 3117],
-    "location": [48.23642175, 16.47462625]
-  },
-  "Museumsquartier U": {
-    "name": "Museumsquartier U",
-    "stops": [1569],
-    "location": [48.2027516, 16.3624446]
-  },
-  "Museumsquartier": {
-    "name": "Museumsquartier",
-    "stops": [4204, 4211, 5693, 5775],
-    "location": [48.20255845, 16.36112405]
-  },
-  "Muthgasse": {
-    "name": "Muthgasse",
-    "stops": [1204],
-    "location": [48.2449861, 16.3668374]
-  },
-  "Männertreugasse": {
-    "name": "Männertreugasse",
-    "stops": [795, 818],
-    "location": [48.159856, 16.40475525]
-  },
-  "Märzstraße": {
-    "name": "Märzstraße",
-    "stops": [569, 580, 882, 901],
-    "location": [48.196433125, 16.315220150000002]
-  },
-  "Möllersdorf": {
-    "name": "Möllersdorf",
-    "stops": [5914, 5928],
-    "location": [48.027962099999996, 16.30020035]
   },
   "Mühlau": {
     "name": "Mühlau",
@@ -6179,6 +6149,36 @@
     "stops": [2616, 2617],
     "location": [48.2937276, 16.392619]
   },
+  "Murlingengasse": {
+    "name": "Murlingengasse",
+    "stops": [475],
+    "location": [48.1762692, 16.3358095]
+  },
+  "Murraygasse": {
+    "name": "Murraygasse",
+    "stops": [3111, 3117],
+    "location": [48.23642175, 16.47462625]
+  },
+  "Museumsquartier": {
+    "name": "Museumsquartier",
+    "stops": [4204, 4211, 5693, 5775],
+    "location": [48.20255845, 16.36112405]
+  },
+  "Museumsquartier U": {
+    "name": "Museumsquartier U",
+    "stops": [1569],
+    "location": [48.2027516, 16.3624446]
+  },
+  "Muthgasse": {
+    "name": "Muthgasse",
+    "stops": [1204],
+    "location": [48.2449861, 16.3668374]
+  },
+  "Nästlbergergasse": {
+    "name": "Nästlbergergasse",
+    "stops": [3747, 3767],
+    "location": [48.16022155, 16.26066995]
+  },
   "Naufahrtbrücke": {
     "name": "Naufahrtbrücke",
     "stops": [8552, 8599],
@@ -6189,25 +6189,25 @@
     "stops": [506, 557],
     "location": [48.1574021, 16.3314527]
   },
-  "Neilreichgasse / Troststraße": {
-    "name": "Neilreichgasse / Troststraße",
-    "stops": [1436, 1926, 1930],
-    "location": [48.169958933333334, 16.364555633333335]
-  },
   "Neilreichgasse": {
     "name": "Neilreichgasse",
     "stops": [402, 424],
     "location": [48.176170299999995, 16.36562465]
   },
-  "Nestroyplatz U": {
-    "name": "Nestroyplatz U",
-    "stops": [2395],
-    "location": [48.2148204, 16.3842108]
+  "Neilreichgasse / Troststraße": {
+    "name": "Neilreichgasse / Troststraße",
+    "stops": [1436, 1926, 1930],
+    "location": [48.169958933333334, 16.364555633333335]
   },
   "Nestroyplatz": {
     "name": "Nestroyplatz",
     "stops": [4114, 4115, 5708, 5709],
     "location": [48.215017975, 16.385005775000003]
+  },
+  "Nestroyplatz U": {
+    "name": "Nestroyplatz U",
+    "stops": [2395],
+    "location": [48.2148204, 16.3842108]
   },
   "Neu Albern": {
     "name": "Neu Albern",
@@ -6239,6 +6239,11 @@
     "stops": [3830],
     "location": [48.1870207, 16.4036144]
   },
+  "Neubaugasse": {
+    "name": "Neubaugasse",
+    "stops": [4918, 4923, 5773, 5774],
+    "location": [48.19874895, 16.35127405]
+  },
   "Neubaugasse / Burggasse": {
     "name": "Neubaugasse / Burggasse",
     "stops": [664, 1434],
@@ -6248,11 +6253,6 @@
     "name": "Neubaugasse / Neustiftgasse",
     "stops": [1403],
     "location": [48.2055475, 16.3483949]
-  },
-  "Neubaugasse / Westbahnstraße": {
-    "name": "Neubaugasse / Westbahnstraße",
-    "stops": [665],
-    "location": [48.2014044, 16.3490238]
   },
   "Neubaugasse U": {
     "name": "Neubaugasse U",
@@ -6264,20 +6264,15 @@
     "stops": [3529, 3908, 5423],
     "location": [48.20421043333334, 16.34900276666667]
   },
-  "Neubaugasse, Westbahnstraße": {
-    "name": "Neubaugasse, Westbahnstraße",
-    "stops": [1442, 1480, 3528],
-    "location": [48.20181953333333, 16.3490717]
-  },
-  "Neubaugasse": {
-    "name": "Neubaugasse",
-    "stops": [4918, 4923, 5773, 5774],
-    "location": [48.19874895, 16.35127405]
-  },
   "Neubreitenlee": {
     "name": "Neubreitenlee",
     "stops": [8063, 8694],
     "location": [48.2403706, 16.491712149999998]
+  },
+  "Neue Donau": {
+    "name": "Neue Donau",
+    "stops": [4644, 4647],
+    "location": [48.2464069, 16.3948064]
   },
   "Neue Donau Mitte": {
     "name": "Neue Donau Mitte",
@@ -6288,11 +6283,6 @@
     "name": "Neue Donau U",
     "stops": [5235, 8754],
     "location": [48.24647865, 16.3952376]
-  },
-  "Neue Donau": {
-    "name": "Neue Donau",
-    "stops": [4644, 4647],
-    "location": [48.2464069, 16.3948064]
   },
   "Neueßling": {
     "name": "Neueßling",
@@ -6309,15 +6299,15 @@
     "stops": [8617, 8625],
     "location": [48.2364905, 16.44755995]
   },
-  "Neulaa U": {
-    "name": "Neulaa U",
-    "stops": [2930, 2931],
-    "location": [48.14675525, 16.38246805]
-  },
   "Neulaa": {
     "name": "Neulaa",
     "stops": [4132, 4135],
     "location": [48.14561045, 16.3863173]
+  },
+  "Neulaa U": {
+    "name": "Neulaa U",
+    "stops": [2930, 2931],
+    "location": [48.14675525, 16.38246805]
   },
   "Neulandschule": {
     "name": "Neulandschule",
@@ -6328,11 +6318,6 @@
     "name": "Neulerchenfelder Str. / Haberlgasse",
     "stops": [275],
     "location": [48.2116957, 16.3316054]
-  },
-  "Neulinggasse": {
-    "name": "Neulinggasse",
-    "stops": [307, 335],
-    "location": [48.199069300000005, 16.387377299999997]
   },
   "Neusteinhof": {
     "name": "Neusteinhof",
@@ -6379,10 +6364,10 @@
     "stops": [1326],
     "location": [48.2466731, 16.2984845]
   },
-  "Neustiftgasse": {
-    "name": "Neustiftgasse",
-    "stops": [366, 367],
-    "location": [48.2060115, 16.3397127]
+  "Neuwaldegg": {
+    "name": "Neuwaldegg",
+    "stops": [4737, 5744],
+    "location": [48.2337621, 16.291051]
   },
   "Neuwaldegg (Anfang-Hst.)": {
     "name": "Neuwaldegg (Anfang-Hst.)",
@@ -6394,25 +6379,20 @@
     "stops": [1352],
     "location": [48.2333193, 16.2911184]
   },
-  "Neuwaldegg": {
-    "name": "Neuwaldegg",
-    "stops": [4737, 5744],
-    "location": [48.2337621, 16.291051]
-  },
   "Neuwaldegger Straße": {
     "name": "Neuwaldegger Straße",
     "stops": [8854, 8868],
     "location": [48.23684355, 16.2880102]
   },
-  "Niederhofstraße U": {
-    "name": "Niederhofstraße U",
-    "stops": [1608, 1764, 1794],
-    "location": [48.181298766666664, 16.33165633333333]
-  },
   "Niederhofstraße": {
     "name": "Niederhofstraße",
     "stops": [4613, 4616],
     "location": [48.1808156, 16.33115625]
+  },
+  "Niederhofstraße U": {
+    "name": "Niederhofstraße U",
+    "stops": [1608, 1764, 1794],
+    "location": [48.181298766666664, 16.33165633333333]
   },
   "Niedermeierweg": {
     "name": "Niedermeierweg",
@@ -6444,15 +6424,15 @@
     "stops": [346, 391, 3449],
     "location": [48.2235969, 16.38942403333333]
   },
-  "Nordbrücke / Gebauergasse": {
-    "name": "Nordbrücke / Gebauergasse",
-    "stops": [5533],
-    "location": [48.2629538, 16.3951343]
-  },
   "Nordbrücke": {
     "name": "Nordbrücke",
     "stops": [636, 639, 2174, 2187],
     "location": [48.261038625, 16.395536275]
+  },
+  "Nordbrücke / Gebauergasse": {
+    "name": "Nordbrücke / Gebauergasse",
+    "stops": [5533],
+    "location": [48.2629538, 16.3951343]
   },
   "Nordwestbahnstraße": {
     "name": "Nordwestbahnstraße",
@@ -6469,6 +6449,11 @@
     "stops": [3566, 3622],
     "location": [48.1266332, 16.314142150000002]
   },
+  "Nußdorf S": {
+    "name": "Nußdorf S",
+    "stops": [91, 128],
+    "location": [48.25999055, 16.36710685]
+  },
   "Nussdorf, Beethovengang": {
     "name": "Nussdorf, Beethovengang",
     "stops": [3879],
@@ -6479,15 +6464,15 @@
     "stops": [3880],
     "location": [48.2604361, 16.3582225]
   },
-  "Nußdorf S": {
-    "name": "Nußdorf S",
-    "stops": [91, 128],
-    "location": [48.25999055, 16.36710685]
-  },
   "Nußdorfer Platz": {
     "name": "Nußdorfer Platz",
     "stops": [5746],
     "location": [48.2598261, 16.3671697]
+  },
+  "Nußdorfer Straße": {
+    "name": "Nußdorfer Straße",
+    "stops": [354, 3710, 4603, 4626, 5664],
+    "location": [48.23025788, 16.353504559999998]
   },
   "Nußdorfer Straße / Alserbachstraße": {
     "name": "Nußdorfer Straße / Alserbachstraße",
@@ -6499,45 +6484,35 @@
     "stops": [208, 215, 497, 640, 1230, 1269, 3709],
     "location": [48.23169682857144, 16.353439614285712]
   },
-  "Nußdorfer Straße": {
-    "name": "Nußdorfer Straße",
-    "stops": [354, 3710, 4603, 4626, 5664],
-    "location": [48.23025788, 16.353504559999998]
-  },
-  "Nästlbergergasse": {
-    "name": "Nästlbergergasse",
-    "stops": [3747, 3767],
-    "location": [48.16022155, 16.26066995]
-  },
   "Obachgasse": {
     "name": "Obachgasse",
     "stops": [2460, 2468, 2552, 3091, 3946, 3963],
     "location": [48.26184243333333, 16.46452761666667]
-  },
-  "Ober St. Veit U, Franz-Boos-Gasse": {
-    "name": "Ober St. Veit U, Franz-Boos-Gasse",
-    "stops": [5063],
-    "location": [48.1919435, 16.2751104]
-  },
-  "Ober St. Veit U": {
-    "name": "Ober St. Veit U",
-    "stops": [2296, 5243],
-    "location": [48.1919974, 16.2766285]
   },
   "Ober St. Veit": {
     "name": "Ober St. Veit",
     "stops": [2810, 4403, 4434],
     "location": [48.192458466666665, 16.275532600000002]
   },
-  "Oberdorfstraße": {
-    "name": "Oberdorfstraße",
-    "stops": [2406, 2592, 2595, 8652],
-    "location": [48.217623225, 16.480175550000002]
+  "Ober St. Veit U": {
+    "name": "Ober St. Veit U",
+    "stops": [2296, 5243],
+    "location": [48.1919974, 16.2766285]
+  },
+  "Ober St. Veit U, Franz-Boos-Gasse": {
+    "name": "Ober St. Veit U, Franz-Boos-Gasse",
+    "stops": [5063, 5242],
+    "location": [48.1919435, 16.2751104]
   },
   "Oberdöbling S": {
     "name": "Oberdöbling S",
     "stops": [1215, 1226, 1286, 1288],
     "location": [48.244700475, 16.344406425]
+  },
+  "Oberdorfstraße": {
+    "name": "Oberdorfstraße",
+    "stops": [2592, 2595],
+    "location": [48.2174631, 16.4803395]
   },
   "Obere Augartenstraße": {
     "name": "Obere Augartenstraße",
@@ -6559,40 +6534,40 @@
     "stops": [824, 825],
     "location": [48.2594403, 16.3357197]
   },
-  "Oberfeldgasse, Spargelfeldstraße": {
-    "name": "Oberfeldgasse, Spargelfeldstraße",
-    "stops": [8081],
-    "location": [48.2414564, 16.4737638]
-  },
   "Oberfeldgasse": {
     "name": "Oberfeldgasse",
     "stops": [2484, 2489, 3185, 3193],
     "location": [48.2430269, 16.4689803]
+  },
+  "Oberfeldgasse, Spargelfeldstraße": {
+    "name": "Oberfeldgasse, Spargelfeldstraße",
+    "stops": [8081],
+    "location": [48.2414564, 16.4737638]
   },
   "Obergfellplatz": {
     "name": "Obergfellplatz",
     "stops": [1093],
     "location": [48.2666853, 16.38943]
   },
-  "Oberlaa U, Laaer-Berg-Straße": {
-    "name": "Oberlaa U, Laaer-Berg-Straße",
-    "stops": [2913, 2921],
-    "location": [48.1427183, 16.399289]
+  "Oberlaa": {
+    "name": "Oberlaa",
+    "stops": [4133, 4134],
+    "location": [48.142196799999994, 16.40022325]
   },
   "Oberlaa U": {
     "name": "Oberlaa U",
     "stops": [2240, 2918, 3387, 5065, 5066],
     "location": [48.14325418, 16.398526299999997]
   },
+  "Oberlaa U, Laaer-Berg-Straße": {
+    "name": "Oberlaa U, Laaer-Berg-Straße",
+    "stops": [2913, 2921],
+    "location": [48.1427183, 16.399289]
+  },
   "Oberlaa, Friedhof": {
     "name": "Oberlaa, Friedhof",
     "stops": [3821],
     "location": [48.1382464, 16.4049349]
-  },
-  "Oberlaa": {
-    "name": "Oberlaa",
-    "stops": [4133, 4134],
-    "location": [48.142196799999994, 16.40022325]
   },
   "Oberlaaer Platz": {
     "name": "Oberlaaer Platz",
@@ -6624,6 +6599,11 @@
     "stops": [1185, 1193],
     "location": [48.24574885, 16.3420169]
   },
+  "Ödenburger Straße, Schulzentrum": {
+    "name": "Ödenburger Straße, Schulzentrum",
+    "stops": [984, 985],
+    "location": [48.28207785, 16.4017459]
+  },
   "Offenbachgasse": {
     "name": "Offenbachgasse",
     "stops": [5753],
@@ -6633,6 +6613,11 @@
     "name": "Oleandergasse",
     "stops": [8088],
     "location": [48.2551849, 16.4978566]
+  },
+  "Ölhafen": {
+    "name": "Ölhafen",
+    "stops": [8521],
+    "location": [48.1660306, 16.5098851]
   },
   "Oper, Karlsplatz >": {
     "name": "Oper, Karlsplatz >",
@@ -6669,6 +6654,11 @@
     "stops": [1105, 1139],
     "location": [48.27479625, 16.45379425]
   },
+  "Ottakring": {
+    "name": "Ottakring",
+    "stops": [4930, 4931, 7050],
+    "location": [48.21163786666667, 16.31142326666667]
+  },
   "Ottakring S U": {
     "name": "Ottakring S U",
     "stops": [1384, 1387, 1527, 1528],
@@ -6678,11 +6668,6 @@
     "name": "Ottakring SU",
     "stops": [7359, 8828, 8897, 8898],
     "location": [48.211535600000005, 16.310661225]
-  },
-  "Ottakring": {
-    "name": "Ottakring",
-    "stops": [4930, 4931, 7050],
-    "location": [48.21163786666667, 16.31142326666667]
   },
   "Ottakringer Bad": {
     "name": "Ottakringer Bad",
@@ -6706,8 +6691,8 @@
   },
   "Otto-Probst-Platz": {
     "name": "Otto-Probst-Platz",
-    "stops": [519, 1889],
-    "location": [48.153950300000005, 16.3487902]
+    "stops": [519, 1889, 2244],
+    "location": [48.153956300000004, 16.348984833333333]
   },
   "Otto-Probst-Straße": {
     "name": "Otto-Probst-Straße",
@@ -6738,11 +6723,6 @@
     "name": "Panozzalacke",
     "stops": [8515, 8527],
     "location": [48.18102825, 16.48590905]
-  },
-  "Pantucekgasse, Widholzgasse": {
-    "name": "Pantucekgasse, Widholzgasse",
-    "stops": [2297, 2314],
-    "location": [48.1547713, 16.4554741]
   },
   "Pantucekgasse": {
     "name": "Pantucekgasse",
@@ -6859,15 +6839,15 @@
     "stops": [936, 947],
     "location": [48.269770750000006, 16.464264149999998]
   },
-  "Perfektastraße U": {
-    "name": "Perfektastraße U",
-    "stops": [1863, 1897, 2798],
-    "location": [48.1365798, 16.31298333333333]
-  },
   "Perfektastraße": {
     "name": "Perfektastraße",
     "stops": [2817, 4633, 4636, 5679],
     "location": [48.136539325, 16.31297885]
+  },
+  "Perfektastraße U": {
+    "name": "Perfektastraße U",
+    "stops": [1863, 1897, 2798],
+    "location": [48.1365798, 16.31298333333333]
   },
   "Perntergasse": {
     "name": "Perntergasse",
@@ -6909,15 +6889,15 @@
     "stops": [8062, 8074],
     "location": [48.239401349999994, 16.4991008]
   },
-  "Pfarrgasse, Traviatagasse": {
-    "name": "Pfarrgasse, Traviatagasse",
-    "stops": [2096],
-    "location": [48.1424665, 16.3432027]
-  },
   "Pfarrgasse": {
     "name": "Pfarrgasse",
     "stops": [1947, 1967],
     "location": [48.14922765, 16.3473978]
+  },
+  "Pfarrgasse, Traviatagasse": {
+    "name": "Pfarrgasse, Traviatagasse",
+    "stops": [2096],
+    "location": [48.1424665, 16.3432027]
   },
   "Pfarrwiesenstraße": {
     "name": "Pfarrwiesenstraße",
@@ -6964,15 +6944,15 @@
     "stops": [2675, 2676],
     "location": [48.20623305, 16.418167099999998]
   },
-  "Pilgramgasse U": {
-    "name": "Pilgramgasse U",
-    "stops": [669, 699, 751, 3135],
-    "location": [48.192747425, 16.35463375]
-  },
   "Pilgramgasse": {
     "name": "Pilgramgasse",
     "stops": [4417, 4420, 5403, 5409],
     "location": [48.192609675, 16.354404674999998]
+  },
+  "Pilgramgasse U": {
+    "name": "Pilgramgasse U",
+    "stops": [669, 699, 751, 3135],
+    "location": [48.192747425, 16.35463375]
   },
   "Plachygasse": {
     "name": "Plachygasse",
@@ -7034,6 +7014,11 @@
     "stops": [410, 415],
     "location": [48.17451695, 16.412314549999998]
   },
+  "Pönningerweg": {
+    "name": "Pönningerweg",
+    "stops": [8907, 8931],
+    "location": [48.2132701, 16.28861655]
+  },
   "Portnergasse": {
     "name": "Portnergasse",
     "stops": [8613, 8629],
@@ -7043,6 +7028,16 @@
     "name": "Possingergasse",
     "stops": [652, 1409, 2953],
     "location": [48.20964443333333, 16.318397200000003]
+  },
+  "Pötzleinsdorf": {
+    "name": "Pötzleinsdorf",
+    "stops": [1313, 1315, 1320, 1331, 3729],
+    "location": [48.24099576, 16.31097652]
+  },
+  "Pötzleinsdorfer Friedhof": {
+    "name": "Pötzleinsdorfer Friedhof",
+    "stops": [1322, 1329],
+    "location": [48.24551555, 16.30743175]
   },
   "Prandaugasse": {
     "name": "Prandaugasse",
@@ -7064,6 +7059,11 @@
     "stops": [2692, 2699],
     "location": [48.19982075, 16.4409663]
   },
+  "Praterstern": {
+    "name": "Praterstern",
+    "stops": [3450, 4112, 4117, 4260, 4263, 5707, 5710],
+    "location": [48.218439171428564, 16.39201841428571]
+  },
   "Praterstern S U": {
     "name": "Praterstern S U",
     "stops": [311, 345, 2100, 2704],
@@ -7073,11 +7073,6 @@
     "name": "Praterstern SU",
     "stops": [3886, 5432],
     "location": [48.214607799999996, 16.3892952]
-  },
-  "Praterstern": {
-    "name": "Praterstern",
-    "stops": [3450, 4112, 4117, 4260, 4263, 5707, 5710],
-    "location": [48.218439171428564, 16.39201841428571]
   },
   "Praterstraße": {
     "name": "Praterstraße",
@@ -7094,6 +7089,11 @@
     "stops": [8942, 8945, 8952],
     "location": [48.1876236, 16.277541833333334]
   },
+  "Preßgasse": {
+    "name": "Preßgasse",
+    "stops": [1682, 1703],
+    "location": [48.19624, 16.3626961]
+  },
   "Pretschgasse": {
     "name": "Pretschgasse",
     "stops": [727, 745],
@@ -7103,11 +7103,6 @@
     "name": "Preyergasse",
     "stops": [1614, 1635, 3738, 3775],
     "location": [48.173866975, 16.285802574999998]
-  },
-  "Preßgasse": {
-    "name": "Preßgasse",
-    "stops": [1682, 1703],
-    "location": [48.19624, 16.3626961]
   },
   "Prinzgasse": {
     "name": "Prinzgasse",
@@ -7119,15 +7114,15 @@
     "stops": [8857, 8864],
     "location": [48.2506271, 16.28094495]
   },
-  "Puchgasse, Maculangasse": {
-    "name": "Puchgasse, Maculangasse",
-    "stops": [3092, 3098],
-    "location": [48.26147665, 16.45598165]
-  },
   "Puchgasse": {
     "name": "Puchgasse",
     "stops": [3089, 3093],
     "location": [48.2600354, 16.4549531]
+  },
+  "Puchgasse, Maculangasse": {
+    "name": "Puchgasse, Maculangasse",
+    "stops": [3092, 3098],
+    "location": [48.26147665, 16.45598165]
   },
   "Pulkaugasse": {
     "name": "Pulkaugasse",
@@ -7144,30 +7139,15 @@
     "stops": [1914, 1936, 1966],
     "location": [48.15002076666667, 16.3340848]
   },
-  "Pönningerweg": {
-    "name": "Pönningerweg",
-    "stops": [8907, 8931],
-    "location": [48.2132701, 16.28861655]
-  },
-  "Pötzleinsdorf": {
-    "name": "Pötzleinsdorf",
-    "stops": [1313, 1315, 1320, 1331, 3729],
-    "location": [48.24099576, 16.31097652]
-  },
-  "Pötzleinsdorfer Friedhof": {
-    "name": "Pötzleinsdorfer Friedhof",
-    "stops": [1322, 1329],
-    "location": [48.24551555, 16.30743175]
+  "Quartier Belvedere S": {
+    "name": "Quartier Belvedere S",
+    "stops": [109, 111, 303, 339],
+    "location": [48.1877109, 16.380747775]
   },
   "Quartier Belvedere S (Expedit)": {
     "name": "Quartier Belvedere S (Expedit)",
     "stops": [7526],
     "location": [48.187368, 16.3821357]
-  },
-  "Quartier Belvedere S": {
-    "name": "Quartier Belvedere S",
-    "stops": [109, 111, 303, 339],
-    "location": [48.1877109, 16.380747775]
   },
   "Quellenplatz": {
     "name": "Quellenplatz",
@@ -7239,15 +7219,15 @@
     "stops": [1485, 1497],
     "location": [48.2054817, 16.39435725]
   },
-  "Rathaus U": {
-    "name": "Rathaus U",
-    "stops": [252, 269],
-    "location": [48.20924135, 16.355181700000003]
-  },
   "Rathaus": {
     "name": "Rathaus",
     "stops": [4205, 4210],
     "location": [48.2103039, 16.3554692]
+  },
+  "Rathaus U": {
+    "name": "Rathaus U",
+    "stops": [252, 269],
+    "location": [48.20924135, 16.355181700000003]
   },
   "Rathausplatz, Burgtheater": {
     "name": "Rathausplatz, Burgtheater",
@@ -7279,20 +7259,15 @@
     "stops": [2512, 2513],
     "location": [48.17335475, 16.42721765]
   },
-  "Raxstraße / Rudolfshügelgasse": {
-    "name": "Raxstraße / Rudolfshügelgasse",
-    "stops": [786, 810],
-    "location": [48.165515400000004, 16.36464995]
+  "Raxstraße": {
+    "name": "Raxstraße",
+    "stops": [299, 786, 810, 1928, 2254, 2260, 5721],
+    "location": [48.16571738571428, 16.364162942857142]
   },
   "Raxstraße, Betriebsgarage": {
     "name": "Raxstraße, Betriebsgarage",
     "stops": [4802, 4811],
     "location": [48.163067749999996, 16.367133799999998]
-  },
-  "Raxstraße, Rudolfshügelgasse": {
-    "name": "Raxstraße, Rudolfshügelgasse",
-    "stops": [299, 1928, 2254, 2260, 5721],
-    "location": [48.165798179999996, 16.36396814]
   },
   "Rebhangasse": {
     "name": "Rebhangasse",
@@ -7324,6 +7299,11 @@
     "stops": [5524],
     "location": [48.2298546, 16.4124538]
   },
+  "Reinlgasse": {
+    "name": "Reinlgasse",
+    "stops": [570, 579, 1558],
+    "location": [48.1933647, 16.311459199999998]
+  },
   "Reinprechtsdorfer Brücke": {
     "name": "Reinprechtsdorfer Brücke",
     "stops": [753, 771],
@@ -7334,15 +7314,15 @@
     "stops": [754, 770, 1687, 1698],
     "location": [48.186445725, 16.353299725]
   },
-  "Rennbahnweg U": {
-    "name": "Rennbahnweg U",
-    "stops": [2668, 5072, 5714],
-    "location": [48.257174600000006, 16.449715933333334]
-  },
   "Rennbahnweg": {
     "name": "Rennbahnweg",
     "stops": [4182, 4187, 5712, 5951, 5954],
     "location": [48.257379959999994, 16.449065540000003]
+  },
+  "Rennbahnweg U": {
+    "name": "Rennbahnweg U",
+    "stops": [2668, 5072, 5714],
+    "location": [48.257174600000006, 16.449715933333334]
   },
   "Renngasse": {
     "name": "Renngasse",
@@ -7369,15 +7349,15 @@
     "stops": [1459, 1464],
     "location": [48.20157505, 16.262313900000002]
   },
-  "Reumannplatz U": {
-    "name": "Reumannplatz U",
-    "stops": [404, 422, 764, 1938, 2007, 2242, 2243, 2579, 2991, 3715, 4829, 5962],
-    "location": [48.17444504166667, 16.378224999999997]
-  },
   "Reumannplatz": {
     "name": "Reumannplatz",
     "stops": [4101, 4128],
     "location": [48.174864400000004, 16.3779405]
+  },
+  "Reumannplatz U": {
+    "name": "Reumannplatz U",
+    "stops": [404, 422, 764, 1938, 2007, 2242, 2243, 2579, 2991, 3715, 4829, 5962],
+    "location": [48.17444504166667, 16.378224999999997]
   },
   "Richard-Neutra-Gasse": {
     "name": "Richard-Neutra-Gasse",
@@ -7409,30 +7389,35 @@
     "stops": [2902, 2916],
     "location": [48.207810550000005, 16.3773117]
   },
-  "Ring, Volkstheater U (Bedarfs-Hst.)": {
-    "name": "Ring, Volkstheater U (Bedarfs-Hst.)",
-    "stops": [4701],
-    "location": [48.2063318, 16.3607468]
-  },
   "Ring, Volkstheater U": {
     "name": "Ring, Volkstheater U",
     "stops": [15, 33, 49, 1375, 3730],
     "location": [48.20708256, 16.35987]
   },
-  "Rochusgasse U": {
-    "name": "Rochusgasse U",
-    "stops": [296, 297, 1495, 1498],
-    "location": [48.202368375000006, 16.391125549999998]
+  "Ring, Volkstheater U (Bedarfs-Hst.)": {
+    "name": "Ring, Volkstheater U (Bedarfs-Hst.)",
+    "stops": [4701],
+    "location": [48.2063318, 16.3607468]
+  },
+  "Röbbelinggasse": {
+    "name": "Röbbelinggasse",
+    "stops": [3404, 3405],
+    "location": [48.23570075, 16.5249453]
   },
   "Rochusgasse": {
     "name": "Rochusgasse",
     "stops": [4903, 4914],
     "location": [48.20242825, 16.39161285]
   },
+  "Rochusgasse U": {
+    "name": "Rochusgasse U",
+    "stops": [296, 297, 1495, 1498],
+    "location": [48.202368375000006, 16.391125549999998]
+  },
   "Rodaun": {
     "name": "Rodaun",
-    "stops": [1625, 2324, 2347, 3865],
-    "location": [48.133430849999996, 16.262127475]
+    "stops": [1624, 1625, 2324, 2347, 3865],
+    "location": [48.13339998, 16.262181820000002]
   },
   "Rodaunbrücke": {
     "name": "Rodaunbrücke",
@@ -7458,6 +7443,16 @@
     "name": "Rohrhofergasse",
     "stops": [2067, 2091],
     "location": [48.1715006, 16.429369100000002]
+  },
+  "Römergasse": {
+    "name": "Römergasse",
+    "stops": [1364, 1366],
+    "location": [48.21689745, 16.3136077]
+  },
+  "Röntgengasse": {
+    "name": "Röntgengasse",
+    "stops": [8877, 8889],
+    "location": [48.22542025, 16.28606535]
   },
   "Rosalia-Chladek-Gasse": {
     "name": "Rosalia-Chladek-Gasse",
@@ -7494,15 +7489,15 @@
     "stops": [1725, 1741, 3762],
     "location": [48.16879266666666, 16.3020179]
   },
-  "Rosensteingasse (Einschübe)": {
-    "name": "Rosensteingasse (Einschübe)",
-    "stops": [4710],
-    "location": [48.2192438, 16.3263323]
-  },
   "Rosensteingasse": {
     "name": "Rosensteingasse",
     "stops": [223, 231, 549, 7319],
     "location": [48.219008824999996, 16.32719695]
+  },
+  "Rosensteingasse (Einschübe)": {
+    "name": "Rosensteingasse (Einschübe)",
+    "stops": [4710],
+    "location": [48.2192438, 16.3263323]
   },
   "Rosentalgasse": {
     "name": "Rosentalgasse",
@@ -7519,10 +7514,25 @@
     "stops": [1852, 1868],
     "location": [48.1480679, 16.32162515]
   },
+  "Roßauer Lände": {
+    "name": "Roßauer Lände",
+    "stops": [4406, 4431],
+    "location": [48.22235005, 16.367573999999998]
+  },
   "Rossinigasse": {
     "name": "Rossinigasse",
     "stops": [8118],
     "location": [48.1842896, 16.2811471]
+  },
+  "Roßkopfgasse": {
+    "name": "Roßkopfgasse",
+    "stops": [8216],
+    "location": [48.2471756, 16.2189477]
+  },
+  "Roßkopfgasse, Hainbachgasse": {
+    "name": "Roßkopfgasse, Hainbachgasse",
+    "stops": [8212],
+    "location": [48.2458057, 16.216666]
   },
   "Rotenmühlgasse": {
     "name": "Rotenmühlgasse",
@@ -7543,21 +7553,6 @@
     "name": "Rothneusiedl",
     "stops": [1980, 2002, 2237, 2246],
     "location": [48.146815200000006, 16.3830317]
-  },
-  "Roßauer Lände": {
-    "name": "Roßauer Lände",
-    "stops": [4406, 4431],
-    "location": [48.22235005, 16.367573999999998]
-  },
-  "Roßkopfgasse, Hainbachgasse": {
-    "name": "Roßkopfgasse, Hainbachgasse",
-    "stops": [8212],
-    "location": [48.2458057, 16.216666]
-  },
-  "Roßkopfgasse": {
-    "name": "Roßkopfgasse",
-    "stops": [8216],
-    "location": [48.2471756, 16.2189477]
   },
   "Ruckergasse": {
     "name": "Ruckergasse",
@@ -7581,8 +7576,8 @@
   },
   "Rudolfsheim, Anschützgasse": {
     "name": "Rudolfsheim, Anschützgasse",
-    "stops": [1582, 3850],
-    "location": [48.190104950000006, 16.32291425]
+    "stops": [1535, 1559, 1582, 3850],
+    "location": [48.190221725, 16.322974875]
   },
   "Rudolfsplatz": {
     "name": "Rudolfsplatz",
@@ -7593,6 +7588,16 @@
     "name": "Rueppgasse",
     "stops": [312, 329],
     "location": [48.220506650000004, 16.3860927]
+  },
+  "Rußbergstrasse": {
+    "name": "Rußbergstrasse",
+    "stops": [3123],
+    "location": [48.2878254, 16.3834292]
+  },
+  "Rußbergstraße": {
+    "name": "Rußbergstraße",
+    "stops": [2179, 2182, 3125],
+    "location": [48.287717799999996, 16.38357]
   },
   "Rustengasse": {
     "name": "Rustengasse",
@@ -7613,31 +7618,6 @@
     "name": "Ruzickagasse",
     "stops": [3785, 3810],
     "location": [48.152556950000005, 16.28441695]
-  },
-  "Rußbergstrasse": {
-    "name": "Rußbergstrasse",
-    "stops": [3123],
-    "location": [48.2878254, 16.3834292]
-  },
-  "Rußbergstraße": {
-    "name": "Rußbergstraße",
-    "stops": [2179, 2182, 3125],
-    "location": [48.287717799999996, 16.38357]
-  },
-  "Röbbelinggasse": {
-    "name": "Röbbelinggasse",
-    "stops": [3404, 3405],
-    "location": [48.23570075, 16.5249453]
-  },
-  "Römergasse": {
-    "name": "Römergasse",
-    "stops": [1364, 1366],
-    "location": [48.21689745, 16.3136077]
-  },
-  "Röntgengasse": {
-    "name": "Röntgengasse",
-    "stops": [8877, 8889],
-    "location": [48.22542025, 16.28606535]
   },
   "Saarplatz": {
     "name": "Saarplatz",
@@ -7703,6 +7683,11 @@
     "name": "Sandrockgasse",
     "stops": [8778],
     "location": [48.2468226, 16.3989162]
+  },
+  "Sängergasse": {
+    "name": "Sängergasse",
+    "stops": [3971],
+    "location": [48.1526978, 16.4696495]
   },
   "Sankt-Hemma-Kirche": {
     "name": "Sankt-Hemma-Kirche",
@@ -7789,15 +7774,15 @@
     "stops": [1312, 1316],
     "location": [48.238844900000004, 16.3181307]
   },
-  "Schemmerlstraße, Unterfeld": {
-    "name": "Schemmerlstraße, Unterfeld",
-    "stops": [419],
-    "location": [48.1605721, 16.4213292]
-  },
   "Schemmerlstraße": {
     "name": "Schemmerlstraße",
     "stops": [37],
     "location": [48.1574201, 16.4233504]
+  },
+  "Schemmerlstraße, Unterfeld": {
+    "name": "Schemmerlstraße, Unterfeld",
+    "stops": [419],
+    "location": [48.1605721, 16.4213292]
   },
   "Scheugasse": {
     "name": "Scheugasse",
@@ -7834,15 +7819,15 @@
     "stops": [3325],
     "location": [48.2119831, 16.5241054]
   },
-  "Schlachthausgasse U": {
-    "name": "Schlachthausgasse U",
-    "stops": [837, 841, 960, 1503, 2672, 3568, 3834],
-    "location": [48.19428577142857, 16.407321857142858]
-  },
   "Schlachthausgasse": {
     "name": "Schlachthausgasse",
     "stops": [2109, 2568, 4901, 4916],
     "location": [48.194253475000004, 16.407075125]
+  },
+  "Schlachthausgasse U": {
+    "name": "Schlachthausgasse U",
+    "stops": [837, 841, 960, 1503, 2672, 3568, 3834],
+    "location": [48.19428577142857, 16.407321857142858]
   },
   "Schleiergasse": {
     "name": "Schleiergasse",
@@ -7904,15 +7889,60 @@
     "stops": [2635],
     "location": [48.2065533, 16.3581057]
   },
+  "Schöberweg": {
+    "name": "Schöberweg",
+    "stops": [8839, 8849],
+    "location": [48.2308719, 16.31158645]
+  },
+  "Schödlbergergasse": {
+    "name": "Schödlbergergasse",
+    "stops": [63, 74],
+    "location": [48.22817605, 16.4207812]
+  },
   "Schoeppelgasse": {
     "name": "Schoeppelgasse",
     "stops": [8011],
     "location": [48.2195909, 16.5378586]
   },
+  "Schöffelgasse": {
+    "name": "Schöffelgasse",
+    "stops": [160],
+    "location": [48.2316558, 16.3260269]
+  },
+  "Schönbrunn": {
+    "name": "Schönbrunn",
+    "stops": [4411, 4426, 5400],
+    "location": [48.18586676666666, 16.318415166666668]
+  },
+  "Schönbrunn U": {
+    "name": "Schönbrunn U",
+    "stops": [723, 724],
+    "location": [48.1855084, 16.3199812]
+  },
+  "Schönbrunner Allee": {
+    "name": "Schönbrunner Allee",
+    "stops": [5905, 5937],
+    "location": [48.13569255, 16.32497585]
+  },
+  "Schönbrunner Str. / Kettenbrückengasse": {
+    "name": "Schönbrunner Str. / Kettenbrückengasse",
+    "stops": [1702],
+    "location": [48.1950095, 16.3611241]
+  },
+  "Schöpfwerk": {
+    "name": "Schöpfwerk",
+    "stops": [5901, 5941],
+    "location": [48.163547050000005, 16.33148415]
+  },
   "Schottenfeldgasse": {
     "name": "Schottenfeldgasse",
     "stops": [1378, 1393],
     "location": [48.207592, 16.3434228]
+  },
+  "Schottenring": {
+    "name": "Schottenring",
+    "stops": [4201, 4214, 4408, 4429, 5569],
+    "location": [48.216925, 16.372063759999996]
   },
   "Schottenring U": {
     "name": "Schottenring U",
@@ -7924,30 +7954,25 @@
     "stops": [5545],
     "location": [48.2172865, 16.3736196]
   },
-  "Schottenring": {
-    "name": "Schottenring",
-    "stops": [4201, 4214, 4408, 4429, 5569],
-    "location": [48.216925, 16.372063759999996]
+  "Schottentor": {
+    "name": "Schottentor",
+    "stops": [4203, 4212],
+    "location": [48.215056849999996, 16.362866750000002]
   },
   "Schottentor (Bedarf)": {
     "name": "Schottentor (Bedarf)",
     "stops": [3711],
     "location": [48.2141081, 16.3607827]
   },
-  "Schottentor U (Bedarf)": {
-    "name": "Schottentor U (Bedarf)",
-    "stops": [3701],
-    "location": [48.2137549, 16.3613936]
-  },
   "Schottentor U": {
     "name": "Schottentor U",
     "stops": [18, 46, 1212, 1303, 1345, 2910, 3851, 5568],
     "location": [48.2140205625, 16.3622918875]
   },
-  "Schottentor": {
-    "name": "Schottentor",
-    "stops": [4203, 4212],
-    "location": [48.215056849999996, 16.362866750000002]
+  "Schottentor U (Bedarf)": {
+    "name": "Schottentor U (Bedarf)",
+    "stops": [3701],
+    "location": [48.2137549, 16.3613936]
   },
   "Schottenwald": {
     "name": "Schottenwald",
@@ -7988,6 +8013,21 @@
     "name": "Schukowitzgasse",
     "stops": [2862, 2869],
     "location": [48.2392607, 16.4990514]
+  },
+  "Schüttauplatz": {
+    "name": "Schüttauplatz",
+    "stops": [62, 8501],
+    "location": [48.226371799999995, 16.423206649999997]
+  },
+  "Schüttaustraße": {
+    "name": "Schüttaustraße",
+    "stops": [59, 60],
+    "location": [48.2308809, 16.41711155]
+  },
+  "Schütthäufel": {
+    "name": "Schütthäufel",
+    "stops": [8101, 8549],
+    "location": [48.208507999999995, 16.470035799999998]
   },
   "Schwanngasse": {
     "name": "Schwanngasse",
@@ -8064,25 +8104,25 @@
     "stops": [2056, 2293],
     "location": [48.14328475, 16.472685849999998]
   },
-  "Schwedenplatz U": {
-    "name": "Schwedenplatz U",
-    "stops": [22, 42, 134, 1000, 2934, 5501, 5502, 5507],
-    "location": [48.2118094625, 16.377437462499998]
-  },
   "Schwedenplatz": {
     "name": "Schwedenplatz",
     "stops": [4113, 4116, 4410, 4427, 5503, 5504, 5505, 5506, 5508],
     "location": [48.21191588888889, 16.377740900000003]
   },
-  "Schweglerstraße U": {
-    "name": "Schweglerstraße U",
-    "stops": [1447, 1475, 3156, 3157],
-    "location": [48.1979795, 16.328393974999997]
+  "Schwedenplatz U": {
+    "name": "Schwedenplatz U",
+    "stops": [22, 42, 134, 1000, 2934, 5501, 5502, 5507],
+    "location": [48.2118094625, 16.377437462499998]
   },
   "Schweglerstraße": {
     "name": "Schweglerstraße",
     "stops": [4924, 4927],
     "location": [48.197695100000004, 16.3286185]
+  },
+  "Schweglerstraße U": {
+    "name": "Schweglerstraße U",
+    "stops": [1447, 1475, 3156, 3157],
+    "location": [48.1979795, 16.328393974999997]
   },
   "Schweizer-Garten-Straße": {
     "name": "Schweizer-Garten-Straße",
@@ -8103,61 +8143,6 @@
     "name": "Schwertgasse",
     "stops": [2905],
     "location": [48.2123422, 16.3696581]
-  },
-  "Schöberweg": {
-    "name": "Schöberweg",
-    "stops": [8839, 8849],
-    "location": [48.2308719, 16.31158645]
-  },
-  "Schödlbergergasse": {
-    "name": "Schödlbergergasse",
-    "stops": [63, 74],
-    "location": [48.22817605, 16.4207812]
-  },
-  "Schöffelgasse": {
-    "name": "Schöffelgasse",
-    "stops": [160],
-    "location": [48.2316558, 16.3260269]
-  },
-  "Schönbrunn U": {
-    "name": "Schönbrunn U",
-    "stops": [723, 724],
-    "location": [48.1855084, 16.3199812]
-  },
-  "Schönbrunn": {
-    "name": "Schönbrunn",
-    "stops": [4411, 4426, 5400],
-    "location": [48.18586676666666, 16.318415166666668]
-  },
-  "Schönbrunner Allee": {
-    "name": "Schönbrunner Allee",
-    "stops": [5905, 5937],
-    "location": [48.13569255, 16.32497585]
-  },
-  "Schönbrunner Str. / Kettenbrückengasse": {
-    "name": "Schönbrunner Str. / Kettenbrückengasse",
-    "stops": [1702],
-    "location": [48.1950095, 16.3611241]
-  },
-  "Schöpfwerk": {
-    "name": "Schöpfwerk",
-    "stops": [5901, 5941],
-    "location": [48.163547050000005, 16.33148415]
-  },
-  "Schüttauplatz": {
-    "name": "Schüttauplatz",
-    "stops": [62, 8501],
-    "location": [48.226371799999995, 16.423206649999997]
-  },
-  "Schüttaustraße": {
-    "name": "Schüttaustraße",
-    "stops": [59, 60],
-    "location": [48.2308809, 16.41711155]
-  },
-  "Schütthäufel": {
-    "name": "Schütthäufel",
-    "stops": [8101, 8549],
-    "location": [48.208507999999995, 16.470035799999998]
   },
   "Scottgasse": {
     "name": "Scottgasse",
@@ -8204,6 +8189,11 @@
     "stops": [115, 130],
     "location": [48.222978499999996, 16.36139805]
   },
+  "Seestadt": {
+    "name": "Seestadt",
+    "stops": [4276, 4277],
+    "location": [48.22610845, 16.508416349999997]
+  },
   "Seestadt  U": {
     "name": "Seestadt  U",
     "stops": [3357, 3365],
@@ -8218,11 +8208,6 @@
     "name": "Seestadt U",
     "stops": [3338, 7394],
     "location": [48.22583315, 16.50847925]
-  },
-  "Seestadt": {
-    "name": "Seestadt",
-    "stops": [4276, 4277],
-    "location": [48.22610845, 16.508416349999997]
   },
   "Segelzentrum Nord": {
     "name": "Segelzentrum Nord",
@@ -8339,6 +8324,11 @@
     "stops": [1589],
     "location": [48.1886557, 16.3234847]
   },
+  "Siebenhirten": {
+    "name": "Siebenhirten",
+    "stops": [4634, 4635],
+    "location": [48.1301258, 16.3097539]
+  },
   "Siebenhirten U": {
     "name": "Siebenhirten U",
     "stops": [3565, 3623, 5682],
@@ -8354,15 +8344,10 @@
     "stops": [2763],
     "location": [48.1297271, 16.2980893]
   },
-  "Siebenhirten": {
-    "name": "Siebenhirten",
-    "stops": [4634, 4635],
-    "location": [48.1301258, 16.3097539]
-  },
   "Siebensterngasse": {
     "name": "Siebensterngasse",
-    "stops": [704, 1486, 1487],
-    "location": [48.20230053333333, 16.351748666666666]
+    "stops": [665, 704, 1442, 1480, 3528],
+    "location": [48.20186184, 16.34959512]
   },
   "Siebertgasse": {
     "name": "Siebertgasse",
@@ -8449,25 +8434,25 @@
     "stops": [1618, 1631],
     "location": [48.15957735, 16.2763231]
   },
-  "Simmering S U, Kaiserebersdorfer Straße": {
-    "name": "Simmering S U, Kaiserebersdorfer Straße",
-    "stops": [2575, 2576],
-    "location": [48.169209050000006, 16.4219939]
+  "Simmering": {
+    "name": "Simmering",
+    "stops": [4937, 4938, 5636],
+    "location": [48.17045819999999, 16.4197451]
   },
   "Simmering S U": {
     "name": "Simmering S U",
     "stops": [2024, 2034, 2058, 2065, 2099, 2588, 5548],
     "location": [48.16989074285714, 16.420153628571427]
   },
+  "Simmering S U, Kaiserebersdorfer Straße": {
+    "name": "Simmering S U, Kaiserebersdorfer Straße",
+    "stops": [2575, 2576],
+    "location": [48.169209050000006, 16.4219939]
+  },
   "Simmering SU": {
     "name": "Simmering SU",
     "stops": [2661],
     "location": [48.1694397, 16.4197122]
-  },
-  "Simmering": {
-    "name": "Simmering",
-    "stops": [4937, 4938, 5636],
-    "location": [48.17045819999999, 16.4197451]
   },
   "Simmeringer Haide": {
     "name": "Simmeringer Haide",
@@ -8564,15 +8549,15 @@
     "stops": [1058, 3121],
     "location": [48.266105249999995, 16.4320685]
   },
+  "Spargelfeldstraße": {
+    "name": "Spargelfeldstraße",
+    "stops": [3184, 3196, 7384],
+    "location": [48.241101433333334, 16.473751866666664]
+  },
   "Spargelfeldstraße Nord": {
     "name": "Spargelfeldstraße Nord",
     "stops": [8086],
     "location": [48.2542578, 16.4846694]
-  },
-  "Spargelfeldstraße": {
-    "name": "Spargelfeldstraße",
-    "stops": [3184, 3196, 7383],
-    "location": [48.241101433333334, 16.473751866666664]
   },
   "Speditionsstraße": {
     "name": "Speditionsstraße",
@@ -8619,15 +8604,15 @@
     "stops": [148, 188, 211, 382],
     "location": [48.222266275, 16.353304225000002]
   },
-  "Spittelau S U": {
-    "name": "Spittelau S U",
-    "stops": [98, 121, 2498, 2499, 3516],
-    "location": [48.234855859999996, 16.35688582]
-  },
   "Spittelau": {
     "name": "Spittelau",
     "stops": [4439, 4440, 4627, 4651],
     "location": [48.235238525, 16.358319075]
+  },
+  "Spittelau S U": {
+    "name": "Spittelau S U",
+    "stops": [98, 121, 2498, 2499, 3516],
+    "location": [48.234855859999996, 16.35688582]
   },
   "Spittelbreitengasse": {
     "name": "Spittelbreitengasse",
@@ -8639,6 +8624,16 @@
     "stops": [934, 949],
     "location": [48.264792650000004, 16.45609395]
   },
+  "St. Marx": {
+    "name": "St. Marx",
+    "stops": [7407],
+    "location": [48.1887695, 16.400066]
+  },
+  "St. Marx S": {
+    "name": "St. Marx S",
+    "stops": [284, 288, 293, 2016, 2043],
+    "location": [48.188648480000005, 16.39980912]
+  },
   "St. Marx S, Grasbergergasse": {
     "name": "St. Marx S, Grasbergergasse",
     "stops": [7424],
@@ -8648,16 +8643,6 @@
     "name": "St. Marx S, Leberstraße",
     "stops": [286],
     "location": [48.1878472, 16.3996438]
-  },
-  "St. Marx S": {
-    "name": "St. Marx S",
-    "stops": [284, 288, 293, 2016, 2043],
-    "location": [48.188648480000005, 16.39980912]
-  },
-  "St. Marx": {
-    "name": "St. Marx",
-    "stops": [7407],
-    "location": [48.1887695, 16.400066]
   },
   "St. Veiter Tor": {
     "name": "St. Veiter Tor",
@@ -8679,15 +8664,15 @@
     "stops": [2643, 2644],
     "location": [48.161968200000004, 16.31179755]
   },
-  "Stadion U": {
-    "name": "Stadion U",
-    "stops": [2420, 2422, 2697],
-    "location": [48.21101133333334, 16.421538766666668]
-  },
   "Stadion": {
     "name": "Stadion",
     "stops": [614, 4257, 4266, 5789],
     "location": [48.210926525, 16.421187675]
+  },
+  "Stadion U": {
+    "name": "Stadion U",
+    "stops": [2420, 2422, 2697],
+    "location": [48.21101133333334, 16.421538766666668]
   },
   "Stadionbad": {
     "name": "Stadionbad",
@@ -8699,6 +8684,11 @@
     "stops": [2108, 2111, 2131],
     "location": [48.197221033333335, 16.411522533333333]
   },
+  "Stadlau": {
+    "name": "Stadlau",
+    "stops": [4254, 4269],
+    "location": [48.219614899999996, 16.449037699999998]
+  },
   "Stadlau < >": {
     "name": "Stadlau < >",
     "stops": [8733],
@@ -8708,11 +8698,6 @@
     "name": "Stadlau S U",
     "stops": [2729, 2748],
     "location": [48.219088150000005, 16.448741249999998]
-  },
-  "Stadlau": {
-    "name": "Stadlau",
-    "stops": [4254, 4269],
-    "location": [48.219614899999996, 16.449037699999998]
   },
   "Stadlauer Brücke": {
     "name": "Stadlauer Brücke",
@@ -8744,6 +8729,11 @@
     "stops": [2463, 2465],
     "location": [48.28270555, 16.4878]
   },
+  "Stammersdorf": {
+    "name": "Stammersdorf",
+    "stops": [2212, 5732],
+    "location": [48.297979749999996, 16.420354500000002]
+  },
   "Stammersdorf B7": {
     "name": "Stammersdorf B7",
     "stops": [5549],
@@ -8753,11 +8743,6 @@
     "name": "Stammersdorf, Freiheitsplatz",
     "stops": [2432],
     "location": [48.3011052, 16.416092]
-  },
-  "Stammersdorf": {
-    "name": "Stammersdorf",
-    "stops": [2212, 5732],
-    "location": [48.297979749999996, 16.420354500000002]
   },
   "Stammhausstraße": {
     "name": "Stammhausstraße",
@@ -8789,15 +8774,15 @@
     "stops": [987, 988],
     "location": [48.28368895, 16.4027655]
   },
-  "Steinbrechergasse": {
-    "name": "Steinbrechergasse",
-    "stops": [3049, 8609],
-    "location": [48.23366635, 16.4386801]
-  },
   "Steinböckengasse": {
     "name": "Steinböckengasse",
     "stops": [3238],
     "location": [48.2037095, 16.2602433]
+  },
+  "Steinbrechergasse": {
+    "name": "Steinbrechergasse",
+    "stops": [3049, 8609],
+    "location": [48.23366635, 16.4386801]
   },
   "Steinergasse": {
     "name": "Steinergasse",
@@ -8834,15 +8819,15 @@
     "stops": [2863, 2868],
     "location": [48.2386774, 16.493396500000003]
   },
-  "Stephansplatz U": {
-    "name": "Stephansplatz U",
-    "stops": [2720, 2903, 2915],
-    "location": [48.20879233333333, 16.372481766666667]
-  },
   "Stephansplatz": {
     "name": "Stephansplatz",
     "stops": [4111, 4118, 4906, 4911],
     "location": [48.2080545, 16.371564725]
+  },
+  "Stephansplatz U": {
+    "name": "Stephansplatz U",
+    "stops": [2720, 2903, 2915],
+    "location": [48.20879233333333, 16.372481766666667]
   },
   "Sterngasse": {
     "name": "Sterngasse",
@@ -8954,45 +8939,20 @@
     "stops": [8813],
     "location": [48.2591443, 16.3961943]
   },
-  "Stubentor U": {
-    "name": "Stubentor U",
-    "stops": [10, 54, 268, 291, 2917],
-    "location": [48.2070622, 16.380202500000003]
-  },
   "Stubentor": {
     "name": "Stubentor",
     "stops": [4905, 4912],
     "location": [48.2069305, 16.37926555]
   },
+  "Stubentor U": {
+    "name": "Stubentor U",
+    "stops": [10, 54, 268, 291, 2917],
+    "location": [48.2070622, 16.380202500000003]
+  },
   "Sturgasse": {
     "name": "Sturgasse",
     "stops": [616, 2747],
     "location": [48.216277950000006, 16.4145918]
-  },
-  "Sulzengasse": {
-    "name": "Sulzengasse",
-    "stops": [3178, 3180],
-    "location": [48.1447713, 16.37484585]
-  },
-  "Sulzwiese": {
-    "name": "Sulzwiese",
-    "stops": [862, 866],
-    "location": [48.27747465, 16.32012945]
-  },
-  "Svetelskystraße": {
-    "name": "Svetelskystraße",
-    "stops": [2299, 2312, 2315, 3972, 5677],
-    "location": [48.15427152, 16.46599518]
-  },
-  "Swatoschgasse": {
-    "name": "Swatoschgasse",
-    "stops": [821, 822],
-    "location": [48.1659707, 16.41063025]
-  },
-  "Sängergasse": {
-    "name": "Sängergasse",
-    "stops": [3971],
-    "location": [48.1526978, 16.4696495]
   },
   "Südbahnhof S": {
     "name": "Südbahnhof S",
@@ -9009,15 +8969,15 @@
     "stops": [2572, 2573],
     "location": [48.142259749999994, 16.367017]
   },
-  "Südtiroler Platz S U": {
-    "name": "Südtiroler Platz S U",
-    "stops": [2674],
-    "location": [48.1860504, 16.3750749]
-  },
   "Südtiroler Platz": {
     "name": "Südtiroler Platz",
     "stops": [4105, 4124],
     "location": [48.18719435, 16.3735433]
+  },
+  "Südtiroler Platz S U": {
+    "name": "Südtiroler Platz S U",
+    "stops": [2674],
+    "location": [48.1860504, 16.3750749]
   },
   "Südwestfriedhof 1. Tor": {
     "name": "Südwestfriedhof 1. Tor",
@@ -9039,6 +8999,16 @@
     "stops": [3887, 3888],
     "location": [48.16087765, 16.30292675]
   },
+  "Sulzengasse": {
+    "name": "Sulzengasse",
+    "stops": [3178, 3180],
+    "location": [48.1447713, 16.37484585]
+  },
+  "Sulzwiese": {
+    "name": "Sulzwiese",
+    "stops": [862, 866],
+    "location": [48.27747465, 16.32012945]
+  },
   "Süßenbrunn, Sportpark": {
     "name": "Süßenbrunn, Sportpark",
     "stops": [3040],
@@ -9049,30 +9019,35 @@
     "stops": [940, 3958],
     "location": [48.27744175, 16.49570515]
   },
-  "Süßenbrunner Straße, Oberfeldgasse": {
-    "name": "Süßenbrunner Straße, Oberfeldgasse",
-    "stops": [7381],
-    "location": [48.2430299, 16.46885]
-  },
   "Süßenbrunner Straße": {
     "name": "Süßenbrunner Straße",
     "stops": [1078, 1079, 2483, 2490, 8080],
     "location": [48.23608606, 16.46251872]
   },
-  "TREFFPUNKT MUSEUM MARIA-THERESIEN-PLATZ": {
-    "name": "TREFFPUNKT MUSEUM MARIA-THERESIEN-PLATZ",
-    "stops": [2888],
-    "location": [48.2061223, 16.3603515]
+  "Süßenbrunner Straße, Oberfeldgasse": {
+    "name": "Süßenbrunner Straße, Oberfeldgasse",
+    "stops": [7381],
+    "location": [48.2430299, 16.46885]
   },
-  "Taborstraße U": {
-    "name": "Taborstraße U",
-    "stops": [1002, 1019, 2685, 2759],
-    "location": [48.21921385, 16.3805232]
+  "Svetelskystraße": {
+    "name": "Svetelskystraße",
+    "stops": [2299, 2312, 2315, 3972, 5677],
+    "location": [48.15427152, 16.46599518]
+  },
+  "Swatoschgasse": {
+    "name": "Swatoschgasse",
+    "stops": [821, 822],
+    "location": [48.1659707, 16.41063025]
   },
   "Taborstraße": {
     "name": "Taborstraße",
     "stops": [313, 4261, 4262],
     "location": [48.22018343333334, 16.381812266666667]
+  },
+  "Taborstraße U": {
+    "name": "Taborstraße U",
+    "stops": [1002, 1019, 2685, 2759],
+    "location": [48.21921385, 16.3805232]
   },
   "Taglieberstraße": {
     "name": "Taglieberstraße",
@@ -9129,6 +9104,11 @@
     "stops": [2231, 2253],
     "location": [48.15543355, 16.350712549999997]
   },
+  "Thaliastraße": {
+    "name": "Thaliastraße",
+    "stops": [4608, 4621, 5660, 5668, 7327],
+    "location": [48.20814222, 16.3383266]
+  },
   "Thaliastraße >, Koppstraße": {
     "name": "Thaliastraße >, Koppstraße",
     "stops": [1406],
@@ -9143,11 +9123,6 @@
     "name": "Thaliastraße, Haberlgasse",
     "stops": [1381, 1390],
     "location": [48.2098699, 16.3300289]
-  },
-  "Thaliastraße": {
-    "name": "Thaliastraße",
-    "stops": [4608, 4621, 5660, 5668, 7327],
-    "location": [48.20814222, 16.3383266]
   },
   "Theater in der Josefstadt": {
     "name": "Theater in der Josefstadt",
@@ -9219,6 +9194,11 @@
     "stops": [8955],
     "location": [48.1810133, 16.2776167]
   },
+  "Töllergasse": {
+    "name": "Töllergasse",
+    "stops": [1115, 1130],
+    "location": [48.26163215, 16.42137855]
+  },
   "Tolstojgasse": {
     "name": "Tolstojgasse",
     "stops": [8116],
@@ -9254,6 +9234,11 @@
     "stops": [1923, 1929, 2546],
     "location": [48.143893166666665, 16.34108863333333]
   },
+  "TREFFPUNKT MUSEUM MARIA-THERESIEN-PLATZ": {
+    "name": "TREFFPUNKT MUSEUM MARIA-THERESIEN-PLATZ",
+    "stops": [2888],
+    "location": [48.2061223, 16.3603515]
+  },
   "Tribuswinkel - Josefsthal": {
     "name": "Tribuswinkel - Josefsthal",
     "stops": [5916, 5926],
@@ -9284,15 +9269,15 @@
     "stops": [5784],
     "location": [48.2178611, 16.4767462]
   },
+  "Troststraße": {
+    "name": "Troststraße",
+    "stops": [1939, 2251, 4129, 4138],
+    "location": [48.16853652499999, 16.380538925]
+  },
   "Troststraße U": {
     "name": "Troststraße U",
     "stops": [3408],
     "location": [48.1688706, 16.3793868]
-  },
-  "Troststraße": {
-    "name": "Troststraße",
-    "stops": [1876, 1882, 1939, 2251, 4129, 4138],
-    "location": [48.1699499, 16.37159545]
   },
   "Tscherttegasse": {
     "name": "Tscherttegasse",
@@ -9304,20 +9289,15 @@
     "stops": [3757, 8131],
     "location": [48.1539773, 16.2916708]
   },
-  "Twarochgasse": {
-    "name": "Twarochgasse",
-    "stops": [8841, 8847],
-    "location": [48.23305005, 16.305379100000003]
-  },
-  "Töllergasse": {
-    "name": "Töllergasse",
-    "stops": [1115, 1130],
-    "location": [48.26163215, 16.42137855]
-  },
   "Türkenschanzplatz": {
     "name": "Türkenschanzplatz",
     "stops": [1310, 1318, 2967, 2982],
     "location": [48.23493487500001, 16.327571975]
+  },
+  "Twarochgasse": {
+    "name": "Twarochgasse",
+    "stops": [8841, 8847],
+    "location": [48.23305005, 16.305379100000003]
   },
   "Uhlirzgasse": {
     "name": "Uhlirzgasse",
@@ -9361,8 +9341,18 @@
   },
   "Ungargasse, Neulinggasse": {
     "name": "Ungargasse, Neulinggasse",
-    "stops": [1483, 1489],
-    "location": [48.1990663, 16.3873818]
+    "stops": [307, 335, 1483, 1489],
+    "location": [48.1990678, 16.38737955]
+  },
+  "Unter der Kirche": {
+    "name": "Unter der Kirche",
+    "stops": [2066, 2083],
+    "location": [48.172372249999995, 16.42698855]
+  },
+  "Unter St. Veit": {
+    "name": "Unter St. Veit",
+    "stops": [2809, 2812, 4405, 4432],
+    "location": [48.191084125, 16.28672335]
   },
   "Unter St. Veit U": {
     "name": "Unter St. Veit U",
@@ -9374,30 +9364,20 @@
     "stops": [2741, 8943, 8944],
     "location": [48.18724626666667, 16.2823029]
   },
-  "Unter St. Veit": {
-    "name": "Unter St. Veit",
-    "stops": [2809, 2812, 4405, 4432],
-    "location": [48.191084125, 16.28672335]
-  },
-  "Unter der Kirche": {
-    "name": "Unter der Kirche",
-    "stops": [2066, 2083],
-    "location": [48.172372249999995, 16.42698855]
-  },
   "Unteres Belvedere": {
     "name": "Unteres Belvedere",
     "stops": [2012, 2047],
     "location": [48.1971592, 16.3799797]
   },
-  "Unterlaa, Stadtgrenze": {
-    "name": "Unterlaa, Stadtgrenze",
-    "stops": [1520, 3388],
-    "location": [48.1310941, 16.42726705]
-  },
   "Unterlaa": {
     "name": "Unterlaa",
     "stops": [1523, 1991],
     "location": [48.13286574999999, 16.4145648]
+  },
+  "Unterlaa, Stadtgrenze": {
+    "name": "Unterlaa, Stadtgrenze",
+    "stops": [1520, 3388],
+    "location": [48.1310941, 16.42726705]
   },
   "Unterlaaer Straße": {
     "name": "Unterlaaer Straße",
@@ -9534,15 +9514,15 @@
     "stops": [2683],
     "location": [48.222751, 16.3856121]
   },
-  "Volkstheater U": {
-    "name": "Volkstheater U",
-    "stops": [1401, 1440, 1482],
-    "location": [48.20509853333334, 16.357231333333335]
-  },
   "Volkstheater": {
     "name": "Volkstheater",
     "stops": [4206, 4209, 4908, 4909, 5692],
     "location": [48.20533442, 16.358403959999997]
+  },
+  "Volkstheater U": {
+    "name": "Volkstheater U",
+    "stops": [1401, 1440, 1482],
+    "location": [48.20509853333334, 16.357231333333335]
   },
   "Voltelinistraße": {
     "name": "Voltelinistraße",
@@ -9559,15 +9539,15 @@
     "stops": [8210, 8218],
     "location": [48.231509200000005, 16.197832849999998]
   },
-  "Vorgartenstraße U": {
-    "name": "Vorgartenstraße U",
-    "stops": [597, 649],
-    "location": [48.224402850000004, 16.40145395]
-  },
   "Vorgartenstraße": {
     "name": "Vorgartenstraße",
     "stops": [3570, 3574, 4110, 4119, 5521, 5711],
     "location": [48.224078666666664, 16.401533283333332]
+  },
+  "Vorgartenstraße U": {
+    "name": "Vorgartenstraße U",
+    "stops": [597, 649, 7427],
+    "location": [48.224029800000004, 16.4018956]
   },
   "Vorwärtsplatz": {
     "name": "Vorwärtsplatz",
@@ -9609,15 +9589,40 @@
     "stops": [3234],
     "location": [48.2051225, 16.2624621]
   },
-  "Waidhausenstraße": {
-    "name": "Waidhausenstraße",
-    "stops": [1456, 1467, 2267],
-    "location": [48.197502500000006, 16.280647000000002]
+  "Währinger Gürtel": {
+    "name": "Währinger Gürtel",
+    "stops": [4709],
+    "location": [48.2255339, 16.3493022]
+  },
+  "Währinger Park": {
+    "name": "Währinger Park",
+    "stops": [1231, 1296],
+    "location": [48.232747849999996, 16.34692175]
+  },
+  "Währinger Straße": {
+    "name": "Währinger Straße",
+    "stops": [5663, 5665],
+    "location": [48.22468415, 16.34928875]
+  },
+  "Währinger Straße - Volksoper": {
+    "name": "Währinger Straße - Volksoper",
+    "stops": [4604, 4625],
+    "location": [48.2256716, 16.3495268]
+  },
+  "Währinger Straße, Volksoper U": {
+    "name": "Währinger Straße, Volksoper U",
+    "stops": [147, 189, 493, 1274, 1299, 1336],
+    "location": [48.22510605, 16.349278299999998]
   },
   "Waidäckergasse": {
     "name": "Waidäckergasse",
     "stops": [1415, 1424],
     "location": [48.20737655, 16.29428945]
+  },
+  "Waidhausenstraße": {
+    "name": "Waidhausenstraße",
+    "stops": [1456, 1467, 2267],
+    "location": [48.197502500000006, 16.280647000000002]
   },
   "Walcherstraße": {
     "name": "Walcherstraße",
@@ -9638,6 +9643,11 @@
     "name": "Wallensteinplatz",
     "stops": [350, 387, 2202, 2224, 2758],
     "location": [48.22985582, 16.37106484]
+  },
+  "Wällischgasse": {
+    "name": "Wällischgasse",
+    "stops": [2503, 2523],
+    "location": [48.195620250000005, 16.407549]
   },
   "Wallishaussergasse": {
     "name": "Wallishaussergasse",
@@ -9674,25 +9684,20 @@
     "stops": [3953, 3954],
     "location": [48.6945799, 15.57874535]
   },
-  "Wattmanngasse, Elisabethallee": {
-    "name": "Wattmanngasse, Elisabethallee",
-    "stops": [1719],
-    "location": [48.1764968, 16.2952596]
-  },
   "Wattmanngasse": {
     "name": "Wattmanngasse",
     "stops": [1727, 1739],
     "location": [48.17087454999999, 16.29143725]
   },
+  "Wattmanngasse, Elisabethallee": {
+    "name": "Wattmanngasse, Elisabethallee",
+    "stops": [1719],
+    "location": [48.1764968, 16.2952596]
+  },
   "Wehlistraße": {
     "name": "Wehlistraße",
     "stops": [2536],
     "location": [48.2035359, 16.4338966]
-  },
-  "Wehrbrücklstraße, Gernotgasse": {
-    "name": "Wehrbrücklstraße, Gernotgasse",
-    "stops": [8046],
-    "location": [48.2196687, 16.5291539]
   },
   "Wehrbrücklstraße": {
     "name": "Wehrbrücklstraße",
@@ -9739,11 +9744,6 @@
     "stops": [2655],
     "location": [48.1921111, 16.2957626]
   },
-  "Weitlofgasse": {
-    "name": "Weitlofgasse",
-    "stops": [1247],
-    "location": [48.2302376, 16.3481254]
-  },
   "Weißenböckstraße": {
     "name": "Weißenböckstraße",
     "stops": [2026, 2032, 2144, 2145, 5778, 5815],
@@ -9753,6 +9753,11 @@
     "name": "Weißenthurngasse",
     "stops": [1772, 1785],
     "location": [48.17482545, 16.3145554]
+  },
+  "Weitlofgasse": {
+    "name": "Weitlofgasse",
+    "stops": [1247],
+    "location": [48.2302376, 16.3481254]
   },
   "Welthandelsplatz": {
     "name": "Welthandelsplatz",
@@ -9769,50 +9774,55 @@
     "stops": [1598, 1604],
     "location": [48.18697275, 16.29347645]
   },
+  "Westbahnhof": {
+    "name": "Westbahnhof",
+    "stops": [4610, 4619, 4920, 4921, 5658, 5669, 7341],
+    "location": [48.196722928571425, 16.338550685714285]
+  },
   "Westbahnhof (Bed.-HS)": {
     "name": "Westbahnhof (Bed.-HS)",
     "stops": [368],
     "location": [48.1966802, 16.3394567]
-  },
-  "Westbahnhof S U, Gerstnerstraße": {
-    "name": "Westbahnhof S U, Gerstnerstraße",
-    "stops": [1548, 1549],
-    "location": [48.195416699999996, 16.33817215]
   },
   "Westbahnhof S U": {
     "name": "Westbahnhof S U",
     "stops": [36, 370, 464, 483, 484, 1531, 5846],
     "location": [48.19679734285713, 16.338983142857142]
   },
+  "Westbahnhof S U, Gerstnerstraße": {
+    "name": "Westbahnhof S U, Gerstnerstraße",
+    "stops": [1548, 1549],
+    "location": [48.195416699999996, 16.33817215]
+  },
   "Westbahnhof, Gerstnerstraße": {
     "name": "Westbahnhof, Gerstnerstraße",
     "stops": [5767],
     "location": [48.1955125, 16.338783]
   },
-  "Westbahnhof": {
-    "name": "Westbahnhof",
-    "stops": [4610, 4619, 4920, 4921, 5658, 5669, 7341],
-    "location": [48.196722928571425, 16.338550685714285]
+  "Westbahnstraße, Kaiserstraße": {
+    "name": "Westbahnstraße, Kaiserstraße",
+    "stops": [1444, 1478],
+    "location": [48.2018295, 16.340516700000002]
   },
-  "Westbahnstraße": {
-    "name": "Westbahnstraße",
-    "stops": [362, 374],
-    "location": [48.20182955, 16.340503249999998]
+  "Westbahnstraße, Zieglergasse": {
+    "name": "Westbahnstraße, Zieglergasse",
+    "stops": [1443, 1479],
+    "location": [48.20182355, 16.345035199999998]
   },
   "Westbhahnhof >": {
     "name": "Westbhahnhof >",
     "stops": [5772],
     "location": [48.1973328, 16.3388997]
   },
-  "Wexstraße (Bedarf)": {
-    "name": "Wexstraße (Bedarf)",
-    "stops": [7531, 7540],
-    "location": [48.235946049999995, 16.36699905]
-  },
   "Wexstraße": {
     "name": "Wexstraße",
     "stops": [1190, 2166, 2194, 2534],
     "location": [48.236017849999996, 16.3658627]
+  },
+  "Wexstraße (Bedarf)": {
+    "name": "Wexstraße (Bedarf)",
+    "stops": [7531, 7540],
+    "location": [48.235946049999995, 16.36699905]
   },
   "Weyrgasse": {
     "name": "Weyrgasse",
@@ -9821,8 +9831,8 @@
   },
   "Widholzgasse": {
     "name": "Widholzgasse",
-    "stops": [2368],
-    "location": [48.155904, 16.4514227]
+    "stops": [2297, 2314],
+    "location": [48.1547713, 16.4554741]
   },
   "Wiedgasse": {
     "name": "Wiedgasse",
@@ -9889,11 +9899,6 @@
     "stops": [3976, 3977],
     "location": [48.15848375, 16.29924815]
   },
-  "Wildholzgasse": {
-    "name": "Wildholzgasse",
-    "stops": [2357],
-    "location": [48.15585, 16.4515485]
-  },
   "Wildpretstraße": {
     "name": "Wildpretstraße",
     "stops": [5002, 5025],
@@ -9949,15 +9954,15 @@
     "stops": [5829, 5836],
     "location": [48.180677849999995, 16.468975800000003]
   },
-  "Wittelsbachstraße / Schüttelstraße": {
-    "name": "Wittelsbachstraße / Schüttelstraße",
-    "stops": [2114],
-    "location": [48.206272, 16.3980358]
-  },
   "Wittelsbachstraße": {
     "name": "Wittelsbachstraße",
     "stops": [167, 170, 2104],
     "location": [48.206206099999996, 16.39921563333333]
+  },
+  "Wittelsbachstraße / Schüttelstraße": {
+    "name": "Wittelsbachstraße / Schüttelstraße",
+    "stops": [2114],
+    "location": [48.206272, 16.3980358]
   },
   "Wittgensteinstraße": {
     "name": "Wittgensteinstraße",
@@ -10034,36 +10039,6 @@
     "stops": [8079, 8099, 8545, 8561],
     "location": [48.215489375000004, 16.468313275]
   },
-  "Währinger Gürtel": {
-    "name": "Währinger Gürtel",
-    "stops": [4709],
-    "location": [48.2255339, 16.3493022]
-  },
-  "Währinger Park": {
-    "name": "Währinger Park",
-    "stops": [1231, 1296],
-    "location": [48.232747849999996, 16.34692175]
-  },
-  "Währinger Straße - Volksoper": {
-    "name": "Währinger Straße - Volksoper",
-    "stops": [4604, 4625],
-    "location": [48.2256716, 16.3495268]
-  },
-  "Währinger Straße, Volksoper U": {
-    "name": "Währinger Straße, Volksoper U",
-    "stops": [147, 189, 493, 1274, 1299, 1336],
-    "location": [48.22510605, 16.349278299999998]
-  },
-  "Währinger Straße": {
-    "name": "Währinger Straße",
-    "stops": [5663, 5665],
-    "location": [48.22468415, 16.34928875]
-  },
-  "Wällischgasse": {
-    "name": "Wällischgasse",
-    "stops": [2503, 2523],
-    "location": [48.195620250000005, 16.407549]
-  },
   "Würtzlerstraße": {
     "name": "Würtzlerstraße",
     "stops": [2507],
@@ -10099,6 +10074,11 @@
     "stops": [1542, 1553, 2270],
     "location": [48.1946562, 16.286180633333334]
   },
+  "Zehngrafweg": {
+    "name": "Zehngrafweg",
+    "stops": [2357, 2368],
+    "location": [48.155877000000004, 16.451485599999998]
+  },
   "Zeleborgasse": {
     "name": "Zeleborgasse",
     "stops": [3220],
@@ -10126,8 +10106,8 @@
   },
   "Zentralfriedhof 3. Tor": {
     "name": "Zentralfriedhof 3. Tor",
-    "stops": [3989, 3990, 3992],
-    "location": [48.1522383, 16.449197899999998]
+    "stops": [3989, 3990, 3991, 3992],
+    "location": [48.1522363, 16.449149999999996]
   },
   "Zentralfriedhof 3.Tor": {
     "name": "Zentralfriedhof 3.Tor",
@@ -10184,6 +10164,11 @@
     "stops": [671, 697, 2639],
     "location": [48.192380633333336, 16.36056113333333]
   },
+  "Zieglergasse": {
+    "name": "Zieglergasse",
+    "stops": [4919, 4922, 5608, 5609],
+    "location": [48.197132225, 16.346149175]
+  },
   "Zieglergasse / Burggasse": {
     "name": "Zieglergasse / Burggasse",
     "stops": [1433],
@@ -10193,11 +10178,6 @@
     "name": "Zieglergasse / Neustiftgasse",
     "stops": [1404],
     "location": [48.2057451, 16.3453227]
-  },
-  "Zieglergasse": {
-    "name": "Zieglergasse",
-    "stops": [1443, 1479, 4919, 4922, 5608, 5609],
-    "location": [48.198696000000005, 16.34577785]
   },
   "Ziehrerplatz": {
     "name": "Ziehrerplatz",
@@ -10239,15 +10219,15 @@
     "stops": [2654],
     "location": [48.1673787, 16.4753538]
   },
-  "Zippererstraße U": {
-    "name": "Zippererstraße U",
-    "stops": [2020, 2039],
-    "location": [48.179449950000006, 16.41063475]
-  },
   "Zippererstraße": {
     "name": "Zippererstraße",
     "stops": [4935, 4940, 5632, 5646],
     "location": [48.17992015, 16.41128825]
+  },
+  "Zippererstraße U": {
+    "name": "Zippererstraße U",
+    "stops": [2020, 2039],
+    "location": [48.179449950000006, 16.41063475]
   },
   "Zouvalgasse": {
     "name": "Zouvalgasse",
@@ -10263,20 +10243,5 @@
     "name": "Zwerchäckerweg",
     "stops": [2624, 2625],
     "location": [48.2496461, 16.46718815]
-  },
-  "Ährengrubenweg": {
-    "name": "Ährengrubenweg",
-    "stops": [1358, 1374],
-    "location": [48.25357595, 16.3119099]
-  },
-  "Ödenburger Straße, Schulzentrum": {
-    "name": "Ödenburger Straße, Schulzentrum",
-    "stops": [984, 985],
-    "location": [48.28207785, 16.4017459]
-  },
-  "Ölhafen": {
-    "name": "Ölhafen",
-    "stops": [8521],
-    "location": [48.1660306, 16.5098851]
   }
 }

@@ -2,7 +2,6 @@ import fs from 'node:fs/promises'
 import process from 'node:process'
 
 import csv from 'csvtojson'
-import fetch from 'node-fetch'
 import { z } from 'zod'
 
 import lib from '../src/lib'

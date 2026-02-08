@@ -41,8 +41,6 @@
     "@types/react-dom": "catalog:",
     "@yeger/playwright-config": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
-    "autoprefixer": "catalog:",
-    "node-fetch": "catalog:",
     "postcss": "catalog:",
     "tailwindcss": "catalog:",
     "tsx": "catalog:",

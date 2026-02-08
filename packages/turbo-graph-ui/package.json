@@ -56,8 +56,6 @@
     "@yeger/debounce": "workspace:*",
     "@yeger/streams": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
-    "autoprefixer": "catalog:",
-    "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "d3-dag": "catalog:",
     "d3-scale": "catalog:",

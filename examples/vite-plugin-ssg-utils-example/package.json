@@ -9,15 +9,12 @@
     "check:tsc": "tsc"
   },
   "devDependencies": {
-    "@unhead/vue": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@yeger/tsconfig": "workspace:*",
-    "critters": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vite-plugin-ssg-utils": "workspace:*",
     "vite-ssg": "catalog:",
-    "vue": "catalog:",
-    "vue-router": "catalog:"
+    "vue": "catalog:"
   }
 }

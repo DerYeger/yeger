@@ -9,7 +9,6 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "catalog:",
     "vecti": "workspace:*",
     "vue": "catalog:"
   },

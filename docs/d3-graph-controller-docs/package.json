@@ -10,7 +10,6 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "@algolia/client-search": "catalog:",
     "d3-graph-controller": "workspace:*",
     "vue": "catalog:"
   },

@@ -36,17 +36,13 @@
     "@unocss/nuxt": "catalog:",
     "@unocss/reset": "catalog:",
     "@vite-pwa/nuxt": "catalog:",
-    "@vue/shared": "catalog:",
     "@vueuse/nuxt": "catalog:",
     "@yeger/playwright-config": "workspace:*",
-    "node-fetch-native": "catalog:",
     "nuxt": "catalog:",
     "serve": "catalog:",
     "typescript": "catalog:",
-    "ufo": "catalog:",
     "vite": "catalog:",
     "vue": "catalog:",
-    "vue-router": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

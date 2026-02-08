@@ -61,7 +61,6 @@
     "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
-    "cross-env": "catalog:",
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",

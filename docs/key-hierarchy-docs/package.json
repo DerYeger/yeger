@@ -10,15 +10,14 @@
     "preview": "vitepress serve"
   },
   "dependencies": {
-    "key-hierarchy": "workspace:*"
+    "key-hierarchy": "workspace:*",
+    "vue": "catalog:"
   },
   "devDependencies": {
-    "@algolia/client-search": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitepress": "catalog:",
-    "vue": "catalog:",
     "vue-tsc": "catalog:"
   }
 }
