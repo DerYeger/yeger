@@ -1,5 +1,11 @@
 # @yeger/vitest-utils
 
+## 1.2.1
+
+### Patch Changes
+
+- cc961ed: use public deepmerge
+
 ## 1.2.0
 
 ### Minor Changes
