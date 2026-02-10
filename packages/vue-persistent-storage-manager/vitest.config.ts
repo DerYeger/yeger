@@ -6,18 +6,22 @@ export default defineConfig({
   test: {
     projects: [
       {
-        test: {
-          name: 'browser',
-          include: ['test/{browser,integration}.test.ts'],
-          ...defineTestConfig({ browser: playwright() }),
-        },
+        test: defineTestConfig(
+          { browser: playwright() },
+          {
+            name: 'browser',
+            include: ['test/{browser,integration}.test.ts'],
+          },
+        ),
       },
       {
-        test: {
-          name: 'node',
-          include: ['test/node.test.ts'],
-          ...defineTestConfig(),
-        },
+        test: defineTestConfig(
+          {},
+          {
+            name: 'node',
+            include: ['test/node.test.ts'],
+          },
+        ),
       },
     ],
     sequence: {

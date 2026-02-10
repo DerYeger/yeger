@@ -37,6 +37,9 @@
     "check:tsc": "tsc",
     "dev": "tsdown --watch"
   },
+  "dependencies": {
+    "@yeger/deepmerge": "workspace:*"
+  },
   "devDependencies": {
     "@yeger/tsconfig": "workspace:*",
     "publint": "catalog:",

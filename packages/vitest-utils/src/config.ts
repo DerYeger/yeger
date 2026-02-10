@@ -1,8 +1,12 @@
 import process from 'node:process'
 import type { TestUserConfig } from 'vitest/config'
 import type { BrowserProviderOption } from 'vitest/node'
+import deepmerge from '@yeger/deepmerge'
 
 export const configuration: Record<string, TestUserConfig> = {
+  common: {
+    silent: 'passed-only',
+  },
   coverage: {
     coverage: {
       enabled: !!process.env.COVERAGE,
@@ -15,9 +19,6 @@ export const configuration: Record<string, TestUserConfig> = {
     clearMocks: true,
     mockReset: true,
     restoreMocks: true,
-    sequence: {
-      shuffle: true,
-    },
     unstubEnvs: true,
     unstubGlobals: true,
   },
@@ -25,11 +26,15 @@ export const configuration: Record<string, TestUserConfig> = {
 
 export interface ConfigurationOptions {
   /**
-   * Enable coverage configuration. Default: true
+   * Enables common configuration options. Default: `true`
+   */
+  common?: boolean
+  /**
+   * Enable coverage configuration. Default: `true`
    */
   coverage?: boolean
   /**
-   * Enable idempotent configuration. Default: true
+   * Enable idempotent configuration. Default: `true`
    */
   idempotent?: boolean
   /**
@@ -41,12 +46,15 @@ export interface ConfigurationOptions {
 /**
  * Define a Vitest test configuration with coverage, idempotent settings, and browser support.
  */
-export function defineTestConfig({
-  coverage = true,
-  idempotent = true,
-  browser,
-}: ConfigurationOptions = {}): TestUserConfig {
+export function defineTestConfig(
+  { common = true, coverage = true, idempotent = true, browser }: ConfigurationOptions = {},
+  userConfig: TestUserConfig = {},
+): TestUserConfig {
   const config: TestUserConfig = {}
+
+  if (common) {
+    Object.assign(config, configuration.common)
+  }
 
   if (coverage) {
     Object.assign(config, configuration.coverage)
@@ -64,5 +72,5 @@ export function defineTestConfig({
     }
   }
 
-  return config
+  return deepmerge(config, userConfig) as TestUserConfig
 }

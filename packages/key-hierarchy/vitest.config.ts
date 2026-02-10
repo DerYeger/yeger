@@ -3,10 +3,12 @@ import { playwright } from '@vitest/browser-playwright'
 import { defineTestConfig } from '@yeger/vitest-utils'
 
 export default defineConfig({
-  test: {
-    ...defineTestConfig({
+  test: defineTestConfig(
+    {
       browser: playwright(),
-    }),
-    setupFiles: ['./test/setup.ts'],
-  },
+    },
+    {
+      setupFiles: ['./test/setup.ts'],
+    },
+  ),
 })
