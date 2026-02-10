@@ -1,5 +1,16 @@
 # @yeger/vitest-utils
 
+## 1.2.0
+
+### Minor Changes
+
+- 1c5d38c: include deepmerging overrides
+- 1c5d38c: include common configuration
+
+### Patch Changes
+
+- 1c5d38c: do not shuffle in idempotent config
+
 ## 1.1.0
 
 ### Minor Changes
