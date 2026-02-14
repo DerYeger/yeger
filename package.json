@@ -51,7 +51,7 @@
     "oxlint-tsgolint": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.8.3",
+    "turbo": "2.8.7",
     "vitest": "catalog:"
   },
   "lint-staged": {
@@ -60,5 +60,5 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "packageManager": "pnpm@10.28.2"
+  "packageManager": "pnpm@10.29.3"
 }

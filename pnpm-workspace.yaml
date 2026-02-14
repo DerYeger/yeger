@@ -16,15 +16,15 @@ catalog:
   '@nuxt/icon': 2.2.1
   '@nuxtjs/robots': 5.7.0
   '@ohm-js/cli': 2.0.1
-  '@playwright/test': 1.58.1
+  '@playwright/test': 1.58.2
   '@tailwindcss/postcss': 4.1.18
-  '@tanstack/react-query': 5.90.20
+  '@tanstack/react-query': 5.90.21
   '@tanstack/vue-query': 5.92.9
   '@testing-library/react': 16.3.2
-  '@trpc/client': 11.9.0
-  '@trpc/next': 11.9.0
-  '@trpc/react-query': 11.9.0
-  '@trpc/server': 11.9.0
+  '@trpc/client': 11.10.0
+  '@trpc/next': 11.10.0
+  '@trpc/react-query': 11.10.0
+  '@trpc/server': 11.10.0
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
   '@types/d3-scale': 4.0.9
@@ -32,21 +32,21 @@ catalog:
   '@types/d3-selection': 3.0.11
   '@types/d3-zoom': 3.0.8
   '@types/leaflet': 1.9.21
-  '@types/node': 24.10.11
-  '@types/react': 19.2.13
+  '@types/node': 24.10.13
+  '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
   '@unocss/nuxt': 66.6.0
   '@unocss/reset': 66.6.0
-  '@vite-pwa/nuxt': 1.1.0
+  '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.4
   '@vitejs/plugin-vue2': 2.3.4
   '@vitest/browser-playwright': 4.0.18
   '@vitest/coverage-v8': 4.0.18
   '@vitest/ui': 4.0.18
   '@vue/test-utils': 2.4.6
-  '@vueuse/core': 14.2.0
-  '@vueuse/nuxt': 14.2.0
+  '@vueuse/core': 14.2.1
+  '@vueuse/nuxt': 14.2.1
   cac: 6.7.14
   clsx: 2.1.1
   codemirror: 6.0.2
@@ -72,12 +72,12 @@ catalog:
   next: 16.1.6
   next-seo: 7.1.0
   nuqs: 2.8.8
-  nuxt: 4.3.0
+  nuxt: 4.3.1
   ohm-js: 17.3.0
   open: 11.0.0
-  oxfmt: 0.28.0
-  oxlint: 1.43.0
-  oxlint-tsgolint: 0.11.4
+  oxfmt: 0.31.0
+  oxlint: 1.46.0
+  oxlint-tsgolint: 0.12.0
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.17
@@ -105,7 +105,7 @@ catalog:
   vite-ssg: 28.3.0
   vitepress: 1.6.4
   vitest: 4.0.18
-  vue: 3.5.27
+  vue: 3.5.28
   vue-codemirror: 6.1.1
   vue-template-compiler: 2.7.16
   vue-toastification: 2.0.0-rc.5
