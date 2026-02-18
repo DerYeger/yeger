@@ -1,12 +1,12 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 
+import type { Package } from '@manypkg/get-packages'
+import { getPackages } from '@manypkg/get-packages'
 import { execa } from 'execa'
+import { parse as parseJSONC } from 'jsonc-parser'
 import type { Result } from 'resumon'
 import { err, ok } from 'resumon'
-import { getPackages } from '@manypkg/get-packages'
-import type { Package } from '@manypkg/get-packages'
-import { parse as parseJSONC } from 'jsonc-parser'
 
 export async function getGraph(
   tasks: string[],

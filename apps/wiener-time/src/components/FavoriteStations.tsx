@@ -1,10 +1,9 @@
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
-import { useMemo } from 'react'
 import type { FC } from 'react'
+import { useMemo } from 'react'
 
 import { useFavorites } from '../utils/useFavorites'
-
 import ClientOnly from './ClientOnly'
 import { Stations } from './Stations'
 

@@ -1,6 +1,7 @@
 import { describe, expect, expectTypeOf, it } from 'vitest'
-import { defineKeyHierarchy } from '../src/index'
+
 import type { DeepReadonly } from '../src/index'
+import { defineKeyHierarchy } from '../src/index'
 import { keyModule } from './modules/key-module'
 import {
   TEST_AUTHOR_ID,

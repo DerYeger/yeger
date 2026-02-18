@@ -1,7 +1,8 @@
 import process from 'node:process'
+
+import deepmerge from 'deepmerge'
 import type { TestUserConfig } from 'vitest/config'
 import type { BrowserProviderOption } from 'vitest/node'
-import deepmerge from 'deepmerge'
 
 export const configuration: Record<string, TestUserConfig> = {
   common: {

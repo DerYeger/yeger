@@ -1,8 +1,8 @@
 'use client'
 
-import { FlowGraph } from './FlowGraph'
-import { useGraphQuery } from '../lib/useGraphQuery'
 import { useFilterInput, useTaskSelection } from '../lib/parameters'
+import { useGraphQuery } from '../lib/useGraphQuery'
+import { FlowGraph } from './FlowGraph'
 
 export function Graph({ tasks }: { tasks: string[] }) {
   const [selectedTasks] = useTaskSelection()

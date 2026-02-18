@@ -1,9 +1,9 @@
 import type { GraphConfig } from '../config/config'
-import type { Canvas, MarkerSelection } from './types'
-import { getMarkerId } from './utils'
 import type { Graph, NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
+import type { Canvas, MarkerSelection } from './types'
+import { getMarkerId } from './utils'
 
 export function defineMarkerSelection(canvas: Canvas): MarkerSelection {
   return canvas.append('defs').selectAll('marker')

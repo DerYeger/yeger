@@ -41,8 +41,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:tsc": "tsc",
     "check:publish": "publint run --strict",
+    "check:tsc": "tsc",
     "dev": "tsdown --watch",
     "test": "vitest"
   },

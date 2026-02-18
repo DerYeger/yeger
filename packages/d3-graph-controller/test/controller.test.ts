@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { GraphController, defineGraphConfig } from '../src/index'
 import type { GraphLink } from '../src/index'
-import TestData from './test-data'
+import { GraphController, defineGraphConfig } from '../src/index'
 import type { TestNodeType } from './test-data'
+import TestData from './test-data'
 
 describe('GraphController', () => {
   let container: HTMLDivElement

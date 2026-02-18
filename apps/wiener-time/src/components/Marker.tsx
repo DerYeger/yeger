@@ -1,7 +1,7 @@
 import L from 'leaflet'
 import type { FC } from 'react'
-import { Marker as BaseMarker } from 'react-leaflet'
 import type { MarkerProps } from 'react-leaflet'
+import { Marker as BaseMarker } from 'react-leaflet'
 
 import lib from '../lib'
 

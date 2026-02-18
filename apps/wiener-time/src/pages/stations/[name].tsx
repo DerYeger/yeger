@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react'
 import type { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next'
-import Head from 'next/head'
 import { generateNextSeo } from 'next-seo/pages'
+import Head from 'next/head'
 import type { FC } from 'react'
 import { useMemo } from 'react'
 

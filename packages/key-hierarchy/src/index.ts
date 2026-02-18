@@ -1,6 +1,5 @@
 import { precomputeHierarchy } from './runtime/precompute'
 import { createProxy } from './runtime/proxy'
-import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from './types'
 import type {
   KeyHierarchyConfig,
   KeyHierarchyOptions,
@@ -8,6 +7,7 @@ import type {
   DynamicExtendedSegment,
   DynamicExtendableSegment,
 } from './types'
+import { DYNAMIC_EXTENDED_SEGMENT, DYNAMIC_SEGMENT } from './types'
 
 export type * from './types'
 

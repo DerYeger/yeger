@@ -1,5 +1,5 @@
-import { useRef } from 'react'
 import type { FC } from 'react'
+import { useRef } from 'react'
 import { ViewportList } from 'react-viewport-list'
 
 import { Station } from './Station'

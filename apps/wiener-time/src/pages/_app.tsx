@@ -1,8 +1,8 @@
 import '../styles/globals.css'
 import '../styles/spinner.css'
+import { generateDefaultSeo } from 'next-seo/pages'
 import type { AppType } from 'next/dist/shared/lib/utils'
 import Head from 'next/head'
-import { generateDefaultSeo } from 'next-seo/pages'
 
 import Header from '../components/Header'
 import Nav from '../components/Nav'

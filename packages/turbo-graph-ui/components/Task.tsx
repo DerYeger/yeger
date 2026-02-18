@@ -1,10 +1,11 @@
 'use client'
 
 import { Icon } from '@iconify/react'
-import { TASK_WIDTH_VAR, TASK_HEIGHT_VAR, getTaskColorVar } from '../lib/flow'
-import type { FlowNode } from '../lib/flow'
 import { Wrench, Play, TestTube, Shield, Bug, Box } from 'lucide-react'
 import { Handle, Position } from 'reactflow'
+
+import type { FlowNode } from '../lib/flow'
+import { TASK_WIDTH_VAR, TASK_HEIGHT_VAR, getTaskColorVar } from '../lib/flow'
 import { useTaskRun } from '../lib/useRunQueries'
 import { LogOutput } from './LogOutput'
 

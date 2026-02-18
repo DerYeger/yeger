@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { diff } from '../src/index'
 
 describe('diff', () => {

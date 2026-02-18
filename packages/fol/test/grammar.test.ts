@@ -1,8 +1,8 @@
+import { FailedMatchResult } from 'ohm-js'
 import { describe, expect, it } from 'vitest'
 
 import { FOL } from '../src/index'
 import { TestData } from './test-utils'
-import { FailedMatchResult } from 'ohm-js'
 
 describe('FOL grammar', () => {
   it.each(TestData.validFormulas)('parses valid formula "%s"', (formula) => {

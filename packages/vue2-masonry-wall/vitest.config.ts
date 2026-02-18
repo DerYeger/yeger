@@ -1,7 +1,7 @@
 import vue from '@vitejs/plugin-vue2'
-import { defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { defineTestConfig } from '@yeger/vitest-utils'
+import { defineConfig } from 'vitest/config'
 
 export default defineConfig({
   plugins: [vue()],

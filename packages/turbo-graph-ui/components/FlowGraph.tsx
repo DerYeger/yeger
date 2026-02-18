@@ -4,6 +4,7 @@ import { Stream } from '@yeger/streams/sync'
 import { scaleOrdinal } from 'd3-scale'
 import type { ReactNode } from 'react'
 import { useEffect, useMemo } from 'react'
+import type { ReactFlowInstance } from 'reactflow'
 import {
   Background,
   Controls,
@@ -13,14 +14,13 @@ import {
   ReactFlow,
   useReactFlow,
 } from 'reactflow'
-import type { ReactFlowInstance } from 'reactflow'
 
 import 'reactflow/dist/style.css'
-import { TASK_WIDTH_VAR, convertGraph, getTaskColorVar } from '../lib/flow'
 import type { FlowNode } from '../lib/flow'
+import { TASK_WIDTH_VAR, convertGraph, getTaskColorVar } from '../lib/flow'
+import { useFilterInput } from '../lib/parameters'
 import type { TurboGraph } from '../lib/turbo'
 import { Task } from './Task'
-import { useFilterInput } from '../lib/parameters'
 
 export interface Props {
   children?: ReactNode

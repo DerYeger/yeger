@@ -5,8 +5,8 @@ import csv from 'csvtojson'
 import { z } from 'zod'
 
 import lib from '../src/lib'
-import { StaticStopDataSchema } from '../src/model'
 import type { StaticStopData } from '../src/model'
+import { StaticStopDataSchema } from '../src/model'
 
 async function fetchStaticStopData(): Promise<StaticStopData[]> {
   try {

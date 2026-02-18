@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { WordSplitter } from '../src/word-splitter'
 
 describe('WordSplitter', () => {

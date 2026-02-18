@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import * as Utils from '../src/utils'
 
 describe('Utils', () => {

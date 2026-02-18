@@ -1,5 +1,6 @@
 import { NuqsAdapter } from 'nuqs/adapters/next/app'
 import { Suspense } from 'react'
+
 import { QueryProvider } from '../components/QueryProvider'
 
 import './globals.css'

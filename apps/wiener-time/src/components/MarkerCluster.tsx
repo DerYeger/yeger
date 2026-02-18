@@ -1,6 +1,6 @@
-import BaseMarkerCluster from 'react-leaflet-markercluster'
 import L from 'leaflet'
 import type { FC, ReactNode } from 'react'
+import BaseMarkerCluster from 'react-leaflet-markercluster'
 
 function createClusterCustomIcon(cluster: any) {
   return L.divIcon({

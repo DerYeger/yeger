@@ -1,7 +1,7 @@
-import type { LinkFilter } from './filter'
 import type { NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
+import type { LinkFilter } from './filter'
 
 /**
  * Initial settings of a controller.

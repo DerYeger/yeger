@@ -1,8 +1,8 @@
-import type { AlphaConfig } from './alpha'
-import type { SimulationForceConfig } from './forces'
 import type { NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
+import type { AlphaConfig } from './alpha'
+import type { SimulationForceConfig } from './forces'
 
 export interface SimulationConfig<
   T extends NodeTypeToken,

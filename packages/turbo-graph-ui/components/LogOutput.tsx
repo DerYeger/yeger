@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import type { CSSProperties, ReactNode } from 'react'
+import { useEffect, useRef } from 'react'
 
 export interface LogItem {
   id: string | number

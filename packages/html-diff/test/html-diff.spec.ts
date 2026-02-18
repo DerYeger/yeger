@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { HtmlDiff } from '../src/html-diff'
 import { Match } from '../src/match'
 import type { Operation } from '../src/types'

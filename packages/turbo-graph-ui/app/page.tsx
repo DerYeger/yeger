@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 import { Graph } from '../components/Graph'
-import { getAllTasks } from '../lib/turbo'
 import { TaskInput, FilterInput, RunControls } from '../components/ParameterInputs'
+import { getAllTasks } from '../lib/turbo'
 
 export const metadata: Metadata = {
   title: 'Turbo Graph',

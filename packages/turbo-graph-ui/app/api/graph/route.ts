@@ -1,4 +1,5 @@
 import type { NextRequest } from 'next/server'
+
 import { getGraph } from '../../../lib/turbo'
 
 export const runtime = 'nodejs'

@@ -1,5 +1,8 @@
 import merge from '@yeger/deepmerge'
 
+import type { NodeTypeToken } from '../model/graph'
+import type { GraphLink } from '../model/link'
+import type { GraphNode } from '../model/node'
 import { createDefaultAlphaConfig } from './alpha'
 import type { Callbacks } from './callbacks'
 import { createDefaultForceConfig } from './forces'
@@ -12,9 +15,6 @@ import type { PositionInitializer } from './position'
 import { PositionInitializers } from './position'
 import type { SimulationConfig } from './simulation'
 import type { ZoomConfig } from './zoom'
-import type { NodeTypeToken } from '../model/graph'
-import type { GraphLink } from '../model/link'
-import type { GraphNode } from '../model/node'
 
 export interface GraphConfig<
   T extends NodeTypeToken,

@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+
 import { Match } from '../src/match'
 import { MatchFinder } from '../src/match-finder'
 

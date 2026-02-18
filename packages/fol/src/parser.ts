@@ -4,8 +4,8 @@ import { Err, Ok } from 'resumon'
 
 import type { FOLSemantics } from './fol.ohm-bundle'
 import grammar from './fol.ohm-bundle'
-import { BoundVariable, ConstantTerm, FunctionTerm } from './model'
 import type { Formula, Term } from './model'
+import { BoundVariable, ConstantTerm, FunctionTerm } from './model'
 import {
   AndFormula,
   BiImplicationFormula,

@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react'
 import type { NextPage } from 'next'
-import Head from 'next/head'
 import { generateNextSeo } from 'next-seo/pages'
+import Head from 'next/head'
 
 const AboutPage: NextPage = () => {
   return (

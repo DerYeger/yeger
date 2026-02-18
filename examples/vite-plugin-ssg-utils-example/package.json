@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "vite-ssg build",
-    "preview": "vite preview",
-    "check:tsc": "tsc"
+    "check:tsc": "tsc",
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",

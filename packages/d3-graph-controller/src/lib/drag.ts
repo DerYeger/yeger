@@ -2,10 +2,10 @@ import { drag } from 'd3-drag'
 import { select } from 'd3-selection'
 
 import type { GraphConfig } from '../config/config'
-import type { Drag, NodeDragEvent } from './types'
 import type { NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
+import type { Drag, NodeDragEvent } from './types'
 
 export interface DefineDragParams<
   T extends NodeTypeToken,

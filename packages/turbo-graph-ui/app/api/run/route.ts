@@ -1,8 +1,10 @@
-import type { NextRequest } from 'next/server'
-import { findRootTurboConfig } from '../../../lib/turbo'
 import { spawn } from 'node:child_process'
 import path from 'node:path'
 import process from 'node:process'
+
+import type { NextRequest } from 'next/server'
+
+import { findRootTurboConfig } from '../../../lib/turbo'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'

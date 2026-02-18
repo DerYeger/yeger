@@ -2,11 +2,11 @@ import { forceCollide, forceLink, forceManyBody, forceSimulation, forceX, forceY
 import type { Vector } from 'vecti'
 
 import type { GraphConfig } from '../config/config'
-import type { GraphSimulation } from './types'
-import { getNodeRadius } from './utils'
 import type { Graph, NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
 import type { GraphNode } from '../model/node'
+import type { GraphSimulation } from './types'
+import { getNodeRadius } from './utils'
 
 export interface DefineSimulationParams<
   T extends NodeTypeToken,
