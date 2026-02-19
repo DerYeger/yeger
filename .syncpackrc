@@ -1,11 +1,13 @@
 {
-  "dependencyTypes": [
-    "dev",
-    "overrides",
-    "prod",
-    "resolutions"
-  ],
+  "$schema": "./node_modules/syncpack/schema.json",
   "versionGroups": [
+    {
+      "label": "Ignored",
+      "dependencyTypes": [
+        "peer"
+      ],
+      "isIgnored": true
+    },
     {
       "label": "Local",
       "dependencies": [

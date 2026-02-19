@@ -26,9 +26,8 @@
     "lint-staged": "lint-staged",
     "lint:fix": "oxlint --type-aware --fix",
     "preview": "nr turbo run preview",
-    "syncpack": "syncpack",
-    "syncpack:fix": "syncpack fix-mismatches",
-    "syncpack:lint": "syncpack list-mismatches",
+    "syncpack:fix": "syncpack fix",
+    "syncpack:lint": "syncpack lint",
     "test": "cross-env COVERAGE=true nr turbo run test",
     "turbo": "cross-env CI=true FORCE_COLOR=1 turbo",
     "update": "taze",
@@ -51,7 +50,7 @@
     "oxlint-tsgolint": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.8.7",
+    "turbo": "2.8.9",
     "vitest": "catalog:"
   },
   "lint-staged": {

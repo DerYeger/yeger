@@ -68,16 +68,16 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 16.2.7
   localforage: 1.10.0
-  lucide-react: 0.563.0
+  lucide-react: 0.570.0
   next: 16.1.6
-  next-seo: 7.1.0
+  next-seo: 7.2.0
   nuqs: 2.8.8
   nuxt: 4.3.1
-  ohm-js: 17.3.0
+  ohm-js: 17.5.0
   open: 11.0.0
   oxfmt: 0.33.0
   oxlint: 1.48.0
-  oxlint-tsgolint: 0.12.0
+  oxlint-tsgolint: 0.14.0
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.17
@@ -90,8 +90,8 @@ catalog:
   serve: 14.2.5
   splitpanes: 4.0.4
   superjson: 2.2.6
-  syncpack: 13.0.4
-  tailwind-merge: 3.4.0
+  syncpack: 14.0.0
+  tailwind-merge: 3.4.1
   tailwindcss: 4.1.18
   taze: 19.9.2
   tsdown: 0.20.3
