@@ -17,7 +17,7 @@ catalog:
   '@nuxtjs/robots': 5.7.0
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.58.2
-  '@tailwindcss/postcss': 4.1.18
+  '@tailwindcss/postcss': 4.2.0
   '@tanstack/react-query': 5.90.21
   '@tanstack/vue-query': 5.92.9
   '@testing-library/react': 16.3.2
@@ -68,7 +68,7 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 16.2.7
   localforage: 1.10.0
-  lucide-react: 0.570.0
+  lucide-react: 0.574.0
   next: 16.1.6
   next-seo: 7.2.0
   nuqs: 2.8.8
@@ -91,8 +91,8 @@ catalog:
   splitpanes: 4.0.4
   superjson: 2.2.6
   syncpack: 14.0.0
-  tailwind-merge: 3.4.1
-  tailwindcss: 4.1.18
+  tailwind-merge: 3.5.0
+  tailwindcss: 4.2.0
   taze: 19.9.2
   tsdown: 0.20.3
   tsx: 4.21.0
