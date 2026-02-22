@@ -1,5 +1,12 @@
 # @yeger/streams
 
+## 3.0.0
+
+### Major Changes
+
+- db6cebf: refactor API to be composable and support tree-shaking
+- db6cebf: drop `concat` (use `append` instead)
+
 ## 2.0.2
 
 ### Patch Changes
