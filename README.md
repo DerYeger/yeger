@@ -16,10 +16,6 @@
 - [vecti-docs](./docs/vecti-docs)
 - [vue-marmoset-viewer-docs](./docs/vue-marmoset-viewer-docs)
 
-## Examples
-
-- [vite-plugin-ssg-utils-example](./examples/vite-plugin-ssg-utils-example)
-
 ## Packages
 
 - [@yeger/debounce](./packages/debounce)
@@ -41,6 +37,5 @@
 - [resumon](./packages/resumon)
 - [vecti](./packages/vecti)
 - [vite-plugin-lib](./packages/vite-plugin-lib)
-- [vite-plugin-ssg-utils](./packages/vite-plugin-ssg-utils)
 - [vue-marmoset-viewer](./packages/vue-marmoset-viewer)
 - [vue-persistent-storage-manager](./packages/vue-persistent-storage-manager)

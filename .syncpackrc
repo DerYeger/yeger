@@ -17,7 +17,6 @@
         "resumon",
         "vecti",
         "vite-plugin-lib",
-        "vite-plugin-ssg-utils",
         "vue-marmoset-viewer",
         "vue-persistent-storage-manager"
       ],

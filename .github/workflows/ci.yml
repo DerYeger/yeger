@@ -87,13 +87,6 @@ jobs:
           files: packages/vecti/coverage/coverage-final.json
           flags: vecti
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload vite-plugin-ssg-utils coverage
-        uses: codecov/codecov-action@v5
-        with:
-          disable_search: true
-          files: packages/vite-plugin-ssg-utils/coverage/coverage-final.json
-          flags: vite-plugin-ssg-utils
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-marmoset-viewer coverage
         uses: codecov/codecov-action@v5
         with:
