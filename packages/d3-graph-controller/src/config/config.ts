@@ -1,4 +1,4 @@
-import merge from '@yeger/deepmerge'
+import deepmerge from 'deepmerge'
 
 import type { NodeTypeToken } from '../model/graph'
 import type { GraphLink } from '../model/link'
@@ -108,9 +108,7 @@ export function defineGraphConfig<
   Node extends GraphNode<T> = GraphNode<T>,
   Link extends GraphLink<T, Node> = GraphLink<T, Node>,
 >(config: DeepPartial<GraphConfig<T, Node, Link>> = {}): GraphConfig<T, Node, Link> {
-  return merge.withOptions(
-    { mergeArrays: false },
-    defaultGraphConfig<T, Node, Link>(),
-    config,
-  ) as GraphConfig<T, Node, Link>
+  return deepmerge(defaultGraphConfig<T, Node, Link>(), config, {
+    arrayMerge: (_target, source) => source,
+  }) as GraphConfig<T, Node, Link>
 }

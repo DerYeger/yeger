@@ -55,6 +55,7 @@
     "d3-force": "catalog:",
     "d3-selection": "catalog:",
     "d3-zoom": "catalog:",
+    "deepmerge": "catalog:",
     "vecti": "workspace:*"
   },
   "devDependencies": {
@@ -66,7 +67,6 @@
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
-    "@yeger/deepmerge": "workspace:*",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
     "publint": "catalog:",
