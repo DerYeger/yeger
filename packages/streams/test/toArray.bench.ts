@@ -1,11 +1,12 @@
 import { bench } from 'vitest'
 
+import * as s from '../src/sync'
 import { TestUtils } from './test-utils'
 
 bench(
   'streams',
   () => {
-    TestUtils.testStream.toArray()
+    s.toArray(TestUtils.testStream)
   },
   { time: 1000 },
 )
@@ -13,7 +14,7 @@ bench(
 bench(
   'streams with early limit',
   () => {
-    TestUtils.earlyLimitTestStream.toArray()
+    s.toArray(TestUtils.earlyLimitTestStream)
   },
   { time: 1000 },
 )

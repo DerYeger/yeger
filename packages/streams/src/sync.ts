@@ -2,380 +2,658 @@ export type Processor<Input, Output> = (value: Input, index: number) => Output
 
 export type Filter<Input> = Processor<Input, boolean>
 
-export abstract class Stream<T> implements Iterable<T> {
-  public static empty<T>(): Stream<T> {
-    return Stream.from<T>([])
+export type Operator<Input, Output> = (source: Iterable<Input>) => Iterable<Output>
+
+function createIterable<T>(factory: () => IterableIterator<T>): Iterable<T> {
+  return {
+    [Symbol.iterator]: factory,
   }
+}
 
-  public static from<T>(source: Iterable<T>): Stream<T> {
-    return SourceStream.from(source)
+/**
+ * Composes a source iterable with zero or more stream operators.
+ */
+export function pipe<T>(source: Iterable<T>): Iterable<T>
+export function pipe<T0, T1>(source: Iterable<T0>, op1: Operator<T0, T1>): Iterable<T1>
+export function pipe<T0, T1, T2>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+): Iterable<T2>
+export function pipe<T0, T1, T2, T3>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+): Iterable<T3>
+export function pipe<T0, T1, T2, T3, T4>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+): Iterable<T4>
+export function pipe<T0, T1, T2, T3, T4, T5>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+): Iterable<T5>
+export function pipe<T0, T1, T2, T3, T4, T5, T6>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+): Iterable<T6>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+): Iterable<T7>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+): Iterable<T8>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+): Iterable<T9>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+): Iterable<T10>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+): Iterable<T11>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+): Iterable<T12>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+): Iterable<T13>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+): Iterable<T14>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+): Iterable<T15>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+  op16: Operator<T15, T16>,
+): Iterable<T16>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+  op16: Operator<T15, T16>,
+  op17: Operator<T16, T17>,
+): Iterable<T17>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+  op16: Operator<T15, T16>,
+  op17: Operator<T16, T17>,
+  op18: Operator<T17, T18>,
+): Iterable<T18>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+  T19,
+>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+  op16: Operator<T15, T16>,
+  op17: Operator<T16, T17>,
+  op18: Operator<T17, T18>,
+  op19: Operator<T18, T19>,
+): Iterable<T19>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+  T19,
+  T20,
+>(
+  source: Iterable<T0>,
+  op1: Operator<T0, T1>,
+  op2: Operator<T1, T2>,
+  op3: Operator<T2, T3>,
+  op4: Operator<T3, T4>,
+  op5: Operator<T4, T5>,
+  op6: Operator<T5, T6>,
+  op7: Operator<T6, T7>,
+  op8: Operator<T7, T8>,
+  op9: Operator<T8, T9>,
+  op10: Operator<T9, T10>,
+  op11: Operator<T10, T11>,
+  op12: Operator<T11, T12>,
+  op13: Operator<T12, T13>,
+  op14: Operator<T13, T14>,
+  op15: Operator<T14, T15>,
+  op16: Operator<T15, T16>,
+  op17: Operator<T16, T17>,
+  op18: Operator<T17, T18>,
+  op19: Operator<T18, T19>,
+  op20: Operator<T19, T20>,
+): Iterable<T20>
+export function pipe(source: Iterable<any>, ...operators: Operator<any, any>[]): Iterable<any> {
+  let result: Iterable<any> = source
+  for (const operator of operators as readonly Operator<any, any>[]) {
+    result = operator(result)
   }
+  return result
+}
 
-  public static fromObject<T>(source: Record<string | number | symbol, T>): Stream<[string, T]> {
-    return Stream.from(Object.entries(source))
-  }
+/**
+ * Creates an iterable over object entries using string and number keys.
+ */
+export function fromObject<T>(source: Record<string | number, T>): Iterable<[string, T]> {
+  return Object.entries(source)
+}
 
-  public static fromSingle<T>(value: T): Stream<T> {
-    return Stream.from([value])
-  }
-
-  public toSet(): Set<T> {
-    return new Set(this)
-  }
-
-  public toArray(): T[] {
-    return Array.from(this)
-  }
-
-  public toMap<K>(fn: Processor<T, K>): Map<K, T> {
-    const stream = this.map((value, index) => [fn(value, index), value] as const)
-    return new Map(stream)
-  }
-
-  public toRecord<U>(key: Processor<T, string>, value: Processor<T, U>): Record<string, U> {
-    return Object.fromEntries(this.map((x, index) => [key(x, index), value?.(x, index)] as const))
-  }
-
-  public abstract [Symbol.iterator](): IterableIterator<T>
-
-  public map<R>(fn: Processor<T, R>): Stream<R> {
-    return MapStream.ofPrevious(this, fn)
-  }
-
-  public flatMap<R>(fn: Processor<T, Iterable<R>>): Stream<R> {
-    return FlatMapStream.ofPrevious(this, fn)
-  }
-
-  public zip<R>(other: Iterable<R>): Stream<[T, R]> {
-    return ZipStream.ofPrevious(this, other)
-  }
-
-  public limit(limit: number): Stream<T> {
-    return LimitStream.ofPrevious(this, limit)
-  }
-
-  public filter(fn: Filter<T>): Stream<T> {
-    return FilterStream.ofPrevious(this, fn)
-  }
-
-  public filterNonNull(): Stream<NonNullable<T>> {
-    return FilterStream.ofPrevious(
-      this,
-      (value) => value !== null && value !== undefined,
-    ) as FilterStream<NonNullable<T>>
-  }
-
-  public reduce<R>(fn: (acc: R, value: T, index: number) => R, initialValue: R): R {
-    let acc = initialValue
-    let index = 0
-    for (const item of this) {
-      acc = fn(acc, item, index++)
-    }
-    return acc
-  }
-
-  public sum(fn: T extends number ? void : Processor<T, number>): number {
-    const add = fn
-      ? (a: number, b: T, index: number) => a + fn(b, index)
-      : (a: number, b: number) => a + b
-    return this.reduce((acc, value, index) => add(acc, value as T & number, index), 0)
-  }
-
-  public forEach(fn: Processor<T, void>): Stream<T> {
-    let index = 0
-    for (const item of this) {
-      fn(item, index++)
-    }
-    return this
-  }
-
-  public distinct(): Stream<T> {
-    return DistinctStream.ofPrevious(this)
-  }
-
-  public find(fn: Filter<T>): T | undefined {
-    let index = 0
-    for (const item of this) {
-      if (fn(item, index++)) {
-        return item
+/**
+ * Projects each input item into a new value.
+ */
+export function map<Input, Output>(fn: Processor<Input, Output>): Operator<Input, Output> {
+  return (source: Iterable<Input>) =>
+    createIterable(function* (): IterableIterator<Output> {
+      let index = 0
+      for (const item of source) {
+        yield fn(item, index++)
       }
-    }
-    return undefined
-  }
+    })
+}
 
-  public some(fn: Filter<T>): boolean {
-    let index = 0
-    for (const item of this) {
-      if (fn(item, index++)) {
-        return true
+/**
+ * Projects each input item into an iterable and flattens it one level.
+ */
+export function flatMap<Input, Output>(
+  fn: Processor<Input, Iterable<Output>>,
+): Operator<Input, Output> {
+  return (source: Iterable<Input>) =>
+    createIterable(function* (): IterableIterator<Output> {
+      let index = 0
+      for (const item of source) {
+        yield* fn(item, index++)
       }
-    }
-    return false
-  }
+    })
+}
 
-  public every(fn: Filter<T>): boolean {
-    let index = 0
-    for (const item of this) {
-      if (!fn(item, index++)) {
-        return false
+/**
+ * Combines each item with the corresponding item from another iterable.
+ */
+export function zip<T, R>(other: Iterable<R>): Operator<T, [T, R]> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<[T, R]> {
+      const otherIterator = other[Symbol.iterator]()
+      for (const item of source) {
+        const otherItem = otherIterator.next()
+        if (otherItem.done) {
+          break
+        }
+        yield [item, otherItem.value]
       }
-    }
-    return true
-  }
-
-  public join(separator: string): string {
-    return this.reduce((acc, value) => acc + separator + value, '')
-  }
-
-  public concat(...sources: Iterable<T>[]): Stream<T> {
-    return ConcatStream.ofPrevious(this, sources)
-  }
-
-  public append(...value: T[]): Stream<T> {
-    return this.concat(Stream.from(value))
-  }
-
-  public cache(): Stream<T> {
-    return CacheStream.ofPrevious(this)
-  }
+    })
 }
 
-class SourceStream<T> extends Stream<T> {
-  private readonly source: Iterable<T>
-
-  private constructor(source: Iterable<T>) {
-    super()
-    this.source = source
-  }
-
-  public static from<T>(source: Iterable<T>) {
-    return new SourceStream(source)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<T> {
-    for (const value of this.source) {
-      yield value
-    }
-  }
-}
-
-class MapStream<Input, Output> extends Stream<Output> {
-  private readonly previous: Stream<Input>
-  private readonly fn: Processor<Input, Output>
-
-  private constructor(previous: Stream<Input>, fn: Processor<Input, Output>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
-
-  public static ofPrevious<Input, Output>(previous: Stream<Input>, fn: Processor<Input, Output>) {
-    if (previous instanceof MapStream) {
-      return new MapStream<Input, Output>(previous.previous, (value, index) =>
-        fn(previous.fn(value, index), index),
-      )
-    }
-    return new MapStream(previous, fn)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<Output> {
-    let index = 0
-    for (const item of this.previous) {
-      yield this.fn(item, index++)
-    }
-  }
-}
-
-class FlatMapStream<Input, Output> extends Stream<Output> {
-  private readonly previous: Stream<Input>
-  private readonly fn: Processor<Input, Iterable<Output>>
-
-  private constructor(previous: Stream<Input>, fn: Processor<Input, Iterable<Output>>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
-
-  public static ofPrevious<Input, Output>(
-    previous: Stream<Input>,
-    fn: Processor<Input, Iterable<Output>>,
-  ) {
-    return new FlatMapStream(previous, fn)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<Output> {
-    let index = 0
-    for (const item of this.previous) {
-      yield* this.fn(item, index++)
-    }
-  }
-}
-
-class ZipStream<T, R> extends Stream<[T, R]> {
-  private readonly previous: Stream<T>
-  private readonly other: Iterable<R>
-
-  private constructor(previous: Stream<T>, other: Iterable<R>) {
-    super()
-    this.previous = previous
-    this.other = other
-  }
-
-  public static ofPrevious<T, R>(previous: Stream<T>, other: Iterable<R>): ZipStream<T, R> {
-    return new ZipStream(previous, other)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<[T, R]> {
-    const otherIterator = this.other[Symbol.iterator]()
-    for (const item of this.previous) {
-      const otherItem = otherIterator.next()
-      if (otherItem.done) {
-        break
+/**
+ * Emits at most the first n items from the source.
+ */
+export function limit<T>(n: number): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
+      if (n <= 0) {
+        return
       }
-      yield [item, otherItem.value]
-    }
-  }
-}
-
-class LimitStream<T> extends Stream<T> {
-  private readonly previous: Stream<T>
-  private readonly n: number
-
-  private constructor(previous: Stream<T>, n: number) {
-    super()
-    this.previous = previous
-    this.n = n
-  }
-
-  public static ofPrevious<T>(previous: Stream<T>, limit: number) {
-    if (previous instanceof LimitStream) {
-      return new LimitStream<T>(previous.previous, Math.min(previous.n, limit))
-    }
-    return new LimitStream<T>(previous, limit)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<T> {
-    let count = 0
-    if (this.n <= count) {
-      return
-    }
-    for (const item of this.previous) {
-      yield item
-      if (++count >= this.n) {
-        break
+      let count = 0
+      for (const item of source) {
+        yield item
+        if (++count >= n) {
+          break
+        }
       }
-    }
-  }
+    })
 }
 
-class FilterStream<T> extends Stream<T> {
-  private readonly previous: Stream<T>
-  private readonly fn: Filter<T>
+/**
+ * Emits only the items matching the predicate.
+ */
+export function filter<T, S extends T>(fn: (value: T, index: number) => value is S): Operator<T, S>
+/**
+ * Emits only the items matching the predicate.
+ */
+export function filter<T>(fn: Filter<T>): Operator<T, T>
+export function filter<T>(fn: Filter<T>): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
+      let index = 0
+      for (const item of source) {
+        if (fn(item, index++)) {
+          yield item
+        }
+      }
+    })
+}
 
-  private constructor(previous: Stream<T>, fn: Filter<T>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
+/**
+ * Emits only non-null and non-undefined values.
+ */
+export function filterDefined<T>(): Operator<T, NonNullable<T>> {
+  return filter<T, NonNullable<T>>(
+    (value): value is NonNullable<T> => value !== null && value !== undefined,
+  )
+}
 
-  public static ofPrevious<T>(previous: Stream<T>, fn: Filter<T>) {
-    if (previous instanceof FilterStream) {
-      return new FilterStream<T>(
-        previous.previous,
-        (value, index) => previous.fn(value, index) && fn(value, index),
-      )
-    }
-    return new FilterStream<T>(previous, fn)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<T> {
-    let index = 0
-    for (const item of this.previous) {
-      if (this.fn(item, index++)) {
+/**
+ * Emits only the first occurrence of each unique value.
+ */
+export function distinct<T>(): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
+      const seen = new Set<T>()
+      for (const item of source) {
+        if (seen.has(item)) {
+          continue
+        }
+        seen.add(item)
         yield item
       }
-    }
-  }
+    })
 }
 
-class DistinctStream<T> extends Stream<T> {
-  private readonly previous: Stream<T>
-
-  private constructor(previous: Stream<T>) {
-    super()
-    this.previous = previous
-  }
-
-  public static ofPrevious<T>(previous: Stream<T>) {
-    if (previous instanceof DistinctStream) {
-      return new DistinctStream<T>(previous.previous)
-    }
-    return new DistinctStream<T>(previous)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<T> {
-    const set = new Set<T>()
-    for (const item of this.previous) {
-      if (!set.has(item)) {
-        set.add(item)
-        yield item
-      }
-    }
-  }
-}
-
-class ConcatStream<T> extends Stream<T> {
-  private readonly previous: Stream<T>
-  private readonly sources: Iterable<T>[]
-
-  private constructor(previous: Stream<T>, sources: Iterable<T>[]) {
-    super()
-    this.previous = previous
-    this.sources = sources
-  }
-
-  public static ofPrevious<T>(previous: Stream<T>, sources: Iterable<T>[]): Stream<T> {
-    if (previous instanceof ConcatStream) {
-      return new ConcatStream<T>(previous.previous, previous.sources.concat(...sources))
-    }
-    return new ConcatStream<T>(previous, sources)
-  }
-
-  public *[Symbol.iterator](): IterableIterator<T> {
-    yield* this.previous
-    for (const source of this.sources) {
+/**
+ * Appends one or more iterables after the source iterable.
+ */
+export function append<T>(...sources: Iterable<T>[]): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
       yield* source
-    }
+      for (const other of sources) {
+        yield* other
+      }
+    })
+}
+
+/**
+ * Caches produced values so future iterations replay without re-reading the source.
+ */
+export function cache<T>(): Operator<T, T> {
+  return (source: Iterable<T>) => {
+    let cachedInput: T[] | undefined
+    return createIterable(function* (): IterableIterator<T> {
+      if (cachedInput) {
+        yield* cachedInput
+        return
+      }
+      const cacheBuffer: T[] = []
+      for (const item of source) {
+        cacheBuffer.push(item)
+        yield item
+      }
+      cachedInput = cacheBuffer
+    })
   }
 }
 
-class CacheStream<T> extends Stream<T> {
-  private readonly previous: Stream<T>
+/**
+ * Collects all values into a set.
+ */
+export function toSet<T>(source: Iterable<T>): Set<T> {
+  return new Set(source)
+}
 
-  private cachedInput: T[] | undefined = undefined
+/**
+ * Collects all values into an array.
+ */
+export function toArray<T>(source: Iterable<T>): T[] {
+  return Array.from(source)
+}
 
-  private constructor(previous: Stream<T>) {
-    super()
-    this.previous = previous
+/**
+ * Collects values into a map using key and value projections.
+ */
+export function toMap<T, K, U>(
+  source: Iterable<T>,
+  key: Processor<T, K>,
+  value: Processor<T, U>,
+): Map<K, U> {
+  let index = 0
+  const result = new Map<K, U>()
+  for (const item of source) {
+    result.set(key(item, index), value(item, index))
+    index++
   }
+  return result
+}
 
-  public static ofPrevious<T>(previous: Stream<T>) {
-    if (previous instanceof CacheStream) {
-      return previous as CacheStream<T>
-    }
-    return new CacheStream<T>(previous)
+/**
+ * Collects values into a record using key and value projections.
+ */
+export function toRecord<T, U>(
+  source: Iterable<T>,
+  key: Processor<T, string>,
+  value: Processor<T, U>,
+): Record<string, U> {
+  const result: Record<string, U> = {}
+  let index = 0
+  for (const item of source) {
+    result[key(item, index)] = value(item, index)
+    index++
   }
+  return result
+}
 
-  public *[Symbol.iterator](): IterableIterator<T> {
-    if (this.cachedInput) {
-      yield* this.cachedInput
-      return
-    }
-    const cache: T[] = []
-    for (const item of this.previous) {
-      cache.push(item)
-      yield item
-    }
-    this.cachedInput = cache
+/**
+ * Reduces all values into a single accumulated result.
+ */
+export function reduce<T, R>(
+  source: Iterable<T>,
+  fn: (acc: R, value: T, index: number) => R,
+  initialValue: R,
+): R {
+  let acc = initialValue
+  let index = 0
+  for (const item of source) {
+    acc = fn(acc, item, index++)
   }
+  return acc
+}
+
+/**
+ * Sums numeric values from a source.
+ */
+export function sum(source: Iterable<number>): number
+/**
+ * Sums projected numeric values from a source.
+ */
+export function sum<T>(source: Iterable<T>, fn: Processor<T, number>): number
+export function sum<T>(source: Iterable<T>, fn?: Processor<T, number>): number {
+  return fn
+    ? reduce(source, (acc, value, index) => acc + fn(value, index), 0)
+    : reduce(source as Iterable<number>, (acc, value) => acc + value, 0)
+}
+
+/**
+ * Executes a callback for each item and returns the original source.
+ */
+export function forEach<T>(source: Iterable<T>, fn: Processor<T, void>): Iterable<T> {
+  let index = 0
+  for (const item of source) {
+    fn(item, index++)
+  }
+  return source
+}
+
+/**
+ * Returns the first item matching the predicate.
+ */
+export function find<T>(source: Iterable<T>, fn: Filter<T>): T | undefined {
+  let index = 0
+  for (const item of source) {
+    if (fn(item, index++)) {
+      return item
+    }
+  }
+  return undefined
+}
+
+/**
+ * Returns true if at least one item matches the predicate.
+ */
+export function some<T>(source: Iterable<T>, fn: Filter<T>): boolean {
+  let index = 0
+  for (const item of source) {
+    if (fn(item, index++)) {
+      return true
+    }
+  }
+  return false
+}
+
+/**
+ * Returns true if all items match the predicate.
+ */
+export function every<T>(source: Iterable<T>, fn: Filter<T>): boolean {
+  let index = 0
+  for (const item of source) {
+    if (!fn(item, index++)) {
+      return false
+    }
+  }
+  return true
+}
+
+/**
+ * Joins string or number values with a separator.
+ */
+export function join<T extends string | number>(source: Iterable<T>, separator: string): string {
+  let index = 0
+  return reduce(source, (acc, value) => `${acc}${index++ === 0 ? '' : separator}${value}`, '')
 }

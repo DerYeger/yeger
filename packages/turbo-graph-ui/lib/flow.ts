@@ -1,4 +1,4 @@
-import { Stream } from '@yeger/streams/sync'
+import * as s from '@yeger/streams/sync'
 import { graphStratify, sugiyama, decrossTwoLayer, coordCenter } from 'd3-dag'
 import type { Edge, Node } from 'reactflow'
 
@@ -32,7 +32,7 @@ function createHierarchy(graph: TurboGraph) {
 }
 function getLongestLineLength({ nodes }: TurboGraph) {
   const length = Math.max(
-    ...Stream.from(nodes).flatMap(({ task, packageName }) => [task.length, packageName.length]),
+    ...nodes.flatMap(({ task, packageName }) => [task.length, packageName.length]),
   )
   if (length < 0) {
     return 1
@@ -65,10 +65,11 @@ function createFlowGraph(
     .decross(decrossTwoLayer())
     .coord(coordCenter())
   const layoutResult = layout(hierarchy)
-  const nodes = Stream.from(hierarchy.nodes())
-    .map<Node<FlowNode>>(
-      (node) =>
-        ({
+  const nodes = s.toArray(
+    s.pipe(
+      hierarchy.nodes(),
+      s.map(
+        (node): Node<FlowNode> => ({
           id: node.data.id,
           data: {
             ...node.data,
@@ -78,9 +79,10 @@ function createFlowGraph(
           focusable: false,
           position: { x: node.x, y: node.y },
           type: 'task',
-        }) as const,
-    )
-    .toArray()
+        }),
+      ),
+    ),
+  )
   const edges = turboEdges.map<Edge<TurboEdge>>((edge) => ({
     id: `edge-${edge.source}-${edge.target}`,
     source: edge.source,

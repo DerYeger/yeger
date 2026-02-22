@@ -1,389 +1,716 @@
-export type AsyncProcessor<Input, Output> = (value: Input) => Output | Promise<Output>
+export type AsyncProcessor<Input, Output> = (
+  value: Input,
+  index: number,
+) => Output | Promise<Output>
 
 export type AsyncFilter<Input> = AsyncProcessor<Input, boolean>
 
-export type AsyncFlatMap<Input, Output> = (value: Input) => Iterable<Output> | AsyncIterable<Output>
+export type AsyncOperator<Input, Output> = (source: AsyncIterable<Input>) => AsyncIterable<Output>
 
-export abstract class AsyncStream<T> implements AsyncIterable<T> {
-  public static empty<T>(): AsyncStream<T> {
-    return AsyncStream.from<T>([])
+export type MaybeAsyncIterable<T> = Iterable<T> | AsyncIterable<T>
+
+function createAsyncIterable<T>(factory: () => AsyncIterableIterator<T>): AsyncIterable<T> {
+  return {
+    [Symbol.asyncIterator]: factory,
+  }
+}
+
+function toAsyncIterable<T>(source: MaybeAsyncIterable<T>): AsyncIterable<T> {
+  if (Symbol.asyncIterator in source) {
+    return source
   }
 
-  public static from<T>(source: Iterable<T> | AsyncIterable<T>): AsyncStream<T> {
-    return AsyncSourceStream.from(source)
+  return createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+    yield* source
+  })
+}
+
+/**
+ * Composes a source iterable with zero or more async stream operators.
+ */
+export function pipe<T>(source: MaybeAsyncIterable<T>): AsyncIterable<T>
+export function pipe<T0, T1>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+): AsyncIterable<T1>
+export function pipe<T0, T1, T2>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+): AsyncIterable<T2>
+export function pipe<T0, T1, T2, T3>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+): AsyncIterable<T3>
+export function pipe<T0, T1, T2, T3, T4>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+): AsyncIterable<T4>
+export function pipe<T0, T1, T2, T3, T4, T5>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+): AsyncIterable<T5>
+export function pipe<T0, T1, T2, T3, T4, T5, T6>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+): AsyncIterable<T6>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+): AsyncIterable<T7>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+): AsyncIterable<T8>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+): AsyncIterable<T9>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+): AsyncIterable<T10>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+): AsyncIterable<T11>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+): AsyncIterable<T12>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+): AsyncIterable<T13>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+): AsyncIterable<T14>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+): AsyncIterable<T15>
+export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+  op16: AsyncOperator<T15, T16>,
+): AsyncIterable<T16>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+  op16: AsyncOperator<T15, T16>,
+  op17: AsyncOperator<T16, T17>,
+): AsyncIterable<T17>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+  op16: AsyncOperator<T15, T16>,
+  op17: AsyncOperator<T16, T17>,
+  op18: AsyncOperator<T17, T18>,
+): AsyncIterable<T18>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+  T19,
+>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+  op16: AsyncOperator<T15, T16>,
+  op17: AsyncOperator<T16, T17>,
+  op18: AsyncOperator<T17, T18>,
+  op19: AsyncOperator<T18, T19>,
+): AsyncIterable<T19>
+export function pipe<
+  T0,
+  T1,
+  T2,
+  T3,
+  T4,
+  T5,
+  T6,
+  T7,
+  T8,
+  T9,
+  T10,
+  T11,
+  T12,
+  T13,
+  T14,
+  T15,
+  T16,
+  T17,
+  T18,
+  T19,
+  T20,
+>(
+  source: MaybeAsyncIterable<T0>,
+  op1: AsyncOperator<T0, T1>,
+  op2: AsyncOperator<T1, T2>,
+  op3: AsyncOperator<T2, T3>,
+  op4: AsyncOperator<T3, T4>,
+  op5: AsyncOperator<T4, T5>,
+  op6: AsyncOperator<T5, T6>,
+  op7: AsyncOperator<T6, T7>,
+  op8: AsyncOperator<T7, T8>,
+  op9: AsyncOperator<T8, T9>,
+  op10: AsyncOperator<T9, T10>,
+  op11: AsyncOperator<T10, T11>,
+  op12: AsyncOperator<T11, T12>,
+  op13: AsyncOperator<T12, T13>,
+  op14: AsyncOperator<T13, T14>,
+  op15: AsyncOperator<T14, T15>,
+  op16: AsyncOperator<T15, T16>,
+  op17: AsyncOperator<T16, T17>,
+  op18: AsyncOperator<T17, T18>,
+  op19: AsyncOperator<T18, T19>,
+  op20: AsyncOperator<T19, T20>,
+): AsyncIterable<T20>
+export function pipe(
+  source: MaybeAsyncIterable<any>,
+  ...operators: AsyncOperator<any, any>[]
+): AsyncIterable<any> {
+  let result: AsyncIterable<any> = toAsyncIterable(source)
+  for (const operator of operators as readonly AsyncOperator<any, any>[]) {
+    result = operator(result)
   }
+  return result
+}
 
-  public static fromObject<T>(
-    source: Record<string | number | symbol, T>,
-  ): AsyncStream<[string, T]> {
-    return AsyncStream.from(Object.entries(source))
-  }
+/**
+ * Creates an async iterable over object entries using string and number keys.
+ */
+export function fromObject<T>(source: Record<string | number, T>): AsyncIterable<[string, T]> {
+  return toAsyncIterable(Object.entries(source))
+}
 
-  public static fromSingle<T>(value: T): AsyncStream<T> {
-    return AsyncStream.from([value])
-  }
-
-  public async toSet(): Promise<Set<T>> {
-    return new Set(await this.toArray())
-  }
-
-  public async toArray(): Promise<T[]> {
-    const result = []
-    for await (const item of this) {
-      result.push(item)
-    }
-    return result
-  }
-
-  public async toMap<K>(fn: AsyncProcessor<T, K>): Promise<Map<K, T>> {
-    const entries = this.map(async (x) => [await fn(x), x] as const)
-    return new Map(await entries.toArray())
-  }
-
-  public async toRecord(fn: AsyncProcessor<T, string>): Promise<Record<string, T>> {
-    const entries = this.map(async (x) => [await fn(x), x] as const)
-    return Object.fromEntries(await entries.toArray())
-  }
-
-  public abstract [Symbol.asyncIterator](): AsyncIterableIterator<T>
-
-  public map<R>(fn: AsyncProcessor<T, R>): AsyncStream<R> {
-    return AsyncMapStream.ofPrevious(this, fn)
-  }
-
-  public flatMap<R>(fn: AsyncFlatMap<T, R>): AsyncStream<R> {
-    return AsyncFlatMapStream.ofPrevious(this, fn)
-  }
-
-  public zip<R>(other: Iterable<R> | AsyncIterable<R>): AsyncStream<[T, R]> {
-    return AsyncZipStream.ofPrevious(this, other)
-  }
-
-  public limit(limit: number): AsyncStream<T> {
-    return AsyncLimitStream.ofPrevious(this, limit)
-  }
-
-  public filter(fn: AsyncFilter<T>): AsyncStream<T> {
-    return AsyncFilterStream.ofPrevious(this, fn)
-  }
-
-  public filterNonNull(): AsyncStream<NonNullable<T>> {
-    return AsyncFilterStream.ofPrevious(
-      this,
-      async (x) => x !== null && x !== undefined,
-    ) as AsyncFilterStream<NonNullable<T>>
-  }
-
-  public async reduce<R>(
-    fn: (acc: R, value: T) => R | Promise<R>,
-    initialValue: R | Promise<R>,
-  ): Promise<R> {
-    let acc = await initialValue
-    for await (const item of this) {
-      acc = await fn(acc, item)
-    }
-    return acc
-  }
-
-  public async sum(fn: T extends number ? void : AsyncProcessor<T, number>): Promise<number> {
-    const add = fn ? async (a: number, b: T) => a + (await fn(b)) : (a: number, b: number) => a + b
-    return this.reduce((acc, value) => add(acc, value as T & number), 0)
-  }
-
-  public async forEach(fn: AsyncProcessor<T, void>): Promise<AsyncStream<T>> {
-    for await (const item of this) {
-      await fn(item)
-    }
-    return this
-  }
-
-  public distinct(): AsyncStream<T> {
-    return AsyncDistinctStream.ofPrevious(this)
-  }
-
-  public async find(fn: AsyncFilter<T>): Promise<T | undefined> {
-    for await (const item of this) {
-      if (await fn(item)) {
-        return item
+/**
+ * Projects each input item into a new value.
+ */
+export function map<Input, Output>(
+  fn: AsyncProcessor<Input, Output>,
+): AsyncOperator<Input, Output> {
+  return (source: AsyncIterable<Input>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<Output> {
+      let index = 0
+      for await (const item of source) {
+        yield fn(item, index++)
       }
-    }
-    return undefined
-  }
+    })
+}
 
-  public async some(fn: AsyncFilter<T>): Promise<boolean> {
-    for await (const item of this) {
-      if (await fn(item)) {
-        return true
+/**
+ * Projects each input item into an iterable and flattens it one level.
+ */
+export function flatMap<Input, Output>(
+  fn: (
+    value: Input,
+    index: number,
+  ) => MaybeAsyncIterable<Output> | Promise<MaybeAsyncIterable<Output>>,
+): AsyncOperator<Input, Output> {
+  return (source: AsyncIterable<Input>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<Output> {
+      let index = 0
+      for await (const item of source) {
+        yield* toAsyncIterable(await fn(item, index++))
       }
-    }
-    return false
-  }
+    })
+}
 
-  public async every(fn: AsyncFilter<T>): Promise<boolean> {
-    for await (const item of this) {
-      if (!(await fn(item))) {
-        return false
+/**
+ * Combines each item with the corresponding item from another iterable.
+ */
+export function zip<T, R>(other: MaybeAsyncIterable<R>): AsyncOperator<T, [T, R]> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<[T, R]> {
+      const otherIterator =
+        Symbol.asyncIterator in other ? other[Symbol.asyncIterator]() : other[Symbol.iterator]()
+
+      for await (const item of source) {
+        const otherItem = await otherIterator.next()
+        if (otherItem.done) {
+          break
+        }
+        yield [item, otherItem.value]
       }
-    }
-    return true
-  }
-
-  public join(separator: string): Promise<string> {
-    return this.reduce((acc, value) => acc + separator + value, '')
-  }
-
-  public concat(...streams: AsyncIterable<T>[]): AsyncStream<T> {
-    return AsyncConcatStream.ofPrevious(this, ...streams)
-  }
-
-  public append(...value: T[]): AsyncStream<T> {
-    return this.concat(AsyncStream.from(value))
-  }
-
-  public cache(): AsyncStream<T> {
-    return AsyncCacheStream.ofPrevious(this)
-  }
+    })
 }
 
-class AsyncSourceStream<T> extends AsyncStream<T> {
-  private readonly source: Iterable<T> | AsyncIterable<T>
-
-  private constructor(source: Iterable<T> | AsyncIterable<T>) {
-    super()
-    this.source = source
-  }
-
-  public static from<T>(source: Iterable<T> | AsyncIterable<T>) {
-    return new AsyncSourceStream(source)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    for await (const value of this.source) {
-      yield value
-    }
-  }
-}
-
-class AsyncMapStream<Input, Output> extends AsyncStream<Output> {
-  private readonly previous: AsyncStream<Input>
-  private readonly fn: AsyncProcessor<Input, Output>
-
-  private constructor(previous: AsyncStream<Input>, fn: AsyncProcessor<Input, Output>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
-
-  public static ofPrevious<Input, Output>(
-    previous: AsyncStream<Input>,
-    fn: AsyncProcessor<Input, Output>,
-  ) {
-    if (previous instanceof AsyncMapStream) {
-      return new AsyncMapStream<Input, Output>(previous.previous, async (value) =>
-        fn(await previous.fn(value)),
-      )
-    }
-    return new AsyncMapStream(previous, fn)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
-    for await (const item of this.previous) {
-      yield this.fn(item)
-    }
-  }
-}
-
-class AsyncFlatMapStream<Input, Output> extends AsyncStream<Output> {
-  private readonly previous: AsyncStream<Input>
-  private readonly fn: AsyncFlatMap<Input, Output>
-
-  private constructor(previous: AsyncStream<Input>, fn: AsyncFlatMap<Input, Output>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
-
-  public static ofPrevious<Input, Output>(
-    previous: AsyncStream<Input>,
-    fn: AsyncFlatMap<Input, Output>,
-  ) {
-    return new AsyncFlatMapStream(previous, fn)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<Output> {
-    for await (const item of this.previous) {
-      yield* this.fn(item)
-    }
-  }
-}
-
-class AsyncZipStream<T, R> extends AsyncStream<[T, R]> {
-  private readonly previous: AsyncStream<T>
-  private readonly other: Iterable<R> | AsyncIterable<R>
-
-  private constructor(previous: AsyncStream<T>, other: Iterable<R> | AsyncIterable<R>) {
-    super()
-    this.previous = previous
-    this.other = other
-  }
-
-  public static ofPrevious<T, R>(previous: AsyncStream<T>, other: Iterable<R> | AsyncIterable<R>) {
-    return new AsyncZipStream(previous, other)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<[T, R]> {
-    const otherIterator =
-      Symbol.asyncIterator in this.other
-        ? this.other[Symbol.asyncIterator]()
-        : this.other[Symbol.iterator]()
-    for await (const item of this.previous) {
-      const otherItem = await otherIterator.next()
-      if (otherItem.done) {
-        break
+/**
+ * Emits at most the first n items from the source.
+ */
+export function limit<T>(n: number): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      if (n <= 0) {
+        return
       }
-      yield [item, otherItem.value]
-    }
-  }
-}
-
-class AsyncLimitStream<T> extends AsyncStream<T> {
-  private readonly previous: AsyncStream<T>
-  private readonly n: number
-
-  private constructor(previous: AsyncStream<T>, n: number) {
-    super()
-    this.previous = previous
-    this.n = n
-  }
-
-  public static ofPrevious<T>(previous: AsyncStream<T>, limit: number) {
-    if (previous instanceof AsyncLimitStream) {
-      return new AsyncLimitStream<T>(previous.previous, Math.min(previous.n, limit))
-    }
-    return new AsyncLimitStream<T>(previous, limit)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    let count = 0
-    if (this.n <= count) {
-      return
-    }
-    for await (const item of this.previous) {
-      yield item
-      if (++count >= this.n) {
-        break
+      let count = 0
+      for await (const item of source) {
+        yield item
+        if (++count >= n) {
+          break
+        }
       }
-    }
-  }
+    })
 }
 
-class AsyncFilterStream<T> extends AsyncStream<T> {
-  private readonly previous: AsyncStream<T>
-  private readonly fn: AsyncFilter<T>
+/**
+ * Emits only the items matching the predicate.
+ */
+export function filter<T, S extends T>(
+  fn: (value: T, index: number) => value is S,
+): AsyncOperator<T, S>
+/**
+ * Emits only the items matching the predicate.
+ */
+export function filter<T>(fn: AsyncFilter<T>): AsyncOperator<T, T>
+export function filter<T>(fn: AsyncFilter<T>): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      let index = 0
+      for await (const item of source) {
+        if (await fn(item, index++)) {
+          yield item
+        }
+      }
+    })
+}
 
-  private constructor(previous: AsyncStream<T>, fn: AsyncFilter<T>) {
-    super()
-    this.previous = previous
-    this.fn = fn
-  }
+/**
+ * Emits only non-null and non-undefined values.
+ */
+export function filterDefined<T>(): AsyncOperator<T, NonNullable<T>> {
+  return filter<T, NonNullable<T>>(
+    (item): item is NonNullable<T> => item !== null && item !== undefined,
+  )
+}
 
-  public static ofPrevious<T>(previous: AsyncStream<T>, fn: AsyncFilter<T>) {
-    if (previous instanceof AsyncFilterStream) {
-      return new AsyncFilterStream<T>(
-        previous.previous,
-        async (value) => (await previous.fn(value)) && (await fn(value)),
-      )
-    }
-    return new AsyncFilterStream<T>(previous, fn)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    for await (const item of this.previous) {
-      if (await this.fn(item)) {
+/**
+ * Emits only the first occurrence of each unique value.
+ */
+export function distinct<T>(): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      const seen = new Set<T>()
+      for await (const item of source) {
+        if (seen.has(item)) {
+          continue
+        }
+        seen.add(item)
         yield item
       }
-    }
-  }
+    })
 }
 
-class AsyncDistinctStream<T> extends AsyncStream<T> {
-  private readonly previous: AsyncStream<T>
-
-  private constructor(previous: AsyncStream<T>) {
-    super()
-    this.previous = previous
-  }
-
-  public static ofPrevious<T>(previous: AsyncStream<T>) {
-    if (previous instanceof AsyncDistinctStream) {
-      return new AsyncDistinctStream<T>(previous.previous)
-    }
-    return new AsyncDistinctStream<T>(previous)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    const set = new Set<T>()
-    for await (const item of this.previous) {
-      if (!set.has(item)) {
-        set.add(item)
-        yield item
-      }
-    }
-  }
-}
-
-class AsyncConcatStream<T> extends AsyncStream<T> {
-  private readonly previous: AsyncStream<T>
-  private readonly sources: AsyncIterable<T>[]
-
-  private constructor(previous: AsyncStream<T>, sources: AsyncIterable<T>[]) {
-    super()
-    this.previous = previous
-    this.sources = sources
-  }
-
-  public static ofPrevious<T>(previous: AsyncStream<T>, ...streams: AsyncIterable<T>[]) {
-    if (previous instanceof AsyncConcatStream) {
-      return new AsyncConcatStream<T>(previous.previous, previous.sources.concat(streams))
-    }
-    return new AsyncConcatStream<T>(previous, streams)
-  }
-
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    yield* this.previous
-    for (const source of this.sources) {
+/**
+ * Appends one or more iterables after the source iterable.
+ */
+export function append<T>(...sources: MaybeAsyncIterable<T>[]): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       yield* source
-    }
+      for (const other of sources) {
+        yield* toAsyncIterable(other)
+      }
+    })
+}
+
+/**
+ * Caches produced values so future iterations replay without re-reading the source.
+ */
+export function cache<T>(): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) => {
+    let cachedInput: T[] | undefined
+    return createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      if (cachedInput) {
+        yield* cachedInput
+        return
+      }
+
+      const cacheBuffer: T[] = []
+      for await (const item of source) {
+        cacheBuffer.push(item)
+        yield item
+      }
+      cachedInput = cacheBuffer
+    })
   }
 }
 
-class AsyncCacheStream<T> extends AsyncStream<T> {
-  private readonly previous: AsyncStream<T>
-
-  private cachedInput: T[] | undefined = undefined
-
-  private constructor(previous: AsyncStream<T>) {
-    super()
-    this.previous = previous
+/**
+ * Collects all values into a set.
+ */
+export async function toSet<T>(source: MaybeAsyncIterable<T>): Promise<Set<T>> {
+  const result = new Set<T>()
+  for await (const item of source) {
+    result.add(item)
   }
+  return result
+}
 
-  public static ofPrevious<T>(previous: AsyncStream<T>) {
-    if (previous instanceof AsyncCacheStream) {
-      return previous as AsyncCacheStream<T>
-    }
-    return new AsyncCacheStream<T>(previous)
+/**
+ * Collects all values into an array.
+ */
+export async function toArray<T>(source: MaybeAsyncIterable<T>): Promise<T[]> {
+  const result: T[] = []
+  for await (const item of source) {
+    result.push(item)
   }
+  return result
+}
 
-  public async *[Symbol.asyncIterator](): AsyncIterableIterator<T> {
-    if (this.cachedInput) {
-      yield* this.cachedInput
-      return
-    }
-    const cache: T[] = []
-    for await (const item of this.previous) {
-      cache.push(item)
-      yield item
-    }
-    this.cachedInput = cache
+/**
+ * Collects values into a map using key and value projections.
+ */
+export async function toMap<T, K, U>(
+  source: MaybeAsyncIterable<T>,
+  key: AsyncProcessor<T, K>,
+  value: AsyncProcessor<T, U>,
+): Promise<Map<K, U>> {
+  let index = 0
+  const result = new Map<K, U>()
+  for await (const item of source) {
+    result.set(await key(item, index), await value(item, index))
+    index++
   }
+  return result
+}
+
+/**
+ * Collects values into a record using key and value projections.
+ */
+export async function toRecord<T, U>(
+  source: MaybeAsyncIterable<T>,
+  key: AsyncProcessor<T, string>,
+  value: AsyncProcessor<T, U>,
+): Promise<Record<string, U>> {
+  const result: Record<string, U> = {}
+  let index = 0
+  for await (const item of source) {
+    result[await key(item, index)] = await value(item, index)
+    index++
+  }
+  return result
+}
+
+/**
+ * Reduces all values into a single accumulated result.
+ */
+export async function reduce<T, R>(
+  source: MaybeAsyncIterable<T>,
+  fn: (acc: R, value: T, index: number) => R | Promise<R>,
+  initialValue: R | Promise<R>,
+): Promise<R> {
+  let acc = await initialValue
+  let index = 0
+  for await (const item of source) {
+    acc = await fn(acc, item, index++)
+  }
+  return acc
+}
+
+/**
+ * Sums numeric values from a source.
+ */
+export async function sum(source: MaybeAsyncIterable<number>): Promise<number>
+/**
+ * Sums projected numeric values from a source.
+ */
+export async function sum<T>(
+  source: MaybeAsyncIterable<T>,
+  fn: T extends number ? never : AsyncProcessor<T, number>,
+): Promise<number>
+export async function sum<T>(
+  source: MaybeAsyncIterable<T>,
+  fn?: AsyncProcessor<T, number>,
+): Promise<number> {
+  return fn
+    ? reduce(source, async (acc, value, index) => acc + (await fn(value, index)), 0)
+    : reduce(source as MaybeAsyncIterable<number>, (acc, value) => acc + value, 0)
+}
+
+/**
+ * Executes a callback for each item and returns the original source.
+ */
+export async function forEach<T>(
+  source: MaybeAsyncIterable<T>,
+  fn: AsyncProcessor<T, void>,
+): Promise<AsyncIterable<T>> {
+  let index = 0
+  for await (const item of source) {
+    await fn(item, index++)
+  }
+  return toAsyncIterable(source)
+}
+
+/**
+ * Returns the first item matching the predicate.
+ */
+export async function find<T>(
+  source: MaybeAsyncIterable<T>,
+  fn: AsyncFilter<T>,
+): Promise<T | undefined> {
+  let index = 0
+  for await (const item of source) {
+    if (await fn(item, index++)) {
+      return item
+    }
+  }
+  return undefined
+}
+
+/**
+ * Returns true if at least one item matches the predicate.
+ */
+export async function some<T>(source: MaybeAsyncIterable<T>, fn: AsyncFilter<T>): Promise<boolean> {
+  let index = 0
+  for await (const item of source) {
+    if (await fn(item, index++)) {
+      return true
+    }
+  }
+  return false
+}
+
+/**
+ * Returns true if all items match the predicate.
+ */
+export async function every<T>(
+  source: MaybeAsyncIterable<T>,
+  fn: AsyncFilter<T>,
+): Promise<boolean> {
+  let index = 0
+  for await (const item of source) {
+    if (!(await fn(item, index++))) {
+      return false
+    }
+  }
+  return true
+}
+
+/**
+ * Joins string or number values with a separator.
+ */
+export function join<T extends string | number>(
+  source: MaybeAsyncIterable<T>,
+  separator: string,
+): Promise<string> {
+  let index = 0
+  return reduce(source, (acc, value) => `${acc}${index++ === 0 ? '' : separator}${value}`, '')
 }

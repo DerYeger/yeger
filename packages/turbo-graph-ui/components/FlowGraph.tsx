@@ -1,6 +1,6 @@
 'use client'
 
-import { Stream } from '@yeger/streams/sync'
+import * as s from '@yeger/streams/sync'
 import { scaleOrdinal } from 'd3-scale'
 import type { ReactNode } from 'react'
 import { useEffect, useMemo } from 'react'
@@ -43,7 +43,8 @@ export function FlowGraph({ children, graph, tasks }: Props) {
       '#3F79D5',
       '#22c55e',
     ]).domain(tasks)
-    const taskColors = Stream.from(tasks).toRecord(
+    const taskColors = s.toRecord(
+      tasks,
       (task) => getTaskColorVar(task),
       (task) => getColor(task),
     )

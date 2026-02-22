@@ -1,11 +1,12 @@
 import { bench } from 'vitest'
 
+import * as s from '../src/sync'
 import { TestUtils } from './test-utils'
 
 bench(
   'streams',
   () => {
-    TestUtils.testStream.toSet()
+    s.toSet(TestUtils.testStream)
   },
   { time: 1000 },
 )
@@ -13,8 +14,7 @@ bench(
 bench(
   'streams with intermediate array',
   () => {
-    // @ts-expect-error Unused
-    const _result = new Set(TestUtils.testStream.toArray())
+    const _result = new Set(s.toArray(TestUtils.testStream))
   },
   { time: 1000 },
 )
@@ -22,7 +22,7 @@ bench(
 bench(
   'streams with early limit',
   () => {
-    TestUtils.earlyLimitTestStream.toSet()
+    s.toSet(TestUtils.earlyLimitTestStream)
   },
   { time: 1000 },
 )
@@ -57,7 +57,6 @@ bench(
         break
       }
     }
-    // @ts-expect-error Unused
     const _set = new Set(result)
   },
   { time: 1000 },
@@ -74,7 +73,6 @@ bench(
       .map((x) => x % 20)
       .map(TestUtils.fibonacci)
       .slice(0, TestUtils.limit)
-    // @ts-expect-error Unused
     const _set = new Set(result)
   },
   { time: 1000 },
@@ -91,7 +89,6 @@ bench(
       .map((x) => Number.parseInt(x, 10))
       .map((x) => x % 20)
       .map(TestUtils.fibonacci)
-    // @ts-expect-error Unused
     const _set = new Set(result)
   },
   { time: 1000 },

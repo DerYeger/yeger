@@ -1,4 +1,5 @@
-import { AsyncStream, Stream } from '../src/index'
+import * as as from '../src/async'
+import * as s from '../src/sync'
 
 function fibonacci(n: number): number {
   if (n <= 1) {
@@ -7,42 +8,49 @@ function fibonacci(n: number): number {
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
 
-const limit = 10
+const TEST_LIMIT = 10
 
 const source = Array.from({ length: 10000 }, (_, i) => i)
 
-const testStream = Stream.from(source)
-  .filter((x) => x % 2 !== 0)
-  .map((x) => x * 2)
-  .map((x) => `${x}.5`)
-  .map((x) => Number.parseInt(x, 10))
-  .map((x) => x % 20)
-  .map((x) => fibonacci(x))
-  .limit(limit)
+const testStream = s.pipe(
+  source,
+  s.filter((x) => x % 2 !== 0),
+  s.map((x) => x * 2),
+  s.map((x) => `${x}.5`),
+  s.map((x) => Number.parseInt(x, 10)),
+  s.map((x) => x % 20),
+  s.map((x) => fibonacci(x)),
+  s.limit(TEST_LIMIT),
+)
 
-const asyncTestStream = AsyncStream.from(source)
-  .filter((x) => x % 2 !== 0)
-  .map((x) => x * 2)
-  .map((x) => `${x}.5`)
-  .map((x) => Number.parseInt(x, 10))
-  .map((x) => x % 20)
-  .map((x) => fibonacci(x))
-  .limit(limit)
+const asyncTestStream = as.pipe(
+  source,
+  as.filter((x) => x % 2 !== 0),
+  as.map((x) => x * 2),
+  as.map((x) => `${x}.5`),
+  as.map((x) => Number.parseInt(x, 10)),
+  as.map((x) => x % 20),
+  as.map((x) => fibonacci(x)),
+  as.limit(TEST_LIMIT),
+)
 
-const earlyLimitTestStream = Stream.from(source)
-  .filter((x) => x % 2 !== 0)
-  .limit(limit)
-  .map((x) => x * 2)
-  .map((x) => `${x}.5`)
-  .map((x) => Number.parseInt(x, 10))
-  .map((x) => x % 20)
-  .map((x) => fibonacci(x))
+const earlyLimitTestStream = s.pipe(
+  source,
+  s.filter((x) => x % 2 !== 0),
+  s.limit(TEST_LIMIT),
+  s.map((x) => x * 2),
+  s.map((x) => `${x}.5`),
+  s.map((x) => Number.parseInt(x, 10)),
+  s.map((x) => x % 20),
+  s.map((x) => fibonacci(x)),
+)
 
 export const TestUtils = {
   asyncTestStream,
   earlyLimitTestStream,
   fibonacci,
-  limit,
+  limit: TEST_LIMIT,
+  TEST_LIMIT,
   source,
   testStream,
 }

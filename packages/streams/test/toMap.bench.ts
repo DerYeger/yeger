@@ -1,11 +1,16 @@
 import { bench } from 'vitest'
 
+import * as s from '../src/sync'
 import { TestUtils } from './test-utils'
 
 bench(
   'streams',
   () => {
-    TestUtils.testStream.toMap((x) => x.toString())
+    s.toMap(
+      TestUtils.testStream,
+      (x) => x.toString(),
+      (x) => x,
+    )
   },
   { time: 1000 },
 )
@@ -13,7 +18,11 @@ bench(
 bench(
   'streams with early limit',
   () => {
-    TestUtils.earlyLimitTestStream.toMap((x) => x.toString())
+    s.toMap(
+      TestUtils.earlyLimitTestStream,
+      (x) => x.toString(),
+      (x) => x,
+    )
   },
   { time: 1000 },
 )
@@ -50,7 +59,6 @@ bench(
         break
       }
     }
-    // @ts-expect-error Unused
     const _result = new Map(intermediate)
   },
   { time: 1000 },
@@ -59,7 +67,6 @@ bench(
 bench(
   'array',
   () => {
-    // @ts-expect-error Unused
     const _result = new Map(
       TestUtils.source
         .filter((x) => x % 2 !== 0)
@@ -78,7 +85,6 @@ bench(
 bench(
   'array with early limit',
   () => {
-    // @ts-expect-error Unused
     const _result = new Map(
       TestUtils.source
         .filter((x) => x % 2 !== 0)
