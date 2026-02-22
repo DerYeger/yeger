@@ -1,5 +1,13 @@
 # d3-graph-controller
 
+## 3.1.8
+
+### Patch Changes
+
+- fca8dd7: use deepmerge
+  - @yeger/debounce@2.0.17
+  - vecti@3.1.5
+
 ## 3.1.7
 
 ### Patch Changes

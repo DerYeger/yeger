@@ -1,5 +1,12 @@
 # @yeger/vitest-utils
 
+## 1.2.2
+
+### Patch Changes
+
+- 5c0396b: do not screenshot failures
+- 5c0396b: run browser tests headless by default
+
 ## 1.2.1
 
 ### Patch Changes
