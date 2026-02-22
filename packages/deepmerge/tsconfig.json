@@ -1,7 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/lib",
-  "compilerOptions": {
-    "isolatedDeclarations": false
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
-}

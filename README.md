@@ -23,7 +23,6 @@
 ## Packages
 
 - [@yeger/debounce](./packages/debounce)
-- [@yeger/deepmerge](./packages/deepmerge)
 - [@yeger/fol](./packages/fol)
 - [@yeger/html-diff](./packages/html-diff)
 - [@yeger/playwright-config](./packages/playwright-config)
