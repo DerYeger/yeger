@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query'
 import { waitFor } from '@testing-library/react'
 import * as React from 'react'
 import { useMemo } from 'react'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, test, vi } from 'vitest'
 
 import { defineKeyHierarchy, defineKeyHierarchyModule } from '../src/index'
 import { withReactComponentLifecycle } from './react-test-utils'
@@ -14,7 +14,7 @@ const keyModule = defineKeyHierarchyModule((dynamic) => ({
 }))
 
 describe('defineKeyHierarchy for @tanstack/react-query', () => {
-  it('works with default options', async () => {
+  test('works with default options', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule)
     const queryFn = vi.fn((input) => Promise.resolve(input))
 
@@ -47,7 +47,7 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
     })
   })
 
-  it('works with precomputation', async () => {
+  test('works with precomputation', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
 
@@ -80,7 +80,7 @@ describe('defineKeyHierarchy for @tanstack/react-query', () => {
     })
   })
 
-  it('works with freeze enabled', async () => {
+  test('works with freeze enabled', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule, { freeze: true })
     const queryFn = vi.fn((input) => Promise.resolve(input))
 

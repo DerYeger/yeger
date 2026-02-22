@@ -1,18 +1,18 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { WordSplitter } from '../src/word-splitter'
 
 describe('WordSplitter', () => {
   describe('convertHtmlToListOfWords()', () => {
-    it('has `convertHtmlToListOfWords', () => {
+    test('has `convertHtmlToListOfWords', ({ expect }) => {
       expect(typeof WordSplitter.convertHtmlToListOfWords).toBe('function')
     })
 
-    it('accept string as first parameter and returns array', () => {
+    test('accept string as first parameter and returns array', ({ expect }) => {
       expect(Array.isArray(WordSplitter.convertHtmlToListOfWords(''))).toBe(true)
     })
 
-    it('returns words arrays', () => {
+    test('returns words arrays', ({ expect }) => {
       const string = 'this is words'
       const expectedWords = [['this'], ['is'], ['words']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -20,7 +20,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('divide numbers', () => {
+    test('divide numbers', ({ expect }) => {
       const string = '12345'
       const expectedWords = [['1'], ['2'], ['3'], ['4'], ['5']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -28,7 +28,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('numbers and tags', () => {
+    test('numbers and tags', ({ expect }) => {
       const string = '12345<img src="123" />'
       const expectedWords = [['1'], ['2'], ['3'], ['4'], ['5'], ['<img src="123" />']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -36,7 +36,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('numbers and entities', () => {
+    test('numbers and entities', ({ expect }) => {
       const string = '123&entity'
       const expectedWords = [['1'], ['2'], ['3'], ['&entity']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -44,7 +44,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('numbers and characters and whitespaces', () => {
+    test('numbers and characters and whitespaces', ({ expect }) => {
       const string = '123[] 123 '
       const expectedWords = [
         ['1'],
@@ -64,7 +64,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('entities and whitespace', () => {
+    test('entities and whitespace', ({ expect }) => {
       const string = ' &entity  '
       const expectedWords = [[' '], ['&entity'], ['  ']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -72,7 +72,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('character and entities', () => {
+    test('character and entities', ({ expect }) => {
       const string = ' [&entity]'
       const expectedWords = [['['], ['&entity'], [']']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -80,7 +80,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns spaces', () => {
+    test('returns spaces', ({ expect }) => {
       const string = 'this is words' // 2 spaces
       const expectedWords = [[' '], [' ']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -88,7 +88,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns elements in original order', () => {
+    test('returns elements in original order', ({ expect }) => {
       const string = 'this is words'
       const expectedWords = [['this'], [' '], ['is'], [' '], ['words']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -96,7 +96,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns punctuation', () => {
+    test('returns punctuation', ({ expect }) => {
       const string = 'text; words.?,'
       const expectedWords = [[';'], ['.'], ['?'], [',']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -104,7 +104,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns characters', () => {
+    test('returns characters', ({ expect }) => {
       const string = '[text]'
       const expectedWords = [['['], ['text'], [']']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -112,7 +112,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns opening and closing tags', () => {
+    test('returns opening and closing tags', ({ expect }) => {
       const string = '<tag>some text </tag>'
       const expectedWords = [['<tag>'], ['</tag>']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -120,7 +120,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns singleton tags', () => {
+    test('returns singleton tags', ({ expect }) => {
       const string = '<audio /> <video /> '
       const expectedWords = [['<audio />'], ['<video />']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -128,7 +128,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns tags with attributes', () => {
+    test('returns tags with attributes', ({ expect }) => {
       const string = '<tag attribute="value1" >some text </tag>'
       const expectedWords = [['<tag attribute="value1" >'], ['</tag>']]
 
@@ -144,7 +144,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns entities', () => {
+    test('returns entities', ({ expect }) => {
       const string = '&entity; &other'
       const expectedWords = [['&entity;'], ['&other']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -152,7 +152,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('returns entities with right borders (delimiter - ";")', () => {
+    test('returns entities with right borders (delimiter - ";")', ({ expect }) => {
       const string = '&entity;notEntityPart'
       const expectedWords = [['&entity;']]
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(
@@ -160,7 +160,9 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('difficult string with (tags, entities, numbers, characters, words, ect.)', () => {
+    test('difficult string with (tags, entities, numbers, characters, words, ect.)', ({
+      expect,
+    }) => {
       const string = '&en; ~  ~1 ~word &<>  <>&1 & '
       const expectedWords = [
         ['&en;'],
@@ -186,7 +188,7 @@ describe('WordSplitter', () => {
       expect(WordSplitter.convertHtmlToListOfWords(string)).toEqual(expectedWords)
     })
 
-    it('works with blockExpressions', () => {
+    test('works with blockExpressions', ({ expect }) => {
       const stringWithDate = '19.02.2022 and other words'
       const blockExp = { exp: /\d\d.\d\d.\d\d\d\d/g }
       const expectedDates = [['19.02.2022']]
@@ -195,7 +197,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('works with multiple blockExpressions', () => {
+    test('works with multiple blockExpressions', ({ expect }) => {
       const stringWithDate = '19.02.2022 11-12-2022'
       const blockExp = { exp: /\d\d\.\d\d\.\d\d\d\d/g }
       const blockExp2 = { exp: /\d\d-\d\d-\d\d\d\d/g }
@@ -204,8 +206,9 @@ describe('WordSplitter', () => {
         expect.arrayContaining(expectedDates),
       )
     })
-    it(`will return first - match from (blockExp.compareBy) from
-            second - part of the text from (blockExp.exp) match`, () => {
+
+    test(`will return first - match from (blockExp.compareBy) from
+            second - part of the text from (blockExp.exp) match`, ({ expect }) => {
       const stringWithDate = '  <img src="./image.png" title="title-1" />other'
       const blockExp = {
         exp: /<img[\s\S]+?\/>/g,
@@ -224,7 +227,7 @@ describe('WordSplitter', () => {
       )
     })
 
-    it('when blockExpressions cross each other - will not throw an error', () => {
+    test('when blockExpressions cross each other - will not throw an error', ({ expect }) => {
       const stringWithDate = '19.02.2022 and other words'
       const blockExp = { exp: /\d\d.\d\d.\d\d\d\d/g }
       const blockExp2 = { exp: /\d\d.\d\d.\d\d\d\d/g }

@@ -1,6 +1,6 @@
 import { useQuery, VueQueryPlugin } from '@tanstack/vue-query'
 import { flushPromises } from '@vue/test-utils'
-import { describe, expect, it, vi } from 'vitest'
+import { describe, test, vi } from 'vitest'
 import type { MaybeRefOrGetter } from 'vue'
 import { ref, toValue } from 'vue'
 
@@ -14,7 +14,7 @@ const keyModule = defineKeyHierarchyModule((dynamic) => ({
 }))
 
 describe('defineKeyHierarchy for @tanstack/vue-query', () => {
-  it('works with default options', async () => {
+  test('works with default options', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule)
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
@@ -38,7 +38,7 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     expect(result.data.value).toBe('2')
   })
 
-  it('works with precomputation', async () => {
+  test('works with precomputation', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule, { method: 'precompute' })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')
@@ -62,7 +62,7 @@ describe('defineKeyHierarchy for @tanstack/vue-query', () => {
     expect(result.data.value).toBe('2')
   })
 
-  it('does not work with freeze enabled', async () => {
+  test('does not work with freeze enabled', async ({ expect }) => {
     const keys = defineKeyHierarchy(keyModule, { freeze: true })
     const queryFn = vi.fn((input) => Promise.resolve(input))
     const input = ref('1')

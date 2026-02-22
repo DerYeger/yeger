@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, test } from 'vitest'
 
 import type { GraphLink } from '../src/index'
 import { GraphController, defineGraphConfig } from '../src/index'
@@ -16,21 +16,21 @@ describe('GraphController', () => {
 
   afterEach(() => controller.shutdown())
 
-  it('matches the snapshot', () => {
+  test('matches the snapshot', ({ expect }) => {
     expect(container).toMatchSnapshot()
   })
 
-  it('renders nodes', () => {
+  test('renders nodes', ({ expect }) => {
     expect(container.querySelectorAll('.node').length).toEqual(TestData.graph.nodes.length)
   })
 
-  it('renders links', () => {
+  test('renders links', ({ expect }) => {
     expect(container.querySelectorAll('.link').length).toEqual(TestData.graph.links.length)
   })
 
   describe('can be configured', () => {
     describe('with initial settings', () => {
-      it('that set the node type filter', () => {
+      test('that set the node type filter', ({ expect }) => {
         controller = new GraphController(
           container,
           TestData.graph,
@@ -42,7 +42,7 @@ describe('GraphController', () => {
         expect(container.querySelectorAll('.link').length).toEqual(0)
       })
 
-      it('that exclude unlinked nodes', () => {
+      test('that exclude unlinked nodes', ({ expect }) => {
         controller = new GraphController(
           container,
           TestData.graph,
@@ -55,7 +55,7 @@ describe('GraphController', () => {
         expect(container.querySelectorAll('.node').length).toEqual(3)
       })
 
-      it('that filter links', () => {
+      test('that filter links', ({ expect }) => {
         controller = new GraphController(
           container,
           TestData.graph,
@@ -72,7 +72,7 @@ describe('GraphController', () => {
   })
 
   describe('has settings that', () => {
-    it('can exclude unlinked nodes', () => {
+    test('can exclude unlinked nodes', ({ expect }) => {
       expect(container.querySelectorAll('.node').length).toEqual(TestData.graph.nodes.length)
 
       controller.includeUnlinked = false
@@ -80,7 +80,7 @@ describe('GraphController', () => {
       expect(container.querySelectorAll('.node').length).toEqual(3)
     })
 
-    it('can filter links', () => {
+    test('can filter links', ({ expect }) => {
       expect(container.querySelectorAll('.link').length).toEqual(TestData.graph.links.length)
 
       const linkFilter = (link: GraphLink<TestNodeType>) => link.source.id === link.target.id
@@ -90,7 +90,7 @@ describe('GraphController', () => {
       expect(container.querySelectorAll('.link').length).toEqual(1)
     })
 
-    it('can filter by node type', () => {
+    test('can filter by node type', ({ expect }) => {
       const currentlyExcluded: TestNodeType[] = []
 
       const checkIncludedNodes = () => {
@@ -118,7 +118,7 @@ describe('GraphController', () => {
       checkIncludedNodes()
     })
 
-    it('can toggle node labels', () => {
+    test('can toggle node labels', ({ expect }) => {
       controller.showNodeLabels = true
       expect(
         [...container.querySelectorAll('.node__label')].every(
@@ -136,7 +136,7 @@ describe('GraphController', () => {
       expect(controller.showNodeLabels).toBe(false)
     })
 
-    it('can toggle link labels', () => {
+    test('can toggle link labels', ({ expect }) => {
       controller.showLinkLabels = true
       expect(
         [...container.querySelectorAll('.link__label')].some(

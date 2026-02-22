@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test, vi } from 'vitest'
 
 import { debounce } from '../src/index'
 
@@ -7,26 +7,26 @@ function flushTimeouts(delay?: number) {
 }
 
 describe('debounce', () => {
-  it('invokes the callback', async () => {
-    let invoked = false
-    debounce(() => (invoked = true))()
+  test('invokes the callback', async ({ expect }) => {
+    const callback = vi.fn()
+    debounce(callback)()
 
     await flushTimeouts()
 
-    expect(invoked).toBe(true)
+    expect(callback).toHaveBeenCalledOnce()
   })
 
-  it('cancels previous invocations', async () => {
-    let counter = 0
-    const increment = debounce(() => {
-      counter += 1
-    }, 100)
+  test('cancels previous invocations', async ({ expect }) => {
+    vi.useFakeTimers()
 
-    increment()
-    increment()
+    const callback = vi.fn()
+    const debounced = debounce(callback, 100)
 
-    await flushTimeouts(200)
+    debounced()
+    debounced()
 
-    expect(counter).toBe(1)
+    await vi.advanceTimersByTimeAsync(100)
+
+    expect(callback).toHaveBeenCalledTimes(1)
   })
 })

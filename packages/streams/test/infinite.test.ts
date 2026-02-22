@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { AsyncStream, Stream } from '../src/index'
 
@@ -17,12 +17,12 @@ async function* asyncNaturalNumbers() {
 }
 
 describe('infinite', () => {
-  it('sync stream works', () => {
+  test('sync stream works', ({ expect }) => {
     const firstTenNumbers = Stream.from(naturalNumbers()).limit(10).toArray()
     expect(firstTenNumbers).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   })
 
-  it('async stream works', async () => {
+  test('async stream works', async ({ expect }) => {
     const firstTenNumbers = await AsyncStream.from(asyncNaturalNumbers()).limit(10).toArray()
     expect(firstTenNumbers).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
   })

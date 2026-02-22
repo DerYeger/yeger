@@ -1,10 +1,10 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { AsyncStream } from '../src/index'
 import { TestUtils } from './test-utils'
 
 describe('async streams', () => {
-  it('works with complex chains', async () => {
+  test('works with complex chains', async ({ expect }) => {
     const res = await AsyncStream.from([null, 0, 1, 2, undefined, 3, 4, 5, 6, 7, 8, 9])
       .filterNonNull()
       .limit(6)
@@ -15,7 +15,7 @@ describe('async streams', () => {
     expect(res).toEqual(['2.0', '6.0', '10.0'])
   })
 
-  it('can sum', async () => {
+  test('can sum', async ({ expect }) => {
     let count = 0
     let forOfResult = 0
     for (const item of TestUtils.source) {
@@ -33,14 +33,14 @@ describe('async streams', () => {
     expect(streamResult).toEqual(forOfResult)
   })
 
-  it('can sum non-numbers', async () => {
+  test('can sum non-numbers', async ({ expect }) => {
     const streamResult = await AsyncStream.from(['hello', 'world', '!'])
       .limit(2)
       .sum((x) => x.length)
     expect(streamResult).toEqual(10)
   })
 
-  it('can iterate objects', async () => {
+  test('can iterate objects', async ({ expect }) => {
     const streamResult = await AsyncStream.fromObject({
       hello: 'world',
       5: true,
@@ -50,7 +50,7 @@ describe('async streams', () => {
     expect(streamResult).toEqual(['5 true', 'hello world'])
   })
 
-  it('can create a map with a mapper', async () => {
+  test('can create a map with a mapper', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2]).toMap((x) => x.toString())
     expect(streamResult).toEqual(
       new Map([
@@ -60,14 +60,14 @@ describe('async streams', () => {
     )
   })
 
-  it('can flatmap', async () => {
+  test('can flatmap', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2, 3])
       .flatMap((x) => [x, x])
       .toArray()
     expect(streamResult).toEqual([1, 1, 2, 2, 3, 3])
   })
 
-  it('can zip', async () => {
+  test('can zip', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2, 3]).zip([4, 5, 6]).toArray()
     expect(streamResult).toEqual([
       [1, 4],
@@ -76,29 +76,29 @@ describe('async streams', () => {
     ])
   })
 
-  it('can be empty', async () => {
+  test('can be empty', async ({ expect }) => {
     const streamResult = await AsyncStream.empty().toArray()
     expect(streamResult).toEqual([])
   })
 
-  it('can have a single value', async () => {
+  test('can have a single value', async ({ expect }) => {
     const streamResult = await AsyncStream.fromSingle(1).toArray()
     expect(streamResult).toEqual([1])
   })
 
-  it('can filter duplicates', async () => {
+  test('can filter duplicates', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]).distinct().toArray()
     expect(streamResult).toEqual([1, 2, 3, 4])
   })
 
-  it('can concat streams', async () => {
+  test('can concat streams', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2, 3])
       .concat(AsyncStream.from([4, 5, 6]))
       .toArray()
     expect(streamResult).toEqual([1, 2, 3, 4, 5, 6])
   })
 
-  it('can cache streams', async () => {
+  test('can cache streams', async ({ expect }) => {
     let called = 0
     const source = AsyncStream.fromSingle(1).map((x) => {
       called++
@@ -111,19 +111,19 @@ describe('async streams', () => {
     expect(called).toBe(1)
   })
 
-  it('can find an element', async () => {
+  test('can find an element', async ({ expect }) => {
     const streamResult = await AsyncStream.from([1, 2, 3, 4, 5]).find((x) => x % 2 === 0)
     expect(streamResult).toEqual(2)
   })
 
-  it('can check some', async () => {
+  test('can check some', async ({ expect }) => {
     const streamResultTrue = await AsyncStream.from([1, 2, 3, 4, 5]).some((x) => x % 2 === 0)
     const streamResultFalse = await AsyncStream.from([1, 3, 5]).some((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)
     expect(streamResultFalse).toBe(false)
   })
 
-  it('can check every', async () => {
+  test('can check every', async ({ expect }) => {
     const streamResultTrue = await AsyncStream.from([2, 4, 6]).every((x) => x % 2 === 0)
     const streamResultFalse = await AsyncStream.from([1, 2, 3]).every((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)

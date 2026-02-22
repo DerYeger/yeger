@@ -1,7 +1,7 @@
 import type { Wrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
-import { beforeAll, beforeEach, describe, expect, it } from 'vitest'
+import { beforeAll, beforeEach, describe, type ExpectStatic, test } from 'vitest'
 import Vue from 'vue'
 
 import { VuePersistentStorageManager } from '../src/index'
@@ -24,7 +24,11 @@ const TestComponent = {
   `,
 }
 
-function testStorageEstimate(wrapper: Wrapper<Vue>, expected: StorageEstimate) {
+function testStorageEstimate(
+  expect: ExpectStatic,
+  wrapper: Wrapper<Vue>,
+  expected: StorageEstimate,
+) {
   expect(+wrapper.find('#usage').text()).toEqual(expected.usage ?? 0)
   expect(+wrapper.find('#quota').text()).toEqual(expected.quota ?? 0)
   expect(+wrapper.find('#usage-direct').text()).toEqual(expected.usage ?? 0)
@@ -39,18 +43,18 @@ describe('VuePersistentStorageManager', () => {
     Vue.use(VuePersistentStorageManager, { watchStorage: true })
   })
 
-  it('provides the StorageEstimate', async () => {
+  test('provides the StorageEstimate', async ({ expect }) => {
     const wrapper = mount(TestComponent)
-    testStorageEstimate(wrapper, {})
+    testStorageEstimate(expect, wrapper, {})
     Object.defineProperty(globalThis.navigator.storage, 'estimate', {
       value: () => Promise.resolve(testEstimate),
     })
     localStorage.setItem('test', 'test')
     await flushPromises()
-    testStorageEstimate(wrapper, testEstimate)
+    testStorageEstimate(expect, wrapper, testEstimate)
   })
 
-  it('provides the state of persistent-storage', async () => {
+  test('provides the state of persistent-storage', async ({ expect }) => {
     const wrapper = mount(TestComponent)
     expect(wrapper.find('#persistent').text()).toEqual('false')
     globalThis.navigator.storage.persisted = () => Promise.resolve(true)

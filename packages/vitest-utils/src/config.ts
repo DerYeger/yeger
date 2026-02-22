@@ -68,8 +68,10 @@ export function defineTestConfig(
   if (browser) {
     config.browser = {
       enabled: true,
-      provider: browser,
+      headless: true,
       instances: [{ browser: 'chromium' }],
+      provider: browser,
+      screenshotFailures: false,
     }
   }
 

@@ -1,14 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import { deepFreeze } from '../src/runtime/utils'
 
 describe('utils', () => {
   describe('deepFreeze', () => {
-    it('handles undefined', () => {
+    test('handles undefined', ({ expect }) => {
       expect(deepFreeze(undefined)).toBeUndefined()
     })
 
-    it.each([
+    test.each([
       ['null', null],
       ['undefined', undefined],
       ['true', true],

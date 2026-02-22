@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { HtmlDiff } from '../src/html-diff'
 import { Match } from '../src/match'
@@ -6,7 +6,7 @@ import type { Operation } from '../src/types'
 
 describe('WordSplitter', () => {
   describe('splitInputsIntoWords()', () => {
-    it('split oldText and newText into words`', () => {
+    test('split oldText and newText into words`', ({ expect }) => {
       const htmlDiff = new HtmlDiff('old words', 'new text')
       htmlDiff.splitInputsIntoWords()
 
@@ -16,7 +16,7 @@ describe('WordSplitter', () => {
   })
 
   describe('findMatch()', () => {
-    it('if found match - return it', () => {
+    test('if found match - return it', ({ expect }) => {
       const htmlDiff = new HtmlDiff('same text', 'new text') // " text" - is match
 
       htmlDiff.splitInputsIntoWords()
@@ -34,7 +34,7 @@ describe('WordSplitter', () => {
       ).toEqual(expectedMatch)
     })
 
-    it('if did not find match - return null', () => {
+    test('if did not find match - return null', ({ expect }) => {
       const htmlDiff = new HtmlDiff('same text', 'new-words') // no matches
 
       htmlDiff.splitInputsIntoWords()
@@ -50,7 +50,9 @@ describe('WordSplitter', () => {
       ).toEqual(null)
     })
 
-    it('startInOld and startInNew - will start search in old and new text from specified position', () => {
+    test('startInOld and startInNew - will start search in old and new text from specified position', ({
+      expect,
+    }) => {
       const htmlDiff = new HtmlDiff('new words', 'new text') // "new " - is match
 
       htmlDiff.splitInputsIntoWords()
@@ -66,7 +68,9 @@ describe('WordSplitter', () => {
       ).toEqual(null) // find nothing because on 3th position isn't any matches
     })
 
-    it('endInOld and endInNew - will end search in old and new text on specified position', () => {
+    test('endInOld and endInNew - will end search in old and new text on specified position', ({
+      expect,
+    }) => {
       const htmlDiff = new HtmlDiff('new text', 'old text') // " text" - is match
 
       htmlDiff.splitInputsIntoWords()
@@ -84,7 +88,7 @@ describe('WordSplitter', () => {
   })
 
   describe('matchingBlocks()', () => {
-    it('find all matches in phrase', () => {
+    test('find all matches in phrase', ({ expect }) => {
       const htmlDiff = new HtmlDiff('new text other words', 'old text any words') // " text ", " words" - is matches
 
       htmlDiff.splitInputsIntoWords()
@@ -99,7 +103,7 @@ describe('WordSplitter', () => {
     })
   })
   describe('operations() - return list of all modifications thats happened in new version', () => {
-    it('equal', () => {
+    test('equal', ({ expect }) => {
       const htmlDiff = new HtmlDiff('new words', 'new words')
 
       htmlDiff.splitInputsIntoWords()
@@ -118,7 +122,7 @@ describe('WordSplitter', () => {
       expect(htmlDiff.operations()).toEqual(operations)
     })
 
-    it('deletion', () => {
+    test('deletion', ({ expect }) => {
       const htmlDiff = new HtmlDiff('new words', 'new') // " words" - deletion
 
       htmlDiff.splitInputsIntoWords()
@@ -143,7 +147,7 @@ describe('WordSplitter', () => {
 
       expect(htmlDiff.operations()).toEqual(operations)
     })
-    it('insertion', () => {
+    test('insertion', ({ expect }) => {
       const htmlDiff = new HtmlDiff('new words', 'new words added') // " added" - insertion
 
       htmlDiff.splitInputsIntoWords()
@@ -169,7 +173,7 @@ describe('WordSplitter', () => {
       expect(htmlDiff.operations()).toEqual(operations)
     })
 
-    it('replacement', () => {
+    test('replacement', ({ expect }) => {
       const htmlDiff = new HtmlDiff('new words', 'new phrase') // " added" - insertion
 
       htmlDiff.splitInputsIntoWords()
@@ -197,29 +201,33 @@ describe('WordSplitter', () => {
   })
 
   describe('insertTag() - accept tag name and className and list of words; write to content field tag with passed words inside', () => {
-    it('insert tag with passed words to content field', () => {
+    test('insert tag with passed words to content field', ({ expect }) => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['this', ' ', 'is', ' ', 'words'])
       expect(htmlDiff.content).toEqual(['<ins class="">this is words</ins>'])
     })
-    it('set class to tag', () => {
+
+    test('set class to tag', ({ expect }) => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', 'className', ['word'])
       expect(htmlDiff.content).toEqual(['<ins class="className">word</ins>'])
     })
-    it('if there is tags inside - will put them before new tag', () => {
+
+    test('if there is tags inside - will put them before new tag', ({ expect }) => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['<strong>', 'text', ' ', 'inside', '</strong>'])
       expect(htmlDiff.content).toEqual(['<strong><ins class="">text inside</ins></strong>'])
     })
-    it('works with multiple tags inside', () => {
+
+    test('works with multiple tags inside', ({ expect }) => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['<strong>', 'text', '</strong>', '<b>', 'inside', '</b>'])
       expect(htmlDiff.content).toEqual([
         '<strong><ins class="">text</ins></strong><b><ins class="">inside</ins></b>',
       ])
     })
-    it('expect img tags - will put them inside the tag', () => {
+
+    test('expect img tags - will put them inside the tag', ({ expect }) => {
       const htmlDiff = new HtmlDiff('', '')
       htmlDiff.insertTag('ins', '', ['<strong>', '<img />', 'text', '</strong>'])
       expect(htmlDiff.content).toEqual(['<strong><ins class=""><img />text</ins></strong>'])

@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { filterGraph } from '../../src/lib/filter'
 import type { GraphLink } from '../../src/model/link'
@@ -6,7 +6,7 @@ import type { TestNodeType } from '../test-data'
 import TestData from '../test-data'
 
 describe('filter', () => {
-  it('can filter nothing', () => {
+  test('can filter nothing', ({ expect }) => {
     const filteredResult = filterGraph({
       filter: ['first', 'second'],
       focusedNode: undefined,
@@ -17,7 +17,7 @@ describe('filter', () => {
     expect(filteredResult).toEqual(TestData.graph)
   })
 
-  it('can filter by type', () => {
+  test('can filter by type', ({ expect }) => {
     const filteredResult = filterGraph({
       filter: ['first'],
       focusedNode: undefined,
@@ -30,7 +30,7 @@ describe('filter', () => {
     )
   })
 
-  it('can filter unlinked', () => {
+  test('can filter unlinked', ({ expect }) => {
     const filteredResult = filterGraph({
       filter: ['first', 'second'],
       focusedNode: undefined,
@@ -48,7 +48,7 @@ describe('filter', () => {
     expect(filteredResult.links).toEqual(TestData.graph.links)
   })
 
-  it('can filter links', () => {
+  test('can filter links', ({ expect }) => {
     const filteredResult = filterGraph({
       filter: ['first', 'second'],
       focusedNode: undefined,

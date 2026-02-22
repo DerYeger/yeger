@@ -1,10 +1,10 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import { FOL, Function, Model } from '../src/index'
 import { TestData } from './test-utils'
 
 describe('FOL semantics', () => {
-  it.each([
+  test.each([
     ['ff', false],
     ['!ff', true],
     ['tt', true],
@@ -41,17 +41,17 @@ describe('FOL semantics', () => {
   })
 
   describe('evaluates correctly', () => {
-    it('negative existential quantors', () => {
+    test('negative existential quantors', ({ expect }) => {
       expect(FOL.evaluate(TestData.testModel, 'exists x. MyRelation(x,x)').get()).toBe(false)
     })
 
-    it('negative universal quantors', () => {
+    test('negative universal quantors', ({ expect }) => {
       expect(FOL.evaluate(TestData.testModel, 'forall x. MyRelation(x,x)').get()).toBe(false)
     })
   })
 
   describe('it throws', () => {
-    it('on missing constants', () => {
+    test('on missing constants', ({ expect }) => {
       const model = new Model(new Set([1]), { a: 1 }, [], [])
       expect(FOL.evaluate(model, 'a = b').getErrorOrUndefined()).toEqual(
         'Model is missing the constant b.',
@@ -61,20 +61,20 @@ describe('FOL semantics', () => {
     describe('on missing functions', () => {
       const model = new Model(new Set([1]), { a: 1 }, [new Function('f', 1, {})], [])
 
-      it('if function is missing', () => {
+      test('if function is missing', ({ expect }) => {
         expect(FOL.evaluate(model, 'g(a) = a').getErrorOrUndefined()).toEqual(
           'Model is missing the function g.',
         )
       })
 
-      it('if function is not defined for argument', () => {
+      test('if function is not defined for argument', ({ expect }) => {
         expect(FOL.evaluate(model, 'f(a) = a').getErrorOrUndefined()).toEqual(
           'Function f is not total. f(1) is not defined.',
         )
       })
     })
 
-    it('on missing relations', () => {
+    test('on missing relations', ({ expect }) => {
       const model = new Model(new Set([1]), { x: 1 }, [], [])
       expect(FOL.evaluate(model, 'A(x)').getErrorOrUndefined()).toEqual(
         'Model is missing the relation A.',

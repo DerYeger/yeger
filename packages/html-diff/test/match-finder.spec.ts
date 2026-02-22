@@ -1,11 +1,11 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { Match } from '../src/match'
 import { MatchFinder } from '../src/match-finder'
 
 describe('WordSplitter', () => {
   describe('indexNewWords()', () => {
-    it('indexing newWords by block size', () => {
+    test('indexing newWords by block size', ({ expect }) => {
       const finder = new MatchFinder({
         oldWords: [],
         newWords: ['this', ' ', 'is', ' ', 'new', ' ', 'text'],
@@ -31,7 +31,8 @@ describe('WordSplitter', () => {
 
       expect(finder.wordIndices).toEqual(expectedWorldIndices)
     })
-    it('when words overlap - will put indices of them into one element', () => {
+
+    test('when words overlap - will put indices of them into one element', ({ expect }) => {
       const finder = new MatchFinder({
         oldWords: [],
         newWords: ['this', ' ', 'is', ' ', 'this', ' ', 'is'], // "this is" - repeating twice
@@ -59,7 +60,7 @@ describe('WordSplitter', () => {
   })
 
   describe('normalizeForIndex()', () => {
-    it('strip any attributes from tags', () => {
+    test('strip any attributes from tags', ({ expect }) => {
       const finder = new MatchFinder({
         oldWords: [],
         newWords: [],
@@ -79,7 +80,9 @@ describe('WordSplitter', () => {
       expect(finder.normalizeForIndex(word)).toEqual('<tag/>')
     })
 
-    it('when has option - ignoreWhitespaceDifferences - will return only one space if passed many whitespaces', () => {
+    test('when has option - ignoreWhitespaceDifferences - will return only one space if passed many whitespaces', ({
+      expect,
+    }) => {
       const finder = new MatchFinder({
         oldWords: [],
         newWords: [],
@@ -100,7 +103,9 @@ describe('WordSplitter', () => {
     })
   })
   describe('removeRepeatingWords()', () => {
-    it('removes words from wordIndices that are found more than threshold times (which is newWorlds length + repeatingWordsAccuracy)', () => {
+    test('removes words from wordIndices that are found more than threshold times (which is newWorlds length + repeatingWordsAccuracy)', ({
+      expect,
+    }) => {
       const finder = new MatchFinder({
         oldWords: [''],
         newWords: ['this', 'this', 'this', 'this', 'this', 'this'],
@@ -124,7 +129,7 @@ describe('WordSplitter', () => {
     })
   })
   describe('findMatch()', () => {
-    it("if matches weren't found - return null", () => {
+    test("if matches weren't found - return null", ({ expect }) => {
       const oldWords = ['this', ' ', 'is', ' ', 'old', ' ', 'text']
       const newWords = ['different', 'words', 'here']
       const finder = new MatchFinder({
@@ -144,7 +149,9 @@ describe('WordSplitter', () => {
       expect(finder.findMatch()).toEqual(null)
     })
 
-    it('find matches in two sequences of words and return Match (its position in old sequence and new one, and size)', () => {
+    test('find matches in two sequences of words and return Match (its position in old sequence and new one, and size)', ({
+      expect,
+    }) => {
       const oldWords = ['this', ' ', 'is', ' ', 'old', ' ', 'text']
       const newWords = ['this', ' ', 'is', ' ', 'new', ' ', 'text']
       const finder = new MatchFinder({
@@ -166,8 +173,10 @@ describe('WordSplitter', () => {
       expect(finder.findMatch()).toEqual(expectedMatch) // will return that sequence - "this is " is the same in old and new
     })
 
-    it(`if you reduce block size and change pointers (starts and ends in old and new)
-            - it will return more precise positions which could be skipped in first runthrough`, () => {
+    test(`if you reduce block size and change pointers (starts and ends in old and new)
+            - it will return more precise positions which could be skipped in first runthrough`, ({
+      expect,
+    }) => {
       const finder = new MatchFinder({
         oldWords: ['this', ' ', 'is', ' ', 'old', ' ', 'text'],
         newWords: ['this', ' ', 'is', ' ', 'new', ' ', 'text'],
@@ -187,7 +196,7 @@ describe('WordSplitter', () => {
       expect(finder.findMatch()).toEqual(expectedMatch) // will return that sequence - " text" is the same in old and new
     })
 
-    it(`when have repeating sentences will return all sentence`, () => {
+    test(`when have repeating sentences will return all sentence`, ({ expect }) => {
       const oldWords = ['this', ' ', 'is', ' ', 'this', ' ', 'is']
       const newWords = ['this', ' ', 'is', ' ', 'this', ' ', 'is']
       const finder = new MatchFinder({

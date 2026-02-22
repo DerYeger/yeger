@@ -1,15 +1,15 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { defineGraphConfig } from '../src/config/config'
 
 describe('Config', () => {
   describe('can be defined', () => {
-    it('using default values', () => {
+    test('using default values', ({ expect }) => {
       const config = defineGraphConfig()
       expect(config).toMatchSnapshot()
     })
 
-    it('with deep merging', () => {
+    test('with deep merging', ({ expect }) => {
       const defaultConfig = defineGraphConfig()
       const customConfig = defineGraphConfig({
         simulation: {

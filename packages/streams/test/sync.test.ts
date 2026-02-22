@@ -1,10 +1,10 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { Stream } from '../src/index'
 import { TestUtils } from './test-utils'
 
 describe('sync streams', () => {
-  it('works with complex chains', () => {
+  test('works with complex chains', ({ expect }) => {
     const res = Stream.from([null, 0, 1, 2, undefined, 3, 4, 5, 6, 7, 8, 9])
       .filterNonNull()
       .limit(6)
@@ -15,13 +15,13 @@ describe('sync streams', () => {
     expect(res).toEqual(['2.0', '6.0', '10.0'])
   })
 
-  it('provides the index', () => {
+  test('provides the index', ({ expect }) => {
     const res = Stream.from([false, 0, 'test']).map((_, index) => index)
     expect(res.toArray()).toEqual([0, 1, 2])
     expect(res.toArray()).toEqual([0, 1, 2])
   })
 
-  it('can sum', () => {
+  test('can sum', ({ expect }) => {
     let count = 0
     let forOfResult = 0
     for (const item of TestUtils.source) {
@@ -39,21 +39,21 @@ describe('sync streams', () => {
     expect(streamResult).toEqual(forOfResult)
   })
 
-  it('can sum non-numbers', () => {
+  test('can sum non-numbers', ({ expect }) => {
     const streamResult = Stream.from(['hello', 'world', '!'])
       .limit(2)
       .sum((x) => x.length)
     expect(streamResult).toEqual(10)
   })
 
-  it('can iterate objects', () => {
+  test('can iterate objects', ({ expect }) => {
     const streamResult = Stream.fromObject({ hello: 'world', 5: true })
       .map(([key, value]) => `${key} ${value}`)
       .toArray()
     expect(streamResult).toEqual(['5 true', 'hello world'])
   })
 
-  it('can create a map with a mapper', () => {
+  test('can create a map with a mapper', ({ expect }) => {
     const streamResult = Stream.from([1, 2]).toMap((x) => x.toString())
     expect(streamResult).toEqual(
       new Map([
@@ -63,14 +63,14 @@ describe('sync streams', () => {
     )
   })
 
-  it('can flatmap', () => {
+  test('can flatmap', ({ expect }) => {
     const streamResult = Stream.from([[1], [2, 2], [3, 3, 3]])
       .flatMap((x) => Stream.from(x))
       .toArray()
     expect(streamResult).toEqual([1, 2, 2, 3, 3, 3])
   })
 
-  it('can zip', () => {
+  test('can zip', ({ expect }) => {
     const streamResult = Stream.from([1, 2, 3])
       .zip(Stream.from(['a', 'b', 'c']))
       .toArray()
@@ -81,29 +81,29 @@ describe('sync streams', () => {
     ])
   })
 
-  it('can be empty', () => {
+  test('can be empty', ({ expect }) => {
     const streamResult = Stream.empty().toArray()
     expect(streamResult).toEqual([])
   })
 
-  it('can have a single value', () => {
+  test('can have a single value', ({ expect }) => {
     const streamResult = Stream.fromSingle(1).toArray()
     expect(streamResult).toEqual([1])
   })
 
-  it('can filter duplicates', () => {
+  test('can filter duplicates', ({ expect }) => {
     const streamResult = Stream.from([1, 2, 2, 3, 3, 3, 4, 4, 4, 4]).distinct().toArray()
     expect(streamResult).toEqual([1, 2, 3, 4])
   })
 
-  it('can concat streams', () => {
+  test('can concat streams', ({ expect }) => {
     const streamResult = Stream.from([1, 2, 3])
       .concat(Stream.from([4, 5, 6]))
       .toArray()
     expect(streamResult).toEqual([1, 2, 3, 4, 5, 6])
   })
 
-  it('can cache streams', () => {
+  test('can cache streams', ({ expect }) => {
     let called = 0
     const source = Stream.fromSingle(1).map((x) => {
       called++
@@ -116,14 +116,14 @@ describe('sync streams', () => {
     expect(called).toBe(1)
   })
 
-  it('can check some', () => {
+  test('can check some', ({ expect }) => {
     const streamResultTrue = Stream.from([1, 2, 3, 4, 5]).some((x) => x % 2 === 0)
     const streamResultFalse = Stream.from([1, 3, 5]).some((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)
     expect(streamResultFalse).toBe(false)
   })
 
-  it('can check every', () => {
+  test('can check every', ({ expect }) => {
     const streamResultTrue = Stream.from([2, 4, 6]).every((x) => x % 2 === 0)
     const streamResultFalse = Stream.from([1, 2, 3]).every((x) => x % 2 === 0)
     expect(streamResultTrue).toBe(true)

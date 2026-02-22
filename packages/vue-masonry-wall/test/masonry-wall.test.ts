@@ -1,21 +1,21 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeAll, beforeEach, describe, test, vi } from 'vitest'
 import { defineComponent, h, resolveComponent } from 'vue'
 
 import MasonryWall from '../src/index'
 
-let observeMock = vi.fn()
-let unobserveMock = vi.fn()
+const mocks = vi.hoisted(() => ({
+  ResizeObserver: {
+    disconnect: vi.fn(),
+    observe: vi.fn(),
+    unobserve: vi.fn(),
+  },
+}))
 
-function mockResizeObserver() {
-  observeMock = vi.fn()
-  unobserveMock = vi.fn()
-  const resizeObserverMock = class MockResizeObserver {
-    public disconnect = vi.fn()
-    public observe = observeMock
-    public unobserve = unobserveMock
-  }
-  vi.stubGlobal('ResizeObserver', resizeObserverMock)
+class MockResizeObserver {
+  public disconnect = mocks.ResizeObserver.disconnect
+  public observe = mocks.ResizeObserver.observe
+  public unobserve = mocks.ResizeObserver.unobserve
 }
 
 const TestComponent = defineComponent({
@@ -33,15 +33,11 @@ describe('MasonryWall', () => {
   })
 
   beforeEach(() => {
-    mockResizeObserver()
+    vi.stubGlobal('ResizeObserver', MockResizeObserver)
     window.scrollTo = vi.fn()
   })
 
-  afterEach(() => {
-    vi.clearAllMocks()
-  })
-
-  it('can be installed', async () => {
+  test('can be installed', async ({ expect }) => {
     const wrapper = mount(TestComponent, {
       global: {
         plugins: [MasonryWall],
@@ -54,7 +50,7 @@ describe('MasonryWall', () => {
     expect(items.length).toEqual(3)
   })
 
-  it('creates SSR columns', async () => {
+  test('creates SSR columns', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -70,7 +66,7 @@ describe('MasonryWall', () => {
     expect(items.length).toEqual(2)
   })
 
-  it('reacts to item changes', async () => {
+  test('reacts to item changes', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -96,21 +92,21 @@ describe('MasonryWall', () => {
     expect(wrapper.findAll<HTMLDivElement>('.masonry-item').length).toEqual(1)
   })
 
-  it('unobserves the ResizeObserver', async () => {
-    expect(observeMock.mock.calls.length).toEqual(0)
+  test('unobserves the ResizeObserver', async ({ expect }) => {
+    expect(mocks.ResizeObserver.observe).not.toHaveBeenCalled()
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
       },
     })
     await flushPromises()
-    expect(observeMock.mock.calls.length).toEqual(1)
-    expect(unobserveMock.mock.calls.length).toEqual(0)
+    expect(mocks.ResizeObserver.observe).toHaveBeenCalledOnce()
+    expect(mocks.ResizeObserver.unobserve).not.toHaveBeenCalled()
     wrapper.unmount()
-    expect(unobserveMock.mock.calls.length).toEqual(1)
+    expect(mocks.ResizeObserver.unobserve).toHaveBeenCalledOnce()
   })
 
-  it('reacts to column-width prop changes', async () => {
+  test('reacts to column-width prop changes', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -129,7 +125,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
 
-  it('reacts to gap prop changes', async () => {
+  test('reacts to gap prop changes', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -148,7 +144,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redrawSkip')?.length).toEqual(1)
   })
 
-  it('reacts to rtl prop changes', async () => {
+  test('reacts to rtl prop changes', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -165,7 +161,7 @@ describe('MasonryWall', () => {
     expect(wrapper.emitted('redraw')?.length).toEqual(2)
   })
 
-  it('adds items to the smallest column', async () => {
+  test('adds items to the smallest column', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [],
@@ -237,7 +233,7 @@ describe('MasonryWall', () => {
     expect(thirdNew?.element.childElementCount).toEqual(0)
   })
 
-  it('coerces with regards to minColumns', async () => {
+  test('coerces with regards to minColumns', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],
@@ -253,7 +249,7 @@ describe('MasonryWall', () => {
     expect(items.length).toEqual(2)
   })
 
-  it('coerces with regards to maxColumns', async () => {
+  test('coerces with regards to maxColumns', async ({ expect }) => {
     const wrapper = mount(MasonryWall, {
       props: {
         items: [1, 2],

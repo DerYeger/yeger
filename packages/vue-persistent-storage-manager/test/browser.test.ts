@@ -1,6 +1,6 @@
 import { createLocalVue } from '@vue/test-utils'
 import flushPromises from 'flush-promises'
-import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeAll, beforeEach, describe, test, vi } from 'vitest'
 
 import {
   checkPluginInstallation,
@@ -20,36 +20,36 @@ describe('VuePersistentStorageManager in browser environment', () => {
     redefineGlobals()
   })
 
-  it('can be installed without options', async () => {
+  test('can be installed without options', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
   })
 
-  it('can be installed with watchStorage set to true', async () => {
+  test('can be installed with watchStorage set to true', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, { watchStorage: true }, true)
   })
 
-  it('can be installed with watchStorage set to false', async () => {
+  test('can be installed with watchStorage set to false', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, { watchStorage: false }, true)
   })
 
-  it('can be installed multiple times', async () => {
+  test('can be installed multiple times', async () => {
     const first = createLocalVue()
     await checkPluginInstallation(first, { watchStorage: true }, true)
     const second = createLocalVue()
     await checkPluginInstallation(second, { watchStorage: true }, true)
   })
 
-  it('provides the StorageEstimate', async () => {
+  test('provides the StorageEstimate', async () => {
     globalThis.navigator.storage.estimate = () => Promise.resolve(testEstimate)
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
     checkStorageEstimate(vm, testEstimate)
   })
 
-  it('updates the StorageEstimate on storage events', async () => {
+  test('updates the StorageEstimate on storage events', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
     checkStorageEstimate(vm, {})
@@ -59,7 +59,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     checkStorageEstimate(vm, testEstimate)
   })
 
-  it('updates the StorageEstimate on localStorage.setItem', async () => {
+  test('updates the StorageEstimate on localStorage.setItem', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, { watchStorage: true }, true)
     vi.spyOn(localStorage, 'originalSetItem')
@@ -70,7 +70,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     checkStorageEstimate(vm, testEstimate)
   })
 
-  it('updates the StorageEstimate on localStorage.removeItem', async () => {
+  test('updates the StorageEstimate on localStorage.removeItem', async () => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, { watchStorage: true }, true)
     vi.spyOn(localStorage, 'originalRemoveItem')
@@ -81,7 +81,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     checkStorageEstimate(vm, testEstimate)
   })
 
-  it('does not update the StorageEstimate if not configured to do so', async () => {
+  test('does not update the StorageEstimate if not configured to do so', async ({ expect }) => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, { watchStorage: false }, true)
     const setItemSpy = vi.spyOn(localStorage, 'setItem')
@@ -96,14 +96,14 @@ describe('VuePersistentStorageManager in browser environment', () => {
     checkStorageEstimate(vm, {})
   })
 
-  it('handles denied persistence', async () => {
+  test('handles denied persistence', async ({ expect }) => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
     await expect(vm.prototype.$storageManager.requestPersistentStorage()).resolves.toBe(false)
     expect(vm.prototype.$storageManager.isPersistent).toBe(false)
   })
 
-  it('handles granted persistence', async () => {
+  test('handles granted persistence', async ({ expect }) => {
     globalThis.navigator.storage.persist = () => Promise.resolve(true)
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
@@ -111,14 +111,14 @@ describe('VuePersistentStorageManager in browser environment', () => {
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)
   })
 
-  it('handles initial granted persistence', async () => {
+  test('handles initial granted persistence', async ({ expect }) => {
     globalThis.navigator.storage.persisted = () => Promise.resolve(true)
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true, true)
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)
   })
 
-  it('handles permission granted without request', async () => {
+  test('handles permission granted without request', async ({ expect }) => {
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true)
     expect(vm.prototype.$storageManager.isPersistent).toBe(false)
@@ -128,7 +128,7 @@ describe('VuePersistentStorageManager in browser environment', () => {
     expect(vm.prototype.$storageManager.isPersistent).toBe(true)
   })
 
-  it('handles permission revoked', async () => {
+  test('handles permission revoked', async ({ expect }) => {
     globalThis.navigator.storage.persisted = () => Promise.resolve(true)
     const vm = createLocalVue()
     await checkPluginInstallation(vm, undefined, true, true)

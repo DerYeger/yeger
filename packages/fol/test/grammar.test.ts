@@ -1,16 +1,16 @@
 import { FailedMatchResult } from 'ohm-js'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, test } from 'vitest'
 
 import { FOL } from '../src/index'
 import { TestData } from './test-utils'
 
 describe('FOL grammar', () => {
-  it.each(TestData.validFormulas)('parses valid formula "%s"', (formula) => {
+  test.each(TestData.validFormulas)('parses valid formula "%s"', (formula) => {
     const result = FOL.match(formula)
     expect(result.succeeded(), (result as FailedMatchResult).message).toBe(true)
   })
 
-  it.each(TestData.invalidFormulas)('does not parse invalid formula "%s"', (formula) => {
+  test.each(TestData.invalidFormulas)('does not parse invalid formula "%s"', (formula) => {
     const result = FOL.match(formula)
     expect(result.failed(), (result as FailedMatchResult).message).toBe(true)
   })

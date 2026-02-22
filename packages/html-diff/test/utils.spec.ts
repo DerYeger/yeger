@@ -1,31 +1,31 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import * as Utils from '../src/utils'
 
 describe('Utils', () => {
   describe('isTag()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isTag).toBe('function')
     })
 
-    it('accept string and return true if it is tag', () => {
+    test('accept string and return true if it is tag', ({ expect }) => {
       expect(Utils.isTag('')).toBe(false)
 
       expect(Utils.isTag('<span>')).toBe(true)
       expect(Utils.isTag('<video />')).toBe(true)
     })
 
-    it('if it is "<img" tag - return false', () => {
+    test('if it is "<img" tag - return false', ({ expect }) => {
       expect(Utils.isTag('<img />')).toBe(false)
     })
   })
 
   describe('stripTagAttributes()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.stripTagAttributes).toBe('function')
     })
 
-    it('accept string and return stript tag - without any attributes', () => {
+    test('accept string and return stript tag - without any attributes', ({ expect }) => {
       expect(Utils.stripTagAttributes('')).toBe('>')
 
       expect(
@@ -36,24 +36,24 @@ describe('Utils', () => {
   })
 
   describe('wrapText()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.wrapText).toBe('function')
     })
 
-    it('create tag with passed text inside', () => {
+    test('create tag with passed text inside', ({ expect }) => {
       expect(Utils.wrapText('text', 'span', '')).toBe('<span class="">text</span>')
     })
 
-    it('set passed css class to tag', () => {
+    test('set passed css class to tag', ({ expect }) => {
       expect(Utils.wrapText('text', 'span', 'bold')).toBe('<span class="bold">text</span>')
     })
   })
   describe('isStartOfTag()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isStartOfTag).toBe('function')
     })
 
-    it('return true if it is start of the tag', () => {
+    test('return true if it is start of the tag', ({ expect }) => {
       expect(Utils.isStartOfTag('')).toBe(false)
       expect(Utils.isStartOfTag('>')).toBe(false)
 
@@ -62,11 +62,11 @@ describe('Utils', () => {
   })
 
   describe('isEndOfTag()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isEndOfTag).toBe('function')
     })
 
-    it('return true if it is end of the tag', () => {
+    test('return true if it is end of the tag', ({ expect }) => {
       expect(Utils.isEndOfTag('')).toBe(false)
       expect(Utils.isEndOfTag('<')).toBe(false)
 
@@ -75,11 +75,11 @@ describe('Utils', () => {
   })
 
   describe('isStartOfEntity()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isStartOfEntity).toBe('function')
     })
 
-    it('return true if it is start of the entity', () => {
+    test('return true if it is start of the entity', ({ expect }) => {
       expect(Utils.isStartOfEntity('')).toBe(false)
       expect(Utils.isStartOfEntity('<')).toBe(false)
 
@@ -88,11 +88,11 @@ describe('Utils', () => {
   })
 
   describe('isEndOfEntity()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isEndOfEntity).toBe('function')
     })
 
-    it('return true if it is end of the entity', () => {
+    test('return true if it is end of the entity', ({ expect }) => {
       expect(Utils.isEndOfEntity('')).toBe(false)
       expect(Utils.isEndOfEntity('<')).toBe(false)
 
@@ -101,11 +101,11 @@ describe('Utils', () => {
   })
 
   describe('isWhiteSpace()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isWhiteSpace).toBe('function')
     })
 
-    it('return true if it is whitespace', () => {
+    test('return true if it is whitespace', ({ expect }) => {
       expect(Utils.isWhiteSpace('')).toBe(false)
       expect(Utils.isWhiteSpace('<')).toBe(false)
 
@@ -115,22 +115,22 @@ describe('Utils', () => {
   })
 
   describe('stripAnyAttributes()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.stripAnyAttributes).toBe('function')
     })
 
-    it('if passed tag - strip attributes otherwise return same string', () => {
+    test('if passed tag - strip attributes otherwise return same string', ({ expect }) => {
       expect(Utils.stripAnyAttributes('<tag attribute="value" />')).toBe('<tag/>')
       expect(Utils.stripAnyAttributes('word')).toBe('word')
     })
   })
 
   describe('isNumber()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isNumber).toBe('function')
     })
 
-    it('return true if it is number', () => {
+    test('return true if it is number', ({ expect }) => {
       expect(Utils.isNumber('b')).toBe(false)
       expect(Utils.isNumber('[')).toBe(false)
       expect(Utils.isNumber(' ')).toBe(false)
@@ -141,11 +141,11 @@ describe('Utils', () => {
   })
 
   describe('isWord()', () => {
-    it('exist', () => {
+    test('exist', ({ expect }) => {
       expect(typeof Utils.isWord).toBe('function')
     })
 
-    it('return true if it is number', () => {
+    test('return true if it is word', ({ expect }) => {
       expect(Utils.isWord('+')).toBe(false)
       expect(Utils.isWord('[')).toBe(false)
       expect(Utils.isWord(';')).toBe(false)

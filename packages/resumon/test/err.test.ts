@@ -1,23 +1,23 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import type { Result } from '../src/index'
 import { Err, err, ok } from '../src/index'
 
-describe('Right', () => {
+describe('Err', () => {
   describe('can be initialized', () => {
-    it('using the constructor', () => {
+    test('using the constructor', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(res.getError()).toEqual(42)
     })
 
-    it('using the function', () => {
+    test('using the function', ({ expect }) => {
       const res: Result<string, number> = err(42)
       expect(res.getError()).toEqual(42)
     })
   })
 
   describe('unwraps', () => {
-    it('no data', () => {
+    test('no data', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(() => res.get()).toThrow('Cannot get data or Err')
       expect(res.getOrUndefined()).toBeUndefined()
@@ -25,7 +25,7 @@ describe('Right', () => {
       expect(res.getOrElse('test')).toEqual('test')
     })
 
-    it('the error', () => {
+    test('the error', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(res.getError()).toEqual(42)
       expect(res.getErrorOrUndefined()).toEqual(42)
@@ -35,12 +35,12 @@ describe('Right', () => {
   })
 
   describe('maps', () => {
-    it('no data', () => {
+    test('no data', ({ expect }) => {
       const res: Result<string, number> = new Err<string, number>(42)
       expect(res.map((data) => `test: ${data}`).getOrNull()).toBeNull()
     })
 
-    it('the error', () => {
+    test('the error', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(res.isError).toEqual(true)
       expect(res.mapError((error) => error + 1).getError()).toBe(43)
@@ -48,12 +48,12 @@ describe('Right', () => {
   })
 
   describe('chains', () => {
-    it('no ok', () => {
+    test('no ok', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(res.andThen(() => ok('test')).getError()).toEqual(42)
     })
 
-    it('no err', () => {
+    test('no err', ({ expect }) => {
       const res: Result<string, number> = new Err(42)
       expect(res.andThen(() => err(7)).getError()).toEqual(42)
     })

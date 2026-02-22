@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, test } from 'vitest'
 
 import type { Options } from '../src/index'
 import SSGUtils from '../src/index'
@@ -10,7 +10,7 @@ describe('The plugin', () => {
   })
 
   describe('applicability', () => {
-    it('applies only during build for client-side code', () => {
+    test('applies only during build for client-side code', ({ expect }) => {
       const plugin = SSGUtils()
 
       expect(
@@ -35,7 +35,7 @@ describe('The plugin', () => {
     })
   })
 
-  it('installs a dummy ResizeObserver', () => {
+  test('installs a dummy ResizeObserver', ({ expect }) => {
     expect(global.ResizeObserver).toBeUndefined()
     const options: Options = { resizeObserver: true }
     // @ts-expect-error We don't need a valid PluginContext to test this plugin
@@ -43,7 +43,7 @@ describe('The plugin', () => {
     expect(ResizeObserver).toBeDefined()
   })
 
-  it('can disable ResizeObserver mocking', () => {
+  test('can disable ResizeObserver mocking', ({ expect }) => {
     expect(global.ResizeObserver).toBeUndefined()
     const options: Options = { resizeObserver: false }
     // @ts-expect-error We don't need a valid PluginContext to test this plugin
@@ -51,7 +51,7 @@ describe('The plugin', () => {
     expect(() => ResizeObserver).toThrow('ResizeObserver is not defined')
   })
 
-  it('can use a custom ResizeObserver', () => {
+  test('can use a custom ResizeObserver', ({ expect }) => {
     expect(global.ResizeObserver).toBeUndefined()
 
     class CustomResizeObserver {

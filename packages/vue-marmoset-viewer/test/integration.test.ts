@@ -1,5 +1,5 @@
 import { flushPromises, mount } from '@vue/test-utils'
-import { beforeAll, describe, expect, it } from 'vitest'
+import { beforeAll, describe, test } from 'vitest'
 import { defineComponent, resolveComponent, h } from 'vue'
 
 import { MarmosetViewer } from '../src/index'
@@ -18,7 +18,8 @@ describe('MarmosetViewer', () => {
       throw message
     }
   })
-  it('can be installed', async () => {
+
+  test('can be installed', async ({ expect }) => {
     const wrapper = mount(TestComponent, {
       global: {
         plugins: [MarmosetViewer],

@@ -1,9 +1,9 @@
-import { describe, expect, it } from 'vitest'
+import { describe, test } from 'vitest'
 
 import { loadMarmoset, marmosetScriptId } from '../src/marmoset'
 
 describe('Marmoset', () => {
-  it('loads the Marmoset script exactly once', async () => {
+  test('loads the Marmoset script exactly once', async ({ expect }) => {
     const getScripts = () => document.head.getElementsByTagName('script')
     const getScriptCount = () => getScripts().length
     const initialScriptCount = getScriptCount()
