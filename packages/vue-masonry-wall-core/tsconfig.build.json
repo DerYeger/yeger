@@ -1,4 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/lib",
-  "include": ["src"]
-}

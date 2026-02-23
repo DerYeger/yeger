@@ -39,7 +39,6 @@ catalog:
   '@unocss/reset': 66.6.0
   '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.4
-  '@vitejs/plugin-vue2': 2.3.4
   '@vitest/browser-playwright': 4.0.18
   '@vitest/coverage-v8': 4.0.18
   '@vitest/ui': 4.0.18
@@ -59,7 +58,6 @@ catalog:
   d3-zoom: 3.0.0
   deepmerge: 4.3.1
   execa: 9.6.1
-  flush-promises: 1.0.2
   husky: 9.1.7
   jsonc-parser: 3.3.1
   leaflet: 1.9.4
@@ -104,18 +102,12 @@ catalog:
   vitest: 4.0.18
   vue: 3.5.28
   vue-codemirror: 6.1.1
-  vue-template-compiler: 2.7.16
   vue-toastification: 2.0.0-rc.5
   vue-tsc: 3.2.4
   yaml: 2.8.2
   zod: 4.3.6
 
 catalogMode: strict
-
-catalogs:
-  vue2:
-    '@vue/test-utils': 1.3.6
-    vue: 2.7.16
 
 cleanupUnusedCatalogs: true
 
@@ -124,16 +116,9 @@ minimumReleaseAge: 2880
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@tailwindcss/oxide'
-  - core-js-pure
   - esbuild
   - sharp
-  - unrs-resolver
   - vue-demi
-
-packageExtensions:
-  vue-template-compiler:
-    peerDependencies:
-      vue: 2.7.16
 
 shellEmulator: true
 

@@ -1,67 +1,47 @@
-<script lang="ts">
-import { MasonryWall } from '@yeger/vue-masonry-wall'
-import { defineComponent, ref } from 'vue'
+<script setup lang="ts">
+import { MasonryWall, type NonEmptyArray } from '@yeger/vue-masonry-wall'
+import { ref } from 'vue'
 
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 import DemoTools from './demo-tools.vue'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    DemoFooter,
-    DemoHeader,
-    DemoTools,
-    MasonryWall,
-  },
-  setup() {
-    const scrollContainer = ref(null)
-    return {
-      scrollContainer,
-    }
-  },
-  data() {
-    return {
-      columnWidth: [256, 128, 128, 512, 128] as number | [number, ...number[]],
-      gap: 16,
-      items: [] as { height: number }[],
-      rtl: false,
-      useScrollContainer: false,
-      minColumns: 1,
-      maxColumns: 5,
-    }
-  },
-  mounted() {
-    this.addItems()
-  },
-  methods: {
-    randomHeight() {
-      return { height: Math.floor(Math.random() * (512 - 128 + 1)) + 128 }
-    },
-    addItem(item: number) {
-      this.items = [...this.items, { height: item }]
-    },
-    addItems() {
-      this.items = [
-        ...this.items,
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-        this.randomHeight(),
-      ]
-    },
-    removeItem(index: number) {
-      this.items.splice(index, 1)
-      this.items = [...this.items]
-    },
-  },
-})
+const scrollContainer = ref(null)
+const columnWidth = ref<number | NonEmptyArray<number>>([512, 256, 256])
+const gap = ref(16)
+const items = ref<{ height: number }[]>([])
+const rtl = ref(false)
+const useScrollContainer = ref(false)
+const minColumns = ref(1)
+const maxColumns = ref(5)
+
+addItems()
+
+function randomHeight() {
+  return { height: Math.floor(Math.random() * (512 - 128 + 1)) + 128 }
+}
+
+function addItem(item: number) {
+  items.value = [...items.value, { height: item }]
+}
+
+function addItems() {
+  items.value = [
+    ...items.value,
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+    randomHeight(),
+  ]
+}
+
+function removeItem(index: number) {
+  items.value = items.value.filter((_, i) => i !== index)
+}
 </script>
 
 <template>
@@ -140,6 +120,7 @@ export default defineComponent({
 html,
 body {
   height: 100%;
+  overscroll-behavior: none;
 }
 
 body {

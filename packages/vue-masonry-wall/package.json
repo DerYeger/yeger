@@ -49,7 +49,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "@yeger/vue-masonry-wall-core": "workspace:*"
+    "@yeger/debounce": "workspace:*"
   },
   "devDependencies": {
     "@types/resize-observer-browser": "catalog:",

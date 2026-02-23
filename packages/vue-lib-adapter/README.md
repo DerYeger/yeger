@@ -1,1 +1,0 @@
-# @yeger/vue-lib-adapter

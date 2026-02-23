@@ -1,12 +1,6 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
-
+<script setup lang="ts">
 import BadgeList from './badge-list.vue'
 import GithubLogo from './github-logo.vue'
-
-export default defineComponent({
-  components: { BadgeList, GithubLogo },
-})
 </script>
 
 <template>
@@ -17,7 +11,6 @@ export default defineComponent({
     </div>
     <p id="subtitle">Responsive masonry layout with SSR support and zero dependencies for Vue 3.</p>
     <p class="row" style="justify-content: center">
-      <a href="https://vue2-masonry-wall.janmueller.dev/" rel="noopener"> Vue 2 version </a>
       <a
         href="https://github.com/DerYeger/yeger/blob/main/packages/vue-masonry-wall/README.md"
         target="_blank"
@@ -26,10 +19,10 @@ export default defineComponent({
         Documentation
       </a>
     </p>
-    <samp id="install" class="accent">
-      <span>yarn add @yeger/vue-masonry-wall</span>
+    <code id="install" class="accent">
+      <span>pnpm add @yeger/vue-masonry-wall</span>
       <span>npm install @yeger/vue-masonry-wall</span>
-    </samp>
+    </code>
     <BadgeList />
   </header>
 </template>

@@ -17,23 +17,9 @@
         "resumon",
         "vecti",
         "vite-plugin-lib",
-        "vue-marmoset-viewer",
-        "vue-persistent-storage-manager"
+        "vue-marmoset-viewer"
       ],
       "pinVersion": "workspace:*"
-    },
-    {
-      "label": "Vue 2",
-      "dependencies": [
-        "@vue/test-utils",
-        "vue"
-      ],
-      "packages": [
-        "@yeger/vue2-masonry-wall",
-        "@yeger/vue2-masonry-wall-docs",
-        "vue-persistent-storage-manager"
-      ],
-      "pinVersion": "catalog:vue2"
     },
     {
       "label": "Turbo",

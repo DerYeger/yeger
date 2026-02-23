@@ -1,7 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/lib",
-  "compilerOptions": {
-    "isolatedDeclarations": false
-  },
-  "include": ["src", "shims-vue.d.ts"]
-}

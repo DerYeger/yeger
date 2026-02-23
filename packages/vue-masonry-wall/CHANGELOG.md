@@ -347,3 +347,411 @@
 ### Minor Changes
 
 - 1968e5d: migrate to monorepo
+
+## 3.3.2
+
+### Patch Changes
+
+- 002aa7f: **deps:** update commitlint monorepo to v17.3.0
+
+## 3.3.1
+
+### Patch Changes
+
+- 5458f18: prevent visual overflow
+
+## 3.3.0
+
+### Minor Changes
+
+- 33d6cb6: use workspaces
+
+## 3.2.27
+
+### Patch Changes
+
+- 0dc8dd1: **deps:** update dependency @yeger/eslint-config to v1.4.50
+
+## 3.2.26
+
+### Patch Changes
+
+- c0dfa8b: **deps:** update commitlint monorepo to v17.2.0
+
+## 3.2.25
+
+### Patch Changes
+
+- d80b9d8: **deps:** update all non-major dependencies
+
+## 3.2.24
+
+### Patch Changes
+
+- d97786b: **deps:** update all non-major dependencies
+
+## 3.2.23
+
+### Patch Changes
+
+- 201e84b: **deps:** update dependency vue to v3.2.45
+
+## 3.2.22
+
+### Patch Changes
+
+- 9c642d6: **deps:** update dependency @types/node to v18
+
+## 3.2.21
+
+### Patch Changes
+
+- 641c7fb: **deps:** update vitest monorepo to v0.24.5
+
+## 3.2.20
+
+### Patch Changes
+
+- 729a97f: **deps:** update dependency @babel/types to v7.20.2
+
+## 3.2.19
+
+### Patch Changes
+
+- c7b02d0: **deps:** update all non-major dependencies
+
+## 3.2.18
+
+### Patch Changes
+
+- ce62aa5: **deps:** update vite to v3.2.2
+
+## 3.2.17
+
+### Patch Changes
+
+- ae1b3b4: **deps:** update all non-major dependencies
+
+## 3.2.16
+
+### Patch Changes
+
+- 808db5e: **deps:** update dependency @babel/types to v7.20.0
+
+## 3.2.15
+
+### Patch Changes
+
+- e248bec: **deps:** update all non-major dependencies
+
+## 3.2.14
+
+### Patch Changes
+
+- 28784f4: **deps:** update dependency vue to v3.2.41
+
+## 3.2.13
+
+### Patch Changes
+
+- 6a54f66: **deps:** update all non-major dependencies
+
+## 3.2.12
+
+### Patch Changes
+
+- ec60825: **deps:** update dependency @babel/types to v7.19.4
+
+## 3.2.11
+
+### Patch Changes
+
+- ea7495f: **deps:** update all non-major dependencies
+
+## 3.2.10
+
+### Patch Changes
+
+- 721174a: **deps:** update dependency vue-tsc to v1
+
+## 3.2.9
+
+### Patch Changes
+
+- 8fddce1: **deps:** update all non-major dependencies
+
+## 3.2.8
+
+### Patch Changes
+
+- 95a99d2: **deps:** update dependency vue to v3.2.40
+
+## 3.2.7
+
+### Patch Changes
+
+- 0806c14: **deps:** update all non-major dependencies
+
+## 3.2.6
+
+### Patch Changes
+
+- c6aa981: **deps:** update dependency @babel/types to v7.19.3
+
+## 3.2.5
+
+### Patch Changes
+
+- c124626: **deps:** update actions/stale action to v6
+
+## 3.2.4
+
+### Patch Changes
+
+- b2b40bc: **deps:** update dependency @babel/types to v7.19.0
+
+## 3.2.3
+
+### Patch Changes
+
+- b1faac0: **deps:** update commitlint monorepo
+
+## 3.2.2
+
+### Patch Changes
+
+- 996f832: **deps:** update all non-major dependencies
+
+## 3.2.1
+
+### Patch Changes
+
+- f0e66de: set default value for `scrollContainer`
+
+## 3.2.0
+
+### Minor Changes
+
+- 92dd314: declare global component type
+
+- b97f5e3: export component's types
+
+## 3.1.4
+
+### Patch Changes
+
+- c476e52: **deps:** update all non-major dependencies
+
+## 3.1.3
+
+### Patch Changes
+
+- 8537331: **deps:** update dependency vue to v3.2.39
+
+## 3.1.2
+
+### Patch Changes
+
+- 146e908: **deps:** update dependency vue to v3.2.38
+
+## 3.1.1
+
+### Patch Changes
+
+- 0e6f534: **deps:** update all non-major dependencies
+
+## 3.1.0
+
+### Minor Changes
+
+- a387be9: add support for custom scroll container
+
+## 3.0.51
+
+### Patch Changes
+
+- 04e5159: **deps:** update dependency eslint to v8.23.0
+
+## 3.0.50
+
+### Patch Changes
+
+- bd62280: **deps:** update dependency typescript to v4.8.2
+
+## 3.0.49
+
+### Patch Changes
+
+- 32c3ffd: **deps:** update dependency @babel/types to v7.18.13
+
+## 3.0.48
+
+### Patch Changes
+
+- eea72bc: **deps:** update dependency vite to v3.0.9
+
+## 3.0.47
+
+### Patch Changes
+
+- 10ee98e: **deps:** update all non-major dependencies
+
+## 3.0.40
+
+### Patch Changes
+
+- 7a730a3: use `mjs` for ESM files
+
+## 3.0.39
+
+### Patch Changes
+
+- 1cda85e: export types with valid paths
+
+## 3.0.38
+
+### Patch Changes
+
+- e60917b: add ESM export
+
+- e080556: check if `ResizeObserver` is defined
+
+## 3.0.8
+
+### Patch Changes
+
+- 28cbe59: restore scroll position after redrawing
+
+## 3.0.2
+
+### Patch Changes
+
+- 1ab48a5: optimize method ordering
+
+## 3.0.1
+
+### Patch Changes
+
+- 9c2bd61: replace `Column` object with `number[]`
+
+## 3.0.0
+
+### Major Changes
+
+- **vue:** Rename `padding` to `gap`
+
+### Minor Changes
+
+- c203f78: **vue:** use `setup` script
+
+### Patch Changes
+
+- 903e771: remove various linting issues
+
+## 2.2.7
+
+### Patch Changes
+
+- 31899a5: inline all styles
+
+## 2.2.6
+
+### Patch Changes
+
+- 33d2440: remove unused `ready` data
+
+- b7ed516: replace `cursor` with recursion parameter
+
+## 2.2.5
+
+### Patch Changes
+
+- 2b1acc4: remove redundant `masonry-column__floor` elements
+
+- f58c03e: use `getBoundingClientRect` instead of height properties
+
+## 2.2.4
+
+### Patch Changes
+
+- fe12558: reduce bundle size by optimizing code
+
+## 2.2.3
+
+### Patch Changes
+
+- 24bc47e: update side-effects
+
+## 2.2.2
+
+### Patch Changes
+
+- 44aad69: specify side-effects
+
+## 2.2.1
+
+### Patch Changes
+
+- 4e34cb1: check if item is actually `undefined`
+
+- 01dda58: remove redundant check in `padding` watcher
+
+## 2.2.0
+
+### Minor Changes
+
+- 1b85c72: add support for rtl layouting
+
+## 2.1.0
+
+### Minor Changes
+
+- bfbd7ed: **vue:** remove `v-bind` in `style` to support Vue v3.1 and v3.2
+
+## 2.0.1
+
+### Patch Changes
+
+- 66aace1: round down when calculating column count
+
+## 2.0.0
+
+### Major Changes
+
+- rename `width` prop to `columnWidth`
+
+- `padding` prop is now of type number
+
+### Minor Changes
+
+- 6c4af87: consider padding while calculating column count
+
+- 6b7d308: support item removal by recreating layout on input change
+
+### Patch Changes
+
+- 0ac0b80: remove bottom margin of last item in column
+
+## 1.0.3
+
+### Patch Changes
+
+- cddf809: enable css extraction
+
+## 1.0.2
+
+### Patch Changes
+
+- 4f6b884: remove helper function export
+
+## 1.0.1
+
+### Patch Changes
+
+- f151fe3: **npm:** add publish config
+
+## 1.0.0
+
+### Minor Changes
+
+- afa690e: create project

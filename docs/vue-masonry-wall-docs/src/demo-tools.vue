@@ -1,58 +1,108 @@
 <script setup lang="ts">
-import { ref, toRefs, watch } from 'vue'
+import type { NonEmptyArray } from '@yeger/vue-masonry-wall'
+import { computed, ref } from 'vue'
 
-const props = defineProps<{
-  columnWidth: number | [number, ...number[]]
-  gap: number
-  rtl: boolean
-  useScrollContainer: boolean
-  minColumns: number
-  maxColumns: number
-}>()
+const columnWidth = defineModel<number | NonEmptyArray<number>>('columnWidth', {
+  required: true,
+})
+
+const DEFAULT_WIDTH = 256
+
+type InternalColumnWidth =
+  | {
+      type: 'single'
+      value: number
+    }
+  | {
+      type: 'list'
+      value: NonEmptyArray<number>
+    }
+
+const internalColumnWidth = computed<InternalColumnWidth>({
+  get: (): InternalColumnWidth => {
+    if (Array.isArray(columnWidth.value)) {
+      return { type: 'list', value: columnWidth.value }
+    }
+    return { type: 'single', value: columnWidth.value }
+  },
+  set(newValue: InternalColumnWidth) {
+    columnWidth.value = newValue.value
+  },
+})
+
+const widthMode = computed<InternalColumnWidth['type']>({
+  get() {
+    return internalColumnWidth.value.type
+  },
+  set(newMode) {
+    if (newMode === 'single' && internalColumnWidth.value.type === 'list') {
+      internalColumnWidth.value = { type: 'single', value: internalColumnWidth.value.value[0]! }
+    } else if (newMode === 'list' && internalColumnWidth.value.type === 'single') {
+      internalColumnWidth.value = { type: 'list', value: [internalColumnWidth.value.value] }
+    }
+  },
+})
+
+const singleWidthModeValue = computed({
+  get() {
+    return internalColumnWidth.value.type === 'single'
+      ? internalColumnWidth.value.value
+      : DEFAULT_WIDTH
+  },
+  set(newValue: number) {
+    if (internalColumnWidth.value.type === 'single') {
+      internalColumnWidth.value = { type: 'single', value: newValue }
+    }
+  },
+})
+
+const gap = defineModel<number>('gap', { required: true })
+
+const rtl = defineModel<boolean>('rtl', { required: true })
+
+const useScrollContainer = defineModel<boolean>('useScrollContainer', { required: true })
+
+const minColumns = defineModel<number>('minColumns', { required: true })
+
+const maxColumns = defineModel<number>('maxColumns', { required: true })
 
 const emit = defineEmits<{
   (e: 'clearItems'): void
   (e: 'createItem', height: number): void
   (e: 'createItems'): void
-  (e: 'update:rtl', value: boolean): void
-  (e: 'update:gap', value: number): void
-  (e: 'update:columnWidth', value: number | [number, ...number[]]): void
-  (e: 'update:useScrollContainer', value: boolean): void
-  (e: 'update:minColumns', value: number): void
-  (e: 'update:maxColumns', value: number): void
 }>()
 
-const { columnWidth, gap, rtl, useScrollContainer, minColumns, maxColumns } = toRefs(props)
-
 const newItemHeight = ref(128)
-
-const colWidth1 = ref(256)
-const colWidth2 = ref(128)
-const colWidth3 = ref(128)
-const colWidth4 = ref(512)
-const colWidth5 = ref(128)
-
-watch([colWidth1, colWidth2, colWidth3, colWidth4, colWidth5], () => {
-  const widths = [
-    +colWidth1.value,
-    +colWidth2.value,
-    +colWidth3.value,
-    +colWidth4.value,
-    +colWidth5.value,
-  ] as [number, ...number[]]
-  emit('update:columnWidth', widths)
-})
 
 function randomHeight() {
   return Math.floor(Math.random() * (512 - 128 + 1)) + 128
 }
 
 function getWidthLabel(index: number) {
-  const widths = columnWidth.value
-  if (!Array.isArray(widths)) {
-    return `${widths}px`
+  const value =
+    internalColumnWidth.value.type === 'single'
+      ? internalColumnWidth.value.value
+      : internalColumnWidth.value.value[index % internalColumnWidth.value.value.length]!
+  return `${value}px`
+}
+
+function addWidth() {
+  if (internalColumnWidth.value.type === 'single') {
+    return
   }
-  return `${widths[index % widths.length]}px`
+  const currentWidths = internalColumnWidth.value.value
+  const width = currentWidths.at(-1) ?? DEFAULT_WIDTH
+  internalColumnWidth.value = { ...internalColumnWidth.value, value: [...currentWidths, width] }
+}
+
+function removeWidth() {
+  if (internalColumnWidth.value.type !== 'list' || internalColumnWidth.value.value.length <= 1) {
+    return
+  }
+  internalColumnWidth.value = {
+    ...internalColumnWidth.value,
+    value: internalColumnWidth.value.value.slice(0, -1) as NonEmptyArray<number>,
+  }
 }
 </script>
 
@@ -68,7 +118,7 @@ function getWidthLabel(index: number) {
           min="0"
           max="256"
           :value="gap"
-          @input="emit('update:gap', +($event.target as any).value)"
+          @input="gap = +($event.target as any).value"
         />
         <span>{{ gap }}px</span>
       </div>
@@ -80,7 +130,7 @@ function getWidthLabel(index: number) {
           min="1"
           max="10"
           :value="minColumns"
-          @input="emit('update:minColumns', +($event.target as any).value)"
+          @input="minColumns = +($event.target as any).value"
         />
         <span>{{ minColumns }}</span>
       </div>
@@ -92,7 +142,7 @@ function getWidthLabel(index: number) {
           min="1"
           max="10"
           :value="maxColumns"
-          @input="emit('update:maxColumns', +($event.target as any).value)"
+          @input="maxColumns = +($event.target as any).value"
         />
         <span>{{ maxColumns }}</span>
       </div>
@@ -102,7 +152,7 @@ function getWidthLabel(index: number) {
           id="rtl"
           type="checkbox"
           :checked="rtl"
-          @change="emit('update:rtl', ($event.target as any).checked)"
+          @change="rtl = ($event.target as any).checked"
         />
       </div>
       <div class="row">
@@ -111,37 +161,56 @@ function getWidthLabel(index: number) {
           id="useScrollContainer"
           type="checkbox"
           :checked="useScrollContainer"
-          @change="emit('update:useScrollContainer', ($event.target as any).checked)"
+          @change="useScrollContainer = ($event.target as any).checked"
         />
       </div>
     </section>
     <section id="columns">
       <h2>Columns</h2>
       <div class="row">
-        <label for="width">1st Column</label>
-        <input id="width" v-model="colWidth1" type="range" min="128" max="512" />
-        <span>{{ getWidthLabel(0) }}</span>
+        <label for="width-mode">Width Mode</label>
+        <select id="width-mode" v-model="widthMode">
+          <option value="single">Single</option>
+          <option value="list">List</option>
+        </select>
       </div>
-      <div class="row">
-        <label for="2nd-width">2nd Column</label>
-        <input id="2nd-width" v-model="colWidth2" type="range" min="128" max="512" />
-        <span>{{ getWidthLabel(1) }}</span>
+      <div v-if="internalColumnWidth.type === 'single'" class="row">
+        <label for="single-width">Column Width</label>
+        <input
+          id="single-width"
+          v-model.number="singleWidthModeValue"
+          type="range"
+          min="128"
+          max="512"
+        />
+        <span>{{ singleWidthModeValue }}px</span>
       </div>
-      <div class="row">
-        <label for="3rd-width">3rd Column</label>
-        <input id="3rd-width" v-model="colWidth3" type="range" min="128" max="512" />
-        <span>{{ getWidthLabel(2) }}</span>
-      </div>
-      <div class="row">
-        <label for="4th-width">4th Column</label>
-        <input id="4th-width" v-model="colWidth4" type="range" min="128" max="512" />
-        <span>{{ getWidthLabel(3) }}</span>
-      </div>
-      <div class="row">
-        <label for="5th-width">5th Column</label>
-        <input id="5th-width" v-model="colWidth5" type="range" min="128" max="512" />
-        <span>{{ getWidthLabel(4) }}</span>
-      </div>
+      <template v-else>
+        <div class="row button-row">
+          <button class="primary" @click="addWidth">Add</button>
+          <button
+            :class="{
+              secondary: internalColumnWidth.value.length > 1,
+              accent: internalColumnWidth.value.length <= 1,
+            }"
+            @click="removeWidth"
+          >
+            Remove
+          </button>
+          <span>{{ internalColumnWidth.value.length }} columns</span>
+        </div>
+        <div v-for="(_, index) in internalColumnWidth.value" :key="index" class="row">
+          <label :for="`width-${index + 1}`">Column {{ index + 1 }}</label>
+          <input
+            :id="`width-${index + 1}`"
+            v-model.number="internalColumnWidth.value[index]"
+            type="range"
+            min="128"
+            max="512"
+          />
+          <span>{{ getWidthLabel(index) }}</span>
+        </div>
+      </template>
     </section>
     <section id="item-creation">
       <h2>Items</h2>

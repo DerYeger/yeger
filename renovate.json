@@ -19,16 +19,6 @@
     {
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "2 days"
-    },
-    {
-      "matchDepTypes": ["pnpm.catalog.vue2"],
-      "matchPackageNames": ["vue", "vue-template-compiler"],
-      "allowedVersions": "<3"
-    },
-    {
-      "matchDepTypes": ["pnpm.catalog.vue2"],
-      "matchPackageNames": ["@vue/test-utils"],
-      "allowedVersions": "<2"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],

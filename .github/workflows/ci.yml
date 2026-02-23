@@ -52,13 +52,6 @@ jobs:
           files: packages/vue-masonry-wall/coverage/coverage-final.json
           flags: vue-masonry-wall
           token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload @yeger/vue2-masonry-wall coverage
-        uses: codecov/codecov-action@v5
-        with:
-          disable_search: true
-          files: packages/vue2-masonry-wall/coverage/coverage-final.json
-          flags: vue2-masonry-wall
-          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload d3-graph-controller coverage
         uses: codecov/codecov-action@v5
         with:
@@ -93,13 +86,6 @@ jobs:
           disable_search: true
           files: packages/vue-marmoset-viewer/coverage/coverage-final.json
           flags: vue-marmoset-viewer
-          token: ${{ secrets.CODECOV_TOKEN }}
-      - name: Upload vue-persistent-storage-manager coverage
-        uses: codecov/codecov-action@v5
-        with:
-          disable_search: true
-          files: packages/vue-persistent-storage-manager/coverage/coverage-final.json
-          flags: vue-persistent-storage-manager
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
         uses: changesets/action@v1

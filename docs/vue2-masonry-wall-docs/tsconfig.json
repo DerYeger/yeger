@@ -1,7 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/bundler",
-  "compilerOptions": {
-    "types": ["node", "vue"]
-  },
-  "exclude": ["node_modules", "coverage", "dist"]
-}

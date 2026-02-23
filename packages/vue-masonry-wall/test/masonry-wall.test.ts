@@ -1,5 +1,5 @@
-import { flushPromises, mount } from '@vue/test-utils'
-import { beforeAll, beforeEach, describe, test, vi } from 'vitest'
+import { enableAutoUnmount, flushPromises, mount } from '@vue/test-utils'
+import { afterEach, beforeAll, beforeEach, describe, test, vi } from 'vitest'
 
 import { MasonryWall } from '../src/index'
 
@@ -8,6 +8,9 @@ const mocks = vi.hoisted(() => ({
     disconnect: vi.fn(),
     observe: vi.fn(),
     unobserve: vi.fn(),
+  },
+  window: {
+    scrollTo: vi.fn(),
   },
 }))
 
@@ -18,6 +21,8 @@ class MockResizeObserver {
 }
 
 describe('MasonryWall', () => {
+  enableAutoUnmount(afterEach)
+
   beforeAll(() => {
     console.warn = function (message) {
       throw message
@@ -26,7 +31,7 @@ describe('MasonryWall', () => {
 
   beforeEach(() => {
     vi.stubGlobal('ResizeObserver', MockResizeObserver)
-    window.scrollTo = vi.fn()
+    window.scrollTo = mocks.window.scrollTo
   })
 
   test('creates SSR columns', async ({ expect }) => {
@@ -270,5 +275,19 @@ describe('MasonryWall', () => {
     expect(columns.length).toEqual(1)
     const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
     expect(items.length).toEqual(2)
+  })
+
+  test('can use an optional scroll container', async ({ expect }) => {
+    const scrollSpy = vi.spyOn(document.body, 'scrollBy')
+
+    mount(MasonryWall, {
+      props: {
+        items: [1, 2],
+        scrollContainer: document.body,
+      },
+    })
+    await flushPromises()
+    expect(window.scrollTo).not.toHaveBeenCalled()
+    expect(scrollSpy).toHaveBeenCalled()
   })
 })

@@ -10,7 +10,6 @@
 ## Docs
 
 - [@yeger/vue-masonry-wall-docs](./docs/vue-masonry-wall-docs)
-- [@yeger/vue2-masonry-wall-docs](./docs/vue2-masonry-wall-docs)
 - [d3-graph-controller-docs](./docs/d3-graph-controller-docs)
 - [key-hierarchy-docs](./docs/key-hierarchy-docs)
 - [vecti-docs](./docs/vecti-docs)
@@ -28,14 +27,10 @@
 - [@yeger/turbo-graph](./packages/turbo-graph)
 - [@yeger/turbo-graph-ui](./packages/turbo-graph-ui)
 - [@yeger/vitest-utils](./packages/vitest-utils)
-- [@yeger/vue-lib-adapter](./packages/vue-lib-adapter)
 - [@yeger/vue-masonry-wall](./packages/vue-masonry-wall)
-- [@yeger/vue-masonry-wall-core](./packages/vue-masonry-wall-core)
-- [@yeger/vue2-masonry-wall](./packages/vue2-masonry-wall)
 - [d3-graph-controller](./packages/d3-graph-controller)
 - [key-hierarchy](./packages/key-hierarchy)
 - [resumon](./packages/resumon)
 - [vecti](./packages/vecti)
 - [vite-plugin-lib](./packages/vite-plugin-lib)
 - [vue-marmoset-viewer](./packages/vue-marmoset-viewer)
-- [vue-persistent-storage-manager](./packages/vue-persistent-storage-manager)

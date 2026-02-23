@@ -1,8 +1,11 @@
 <script setup lang="ts" generic="T">
-import type { Column, NonEmptyArray } from '@yeger/vue-masonry-wall-core'
-import { useMasonryWall } from '@yeger/vue-masonry-wall-core'
+import { debounce } from '@yeger/debounce'
 import type { Ref, VNode } from 'vue'
-import { nextTick, onBeforeUnmount, onMounted, ref, toRefs, watch } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+
+export type NonEmptyArray<T> = [T, ...T[]]
+
+export type Column = number[]
 
 export type KeyMapper<T> = (
   item: T,
@@ -11,27 +14,26 @@ export type KeyMapper<T> = (
   index: number,
 ) => string | number | symbol | undefined
 
-const props = withDefaults(
-  defineProps<{
-    columnWidth?: number | NonEmptyArray<number> | undefined
-    items: T[]
-    gap?: number | undefined
-    rtl?: boolean | undefined
-    ssrColumns?: number | undefined
-    scrollContainer?: HTMLElement | null | undefined
-    minColumns?: number | undefined
-    maxColumns?: number | undefined
-    keyMapper?: KeyMapper<T> | undefined
-  }>(),
-  {
-    columnWidth: 400,
-    gap: 0,
-    minColumns: 1,
-    rtl: false,
-    scrollContainer: null,
-    ssrColumns: 0,
-  },
-)
+const {
+  columnWidth = 400,
+  gap = 0,
+  items,
+  maxColumns,
+  minColumns = 1,
+  rtl = false,
+  scrollContainer = null,
+  ssrColumns = 0,
+} = defineProps<{
+  columnWidth?: number | NonEmptyArray<number> | undefined
+  items: T[]
+  gap?: number | undefined
+  rtl?: boolean | undefined
+  ssrColumns?: number | undefined
+  scrollContainer?: HTMLElement | null | undefined
+  minColumns?: number | undefined
+  maxColumns?: number | undefined
+  keyMapper?: KeyMapper<T> | undefined
+}>()
 
 const emit = defineEmits<{
   (event: 'redraw'): void
@@ -51,17 +53,111 @@ defineSlots<{
 const columns = ref<Column[]>([])
 const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
 
-const { getColumnWidthTarget } = useMasonryWall<T>({
-  columns,
-  emit,
-  nextTick,
-  onBeforeUnmount,
-  onMounted,
-  vue: 3,
-  wall,
-  watch,
-  ...toRefs(props),
+function createColumns(count: number): Column[] {
+  return Array.from({ length: count }).map(() => [])
+}
+
+function countIteratively(
+  containerWidth: number,
+  gap: number,
+  count: number,
+  consumed: number,
+): number {
+  const nextWidth = getColumnWidthTarget(count)
+  if (consumed + gap + nextWidth <= containerWidth) {
+    return countIteratively(containerWidth, gap, count + 1, consumed + gap + nextWidth)
+  }
+  return count
+}
+
+function getColumnWidthTarget(columnIndex: number): number {
+  const widths = Array.isArray(columnWidth) ? columnWidth : [columnWidth]
+  return widths[columnIndex % widths.length] as number
+}
+
+function columnCount(): number {
+  const count = countIteratively(
+    wall.value.getBoundingClientRect().width,
+    gap,
+    0,
+    // Needs to be offset my negative gap to prevent gap counts being off by one
+    -gap,
+  )
+  const boundedCount = aboveMin(belowMax(count))
+  return boundedCount > 0 ? boundedCount : 1
+}
+
+function belowMax(count: number): number {
+  if (!maxColumns) {
+    return count
+  }
+  return Math.min(count, maxColumns)
+}
+
+function aboveMin(count: number): number {
+  return Math.max(count, minColumns)
+}
+
+if (ssrColumns > 0) {
+  const newColumns = createColumns(ssrColumns)
+  for (let i = 0; i < items.length; i++) {
+    newColumns[i % ssrColumns]!.push(i)
+  }
+  columns.value = newColumns
+}
+
+let currentRedrawId = 0
+
+async function fillColumns(itemIndex: number, assignedRedrawId: number) {
+  if (itemIndex >= items.length) {
+    return
+  }
+  await nextTick()
+  if (currentRedrawId !== assignedRedrawId) {
+    // Skip if a new redraw has been requested in parallel,
+    // e.g., in an onMounted hook during initial render
+    return
+  }
+  const columnDivs = [...wall.value.children] as HTMLDivElement[]
+  if (rtl) {
+    columnDivs.reverse()
+  }
+  const target = columnDivs.reduce((prev, curr) =>
+    curr.getBoundingClientRect().height < prev.getBoundingClientRect().height ? curr : prev,
+  )
+  columns.value[+target.dataset.index!]!.push(itemIndex)
+  await fillColumns(itemIndex + 1, assignedRedrawId)
+}
+
+async function redraw(force = false) {
+  const newColumnCount = columnCount()
+  if (columns.value.length === newColumnCount && !force) {
+    emit('redrawSkip')
+    return
+  }
+  columns.value = createColumns(newColumnCount)
+  const scrollY = scrollContainer ? scrollContainer.scrollTop : window.scrollY
+  await fillColumns(0, ++currentRedrawId)
+  if (scrollContainer) {
+    scrollContainer.scrollBy({ top: scrollY - scrollContainer.scrollTop })
+  } else {
+    window.scrollTo({ top: scrollY })
+  }
+  emit('redraw')
+}
+
+const resizeObserver =
+  typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(debounce(() => redraw()))
+
+onMounted(async () => {
+  await redraw()
+  resizeObserver?.observe(wall.value)
 })
+
+onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
+
+watch([() => items, () => rtl], () => redraw(true))
+watch([() => columnWidth, () => gap, () => minColumns, () => maxColumns], () => redraw())
 </script>
 
 <template>
@@ -77,7 +173,7 @@ const { getColumnWidthTarget } = useMasonryWall<T>({
         'flex-direction': 'column',
         'flex-grow': 1,
         gap: `${gap}px`,
-        height: ['-webkit-max-content', '-moz-max-content', 'max-content'] as any,
+        height: 'max-content',
         'min-width': 0,
       }"
     >
