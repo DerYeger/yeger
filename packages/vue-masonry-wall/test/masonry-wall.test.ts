@@ -1,8 +1,7 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { beforeAll, beforeEach, describe, test, vi } from 'vitest'
-import { defineComponent, h, resolveComponent } from 'vue'
 
-import MasonryWall from '../src/index'
+import { MasonryWall } from '../src/index'
 
 const mocks = vi.hoisted(() => ({
   ResizeObserver: {
@@ -18,13 +17,6 @@ class MockResizeObserver {
   public unobserve = mocks.ResizeObserver.unobserve
 }
 
-const TestComponent = defineComponent({
-  render() {
-    const MasonryWallComponent = resolveComponent('masonry-wall')
-    return h(MasonryWallComponent, { items: [1, 2, 3] })
-  },
-})
-
 describe('MasonryWall', () => {
   beforeAll(() => {
     console.warn = function (message) {
@@ -35,19 +27,6 @@ describe('MasonryWall', () => {
   beforeEach(() => {
     vi.stubGlobal('ResizeObserver', MockResizeObserver)
     window.scrollTo = vi.fn()
-  })
-
-  test('can be installed', async ({ expect }) => {
-    const wrapper = mount(TestComponent, {
-      global: {
-        plugins: [MasonryWall],
-      },
-    })
-    await flushPromises()
-    const wall = wrapper.find<HTMLDivElement>('.masonry-wall')
-    expect(wall.element).toBeDefined()
-    const items = wrapper.findAll<HTMLDivElement>('.masonry-item')
-    expect(items.length).toEqual(3)
   })
 
   test('creates SSR columns', async ({ expect }) => {

@@ -50,13 +50,6 @@ $ npm install @yeger/vue2-masonry-wall
 
 ## Usage
 
-```typescript
-import Vue from 'vue'
-import MasonryWall from '@yeger/vue2-masonry-wall'
-
-Vue.use(MasonryWall)
-```
-
 Props:
 
 - `items`: Array of items. Required.
@@ -71,7 +64,12 @@ Props:
 
 ```vue
 <script>
+import { MasonryWall } from '@yeger/vue2-masonry-wall'
+
 export default {
+  components: {
+    MasonryWall,
+  },
   data() {
     return {
       items: [
@@ -84,14 +82,14 @@ export default {
 </script>
 
 <template>
-  <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
+  <MasonryWall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
     <template #default="{ item, index }">
       <div :style="{ height: `${(index + 1) * 100}px` }">
         <h1>{{ item.title }} ({{ index }})</h1>
         <span>{{ item.description }}</span>
       </div>
     </template>
-  </masonry-wall>
+  </MasonryWall>
 </template>
 ```
 

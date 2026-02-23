@@ -1,5 +1,5 @@
 <script lang="ts">
-import MasonryWall from '@yeger/vue-masonry-wall'
+import { MasonryWall } from '@yeger/vue-masonry-wall'
 import { defineComponent, ref } from 'vue'
 
 import DemoFooter from './demo-footer.vue'

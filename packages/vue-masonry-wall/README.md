@@ -50,15 +50,6 @@ $ npm install @yeger/vue-masonry-wall
 
 ## Usage
 
-```typescript
-import { createApp } from 'vue'
-import MasonryWall from '@yeger/vue-masonry-wall'
-
-const app = createApp()
-
-app.use(MasonryWall)
-```
-
 Props:
 
 - `items`: Array of items. Required.
@@ -73,6 +64,8 @@ Props:
 
 ```vue
 <script setup lang="ts">
+import { MasonryWall } from '@yeger/vue-masonry-wall'
+
 const items = [
   {
     title: 'First',
@@ -86,14 +79,14 @@ const items = [
 </script>
 
 <template>
-  <masonry-wall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
+  <MasonryWall :items="items" :ssr-columns="1" :column-width="300" :gap="16">
     <template #default="{ item, index }">
       <div :style="{ height: `${(index + 1) * 100}px` }">
         <h1>{{ item.title }}</h1>
         <span>{{ item.description }}</span>
       </div>
     </template>
-  </masonry-wall>
+  </MasonryWall>
 </template>
 ```
 
@@ -114,17 +107,7 @@ In addition, the elements of items should not set a specific width and instead b
 
 ### Nuxt 3
 
-Create a plugin (e.g., `plugins/vue-masonry-wall.ts`) with the following code:
-
-```ts
-import MasonryWall from '@yeger/vue-masonry-wall'
-
-export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(MasonryWall)
-})
-```
-
-Also, see <https://github.com/DerYeger/yeger/issues/43>.
+See <https://github.com/DerYeger/yeger/issues/43>.
 
 ## Development
 
