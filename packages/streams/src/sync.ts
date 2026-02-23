@@ -1,7 +1,29 @@
+/**
+ * A callback function that processes an input value and produces an output value.
+ * @template Input The type of the input value.
+ * @template Output The type of the output value.
+ * @param value The input value to process.
+ * @param index The zero-based index of the input value in the source iterable.
+ * @returns The processed output value.
+ */
 export type Processor<Input, Output> = (value: Input, index: number) => Output
 
+/**
+ * A {@link Processor} that produces a boolean output to indicate whether an input value matches a condition.
+ * @template Input The type of the input value.
+ * @param value The input value to test.
+ * @param index The zero-based index of the input value in the source iterable.
+ * @returns `true` if the input value matches the condition, otherwise `false`.
+ */
 export type Filter<Input> = Processor<Input, boolean>
 
+/**
+ * A function that transforms an input {@link Iterable} into an output {@link Iterable}.
+ * @template Input The type of the input values.
+ * @template Output The type of the output values.
+ * @param source The input {@link Iterable} to transform.
+ * @returns An output {@link Iterable} that produces transformed values from the input.
+ */
 export type Operator<Input, Output> = (source: Iterable<Input>) => Iterable<Output>
 
 function createIterable<T>(factory: () => IterableIterator<T>): Iterable<T> {
@@ -373,6 +395,9 @@ export function pipe(source: Iterable<any>, ...operators: Operator<any, any>[]):
 
 /**
  * Creates an iterable over object entries using string and number keys.
+ * @template T The type of the values in the source object.
+ * @param source The source object.
+ * @returns An {@link Iterable} over the entries of the source object.
  */
 export function fromObject<T>(source: Record<string | number, T>): Iterable<[string, T]> {
   return Object.entries(source)
@@ -380,6 +405,9 @@ export function fromObject<T>(source: Record<string | number, T>): Iterable<[str
 
 /**
  * Projects each input item into a new value.
+ * @template Input The type of the input values.
+ * @param fn {@link Processor} that maps each input item to an output item.
+ * @returns An {@link Operator} that maps input items to output items.
  */
 export function map<Input, Output>(fn: Processor<Input, Output>): Operator<Input, Output> {
   return (source: Iterable<Input>) =>
@@ -393,6 +421,10 @@ export function map<Input, Output>(fn: Processor<Input, Output>): Operator<Input
 
 /**
  * Projects each input item into an iterable and flattens it one level.
+ * @template Input The type of the input values.
+ * @template Output The type of the output values.
+ * @param fn {@link Processor} that maps each input item to an {@link Iterable} of output items.
+ * @returns An {@link Operator} that maps input items to iterables and flattens them into a single output iterable.
  */
 export function flatMap<Input, Output>(
   fn: Processor<Input, Iterable<Output>>,
@@ -408,6 +440,10 @@ export function flatMap<Input, Output>(
 
 /**
  * Combines each item with the corresponding item from another iterable.
+ * @template T The type of the input values from the source iterable.
+ * @template R The type of the input values from the other iterable.
+ * @param other The {@link Iterable} to zip with the source iterable.
+ * @returns An {@link Operator} that combines each item with the corresponding item from another iterable.
  */
 export function zip<T, R>(other: Iterable<R>): Operator<T, [T, R]> {
   return (source: Iterable<T>) =>
@@ -424,7 +460,10 @@ export function zip<T, R>(other: Iterable<R>): Operator<T, [T, R]> {
 }
 
 /**
- * Skips the first n items from the source.
+ * An operator that skips the first {@link n} items from the source.
+ * @template T The type of the input and output values.
+ * @param n The number of items to skip.
+ * @returns An {@link Operator} that skips the first {@link n} items from the source.
  */
 export function skip<T>(n: number): Operator<T, T> {
   return (source: Iterable<T>) =>
@@ -440,7 +479,10 @@ export function skip<T>(n: number): Operator<T, T> {
 }
 
 /**
- * Emits at most the first n items from the source.
+ * An operator that emits only the first {@link n} items from the source.
+ * @template T The type of the input and output values.
+ * @param n The maximum number of items to emit.
+ * @returns An {@link Operator} that emits only the first {@link n} items from the source.
  */
 export function limit<T>(n: number): Operator<T, T> {
   return (source: Iterable<T>) =>
@@ -460,10 +502,17 @@ export function limit<T>(n: number): Operator<T, T> {
 
 /**
  * Emits only the items matching the predicate.
+ * @template T The type of the input values.
+ * @template S A subtype of T that satisfies the type guard condition in the predicate function.
+ * @param fn {@link Filter} to test each item for condition matching.
+ * @returns An {@link Operator} that emits only the items matching the predicate.
  */
 export function filter<T, S extends T>(fn: (value: T, index: number) => value is S): Operator<T, S>
 /**
  * Emits only the items matching the predicate.
+ * @template T The type of the input and output values.
+ * @param fn {@link Filter} to test each item for condition matching.
+ * @returns An {@link Operator} that emits only the items matching the predicate.
  */
 export function filter<T>(fn: Filter<T>): Operator<T, T>
 export function filter<T>(fn: Filter<T>): Operator<T, T> {
@@ -480,6 +529,8 @@ export function filter<T>(fn: Filter<T>): Operator<T, T> {
 
 /**
  * Emits only non-null and non-undefined values.
+ * @template T The type of the input values.
+ * @returns An {@link Operator} that emits only non-null and non-undefined values.
  */
 export function filterDefined<T>(): Operator<T, NonNullable<T>> {
   return filter<T, NonNullable<T>>(
@@ -489,6 +540,8 @@ export function filterDefined<T>(): Operator<T, NonNullable<T>> {
 
 /**
  * Emits only the first occurrence of each unique value.
+ * @template T The type of the input and output values.
+ * @returns An {@link Operator} that emits only the first occurrence of each unique value.
  */
 export function distinct<T>(): Operator<T, T> {
   return (source: Iterable<T>) =>
@@ -505,7 +558,10 @@ export function distinct<T>(): Operator<T, T> {
 }
 
 /**
- * Appends one or more iterables after the source iterable.
+ * An operator that appends one or more iterables after the source iterable.
+ * @template T The type of the input and output values.
+ * @param sources One or more {@link Iterable}s to append after the source iterable.
+ * @returns An {@link Operator} that emits all values from the source iterable followed by all values from the provided iterables in order.
  */
 export function append<T>(...sources: Iterable<T>[]): Operator<T, T> {
   return (source: Iterable<T>) =>
@@ -519,6 +575,9 @@ export function append<T>(...sources: Iterable<T>[]): Operator<T, T> {
 
 /**
  * Caches produced values so future iterations replay without re-reading the source.
+ * **Warning**: Will consume and cache all values from the source on the first iteration, which may lead to high memory usage or non-termination for infinite iterators.
+ * @template T The type of the input and output values.
+ * @returns An {@link Operator} that caches values from the source iterable for replay on subsequent iterations.
  */
 export function cache<T>(): Operator<T, T> {
   return (source: Iterable<T>) => {
@@ -540,6 +599,10 @@ export function cache<T>(): Operator<T, T> {
 
 /**
  * Collects all values into a set.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The source {@link Iterable}.
+ * @returns The set of all values from the source.
  */
 export function toSet<T>(source: Iterable<T>): Set<T> {
   return new Set(source)
@@ -547,6 +610,10 @@ export function toSet<T>(source: Iterable<T>): Set<T> {
 
 /**
  * Collects all values into an array.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The source {@link Iterable}.
+ * @returns The array of all values from the source.
  */
 export function toArray<T>(source: Iterable<T>): T[] {
   return Array.from(source)
@@ -554,6 +621,14 @@ export function toArray<T>(source: Iterable<T>): T[] {
 
 /**
  * Collects values into a map using key and value projections.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @template K The type of the keys in the resulting map.
+ * @template U The type of the values in the resulting map.
+ * @param source The source {@link Iterable}.
+ * @param key {@link Processor} that maps each input item to a key for the map.
+ * @param value {@link Processor} that maps each input item to a value for the map.
+ * @returns The map of key-value pairs.
  */
 export function toMap<T, K, U>(
   source: Iterable<T>,
@@ -571,6 +646,13 @@ export function toMap<T, K, U>(
 
 /**
  * Collects values into a record using key and value projections.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @template U The type of the values in the resulting record.
+ * @param source The source {@link Iterable}.
+ * @param key {@link Processor} that maps each input item to a key for the record.
+ * @param value {@link Processor} that maps each input item to a value for the record.
+ * @returns The record of key-value pairs.
  */
 export function toRecord<T, U>(
   source: Iterable<T>,
@@ -588,6 +670,13 @@ export function toRecord<T, U>(
 
 /**
  * Reduces all values into a single accumulated result.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @template R The type of the accumulated result.
+ * @param source The source {@link Iterable}.
+ * @param fn The reducer function to accumulate values.
+ * @param initialValue The initial accumulated value.
+ * @returns The final accumulated value.
  */
 export function reduce<T, R>(
   source: Iterable<T>,
@@ -604,10 +693,18 @@ export function reduce<T, R>(
 
 /**
  * Sums numeric values from a source.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @param source The souce {@link Iterable}.
+ * @returns The sum of all values.
  */
 export function sum(source: Iterable<number>): number
 /**
  * Sums projected numeric values from a source.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The souce {@link Iterable}.
+ * @param fn {@link Processor} to map each input item to a numeric value.
+ * @returns The sum of projected numeric values.
  */
 export function sum<T>(source: Iterable<T>, fn: Processor<T, number>): number
 export function sum<T>(source: Iterable<T>, fn?: Processor<T, number>): number {
@@ -618,6 +715,10 @@ export function sum<T>(source: Iterable<T>, fn?: Processor<T, number>): number {
 
 /**
  * Executes a callback for each item and returns the original source.
+ * @template T The type of the input values.
+ * @param source The souce {@link Iterable}.
+ * @param fn {@link Processor} to execute for each item.
+ * @returns The original source {@link Iterable} for further consumption.
  */
 export function forEach<T>(source: Iterable<T>, fn: Processor<T, void>): Iterable<T> {
   let index = 0
@@ -628,7 +729,40 @@ export function forEach<T>(source: Iterable<T>, fn: Processor<T, void>): Iterabl
 }
 
 /**
+ * Returns the first item or `undefined` if the source is empty.
+ * @template T The type of the input values.
+ * @param source The souce {@link Iterable}.
+ * @returns The first item or `undefined` if the source is empty.
+ */
+export function first<T>(source: Iterable<T>): T | undefined {
+  for (const item of source) {
+    return item
+  }
+  return undefined
+}
+
+/**
+ * Returns the last item or `undefined` if the source is empty.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The souce {@link Iterable}.
+ * @returns The last item or `undefined` if the source is empty.
+ */
+export function last<T>(source: Iterable<T>): T | undefined {
+  let lastItem: T | undefined = undefined
+  for (const item of source) {
+    lastItem = item
+  }
+  return lastItem
+}
+
+/**
  * Returns the first item matching the predicate.
+ * **Warning**: May not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The source {@link Iterable}.
+ * @param fn The predicate function to match items.
+ * @returns The first item matching the predicate or `undefined` if no match is found.
  */
 export function find<T>(source: Iterable<T>, fn: Filter<T>): T | undefined {
   let index = 0
@@ -642,6 +776,11 @@ export function find<T>(source: Iterable<T>, fn: Filter<T>): T | undefined {
 
 /**
  * Returns true if at least one item matches the predicate.
+ * **Warning**: May not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The source {@link Iterable}.
+ * @param fn The predicate function to match items.
+ * @returns `true` if at least one item matches the predicate, otherwise `false`.
  */
 export function some<T>(source: Iterable<T>, fn: Filter<T>): boolean {
   let index = 0
@@ -655,6 +794,11 @@ export function some<T>(source: Iterable<T>, fn: Filter<T>): boolean {
 
 /**
  * Returns true if all items match the predicate.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values.
+ * @param source The source {@link Iterable}.
+ * @param fn The predicate function to match items.
+ * @returns `true` if all items match the predicate, otherwise `false`.
  */
 export function every<T>(source: Iterable<T>, fn: Filter<T>): boolean {
   let index = 0
@@ -668,6 +812,11 @@ export function every<T>(source: Iterable<T>, fn: Filter<T>): boolean {
 
 /**
  * Joins string or number values with a separator.
+ * **Warning**: Will not terminate for infinite iterators.
+ * @template T The type of the input values, which must be {@link string} or {@link number}.
+ * @param source The source {@link Iterable} of string or number values to join.
+ * @param separator The separator string to insert between values.
+ * @returns The joined string of all values separated by the specified separator.
  */
 export function join<T extends string | number>(source: Iterable<T>, separator: string): string {
   let index = 0

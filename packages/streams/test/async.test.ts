@@ -181,6 +181,30 @@ describe('async streams', () => {
       })
     })
 
+    describe('first', () => {
+      test('can get the first element', async ({ expect }) => {
+        const streamResult = await as.first([1, 2, 3])
+        expect(streamResult).toEqual(1)
+      })
+
+      test('returns undefined if empty', async ({ expect }) => {
+        const streamResult = await as.first([])
+        expect(streamResult).toBeUndefined()
+      })
+    })
+
+    describe('last', () => {
+      test('can get the last element', async ({ expect }) => {
+        const streamResult = await as.last([1, 2, 3])
+        expect(streamResult).toEqual(3)
+      })
+
+      test('returns undefined if empty', async ({ expect }) => {
+        const streamResult = await as.last([])
+        expect(streamResult).toBeUndefined()
+      })
+    })
+
     describe('find', () => {
       test('can find an element', async ({ expect }) => {
         const streamResult = await as.find([1, 2, 3, 4, 5], (x) => x % 2 === 0)

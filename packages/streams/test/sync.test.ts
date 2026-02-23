@@ -162,6 +162,30 @@ describe('sync streams', () => {
       })
     })
 
+    describe('first', () => {
+      test('can get the first element', ({ expect }) => {
+        const streamResult = s.first([1, 2, 3])
+        expect(streamResult).toEqual(1)
+      })
+
+      test('returns undefined if empty', ({ expect }) => {
+        const streamResult = s.first([])
+        expect(streamResult).toBeUndefined()
+      })
+    })
+
+    describe('last', () => {
+      test('can get the last element', ({ expect }) => {
+        const streamResult = s.last([1, 2, 3])
+        expect(streamResult).toEqual(3)
+      })
+
+      test('returns undefined if empty', ({ expect }) => {
+        const streamResult = s.last([])
+        expect(streamResult).toBeUndefined()
+      })
+    })
+
     describe('find', () => {
       test('can find an element', ({ expect }) => {
         const streamResult = s.find([1, 2, 3, 4, 5], (x) => x % 2 === 0)
