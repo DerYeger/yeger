@@ -1,7 +1,7 @@
 <script setup lang="ts" generic="T">
 import { debounce } from '@yeger/debounce'
-import type { Ref, VNode } from 'vue'
-import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import type { VNode } from 'vue'
+import { nextTick, onBeforeUnmount, onMounted, ref, useTemplateRef, watch } from 'vue'
 
 export type NonEmptyArray<T> = [T, ...T[]]
 
@@ -51,7 +51,7 @@ defineSlots<{
 }>()
 
 const columns = ref<Column[]>([])
-const wall = ref<HTMLDivElement>() as Ref<HTMLDivElement>
+const wall = useTemplateRef<HTMLDivElement>('wall')
 
 function createColumns(count: number): Column[] {
   return Array.from({ length: count }).map(() => [])
@@ -72,12 +72,12 @@ function countIteratively(
 
 function getColumnWidthTarget(columnIndex: number): number {
   const widths = Array.isArray(columnWidth) ? columnWidth : [columnWidth]
-  return widths[columnIndex % widths.length] as number
+  return widths[columnIndex % widths.length]!
 }
 
 function columnCount(): number {
   const count = countIteratively(
-    wall.value.getBoundingClientRect().width,
+    wall.value!.getBoundingClientRect().width,
     gap,
     0,
     // Needs to be offset my negative gap to prevent gap counts being off by one
@@ -118,10 +118,7 @@ async function fillColumns(itemIndex: number, assignedRedrawId: number) {
     // e.g., in an onMounted hook during initial render
     return
   }
-  const columnDivs = [...wall.value.children] as HTMLDivElement[]
-  if (rtl) {
-    columnDivs.reverse()
-  }
+  const columnDivs = [...wall.value!.children] as HTMLDivElement[]
   const target = columnDivs.reduce((prev, curr) =>
     curr.getBoundingClientRect().height < prev.getBoundingClientRect().height ? curr : prev,
   )
@@ -151,17 +148,24 @@ const resizeObserver =
 
 onMounted(async () => {
   await redraw()
-  resizeObserver?.observe(wall.value)
+  resizeObserver?.observe(wall.value!)
 })
 
-onBeforeUnmount(() => resizeObserver?.unobserve(wall.value))
+onBeforeUnmount(() => resizeObserver?.unobserve(wall.value!))
 
-watch([() => items, () => rtl], () => redraw(true))
+watch(
+  () => items,
+  () => redraw(true),
+)
 watch([() => columnWidth, () => gap, () => minColumns, () => maxColumns], () => redraw())
 </script>
 
 <template>
-  <div ref="wall" class="masonry-wall" :style="{ display: 'flex', gap: `${gap}px` }">
+  <div
+    ref="wall"
+    class="masonry-wall"
+    :style="{ display: 'flex', gap: `${gap}px`, flexDirection: rtl ? 'row-reverse' : undefined }"
+  >
     <div
       v-for="(column, columnIndex) in columns"
       :key="columnIndex"

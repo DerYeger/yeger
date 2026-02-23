@@ -104,7 +104,7 @@ For images, specifying aspect ratios can prevent unbalanced distributions.
 All columns have the same width, specified by the `column-width` property.
 In addition, the elements of items should not set a specific width and instead be full-width, e.g., use `width: 100%`.
 
-### Nuxt 3
+### Nuxt
 
 See <https://github.com/DerYeger/yeger/issues/43>.
 
