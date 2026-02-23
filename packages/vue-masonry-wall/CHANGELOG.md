@@ -1,5 +1,15 @@
 # @yeger/vue-masonry-wall
 
+## 6.1.0
+
+### Minor Changes
+
+- 141ec22: inline previously extracted @yeger/vue-masonry-wall-core logic
+
+### Patch Changes
+
+- 2fa0c3c: update rtl handling to support variable column widths
+
 ## 6.0.0
 
 ### Major Changes
