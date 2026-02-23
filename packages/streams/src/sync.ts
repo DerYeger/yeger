@@ -424,6 +424,22 @@ export function zip<T, R>(other: Iterable<R>): Operator<T, [T, R]> {
 }
 
 /**
+ * Skips the first n items from the source.
+ */
+export function skip<T>(n: number): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
+      let skipped = 0
+      for (const item of source) {
+        if (skipped++ < n) {
+          continue
+        }
+        yield item
+      }
+    })
+}
+
+/**
  * Emits at most the first n items from the source.
  */
 export function limit<T>(n: number): Operator<T, T> {

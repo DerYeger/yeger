@@ -452,6 +452,22 @@ export function zip<T, R>(other: MaybeAsyncIterable<R>): AsyncOperator<T, [T, R]
 }
 
 /**
+ * Skips the first n items from the source.
+ */
+export function skip<T>(n: number): AsyncOperator<T, T> {
+  return (source: AsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      let skipped = 0
+      for await (const item of source) {
+        if (skipped++ < n) {
+          continue
+        }
+        yield item
+      }
+    })
+}
+
+/**
  * Emits at most the first n items from the source.
  */
 export function limit<T>(n: number): AsyncOperator<T, T> {
