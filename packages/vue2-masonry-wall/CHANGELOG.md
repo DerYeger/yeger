@@ -1,5 +1,13 @@
 # @yeger/vue2-masonry-wall
 
+## 6.0.0
+
+### Major Changes
+
+- 67e0236: drop installable plugin
+
+  Use component import instead.
+
 ## 5.1.5
 
 ### Patch Changes

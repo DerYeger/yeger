@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.2.0
+
+### Minor Changes
+
+- 6549dda: implement first and last
+
 ## 3.1.0
 
 ### Minor Changes
