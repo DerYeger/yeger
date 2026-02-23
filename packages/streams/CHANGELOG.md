@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.1.0
+
+### Minor Changes
+
+- a182824: implement skip operator
+
 ## 3.0.0
 
 ### Major Changes
