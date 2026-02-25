@@ -1,40 +1,41 @@
 {
-  "name": "@yeger/vue-masonry-wall",
-  "version": "6.1.0",
-  "description": "Responsive masonry layout with SSR support and zero dependencies for Vue 3.",
+  "name": "vue-fast-mount",
+  "version": "0.0.0",
+  "description": "Vite plugin for faster mounting of Vue components in Vitest.",
   "keywords": [
-    "component",
-    "masonry",
-    "plugin",
-    "vue",
-    "wall"
+    "library",
+    "vite-plugin",
+    "vue"
   ],
-  "homepage": "https://vue-masonry-wall.janmueller.dev",
+  "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/vue-fast-mount",
   "bugs": {
     "url": "https://github.com/DerYeger/yeger/issues"
   },
   "license": "MIT",
-  "author": {
-    "name": "Jan Müller",
-    "url": "https://github.com/DerYeger"
-  },
+  "author": "Jan Müller <janmueller3698@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
-    "directory": "packages/vue-masonry-wall"
+    "directory": "packages/vue-fast-mount"
   },
+  "funding": "https://github.com/sponsors/DerYeger",
   "files": [
-    "dist/*",
-    "src/**/*.vue"
+    "dist",
+    "LICENSE"
   ],
   "type": "module",
-  "sideEffects": false,
-  "types": "dist/index.d.mts",
+  "types": "dist/runtime.d.mts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.mts",
-        "default": "./dist/index.mjs"
+        "types": "./dist/runtime.d.mts",
+        "default": "./dist/runtime.mjs"
+      }
+    },
+    "./plugin": {
+      "import": {
+        "types": "./dist/plugin.d.mts",
+        "default": "./dist/plugin.mjs"
       }
     }
   },
@@ -43,16 +44,12 @@
   },
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch",
     "publint": "publint run --strict",
     "test": "vitest",
     "typecheck": "vue-tsc"
   },
-  "dependencies": {
-    "@yeger/debounce": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@types/resize-observer-browser": "catalog:",
     "@vitejs/plugin-vue": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
@@ -63,12 +60,14 @@
     "publint": "catalog:",
     "tsdown": "catalog:",
     "typescript": "catalog:",
+    "vite": "catalog:",
     "vitest": "catalog:",
     "vue": "catalog:",
-    "vue-fast-mount": "workspace:*",
     "vue-tsc": "catalog:"
   },
   "peerDependencies": {
+    "@vue/test-utils": "^2.0.0",
+    "vite": "^7.0.0",
     "vue": "^3.0.0"
   }
 }

@@ -66,6 +66,7 @@
     "typescript": "catalog:",
     "vitest": "catalog:",
     "vue": "catalog:",
+    "vue-fast-mount": "workspace:*",
     "vue-tsc": "catalog:"
   },
   "peerDependencies": {
