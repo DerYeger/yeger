@@ -33,4 +33,5 @@
 - [resumon](./packages/resumon)
 - [vecti](./packages/vecti)
 - [vite-plugin-lib](./packages/vite-plugin-lib)
+- [vue-fast-mount](./packages/vue-fast-mount)
 - [vue-marmoset-viewer](./packages/vue-marmoset-viewer)

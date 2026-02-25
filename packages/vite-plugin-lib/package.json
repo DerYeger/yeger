@@ -13,7 +13,10 @@
     "url": "https://github.com/DerYeger/yeger/issues"
   },
   "license": "MIT",
-  "author": "Jan Müller <janmueller3698@gmail.com>",
+  "author": {
+    "name": "Jan Müller",
+    "url": "https://github.com/DerYeger"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DerYeger/yeger.git",
