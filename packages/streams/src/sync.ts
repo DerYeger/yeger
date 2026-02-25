@@ -598,6 +598,22 @@ export function cache<T>(): Operator<T, T> {
 }
 
 /**
+ * An operator that executes a side-effect function for each item while passing through the original items unchanged.
+ * @param fn {@link Processor} to execute for each item.
+ * @returns An {@link Operator} that executes the side-effect function for each item and passes through the original items unchanged.
+ */
+export function onEach<T>(fn: Processor<T, void>): Operator<T, T> {
+  return (source: Iterable<T>) =>
+    createIterable(function* (): IterableIterator<T> {
+      let index = 0
+      for (const item of source) {
+        fn(item, index++)
+        yield item
+      }
+    })
+}
+
+/**
  * Collects all values into a set.
  * **Warning**: Will not terminate for infinite iterators.
  * @template T The type of the input values.

@@ -635,6 +635,22 @@ export function cache<T>(): AsyncOperator<T, T> {
 }
 
 /**
+ * An operator that executes a side-effect function for each item while passing through the original items unchanged.
+ * @param fn {@link AsyncProcessor} to execute for each item.
+ * @returns An {@link AsyncOperator} that executes the side-effect function for each item and passes through the original items unchanged.
+ */
+export function onEach<T>(fn: AsyncProcessor<T, void>): AsyncOperator<T, T> {
+  return (source: MaybeAsyncIterable<T>) =>
+    createAsyncIterable(async function* (): AsyncIterableIterator<T> {
+      let index = 0
+      for await (const item of source) {
+        await fn(item, index++)
+        yield item
+      }
+    })
+}
+
+/**
  * Collects all values into a set.
  * **Warning**: Will not terminate for infinite iterators.
  * @template T The type of the input values.

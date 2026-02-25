@@ -147,6 +147,22 @@ describe('async streams', () => {
       expect(await as.toArray(stream)).toEqual([1])
       expect(called).toBe(1)
     })
+
+    test('can run side effects', async ({ expect }) => {
+      const sideEffect = vi.fn(() => Promise.resolve())
+      const streamResult = await as.toArray(
+        as.pipe(
+          [1, 2, 3],
+          as.map((x) => x + 1),
+          as.onEach(sideEffect),
+          as.limit(2),
+        ),
+      )
+      expect(streamResult).toEqual([2, 3])
+      expect(sideEffect).toHaveBeenCalledTimes(2)
+      expect(sideEffect).toHaveBeenNthCalledWith(1, 2, 0)
+      expect(sideEffect).toHaveBeenNthCalledWith(2, 3, 1)
+    })
   })
 
   describe('collectors', () => {

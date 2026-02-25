@@ -128,6 +128,22 @@ describe('sync streams', () => {
       expect(s.toArray(stream)).toEqual([1])
       expect(called).toBe(1)
     })
+
+    test('can run side effects', ({ expect }) => {
+      const sideEffect = vi.fn()
+      const streamResult = s.toArray(
+        s.pipe(
+          [1, 2, 3],
+          s.map((x) => x + 1),
+          s.onEach(sideEffect),
+          s.limit(2),
+        ),
+      )
+      expect(streamResult).toEqual([2, 3])
+      expect(sideEffect).toHaveBeenCalledTimes(2)
+      expect(sideEffect).toHaveBeenNthCalledWith(1, 2, 0)
+      expect(sideEffect).toHaveBeenNthCalledWith(2, 3, 1)
+    })
   })
 
   describe('collectors', () => {
