@@ -21,13 +21,15 @@ export type AsyncProcessor<Input, Output> = (
 export type AsyncFilter<Input> = AsyncProcessor<Input, boolean>
 
 /**
- * A function that transforms an input {@link AsyncIterable} into an output {@link AsyncIterable}.
+ * A function that transforms an input {@link MaybeAsyncIterable} into an output {@link AsyncIterable}.
  * @template Input The type of the input values.
  * @template Output The type of the output values.
  * @param source The input {@link AsyncIterable} to transform.
  * @returns An output {@link AsyncIterable} that produces transformed values from the input.
  */
-export type AsyncOperator<Input, Output> = (source: AsyncIterable<Input>) => AsyncIterable<Output>
+export type AsyncOperator<Input, Output> = (
+  source: MaybeAsyncIterable<Input>,
+) => AsyncIterable<Output>
 
 /**
  * A source that can be consumed as either a synchronous or asynchronous iterable.
@@ -437,7 +439,7 @@ export function fromObject<T>(source: Record<string | number, T>): AsyncIterable
 export function map<Input, Output>(
   fn: AsyncProcessor<Input, Output>,
 ): AsyncOperator<Input, Output> {
-  return (source: AsyncIterable<Input>) =>
+  return (source: MaybeAsyncIterable<Input>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<Output> {
       let index = 0
       for await (const item of source) {
@@ -459,7 +461,7 @@ export function flatMap<Input, Output>(
     index: number,
   ) => MaybeAsyncIterable<Output> | Promise<MaybeAsyncIterable<Output>>,
 ): AsyncOperator<Input, Output> {
-  return (source: AsyncIterable<Input>) =>
+  return (source: MaybeAsyncIterable<Input>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<Output> {
       let index = 0
       for await (const item of source) {
@@ -476,7 +478,7 @@ export function flatMap<Input, Output>(
  * @returns An {@link AsyncOperator} that combines each item with the corresponding item from another iterable.
  */
 export function zip<T, R>(other: MaybeAsyncIterable<R>): AsyncOperator<T, [T, R]> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<[T, R]> {
       const otherIterator =
         Symbol.asyncIterator in other ? other[Symbol.asyncIterator]() : other[Symbol.iterator]()
@@ -498,7 +500,7 @@ export function zip<T, R>(other: MaybeAsyncIterable<R>): AsyncOperator<T, [T, R]
  * @returns An {@link AsyncOperator} that skips the first {@link n} items from the source.
  */
 export function skip<T>(n: number): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       let skipped = 0
       for await (const item of source) {
@@ -517,7 +519,7 @@ export function skip<T>(n: number): AsyncOperator<T, T> {
  * @returns An {@link AsyncOperator} that emits only the first {@link n} items from the source.
  */
 export function limit<T>(n: number): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       if (n <= 0) {
         return
@@ -550,7 +552,7 @@ export function filter<T, S extends T>(
  */
 export function filter<T>(fn: AsyncFilter<T>): AsyncOperator<T, T>
 export function filter<T>(fn: AsyncFilter<T>): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       let index = 0
       for await (const item of source) {
@@ -578,7 +580,7 @@ export function filterDefined<T>(): AsyncOperator<T, NonNullable<T>> {
  * @returns An {@link AsyncOperator} that emits only the first occurrence of each unique value.
  */
 export function distinct<T>(): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       const seen = new Set<T>()
       for await (const item of source) {
@@ -598,7 +600,7 @@ export function distinct<T>(): AsyncOperator<T, T> {
  * @returns An {@link AsyncOperator} that emits all values from the source iterable followed by all values from the provided iterables in order.
  */
 export function append<T>(...sources: MaybeAsyncIterable<T>[]): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) =>
+  return (source: MaybeAsyncIterable<T>) =>
     createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       yield* source
       for (const other of sources) {
@@ -614,7 +616,7 @@ export function append<T>(...sources: MaybeAsyncIterable<T>[]): AsyncOperator<T,
  * @returns An {@link AsyncOperator} that caches values from the source iterable for replay on subsequent iterations.
  */
 export function cache<T>(): AsyncOperator<T, T> {
-  return (source: AsyncIterable<T>) => {
+  return (source: MaybeAsyncIterable<T>) => {
     let cachedInput: T[] | undefined
     return createAsyncIterable(async function* (): AsyncIterableIterator<T> {
       if (cachedInput) {
@@ -655,11 +657,7 @@ export async function toSet<T>(source: MaybeAsyncIterable<T>): Promise<Set<T>> {
  * @returns The array of all values from the source.
  */
 export async function toArray<T>(source: MaybeAsyncIterable<T>): Promise<T[]> {
-  const result: T[] = []
-  for await (const item of source) {
-    result.push(item)
-  }
-  return result
+  return await Array.fromAsync(source)
 }
 
 /**
@@ -678,13 +676,11 @@ export async function toMap<T, K, U>(
   key: AsyncProcessor<T, K>,
   value: AsyncProcessor<T, U>,
 ): Promise<Map<K, U>> {
-  let index = 0
-  const result = new Map<K, U>()
-  for await (const item of source) {
-    result.set(await key(item, index), await value(item, index))
-    index++
-  }
-  return result
+  const keyValueIterable = map<T, [K, U]>(async (item, index) => [
+    await key(item, index),
+    await value(item, index),
+  ])(source)
+  return new Map<K, U>(await toArray(keyValueIterable))
 }
 
 /**

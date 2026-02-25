@@ -219,21 +219,8 @@ describe('sync streams', () => {
 
     describe('sum', () => {
       test('can sum', ({ expect }) => {
-        let count = 0
-        let forOfResult = 0
-        for (const item of TestUtils.source) {
-          if (item % 2 === 0) {
-            continue
-          }
-          count++
-          forOfResult += TestUtils.fibonacci(Number.parseInt(`${item * 2}.5`, 10) % 20)
-          if (count === TestUtils.limit) {
-            break
-          }
-        }
-
         const streamResult = s.sum(TestUtils.testStream)
-        expect(streamResult).toEqual(forOfResult)
+        expect(streamResult).toEqual(TestUtils.expectedSum)
       })
 
       test('can sum non-numbers', ({ expect }) => {

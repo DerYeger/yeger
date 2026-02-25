@@ -635,13 +635,9 @@ export function toMap<T, K, U>(
   key: Processor<T, K>,
   value: Processor<T, U>,
 ): Map<K, U> {
-  let index = 0
-  const result = new Map<K, U>()
-  for (const item of source) {
-    result.set(key(item, index), value(item, index))
-    index++
-  }
-  return result
+  return new Map<K, U>(
+    map<T, [K, U]>((item, index) => [key(item, index), value(item, index)])(source),
+  )
 }
 
 /**
