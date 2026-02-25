@@ -40,11 +40,7 @@
 ## Installation
 
 ```bash
-# yarn
-$ yarn add @yeger/vue-masonry-wall
-
-# npm
-$ npm install @yeger/vue-masonry-wall
+pnpm install @yeger/vue-masonry-wall
 ```
 
 ## Usage

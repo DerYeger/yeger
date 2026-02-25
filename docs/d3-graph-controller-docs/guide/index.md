@@ -20,14 +20,7 @@ Just do not forget to [integrate the graph in the framework's lifecycle](/api/#s
 ## Installation
 
 ```bash
-# with yarn
-yarn add d3-graph-controller
-
-# or with npm
-npm install d3-graph-controller
-
-# or with pnpm
-pnpm add d3-graph-controller
+pnpm install d3-graph-controller
 ```
 
 ## Usage

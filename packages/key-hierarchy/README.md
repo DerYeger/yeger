@@ -36,14 +36,7 @@
 ## Installation
 
 ```bash
-# pnpm
-$ pnpm add key-hierarchy
-
-# yarn
-$ yarn add key-hierarchy
-
-# npm
-$ npm install key-hierarchy
+pnpm install key-hierarchy
 ```
 
 ## Usage

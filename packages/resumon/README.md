@@ -22,11 +22,7 @@
 ## Installation
 
 ```bash
-# yarn
-$ yarn add resumon
-
-# npm
-$ npm install resumon
+pnpm install resumon
 ```
 
 ## Development

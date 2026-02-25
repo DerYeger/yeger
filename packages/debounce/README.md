@@ -28,11 +28,7 @@
 ## Installation
 
 ```bash
-# yarn
-$ yarn add @yeger/debounce
-
-# npm
-$ npm install @yeger/debounce
+pnpm install @yeger/debounce
 ```
 
 ## Usage

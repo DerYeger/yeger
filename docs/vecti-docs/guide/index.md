@@ -9,10 +9,7 @@ contributors: false
 
 ```bash
 # with yarn
-yarn add vecti
-
-# or npm
-npm install vecti
+pnpm install vecti
 ```
 
 ## Usage

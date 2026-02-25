@@ -45,11 +45,7 @@
 ## Installation
 
 ```bash
-# yarn
-$ yarn add vecti
-
-# npm
-$ npm install vecti
+pnpm install vecti
 ```
 
 ## Usage

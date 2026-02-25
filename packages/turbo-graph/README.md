@@ -9,10 +9,6 @@
 ## Installation
 
 ```bash
-npm install --save-dev @yeger/turbo-graph
-# or
-yarn add -D @yeger/turbo-graph
-# or
 pnpm install -D @yeger/turbo-graph
 ```
 

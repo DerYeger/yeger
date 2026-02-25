@@ -13,7 +13,7 @@
 ## Installation
 
 ```bash
-yarn add -D vite-plugin-lib
+pnpm install -D vite-plugin-lib
 ```
 
 ## Usage

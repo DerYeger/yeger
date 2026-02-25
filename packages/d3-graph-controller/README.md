@@ -41,11 +41,7 @@
 ## Installation
 
 ```bash
-# yarn
-$ yarn add d3-graph-controller
-
-# npm
-$ npm install d3-graph-controller
+pnpm install d3-graph-controller
 ```
 
 ## Usage
