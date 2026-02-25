@@ -1,5 +1,14 @@
 # @yeger/streams
 
+## 3.3.0
+
+### Minor Changes
+
+- adb4615: allow AsyncOperator to consume MaybeAsyncIterable
+- adb4615: improve async toArray performance
+- adb4615: improve toMap performance by using Map constructor
+- 27aee7b: implement onEach side-effect operator
+
 ## 3.2.0
 
 ### Minor Changes
