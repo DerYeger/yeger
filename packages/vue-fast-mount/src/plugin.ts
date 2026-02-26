@@ -1,4 +1,4 @@
-import type { Plugin } from 'vite'
+import { normalizePath, type Plugin } from 'vite'
 
 const FAST_MOUNT_QUERY_KEY = '__vfm'
 const FAST_MOUNT_QUERY_VALUE = '1'
@@ -832,7 +832,7 @@ export function vueFastMount(): Plugin {
     name: 'vue-fast-mount',
     enforce: 'pre',
     transform(code, id) {
-      if (id.includes('/node_modules/')) {
+      if (normalizePath(id).includes('/node_modules/')) {
         return null
       }
 
