@@ -83,7 +83,7 @@ function createTestForOfLoop(onItem: (value: number) => void) {
 function createTestForILoop(onItem: (value: number) => void) {
   let count = 0
   for (let i = 0; i < TestUtils.source.length; i++) {
-    const item = TestUtils.source[i]
+    const item = TestUtils.source[i]!
     if (item % 2 === 0) {
       continue
     }

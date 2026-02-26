@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "vitepress build",
-    "check:tsc": "vue-tsc",
     "dev": "vitepress dev",
-    "preview": "vitepress serve"
+    "preview": "vitepress serve",
+    "typecheck": "vue-tsc"
   },
   "dependencies": {
     "d3-graph-controller": "workspace:*",

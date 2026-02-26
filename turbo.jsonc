@@ -1,57 +1,59 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "./node_modules/turbo/schema.json",
   "ui": "stream",
   "globalEnv": ["CI"],
   "tasks": {
-    "check:publish": {
-      "dependsOn": ["build", "generate"],
-    },
-    "check:tsc": {
+    "bench": {
       "dependsOn": ["^build", "codegen"],
+      "cache": false,
     },
     "build": {
       "dependsOn": ["^build", "codegen"],
       "outputs": ["dist/**", ".next/**"],
     },
-    "generate": {
-      "dependsOn": ["build"],
-      "outputs": ["dist/**", ".next/**"],
-    },
-    "//#quality": {
-      "dependsOn": ["//#lint", "//#format"],
-    },
-    "//#quality:fix": {
-      "dependsOn": ["//#lint:fix", "//#format:fix"],
-    },
-    "//#lint": {},
-    "//#lint:fix": {},
-    "//#format": {},
-    "//#format:fix": {},
     "codegen": {},
-    "preview": {
-      "dependsOn": ["build", "generate"],
-      "cache": false,
-    },
-    "bench": {
+    "dev": {
       "dependsOn": ["^build", "codegen"],
       "cache": false,
-    },
-    "test": {
-      "dependsOn": ["^build", "codegen"],
-      "outputs": ["coverage/**"],
-      "env": ["COVERAGE"],
     },
     "e2e": {
       "dependsOn": ["build", "generate"],
       "inputs": ["playwright.config.ts", "tests"],
       "outputs": ["playwright-report", "test-results"],
     },
-    "dev": {
-      "dependsOn": ["^build", "codegen"],
+    "generate": {
+      "dependsOn": ["build"],
+      "outputs": ["dist/**", ".next/**"],
+    },
+    "preview": {
+      "dependsOn": ["build", "generate"],
       "cache": false,
     },
+    "publint": {
+      "dependsOn": ["build", "generate"],
+    },
+    "test": {
+      "dependsOn": ["^build", "codegen"],
+      "outputs": ["coverage/**"],
+      "env": ["COVERAGE"],
+    },
+    "typecheck": {
+      "dependsOn": ["^build", "codegen"],
+    },
+
+    "//#format": {},
+    "//#format:fix": {},
+    "//#lint": {},
+    "//#lint:fix": {},
+
     "//#lint:root": {
       "inputs": ["./*", ".vscode/**", ".husky/**", ".github/**", ".changeset/**"],
+    },
+    "//#quality": {
+      "dependsOn": ["//#lint", "//#format"],
+    },
+    "//#quality:fix": {
+      "dependsOn": ["//#lint:fix", "//#format:fix"],
     },
     "//#syncpack:lint": {
       "inputs": [".syncpackrc", "pnpm-lock.yaml", "pnpm-workspace.yaml"],

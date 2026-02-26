@@ -36,10 +36,10 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "preview": "node dist/index.mjs"
+    "preview": "node dist/index.mjs",
+    "publint": "publint run --strict",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@yeger/turbo-graph-ui": "workspace:*",

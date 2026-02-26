@@ -28,6 +28,7 @@
     }
   },
   "rules": {
+    "consistent-type-imports": "error",
     "no-unassigned-import": "off",
     "react-in-jsx-scope": "off",
     "valid-expect": "off"

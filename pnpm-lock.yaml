@@ -12,6 +12,9 @@ catalogs:
     '@changesets/cli':
       specifier: 2.29.8
       version: 2.29.8
+    '@changesets/config':
+      specifier: 3.1.2
+      version: 3.1.2
     '@codemirror/language':
       specifier: 6.12.1
       version: 6.12.1
@@ -323,6 +326,9 @@ importers:
       '@changesets/cli':
         specifier: 'catalog:'
         version: 2.29.8(@types/node@24.10.13)
+      '@changesets/config':
+        specifier: 'catalog:'
+        version: 3.1.2
       '@commitlint/cli':
         specifier: 'catalog:'
         version: 20.4.2(@types/node@24.10.13)(typescript@5.9.3)
@@ -13011,7 +13017,7 @@ snapshots:
       sirv: 3.0.2
       tinyglobby: 0.2.15
       tinyrainbow: 3.0.3
-      vitest: 4.0.18(@types/node@25.3.0)(@vitest/browser-playwright@4.0.18)(@vitest/ui@4.0.18)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
+      vitest: 4.0.18(@types/node@24.10.13)(@vitest/browser-playwright@4.0.18)(@vitest/ui@4.0.18)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2)
 
   '@vitest/utils@4.0.18':
     dependencies:

@@ -5,13 +5,11 @@
   "description": "",
   "files": [
     "base.json",
-    "bundler.json",
-    "lib.json",
-    "next.json"
+    "build.json"
   ],
   "type": "module",
   "scripts": {
-    "check:publish": "publint run --strict"
+    "publint": "publint run --strict"
   },
   "devDependencies": {
     "publint": "catalog:"

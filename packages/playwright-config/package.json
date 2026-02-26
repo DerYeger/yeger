@@ -31,10 +31,10 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
     "dev": "tsdown --watch",
-    "postinstall": "playwright install"
+    "postinstall": "playwright install",
+    "publint": "publint run --strict",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@playwright/test": "catalog:",

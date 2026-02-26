@@ -7,7 +7,8 @@ describe('toSet', () => {
   bench(
     'streams',
     () => {
-      const _result = s.toSet(TestUtils.testStream)
+      const result = s.toSet(TestUtils.testStream)
+      TestUtils.validateSet(result)
     },
     { time: 1000 },
   )

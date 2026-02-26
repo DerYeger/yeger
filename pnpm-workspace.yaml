@@ -6,6 +6,7 @@ packages:
 catalog:
   '@antfu/ni': 28.2.0
   '@changesets/cli': 2.29.8
+  '@changesets/config': 3.1.2
   '@codemirror/language': 6.12.1
   '@codemirror/legacy-modes': 6.5.2
   '@commitlint/cli': 20.4.2

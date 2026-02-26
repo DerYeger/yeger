@@ -39,8 +39,8 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:publish": "publint run --strict",
-    "check:tsc": "tsc"
+    "publint": "publint run --strict",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "picocolors": "catalog:",

@@ -1,4 +1,4 @@
-import { FailedMatchResult } from 'ohm-js'
+import type { FailedMatchResult } from 'ohm-js'
 import { describe, expect, test } from 'vitest'
 
 import { FOL } from '../src/index'

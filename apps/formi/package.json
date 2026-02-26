@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
-    "check:tsc": "nuxi typecheck",
     "dev": "nuxt dev",
     "e2e": "playwright test",
     "generate": "nuxt generate",
     "nuxi": "nuxi",
     "postinstall": "nuxt prepare",
-    "preview": "serve .output/public"
+    "preview": "serve .output/public",
+    "typecheck": "nuxi typecheck"
   },
   "dependencies": {
     "@codemirror/language": "catalog:",

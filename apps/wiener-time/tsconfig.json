@@ -1,5 +1,7 @@
 {
-  "extends": "@yeger/tsconfig/next",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "extends": "@yeger/tsconfig/base",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

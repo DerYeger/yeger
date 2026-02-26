@@ -33,9 +33,9 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "publint": "publint run --strict",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "deepmerge": "catalog:"

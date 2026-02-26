@@ -1,6 +1,8 @@
 import { defineConfig } from 'tsdown'
 
 export default defineConfig({
-  dts: true,
+  dts: {
+    tsconfig: './tsconfig.build.json',
+  },
   entry: ['./src/sync.ts', './src/async.ts'],
 })

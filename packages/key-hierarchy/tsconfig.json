@@ -1,3 +1,4 @@
 {
-  "extends": ["./tsconfig.base.json", "./tsconfig.build.json"]
+  "extends": "@yeger/tsconfig/base",
+  "include": ["src", "test", "./*.ts"]
 }

@@ -35,11 +35,11 @@
   },
   "scripts": {
     "build": "tsdown",
-    "check:publish": "publint run --strict",
-    "check:tsc": "tsc",
     "codegen": "ohm generateBundles --withTypes 'src/*.ohm' --esm",
     "dev": "tsdown --watch",
-    "test": "vitest"
+    "publint": "publint run --strict",
+    "test": "vitest",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "ohm-js": "catalog:",

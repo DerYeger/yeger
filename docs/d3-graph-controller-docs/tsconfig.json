@@ -1,10 +1,9 @@
 {
-  "extends": "@yeger/tsconfig/bundler",
+  "extends": "@yeger/tsconfig/base",
   "compilerOptions": {
-    "types": ["node", "vue"],
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "verbatimModuleSyntax": false
   },
-  "exclude": ["node_modules", "coverage", "dist"]
+  "include": [".vitepress", "api", "config", "demo", "guide", "./*.ts"]
 }
