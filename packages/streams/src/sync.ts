@@ -651,9 +651,10 @@ export function toMap<T, K, U>(
   key: Processor<T, K>,
   value: Processor<T, U>,
 ): Map<K, U> {
-  return new Map<K, U>(
-    map<T, [K, U]>((item, index) => [key(item, index), value(item, index)])(source),
+  const keyValueIterable = map<T, [K, U]>((item, index) => [key(item, index), value(item, index)])(
+    source,
   )
+  return new Map<K, U>(keyValueIterable)
 }
 
 /**
@@ -671,13 +672,11 @@ export function toRecord<T, U>(
   key: Processor<T, string>,
   value: Processor<T, U>,
 ): Record<string, U> {
-  const result: Record<string, U> = {}
-  let index = 0
-  for (const item of source) {
-    result[key(item, index)] = value(item, index)
-    index++
-  }
-  return result
+  const keyValueIterable = map<T, [string, U]>((item, index) => [
+    key(item, index),
+    value(item, index),
+  ])(source)
+  return Object.fromEntries(keyValueIterable)
 }
 
 /**

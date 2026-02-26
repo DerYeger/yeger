@@ -714,13 +714,11 @@ export async function toRecord<T, U>(
   key: AsyncProcessor<T, string>,
   value: AsyncProcessor<T, U>,
 ): Promise<Record<string, U>> {
-  const result: Record<string, U> = {}
-  let index = 0
-  for await (const item of source) {
-    result[await key(item, index)] = await value(item, index)
-    index++
-  }
-  return result
+  const keyValueIterable = map<T, [string, U]>(async (item, index) => [
+    await key(item, index),
+    await value(item, index),
+  ])(source)
+  return Object.fromEntries(await toArray(keyValueIterable))
 }
 
 /**

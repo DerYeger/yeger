@@ -128,6 +128,15 @@ function validateMap<K, V>(result: Map<K, V>) {
   }
 }
 
+function validateRecord(result: Record<string, number>) {
+  if (Object.keys(result).length !== expectedSetSize) {
+    console.error(
+      `Expected record size to be ${expectedSetSize}, but got ${Object.keys(result).length}`,
+    )
+    process.exit(1)
+  }
+}
+
 function validateSet(result: Set<number>) {
   if (result.size !== expectedSetSize) {
     console.error(`Expected set size to be ${expectedSetSize}, but got ${result.size}`)
@@ -154,6 +163,7 @@ export const TestUtils = {
   testStream,
   validateArray,
   validateMap,
+  validateRecord,
   validateSet,
   validateSum,
 }
