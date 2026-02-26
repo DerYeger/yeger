@@ -604,7 +604,7 @@ function collectTopLevelImportStatements(script: string): ImportStatement[] {
     lineIndex += 1
 
     while (lineIndex < lines.length) {
-      const normalized = statement.replace(/\/\*[\s\S]*?\*\//g, '').trim()
+      const normalized = statement.replace(/\/\*[\s\S]*?\*\//g, '').replace(/\/\/[^\n]*/g, '').trim()
 
       if (
         /^import\s+type\s+.+\s+from\s+['"][^'"]+['"]\s*;?$/.test(normalized) ||
