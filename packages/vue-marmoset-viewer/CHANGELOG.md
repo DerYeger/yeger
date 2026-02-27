@@ -1,5 +1,17 @@
 # vue-marmoset-viewer
 
+## 5.0.0
+
+### Major Changes
+
+- 4020cdb: drop installable plugin
+
+  Use component import instead.
+
+### Minor Changes
+
+- 895f5ab: migrate to setup API for smaller bundles
+
 ## 4.0.23
 
 ### Patch Changes

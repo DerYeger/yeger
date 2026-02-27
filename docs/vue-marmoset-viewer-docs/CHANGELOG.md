@@ -1,5 +1,17 @@
 # vue-marmoset-viewer-docs
 
+## 5.0.0
+
+### Minor Changes
+
+- 895f5ab: migrate to setup API for smaller bundles
+
+### Patch Changes
+
+- Updated dependencies [895f5ab]
+- Updated dependencies [4020cdb]
+  - vue-marmoset-viewer@5.0.0
+
 ## 2.0.23
 
 ### Patch Changes
