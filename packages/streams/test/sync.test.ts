@@ -41,6 +41,16 @@ describe('sync streams', () => {
       expect(res).toEqual(['2.0', '6.0', '10.0'])
     })
 
+    test('can filter defined', ({ expect }) => {
+      const res = s.toArray(s.pipe([1, null, 2, undefined, 3], s.filterDefined()))
+      expect(res).toEqual([1, 2, 3])
+    })
+
+    test('can filter truthy', ({ expect }) => {
+      const res = s.toArray(s.pipe([0, 1, '', 'hello', false, true], s.filterTruthy()))
+      expect(res).toEqual([1, 'hello', true])
+    })
+
     test('can map', ({ expect }) => {
       const res = s.pipe(
         [false, 0, 'test'],

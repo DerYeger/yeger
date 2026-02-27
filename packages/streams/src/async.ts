@@ -56,31 +56,31 @@ function toAsyncIterable<T>(source: MaybeAsyncIterable<T>): AsyncIterable<T> {
 /**
  * Composes a source iterable with zero or more stream operators.
  */
-export function pipe<T>(source: MaybeAsyncIterable<T>): AsyncIterable<T>
+export function pipe<T>(src: MaybeAsyncIterable<T>): AsyncIterable<T>
 export function pipe<T0, T1>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
 ): AsyncIterable<T1>
 export function pipe<T0, T1, T2>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
 ): AsyncIterable<T2>
 export function pipe<T0, T1, T2, T3>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
 ): AsyncIterable<T3>
 export function pipe<T0, T1, T2, T3, T4>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
   op4: AsyncOperator<T3, T4>,
 ): AsyncIterable<T4>
 export function pipe<T0, T1, T2, T3, T4, T5>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -88,7 +88,7 @@ export function pipe<T0, T1, T2, T3, T4, T5>(
   op5: AsyncOperator<T4, T5>,
 ): AsyncIterable<T5>
 export function pipe<T0, T1, T2, T3, T4, T5, T6>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -97,7 +97,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6>(
   op6: AsyncOperator<T5, T6>,
 ): AsyncIterable<T6>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -107,7 +107,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
   op7: AsyncOperator<T6, T7>,
 ): AsyncIterable<T7>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -118,7 +118,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
   op8: AsyncOperator<T7, T8>,
 ): AsyncIterable<T8>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -130,7 +130,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
   op9: AsyncOperator<T8, T9>,
 ): AsyncIterable<T9>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -143,7 +143,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
   op10: AsyncOperator<T9, T10>,
 ): AsyncIterable<T10>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -157,7 +157,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
   op11: AsyncOperator<T10, T11>,
 ): AsyncIterable<T11>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -172,7 +172,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
   op12: AsyncOperator<T11, T12>,
 ): AsyncIterable<T12>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -188,7 +188,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>
   op13: AsyncOperator<T12, T13>,
 ): AsyncIterable<T13>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -205,7 +205,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
   op14: AsyncOperator<T13, T14>,
 ): AsyncIterable<T14>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -223,7 +223,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
   op15: AsyncOperator<T14, T15>,
 ): AsyncIterable<T15>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -261,7 +261,7 @@ export function pipe<
   T16,
   T17,
 >(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -301,7 +301,7 @@ export function pipe<
   T17,
   T18,
 >(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -343,7 +343,7 @@ export function pipe<
   T18,
   T19,
 >(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -387,7 +387,7 @@ export function pipe<
   T19,
   T20,
 >(
-  source: MaybeAsyncIterable<T0>,
+  src: MaybeAsyncIterable<T0>,
   op1: AsyncOperator<T0, T1>,
   op2: AsyncOperator<T1, T2>,
   op3: AsyncOperator<T2, T3>,
@@ -572,6 +572,15 @@ export function filterDefined<T>(): AsyncOperator<T, NonNullable<T>> {
   return filter<T, NonNullable<T>>(
     (item): item is NonNullable<T> => item !== null && item !== undefined,
   )
+}
+
+/**
+ * Emits only truthy values.
+ * @template T The type of the input values.
+ * @returns An {@link AsyncOperator} that emits only truthy values.
+ */
+export function filterTruthy<T>(): AsyncOperator<T, NonNullable<T>> {
+  return filter<T, NonNullable<T>>((item): item is NonNullable<T> => Boolean(item))
 }
 
 /**

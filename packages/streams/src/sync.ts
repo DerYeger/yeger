@@ -35,28 +35,28 @@ function createIterable<T>(factory: () => IterableIterator<T>): Iterable<T> {
 /**
  * Composes a source iterable with zero or more stream operators.
  */
-export function pipe<T>(source: Iterable<T>): Iterable<T>
-export function pipe<T0, T1>(source: Iterable<T0>, op1: Operator<T0, T1>): Iterable<T1>
+export function pipe<T>(src: Iterable<T>): Iterable<T>
+export function pipe<T0, T1>(src: Iterable<T0>, op1: Operator<T0, T1>): Iterable<T1>
 export function pipe<T0, T1, T2>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
 ): Iterable<T2>
 export function pipe<T0, T1, T2, T3>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
 ): Iterable<T3>
 export function pipe<T0, T1, T2, T3, T4>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
   op4: Operator<T3, T4>,
 ): Iterable<T4>
 export function pipe<T0, T1, T2, T3, T4, T5>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -64,7 +64,7 @@ export function pipe<T0, T1, T2, T3, T4, T5>(
   op5: Operator<T4, T5>,
 ): Iterable<T5>
 export function pipe<T0, T1, T2, T3, T4, T5, T6>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -73,7 +73,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6>(
   op6: Operator<T5, T6>,
 ): Iterable<T6>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -83,7 +83,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7>(
   op7: Operator<T6, T7>,
 ): Iterable<T7>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -94,7 +94,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8>(
   op8: Operator<T7, T8>,
 ): Iterable<T8>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -106,7 +106,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9>(
   op9: Operator<T8, T9>,
 ): Iterable<T9>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -119,7 +119,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10>(
   op10: Operator<T9, T10>,
 ): Iterable<T10>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -133,7 +133,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11>(
   op11: Operator<T10, T11>,
 ): Iterable<T11>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -148,7 +148,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12>(
   op12: Operator<T11, T12>,
 ): Iterable<T12>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -164,7 +164,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13>
   op13: Operator<T12, T13>,
 ): Iterable<T13>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -181,7 +181,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
   op14: Operator<T13, T14>,
 ): Iterable<T14>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -199,7 +199,7 @@ export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13,
   op15: Operator<T14, T15>,
 ): Iterable<T15>
 export function pipe<T0, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12, T13, T14, T15, T16>(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -237,7 +237,7 @@ export function pipe<
   T16,
   T17,
 >(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -277,7 +277,7 @@ export function pipe<
   T17,
   T18,
 >(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -319,7 +319,7 @@ export function pipe<
   T18,
   T19,
 >(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -363,7 +363,7 @@ export function pipe<
   T19,
   T20,
 >(
-  source: Iterable<T0>,
+  src: Iterable<T0>,
   op1: Operator<T0, T1>,
   op2: Operator<T1, T2>,
   op3: Operator<T2, T3>,
@@ -536,6 +536,15 @@ export function filterDefined<T>(): Operator<T, NonNullable<T>> {
   return filter<T, NonNullable<T>>(
     (value): value is NonNullable<T> => value !== null && value !== undefined,
   )
+}
+
+/**
+ * Emits only truthy values.
+ * @template T The type of the input values.
+ * @returns An {@link Operator} that emits only truthy values.
+ */
+export function filterTruthy<T>(): Operator<T, NonNullable<T>> {
+  return filter<T, NonNullable<T>>((value): value is NonNullable<T> => Boolean(value))
 }
 
 /**

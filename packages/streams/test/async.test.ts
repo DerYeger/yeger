@@ -44,6 +44,16 @@ describe('async streams', () => {
       expect(res).toEqual(['2.0', '6.0', '10.0'])
     })
 
+    test('can filter defined', async ({ expect }) => {
+      const res = await as.toArray(as.pipe([1, null, 2, undefined, 3], as.filterDefined()))
+      expect(res).toEqual([1, 2, 3])
+    })
+
+    test('can filter truthy', async ({ expect }) => {
+      const res = await as.toArray(as.pipe([0, 1, '', 'hello', false, true], as.filterTruthy()))
+      expect(res).toEqual([1, 'hello', true])
+    })
+
     test('can map', async ({ expect }) => {
       const res = await as.toArray(
         as.pipe(
