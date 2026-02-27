@@ -174,7 +174,8 @@ const runtimeKeep = Keep
 
     const transformed = transformFastMountVueSource(code, new Set<string>())
     expect(transformed).toContain("import DefaultComp, { Keep } from './items'")
-    expect(transformed).toContain("const Remove = { name: 'Remove'")
+    expect(transformed).toContain('const Remove = {')
+    expect(transformed).toContain("name: 'Remove'")
     expect(transformed).toContain("h('remove-stub'")
   })
 
@@ -195,5 +196,36 @@ import Child from './Child.vue'
 <template><div><Child /></div></template>
 `.trim()
     expect(transformFastMountVueSource(keptByBinding, new Set(['Child']))).toBe(keptByBinding)
+  })
+
+  test('transforms conditional chain components even with comments between imports', ({
+    expect,
+  }) => {
+    const code = `
+<script setup lang="ts">
+import Child from './Child.vue'
+
+// else-if and else branches
+import { default as VElseIfChild } from './Child.vue'
+/* else branch */
+import { default as VElseChild } from './Child.vue'
+</script>
+<template>
+  <div>
+    <Child v-if="true" />
+    <VElseIfChild v-else-if="false" />
+    <VElseChild v-else />
+  </div>
+</template>
+`.trim()
+
+    const transformed = transformFastMountVueSource(code, new Set<string>())
+
+    expect(transformed).not.toContain("import Child from './Child.vue'")
+    expect(transformed).not.toContain("import { default as VElseIfChild } from './Child.vue'")
+    expect(transformed).not.toContain("import { default as VElseChild } from './Child.vue'")
+    expect(transformed).toContain("name: 'Child'")
+    expect(transformed).toContain("name: 'VElseIfChild'")
+    expect(transformed).toContain("name: 'VElseChild'")
   })
 })

@@ -3,6 +3,8 @@ import { describe, expectTypeOf, test } from 'vitest'
 import { defineComponent, h } from 'vue'
 import { fastMount } from 'vue-fast-mount'
 
+import { initialModelValue } from './allowedModule'
+
 describe('Parent', () => {
   test('should throw with regular mount before fastMount is used', async ({ expect }) => {
     await expect(async () => mount(await import('./Parent.vue'))).rejects.toThrowError(
@@ -66,7 +68,7 @@ describe('Parent', () => {
 
       const sibling = wrapper.findComponent({ name: 'Sibling' })
       expect(sibling.exists()).toBe(true)
-      expect(sibling.props('modelValue')).toBe('initial-sibling-value')
+      expect(sibling.props('modelValue')).toBe(initialModelValue)
 
       sibling.vm.$emit('update:modelValue', 'new-sibling-value')
       await flushPromises()
@@ -80,7 +82,7 @@ describe('Parent', () => {
 
       const child = wrapper.findComponent({ name: 'MixedNamedChild' })
       expect(child).toBeDefined()
-      expect(child!.props('childProp')).toBe('initial-sibling-value')
+      expect(child!.props('childProp')).toBe(initialModelValue)
     })
 
     test('supports emits on stubbed children', async ({ expect }) => {

@@ -2,6 +2,7 @@ import { shallowMount } from '@vue/test-utils'
 import { describe, test, vi } from 'vitest'
 import { fastMount } from 'vue-fast-mount'
 
+import { initialModelValue } from './allowedModule'
 import Parent from './Parent.vue'
 
 vi.mock('./forbiddenModule.ts', () => ({}))
@@ -12,8 +13,8 @@ const FAST_TARGET_HTML = `
   <child-stub></child-stub>
   <aliased-barrel-child-stub data-testid="aliased-barrel-child"></aliased-barrel-child-stub>
   <mixed-default-child-stub></mixed-default-child-stub>
-  <mixed-named-child-stub childprop="initial-sibling-value"></mixed-named-child-stub>
-  <sibling-stub modelvalue="initial-sibling-value"></sibling-stub>
+  <mixed-named-child-stub childprop="${initialModelValue}"></mixed-named-child-stub>
+  <sibling-stub modelvalue="${initialModelValue}"></sibling-stub>
 </div>
 `.trim()
 

@@ -540,13 +540,13 @@ function createPlaceholderComponentDeclarations(
       const usage = usageByBinding.get(local)
       const props = usage ? [...usage.props].sort() : []
       const emits = usage ? [...usage.emits].sort() : []
-      const propsPart = props.length ? `, props: ${JSON.stringify(props)}` : ''
-      const emitsPart = emits.length ? `, emits: ${JSON.stringify(emits)}` : ''
+      const propsPart = props.length ? `\n  props: ${JSON.stringify(props)},` : ''
+      const emitsPart = emits.length ? `\n  emits: ${JSON.stringify(emits)},` : ''
       const stubTag = `${toKebabCase(local)}-stub`
 
-      return `const ${local} = { name: '${local}'${propsPart}${emitsPart}, render() { const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value])); return h('${stubTag}', { ...normalizedAttrs, ...this.$props }) } }`
+      return `const ${local} = {\n  name: '${local}',${propsPart}${emitsPart}\n  render() {\n    const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))\n    return h('${stubTag}', { ...normalizedAttrs, ...this.$props })\n  }\n}`
     })
-    .join('\n')
+    .join('\n\n')
 }
 
 function ensureVueHImport(script: string): string {
@@ -554,7 +554,7 @@ function ensureVueHImport(script: string): string {
     return script
   }
 
-  return `import { h } from 'vue'\n${script}`
+  return `\nimport { h } from 'vue'${script}`
 }
 
 function collectTopLevelImportStatements(script: string): ImportStatement[] {
@@ -562,6 +562,7 @@ function collectTopLevelImportStatements(script: string): ImportStatement[] {
   const lines = script.split('\n')
   const lineOffsets: number[] = []
   let offset = 0
+  let isInsideBlockComment = false
 
   for (const line of lines) {
     lineOffsets.push(offset)
@@ -574,7 +575,30 @@ function collectTopLevelImportStatements(script: string): ImportStatement[] {
     const line = lines[lineIndex] ?? ''
     const trimmedLine = line.trim()
 
+    if (isInsideBlockComment) {
+      if (trimmedLine.includes('*/')) {
+        isInsideBlockComment = false
+      }
+
+      lineIndex += 1
+      continue
+    }
+
     if (!trimmedLine) {
+      lineIndex += 1
+      continue
+    }
+
+    if (trimmedLine.startsWith('//')) {
+      lineIndex += 1
+      continue
+    }
+
+    if (trimmedLine.startsWith('/*')) {
+      if (!trimmedLine.includes('*/')) {
+        isInsideBlockComment = true
+      }
+
       lineIndex += 1
       continue
     }
@@ -641,6 +665,7 @@ function pruneTemplateOnlyImportsInScriptSetup(
   }
 
   const replacements: Array<{ start: number; end: number; value: string }> = []
+  const allRemovableLocals = new Set<string>()
 
   for (const importStatement of importStatements) {
     const normalizedStatement = importStatement.statement.trim()
@@ -697,17 +722,17 @@ function pruneTemplateOnlyImportsInScriptSetup(
       continue
     }
 
+    for (const local of removableLocals) {
+      allRemovableLocals.add(local)
+    }
+
     const keptSpecifiers = parsedClause.filter((specifier) => !removableLocals.has(specifier.local))
-    const placeholderDeclarations = createPlaceholderComponentDeclarations(
-      [...removableLocals],
-      usageByBinding,
-    )
 
     if (!keptSpecifiers.length) {
       replacements.push({
         start: importStatement.start,
         end: importStatement.end,
-        value: placeholderDeclarations,
+        value: '',
       })
       continue
     }
@@ -721,7 +746,7 @@ function pruneTemplateOnlyImportsInScriptSetup(
     replacements.push({
       start: importStatement.start,
       end: importStatement.end,
-      value: `${`import ${stringifyImportClause(keptSpecifiers)} from ${importSourceMatch[1]}`}${placeholderDeclarations ? `\n${placeholderDeclarations}` : ''}`,
+      value: `import ${stringifyImportClause(keptSpecifiers)} from ${importSourceMatch[1]}`,
     })
   }
 
@@ -735,7 +760,20 @@ function pruneTemplateOnlyImportsInScriptSetup(
     transformedScript = `${transformedScript.slice(0, replacement.start)}${replacement.value}${transformedScript.slice(replacement.end)}`
   }
 
-  return ensureVueHImport(transformedScript)
+  // Remove consecutive empty lines created by removed imports
+  transformedScript = transformedScript.replace(/\n\s*\n\s*\n/g, '\n\n')
+
+  const placeholderDeclarations = createPlaceholderComponentDeclarations(
+    [...allRemovableLocals],
+    usageByBinding,
+  )
+
+  if (placeholderDeclarations) {
+    transformedScript = ensureVueHImport(transformedScript)
+    transformedScript += `\n${placeholderDeclarations}`
+  }
+
+  return transformedScript
 }
 
 export function transformFastMountVueSource(code: string, keepBindings: Set<string>): string {
