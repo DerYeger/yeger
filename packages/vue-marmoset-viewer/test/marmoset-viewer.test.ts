@@ -2,6 +2,8 @@ import { flushPromises } from '@vue/test-utils'
 import { beforeEach, describe, test, vi } from 'vitest'
 import { fastMount } from 'vue-fast-mount'
 
+import { marmosetViewerDefaultOptions } from '../src/marmoset'
+
 const TEST_FILE_NAME = 'test.mview'
 
 const TEST_DOM_ROOT_ID = 'test-dom-root'
@@ -18,6 +20,7 @@ const mocks = vi.hoisted(() => ({
     unobserve: vi.fn(),
   },
   WebViewer: {
+    create: vi.fn(),
     unload: vi.fn(),
     resize: vi.fn(),
     loadScene: vi.fn(),
@@ -25,6 +28,10 @@ const mocks = vi.hoisted(() => ({
 }))
 
 class MockResizeObserver {
+  public static callback: ResizeObserverCallback | undefined
+  public constructor(callback: ResizeObserverCallback) {
+    MockResizeObserver.callback = callback
+  }
   public disconnect = mocks.ResizeObserver.disconnect
   public observe = mocks.ResizeObserver.observe
   public unobserve = mocks.ResizeObserver.unobserve
@@ -36,6 +43,7 @@ class MockWebViewer {
   public loadScene = mocks.WebViewer.loadScene
   public domRoot: HTMLDivElement
   public constructor(width: number, height: number, src: string) {
+    mocks.WebViewer.create(width, height, src)
     const testDomRoot = document.createElement('div')
     testDomRoot.id = TEST_DOM_ROOT_ID
     testDomRoot.innerHTML = src
@@ -60,6 +68,8 @@ vi.mock('../src/marmoset', async (importOriginal) => ({
 
 describe('MarmosetViewer', () => {
   beforeEach(() => {
+    vi.clearAllMocks()
+    MockResizeObserver.callback = undefined
     mocks.loadMarmoset.mockResolvedValue(
       new Promise<void>((resolve) => {
         vi.stubGlobal('marmoset', {
@@ -132,8 +142,10 @@ describe('MarmosetViewer', () => {
     expect(mocks.WebViewer.resize).not.toHaveBeenCalled()
     expect(wrapper.emitted().resize).toBeUndefined()
 
-    wrapper.vm.onResize()
-    expect(mocks.WebViewer.resize).toHaveBeenCalledOnce()
+    MockResizeObserver.callback?.([] as ResizeObserverEntry[], {} as ResizeObserver)
+    await vi.waitFor(() => {
+      expect(mocks.WebViewer.resize).toHaveBeenCalledOnce()
+    })
     expect(wrapper.emitted().resize?.length).toBe(1)
   })
 
@@ -172,13 +184,18 @@ describe('MarmosetViewer', () => {
         src: TEST_FILE_NAME,
       },
     })
-    const reloadSpy = vi.spyOn(wrapper.vm, 'reloadViewer')
     await flushPromises()
     await wrapper.setProps({
       src: 'newSrc',
     })
     await flushPromises()
-    expect(reloadSpy).toHaveBeenCalledTimes(1)
+    expect(mocks.WebViewer.unload).toHaveBeenCalledOnce()
+    expect(mocks.WebViewer.create).toHaveBeenCalledTimes(2)
+    expect(mocks.WebViewer.create).toHaveBeenLastCalledWith(
+      marmosetViewerDefaultOptions.width,
+      marmosetViewerDefaultOptions.height,
+      'newSrc',
+    )
   })
 
   test('reacts to responsive prop changes', async ({ expect }) => {
@@ -265,7 +282,6 @@ describe('MarmosetViewer', () => {
         responsive: true,
       },
     })
-    const reloadSpy = vi.spyOn(wrapper.vm, 'reloadViewer')
     await flushPromises()
     await wrapper.setProps({
       src: TEST_FILE_NAME,
@@ -273,13 +289,15 @@ describe('MarmosetViewer', () => {
       height: 42,
     })
     await flushPromises()
-    expect(reloadSpy).toHaveBeenCalledTimes(0)
+    expect(mocks.WebViewer.unload).not.toHaveBeenCalled()
+    expect(mocks.WebViewer.create).toHaveBeenCalledOnce()
     await wrapper.setProps({
       src: TEST_FILE_NAME,
       responsive: true,
       width: 42,
     })
     await flushPromises()
-    expect(reloadSpy).toHaveBeenCalledTimes(0)
+    expect(mocks.WebViewer.unload).not.toHaveBeenCalled()
+    expect(mocks.WebViewer.create).toHaveBeenCalledOnce()
   })
 })

@@ -1,122 +1,154 @@
-<script lang="ts">
+<script setup lang="ts">
 import { debounce } from '@yeger/debounce'
-import { defineComponent } from 'vue'
+import { onBeforeUnmount, useTemplateRef, watch } from 'vue'
 
 import type { Marmoset } from './marmoset'
 import { loadMarmoset, marmosetViewerDefaultOptions } from './marmoset'
 
-export default defineComponent({
-  props: {
-    src: {
-      type: String,
-      required: true,
-    },
-    width: {
-      type: Number,
-      default: marmosetViewerDefaultOptions.width,
-    },
-    height: {
-      type: Number,
-      default: marmosetViewerDefaultOptions.height,
-    },
-    responsive: {
-      type: Boolean,
-      default: false,
-    },
-    autoStart: {
-      type: Boolean,
-      default: false,
-    },
+const {
+  src,
+  width = marmosetViewerDefaultOptions.width,
+  height = marmosetViewerDefaultOptions.height,
+  responsive = false,
+  autoStart = false,
+} = defineProps<{
+  src: string
+  width?: number
+  height?: number
+  responsive?: boolean
+  autoStart?: boolean
+}>()
+
+const emit = defineEmits<{
+  (event: 'load'): void
+  (event: 'resize'): void
+  (event: 'unload'): void
+}>()
+
+const viewerHost = useTemplateRef<HTMLDivElement>('marmosetViewerHost')
+const resizeObserver = new ResizeObserver(debounce(() => onResize()))
+
+let viewer: Marmoset.WebViewer | undefined
+
+function loadViewer() {
+  const host = viewerHost.value
+  if (host == null) {
+    return
+  }
+
+  viewer = new window.marmoset.WebViewer(width, height, src)
+  host.appendChild(viewer.domRoot)
+  viewer.onLoad = () => emit('load')
+
+  if (responsive) {
+    resizeObserver.observe(host)
+  }
+  if (autoStart) {
+    viewer.loadScene()
+  }
+}
+
+function unloadViewer() {
+  if (viewer === undefined) {
+    return
+  }
+
+  const host = viewerHost.value
+  if (host != null) {
+    resizeObserver.unobserve(host)
+    if (host.contains(viewer.domRoot)) {
+      host.removeChild(viewer.domRoot)
+    }
+  }
+
+  viewer.unload()
+  viewer = undefined
+  emit('unload')
+}
+
+function reloadViewer() {
+  unloadViewer()
+  loadViewer()
+}
+
+function onResize() {
+  const host = viewerHost.value
+  if (host == null) {
+    return
+  }
+
+  try {
+    viewer?.resize(host.clientWidth, host.clientHeight)
+  } catch {
+    // marmoset.js throws a typeError on resize
+  }
+  emit('resize')
+}
+
+function resize() {
+  if (responsive) {
+    return
+  }
+
+  try {
+    viewer?.resize(width, height)
+  } catch {
+    // marmoset.js throws a typeError on resize
+  }
+  emit('resize')
+}
+
+watch(
+  () => src,
+  () => {
+    reloadViewer()
   },
-  emits: ['load', 'resize', 'unload'],
-  data() {
-    return {
-      viewer: undefined as Marmoset.WebViewer | undefined,
+)
+
+watch(
+  () => width,
+  () => {
+    resize()
+  },
+)
+
+watch(
+  () => height,
+  () => {
+    resize()
+  },
+)
+
+watch(
+  () => responsive,
+  (val) => {
+    const host = viewerHost.value
+    if (host == null) {
+      return
+    }
+
+    if (val) {
+      resizeObserver.observe(host)
+    } else {
+      resizeObserver.unobserve(host)
+      resize()
     }
   },
-  computed: {
-    viewerHost(): HTMLDivElement {
-      return this.$refs.marmosetViewerHost as HTMLDivElement
-    },
-    resizeObserver(): ResizeObserver {
-      return new ResizeObserver(debounce(() => this.onResize()))
-    },
+)
+
+watch(
+  () => autoStart,
+  (val) => {
+    if (val) {
+      viewer?.loadScene()
+    }
   },
-  watch: {
-    src() {
-      this.reloadViewer()
-    },
-    width() {
-      this.resize()
-    },
-    height() {
-      this.resize()
-    },
-    responsive(val: boolean) {
-      if (val) {
-        this.resizeObserver.observe(this.viewerHost)
-      } else {
-        this.resizeObserver.unobserve(this.viewerHost)
-        this.resize()
-      }
-    },
-    autoStart(val: boolean) {
-      if (val) {
-        this.viewer?.loadScene()
-      }
-    },
-  },
-  mounted() {
-    loadMarmoset().then(() => this.loadViewer())
-  },
-  beforeUnmount() {
-    this.unloadViewer()
-  },
-  methods: {
-    loadViewer() {
-      this.viewer = new window.marmoset.WebViewer(this.width, this.height, this.src)
-      this.viewerHost.appendChild(this.viewer.domRoot)
-      this.viewer.onLoad = () => this.$emit('load')
-      if (this.responsive) {
-        this.resizeObserver.observe(this.viewerHost)
-      }
-      if (this.autoStart) {
-        this.viewer.loadScene()
-      }
-    },
-    unloadViewer() {
-      if (this.viewer === undefined) {
-        return
-      }
-      this.resizeObserver.unobserve(this.viewerHost)
-      this.viewerHost.removeChild(this.viewer.domRoot)
-      this.viewer.unload()
-      this.$emit('unload')
-    },
-    reloadViewer() {
-      this.unloadViewer()
-      this.loadViewer()
-    },
-    onResize() {
-      try {
-        this.viewer?.resize(this.viewerHost.clientWidth, this.viewerHost.clientHeight)
-      } catch {
-        // marmoset.js throws a typeError on resize
-      }
-      this.$emit('resize')
-    },
-    resize() {
-      if (this.responsive) {
-        return
-      }
-      try {
-        this.viewer?.resize(this.width, this.height)
-      } catch {
-        // marmoset.js throws a typeError on resize
-      }
-      this.$emit('resize')
-    },
-  },
+)
+
+loadMarmoset().then(loadViewer)
+
+onBeforeUnmount(() => {
+  unloadViewer()
 })
 </script>
 
