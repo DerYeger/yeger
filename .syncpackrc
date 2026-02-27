@@ -17,6 +17,7 @@
         "resumon",
         "vecti",
         "vite-plugin-lib",
+        "vue-fast-mount",
         "vue-marmoset-viewer"
       ],
       "pinVersion": "workspace:*"

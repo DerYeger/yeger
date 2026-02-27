@@ -1,0 +1,8 @@
+import { defineConfig } from 'tsdown'
+
+export default defineConfig({
+  dts: {
+    tsconfig: './tsconfig.build.json',
+  },
+  entry: ['./src/plugin.ts', './src/runtime.ts'],
+})

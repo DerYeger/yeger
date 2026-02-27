@@ -80,6 +80,13 @@ jobs:
           files: packages/vecti/coverage/coverage-final.json
           flags: vecti
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Upload vue-fast-mount coverage
+        uses: codecov/codecov-action@v5
+        with:
+          disable_search: true
+          files: packages/vue-fast-mount/coverage/coverage-final.json
+          flags: vue-fast-mount
+          token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-marmoset-viewer coverage
         uses: codecov/codecov-action@v5
         with:

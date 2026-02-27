@@ -1,0 +1,7 @@
+{
+  "extends": "@yeger/tsconfig/base",
+  "include": ["src", "test", "./*.ts"],
+  "vueCompilerOptions": {
+    "dataAttributes": ["data-testid"]
+  }
+}
