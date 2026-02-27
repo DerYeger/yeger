@@ -16,11 +16,17 @@ export function vueFastMount(): Plugin {
 
       if (shouldTransformSFC(id)) {
         const transformedCode = transformSFC(code, getKeepBindingsFromId(id))
-        return transformedCode === code ? null : transformedCode
+        if (transformedCode === code) {
+          return null
+        }
+        return transformedCode
       }
 
       const transformedCode = rewriteFastMountCallsites(code)
-      return transformedCode === code ? null : transformedCode
+      if (transformedCode === code) {
+        return null
+      }
+      return transformedCode
     },
   }
 }

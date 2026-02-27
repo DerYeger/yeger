@@ -51,6 +51,9 @@
     "test": "vitest",
     "typecheck": "vue-tsc"
   },
+  "dependencies": {
+    "@yeger/streams": "workspace:*"
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "catalog:",
     "@vitest/browser-playwright": "catalog:",

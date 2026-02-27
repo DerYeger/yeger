@@ -1218,6 +1218,10 @@ importers:
         version: 5.9.3
 
   packages/vue-fast-mount:
+    dependencies:
+      '@yeger/streams':
+        specifier: workspace:*
+        version: link:../streams
     devDependencies:
       '@vitejs/plugin-vue':
         specifier: 'catalog:'

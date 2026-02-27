@@ -2,7 +2,7 @@ import { describe, test } from 'vitest'
 
 import {
   collectTopLevelImportStatements,
-  createPlaceholderComponentDeclarations,
+  createStubDeclarations,
   ensureVueHImport,
   parseImportClause,
   parseNamedSpecifiers,
@@ -12,7 +12,7 @@ import {
 } from '../../src/plugin/transformSFC'
 
 describe('transformSFC', () => {
-  test('transforms script setup imports into local placeholder stubs', ({ expect }) => {
+  test('transforms script setup imports into local stubs', ({ expect }) => {
     const code = `
 <script setup lang="ts">
 import Child from './Child.vue'
@@ -29,10 +29,36 @@ import { BarrelChild as AliasedBarrelChild } from './barrel'
 
     const transformed = transformSFC(code, new Set<string>())
 
-    expect(transformed).toContain("name: 'Child'")
-    expect(transformed).toContain("name: 'AliasedBarrelChild'")
-    expect(transformed).toContain("h('child-stub'")
-    expect(transformed).toContain("h('aliased-barrel-child-stub'")
+    expect(transformed).toMatchInlineSnapshot(`
+      "<script setup lang="ts">
+      import { h } from 'vue'
+
+
+
+      const Child = {
+        name: 'Child',
+        render() {
+          const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
+          return h('child-stub', { ...normalizedAttrs, ...this.$props })
+        }
+      }
+
+      const AliasedBarrelChild = {
+        name: 'AliasedBarrelChild',
+        render() {
+          const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
+          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...this.$props })
+        }
+      }
+      </script>
+
+      <template>
+        <div>
+          <Child />
+          <AliasedBarrelChild />
+        </div>
+      </template>"
+    `)
   })
 
   test('handles script and template early-return cases', ({ expect }) => {
@@ -124,11 +150,22 @@ import './side-effect'
     expect(malformedImportInvalidClause).toBe(`import 123Invalid from './x'`)
   })
 
-  test('covers placeholder creation and h import retention', ({ expect }) => {
-    expect(createPlaceholderComponentDeclarations([], new Map())).toBe('')
+  test('does not create stub declaration if no template-only imports are present', ({ expect }) => {
+    expect(createStubDeclarations(new Set(), new Map())).toBe(undefined)
+  })
 
-    const withHImport = `import { h } from 'vue'\nconst x = 1`
-    expect(ensureVueHImport(withHImport)).toBe(withHImport)
+  describe('ensureVueHImport', () => {
+    test('adds h import if missing', ({ expect }) => {
+      const code = `import { defineComponent } from 'vue'\nconst x = 1`
+      const transformed = ensureVueHImport(code)
+      expect(transformed).toBe(`import { h } from 'vue'\n${code}`)
+    })
+
+    test('does not add duplicate h import', ({ expect }) => {
+      const code = `import { defineComponent, h } from 'vue'\nconst x = 1`
+      const transformed = ensureVueHImport(code)
+      expect(transformed).toBe(code)
+    })
   })
 
   test('keeps partially-used imports and emits rewritten import clauses', ({ expect }) => {

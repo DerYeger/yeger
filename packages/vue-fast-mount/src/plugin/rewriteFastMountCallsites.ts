@@ -1,3 +1,5 @@
+import * as s from '@yeger/streams/sync'
+
 import {
   escapeForRegExp,
   FAST_MOUNT_KEEP_QUERY_KEY,
@@ -14,74 +16,71 @@ export function rewriteFastMountCallsites(code: string): string {
 
   let transformedCode = code
 
-  for (const alias of aliases) {
-    const escapedAlias = escapeForRegExp(alias)
-    const pattern = new RegExp(
-      `(^|[^\\w$.])(${escapedAlias})\\s*\\(\\s*import\\s*\\(\\s*(["'])([^"']+)\\3\\s*\\)`,
-      'gm',
-    )
+  s.forEach(
+    s.pipe(
+      aliases.map((alias) => ({
+        alias,
+        pattern: new RegExp(
+          `(^|[^\\w$.])(${escapeForRegExp(alias)})\\s*\\(\\s*import\\s*\\(\\s*(["'])([^"']+)\\3\\s*\\)`,
+          'gm',
+        ),
+      })),
+    ),
+    (item) => {
+      transformedCode = transformedCode.replace(
+        item.pattern,
+        (
+          match,
+          prefix: string,
+          name: string,
+          quote: string,
+          specifier: string,
+          offset: number,
+          fullCode: string,
+        ) => {
+          const aliasStart = offset + prefix.length
+          const callExpression = getCallExpression(fullCode, aliasStart)
+          const keepBindings = callExpression
+            ? extractExplicitlyUnstubbedComponents(callExpression)
+            : []
+          const rewrittenSpecifier = appendFastMountQuery(specifier, keepBindings)
 
-    transformedCode = transformedCode.replace(
-      pattern,
-      (
-        match,
-        prefix: string,
-        name: string,
-        quote: string,
-        specifier: string,
-        offset: number,
-        fullCode: string,
-      ) => {
-        const aliasStart = offset + prefix.length
-        const callExpression = getCallExpression(fullCode, aliasStart)
-        const keepBindings = callExpression
-          ? extractExplicitlyUnstubbedComponents(callExpression)
-          : []
-        const rewrittenSpecifier = appendFastMountQuery(specifier, keepBindings)
+          if (rewrittenSpecifier === specifier) {
+            return match
+          }
 
-        if (rewrittenSpecifier === specifier) {
-          return match
-        }
-
-        return `${prefix}${name}(import(${quote}${rewrittenSpecifier}${quote})`
-      },
-    )
-  }
+          return `${prefix}${name}(import(${quote}${rewrittenSpecifier}${quote})`
+        },
+      )
+    },
+  )
 
   return transformedCode
 }
 
+const IMPORT_REGEX = /import\s*{([^}]*)}\s*from\s*['"]([^'"]+)['"]/g
+
 function parseFastMountAliases(code: string): string[] {
-  const aliases = new Set<string>()
-  const importMatcher = /import\s*{([^}]*)}\s*from\s*['"]([^'"]+)['"]/g
-
-  for (const match of code.matchAll(importMatcher)) {
-    const source = match[2]
-
-    if (!source || !isFastMountRuntimeImportSource(source)) {
-      continue
-    }
-
-    const specifiers = match[1]?.split(',') ?? []
-
-    for (const specifier of specifiers) {
-      const trimmedSpecifier = specifier.trim()
-
-      if (!trimmedSpecifier) {
-        continue
-      }
-
-      const aliasMatch = /^fastMount(?:\s+as\s+([A-Za-z_$][\w$]*))?$/.exec(trimmedSpecifier)
-
-      if (!aliasMatch) {
-        continue
-      }
-
-      aliases.add(aliasMatch[1] ?? 'fastMount')
-    }
-  }
-
-  return [...aliases]
+  return s.toArray(
+    s.pipe(
+      code.matchAll(IMPORT_REGEX),
+      s.flatMap((match) => {
+        const source = match[2]
+        if (!source || !isFastMountRuntimeImportSource(source)) {
+          return []
+        }
+        return match[1]?.split(',') ?? []
+      }),
+      s.map((specifier) => specifier.trim()),
+      s.filterTruthy(),
+      s.map((trimmedSpecifier) =>
+        /^fastMount(?:\s+as\s+([A-Za-z_$][\w$]*))?$/.exec(trimmedSpecifier),
+      ),
+      s.filterDefined(),
+      s.map((match) => match[1] ?? 'fastMount'),
+      s.distinct(),
+    ),
+  )
 }
 
 function isFastMountRuntimeImportSource(source: string): boolean {
@@ -127,38 +126,33 @@ function appendFastMountQuery(specifier: string, keepBindings: string[] = []): s
 
 function extractExplicitlyUnstubbedComponents(callExpression: string): string[] {
   const stubsMatch = /\bstubs\s*:/.exec(callExpression)
-
   if (!stubsMatch) {
     return []
   }
 
   const stubsObjectStart = callExpression.indexOf('{', stubsMatch.index)
-
   if (stubsObjectStart === -1) {
     return []
   }
 
   const stubsObjectEnd = findMatchingBracket(callExpression, stubsObjectStart, '{', '}')
-
   if (stubsObjectEnd === -1) {
     return []
   }
 
   const stubsObject = callExpression.slice(stubsObjectStart + 1, stubsObjectEnd)
-  const keepBindings = new Set<string>()
 
   const literalFalseMatcher =
     /(?:^|,)\s*(?:['"]([A-Za-z_$][\w$-]*)['"]|([A-Za-z_$][\w$]*))\s*:\s*false\b/g
 
-  for (const match of stubsObject.matchAll(literalFalseMatcher)) {
-    const componentName = match[1] ?? match[2]
-
-    if (componentName) {
-      keepBindings.add(componentName)
-    }
-  }
-
-  return [...keepBindings]
+  return s.toArray(
+    s.pipe(
+      stubsObject.matchAll(literalFalseMatcher),
+      s.map((match) => match[1] ?? match[2]),
+      s.filterDefined(),
+      s.distinct(),
+    ),
+  )
 }
 
 function findMatchingBracket(value: string, start: number, open: string, close: string): number {

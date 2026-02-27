@@ -1,11 +1,16 @@
+import * as s from '@yeger/streams/sync'
+
 import { escapeForRegExp } from './shared'
 
 function toPascalCase(value: string): string {
-  return value
-    .split('-')
-    .filter(Boolean)
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
-    .join('')
+  return s.join(
+    s.pipe(
+      value.split('-'),
+      s.filterTruthy(),
+      s.map((part) => part.charAt(0).toUpperCase() + part.slice(1)),
+    ),
+    '',
+  )
 }
 
 function toCamelCase(value: string): string {
@@ -29,9 +34,8 @@ type TemplateComponentUsage = {
   usageByBinding: Map<string, ComponentTemplateUsage>
 }
 
-function getComponentBindingName(tagName: string): string {
+function getComponentBindingName(tagName: string): string | undefined {
   const firstCharacter = tagName.charAt(0)
-
   if (firstCharacter && firstCharacter === firstCharacter.toUpperCase()) {
     return tagName
   }
@@ -40,7 +44,7 @@ function getComponentBindingName(tagName: string): string {
     return toPascalCase(tagName)
   }
 
-  return ''
+  return undefined
 }
 
 function collectPropsAndEmitsFromAttributes(attributes: string): ComponentTemplateUsage {
@@ -50,60 +54,38 @@ function collectPropsAndEmitsFromAttributes(attributes: string): ComponentTempla
   const attributeMatcher =
     /(?:@|:)[A-Za-z_$][\w$:-]*|v-bind:[A-Za-z_$][\w$-]*|v-on:[A-Za-z_$][\w$:-]*|v-model(?::[A-Za-z_$][\w$-]*)?|[A-Za-z][\w-]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?/g
 
-  for (const match of attributes.matchAll(attributeMatcher)) {
-    const token = match[0]?.trim()
-
-    if (!token) {
-      continue
-    }
-
-    const key = token.split('=')[0]?.trim() ?? ''
-
-    if (!key) {
-      continue
-    }
-
-    if (key.startsWith('v-model')) {
-      const argument = key.slice('v-model'.length)
-      const modelName = argument.startsWith(':') ? toCamelCase(argument.slice(1)) : 'modelValue'
-      props.add(modelName)
-      emits.add(`update:${modelName}`)
-      continue
-    }
-
-    if (key.startsWith('@') || key.startsWith('v-on:')) {
-      const eventName = key.startsWith('@') ? key.slice(1) : key.slice('v-on:'.length)
-
-      if (eventName) {
-        emits.add(eventName)
+  s.forEach(
+    s.pipe(
+      attributes.matchAll(attributeMatcher),
+      s.map((match) => match[0]?.trim()),
+      s.map((token) => token?.split('=')[0]?.trim()),
+      s.filterTruthy(),
+    ),
+    (key) => {
+      if (key.startsWith('v-model')) {
+        const argument = key.slice('v-model'.length)
+        const modelName = argument.startsWith(':') ? toCamelCase(argument.slice(1)) : 'modelValue'
+        props.add(modelName)
+        emits.add(`update:${modelName}`)
+      } else if (key.startsWith('@') || key.startsWith('v-on:')) {
+        const eventName = key.startsWith('@') ? key.slice(1) : key.slice('v-on:'.length)
+        if (eventName) {
+          emits.add(eventName)
+        }
+      } else if (key.startsWith(':')) {
+        props.add(toCamelCase(key.slice(1)))
+      } else if (key.startsWith('v-bind:')) {
+        props.add(toCamelCase(key.slice('v-bind:'.length)))
+      } else if (
+        !key.startsWith('v-') &&
+        !['class', 'style', 'key', 'ref', 'slot', 'is'].includes(key) &&
+        !key.startsWith('data-') &&
+        !key.startsWith('aria-')
+      ) {
+        props.add(toCamelCase(key))
       }
-      continue
-    }
-
-    if (key.startsWith(':')) {
-      props.add(toCamelCase(key.slice(1)))
-      continue
-    }
-
-    if (key.startsWith('v-bind:')) {
-      props.add(toCamelCase(key.slice('v-bind:'.length)))
-      continue
-    }
-
-    if (key.startsWith('v-')) {
-      continue
-    }
-
-    if (['class', 'style', 'key', 'ref', 'slot', 'is'].includes(key)) {
-      continue
-    }
-
-    if (key.startsWith('data-') || key.startsWith('aria-')) {
-      continue
-    }
-
-    props.add(toCamelCase(key))
-  }
+    },
+  )
 
   return { props, emits }
 }
@@ -169,55 +151,59 @@ function getTemplateComponentBindings(code: string): TemplateComponentUsage {
 
   const templateContent = code.slice(startIndex, templateEndIndex)
 
-  const bindings = new Set<string>()
   const usageByBinding = new Map<string, ComponentTemplateUsage>()
   const tagMatcher = /<\/?([A-Za-z][\w-]*)\b/g
   const openingTagMatcher = /<([A-Za-z][\w-]*)\b([^>]*)>/g
 
-  for (const tagMatch of templateContent.matchAll(tagMatcher)) {
-    const tagName = tagMatch[1]
+  const bindings = s.toSet(
+    s.pipe(
+      templateContent.matchAll(tagMatcher),
+      s.map((tagMatch) => tagMatch[1]),
+      s.filterTruthy(),
+      s.map((tagName) => getComponentBindingName(tagName)),
+      s.filterTruthy(),
+      s.filter((bindingName) => !isBuiltInElement(bindingName)),
+    ),
+  )
 
-    if (!tagName) {
-      continue
-    }
+  s.forEach(
+    s.pipe(
+      templateContent.matchAll(openingTagMatcher),
+      s.map((openingTagMatch: RegExpExecArray) => ({
+        tagName: openingTagMatch[1],
+        attributes: openingTagMatch[2] ?? '',
+      })),
+      s.filter((item): item is { tagName: string; attributes: string } => Boolean(item.tagName)),
+      s.map((item) => ({
+        tagName: item.tagName,
+        attributes: item.attributes,
+        bindingName: getComponentBindingName(item.tagName) ?? '',
+      })),
+      s.filter((item) =>
+        Boolean(
+          item.bindingName && !isBuiltInElement(item.bindingName) && bindings.has(item.bindingName),
+        ),
+      ),
+    ),
+    (item) => {
+      const { bindingName, attributes } = item
+      const existingUsage = usageByBinding.get(bindingName) ?? {
+        props: new Set<string>(),
+        emits: new Set<string>(),
+      }
+      const extractedUsage = collectPropsAndEmitsFromAttributes(attributes)
 
-    const bindingName = getComponentBindingName(tagName)
+      for (const prop of extractedUsage.props) {
+        existingUsage.props.add(prop)
+      }
 
-    if (bindingName && !isBuiltInElement(bindingName)) {
-      bindings.add(bindingName)
-    }
-  }
+      for (const emittedEvent of extractedUsage.emits) {
+        existingUsage.emits.add(emittedEvent)
+      }
 
-  for (const openingTagMatch of templateContent.matchAll(openingTagMatcher)) {
-    const tagName = openingTagMatch[1]
-    const attributes = openingTagMatch[2] ?? ''
-
-    if (!tagName) {
-      continue
-    }
-
-    const bindingName = getComponentBindingName(tagName)
-
-    if (!bindingName || isBuiltInElement(bindingName) || !bindings.has(bindingName)) {
-      continue
-    }
-
-    const existingUsage = usageByBinding.get(bindingName) ?? {
-      props: new Set<string>(),
-      emits: new Set<string>(),
-    }
-    const extractedUsage = collectPropsAndEmitsFromAttributes(attributes)
-
-    for (const prop of extractedUsage.props) {
-      existingUsage.props.add(prop)
-    }
-
-    for (const emittedEvent of extractedUsage.emits) {
-      existingUsage.emits.add(emittedEvent)
-    }
-
-    usageByBinding.set(bindingName, existingUsage)
-  }
+      usageByBinding.set(bindingName, existingUsage)
+    },
+  )
 
   return { bindings, usageByBinding }
 }
@@ -237,7 +223,6 @@ export function parseNamedSpecifiers(
   }
 
   const content = trimmedClause.slice(1, -1).trim()
-
   if (!content) {
     return []
   }
@@ -246,26 +231,26 @@ export function parseNamedSpecifiers(
     return null
   }
 
-  const entries = content
-    .split(',')
-    .map((entry) => entry.trim())
-    .filter(Boolean)
-  const specifiers: Array<{ imported: string; local: string }> = []
-
-  for (const entry of entries) {
-    const aliasMatch = /^([A-Za-z_$][\w$]*)(?:\s+as\s+([A-Za-z_$][\w$]*))?$/.exec(entry)
-
-    if (!aliasMatch) {
-      return null
-    }
-
-    specifiers.push({
-      imported: aliasMatch[1]!,
-      local: aliasMatch[2] ?? aliasMatch[1]!,
-    })
+  const specifiers = s.toArray(
+    s.pipe(
+      content.split(','),
+      s.map((entry) => entry.trim()),
+      s.filterTruthy(),
+      s.map((entry) => /^([A-Za-z_$][\w$]*)(?:\s+as\s+([A-Za-z_$][\w$]*))?$/.exec(entry)),
+      s.filterDefined(),
+    ),
+  )
+  if (specifiers.length === 0) {
+    return null
   }
 
-  return specifiers
+  return specifiers.map((match) => {
+    const aliasMatch = match!
+    return {
+      imported: aliasMatch[1]!,
+      local: aliasMatch[2] ?? aliasMatch[1]!,
+    }
+  })
 }
 
 function splitImportClause(clause: string): [string, string | undefined] {
@@ -307,7 +292,11 @@ export function parseImportClause(clause: string): ImportClauseSpec[] | null {
       specs.push({ kind: 'named', imported: specifier.imported, local: specifier.local })
     }
 
-    return specs
+    return named.map((specifier) => ({
+      kind: 'named',
+      imported: specifier.imported,
+      local: specifier.local,
+    }))
   }
 
   if (head.startsWith('*')) {
@@ -374,7 +363,7 @@ export function stringifyImportClause(specifiers: ImportClauseSpec[]): string {
 
   if (namedSpecifiers.length) {
     const namedClause = namedSpecifiers
-      .map((specifier) =>
+      .map((specifier: Extract<ImportClauseSpec, { kind: 'named' }>) =>
         specifier.imported === specifier.local
           ? specifier.imported
           : `${specifier.imported} as ${specifier.local}`,
@@ -393,26 +382,51 @@ type ImportStatement = {
   end: number
 }
 
-export function createPlaceholderComponentDeclarations(
-  locals: string[],
+export function createStubDeclarations(
+  componentNames: Set<string>,
   usageByBinding: Map<string, ComponentTemplateUsage>,
-): string {
-  if (!locals.length) {
-    return ''
+): string | undefined {
+  if (!componentNames.size) {
+    return undefined
   }
+  return s.join(
+    s.pipe(
+      componentNames,
+      s.map((componentName) => {
+        const usage = usageByBinding.get(componentName)
+        const props = usage ? [...usage.props].sort() : []
+        const emits = usage ? [...usage.emits].sort() : []
+        const propsPart = props.length
+          ? `\n  props: [${s.join(
+              s.pipe(
+                props,
+                s.map((prop) => `'${prop}'`),
+              ),
+              ', ',
+            )}],`
+          : ''
+        const emitsPart = emits.length
+          ? `\n  emits: [${s.join(
+              s.pipe(
+                emits,
+                s.map((emitted) => `'${emitted}'`),
+              ),
+              ', ',
+            )}],`
+          : ''
+        const stubTag = `${toKebabCase(componentName)}-stub`
 
-  return locals
-    .map((local) => {
-      const usage = usageByBinding.get(local)
-      const props = usage ? [...usage.props].sort() : []
-      const emits = usage ? [...usage.emits].sort() : []
-      const propsPart = props.length ? `\n  props: ${JSON.stringify(props)},` : ''
-      const emitsPart = emits.length ? `\n  emits: ${JSON.stringify(emits)},` : ''
-      const stubTag = `${toKebabCase(local)}-stub`
-
-      return `const ${local} = {\n  name: '${local}',${propsPart}${emitsPart}\n  render() {\n    const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))\n    return h('${stubTag}', { ...normalizedAttrs, ...this.$props })\n  }\n}`
-    })
-    .join('\n\n')
+        return `const ${componentName} = {
+  name: '${componentName}',${propsPart}${emitsPart}
+  render() {
+    const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
+    return h('${stubTag}', { ...normalizedAttrs, ...this.$props })
+  }
+}`
+      }),
+    ),
+    '\n\n',
+  )
 }
 
 export function ensureVueHImport(script: string): string {
@@ -420,19 +434,19 @@ export function ensureVueHImport(script: string): string {
     return script
   }
 
-  return `\nimport { h } from 'vue'${script}`
+  return `import { h } from 'vue'\n${script}`
 }
 
 export function collectTopLevelImportStatements(script: string): ImportStatement[] {
   const statements: ImportStatement[] = []
   const lines = script.split('\n')
   const lineOffsets: number[] = []
-  let offset = 0
   let isInsideBlockComment = false
 
+  let currentOffset = 0
   for (const line of lines) {
-    lineOffsets.push(offset)
-    offset += line.length + 1
+    lineOffsets.push(currentOffset)
+    currentOffset += line.length + 1
   }
 
   let lineIndex = 0
@@ -530,7 +544,7 @@ export function pruneTemplateOnlyImportsInScriptSetup(
     scriptWithoutImports = `${scriptWithoutImports.slice(0, importStatement.start)}${' '.repeat(importStatement.end - importStatement.start)}${scriptWithoutImports.slice(importStatement.end)}`
   }
 
-  const replacements: Array<{ start: number; end: number; value: string }> = []
+  const replacements: { start: number; end: number; value: string }[] = []
   const allRemovableLocals = new Set<string>()
 
   for (const importStatement of importStatements) {
@@ -629,31 +643,28 @@ export function pruneTemplateOnlyImportsInScriptSetup(
   // Remove consecutive empty lines created by removed imports
   transformedScript = transformedScript.replace(/\n\s*\n\s*\n/g, '\n\n')
 
-  const placeholderDeclarations = createPlaceholderComponentDeclarations(
-    [...allRemovableLocals],
-    usageByBinding,
-  )
-
-  if (placeholderDeclarations) {
-    transformedScript = ensureVueHImport(transformedScript)
-    transformedScript += `\n${placeholderDeclarations}`
+  const stubDeclarations = createStubDeclarations(allRemovableLocals, usageByBinding)
+  if (!stubDeclarations) {
+    return transformedScript
   }
 
-  return transformedScript
+  return `\n${ensureVueHImport(transformedScript)}\n${stubDeclarations}\n`
 }
 
 export function transformSFC(code: string, keepBindings: Set<string>): string {
   const scriptMatcher = /<script\b([^>]*)>([\s\S]*?)<\/script>/g
-  let scriptMatch: RegExpExecArray | null = null
-
-  for (const currentMatch of code.matchAll(scriptMatcher)) {
-    if (currentMatch[1]?.includes('setup')) {
-      scriptMatch = currentMatch
-      break
-    }
+  const scriptMatch = s.last(
+    s.pipe(
+      code.matchAll(scriptMatcher),
+      s.filter((currentMatch) => currentMatch[1]?.includes('setup') ?? false),
+    ),
+  )
+  if (!scriptMatch) {
+    return code
   }
 
-  if (!scriptMatch || !scriptMatch[2]) {
+  const originalScript = scriptMatch[2]
+  if (!originalScript) {
     return code
   }
 
@@ -663,7 +674,6 @@ export function transformSFC(code: string, keepBindings: Set<string>): string {
     return code
   }
 
-  const originalScript = scriptMatch[2]
   const transformedScript = pruneTemplateOnlyImportsInScriptSetup(
     originalScript,
     templateBindings,
@@ -676,7 +686,8 @@ export function transformSFC(code: string, keepBindings: Set<string>): string {
   }
 
   const fullMatch = scriptMatch[0]
-  const scriptContentStart = (scriptMatch.index ?? 0) + fullMatch.indexOf(originalScript)
+  const scriptIndex = scriptMatch.index ?? 0
+  const scriptContentStart = scriptIndex + fullMatch.indexOf(originalScript)
   const scriptContentEnd = scriptContentStart + originalScript.length
 
   return `${code.slice(0, scriptContentStart)}${transformedScript}${code.slice(scriptContentEnd)}`

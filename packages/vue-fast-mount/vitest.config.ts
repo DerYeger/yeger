@@ -17,8 +17,8 @@ export default defineConfig({
               browser: playwright(),
             },
             {
-              exclude: ['test/plugin'],
-              name: 'browser',
+              include: ['test/runtime/**/*.test.ts'],
+              name: 'runtime',
               silent: false,
             },
           ),
@@ -27,7 +27,7 @@ export default defineConfig({
           extends: true,
           test: {
             environment: 'node',
-            name: 'node',
+            name: 'plugin',
             include: ['test/plugin/**/*.test.ts'],
           },
         },
