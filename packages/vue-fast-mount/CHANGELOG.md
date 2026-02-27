@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.0.3
+
+### Patch Changes
+
+- a61baac: improve handling of multiple imports
+
 ## 0.0.2
 
 ### Patch Changes
