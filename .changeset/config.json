@@ -2,7 +2,14 @@
   "$schema": "../node_modules/@changesets/config/schema.json",
   "changelog": "@changesets/cli/changelog",
   "commit": false,
-  "fixed": [],
+  "fixed": [
+    ["@yeger/turbo-graph", "@yeger/turbo-graph-ui"],
+    ["@yeger/vue-masonry-wall", "@yeger/vue-masonry-wall-docs"],
+    ["d3-graph-controller", "d3-graph-controller-docs"],
+    ["key-hierarchy", "key-hierarchy-docs"],
+    ["vecti", "vecti-docs"],
+    ["vue-marmoset-viewer", "vue-marmoset-viewer-docs"]
+  ],
   "linked": [],
   "access": "restricted",
   "baseBranch": "main",
