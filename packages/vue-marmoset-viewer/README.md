@@ -45,29 +45,13 @@ pnpm install vue-marmoset-viewer
 
 ## Usage
 
-### Vue 3
-
-```typescript
-import { createApp } from 'vue'
-import { MarmosetViewer } from 'vue-marmoset-viewer'
-
-const app = createApp()
-
-app.use(MarmosetViewer)
-```
-
-### Vue 2
-
-```typescript
-import Vue from 'vue'
-import MarmosetViewer from 'vue-marmoset-viewer'
-
-Vue.use(MarmosetViewer)
-```
-
 ```vue
+<script setup lang="ts">
+import { MarmosetViewer } from 'vue-marmoset-viewer'
+</script>
+
 <template>
-  <marmoset-viewer src="/file.mview" :width="800" :height="600" :auto-start="true" />
+  <MarmosetViewer src="/file.mview" :width="800" :height="600" :auto-start="true" />
 </template>
 ```
 
@@ -75,7 +59,7 @@ or
 
 ```vue
 <template>
-  <marmoset-viewer src="/file.mview" responsive />
+  <MarmosetViewer src="/file.mview" responsive />
 </template>
 ```
 
@@ -88,27 +72,6 @@ If `responsive` is set to true, the component will fill the available space of i
 - `load`: Emitted when the underlying viewer is done loading.
 - `unload`: Emitted when an underlying viewer has been unloaded, because the component is destroyed or recreated.
 - `resize`: Emitted when the underlying viewer has been resized manually or automatically, when the `responsive` property is set to `true`.
-
-### Nuxt
-
-> Nuxt 2 is not supported by v2.0.0 and onward.
-
-1. Create the file `plugins/marmosetViewer.ts` with the following content.
-
-```typescript
-import Vue from 'vue'
-import MarmosetViewer from 'vue-marmoset-viewer'
-
-Vue.use(MarmosetViewer)
-```
-
-2. Update the `plugins` array in `nuxt.config.js`.
-
-```typescript
-export default {
-  plugins: [{ src: '~/plugins/marmosetViewer.ts' }],
-}
-```
 
 ### Manual usage
 

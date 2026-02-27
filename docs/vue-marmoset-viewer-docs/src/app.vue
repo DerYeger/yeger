@@ -1,55 +1,44 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue'
+import { MarmosetViewer } from 'vue-marmoset-viewer'
 
 import DemoFooter from './demo-footer.vue'
 import DemoHeader from './demo-header.vue'
 
-export default defineComponent({
-  name: 'App',
-  components: {
-    DemoHeader,
-    DemoFooter,
-  },
-  data() {
-    const files = ['sphere', 'torus', 'cube']
-    const [width, height] = window.innerWidth >= 600 ? [800, 600] : [300, 300]
-    const emits = [] as string[]
-    return {
-      src: files[0],
-      width: width.toString(),
-      height: height.toString(),
-      autoStart: false,
-      responsive: false,
-      files,
-      emits,
-    }
-  },
-  computed: {
-    emitLog(): string {
-      return this.emits.join('\n')
-    },
-  },
-  created() {
-    document.title = 'vue-marmoset-viewer'
-    document.documentElement.setAttribute('lang', 'en')
-    const metaElement = document.createElement('meta')
-    metaElement.setAttribute('name', 'description')
-    metaElement.content = 'A responsive and configurable Marmoset Viewer component for Vue.'
-    document.getElementsByTagName('head')[0]?.appendChild(metaElement)
-  },
-  methods: {
-    addEmit(emit: string) {
-      this.emits.unshift(`${new Date().toLocaleTimeString()}: ${emit}`)
-    },
-    capitalize(value: string): string {
-      if (!value) {
-        return ''
-      }
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    },
-  },
+const files = ['sphere', 'torus', 'cube'] as const
+type File = (typeof files)[number]
+const [initialWidth, initialHeight] = window.innerWidth >= 600 ? [800, 600] : [300, 300]
+
+const src = ref<File>(files[0])
+const width = ref(initialWidth.toString())
+const height = ref(initialHeight.toString())
+const autoStart = ref(false)
+const responsive = ref(false)
+const emits = ref<string[]>([])
+
+const emitLog = computed((): string => emits.value.join('\n'))
+
+onMounted(() => {
+  document.title = 'vue-marmoset-viewer'
+  document.documentElement.setAttribute('lang', 'en')
+  const metaElement = document.createElement('meta')
+  metaElement.setAttribute('name', 'description')
+  metaElement.content = 'A responsive and configurable Marmoset Viewer component for Vue.'
+  document.getElementsByTagName('head')[0]?.appendChild(metaElement)
 })
+
+function addEmit(emit: string) {
+  emits.value.unshift(`${new Date().toLocaleTimeString()}: ${emit}`)
+}
+
+function capitalize(value: string): string {
+  if (!value) {
+    return ''
+  }
+
+  const normalizedValue = value.toString()
+  return normalizedValue.charAt(0).toUpperCase() + normalizedValue.slice(1)
+}
 </script>
 
 <template>
@@ -106,7 +95,7 @@ export default defineComponent({
             <label for="emitLog">Emits</label>
             <button @click="emits = []">Clear</button>
           </div>
-          <textarea id="emitLog" v-model="emitLog" readonly />
+          <textarea id="emitLog" :value="emitLog" readonly />
         </section>
       </div>
       <div style="flex-grow: 1">
