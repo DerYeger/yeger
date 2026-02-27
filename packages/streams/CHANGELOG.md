@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.5.0
+
+### Minor Changes
+
+- 483e34e: implement filterTruthy
+
 ## 3.4.0
 
 ### Minor Changes
