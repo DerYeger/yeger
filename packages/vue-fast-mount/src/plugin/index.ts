@@ -1,11 +1,9 @@
 import { normalizePath, type Plugin } from 'vite'
 
-import {
-  getKeepBindingsFromId,
-  rewriteFastMountCallsites,
-  shouldTransformVueFastMountId,
-  transformFastMountVueSource,
-} from './plugin-helpers'
+import { getKeepBindingsFromId } from './getKeepBindingsFromId'
+import { rewriteFastMountCallsites } from './rewriteFastMountCallsites'
+import { shouldTransformSFC } from './shouldTransformSFC'
+import { transformSFC } from './transformSFC'
 
 export function vueFastMount(): Plugin {
   return {
@@ -16,8 +14,8 @@ export function vueFastMount(): Plugin {
         return null
       }
 
-      if (shouldTransformVueFastMountId(id)) {
-        const transformedCode = transformFastMountVueSource(code, getKeepBindingsFromId(id))
+      if (shouldTransformSFC(id)) {
+        const transformedCode = transformSFC(code, getKeepBindingsFromId(id))
         return transformedCode === code ? null : transformedCode
       }
 

@@ -4,5 +4,5 @@ export default defineConfig({
   dts: {
     tsconfig: './tsconfig.build.json',
   },
-  entry: ['./src/plugin.ts', './src/runtime.ts'],
+  entry: ['./src/index.ts', './src/plugin/index.ts'],
 })

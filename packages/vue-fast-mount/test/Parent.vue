@@ -20,6 +20,10 @@ const model = defineModel<string>({ default: initialModelValue })
     <Child v-if="model === initialModelValue" />
     <VElseIfChild v-else-if="model === 'new-sibling-value'" data-testid="v-else-if" />
     <VElseChild v-else data-testid="v-else" />
+    <Child> default-slot </Child>
+    <Child>
+      <template #named> named-slot </template>
+    </Child>
     <AliasedBarrelChild data-testid="aliased-barrel-child" />
     <MixedDefaultChild @child-event="model = $event" />
     <MixedNamedChild :child-prop="model" />

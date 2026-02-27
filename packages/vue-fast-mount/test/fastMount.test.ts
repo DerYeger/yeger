@@ -1,11 +1,11 @@
-import { flushPromises, mount } from '@vue/test-utils'
+import { config, flushPromises, mount } from '@vue/test-utils'
 import { describe, expectTypeOf, test } from 'vitest'
 import { defineComponent, h } from 'vue'
 import { fastMount } from 'vue-fast-mount'
 
 import { initialModelValue } from './allowedModule'
 
-describe('Parent', () => {
+describe('fastMount', () => {
   test('should throw with regular mount before fastMount is used', async ({ expect }) => {
     await expect(async () => mount(await import('./Parent.vue'))).rejects.toThrowError(
       'The forbiddenModule was imported.',
@@ -59,8 +59,8 @@ describe('Parent', () => {
         },
       })
 
-      expect(wrapper.text()).toBe('ParentCustomChildStub')
-      expect(wrapper.findAllComponents({ name: 'Child' })).toHaveLength(1)
+      expect(wrapper.text()).toContain('CustomChildStub')
+      expect(wrapper.findAllComponents({ name: 'Child' })).toHaveLength(3)
     })
 
     test('supports v-model on stubbed children', async ({ expect }) => {
@@ -100,6 +100,31 @@ describe('Parent', () => {
 
       const child = wrapper.find('[data-testid="aliased-barrel-child"]')
       expect(child.exists()).toBe(true)
+    })
+
+    test('does not render default slots on stubbed children by default', async ({ expect }) => {
+      const wrapper = await fastMount(import('./Parent.vue'))
+      expect(wrapper.text()).not.toContain('default-slot')
+    })
+
+    test('can render default slots on stubbed children by local config', async ({ expect }) => {
+      const wrapper = await fastMount(import('./Parent.vue'), {
+        global: { renderStubDefaultSlot: true },
+      })
+      expect(wrapper.text()).toContain('default-slot')
+    })
+
+    test('can render default slots on stubbed children by global config', async ({
+      expect,
+      onTestFinished,
+    }) => {
+      config.global.renderStubDefaultSlot = true
+      onTestFinished(() => {
+        config.global.renderStubDefaultSlot = false
+      })
+
+      const wrapper = await fastMount(import('./Parent.vue'))
+      expect(wrapper.text()).toContain('default-slot')
     })
   })
 

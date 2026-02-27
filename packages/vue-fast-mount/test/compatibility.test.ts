@@ -11,6 +11,8 @@ const FAST_TARGET_HTML = `
 <div>
   <div>Parent</div>
   <child-stub></child-stub>
+  <child-stub></child-stub>
+  <child-stub></child-stub>
   <aliased-barrel-child-stub data-testid="aliased-barrel-child"></aliased-barrel-child-stub>
   <mixed-default-child-stub></mixed-default-child-stub>
   <mixed-named-child-stub childprop="${initialModelValue}"></mixed-named-child-stub>
@@ -25,7 +27,7 @@ const SHALLOW_TARGET_HTML = FAST_TARGET_HTML.replaceAll('<aliased-barrel-', '<')
   .replaceAll('<mixed-named-', '<')
   .replaceAll('</mixed-named-', '</')
 
-describe('html', () => {
+describe('compatibility', () => {
   test('shallowMount produces the expected html', async ({ expect }) => {
     const wrapper = shallowMount(Parent)
     expect(wrapper.html()).toBe(SHALLOW_TARGET_HTML)
@@ -38,6 +40,6 @@ describe('html', () => {
 
   test('shallowMount baseline selectors', async ({ expect }) => {
     const wrapper = shallowMount(Parent)
-    expect(wrapper.findAllComponents({ name: 'Child' })).toHaveLength(4)
+    expect(wrapper.findAllComponents({ name: 'Child' })).toHaveLength(6)
   })
 })

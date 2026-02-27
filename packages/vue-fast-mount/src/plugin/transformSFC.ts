@@ -1,189 +1,4 @@
-const FAST_MOUNT_QUERY_KEY = '__vfm'
-const FAST_MOUNT_QUERY_VALUE = '1'
-const FAST_MOUNT_KEEP_QUERY_KEY = '__vfm_keep'
-
-function isFastMountRuntimeImportSource(source: string): boolean {
-  return source === 'vue-fast-mount'
-}
-
-function escapeForRegExp(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-}
-
-function appendFastMountQuery(specifier: string, keepBindings: string[] = []): string {
-  if (!specifier.includes('.vue')) {
-    return specifier
-  }
-
-  const hashIndex = specifier.indexOf('#')
-  const hash = hashIndex === -1 ? '' : specifier.slice(hashIndex)
-  const base = hashIndex === -1 ? specifier : specifier.slice(0, hashIndex)
-
-  if (new RegExp(`(?:\\?|&)${FAST_MOUNT_QUERY_KEY}=`).test(base)) {
-    return specifier
-  }
-
-  const separator = base.includes('?') ? '&' : '?'
-  const keepQuery = keepBindings.length
-    ? `&${FAST_MOUNT_KEEP_QUERY_KEY}=${encodeURIComponent(keepBindings.join(','))}`
-    : ''
-
-  return `${base}${separator}${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}${keepQuery}${hash}`
-}
-
-function findMatchingBracket(value: string, start: number, open: string, close: string): number {
-  let depth = 0
-
-  for (let index = start; index < value.length; index += 1) {
-    const character = value[index]
-
-    if (character === open) {
-      depth += 1
-      continue
-    }
-
-    if (character === close) {
-      depth -= 1
-
-      if (depth === 0) {
-        return index
-      }
-    }
-  }
-
-  return -1
-}
-
-function extractExplicitlyUnstubbedComponents(callExpression: string): string[] {
-  const stubsMatch = /\bstubs\s*:/.exec(callExpression)
-
-  if (!stubsMatch) {
-    return []
-  }
-
-  const stubsObjectStart = callExpression.indexOf('{', stubsMatch.index)
-
-  if (stubsObjectStart === -1) {
-    return []
-  }
-
-  const stubsObjectEnd = findMatchingBracket(callExpression, stubsObjectStart, '{', '}')
-
-  if (stubsObjectEnd === -1) {
-    return []
-  }
-
-  const stubsObject = callExpression.slice(stubsObjectStart + 1, stubsObjectEnd)
-  const keepBindings = new Set<string>()
-
-  const literalFalseMatcher =
-    /(?:^|,)\s*(?:['"]([A-Za-z_$][\w$-]*)['"]|([A-Za-z_$][\w$]*))\s*:\s*false\b/g
-
-  for (const match of stubsObject.matchAll(literalFalseMatcher)) {
-    const componentName = match[1] ?? match[2]
-
-    if (componentName) {
-      keepBindings.add(componentName)
-    }
-  }
-
-  return [...keepBindings]
-}
-
-function getCallExpression(code: string, callStart: number): string | null {
-  const openParenthesis = code.indexOf('(', callStart)
-
-  if (openParenthesis === -1) {
-    return null
-  }
-
-  const closeParenthesis = findMatchingBracket(code, openParenthesis, '(', ')')
-
-  if (closeParenthesis === -1) {
-    return null
-  }
-
-  return code.slice(callStart, closeParenthesis + 1)
-}
-
-function parseFastMountAliases(code: string): string[] {
-  const aliases = new Set<string>()
-  const importMatcher = /import\s*{([^}]*)}\s*from\s*['"]([^'"]+)['"]/g
-
-  for (const match of code.matchAll(importMatcher)) {
-    const source = match[2]
-
-    if (!source || !isFastMountRuntimeImportSource(source)) {
-      continue
-    }
-
-    const specifiers = match[1]?.split(',') ?? []
-
-    for (const specifier of specifiers) {
-      const trimmedSpecifier = specifier.trim()
-
-      if (!trimmedSpecifier) {
-        continue
-      }
-
-      const aliasMatch = /^fastMount(?:\s+as\s+([A-Za-z_$][\w$]*))?$/.exec(trimmedSpecifier)
-
-      if (!aliasMatch) {
-        continue
-      }
-
-      aliases.add(aliasMatch[1] ?? 'fastMount')
-    }
-  }
-
-  return [...aliases]
-}
-
-export function rewriteFastMountCallsites(code: string): string {
-  const aliases = parseFastMountAliases(code)
-
-  if (!aliases.length) {
-    return code
-  }
-
-  let transformedCode = code
-
-  for (const alias of aliases) {
-    const escapedAlias = escapeForRegExp(alias)
-    const pattern = new RegExp(
-      `(^|[^\\w$.])(${escapedAlias})\\s*\\(\\s*import\\s*\\(\\s*(["'])([^"']+)\\3\\s*\\)`,
-      'gm',
-    )
-
-    transformedCode = transformedCode.replace(
-      pattern,
-      (
-        match,
-        prefix: string,
-        name: string,
-        quote: string,
-        specifier: string,
-        offset: number,
-        fullCode: string,
-      ) => {
-        const aliasStart = offset + prefix.length
-        const callExpression = getCallExpression(fullCode, aliasStart)
-        const keepBindings = callExpression
-          ? extractExplicitlyUnstubbedComponents(callExpression)
-          : []
-        const rewrittenSpecifier = appendFastMountQuery(specifier, keepBindings)
-
-        if (rewrittenSpecifier === specifier) {
-          return match
-        }
-
-        return `${prefix}${name}(import(${quote}${rewrittenSpecifier}${quote})`
-      },
-    )
-  }
-
-  return transformedCode
-}
+import { escapeForRegExp } from './shared'
 
 function toPascalCase(value: string): string {
   return value
@@ -293,17 +108,66 @@ function collectPropsAndEmitsFromAttributes(attributes: string): ComponentTempla
   return { props, emits }
 }
 
-function getTemplateComponentBindings(code: string): TemplateComponentUsage {
-  const templateMatch = /<template\b[^>]*>([\s\S]*?)<\/template>/.exec(code)
+function isBuiltInElement(tagName: string): boolean {
+  return [
+    'Slot',
+    'Template',
+    'Component',
+    'Teleport',
+    'Transition',
+    'TransitionGroup',
+    'KeepAlive',
+    'Suspense',
+  ].includes(tagName)
+}
 
-  if (!templateMatch) {
+function getTemplateComponentBindings(code: string): TemplateComponentUsage {
+  // Find the opening <template tag
+  const templateOpenMatch = /<template\b[^>]*>/i.exec(code)
+
+  if (!templateOpenMatch) {
     return {
       bindings: new Set<string>(),
       usageByBinding: new Map<string, ComponentTemplateUsage>(),
     }
   }
 
-  const templateContent = templateMatch[1] ?? ''
+  // Find the matching closing </template> by counting nesting
+  const startIndex = templateOpenMatch.index + templateOpenMatch[0].length
+  let depth = 1
+  let index = startIndex
+  let templateEndIndex = -1
+
+  while (index < code.length && depth > 0) {
+    const openMatch = /<template\b/i.exec(code.slice(index))
+    const closeMatch = /<\/template\s*>/i.exec(code.slice(index))
+
+    const openIndex = openMatch ? index + openMatch.index : Infinity
+    const closeIndex = closeMatch ? index + closeMatch.index : Infinity
+
+    if (closeIndex < openIndex) {
+      depth--
+      if (depth === 0) {
+        templateEndIndex = closeIndex
+        break
+      }
+      index = closeIndex + closeMatch![0].length
+    } else if (openIndex < Infinity) {
+      depth++
+      index = openIndex + openMatch![0].length
+    } else {
+      break
+    }
+  }
+
+  if (templateEndIndex === -1) {
+    return {
+      bindings: new Set<string>(),
+      usageByBinding: new Map<string, ComponentTemplateUsage>(),
+    }
+  }
+
+  const templateContent = code.slice(startIndex, templateEndIndex)
 
   const bindings = new Set<string>()
   const usageByBinding = new Map<string, ComponentTemplateUsage>()
@@ -319,7 +183,7 @@ function getTemplateComponentBindings(code: string): TemplateComponentUsage {
 
     const bindingName = getComponentBindingName(tagName)
 
-    if (bindingName) {
+    if (bindingName && !isBuiltInElement(bindingName)) {
       bindings.add(bindingName)
     }
   }
@@ -334,7 +198,7 @@ function getTemplateComponentBindings(code: string): TemplateComponentUsage {
 
     const bindingName = getComponentBindingName(tagName)
 
-    if (!bindingName || !bindings.has(bindingName)) {
+    if (!bindingName || isBuiltInElement(bindingName) || !bindings.has(bindingName)) {
       continue
     }
 
@@ -363,7 +227,9 @@ type ImportClauseSpec =
   | { kind: 'namespace'; local: string }
   | { kind: 'named'; imported: string; local: string }
 
-function parseNamedSpecifiers(clause: string): Array<{ imported: string; local: string }> | null {
+export function parseNamedSpecifiers(
+  clause: string,
+): Array<{ imported: string; local: string }> | null {
   const trimmedClause = clause.trim()
 
   if (!trimmedClause.startsWith('{') || !trimmedClause.endsWith('}')) {
@@ -426,7 +292,7 @@ function splitImportClause(clause: string): [string, string | undefined] {
   return [clause.trim(), undefined]
 }
 
-function parseImportClause(clause: string): ImportClauseSpec[] | null {
+export function parseImportClause(clause: string): ImportClauseSpec[] | null {
   const [head, tail] = splitImportClause(clause)
   const specs: ImportClauseSpec[] = []
 
@@ -489,7 +355,7 @@ function parseImportClause(clause: string): ImportClauseSpec[] | null {
   return specs
 }
 
-function stringifyImportClause(specifiers: ImportClauseSpec[]): string {
+export function stringifyImportClause(specifiers: ImportClauseSpec[]): string {
   const defaultSpecifier = specifiers.find((specifier) => specifier.kind === 'default')
   const namespaceSpecifier = specifiers.find((specifier) => specifier.kind === 'namespace')
   const namedSpecifiers = specifiers.filter(
@@ -527,7 +393,7 @@ type ImportStatement = {
   end: number
 }
 
-function createPlaceholderComponentDeclarations(
+export function createPlaceholderComponentDeclarations(
   locals: string[],
   usageByBinding: Map<string, ComponentTemplateUsage>,
 ): string {
@@ -549,7 +415,7 @@ function createPlaceholderComponentDeclarations(
     .join('\n\n')
 }
 
-function ensureVueHImport(script: string): string {
+export function ensureVueHImport(script: string): string {
   if (/import\s*{[^}]*\bh\b[^}]*}\s*from\s*['"]vue['"]/.test(script)) {
     return script
   }
@@ -557,7 +423,7 @@ function ensureVueHImport(script: string): string {
   return `\nimport { h } from 'vue'${script}`
 }
 
-function collectTopLevelImportStatements(script: string): ImportStatement[] {
+export function collectTopLevelImportStatements(script: string): ImportStatement[] {
   const statements: ImportStatement[] = []
   const lines = script.split('\n')
   const lineOffsets: number[] = []
@@ -642,7 +508,7 @@ function collectTopLevelImportStatements(script: string): ImportStatement[] {
   return statements
 }
 
-function pruneTemplateOnlyImportsInScriptSetup(
+export function pruneTemplateOnlyImportsInScriptSetup(
   script: string,
   templateBindings: Set<string>,
   usageByBinding: Map<string, ComponentTemplateUsage>,
@@ -776,7 +642,7 @@ function pruneTemplateOnlyImportsInScriptSetup(
   return transformedScript
 }
 
-export function transformFastMountVueSource(code: string, keepBindings: Set<string>): string {
+export function transformSFC(code: string, keepBindings: Set<string>): string {
   const scriptMatcher = /<script\b([^>]*)>([\s\S]*?)<\/script>/g
   let scriptMatch: RegExpExecArray | null = null
 
@@ -814,50 +680,4 @@ export function transformFastMountVueSource(code: string, keepBindings: Set<stri
   const scriptContentEnd = scriptContentStart + originalScript.length
 
   return `${code.slice(0, scriptContentStart)}${transformedScript}${code.slice(scriptContentEnd)}`
-}
-
-export function shouldTransformVueFastMountId(id: string): boolean {
-  if (!id.includes('.vue') || !id.includes('?')) {
-    return false
-  }
-
-  const query = id.slice(id.indexOf('?') + 1)
-
-  if (!new RegExp(`(?:^|&)${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}(?:&|$)`).test(query)) {
-    return false
-  }
-
-  return !/(?:^|&)type=/.test(query)
-}
-
-export function getKeepBindingsFromId(id: string): Set<string> {
-  const queryStart = id.indexOf('?')
-
-  if (queryStart === -1) {
-    return new Set<string>()
-  }
-
-  const params = new URLSearchParams(id.slice(queryStart + 1))
-  const keep = params.get(FAST_MOUNT_KEEP_QUERY_KEY)
-
-  if (!keep) {
-    return new Set<string>()
-  }
-
-  return new Set(
-    keep
-      .split(',')
-      .map((binding) => binding.trim())
-      .filter(Boolean),
-  )
-}
-
-export const internalPluginHelpers = {
-  collectTopLevelImportStatements,
-  createPlaceholderComponentDeclarations,
-  ensureVueHImport,
-  parseImportClause,
-  parseNamedSpecifiers,
-  pruneTemplateOnlyImportsInScriptSetup,
-  stringifyImportClause,
 }

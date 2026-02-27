@@ -27,18 +27,18 @@
     "LICENSE"
   ],
   "type": "module",
-  "types": "dist/runtime.d.mts",
+  "types": "dist/index.d.mts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/runtime.d.mts",
-        "default": "./dist/runtime.mjs"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       }
     },
     "./plugin": {
       "import": {
-        "types": "./dist/plugin.d.mts",
-        "default": "./dist/plugin.mjs"
+        "types": "./dist/plugin/index.d.mts",
+        "default": "./dist/plugin/index.mjs"
       }
     }
   },

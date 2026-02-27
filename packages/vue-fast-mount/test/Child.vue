@@ -11,5 +11,9 @@ defineEmits<{
 </script>
 
 <template>
-  <div>Child</div>
+  <div>
+    Child
+    <slot />
+    <slot name="named" />
+  </div>
 </template>
