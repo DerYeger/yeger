@@ -18,6 +18,7 @@ export default defineConfig({
             },
             {
               exclude: ['test/plugin.test.ts'],
+              name: 'browser',
               silent: false,
             },
           ),
@@ -26,6 +27,7 @@ export default defineConfig({
           extends: true,
           test: {
             environment: 'node',
+            name: 'node',
             include: ['test/plugin.test.ts'],
           },
         },

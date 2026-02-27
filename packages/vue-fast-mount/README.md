@@ -35,7 +35,7 @@ pnpm install -D vue-fast-mount
 
 First, add the plugin to your Vite(st) config.
 
-```ts vitest.config.ts
+```ts
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'
 import { vueFastMount } from 'vue-fast-mount/plugin'
