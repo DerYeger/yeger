@@ -1,14 +1,14 @@
 import { describe, test, vi } from 'vitest'
 
 const mocks = vi.hoisted(() => ({
-  getKeepBindingsFromId: vi.fn(() => new Set<string>()),
+  getUnstubbedComponentFromId: vi.fn(() => new Set<string>()),
   rewriteFastMountCallsites: vi.fn((code: string) => code),
   shouldTransformSFC: vi.fn(() => false),
   transformSFC: vi.fn((code: string) => code),
 }))
 
-vi.mock('../../src/plugin/getKeepBindingsFromId', () => ({
-  getKeepBindingsFromId: mocks.getKeepBindingsFromId,
+vi.mock('../../src/plugin/getUnstubbedComponentFromId', () => ({
+  getUnstubbedComponentFromId: mocks.getUnstubbedComponentFromId,
 }))
 
 vi.mock('../../src/plugin/rewriteFastMountCallsites', () => ({
@@ -59,7 +59,7 @@ describe('plugin', () => {
     const plugin = vueFastMount()
 
     mocks.shouldTransformSFC.mockReturnValueOnce(true)
-    mocks.getKeepBindingsFromId.mockReturnValueOnce(new Set(['Child']))
+    mocks.getUnstubbedComponentFromId.mockReturnValueOnce(new Set(['Child']))
     mocks.transformSFC.mockReturnValueOnce('transformed-vue-code')
 
     const result = (plugin.transform as any)?.(
@@ -70,7 +70,7 @@ describe('plugin', () => {
     expect(mocks.shouldTransformSFC).toHaveBeenCalledWith(
       '/src/Parent.vue?__vfm=1&__vfm_keep=Child',
     )
-    expect(mocks.getKeepBindingsFromId).toHaveBeenCalledWith(
+    expect(mocks.getUnstubbedComponentFromId).toHaveBeenCalledWith(
       '/src/Parent.vue?__vfm=1&__vfm_keep=Child',
     )
     expect(mocks.transformSFC).toHaveBeenCalledWith('vue-input-code', new Set(['Child']))

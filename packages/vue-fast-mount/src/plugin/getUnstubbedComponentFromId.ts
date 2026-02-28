@@ -1,6 +1,6 @@
 import { FAST_MOUNT_KEEP_QUERY_KEY } from './shared'
 
-export function getKeepBindingsFromId(id: string): Set<string> {
+export function getUnstubbedComponentFromId(id: string): Set<string> {
   const queryStart = id.indexOf('?')
 
   if (queryStart === -1) {

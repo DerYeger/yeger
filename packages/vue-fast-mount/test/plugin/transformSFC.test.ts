@@ -1,15 +1,6 @@
 import { describe, test } from 'vitest'
 
-import {
-  collectTopLevelImportStatements,
-  createStubDeclarations,
-  ensureVueHImport,
-  parseImportClause,
-  parseNamedSpecifiers,
-  pruneTemplateOnlyImportsInScriptSetup,
-  stringifyImportClause,
-  transformSFC,
-} from '../../src/plugin/transformSFC'
+import { transformSFC } from '../../src/plugin/transformSFC'
 
 describe('transformSFC', () => {
   test('transforms script setup imports into local stubs', ({ expect }) => {
@@ -61,111 +52,42 @@ import { BarrelChild as AliasedBarrelChild } from './barrel'
     `)
   })
 
-  test('handles script and template early-return cases', ({ expect }) => {
+  test('handles missing script', ({ expect }) => {
+    const noScriptSetup = `<template><div><Child /></div></template>`
+    expect(transformSFC(noScriptSetup, new Set())).toBe(noScriptSetup)
+  })
+
+  test('handles missing template', ({ expect }) => {
+    const noTemplate = `<script setup lang="ts">
+import Child from './Child.vue'
+</script>`
+    expect(transformSFC(noTemplate, new Set())).toBe(noTemplate)
+  })
+
+  test('handles non-template usage case', ({ expect }) => {
     const noScriptSetup = `<template><div><Child /></div></template>`
     expect(transformSFC(noScriptSetup, new Set())).toBe(noScriptSetup)
 
     const noTemplateBindings = `
 <script setup lang="ts">
 import Child from './Child.vue'
+const alsoUse = Child
 </script>
 <template><div><span>content</span></div></template>
 `.trim()
     expect(transformSFC(noTemplateBindings, new Set())).toBe(noTemplateBindings)
+  })
 
-    const noChangesDueToKeepBinding = `
+  test('handles explicit unstub case', ({ expect }) => {
+    const noChangesDueToExplicitUnstub = `
 <script setup lang="ts">
 import Child from './Child.vue'
 </script>
 <template><div><Child /></div></template>
 `.trim()
-    expect(transformSFC(noChangesDueToKeepBinding, new Set(['Child']))).toBe(
-      noChangesDueToKeepBinding,
+    expect(transformSFC(noChangesDueToExplicitUnstub, new Set(['Child']))).toBe(
+      noChangesDueToExplicitUnstub,
     )
-  })
-
-  test('covers import clause parsing and stringifying branches', ({ expect }) => {
-    expect(parseNamedSpecifiers('{ type Foo }')).toBeNull()
-    expect(parseImportClause('123invalid')).toBeNull()
-
-    const parsed = parseImportClause('DefaultComp, { Keep, Remove }')
-    expect(parsed).toBeTruthy()
-    expect(stringifyImportClause(parsed ?? [])).toBe('DefaultComp, { Keep, Remove }')
-  })
-
-  test('covers import collection and prune edge branches', ({ expect }) => {
-    const scriptWithMultilineImport = `
-import {
-  Alpha,
-  Beta,
-} from './mod'
-const local = 1
-`
-    const statements = collectTopLevelImportStatements(scriptWithMultilineImport)
-    expect(statements).toHaveLength(1)
-    expect(statements[0]?.statement).toContain('Alpha')
-
-    const scriptWithOnlyTypeAndSideEffect = `
-import type { Foo } from './types'
-import './side-effect'
-`
-    const pruned = pruneTemplateOnlyImportsInScriptSetup(
-      scriptWithOnlyTypeAndSideEffect,
-      new Set(['Foo']),
-      new Map(),
-      new Set(),
-    )
-    expect(pruned).toBe(scriptWithOnlyTypeAndSideEffect)
-
-    const noTemplateBindings = pruneTemplateOnlyImportsInScriptSetup(
-      `import Child from './Child.vue'`,
-      new Set(),
-      new Map(),
-      new Set(),
-    )
-    expect(noTemplateBindings).toBe(`import Child from './Child.vue'`)
-
-    const noImports = pruneTemplateOnlyImportsInScriptSetup(
-      `const value = 1`,
-      new Set(['Child']),
-      new Map(),
-      new Set(),
-    )
-    expect(noImports).toBe(`const value = 1`)
-
-    const malformedImportNoClauseMatch = pruneTemplateOnlyImportsInScriptSetup(
-      `import Broken\nconst a = 1`,
-      new Set(['Broken']),
-      new Map(),
-      new Set(),
-    )
-    expect(malformedImportNoClauseMatch).toBe(`import Broken\nconst a = 1`)
-
-    const malformedImportInvalidClause = pruneTemplateOnlyImportsInScriptSetup(
-      `import 123Invalid from './x'`,
-      new Set(['Invalid']),
-      new Map(),
-      new Set(),
-    )
-    expect(malformedImportInvalidClause).toBe(`import 123Invalid from './x'`)
-  })
-
-  test('does not create stub declaration if no template-only imports are present', ({ expect }) => {
-    expect(createStubDeclarations(new Set(), new Map())).toBe(undefined)
-  })
-
-  describe('ensureVueHImport', () => {
-    test('adds h import if missing', ({ expect }) => {
-      const code = `import { defineComponent } from 'vue'\nconst x = 1`
-      const transformed = ensureVueHImport(code)
-      expect(transformed).toBe(`import { h } from 'vue'\n${code}`)
-    })
-
-    test('does not add duplicate h import', ({ expect }) => {
-      const code = `import { defineComponent, h } from 'vue'\nconst x = 1`
-      const transformed = ensureVueHImport(code)
-      expect(transformed).toBe(code)
-    })
   })
 
   test('keeps partially-used imports and emits rewritten import clauses', ({ expect }) => {

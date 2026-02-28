@@ -3,8 +3,12 @@ import { initialModelValue } from './allowedModule'
 import Child from './Child.vue'
 import { default as VElseIfChild } from './Child.vue'
 import { default as VElseChild } from './Child.vue'
-import { BarrelChild as AliasedBarrelChild } from './barrel'
-import MixedDefaultChild, { BarrelChild as MixedNamedChild } from './mixedBarrel'
+import {
+  /** some comment */ BarrelChild as /** inline comment */ AliasedBarrelChild,
+} from './barrel'
+import MixedDefaultChild /** another comment */, {
+  BarrelChild as MixedNamedChild,
+} from './mixedBarrel'
 import Sibling from './Sibling.vue'
 
 defineProps<{

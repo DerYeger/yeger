@@ -5,33 +5,32 @@ import { defineConfig } from 'vitest/config'
 import { vueFastMount } from 'vue-fast-mount/plugin'
 
 export default defineConfig({
-  plugins: [vue(), vueFastMount()],
-  test: defineTestConfig(
-    {},
-    {
-      projects: [
-        {
-          extends: true,
-          test: defineTestConfig(
-            {
-              browser: playwright(),
-            },
-            {
-              include: ['test/runtime/**/*.test.ts'],
-              name: 'runtime',
-              silent: false,
-            },
-          ),
-        },
-        {
-          extends: true,
-          test: {
+  test: {
+    projects: [
+      {
+        plugins: [vue(), vueFastMount()],
+        test: defineTestConfig(
+          {
+            browser: playwright(),
+          },
+          {
+            include: ['test/runtime/**/*.test.ts'],
+            name: 'runtime',
+            silent: false,
+          },
+        ),
+      },
+      {
+        extends: true,
+        test: defineTestConfig(
+          {},
+          {
             environment: 'node',
             name: 'plugin',
             include: ['test/plugin/**/*.test.ts'],
           },
-        },
-      ],
-    },
-  ),
+        ),
+      },
+    ],
+  },
 })

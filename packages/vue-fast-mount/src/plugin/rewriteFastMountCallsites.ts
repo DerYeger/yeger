@@ -40,10 +40,10 @@ export function rewriteFastMountCallsites(code: string): string {
         ) => {
           const aliasStart = offset + prefix.length
           const callExpression = getCallExpression(fullCode, aliasStart)
-          const keepBindings = callExpression
+          const unstubbedComponents = callExpression
             ? extractExplicitlyUnstubbedComponents(callExpression)
             : []
-          const rewrittenSpecifier = appendFastMountQuery(specifier, keepBindings)
+          const rewrittenSpecifier = appendFastMountQuery(specifier, unstubbedComponents)
 
           if (rewrittenSpecifier === specifier) {
             return match
@@ -103,7 +103,7 @@ function getCallExpression(code: string, callStart: number): string | null {
   return code.slice(callStart, closeParenthesis + 1)
 }
 
-function appendFastMountQuery(specifier: string, keepBindings: string[] = []): string {
+function appendFastMountQuery(specifier: string, unstubbedComponents: string[]): string {
   if (!specifier.includes('.vue')) {
     return specifier
   }
@@ -117,8 +117,8 @@ function appendFastMountQuery(specifier: string, keepBindings: string[] = []): s
   }
 
   const separator = base.includes('?') ? '&' : '?'
-  const keepQuery = keepBindings.length
-    ? `&${FAST_MOUNT_KEEP_QUERY_KEY}=${encodeURIComponent(keepBindings.join(','))}`
+  const keepQuery = unstubbedComponents.length
+    ? `&${FAST_MOUNT_KEEP_QUERY_KEY}=${encodeURIComponent(unstubbedComponents.join(','))}`
     : ''
 
   return `${base}${separator}${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}${keepQuery}${hash}`

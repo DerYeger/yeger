@@ -60,3 +60,7 @@ describe('MyComponent', () => {
 ```
 
 > Note: The wrapper's HTML will differ from `shallowMount` if you are using aliased imports.
+
+## Considerations
+
+`vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
