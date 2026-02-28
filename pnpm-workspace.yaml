@@ -7,7 +7,7 @@ catalog:
   '@antfu/ni': 28.2.0
   '@changesets/cli': 2.29.8
   '@changesets/config': 3.1.2
-  '@codemirror/language': 6.12.1
+  '@codemirror/language': 6.12.2
   '@codemirror/legacy-modes': 6.5.2
   '@commitlint/cli': 20.4.2
   '@commitlint/config-conventional': 20.4.2
@@ -17,7 +17,7 @@ catalog:
   '@nuxtjs/robots': 5.7.0
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.58.2
-  '@tailwindcss/postcss': 4.2.0
+  '@tailwindcss/postcss': 4.2.1
   '@tanstack/react-query': 5.90.21
   '@tanstack/vue-query': 5.92.9
   '@testing-library/react': 16.3.2
@@ -32,12 +32,12 @@ catalog:
   '@types/d3-selection': 3.0.11
   '@types/d3-zoom': 3.0.8
   '@types/leaflet': 1.9.21
-  '@types/node': 24.10.13
+  '@types/node': 24.10.14
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
-  '@unocss/nuxt': 66.6.0
-  '@unocss/reset': 66.6.0
+  '@unocss/nuxt': 66.6.2
+  '@unocss/reset': 66.6.2
   '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.4
   '@vitest/browser-playwright': 4.0.18
@@ -65,16 +65,16 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 16.2.7
   localforage: 1.10.0
-  lucide-react: 0.574.0
+  lucide-react: 0.575.0
   next: 16.1.6
   next-seo: 7.2.0
   nuqs: 2.8.8
   nuxt: 4.3.1
   ohm-js: 17.5.0
   open: 11.0.0
-  oxfmt: 0.33.0
-  oxlint: 1.49.0
-  oxlint-tsgolint: 0.14.2
+  oxfmt: 0.35.0
+  oxlint: 1.50.0
+  oxlint-tsgolint: 0.15.0
   picocolors: 1.1.1
   postcss: 8.5.6
   publint: 0.3.17
@@ -89,7 +89,7 @@ catalog:
   superjson: 2.2.6
   syncpack: 14.0.0
   tailwind-merge: 3.5.0
-  tailwindcss: 4.2.0
+  tailwindcss: 4.2.1
   taze: 19.9.2
   tsdown: 0.20.3
   tsx: 4.21.0
@@ -101,10 +101,10 @@ catalog:
   vite-plugin-dts: 4.5.4
   vitepress: 1.6.4
   vitest: 4.0.18
-  vue: 3.5.28
+  vue: 3.5.29
   vue-codemirror: 6.1.1
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.2.4
+  vue-tsc: 3.2.5
   yaml: 2.8.2
   zod: 4.3.6
 
