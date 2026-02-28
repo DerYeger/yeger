@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.0.7
+
+### Patch Changes
+
+- 688b579: improve prop and emit inference
+
 ## 0.0.6
 
 ### Patch Changes
