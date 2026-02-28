@@ -1,5 +1,12 @@
 # vue-fast-mount
 
+## 0.0.5
+
+### Patch Changes
+
+- 928d876: support multi-line import collection
+- 928d876: fix prop and emit inference
+
 ## 0.0.4
 
 ### Patch Changes
