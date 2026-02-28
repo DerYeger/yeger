@@ -41,7 +41,7 @@
 ## Installation
 
 ```bash
-pnpm install d3-graph-controller
+pnpm add d3-graph-controller
 ```
 
 ## Usage

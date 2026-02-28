@@ -5,7 +5,7 @@
 ## Installation
 
 ```bash
-pnpm install @yeger/fol
+pnpm add @yeger/fol
 ```
 
 ## License

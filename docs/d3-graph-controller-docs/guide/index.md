@@ -20,7 +20,7 @@ Just do not forget to [integrate the graph in the framework's lifecycle](/api/#s
 ## Installation
 
 ```bash
-pnpm install d3-graph-controller
+pnpm add d3-graph-controller
 ```
 
 ## Usage

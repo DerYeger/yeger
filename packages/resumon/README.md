@@ -22,7 +22,7 @@
 ## Installation
 
 ```bash
-pnpm install resumon
+pnpm add resumon
 ```
 
 ## Development

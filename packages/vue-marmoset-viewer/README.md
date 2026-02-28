@@ -40,7 +40,7 @@
 > v1.x.x supports Vue 2, while v2.0.0 and onward target Vue 3.
 
 ```bash
-pnpm install vue-marmoset-viewer
+pnpm add vue-marmoset-viewer
 ```
 
 ## Usage

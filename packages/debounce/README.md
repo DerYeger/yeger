@@ -28,7 +28,7 @@
 ## Installation
 
 ```bash
-pnpm install @yeger/debounce
+pnpm add @yeger/debounce
 ```
 
 ## Usage

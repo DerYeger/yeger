@@ -40,7 +40,7 @@
 ## Installation
 
 ```bash
-pnpm install @yeger/vue-masonry-wall
+pnpm add @yeger/vue-masonry-wall
 ```
 
 ## Usage

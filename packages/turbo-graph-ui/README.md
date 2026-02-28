@@ -9,7 +9,7 @@
 ## Installation
 
 ```bash
-pnpm install -D @yeger/turbo-graph
+pnpm add -D @yeger/turbo-graph
 ```
 
 ## Usage

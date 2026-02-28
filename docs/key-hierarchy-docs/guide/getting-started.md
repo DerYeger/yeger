@@ -15,7 +15,7 @@ yarn add key-hierarchy
 ```
 
 ```bash [npm]
-npm install key-hierarchy
+npm add key-hierarchy
 ```
 
 :::

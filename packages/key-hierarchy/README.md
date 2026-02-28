@@ -36,7 +36,7 @@
 ## Installation
 
 ```bash
-pnpm install key-hierarchy
+pnpm add key-hierarchy
 ```
 
 ## Usage

@@ -45,7 +45,7 @@
 ## Installation
 
 ```bash
-pnpm install vecti
+pnpm add vecti
 ```
 
 ## Usage

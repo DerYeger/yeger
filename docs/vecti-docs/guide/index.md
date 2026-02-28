@@ -8,8 +8,7 @@ contributors: false
 ## Installation
 
 ```bash
-# with yarn
-pnpm install vecti
+pnpm add vecti
 ```
 
 ## Usage

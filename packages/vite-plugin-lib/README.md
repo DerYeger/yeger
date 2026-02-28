@@ -13,7 +13,7 @@
 ## Installation
 
 ```bash
-pnpm install -D vite-plugin-lib
+pnpm add -D vite-plugin-lib
 ```
 
 ## Usage

@@ -28,7 +28,7 @@ This enables much faster tests, even for complex Vue applications with large imp
 ## Installation
 
 ```bash
-pnpm install -D vue-fast-mount
+pnpm add -D vue-fast-mount
 ```
 
 ## Usage
