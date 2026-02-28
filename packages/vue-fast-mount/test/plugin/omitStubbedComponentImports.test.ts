@@ -118,7 +118,7 @@ const model = defineModel<string>({ default: initialModelValue })
 
       const MixedNamedChild = {
         name: 'MixedNamedChild',
-        props: ['child-prop'],
+        props: ['childProp'],
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
           return h('mixed-named-child-stub', { ...normalizedAttrs, ...this.$props })

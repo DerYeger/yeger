@@ -18,7 +18,21 @@ describe('getComponentsFromTemplate', () => {
         <my-form v-model:age="age" @submit="submitForm" />
         <MyComponentToKeep />
         <component :is="dynamicComponent" />
-        <ComponentWithRef ref="myRef" />
+        <ComponentWithRef
+          ref="myRef"
+          :rules="[
+            (val: string) => val.length > 0 || 'Value is required',
+            (val: string) => val.length <= 10 || 'Value must be less than 10 characters',
+          ]"
+          :items="[
+            1,
+            2
+          ]"
+          :is-initialized="true"
+          some-prop="test"
+          @long-press="handleLongPress"
+        />
+        ></ComponentWithRef>
       </template>
       `
 
@@ -34,9 +48,15 @@ describe('getComponentsFromTemplate', () => {
           },
         ],
         ['Sibling', { props: new Set(['id', 'name']), emits: new Set(['close']) }],
-        ['DynamicChild', { props: new Set(['is-active', 'label']), emits: new Set(['click']) }],
+        ['DynamicChild', { props: new Set(['isActive', 'label']), emits: new Set(['click']) }],
         ['my-form', { props: new Set(['age']), emits: new Set(['submit', 'update:age']) }],
-        ['ComponentWithRef', { props: new Set(), emits: new Set() }],
+        [
+          'ComponentWithRef',
+          {
+            props: new Set(['items', 'isInitialized', 'rules', 'someProp']),
+            emits: new Set(['longPress']),
+          },
+        ],
       ]),
     )
   })

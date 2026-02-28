@@ -53,7 +53,7 @@ export function getComponentsFromTemplate(
 
   const templateContent = code.slice(startIndex, templateEndIndex)
 
-  const openingTagMatcher = /<([A-Za-z][\w-]*)\b([^>]*)>/g
+  const openingTagMatcher = /<([A-Za-z][\w-]*)\b((?:"[^"]*"|'[^']*'|`[^`]*`|[^"'`>])*)>/g
 
   const components = new Map<string, ComponentData>()
 
@@ -132,22 +132,22 @@ function collectComponentData(attributes: string): ComponentData {
         emits.add(`update:${modelName}`)
       } else if (key.startsWith('@') || key.startsWith('v-on:')) {
         const rawEventName = key.startsWith('@') ? key.slice(1) : key.slice('v-on:'.length)
-        const eventName = rawEventName.split('.')[0] ?? ''
+        const eventName = toCamelCase(rawEventName.split('.')[0] ?? '')
         if (eventName) {
           emits.add(eventName)
         }
       } else if (key.startsWith(':')) {
         const propName = key.slice(1).split('.')[0] ?? ''
         if (propName && !isIgnoredProp(propName)) {
-          props.add(propName)
+          props.add(toCamelCase(propName))
         }
       } else if (key.startsWith('v-bind:')) {
         const propName = key.slice('v-bind:'.length).split('.')[0] ?? ''
         if (propName && !isIgnoredProp(propName)) {
-          props.add(propName)
+          props.add(toCamelCase(propName))
         }
       } else if (!key.startsWith('v-') && !isIgnoredProp(key)) {
-        props.add(key)
+        props.add(toCamelCase(key))
       }
     },
   )

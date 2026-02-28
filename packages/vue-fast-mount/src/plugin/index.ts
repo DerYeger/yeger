@@ -1,4 +1,4 @@
-import { normalizePath, type Plugin } from 'vite'
+import type { Plugin } from 'vite'
 
 import { getUnstubbedComponentFromId } from './getUnstubbedComponentFromId'
 import { rewriteFastMountCallsites } from './rewriteFastMountCallsites'
@@ -10,7 +10,7 @@ export function vueFastMount(): Plugin {
     name: 'vue-fast-mount',
     enforce: 'pre',
     transform(code, id) {
-      if (normalizePath(id).includes('/node_modules/')) {
+      if (isNodeModulesPath(id)) {
         return null
       }
 
@@ -29,4 +29,8 @@ export function vueFastMount(): Plugin {
       return transformedCode
     },
   }
+}
+
+function isNodeModulesPath(id: string): boolean {
+  return id.includes('/node_modules/') || id.includes('\\node_modules\\')
 }
