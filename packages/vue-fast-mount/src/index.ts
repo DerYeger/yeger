@@ -6,6 +6,8 @@ type ImportedComponent<TImport> = TImport extends { default: infer TComponent }
   ? TComponent
   : TImport
 
+type MountOptions<TImport> = Parameters<typeof shallowMount<ImportedComponent<TImport>>>[1]
+
 type MountedInstance<TImport> =
   ImportedComponent<TImport> extends abstract new (...args: any[]) => infer TInstance
     ? TInstance
@@ -13,7 +15,7 @@ type MountedInstance<TImport> =
 
 export async function fastMount<TImport>(
   componentImport: Promise<TImport>,
-  options?: Parameters<typeof shallowMount>[1],
+  options?: MountOptions<TImport>,
 ): Promise<VueWrapper<MountedInstance<TImport>>> {
   const importedComponent = await componentImport
   const component =
@@ -23,6 +25,6 @@ export async function fastMount<TImport>(
 
   return shallowMount(
     component as Parameters<typeof shallowMount>[0],
-    options as Parameters<typeof shallowMount>[1],
+    options as MountOptions<TImport>,
   ) as VueWrapper<MountedInstance<TImport>>
 }
