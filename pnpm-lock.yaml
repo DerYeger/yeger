@@ -144,9 +144,6 @@ catalogs:
     '@vue/server-renderer':
       specifier: 3.5.29
       version: 3.5.29
-    '@vue/shared':
-      specifier: 3.5.29
-      version: 3.5.29
     '@vue/test-utils':
       specifier: 2.4.6
       version: 2.4.6
@@ -1258,9 +1255,6 @@ importers:
       '@vue/server-renderer':
         specifier: 'catalog:'
         version: 3.5.29(vue@3.5.29(typescript@5.9.3))
-      '@vue/shared':
-        specifier: 'catalog:'
-        version: 3.5.29
       '@yeger/streams':
         specifier: workspace:*
         version: link:../streams

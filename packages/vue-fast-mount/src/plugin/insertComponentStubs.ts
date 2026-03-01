@@ -1,6 +1,4 @@
 import * as t from '@babel/types'
-// oxlint-disable-next-line vue/prefer-import-from-vue
-import { isKnownHtmlAttr } from '@vue/shared'
 import * as s from '@yeger/streams/sync'
 
 import { type ComponentMetadata, type Components, type ParseResult } from './utils'
@@ -64,5 +62,5 @@ function createEmitsDefinition(emits: ComponentMetadata['emits']): t.ObjectPrope
 }
 
 function isNonVueAttribute(propName: string): boolean {
-  return isKnownHtmlAttr(propName) || propName.startsWith('data-') || propName.startsWith('aria-')
+  return propName.startsWith('data-') || propName.startsWith('aria-')
 }

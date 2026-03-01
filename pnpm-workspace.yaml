@@ -50,7 +50,6 @@ catalog:
   '@vitest/ui': 4.0.18
   '@vue/compiler-dom': 3.5.29
   '@vue/server-renderer': 3.5.29
-  '@vue/shared': 3.5.29
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1
