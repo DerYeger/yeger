@@ -1,6 +1,6 @@
 {
   "name": "vue-fast-mount",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Vite plugin for faster mounting of Vue components in Vitest.",
   "keywords": [
     "library",
