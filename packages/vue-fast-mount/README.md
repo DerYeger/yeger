@@ -21,9 +21,6 @@ While `shallowMount` already skips mounting child components, it still imports t
 With `fastMount`, SFCs are transformed to omit static imports of stubbed components.
 This enables much faster tests, even for complex Vue applications with large import graphs.
 
-> Warning: While tests have been hand-crafted to cover expected usage scenarios, the implementation is mostly AI-generated.
-> Use this package with caution.
-
 > Note: This package only supports `<script setup>` components.
 
 ## Installation
