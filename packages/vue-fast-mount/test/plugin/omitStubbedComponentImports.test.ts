@@ -88,7 +88,18 @@ const model = defineModel<string>({ default: initialModelValue })
         name: 'Child',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
@@ -96,7 +107,18 @@ const model = defineModel<string>({ default: initialModelValue })
         name: 'VElseIfChild',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('velse-if-child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('velse-if-child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
@@ -104,7 +126,18 @@ const model = defineModel<string>({ default: initialModelValue })
         name: 'VElseChild',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('velse-child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('velse-child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
@@ -112,26 +145,63 @@ const model = defineModel<string>({ default: initialModelValue })
         name: 'AliasedBarrelChild',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
       const MixedNamedChild = {
         name: 'MixedNamedChild',
-        props: ['childProp'],
+        props: {
+          'childProp': null
+        },
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('mixed-named-child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('mixed-named-child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
       const Sibling = {
         name: 'Sibling',
-        props: ['modelValue'],
+        props: {
+          'modelValue': null
+        },
         emits: ['update:modelValue'],
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('sibling-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('sibling-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
       "

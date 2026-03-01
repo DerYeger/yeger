@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { resolve } from 'node:path'
+
 import { describe, test } from 'vitest'
 
 import { transformSFC } from '../../src/plugin/transformSFC'
@@ -30,7 +33,18 @@ import { BarrelChild as AliasedBarrelChild } from './barrel'
         name: 'Child',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
 
@@ -38,7 +52,18 @@ import { BarrelChild as AliasedBarrelChild } from './barrel'
         name: 'AliasedBarrelChild',
         render() {
           const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...this.$props })
+
+          const booleanShorthandProps = new Set([])
+          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
+          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
+            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
+            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
+            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
+            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
+            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
+            return [key, value === '' && isShorthandBoolean ? true : value]
+          }))
+          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...normalizedProps })
         }
       }
       </script>
@@ -159,5 +184,50 @@ import { default as VElseChild } from './Child.vue'
     expect(transformed).toContain("name: 'Child'")
     expect(transformed).toContain("name: 'VElseIfChild'")
     expect(transformed).toContain("name: 'VElseChild'")
+  })
+
+  test('keeps boolean shorthand metadata for generated stubs', ({ expect }) => {
+    const code = `
+<script setup lang="ts">
+import { BarrelChild as AliasedBarrelChild } from './barrel'
+</script>
+<template>
+  <AliasedBarrelChild is-active />
+</template>
+`.trim()
+
+    const transformed = transformSFC(code, new Set<string>())
+
+    expect(transformed).toContain("'isActive': Boolean")
+    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
+  })
+
+  test('keeps boolean shorthand metadata for commented aliased imports', ({ expect }) => {
+    const code = `
+<script setup lang="ts">
+import {
+  /** some comment */ BarrelChild as /** inline comment */ AliasedBarrelChild,
+} from './barrel'
+</script>
+<template>
+  <AliasedBarrelChild data-testid="aliased-barrel-child" is-active />
+</template>
+`.trim()
+
+    const transformed = transformSFC(code, new Set<string>())
+
+    expect(transformed).toContain("name: 'AliasedBarrelChild'")
+    expect(transformed).toContain("'isActive': Boolean")
+    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
+  })
+
+  test('keeps boolean shorthand metadata for the Parent runtime fixture', ({ expect }) => {
+    const code = readFileSync(resolve(__dirname, '../runtime/Parent.vue'), 'utf8')
+
+    const transformed = transformSFC(code, new Set<string>())
+
+    expect(transformed).toContain("name: 'AliasedBarrelChild'")
+    expect(transformed).toContain("'isActive': Boolean")
+    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
   })
 })

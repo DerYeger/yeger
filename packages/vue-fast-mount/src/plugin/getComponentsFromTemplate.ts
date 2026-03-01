@@ -5,6 +5,7 @@ import { toCamelCase } from './shared'
 export type ComponentData = {
   props: Set<string>
   emits: Set<string>
+  booleanShorthandProps: Set<string>
 }
 
 export type Components = ReadonlyMap<string, ComponentData>
@@ -84,6 +85,7 @@ export function getComponentsFromTemplate(
       const existingUsage = components.get(componentName) ?? {
         props: new Set<string>(),
         emits: new Set<string>(),
+        booleanShorthandProps: new Set<string>(),
       }
 
       const extractedUsage = collectComponentData(attributes)
@@ -92,6 +94,9 @@ export function getComponentsFromTemplate(
       }
       for (const emittedEvent of extractedUsage.emits) {
         existingUsage.emits.add(emittedEvent)
+      }
+      for (const booleanShorthandProp of extractedUsage.booleanShorthandProps) {
+        existingUsage.booleanShorthandProps.add(booleanShorthandProp)
       }
 
       components.set(componentName, existingUsage)
@@ -117,14 +122,15 @@ function getComponentName(tagName: string): string | undefined {
 function collectComponentData(attributes: string): ComponentData {
   const props = new Set<string>()
   const emits = new Set<string>()
+  const booleanShorthandProps = new Set<string>()
 
   s.forEach(
     s.pipe(
       extractAttributeTokens(attributes),
-      s.map((token) => getAttributeKey(token)),
-      s.filterTruthy(),
+      s.map((token) => parseAttributeToken(token)),
+      s.filterDefined(),
     ),
-    (key) => {
+    ({ key, hasValue }) => {
       if (key.startsWith('v-model')) {
         const argument = key.slice('v-model'.length).split('.')[0] ?? ''
         const modelName = argument.startsWith(':') ? toCamelCase(argument.slice(1)) : 'modelValue'
@@ -147,12 +153,16 @@ function collectComponentData(attributes: string): ComponentData {
           props.add(toCamelCase(propName))
         }
       } else if (!key.startsWith('v-') && !isIgnoredProp(key)) {
-        props.add(toCamelCase(key))
+        const propName = toCamelCase(key)
+        props.add(propName)
+        if (!hasValue) {
+          booleanShorthandProps.add(propName)
+        }
       }
     },
   )
 
-  return { props, emits }
+  return { props, emits, booleanShorthandProps }
 }
 
 function extractAttributeTokens(attributes: string): string[] {
@@ -193,7 +203,7 @@ function extractAttributeTokens(attributes: string): string[] {
   return tokens
 }
 
-function getAttributeKey(token: string): string | undefined {
+function parseAttributeToken(token: string): { key: string; hasValue: boolean } | undefined {
   const trimmedToken = token.trim()
   if (!trimmedToken || trimmedToken === '/' || trimmedToken === '/>') {
     return undefined
@@ -205,7 +215,10 @@ function getAttributeKey(token: string): string | undefined {
     return undefined
   }
 
-  return key
+  return {
+    key,
+    hasValue: equalsIndex !== -1,
+  }
 }
 
 const SPECIAL_ATTRIBUTES = new Set(['class', 'style', 'slot', 'is', 'ref', 'key'])

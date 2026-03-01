@@ -1,6 +1,7 @@
 # vue-fast-mount
 
 > Vite plugin for faster mounting of Vue components in Vitest.
+> Read more in [this blog post](https://janmueller.dev/blog/vue-fast-mount/).
 
 <p align="center">
   <a href="https://github.com/DerYeger/yeger/actions/workflows/ci.yml">

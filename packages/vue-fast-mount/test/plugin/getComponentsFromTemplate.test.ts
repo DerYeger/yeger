@@ -45,16 +45,39 @@ describe('getComponentsFromTemplate', () => {
           {
             props: new Set(['modelValue', 'prop']),
             emits: new Set(['event', 'update:modelValue']),
+            booleanShorthandProps: new Set(),
           },
         ],
-        ['Sibling', { props: new Set(['id', 'name']), emits: new Set(['close']) }],
-        ['DynamicChild', { props: new Set(['isActive', 'label']), emits: new Set(['click']) }],
-        ['my-form', { props: new Set(['age']), emits: new Set(['submit', 'update:age']) }],
+        [
+          'Sibling',
+          {
+            props: new Set(['id', 'name']),
+            emits: new Set(['close']),
+            booleanShorthandProps: new Set(),
+          },
+        ],
+        [
+          'DynamicChild',
+          {
+            props: new Set(['isActive', 'label']),
+            emits: new Set(['click']),
+            booleanShorthandProps: new Set(['isActive']),
+          },
+        ],
+        [
+          'my-form',
+          {
+            props: new Set(['age']),
+            emits: new Set(['submit', 'update:age']),
+            booleanShorthandProps: new Set(),
+          },
+        ],
         [
           'ComponentWithRef',
           {
             props: new Set(['items', 'isInitialized', 'rules', 'someProp']),
             emits: new Set(['longPress']),
+            booleanShorthandProps: new Set(),
           },
         ],
       ]),

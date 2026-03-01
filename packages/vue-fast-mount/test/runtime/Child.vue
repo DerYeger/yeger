@@ -3,6 +3,7 @@ import './forbiddenModule'
 
 defineProps<{
   childProp?: string
+  isActive?: boolean
 }>()
 
 defineEmits<{

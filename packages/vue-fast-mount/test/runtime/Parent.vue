@@ -28,7 +28,7 @@ const model = defineModel<string>({ default: initialModelValue })
     <Child>
       <template #named> named-slot </template>
     </Child>
-    <AliasedBarrelChild data-testid="aliased-barrel-child" />
+    <AliasedBarrelChild data-testid="aliased-barrel-child" is-active />
     <MixedDefaultChild @child-event="model = $event" />
     <MixedNamedChild :child-prop="model" />
     <Sibling v-model="model" />

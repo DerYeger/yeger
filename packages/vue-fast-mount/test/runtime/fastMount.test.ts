@@ -126,6 +126,14 @@ describe('fastMount', () => {
       const wrapper = await fastMount(import('./Parent.vue'))
       expect(wrapper.text()).toContain('default-slot')
     })
+
+    test('maintains boolean prop shorthands', async ({ expect }) => {
+      const wrapper = await fastMount(import('./Parent.vue'))
+
+      const aliasedBarrelChild = wrapper.findComponent({ name: 'AliasedBarrelChild' })
+      expect(aliasedBarrelChild.exists()).toBe(true)
+      expect(aliasedBarrelChild.props('isActive')).toBe(true)
+    })
   })
 
   test('should throw with regular mount after fastMount is used', async ({ expect }) => {
