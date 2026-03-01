@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.1.1
+
+### Patch Changes
+
+- 8256642: do not omit possible prop candidates
+
 ## 0.1.0
 
 ### Minor Changes
