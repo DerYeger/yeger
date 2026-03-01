@@ -64,4 +64,5 @@ describe('MyComponent', () => {
 
 ## Considerations
 
-`vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
+- `vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
+- If you're using a component's import as a value, you **must** configure it to be unstubbed.

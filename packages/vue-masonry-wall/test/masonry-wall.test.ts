@@ -23,6 +23,7 @@ describe('MasonryWall', () => {
   enableAutoUnmount(afterEach)
 
   beforeAll(() => {
+    // oxlint-disable-next-line no-console
     console.warn = function (message) {
       throw message
     }

@@ -31,6 +31,6 @@ const model = defineModel<string>({ default: initialModelValue })
     <AliasedBarrelChild data-testid="aliased-barrel-child" is-active />
     <MixedDefaultChild @child-event="model = $event" />
     <MixedNamedChild :child-prop="model" />
-    <Sibling v-model="model" />
+    <Sibling v-model="model" v-model:named-model="model" />
   </div>
 </template>

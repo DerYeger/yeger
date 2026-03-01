@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": ["../../.oxlintrc.json"],
+  "overrides": [
+    {
+      "files": ["test/test-utils.ts"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

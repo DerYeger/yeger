@@ -1,8 +1,6 @@
 import type { Plugin } from 'vite'
 
-import { getUnstubbedComponentFromId } from './getUnstubbedComponentFromId'
-import { rewriteFastMountCallsites } from './rewriteFastMountCallsites'
-import { shouldTransformSFC } from './shouldTransformSFC'
+import { transformFastMountCalls } from './transformFastMountCalls'
 import { transformSFC } from './transformSFC'
 
 export function vueFastMount(): Plugin {
@@ -14,19 +12,14 @@ export function vueFastMount(): Plugin {
         return null
       }
 
-      if (shouldTransformSFC(id)) {
-        const transformedCode = transformSFC(code, getUnstubbedComponentFromId(id))
-        if (transformedCode === code) {
-          return null
-        }
-        return transformedCode
+      if (id.includes('.vue')) {
+        return transformSFC(code, id)
       }
 
-      const transformedCode = rewriteFastMountCallsites(code)
-      if (transformedCode === code) {
+      if (!code.includes('vue-fast-mount') || !code.includes('.vue') || !code.includes('import(')) {
         return null
       }
-      return transformedCode
+      return transformFastMountCalls(code)
     },
   }
 }

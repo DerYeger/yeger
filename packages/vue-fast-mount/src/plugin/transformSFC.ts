@@ -1,39 +1,32 @@
-import * as s from '@yeger/streams/sync'
+import type { TransformResult } from 'vite'
+import { parse } from 'vue/compiler-sfc'
 
-import { getComponentsFromTemplate } from './getComponentsFromTemplate'
-import { omitStubbedComponentImports } from './omitStubbedComponentImports'
+import { analyzeTemplate } from './analyzeTemplate'
+import { getUnstubbedComponents } from './getUnstubbedComponent'
+import { shouldTransformSFC } from './shouldTransformSFC'
+import { transformScriptSetup } from './transformScriptSetup'
 
-export function transformSFC(code: string, unstubbedComponents: Set<string>): string {
-  const scriptMatcher = /<script\b([^>]*)>([\s\S]*?)<\/script>/g
-  const scriptMatch = s.last(
-    s.pipe(
-      code.matchAll(scriptMatcher),
-      s.filter((currentMatch) => currentMatch[1]?.includes('setup') ?? false),
-    ),
-  )
-  if (!scriptMatch) {
-    return code
+export function transformSFC(code: string, id: string): TransformResult | null {
+  const queryIndex = id.indexOf('?')
+  if (queryIndex === -1) {
+    return null
+  }
+  const params = new URLSearchParams(id.slice(queryIndex + 1))
+  if (!shouldTransformSFC(params)) {
+    return null
   }
 
-  const originalScript = scriptMatch[2]
-  if (!originalScript) {
-    return code
+  const { descriptor } = parse(code)
+  if (!descriptor.template || !descriptor.scriptSetup) {
+    return null
   }
 
-  const components = getComponentsFromTemplate(code, unstubbedComponents)
-  if (!components.size) {
-    return code
+  const unstubbedComponents = getUnstubbedComponents(params)
+  const components = analyzeTemplate(id, descriptor.template, unstubbedComponents)
+
+  if (components.size === 0) {
+    return null
   }
 
-  const transformedScript = omitStubbedComponentImports(originalScript, components)
-  if (transformedScript === originalScript) {
-    return code
-  }
-
-  const fullMatch = scriptMatch[0]
-  const scriptIndex = scriptMatch.index ?? 0
-  const scriptContentStart = scriptIndex + fullMatch.indexOf(originalScript)
-  const scriptContentEnd = scriptContentStart + originalScript.length
-
-  return `${code.slice(0, scriptContentStart)}${transformedScript}${code.slice(scriptContentEnd)}`
+  return transformScriptSetup(code, descriptor.scriptSetup, components)
 }

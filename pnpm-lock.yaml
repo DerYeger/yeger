@@ -9,6 +9,15 @@ catalogs:
     '@antfu/ni':
       specifier: 28.2.0
       version: 28.2.0
+    '@babel/generator':
+      specifier: 7.29.1
+      version: 7.29.1
+    '@babel/traverse':
+      specifier: 7.29.0
+      version: 7.29.0
+    '@babel/types':
+      specifier: 7.29.0
+      version: 7.29.0
     '@changesets/cli':
       specifier: 2.29.8
       version: 2.29.8
@@ -69,6 +78,12 @@ catalogs:
     '@trpc/server':
       specifier: 11.10.0
       version: 11.10.0
+    '@types/babel__generator':
+      specifier: 7.27.0
+      version: 7.27.0
+    '@types/babel__traverse':
+      specifier: 7.28.0
+      version: 7.28.0
     '@types/d3-drag':
       specifier: 3.0.7
       version: 3.0.7
@@ -123,6 +138,15 @@ catalogs:
     '@vitest/ui':
       specifier: 4.0.18
       version: 4.0.18
+    '@vue/compiler-dom':
+      specifier: 3.5.29
+      version: 3.5.29
+    '@vue/server-renderer':
+      specifier: 3.5.29
+      version: 3.5.29
+    '@vue/shared':
+      specifier: 3.5.29
+      version: 3.5.29
     '@vue/test-utils':
       specifier: 2.4.6
       version: 2.4.6
@@ -1219,10 +1243,34 @@ importers:
 
   packages/vue-fast-mount:
     dependencies:
+      '@babel/generator':
+        specifier: 'catalog:'
+        version: 7.29.1
+      '@babel/traverse':
+        specifier: 'catalog:'
+        version: 7.29.0
+      '@babel/types':
+        specifier: 'catalog:'
+        version: 7.29.0
+      '@vue/compiler-dom':
+        specifier: 'catalog:'
+        version: 3.5.29
+      '@vue/server-renderer':
+        specifier: 'catalog:'
+        version: 3.5.29(vue@3.5.29(typescript@5.9.3))
+      '@vue/shared':
+        specifier: 'catalog:'
+        version: 3.5.29
       '@yeger/streams':
         specifier: workspace:*
         version: link:../streams
     devDependencies:
+      '@types/babel__generator':
+        specifier: 'catalog:'
+        version: 7.27.0
+      '@types/babel__traverse':
+        specifier: 'catalog:'
+        version: 7.28.0
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 6.0.4(vite@7.3.1(@types/node@25.3.0)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.29(typescript@5.9.3))
@@ -4370,6 +4418,12 @@ packages:
 
   '@types/aria-query@5.0.4':
     resolution: {integrity: sha512-rfT93uj5s0PRL7EzccGMs3brplhcrghnDoV26NqKhCAS1hVo+WdNsPvE/yb6ilfr5hi2MEk6d5EWJTKdxg8jVw==}
+
+  '@types/babel__generator@7.27.0':
+    resolution: {integrity: sha512-ufFd2Xi92OAVPYsy+P4n7/U7e68fex0+Ee8gSG9KX7eo084CWiQ4sdxktvdl0bOPupXtVJPY19zk6EwWqUQ8lg==}
+
+  '@types/babel__traverse@7.28.0':
+    resolution: {integrity: sha512-8PvcXf70gTDZBgt9ptxJ8elBeBjcLOAcOtoO/mPJjtji1+CdGbHgm77om1GrsPxsiE+uXIpNSK64UYaIwQXd4Q==}
 
   '@types/chai@5.2.3':
     resolution: {integrity: sha512-Mw558oeA9fFbv65/y4mHtXDs9bPnFMZAL/jxdPFUpOHHIXX91mcgEHbS5Lahr+pwZFR8A7GQleRWeI6cGFC2UA==}
@@ -11375,7 +11429,7 @@ snapshots:
       '@nuxt/devalue': 2.0.2
       '@nuxt/kit': 4.3.1(magicast@0.5.2)
       '@unhead/vue': 2.1.4(vue@3.5.29(typescript@5.9.3))
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
       consola: 3.4.2
       defu: 6.1.4
       destr: 2.0.5
@@ -11437,7 +11491,7 @@ snapshots:
 
   '@nuxt/schema@4.3.1':
     dependencies:
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
       defu: 6.1.4
       pathe: 2.0.3
       pkg-types: 2.3.0
@@ -12519,6 +12573,14 @@ snapshots:
 
   '@types/aria-query@5.0.4': {}
 
+  '@types/babel__generator@7.27.0':
+    dependencies:
+      '@babel/types': 7.29.0
+
+  '@types/babel__traverse@7.28.0':
+    dependencies:
+      '@babel/types': 7.29.0
+
   '@types/chai@5.2.3':
     dependencies:
       '@types/deep-eql': 4.0.2
@@ -13122,7 +13184,7 @@ snapshots:
       '@babel/types': 7.29.0
       '@vue/babel-helper-vue-transform-on': 2.0.1
       '@vue/babel-plugin-resolve-type': 2.0.1(@babel/core@7.29.0)
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
     optionalDependencies:
       '@babel/core': 7.29.0
     transitivePeerDependencies:
@@ -13253,9 +13315,9 @@ snapshots:
   '@vue/language-core@2.2.0(typescript@5.9.3)':
     dependencies:
       '@volar/language-core': 2.4.28
-      '@vue/compiler-dom': 3.5.28
+      '@vue/compiler-dom': 3.5.29
       '@vue/compiler-vue2': 2.7.16
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
       alien-signals: 0.4.14
       minimatch: 9.0.5
       muggle-string: 0.4.1
@@ -13266,8 +13328,8 @@ snapshots:
   '@vue/language-core@3.2.5':
     dependencies:
       '@volar/language-core': 2.4.28
-      '@vue/compiler-dom': 3.5.28
-      '@vue/shared': 3.5.28
+      '@vue/compiler-dom': 3.5.29
+      '@vue/shared': 3.5.29
       alien-signals: 3.1.2
       muggle-string: 0.4.1
       path-browserify: 1.0.1
@@ -15878,7 +15940,7 @@ snapshots:
       '@nuxt/telemetry': 2.7.0(@nuxt/kit@4.3.1(magicast@0.5.2))
       '@nuxt/vite-builder': 4.3.1(@types/node@24.10.14)(lightningcss@1.31.1)(magicast@0.5.2)(meow@13.2.0)(nuxt@4.3.1(@parcel/watcher@2.5.6)(@types/node@24.10.14)(@vue/compiler-sfc@3.5.29)(cac@6.7.14)(db0@0.3.4)(ioredis@5.9.3)(lightningcss@1.31.1)(magicast@0.5.2)(meow@13.2.0)(oxlint@1.50.0(oxlint-tsgolint@0.15.0))(rolldown@1.0.0-rc.3)(rollup@4.58.0)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(vite@7.3.1(@types/node@24.10.14)(jiti@2.6.1)(lightningcss@1.31.1)(terser@5.46.0)(tsx@4.21.0)(yaml@2.8.2))(vue-tsc@3.2.5(typescript@5.9.3))(yaml@2.8.2))(oxlint@1.50.0(oxlint-tsgolint@0.15.0))(rolldown@1.0.0-rc.3)(rollup@4.58.0)(terser@5.46.0)(tsx@4.21.0)(typescript@5.9.3)(vue-tsc@3.2.5(typescript@5.9.3))(vue@3.5.29(typescript@5.9.3))(yaml@2.8.2)
       '@unhead/vue': 2.1.4(vue@3.5.29(typescript@5.9.3))
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
       c12: 3.3.3(magicast@0.5.2)
       chokidar: 5.0.0
       compatx: 0.2.0
@@ -18015,7 +18077,7 @@ snapshots:
       '@types/markdown-it': 14.1.2
       '@vitejs/plugin-vue': 5.2.4(vite@5.4.21(@types/node@25.3.0)(lightningcss@1.31.1)(terser@5.46.0))(vue@3.5.29(typescript@5.9.3))
       '@vue/devtools-api': 7.7.9
-      '@vue/shared': 3.5.28
+      '@vue/shared': 3.5.29
       '@vueuse/core': 12.8.2(typescript@5.9.3)
       '@vueuse/integrations': 12.8.2(focus-trap@7.8.0)(fuse.js@7.1.0)(typescript@5.9.3)
       focus-trap: 7.8.0

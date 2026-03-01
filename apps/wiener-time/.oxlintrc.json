@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/oxlint/configuration_schema.json",
+  "extends": ["../../.oxlintrc.json"],
+  "overrides": [
+    {
+      "files": ["scripts/generate-stations.ts", "src/env/*"],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

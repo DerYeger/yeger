@@ -5,6 +5,9 @@ packages:
 
 catalog:
   '@antfu/ni': 28.2.0
+  '@babel/generator': 7.29.1
+  '@babel/traverse': 7.29.0
+  '@babel/types': 7.29.0
   '@changesets/cli': 2.29.8
   '@changesets/config': 3.1.2
   '@codemirror/language': 6.12.2
@@ -25,6 +28,8 @@ catalog:
   '@trpc/next': 11.10.0
   '@trpc/react-query': 11.10.0
   '@trpc/server': 11.10.0
+  '@types/babel__generator': 7.27.0
+  '@types/babel__traverse': 7.28.0
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
   '@types/d3-scale': 4.0.9
@@ -43,6 +48,9 @@ catalog:
   '@vitest/browser-playwright': 4.0.18
   '@vitest/coverage-v8': 4.0.18
   '@vitest/ui': 4.0.18
+  '@vue/compiler-dom': 3.5.29
+  '@vue/server-renderer': 3.5.29
+  '@vue/shared': 3.5.29
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1

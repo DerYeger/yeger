@@ -1,233 +1,151 @@
 import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 
 import { describe, test } from 'vitest'
 
 import { transformSFC } from '../../src/plugin/transformSFC'
+import {
+  FAST_MOUNT_UNSTUB_QUERY_KEY,
+  FAST_MOUNT_QUERY_KEY,
+  FAST_MOUNT_QUERY_VALUE,
+} from '../../src/plugin/utils'
+
+const TEST_SFC = readFileSync('test/runtime/Parent.vue', 'utf-8')
+
+const TEST_ID = `Test.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}`
 
 describe('transformSFC', () => {
-  test('transforms script setup imports into local stubs', ({ expect }) => {
-    const code = `
+  test('does not transform unmarked files', ({ expect }) => {
+    const result = transformSFC(TEST_SFC, 'Test.vue')
+    expect(result).toBeNull()
+  })
+
+  test('does not transform files without a temlate', ({ expect }) => {
+    const sfcWithoutScript = `
+      <script setup lang="ts">
+      import Child from './Child.vue'
+      </script>
+    `
+    const result = transformSFC(sfcWithoutScript, TEST_ID)
+    expect(result).toBeNull()
+  })
+
+  test('does not transform files without a script', ({ expect }) => {
+    const sfcWithoutScript = `
+      <template>
+        <Child>Test</Child>
+      </template>
+    `
+    const result = transformSFC(sfcWithoutScript, TEST_ID)
+    expect(result).toBeNull()
+  })
+
+  test('ignores components that are marked as unstubbed', ({ expect }) => {
+    const sfcWithScriptUsage = `
+     <script setup lang="ts">
+      import Child from './Child.vue'
+      console.log(Child)
+      </script>
+
+      <template>
+        <Child>Test</Child>
+      </template>
+    `
+    const result = transformSFC(
+      sfcWithScriptUsage,
+      `${TEST_ID}&${FAST_MOUNT_UNSTUB_QUERY_KEY}=Child`,
+    )
+    expect(result).toBeNull()
+  })
+
+  test('omits components that are only used in the template', ({ expect }) => {
+    const sfcWithScriptUsage = `
 <script setup lang="ts">
 import Child from './Child.vue'
-import { BarrelChild as AliasedBarrelChild } from './barrel'
 </script>
 
 <template>
-  <div>
-    <Child />
-    <AliasedBarrelChild />
-  </div>
+  <Child>Test</Child>
 </template>
-`.trim()
+    `
+    const result = transformSFC(sfcWithScriptUsage, TEST_ID)
+    expect(result?.code).toBe(`
+<script setup lang="ts">
+const Child = {
+  name: "Child"
+};
+</script>
 
-    const transformed = transformSFC(code, new Set<string>())
+<template>
+  <Child>Test</Child>
+</template>
+    `)
+  })
 
-    expect(transformed).toMatchInlineSnapshot(`
+  test('transforms Parent.vue as expected', ({ expect }) => {
+    const output = transformSFC(TEST_SFC, TEST_ID)
+    expect(output?.code).toMatchInlineSnapshot(`
       "<script setup lang="ts">
-      import { h } from 'vue'
-
-
-
+      import { initialModelValue } from './allowedModule';
+      defineProps<{
+        name?: string;
+      }>();
+      const model = defineModel<string>({
+        default: initialModelValue
+      });
       const Child = {
-        name: 'Child',
-        render() {
-          const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-
-          const booleanShorthandProps = new Set([])
-          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
-          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
-            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
-            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
-            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
-            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
-            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
-            return [key, value === '' && isShorthandBoolean ? true : value]
-          }))
-          return h('child-stub', { ...normalizedAttrs, ...normalizedProps })
-        }
-      }
-
+        name: "Child"
+      };
+      const VElseIfChild = {
+        name: "VElseIfChild",
+        props: {}
+      };
+      const VElseChild = {
+        name: "VElseChild",
+        props: {}
+      };
       const AliasedBarrelChild = {
-        name: 'AliasedBarrelChild',
-        render() {
-          const normalizedAttrs = Object.fromEntries(Object.entries(this.$attrs).map(([key, value]) => [key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase()), value]))
-
-          const booleanShorthandProps = new Set([])
-          const vnodeProps = ((this as { $?: { vnode?: { props?: Record<string, unknown> } } }).$?.vnode?.props ?? {}) as Record<string, unknown>
-          const normalizedProps = Object.fromEntries(Object.entries(this.$props).map(([key, value]) => {
-            const camelKey = key.replace(/-([a-zA-Z])/g, (_, character) => character.toUpperCase())
-            const kebabKey = key.replace(/[A-Z]/g, (character) => '-' + character.toLowerCase())
-            const hasShorthandMetadata = booleanShorthandProps.has(key) || booleanShorthandProps.has(camelKey)
-            const hasEmptyVNodeProp = vnodeProps[key] === '' || vnodeProps[camelKey] === '' || vnodeProps[kebabKey] === ''
-            const isShorthandBoolean = hasShorthandMetadata || hasEmptyVNodeProp
-            return [key, value === '' && isShorthandBoolean ? true : value]
-          }))
-          return h('aliased-barrel-child-stub', { ...normalizedAttrs, ...normalizedProps })
+        name: "AliasedBarrelChild",
+        props: {
+          "is-active": Boolean
         }
-      }
+      };
+      const MixedDefaultChild = {
+        name: "MixedDefaultChild",
+        emits: ["child-event"]
+      };
+      const MixedNamedChild = {
+        name: "MixedNamedChild",
+        props: {
+          "child-prop": null
+        }
+      };
+      const Sibling = {
+        name: "Sibling",
+        props: {
+          "modelValue": null,
+          "named-model": null
+        },
+        emits: ["update:modelValue", "update:named-model"]
+      };
       </script>
 
       <template>
         <div>
-          <Child />
-          <AliasedBarrelChild />
+          <div>Parent</div>
+          <Child v-if="model === initialModelValue" />
+          <VElseIfChild v-else-if="model === 'new-sibling-value'" data-testid="v-else-if" />
+          <VElseChild v-else data-testid="v-else" />
+          <Child> default-slot </Child>
+          <Child>
+            <template #named> named-slot </template>
+          </Child>
+          <AliasedBarrelChild data-testid="aliased-barrel-child" is-active />
+          <MixedDefaultChild @child-event="model = $event" />
+          <MixedNamedChild :child-prop="model" />
+          <Sibling v-model="model" v-model:named-model="model" />
         </div>
-      </template>"
+      </template>
+      "
     `)
-  })
-
-  test('handles missing script', ({ expect }) => {
-    const noScriptSetup = `<template><div><Child /></div></template>`
-    expect(transformSFC(noScriptSetup, new Set())).toBe(noScriptSetup)
-  })
-
-  test('handles missing template', ({ expect }) => {
-    const noTemplate = `<script setup lang="ts">
-import Child from './Child.vue'
-</script>`
-    expect(transformSFC(noTemplate, new Set())).toBe(noTemplate)
-  })
-
-  test('handles non-template usage case', ({ expect }) => {
-    const noScriptSetup = `<template><div><Child /></div></template>`
-    expect(transformSFC(noScriptSetup, new Set())).toBe(noScriptSetup)
-
-    const noTemplateBindings = `
-<script setup lang="ts">
-import Child from './Child.vue'
-const alsoUse = Child
-</script>
-<template><div><span>content</span></div></template>
-`.trim()
-    expect(transformSFC(noTemplateBindings, new Set())).toBe(noTemplateBindings)
-  })
-
-  test('handles explicit unstub case', ({ expect }) => {
-    const noChangesDueToExplicitUnstub = `
-<script setup lang="ts">
-import Child from './Child.vue'
-</script>
-<template><div><Child /></div></template>
-`.trim()
-    expect(transformSFC(noChangesDueToExplicitUnstub, new Set(['Child']))).toBe(
-      noChangesDueToExplicitUnstub,
-    )
-  })
-
-  test('keeps partially-used imports and emits rewritten import clauses', ({ expect }) => {
-    const code = `
-<script setup lang="ts">
-import DefaultComp, { Keep, Remove } from './items'
-import { h } from 'vue'
-const runtimeKeep = Keep
-</script>
-<template>
-  <div>
-    <Remove />
-  </div>
-</template>
-`.trim()
-
-    const transformed = transformSFC(code, new Set<string>())
-    expect(transformed).toContain("import DefaultComp, { Keep } from './items'")
-    expect(transformed).toContain('const Remove = {')
-    expect(transformed).toContain("name: 'Remove'")
-    expect(transformed).toContain("h('remove-stub'")
-  })
-
-  test('keeps imports when local is used or excluded by keepBindings', ({ expect }) => {
-    const usedInScript = `
-<script setup lang="ts">
-import Child from './Child.vue'
-const alsoUse = Child
-</script>
-<template><div><Child /></div></template>
-`.trim()
-    expect(transformSFC(usedInScript, new Set())).toBe(usedInScript)
-
-    const keptByBinding = `
-<script setup lang="ts">
-import Child from './Child.vue'
-</script>
-<template><div><Child /></div></template>
-`.trim()
-    expect(transformSFC(keptByBinding, new Set(['Child']))).toBe(keptByBinding)
-  })
-
-  test('transforms conditional chain components even with comments between imports', ({
-    expect,
-  }) => {
-    const code = `
-<script setup lang="ts">
-import Child from './Child.vue'
-
-// else-if and else branches
-import { default as VElseIfChild } from './Child.vue'
-/* else branch */
-import { default as VElseChild } from './Child.vue'
-</script>
-<template>
-  <div>
-    <Child v-if="true" />
-    <VElseIfChild v-else-if="false" />
-    <VElseChild v-else />
-  </div>
-</template>
-`.trim()
-
-    const transformed = transformSFC(code, new Set<string>())
-
-    expect(transformed).not.toContain("import Child from './Child.vue'")
-    expect(transformed).not.toContain("import { default as VElseIfChild } from './Child.vue'")
-    expect(transformed).not.toContain("import { default as VElseChild } from './Child.vue'")
-    expect(transformed).toContain("name: 'Child'")
-    expect(transformed).toContain("name: 'VElseIfChild'")
-    expect(transformed).toContain("name: 'VElseChild'")
-  })
-
-  test('keeps boolean shorthand metadata for generated stubs', ({ expect }) => {
-    const code = `
-<script setup lang="ts">
-import { BarrelChild as AliasedBarrelChild } from './barrel'
-</script>
-<template>
-  <AliasedBarrelChild is-active />
-</template>
-`.trim()
-
-    const transformed = transformSFC(code, new Set<string>())
-
-    expect(transformed).toContain("'isActive': Boolean")
-    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
-  })
-
-  test('keeps boolean shorthand metadata for commented aliased imports', ({ expect }) => {
-    const code = `
-<script setup lang="ts">
-import {
-  /** some comment */ BarrelChild as /** inline comment */ AliasedBarrelChild,
-} from './barrel'
-</script>
-<template>
-  <AliasedBarrelChild data-testid="aliased-barrel-child" is-active />
-</template>
-`.trim()
-
-    const transformed = transformSFC(code, new Set<string>())
-
-    expect(transformed).toContain("name: 'AliasedBarrelChild'")
-    expect(transformed).toContain("'isActive': Boolean")
-    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
-  })
-
-  test('keeps boolean shorthand metadata for the Parent runtime fixture', ({ expect }) => {
-    const code = readFileSync(resolve(__dirname, '../runtime/Parent.vue'), 'utf8')
-
-    const transformed = transformSFC(code, new Set<string>())
-
-    expect(transformed).toContain("name: 'AliasedBarrelChild'")
-    expect(transformed).toContain("'isActive': Boolean")
-    expect(transformed).toContain("const booleanShorthandProps = new Set(['isActive'])")
   })
 })

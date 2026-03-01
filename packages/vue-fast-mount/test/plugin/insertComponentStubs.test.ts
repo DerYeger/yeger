@@ -1,0 +1,43 @@
+import generate from '@babel/generator'
+import { describe, test } from 'vitest'
+import { babelParse } from 'vue/compiler-sfc'
+
+import { insertComponentStubs } from '../../src/plugin/insertComponentStubs'
+import type { Components } from '../../src/plugin/utils'
+
+const TEST_COMPONENTS: Components = new Map([
+  [
+    'Child',
+    {
+      props: new Map([
+        ['modelValue', 'unknown'],
+        ['isActive', 'boolean'],
+      ]),
+      emits: new Set(['update:modelValue', 'click']),
+    },
+  ],
+])
+
+describe('insertComponentStubs', () => {
+  test('generates stub declarations for components', ({ expect }) => {
+    const ast = babelParse('const test = 1', {
+      sourceType: 'module',
+      plugins: ['typescript', 'jsx'],
+    })
+
+    insertComponentStubs(ast, TEST_COMPONENTS)
+
+    const code = generate(ast).code
+    expect(code).toMatchInlineSnapshot(`
+      "const test = 1;
+      const Child = {
+        name: "Child",
+        props: {
+          "modelValue": null,
+          "isActive": Boolean
+        },
+        emits: ["update:modelValue", "click"]
+      };"
+    `)
+  })
+})
