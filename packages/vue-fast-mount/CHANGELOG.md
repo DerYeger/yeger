@@ -1,5 +1,20 @@
 # vue-fast-mount
 
+## 0.1.0
+
+### Minor Changes
+
+- d379141: re-implement transformations using AST-based mutations
+- d379141: improve compatibility by using sfc-compiler for analysis
+
+### Patch Changes
+
+- d379141: do not sort props and emits
+
+  This improves transform time.
+
+- c4cc40f: improve support for boolean shorthand props
+
 ## 0.0.7
 
 ### Patch Changes
