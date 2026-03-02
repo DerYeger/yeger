@@ -1,7 +1,13 @@
 import { NodeTypes } from '@vue/compiler-dom'
 import { compileTemplate, type SFCTemplateBlock } from 'vue/compiler-sfc'
 
-import type { Components, ComponentMetadata, PropType } from './utils'
+import {
+  type Components,
+  type ComponentMetadata,
+  type PropType,
+  isKebabCase,
+  toPascalCase,
+} from './utils'
 
 export function analyzeTemplate(
   id: string,
@@ -39,7 +45,9 @@ export function analyzeTemplate(
             return
           }
 
-          const metadata = requireMetadata(tag)
+          const normalizedComponentName = toPascalCase(tag)
+
+          const metadata = requireMetadata(normalizedComponentName)
 
           function onProp(name: string, type: PropType) {
             if (type === 'unknown' && metadata.props.has(name)) {
@@ -94,5 +102,6 @@ export function analyzeTemplate(
 }
 
 function isComponent(tag: string): boolean {
-  return !!tag[0] && tag[0] === tag[0].toUpperCase()
+  const isPascalCaseComponent = !!tag[0] && tag[0] === tag[0].toUpperCase()
+  return isPascalCaseComponent || isKebabCase(tag)
 }

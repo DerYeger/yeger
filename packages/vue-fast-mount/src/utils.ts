@@ -19,3 +19,17 @@ export type ComponentMetadata = {
 }
 
 export type Components = Map<string, ComponentMetadata>
+
+export function isKebabCase(value: string): boolean {
+  return value.includes('-')
+}
+
+export function toPascalCase(name: string): string {
+  if (!isKebabCase(name)) {
+    return name
+  }
+  return name
+    .split(/[-_]/g)
+    .map((part) => (part ? part[0]!.toUpperCase() + part.slice(1) : ''))
+    .join('')
+}

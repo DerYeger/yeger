@@ -43,7 +43,7 @@ export default defineConfig({
 })
 ```
 
-Then, within tests, add the import assertion `with { vfm: '...' }` on static `.vue` imports:
+Then, within tests, add the import attribute `with { vfm: 'true' }` on static `.vue` imports:
 
 ```ts
 import { describe, expect, test } from 'vitest'
@@ -59,7 +59,7 @@ describe('MyComponent', () => {
 ```
 
 This will stub all child components and omit their imports.
-To keep specific children unstubbed, pass a comma-separated list of component names:
+To keep specific children unstubbed, pass their names as a comma-separated list:
 
 ```ts
 import ParentWithSibling from './Parent.vue' with { vfm: 'Sibling,Header' }
@@ -75,7 +75,13 @@ const wrapper = shallowMount(ParentWithSibling, {
 
 > Note: The wrapper's HTML will differ from `shallowMount` if you are using import aliases.
 
+### Options
+
+- `debug`: Can be enabled to log transformed code. Defaults to `false`.
+- `testFileRegex`: Determines the files, in which the `vfm` import attribute is used, that will have transformed imports. Defaults to `/\.(test|spec)\.[jt]sx?$/`.
+
 ## Considerations
 
 - `vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
 - If you're using a child component's import as a value (and not just in the template), you **must** configure it to be unstubbed.
+- Dynamic components will not be stubbed.

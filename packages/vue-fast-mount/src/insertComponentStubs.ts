@@ -10,9 +10,8 @@ export function insertComponentStubs(ast: ParseResult, components: Components): 
 }
 
 function createComponentStub(name: string, data: ComponentMetadata): t.VariableDeclaration {
-  const componentIdentifier = name
   const properties: (t.ObjectProperty | t.ObjectMethod)[] = [
-    t.objectProperty(t.identifier('name'), t.stringLiteral(componentIdentifier)),
+    t.objectProperty(t.identifier('name'), t.stringLiteral(name)),
   ]
 
   const propsPart = createPropsDefinition(data.props)
@@ -25,7 +24,7 @@ function createComponentStub(name: string, data: ComponentMetadata): t.VariableD
   }
 
   return t.variableDeclaration('const', [
-    t.variableDeclarator(t.identifier(componentIdentifier), t.objectExpression([...properties])),
+    t.variableDeclarator(t.identifier(name), t.objectExpression([...properties])),
   ])
 }
 
@@ -61,9 +60,10 @@ function createEmitsDefinition(emits: ComponentMetadata['emits']): t.ObjectPrope
   return t.objectProperty(t.identifier('emits'), t.arrayExpression(emitLiterals))
 }
 
-const reservedNames = new Set(['key', 'ref', 'is'])
+const RESERVED_PROP_NAMES = new Set(['key', 'ref', 'is'])
+
 function isPropCandidate(propName: string): boolean {
-  if (reservedNames.has(propName)) {
+  if (RESERVED_PROP_NAMES.has(propName)) {
     return false
   }
   return !propName.startsWith('data-') && !propName.startsWith('aria-')

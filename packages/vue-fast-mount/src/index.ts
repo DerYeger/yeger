@@ -1,22 +1,55 @@
-import type { Plugin } from 'vite'
+import type { Plugin, TransformResult } from 'vite'
 
 import { transformImportAttributes } from './transformImportAttributes'
 import { transformSFC } from './transformSFC'
 
-export function vueFastMount(): Plugin {
+const VUE_ID_REGEX = /\.vue(\?.*)?$/
+export const TEST_FILE_ID_REGEX: RegExp = /\.(test|spec)\.[jt]sx?$/
+
+export interface VueFastMountOptions {
+  /**
+   * RegEx for matching test files. Defaults to {@link TEST_FILE_ID_REGEX}.
+   * Only Vue SFC imports within matching files will be transformed for performance reasons.
+   */
+  testFileRegex: RegExp
+  /**
+   * Enables debug logging. Logs transformed files and components to the console. Defaults to `false`.
+   */
+  debug: boolean
+}
+
+export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
+  const resolvedOptions: VueFastMountOptions = {
+    testFileRegex: TEST_FILE_ID_REGEX,
+    debug: false,
+    ...options,
+  }
+
+  function withDebugLogging(id: string, result: TransformResult | null): TransformResult | null {
+    if (resolvedOptions.debug && result) {
+      // oxlint-disable-next-line no-console
+      console.log(`${id}\n${result.code}`)
+    }
+    return result
+  }
+
   return {
     name: 'vue-fast-mount',
     enforce: 'pre',
-    transform(code, id) {
-      if (isNodeModulesPath(id)) {
-        return null
-      }
+    apply: (config) => config.mode === 'test',
+    transform: {
+      filter: { id: [VUE_ID_REGEX, resolvedOptions.testFileRegex] },
+      handler(code, id) {
+        if (isNodeModulesPath(id)) {
+          return null
+        }
 
-      if (id.includes('.vue')) {
-        return transformSFC(code, id)
-      }
+        if (id.includes('.vue?')) {
+          return withDebugLogging(id, transformSFC(code, id))
+        }
 
-      return transformImportAttributes(code)
+        return withDebugLogging(id, transformImportAttributes(code))
+      },
     },
   }
 }

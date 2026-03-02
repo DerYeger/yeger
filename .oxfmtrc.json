@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
-  "experimentalSortImports": {},
-  "experimentalSortPackageJson": {
-    "sortScripts": true
-  },
   "semi": false,
-  "singleQuote": true
+  "singleQuote": true,
+  "sortImports": {},
+  "sortPackageJson": {
+    "sortScripts": true
+  }
 }

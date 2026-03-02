@@ -1,7 +1,7 @@
 import type { Plugin, TransformResult } from 'vite'
 import { describe, test, vi } from 'vitest'
 
-import { vueFastMount } from '../../src'
+import { vueFastMount } from '../../src/index'
 import {
   FAST_MOUNT_UNSTUB_QUERY_KEY,
   FAST_MOUNT_QUERY_KEY,
@@ -82,9 +82,9 @@ function callTransformHook(plugin: Plugin, code: string, id: string): TransformR
   if (!plugin.transform) {
     throw new Error('Plugin does not implement transform hook')
   }
-  if (typeof plugin.transform !== 'function') {
-    throw new Error('Plugin transform hook is not a function')
+  if (typeof plugin.transform === 'function') {
+    throw new Error('Plugin transform hook is not a hook object')
   }
   // @ts-expect-error - We are intentionally calling the transform hook directly for testing purposes
-  return plugin.transform(code, id)
+  return plugin.transform.handler(code, id)
 }

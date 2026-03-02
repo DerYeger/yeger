@@ -232,6 +232,25 @@ describe('analyzeTemplate', () => {
     })
   })
 
+  test('works on kebab-case components', ({ expect }) => {
+    const { descriptor } = parse(`
+      <template>
+        <test-component :some-prop="value" @some-event="handler" />
+      </template>
+    `)
+    const components = analyzeTemplate('Test.vue', descriptor.template!, new Set())
+    const expectedComponents: Components = new Map([
+      [
+        'TestComponent',
+        {
+          props: new Map([['some-prop', 'unknown']]),
+          emits: new Set(['some-event']),
+        },
+      ],
+    ])
+    expect(components).toMatchObject(expectedComponents)
+  })
+
   test('works on the example Parent.vue', ({ expect }) => {
     const { descriptor } = parse(readFileSync('test/runtime/Parent.vue', 'utf-8'))
     const components = analyzeTemplate('Test.vue', descriptor.template!, new Set())

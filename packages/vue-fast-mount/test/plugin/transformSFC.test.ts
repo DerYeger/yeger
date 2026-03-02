@@ -81,6 +81,30 @@ const Child = {
     `)
   })
 
+  test('transforms kebab-case components', ({ expect }) => {
+    const sfcWithKebabCaseComponent = `
+<script setup lang="ts">
+import MyComponent from './MyComponent.vue'
+</script>
+
+<template>
+  <my-component>Test</my-component>
+</template>
+    `
+    const result = transformSFC(sfcWithKebabCaseComponent, TEST_ID)
+    expect(result?.code).toBe(`
+<script setup lang="ts">
+const MyComponent = {
+  name: "MyComponent"
+};
+</script>
+
+<template>
+  <my-component>Test</my-component>
+</template>
+    `)
+  })
+
   test('transforms Parent.vue as expected', ({ expect }) => {
     const output = transformSFC(TEST_SFC, TEST_ID)
     expect(output?.code).toMatchInlineSnapshot(`
