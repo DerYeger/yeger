@@ -36,7 +36,7 @@ function createPropsDefinition(props: ComponentMetadata['props']): t.ObjectPrope
   const propLiterals = s.toArray(
     s.pipe(
       props,
-      s.filter(([prop]) => !isNonVueAttribute(prop)),
+      s.filter(([prop]) => isPropCandidate(prop)),
       s.map(([prop, type]) =>
         t.objectProperty(
           t.stringLiteral(prop),
@@ -61,6 +61,10 @@ function createEmitsDefinition(emits: ComponentMetadata['emits']): t.ObjectPrope
   return t.objectProperty(t.identifier('emits'), t.arrayExpression(emitLiterals))
 }
 
-function isNonVueAttribute(propName: string): boolean {
-  return propName.startsWith('data-') || propName.startsWith('aria-')
+const reservedNames = new Set(['key', 'ref', 'is'])
+function isPropCandidate(propName: string): boolean {
+  if (reservedNames.has(propName)) {
+    return false
+  }
+  return !propName.startsWith('data-') && !propName.startsWith('aria-')
 }

@@ -12,6 +12,12 @@ const TEST_COMPONENTS: Components = new Map([
       props: new Map([
         ['modelValue', 'unknown'],
         ['isActive', 'boolean'],
+        // Non-props
+        ['is', 'unknown'],
+        ['ref', 'unknown'],
+        ['key', 'unknown'],
+        ['data-test', 'unknown'],
+        ['aria-label', 'unknown'],
       ]),
       emits: new Set(['update:modelValue', 'click']),
     },
