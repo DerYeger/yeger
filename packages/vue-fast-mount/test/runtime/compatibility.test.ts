@@ -1,9 +1,10 @@
 import { shallowMount } from '@vue/test-utils'
 import { describe, test, vi } from 'vitest'
-import { fastMount } from 'vue-fast-mount'
 
 import Parent from './Parent.vue'
+import ParentFastMount from './Parent.vue' with { vfm: 'true' }
 import Test from './Test.vue'
+import TestFastMount from './Test.vue' with { vfm: 'true' }
 
 vi.mock('./forbiddenModule.ts', () => ({}))
 
@@ -25,8 +26,8 @@ describe('compatibility', () => {
     expect(shallowMount(Test).html()).toMatchInlineSnapshot(`"<keep-alive-stub></keep-alive-stub>"`)
   })
 
-  test('fastMount produces the expected html', async ({ expect }) => {
-    expect((await fastMount(import('./Parent.vue'))).html()).toMatchInlineSnapshot(`
+  test('vfm import attributes produce the expected html', async ({ expect }) => {
+    expect(shallowMount(ParentFastMount).html()).toMatchInlineSnapshot(`
       "<div>
         <div>Parent</div>
         <child-stub></child-stub>
@@ -39,7 +40,7 @@ describe('compatibility', () => {
       </div>"
     `)
 
-    expect((await fastMount(import('./Test.vue'))).html()).toMatchInlineSnapshot(
+    expect(shallowMount(TestFastMount).html()).toMatchInlineSnapshot(
       `"<keep-alive-stub></keep-alive-stub>"`,
     )
   })

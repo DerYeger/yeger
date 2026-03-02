@@ -1,7 +1,7 @@
 import { describe, test } from 'vitest'
 
-import { getUnstubbedComponents } from '../../src/plugin/getUnstubbedComponent'
-import { FAST_MOUNT_UNSTUB_QUERY_KEY } from '../../src/plugin/utils'
+import { getUnstubbedComponents } from '../../src/getUnstubbedComponent'
+import { FAST_MOUNT_UNSTUB_QUERY_KEY } from '../../src/utils'
 
 describe('getUnstubbedComponent', () => {
   test('returns an empty set if parameter is missing', ({ expect }) => {

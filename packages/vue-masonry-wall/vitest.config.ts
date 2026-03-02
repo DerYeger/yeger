@@ -2,7 +2,7 @@ import vue from '@vitejs/plugin-vue'
 import { playwright } from '@vitest/browser-playwright'
 import { defineTestConfig } from '@yeger/vitest-utils'
 import { defineConfig } from 'vitest/config'
-import { vueFastMount } from 'vue-fast-mount/plugin'
+import { vueFastMount } from 'vue-fast-mount'
 
 export default defineConfig({
   plugins: [vue(), vueFastMount()],

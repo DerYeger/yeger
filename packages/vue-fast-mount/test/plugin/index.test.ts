@@ -1,24 +1,24 @@
 import type { Plugin, TransformResult } from 'vite'
 import { describe, test, vi } from 'vitest'
 
-import { vueFastMount } from '../../src/plugin'
+import { vueFastMount } from '../../src'
 import {
   FAST_MOUNT_UNSTUB_QUERY_KEY,
   FAST_MOUNT_QUERY_KEY,
   FAST_MOUNT_QUERY_VALUE,
-} from '../../src/plugin/utils'
+} from '../../src/utils'
 
 const mocks = vi.hoisted(() => ({
-  transformFastMountCalls: vi.fn((_code: string): TransformResult | null => null),
   transformSFC: vi.fn((_code: string): TransformResult | null => null),
+  transformImportAttributes: vi.fn((_code: string): TransformResult | null => null),
 }))
 
-vi.mock('../../src/plugin/transformFastMountCalls', () => ({
-  transformFastMountCalls: mocks.transformFastMountCalls,
-}))
-
-vi.mock('../../src/plugin/transformSFC', () => ({
+vi.mock('../../src/transformSFC', () => ({
   transformSFC: mocks.transformSFC,
+}))
+
+vi.mock('../../src/transformImportAttributes', () => ({
+  transformImportAttributes: mocks.transformImportAttributes,
 }))
 
 describe('plugin', () => {
@@ -40,7 +40,7 @@ describe('plugin', () => {
 
     expect(result).toBeNull()
     expect(mocks.transformSFC).not.toHaveBeenCalled()
-    expect(mocks.transformFastMountCalls).not.toHaveBeenCalled()
+    expect(mocks.transformImportAttributes).not.toHaveBeenCalled()
   })
 
   describe('SFC transformation', () => {
@@ -59,41 +59,21 @@ describe('plugin', () => {
     })
   })
 
-  describe('fastMount callsite transformation', () => {
-    test('returns transformation', ({ expect }) => {
+  describe('test file transformation', () => {
+    test('rewrites vfm import attributes', ({ expect }) => {
       const plugin = vueFastMount()
 
-      const TEST_INPUT =
-        'import { fastMount } from "vue-fast-mount";\nconst component = fastMount(() => import("./Component.vue"))'
+      const TEST_CODE = "import Parent from './Parent.vue' with { vfm: 'true' }"
+      const TEST_RESULT: TransformResult = {
+        code: "import Parent from './Parent.vue?__vfm=1'",
+        map: null,
+      }
+      mocks.transformImportAttributes.mockReturnValueOnce(TEST_RESULT)
 
-      const TEST_RESULT: TransformResult = { code: 'rewritten-code', map: null }
-      mocks.transformFastMountCalls.mockReturnValueOnce(TEST_RESULT)
+      const result = callTransformHook(plugin, TEST_CODE, '/workspace/test/Parent.test.ts')
 
-      const result = callTransformHook(plugin, TEST_INPUT, '/workspace/src/spec.ts')
-
-      expect(mocks.transformFastMountCalls).toHaveBeenCalledWith(TEST_INPUT)
-      expect(result).toBe(TEST_RESULT)
-    })
-
-    test('returns null for unchanged code', ({ expect }) => {
-      const plugin = vueFastMount()
-
-      const TEST_CODE =
-        'import { fastMount } from "vue-fast-mount";\nconst component = fastMount(() => import("./Component.vue"))'
-      const result = callTransformHook(plugin, TEST_CODE, '/workspace/test/Child.test.ts')
-
-      expect(mocks.transformFastMountCalls).toHaveBeenCalledWith(TEST_CODE)
-      expect(result).toBeNull()
-    })
-
-    test('short-circuits when no vue-fast-mount is present', ({ expect }) => {
-      const plugin = vueFastMount()
-
-      const TEST_CODE = 'import { fastMount } from "something-else";'
-      const result = callTransformHook(plugin, TEST_CODE, '/workspace/test/Child.test.ts')
-
-      expect(mocks.transformFastMountCalls).not.toHaveBeenCalled()
-      expect(result).toBeNull()
+      expect(mocks.transformImportAttributes).toHaveBeenCalledWith(TEST_CODE)
+      expect(result).toStrictEqual(TEST_RESULT)
     })
   })
 })

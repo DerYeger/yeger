@@ -2,8 +2,8 @@ import { generate } from '@babel/generator'
 import { describe, test } from 'vitest'
 import { babelParse } from 'vue/compiler-sfc'
 
-import { removeStubbedComponentImports } from '../../src/plugin/removeStubbedComponentImports'
-import type { Components } from '../../src/plugin/utils'
+import { removeStubbedComponentImports } from '../../src/removeStubbedComponentImports'
+import type { Components } from '../../src/utils'
 
 const TEST_COMPONENTS: Components = new Map([
   [

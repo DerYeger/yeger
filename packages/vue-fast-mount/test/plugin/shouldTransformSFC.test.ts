@@ -1,7 +1,7 @@
 import { describe, test } from 'vitest'
 
-import { shouldTransformSFC } from '../../src/plugin/shouldTransformSFC'
-import { FAST_MOUNT_QUERY_KEY, FAST_MOUNT_QUERY_VALUE } from '../../src/plugin/utils'
+import { shouldTransformSFC } from '../../src/shouldTransformSFC'
+import { FAST_MOUNT_QUERY_KEY, FAST_MOUNT_QUERY_VALUE } from '../../src/utils'
 
 describe('shouldTransformSFC', () => {
   test('returns true if query contains the correct key and value', ({ expect }) => {

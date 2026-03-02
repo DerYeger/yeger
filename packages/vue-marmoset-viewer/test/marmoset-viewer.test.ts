@@ -1,8 +1,8 @@
-import { flushPromises } from '@vue/test-utils'
+import { flushPromises, shallowMount } from '@vue/test-utils'
 import { beforeEach, describe, test, vi } from 'vitest'
-import { fastMount } from 'vue-fast-mount'
 
 import { marmosetViewerDefaultOptions } from '../src/marmoset'
+import MarmosetViewer from '../src/marmoset-viewer.vue' with { vfm: 'true' }
 
 const TEST_FILE_NAME = 'test.mview'
 
@@ -86,7 +86,7 @@ describe('MarmosetViewer', () => {
       width: 42,
       height: 31,
     }
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         ...options,
@@ -103,7 +103,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('unloads the MarmosetViewer', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -117,7 +117,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('can be responsive', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         responsive: true,
@@ -132,7 +132,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('resizes the MarmosetViewer', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         responsive: true,
@@ -151,7 +151,7 @@ describe('MarmosetViewer', () => {
 
   test('unobserves the ResizeObserver', async ({ expect }) => {
     expect(mocks.ResizeObserver.observe).not.toHaveBeenCalled()
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         responsive: true,
@@ -168,7 +168,7 @@ describe('MarmosetViewer', () => {
 
   test('supports autostart', async ({ expect }) => {
     expect(mocks.WebViewer.loadScene).not.toHaveBeenCalled()
-    await fastMount(import('../src/marmoset-viewer.vue'), {
+    shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         autoStart: true,
@@ -179,7 +179,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('reacts to src prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -199,7 +199,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('reacts to responsive prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -224,7 +224,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('reacts to autoStart prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -240,7 +240,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('reacts to width prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -258,7 +258,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('reacts to height prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
       },
@@ -276,7 +276,7 @@ describe('MarmosetViewer', () => {
   })
 
   test('does not react to size changes when responsive', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/marmoset-viewer.vue'), {
+    const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         responsive: true,

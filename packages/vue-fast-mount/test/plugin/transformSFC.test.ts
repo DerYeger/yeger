@@ -2,12 +2,12 @@ import { readFileSync } from 'node:fs'
 
 import { describe, test } from 'vitest'
 
-import { transformSFC } from '../../src/plugin/transformSFC'
+import { transformSFC } from '../../src/transformSFC'
 import {
   FAST_MOUNT_UNSTUB_QUERY_KEY,
   FAST_MOUNT_QUERY_KEY,
   FAST_MOUNT_QUERY_VALUE,
-} from '../../src/plugin/utils'
+} from '../../src/utils'
 
 const TEST_SFC = readFileSync('test/runtime/Parent.vue', 'utf-8')
 

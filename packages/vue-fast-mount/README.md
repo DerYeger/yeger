@@ -18,7 +18,7 @@
 ## Features
 
 While `shallowMount` already skips mounting child components, it still imports them and their transitive dependencies.
-With `fastMount`, SFCs are transformed to omit static imports of stubbed components.
+With `vue-fast-mount`, SFCs are transformed to omit static imports of stubbed components.
 This enables much faster tests, even for complex Vue applications with large import graphs.
 
 > Note: This package only supports `<script setup>` components.
@@ -31,35 +31,51 @@ pnpm add -D vue-fast-mount
 
 ## Usage
 
-First, add the plugin to your Vite(st) config.
+First, add the plugin to your Vite(st) config:
 
 ```ts
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vitest/config'
-import { vueFastMount } from 'vue-fast-mount/plugin'
+import { vueFastMount } from 'vue-fast-mount'
 
 export default defineConfig({
   plugins: [vue(), vueFastMount()],
 })
 ```
 
-Then, use `fastMount` as a replacement for `shallowMount`:
+Then, within tests, add the import assertion `with { vfm: '...' }` on static `.vue` imports:
 
 ```ts
 import { describe, expect, test } from 'vitest'
-import { fastMount } from 'vue-fast-mount'
+import { shallowMount } from '@vue/test-utils'
+import MyComponent from './MyComponent.vue' with { vfm: 'true' }
 
 describe('MyComponent', () => {
-  test('mounts the component', async () => {
-    const wrapper = await fastMount(import('./MyComponent.vue'))
+  test('mounts the component', () => {
+    const wrapper = shallowMount(MyComponent)
     expect(wrapper.exists()).toBe(true)
   })
 })
 ```
 
-> Note: The wrapper's HTML will differ from `shallowMount` if you are using aliased imports.
+This will stub all child components and omit their imports.
+To keep specific children unstubbed, pass a comma-separated list of component names:
+
+```ts
+import ParentWithSibling from './Parent.vue' with { vfm: 'Sibling,Header' }
+```
+
+Then pass the same component name in `shallowMount` options:
+
+```ts
+const wrapper = shallowMount(ParentWithSibling, {
+  global: { stubs: { Sibling: false } },
+})
+```
+
+> Note: The wrapper's HTML will differ from `shallowMount` if you are using import aliases.
 
 ## Considerations
 
 - `vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
-- If you're using a component's import as a value, you **must** configure it to be unstubbed.
+- If you're using a child component's import as a value (and not just in the template), you **must** configure it to be unstubbed.

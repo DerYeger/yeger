@@ -34,12 +34,6 @@
         "types": "./dist/index.d.mts",
         "default": "./dist/index.mjs"
       }
-    },
-    "./plugin": {
-      "import": {
-        "types": "./dist/plugin/index.d.mts",
-        "default": "./dist/plugin/index.mjs"
-      }
     }
   },
   "publishConfig": {
@@ -78,7 +72,6 @@
     "vue-tsc": "catalog:"
   },
   "peerDependencies": {
-    "@vue/test-utils": ">=2",
     "vite": ">=7",
     "vue": "^3.2.13"
   }

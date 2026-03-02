@@ -1,20 +1,23 @@
-import { config, flushPromises, mount } from '@vue/test-utils'
+import { config, flushPromises, mount, shallowMount } from '@vue/test-utils'
 import { describe, expectTypeOf, test } from 'vitest'
 import { defineComponent, h } from 'vue'
-import { fastMount } from 'vue-fast-mount'
 
 import { initialModelValue } from './allowedModule'
+import Parent from './Parent.vue' with { vfm: 'true' }
+import ParentWithSibling from './Parent.vue' with { vfm: 'Sibling,AnotherComponent' }
 
-describe('fastMount', () => {
-  test('should throw with regular mount before fastMount is used', async ({ expect }) => {
+describe('query-based mounting', () => {
+  test('should throw with regular mount before query-based component import is used', async ({
+    expect,
+  }) => {
     await expect(async () => mount(await import('./Parent.vue'))).rejects.toThrowError(
       'The forbiddenModule was imported.',
     )
   })
 
-  describe('with fastMount', () => {
+  describe('with explicit query imports', () => {
     test('stubs all children and omits their imports', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       expect(wrapper.text()).toBe('Parent')
       expect(wrapper.findComponent({ name: 'Child' }).exists()).toBe(true)
@@ -25,7 +28,7 @@ describe('fastMount', () => {
     })
 
     test('supports inference', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'), {
+      const wrapper = shallowMount(Parent, {
         props: { name: 'test-parent-name' },
       })
 
@@ -35,7 +38,7 @@ describe('fastMount', () => {
     })
 
     test('supports non-stubbed children', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'), {
+      const wrapper = shallowMount(ParentWithSibling, {
         global: { stubs: { Sibling: false } },
       })
 
@@ -48,7 +51,7 @@ describe('fastMount', () => {
     })
 
     test('supports custom stubs', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'), {
+      const wrapper = shallowMount(Parent, {
         global: {
           stubs: {
             Child: defineComponent({
@@ -64,7 +67,7 @@ describe('fastMount', () => {
     })
 
     test('supports v-model on stubbed children', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       const sibling = wrapper.findComponent({ name: 'Sibling' })
       expect(sibling.exists()).toBe(true)
@@ -78,7 +81,7 @@ describe('fastMount', () => {
     })
 
     test('supports props on stubbed children', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       const child = wrapper.findComponent({ name: 'MixedNamedChild' })
       expect(child).toBeDefined()
@@ -86,7 +89,7 @@ describe('fastMount', () => {
     })
 
     test('supports emits on stubbed children', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       const child = wrapper.findComponent({ name: 'MixedDefaultChild' })
       expect(child).toBeDefined()
@@ -96,19 +99,19 @@ describe('fastMount', () => {
     })
 
     test('supports attributes on stubbed children', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       const child = wrapper.find('[data-testid="aliased-barrel-child"]')
       expect(child.exists()).toBe(true)
     })
 
     test('does not render default slots on stubbed children by default', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
       expect(wrapper.text()).not.toContain('default-slot')
     })
 
     test('can render default slots on stubbed children by local config', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'), {
+      const wrapper = shallowMount(Parent, {
         global: { renderStubDefaultSlot: true },
       })
       expect(wrapper.text()).toContain('default-slot')
@@ -123,12 +126,12 @@ describe('fastMount', () => {
         config.global.renderStubDefaultSlot = false
       })
 
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
       expect(wrapper.text()).toContain('default-slot')
     })
 
     test('maintains boolean prop shorthands', async ({ expect }) => {
-      const wrapper = await fastMount(import('./Parent.vue'))
+      const wrapper = shallowMount(Parent)
 
       const aliasedBarrelChild = wrapper.findComponent({ name: 'AliasedBarrelChild' })
       expect(aliasedBarrelChild.exists()).toBe(true)
@@ -136,7 +139,9 @@ describe('fastMount', () => {
     })
   })
 
-  test('should throw with regular mount after fastMount is used', async ({ expect }) => {
+  test('should throw with regular mount after query-based component import is used', async ({
+    expect,
+  }) => {
     await expect(async () => mount(await import('./Parent.vue'))).rejects.toThrowError(
       'The forbiddenModule was imported.',
     )

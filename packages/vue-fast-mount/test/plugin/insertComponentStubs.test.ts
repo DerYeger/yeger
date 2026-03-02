@@ -2,8 +2,8 @@ import generate from '@babel/generator'
 import { describe, test } from 'vitest'
 import { babelParse } from 'vue/compiler-sfc'
 
-import { insertComponentStubs } from '../../src/plugin/insertComponentStubs'
-import type { Components } from '../../src/plugin/utils'
+import { insertComponentStubs } from '../../src/insertComponentStubs'
+import type { Components } from '../../src/utils'
 
 const TEST_COMPONENTS: Components = new Map([
   [

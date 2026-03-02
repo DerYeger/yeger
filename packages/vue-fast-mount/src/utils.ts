@@ -5,9 +5,9 @@ export const traverse: typeof babelTraverse =
   // @ts-expect-error
   typeof babelTraverse === 'function' ? babelTraverse : babelTraverse.default
 
-export const FAST_MOUNT_QUERY_KEY = '__vfm'
-export const FAST_MOUNT_QUERY_VALUE = '1'
-export const FAST_MOUNT_UNSTUB_QUERY_KEY = `${FAST_MOUNT_QUERY_KEY}_unstub`
+export const FAST_MOUNT_QUERY_KEY: string = '__vfm'
+export const FAST_MOUNT_QUERY_VALUE: string = '1'
+export const FAST_MOUNT_UNSTUB_QUERY_KEY: string = `${FAST_MOUNT_QUERY_KEY}_unstub`
 
 export type ParseResult = ReturnType<typeof babelParse>
 

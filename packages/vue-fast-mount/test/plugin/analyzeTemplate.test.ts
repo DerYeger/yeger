@@ -3,8 +3,8 @@ import { readFileSync } from 'node:fs'
 import { describe, test } from 'vitest'
 import { parse } from 'vue/compiler-sfc'
 
-import { analyzeTemplate } from '../../src/plugin/analyzeTemplate'
-import type { Components } from '../../src/plugin/utils'
+import { analyzeTemplate } from '../../src/analyzeTemplate'
+import type { Components } from '../../src/utils'
 
 describe('analyzeTemplate', () => {
   describe('collects attributes', () => {

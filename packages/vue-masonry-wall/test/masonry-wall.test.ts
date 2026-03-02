@@ -1,6 +1,7 @@
-import { enableAutoUnmount, flushPromises } from '@vue/test-utils'
+import { enableAutoUnmount, flushPromises, shallowMount } from '@vue/test-utils'
 import { afterEach, beforeAll, beforeEach, describe, test, vi } from 'vitest'
-import { fastMount } from 'vue-fast-mount'
+
+import MasonryWall from '../src/masonry-wall.vue' with { vfm: 'true' }
 
 const mocks = vi.hoisted(() => ({
   ResizeObserver: {
@@ -35,7 +36,7 @@ describe('MasonryWall', () => {
   })
 
   test('creates SSR columns', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
         ssrColumns: 1,
@@ -51,7 +52,7 @@ describe('MasonryWall', () => {
   })
 
   test('reacts to item changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -78,7 +79,7 @@ describe('MasonryWall', () => {
 
   test('unobserves the ResizeObserver', async ({ expect }) => {
     expect(mocks.ResizeObserver.observe).not.toHaveBeenCalled()
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -91,7 +92,7 @@ describe('MasonryWall', () => {
   })
 
   test('reacts to column-width prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -110,7 +111,7 @@ describe('MasonryWall', () => {
   })
 
   test('reacts to gap prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -129,7 +130,7 @@ describe('MasonryWall', () => {
   })
 
   test('reacts to rtl prop changes', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
       },
@@ -146,7 +147,7 @@ describe('MasonryWall', () => {
   })
 
   test('adds items to the smallest column', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [],
         columnWidth: 100,
@@ -218,7 +219,7 @@ describe('MasonryWall', () => {
   })
 
   test('coerces with regards to minColumns', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
         minColumns: 3,
@@ -234,7 +235,7 @@ describe('MasonryWall', () => {
   })
 
   test('coerces with regards to maxColumns', async ({ expect }) => {
-    const wrapper = await fastMount(import('../src/masonry-wall.vue'), {
+    const wrapper = shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
         columnWidth: 100,
@@ -280,7 +281,7 @@ describe('MasonryWall', () => {
   test('can use an optional scroll container', async ({ expect }) => {
     const scrollSpy = vi.spyOn(document.body, 'scrollBy')
 
-    await fastMount(import('../src/masonry-wall.vue'), {
+    shallowMount(MasonryWall, {
       props: {
         items: [1, 2],
         scrollContainer: document.body,
