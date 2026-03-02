@@ -1,5 +1,15 @@
 # vue-fast-mount
 
+## 0.2.1
+
+### Patch Changes
+
+- b9a6a21: support kebab-case components
+- b9a6a21: implement debug option
+- b9a6a21: implement testFileRegex option
+- b9a6a21: only transform test and vue files
+- b9a6a21: only apply in test mode
+
 ## 0.2.0
 
 ### Minor Changes
