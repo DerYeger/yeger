@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.1.2
+
+### Patch Changes
+
+- 321a652: do not create prop definitions for reserved attributes
+
 ## 0.1.1
 
 ### Patch Changes
