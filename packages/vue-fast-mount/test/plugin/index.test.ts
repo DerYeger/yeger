@@ -70,9 +70,10 @@ describe('plugin', () => {
       }
       mocks.transformImportAttributes.mockReturnValueOnce(TEST_RESULT)
 
-      const result = callTransformHook(plugin, TEST_CODE, '/workspace/test/Parent.test.ts')
+      const TEST_ID = '/workspace/test/Parent.test.ts'
+      const result = callTransformHook(plugin, TEST_CODE, TEST_ID)
 
-      expect(mocks.transformImportAttributes).toHaveBeenCalledWith(TEST_CODE)
+      expect(mocks.transformImportAttributes).toHaveBeenCalledWith(TEST_CODE, TEST_ID)
       expect(result).toStrictEqual(TEST_RESULT)
     })
   })

@@ -12,7 +12,7 @@ import {
 
 export const VFM_IMPORT_ATTRIBUTE_NAME = 'vfm'
 
-export function transformImportAttributes(code: string): TransformResult | null {
+export function transformImportAttributes(code: string, id: string): TransformResult | null {
   const sfcCode = new MagicString(code)
 
   let ast
@@ -82,7 +82,7 @@ export function transformImportAttributes(code: string): TransformResult | null 
 
   return {
     code: sfcCode.toString(),
-    map: sfcCode.generateMap({ hires: true }),
+    map: sfcCode.generateMap({ hires: true, source: id, includeContent: true }),
   }
 }
 

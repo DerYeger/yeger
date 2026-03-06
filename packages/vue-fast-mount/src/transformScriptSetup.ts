@@ -8,6 +8,7 @@ import type { Components } from './utils'
 
 export function transformScriptSetup(
   code: string,
+  id: string,
   scriptSetup: SFCScriptBlock,
   components: Components,
 ): TransformResult {
@@ -26,6 +27,6 @@ export function transformScriptSetup(
 
   return {
     code: sfcCode.toString(),
-    map: sfcCode.generateMap({ hires: true }),
+    map: sfcCode.generateMap({ hires: true, source: id, includeContent: true }),
   }
 }

@@ -11,7 +11,7 @@ describe('transformVfmImportAttributes', () => {
   test('rewrites string true import attributes', ({ expect }) => {
     const input = `import Parent from './Parent.vue' with { vfm: 'true' }`
 
-    const transformed = transformImportAttributes(input)
+    const transformed = transformImportAttributes(input, 'Test.vue')
 
     expect(transformed?.code).toContain(
       `'./Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}'`,
@@ -22,7 +22,7 @@ describe('transformVfmImportAttributes', () => {
   test('rewrites string component list to unstub query', ({ expect }) => {
     const input = `import Parent from './Parent.vue' with { vfm: 'Sibling, Header' }`
 
-    const transformed = transformImportAttributes(input)
+    const transformed = transformImportAttributes(input, 'Test.vue')
 
     expect(transformed?.code).toContain(
       `'./Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}&${FAST_MOUNT_UNSTUB_QUERY_KEY}=Sibling%2CHeader'`,
@@ -32,7 +32,7 @@ describe('transformVfmImportAttributes', () => {
   test('keeps non-vfm import attributes', ({ expect }) => {
     const input = `import Parent from './Parent.vue' with { type: 'macro', vfm: 'true' }`
 
-    const transformed = transformImportAttributes(input)
+    const transformed = transformImportAttributes(input, 'Test.vue')
 
     expect(transformed?.code).toContain(`with { type: 'macro' }`)
     expect(transformed?.code).not.toContain("with { type: 'macro', vfm")
@@ -40,13 +40,13 @@ describe('transformVfmImportAttributes', () => {
 
   test('returns null for files without vfm attribute', ({ expect }) => {
     const input = `import Parent from './Parent.vue'`
-    expect(transformImportAttributes(input)).toBeNull()
+    expect(transformImportAttributes(input, 'Test.vue')).toBeNull()
   })
 
   test('rewrites single string component shorthand', ({ expect }) => {
     const input = `import Parent from './Parent.vue' with { vfm: 'Sibling' }`
 
-    const transformed = transformImportAttributes(input)
+    const transformed = transformImportAttributes(input, 'Test.vue')
 
     expect(transformed?.code).toContain(
       `'./Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}&${FAST_MOUNT_UNSTUB_QUERY_KEY}=Sibling'`,
@@ -56,7 +56,7 @@ describe('transformVfmImportAttributes', () => {
   test('does not rewrite unsupported non-string vfm values', ({ expect }) => {
     const input = `import Parent from './Parent.vue' with { vfm: false }`
 
-    const transformed = transformImportAttributes(input)
+    const transformed = transformImportAttributes(input, 'Test.vue')
 
     expect(transformed).toBeNull()
   })

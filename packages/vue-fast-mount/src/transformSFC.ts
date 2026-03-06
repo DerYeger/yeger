@@ -29,5 +29,5 @@ export function transformSFC(code: string, id: string): TransformResult | null {
     return null
   }
 
-  return transformScriptSetup(code, descriptor.scriptSetup, components)
+  return transformScriptSetup(code, id.slice(0, queryIndex), descriptor.scriptSetup, components)
 }

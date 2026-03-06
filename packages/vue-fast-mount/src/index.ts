@@ -28,7 +28,9 @@ export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
   function withDebugLogging(id: string, result: TransformResult | null): TransformResult | null {
     if (resolvedOptions.debug && result) {
       // oxlint-disable-next-line no-console
-      console.log(`${id}\n${result.code}`)
+      console.log(
+        `\n--BEGIN ${id} --\n${result.code}\n${JSON.stringify(result.map, null, 2)}\n--END ${id} --\n`,
+      )
     }
     return result
   }
@@ -48,7 +50,7 @@ export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
           return withDebugLogging(id, transformSFC(code, id))
         }
 
-        return withDebugLogging(id, transformImportAttributes(code))
+        return withDebugLogging(id, transformImportAttributes(code, id))
       },
     },
   }
