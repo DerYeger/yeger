@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.2.2
+
+### Patch Changes
+
+- 1aec277: improve source maps
+
 ## 0.2.1
 
 ### Patch Changes
