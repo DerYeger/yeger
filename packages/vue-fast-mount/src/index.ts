@@ -35,7 +35,6 @@ export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
 
   return {
     name: 'vue-fast-mount',
-    enforce: 'post',
     apply: (config) => config.mode === 'test',
     transform: {
       filter: { id: [resolvedOptions.testFileRegex, MARKED_VUE_ID_REGEX] },

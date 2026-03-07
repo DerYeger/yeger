@@ -43,6 +43,8 @@ export default defineConfig({
 })
 ```
 
+`vueFastMount()` must stay after `vue()` in the plugin array so it can transform Vue's compiled output before Vite performs import analysis.
+
 Then, within tests, add the import attribute `with { vfm: 'true' }` on static `.vue` imports:
 
 ```ts

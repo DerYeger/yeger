@@ -27,7 +27,7 @@ describe('plugin', () => {
     const plugin = vueFastMount()
 
     expect(plugin.name).toBe('vue-fast-mount')
-    expect(plugin.enforce).toBe('post')
+    expect(plugin.enforce).toBeUndefined()
   })
 
   test('skips files in node_modules', ({ expect }) => {
