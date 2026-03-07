@@ -5,7 +5,7 @@ import { type ComponentMetadata, type Components, type ParseResult } from './uti
 
 export function insertComponentStubs(ast: ParseResult, components: Components): void {
   for (const [componentName, data] of components) {
-    ast.program.body.push(createComponentStub(componentName, data))
+    ast.program.body.unshift(createComponentStub(componentName, data))
   }
 }
 

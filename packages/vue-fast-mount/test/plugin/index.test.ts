@@ -2,6 +2,7 @@ import type { Plugin, TransformResult } from 'vite'
 import { describe, test, vi } from 'vitest'
 
 import { vueFastMount } from '../../src/index'
+import { transformCompiledComponent } from '../../src/transformCompiledComponent'
 import {
   FAST_MOUNT_UNSTUB_QUERY_KEY,
   FAST_MOUNT_QUERY_KEY,
@@ -9,12 +10,12 @@ import {
 } from '../../src/utils'
 
 const mocks = vi.hoisted(() => ({
-  transformSFC: vi.fn((_code: string): TransformResult | null => null),
+  transformCompiledComponent: vi.fn((_code: string): TransformResult | null => null),
   transformImportAttributes: vi.fn((_code: string): TransformResult | null => null),
 }))
 
-vi.mock('../../src/transformSFC', () => ({
-  transformSFC: mocks.transformSFC,
+vi.mock('../../src/transformCompiledComponent', () => ({
+  transformCompiledComponent: mocks.transformCompiledComponent,
 }))
 
 vi.mock('../../src/transformImportAttributes', () => ({
@@ -26,7 +27,7 @@ describe('plugin', () => {
     const plugin = vueFastMount()
 
     expect(plugin.name).toBe('vue-fast-mount')
-    expect(plugin.enforce).toBe('pre')
+    expect(plugin.enforce).toBe('post')
   })
 
   test('skips files in node_modules', ({ expect }) => {
@@ -39,23 +40,34 @@ describe('plugin', () => {
     )
 
     expect(result).toBeNull()
-    expect(mocks.transformSFC).not.toHaveBeenCalled()
+    expect(mocks.transformCompiledComponent).not.toHaveBeenCalled()
     expect(mocks.transformImportAttributes).not.toHaveBeenCalled()
   })
 
-  describe('SFC transformation', () => {
-    test('transforms marked SFCs', ({ expect }) => {
+  describe('compiled script transformation', () => {
+    test('transforms marked compiled vue scripts', ({ expect }) => {
       const plugin = vueFastMount()
 
       const TEST_TRASNFORM_RESULT: TransformResult = { code: 'transformed-vue-code', map: null }
-      mocks.transformSFC.mockReturnValueOnce(TEST_TRASNFORM_RESULT)
+      mocks.transformCompiledComponent.mockReturnValueOnce(TEST_TRASNFORM_RESULT)
 
       const TEST_CODE = 'vue-input-code'
-      const TEST_ID = `/workspace/src/Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}&${FAST_MOUNT_UNSTUB_QUERY_KEY}=Child`
+      const TEST_ID = `/workspace/src/Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}&${FAST_MOUNT_UNSTUB_QUERY_KEY}=Child&vue&type=script&setup=true&lang.ts`
       const result = callTransformHook(plugin, TEST_CODE, TEST_ID)
 
-      expect(mocks.transformSFC).toHaveBeenCalledWith(TEST_CODE, TEST_ID)
+      expect(transformCompiledComponent).toHaveBeenCalledWith(TEST_CODE, TEST_ID)
       expect(result).toStrictEqual(TEST_TRASNFORM_RESULT)
+    })
+
+    test('forwards marked vue query modules to compiled transform', ({ expect }) => {
+      const plugin = vueFastMount()
+
+      const TEST_CODE = 'vue-input-code'
+      const TEST_ID = `/workspace/src/Parent.vue?${FAST_MOUNT_QUERY_KEY}=${FAST_MOUNT_QUERY_VALUE}`
+      const result = callTransformHook(plugin, TEST_CODE, TEST_ID)
+
+      expect(result).toBeNull()
+      expect(mocks.transformCompiledComponent).toHaveBeenCalledWith(TEST_CODE, TEST_ID)
     })
   })
 

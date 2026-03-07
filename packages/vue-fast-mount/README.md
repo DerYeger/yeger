@@ -83,5 +83,6 @@ const wrapper = shallowMount(ParentWithSibling, {
 ## Considerations
 
 - `vue-fast-mount` cannot reproduce the `shallowMount` behavior exactly, since imports are not resolved and thus props, emits, and component names have to be inferred.
-- If you're using a child component's import as a value (and not just in the template), you **must** configure it to be unstubbed.
+- Names of stubbed components will be identical to their tag within the template.
+- If you're using a child component's import as a value (and not just in the template), you **should** configure it to be unstubbed.
 - Dynamic components will not be stubbed.

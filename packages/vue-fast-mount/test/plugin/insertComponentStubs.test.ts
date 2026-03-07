@@ -35,15 +35,15 @@ describe('insertComponentStubs', () => {
 
     const code = generate(ast).code
     expect(code).toMatchInlineSnapshot(`
-      "const test = 1;
-      const Child = {
+      "const Child = {
         name: "Child",
         props: {
           "modelValue": null,
           "isActive": Boolean
         },
         emits: ["update:modelValue", "click"]
-      };"
+      };
+      const test = 1;"
     `)
   })
 })
