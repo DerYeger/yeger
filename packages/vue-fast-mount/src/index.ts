@@ -1,4 +1,4 @@
-import type { Plugin, TransformResult } from 'vite'
+import type { PluginOption, TransformResult, UserConfig } from 'vite'
 
 import { transformCompiledComponent } from './transformCompiledComponent'
 import { transformImportAttributes } from './transformImportAttributes'
@@ -18,7 +18,7 @@ export interface VueFastMountOptions {
   debug: boolean
 }
 
-export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
+export function vueFastMount(options?: Partial<VueFastMountOptions>): PluginOption {
   const resolvedOptions: VueFastMountOptions = {
     testFileRegex: TEST_FILE_ID_REGEX,
     debug: false,
@@ -33,26 +33,41 @@ export function vueFastMount(options?: Partial<VueFastMountOptions>): Plugin {
     return result
   }
 
-  return {
-    name: 'vue-fast-mount',
-    apply: (config) => config.mode === 'test',
-    transform: {
-      filter: { id: [resolvedOptions.testFileRegex, MARKED_VUE_ID_REGEX] },
-      handler(code, id) {
-        if (isNodeModulesPath(id)) {
-          return null
-        }
-
-        if (id.includes('.vue?')) {
-          return withDebugLogging(id, transformCompiledComponent(code, id))
-        }
-
-        return withDebugLogging(id, transformImportAttributes(code, id))
+  return [
+    {
+      name: 'vue-fast-mount:test-files',
+      enforce: 'pre',
+      apply: isTestMode,
+      transform: {
+        filter: { id: resolvedOptions.testFileRegex },
+        handler(code, id) {
+          if (isNodeModulesPath(id)) {
+            return null
+          }
+          return withDebugLogging(id, transformImportAttributes(code, id))
+        },
       },
     },
-  }
+    {
+      name: 'vue-fast-mount:compiled-vue',
+      apply: isTestMode,
+      transform: {
+        filter: { id: MARKED_VUE_ID_REGEX },
+        handler(code, id) {
+          if (isNodeModulesPath(id)) {
+            return null
+          }
+          return withDebugLogging(id, transformCompiledComponent(code, id))
+        },
+      },
+    },
+  ]
 }
 
 function isNodeModulesPath(id: string): boolean {
   return id.includes('/node_modules/') || id.includes('\\node_modules\\')
+}
+
+function isTestMode(config: UserConfig): boolean {
+  return config.mode === 'test'
 }
