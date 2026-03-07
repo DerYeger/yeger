@@ -2,6 +2,7 @@
 import type { Model } from '@yeger/fol'
 import { FOL, Validator } from '@yeger/fol'
 import { Pane, Splitpanes } from 'splitpanes'
+
 import 'splitpanes/dist/splitpanes.css'
 
 const minPaneSize = 5

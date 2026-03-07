@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+
 import TreeNode from './TreeNode.vue'
 
 interface Props {

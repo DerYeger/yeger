@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import { GraphController } from 'd3-graph-controller'
 import { onMounted, onUnmounted, ref, toRefs, watch } from 'vue'
-import 'd3-graph-controller/default.css'
 
+import 'd3-graph-controller/default.css'
 import type { DemoLink } from '../demo/link'
 import type { DemoGraph, DemoGraphConfig, DemoType } from '../demo/model'
 import type { DemoNode } from '../demo/node'

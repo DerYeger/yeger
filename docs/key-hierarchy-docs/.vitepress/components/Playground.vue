@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { defineKeyHierarchy } from 'key-hierarchy'
 import { ref } from 'vue'
-import StaticTreeNode from './StaticTreeNode.vue'
+
 import DynamicTreeNode from './DynamicTreeNode.vue'
+import StaticTreeNode from './StaticTreeNode.vue'
 
 // Define the actual key hierarchy using the library
 const keys = defineKeyHierarchy((dynamic) => ({

@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { initialModelValue } from './allowedModule'
-import Child from './Child.vue'
-import { default as VElseIfChild } from './Child.vue'
-import { default as VElseChild } from './Child.vue'
 import {
   /** some comment */ BarrelChild as /** inline comment */ AliasedBarrelChild,
 } from './barrel'
+import Child from './Child.vue'
+import { default as VElseIfChild } from './Child.vue'
+import { default as VElseChild } from './Child.vue'
 import MixedDefaultChild /** another comment */, {
   BarrelChild as MixedNamedChild,
 } from './mixedBarrel'
