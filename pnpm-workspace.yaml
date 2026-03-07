@@ -53,7 +53,7 @@ catalog:
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1
-  cac: 6.7.14
+  cac: 7.0.0
   clsx: 2.1.1
   codemirror: 6.0.2
   cross-env: 10.1.0
