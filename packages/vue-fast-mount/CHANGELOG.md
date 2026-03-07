@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.3.1
+
+### Patch Changes
+
+- 801d664: run before import analysis
+
 ## 0.3.0
 
 ### Minor Changes
