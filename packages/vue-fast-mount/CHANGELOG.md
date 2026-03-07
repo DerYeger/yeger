@@ -1,5 +1,14 @@
 # vue-fast-mount
 
+## 0.3.0
+
+### Minor Changes
+
+- 5209e51: refactor plugin to run on compiled SFCs for better coverage support
+
+  `wrapper.html()` should now match a regular `shallowMount` usage.
+  v8 coverage should now be more accurate.
+
 ## 0.2.2
 
 ### Patch Changes
