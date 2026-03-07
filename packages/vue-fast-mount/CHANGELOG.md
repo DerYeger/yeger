@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.4.0
+
+### Minor Changes
+
+- c4cc700: split plugin to ensure test files are transformed first
+
 ## 0.3.1
 
 ### Patch Changes
