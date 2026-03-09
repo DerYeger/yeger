@@ -1,5 +1,12 @@
 # Formi
 
+## 0.2.18
+
+### Patch Changes
+
+- Updated dependencies [73b5ecf]
+  - d3-graph-controller@3.1.9
+
 ## 0.2.17
 
 ### Patch Changes

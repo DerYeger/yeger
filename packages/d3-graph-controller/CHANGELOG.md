@@ -1,5 +1,11 @@
 # d3-graph-controller
 
+## 3.1.9
+
+### Patch Changes
+
+- 73b5ecf: improve style export config
+
 ## 3.1.8
 
 ### Patch Changes
