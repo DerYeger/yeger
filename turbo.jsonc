@@ -40,14 +40,14 @@
     "typecheck": {
       "dependsOn": ["^build", "codegen"],
     },
-
     "//#format": {},
-    "//#format:fix": {},
+    "//#format:fix": {
+      "cache": false,
+      "dependsOn": ["//#lint:fix"],
+    },
     "//#lint": {},
-    "//#lint:fix": {},
-
-    "//#lint:root": {
-      "inputs": ["./*", ".vscode/**", ".husky/**", ".github/**", ".changeset/**"],
+    "//#lint:fix": {
+      "cache": false,
     },
     "//#quality": {
       "dependsOn": ["//#lint", "//#format"],
