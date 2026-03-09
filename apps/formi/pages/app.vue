@@ -48,13 +48,11 @@ const traceError = computed(() => traceResult.value?.getErrorOrUndefined())
 const modelError = computed(() =>
   model.value ? Validator.validateModel(model.value).getErrorOrUndefined() : undefined,
 )
-
-const { loading } = useAppStorage()
 </script>
 
 <template>
   <div class="font-ui flex h-full flex-col bg-stone-300 text-stone-900">
-    <Toolbar :loading="loading" />
+    <Toolbar />
     <main class="min-h-0 flex-1 bg-stone-100">
       <Splitpanes class="default-theme">
         <Pane :min-size="minPaneSize">

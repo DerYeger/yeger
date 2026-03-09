@@ -28,7 +28,14 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/robots', '@unocss/nuxt', '@vite-pwa/nuxt', '@vueuse/nuxt', '@nuxt/icon'],
+  modules: [
+    '@nuxtjs/robots',
+    '@unocss/nuxt',
+    '@vite-pwa/nuxt',
+    '@vueuse/nuxt',
+    '@nuxt/icon',
+    '@nuxt/test-utils',
+  ],
 
   css: ['@/assets/css/main.css'],
 

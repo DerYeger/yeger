@@ -22,7 +22,7 @@ export function definePlaywrightConfig({ ports = {} }: Options): PlaywrightTestC
   const baseURL = `http://localhost:${port}`
   const portFlag = ports.flag ?? '--port'
   return defineConfig({
-    testDir: './tests',
+    testDir: './e2e',
     fullyParallel: true,
     forbidOnly: isCI,
     retries: isCI ? 2 : 0,

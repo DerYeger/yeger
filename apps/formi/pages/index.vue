@@ -37,7 +37,7 @@ const { appLink, featuresLink } = useLinks()
       </div>
     </div>
     <div class="mx-auto mt--16 max-w-full flex-1 md:mt-0">
-      <HeroImage />
+      <hero-image />
     </div>
   </div>
 </template>

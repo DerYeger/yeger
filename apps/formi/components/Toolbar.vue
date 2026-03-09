@@ -1,7 +1,4 @@
 <script setup lang="ts">
-const props = defineProps<{ loading: boolean }>()
-const { loading } = toRefs(props)
-
 const { homeLink } = useLinks()
 </script>
 
@@ -17,11 +14,5 @@ const { homeLink } = useLinks()
     >
       <Icon name="carbon:arrow-left" class="ml-1" />
     </NuxtLink>
-    <div class="flex-1" />
-    <Icon
-      name="carbon:save"
-      class="transition-color font-bold duration-500"
-      :class="{ 'text-stone-900': loading, 'text-stone-400': !loading }"
-    />
   </div>
 </template>

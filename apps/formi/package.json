@@ -11,6 +11,7 @@
     "nuxi": "nuxi",
     "postinstall": "nuxt prepare",
     "preview": "serve .output/public",
+    "test": "vitest",
     "typecheck": "nuxi typecheck"
   },
   "dependencies": {
@@ -20,7 +21,6 @@
     "@yeger/fol": "workspace:*",
     "codemirror": "catalog:",
     "d3-graph-controller": "workspace:*",
-    "localforage": "catalog:",
     "resumon": "workspace:*",
     "splitpanes": "catalog:",
     "vue-codemirror": "catalog:",
@@ -30,18 +30,24 @@
   },
   "devDependencies": {
     "@nuxt/icon": "catalog:",
+    "@nuxt/test-utils": "catalog:",
     "@nuxtjs/robots": "catalog:",
     "@playwright/test": "catalog:",
     "@types/node": "catalog:",
     "@unocss/nuxt": "catalog:",
     "@unocss/reset": "catalog:",
     "@vite-pwa/nuxt": "catalog:",
+    "@vitest/browser-playwright": "catalog:",
+    "@vitest/coverage-v8": "catalog:",
+    "@vue/test-utils": "catalog:",
     "@vueuse/nuxt": "catalog:",
     "@yeger/playwright-config": "workspace:*",
+    "@yeger/vitest-utils": "workspace:*",
     "nuxt": "catalog:",
     "serve": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:",
+    "vitest": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
   }
