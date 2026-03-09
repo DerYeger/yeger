@@ -3,8 +3,10 @@
   "extends": ["//"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build", "test"],
       "outputs": [".nuxt/**", ".output/**", "dist/**"],
+    },
+    "test": {
+      "dependsOn": ["generate"],
     },
     "typecheck": {
       // Prevents race conditions due to parallel executions, but dependency is not strictly required
