@@ -36,7 +36,9 @@
       }
     },
     "./default.css": {
-      "import": "./default.css"
+      "style": "./default.css",
+      "import": "./default.css",
+      "default": "./default.css"
     }
   },
   "publishConfig": {

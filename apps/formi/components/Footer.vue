@@ -22,7 +22,7 @@ const resources: Link[] = [
 </script>
 
 <template>
-  <footer class="align-start mx-auto mt-8 flex w-fit flex-wrap justify-between gap-12">
+  <footer class="mx-auto mt-8 flex w-fit flex-wrap items-start justify-between gap-12">
     <FooterColumn title="Resources">
       <a
         v-for="link of resources"
@@ -30,7 +30,7 @@ const resources: Link[] = [
         target="_blank"
         rel="noreferrer"
         :href="link.to"
-        class="my--2 w-full cursor-pointer py-2 transition-colors hover:text-stone-900"
+        class="-my-2 w-full cursor-pointer py-2 transition-colors hover:text-stone-900"
       >
         {{ link.text }}
       </a>

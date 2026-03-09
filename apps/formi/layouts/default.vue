@@ -20,7 +20,7 @@ const { accessibleDescription } = useLogo()
           src="/hero-first-small.webp"
           :width="48"
           :height="48"
-          class="display-none md:display-block drop-shadow-custom mb--2 mt--3 select-none"
+          class="drop-shadow-custom -mt-3 -mb-2 hidden select-none md:block"
           :alt="accessibleDescription"
         />
       </span>
@@ -30,8 +30,8 @@ const { accessibleDescription } = useLogo()
         :key="link.to"
         :to="link.to"
         :title="link.text"
-        class="font-300 text-xs uppercase md:text-sm"
-        active-class="font-600"
+        class="text-xs font-light uppercase md:text-sm"
+        active-class="font-semibold"
       >
         {{ link.text }}
       </NuxtLink>
@@ -39,7 +39,7 @@ const { accessibleDescription } = useLogo()
     <main class="my-16 md:my-32">
       <slot />
     </main>
-    <HLine class="w-100vw !w-100dvw ml--4 !bg-stone-400 md:ml--16" />
+    <HLine class="-ml-4 w-dvw! w-screen bg-stone-400! md:-ml-16" />
     <Footer />
   </div>
 </template>

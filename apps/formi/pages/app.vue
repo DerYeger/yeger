@@ -73,7 +73,7 @@ const modelError = computed(() =>
           <Splitpanes class="default-theme" horizontal>
             <Pane :min-size="minPaneSize" class="relative text-sm">
               <PaneTitle>Formula Input</PaneTitle>
-              <div class="pa-4 flex size-full flex-col gap-4 overflow-y-auto">
+              <div class="flex size-full flex-col gap-4 overflow-y-auto p-4">
                 <div class="mt-2 flex flex-col gap-2">
                   <label for="formulaInput" class="select-none">Input</label>
                   <input
@@ -81,14 +81,14 @@ const modelError = computed(() =>
                     v-model="formulaInput"
                     data-testid="formula-input"
                     name="formulaInput"
-                    class="border-1 rounded border-stone-900 bg-white px-2 py-1 font-sans"
+                    class="rounded border border-stone-900 bg-white px-2 py-1 font-sans"
                   />
                 </div>
                 <div class="flex flex-col gap-2">
                   <span class="select-none">Formula</span>
                   <code
                     data-testid="formula-output"
-                    class="border-1 flex items-center border-current px-2 py-1"
+                    class="flex items-center border border-current px-2 py-1"
                   >
                     <span class="flex-1 overflow-x-auto text-stone-500">
                       {{ formattedFormula }}
@@ -106,7 +106,7 @@ const modelError = computed(() =>
               </div>
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
-              <PaneTitle class="!text-stone-100"> Formula Tree </PaneTitle>
+              <PaneTitle class="text-stone-100!"> Formula Tree </PaneTitle>
               <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <FOLTree
@@ -123,7 +123,7 @@ const modelError = computed(() =>
               </div>
             </Pane>
             <Pane :min-size="minPaneSize" class="relative text-stone-500">
-              <PaneTitle class="!text-stone-100"> Model Checker </PaneTitle>
+              <PaneTitle class="text-stone-100!"> Model Checker </PaneTitle>
               <div class="flex size-full overflow-auto bg-stone-400">
                 <div class="m-auto p-2">
                   <ModelCheckerTraceTree

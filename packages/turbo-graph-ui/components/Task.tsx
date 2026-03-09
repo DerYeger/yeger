@@ -21,7 +21,7 @@ export function Task({ data }: TaskProps) {
     <div className="flex flex-col">
       {isOrigin ? null : <Handle type="target" position={Position.Top} isConnectable={false} />}
       <div
-        className="task-node rounded-lg border border-neutral-400/20 bg-neutral-900 p-4 font-mono text-sm flex flex-col gap-2"
+        className="task-node flex flex-col gap-2 rounded-lg border border-neutral-400/20 bg-neutral-900 p-4 font-mono text-sm"
         style={{
           width: `var(${TASK_WIDTH_VAR})`,
           height: `var(${TASK_HEIGHT_VAR})`,

@@ -25,12 +25,9 @@ export function Checkbox({ checked, onChange, label, disabled }: CheckboxProps) 
           className="sr-only"
         />
         <div
-          className={cn(`
-          flex size-5 items-center justify-center rounded-md border
-          border-white/30 backdrop-blur-sm transition-all duration-300 ease-out
-            group-focus-within:ring-2 ring-white
-          ${checked ? `bg-green-600 shadow-lg  ${disabled ? 'opacity-50' : 'group-hover:bg-green-500 group-focus-within:bg-green-500'}` : `bg-neutral-600 ${disabled ? 'opacity-50' : 'group-hover:bg-neutral-500 group-focus-within:bg-neutral-500'}`}
-        `)}
+          className={cn(
+            `flex size-5 items-center justify-center rounded-md border border-white/30 ring-white backdrop-blur-sm transition-all duration-300 ease-out group-focus-within:ring-2 ${checked ? `bg-green-600 shadow-lg ${disabled ? 'opacity-50' : 'group-focus-within:bg-green-500 group-hover:bg-green-500'}` : `bg-neutral-600 ${disabled ? 'opacity-50' : 'group-focus-within:bg-neutral-500 group-hover:bg-neutral-500'}`} `,
+          )}
         >
           <Check
             className={cn(
@@ -42,8 +39,8 @@ export function Checkbox({ checked, onChange, label, disabled }: CheckboxProps) 
       </div>
       <span
         className={cn(
-          'select-none text-white/90 transition-colors text-sm',
-          !disabled && 'group-hover:text-white group-focus-within:text-white',
+          'text-sm text-white/90 transition-colors select-none',
+          !disabled && 'group-focus-within:text-white group-hover:text-white',
         )}
       >
         {label}

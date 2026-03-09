@@ -1,3 +1,5 @@
+import tailwindcss from '@tailwindcss/vite'
+
 const appName = 'Formi'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -30,17 +32,22 @@ export default defineNuxtConfig({
 
   modules: [
     '@nuxtjs/robots',
-    '@unocss/nuxt',
     '@vite-pwa/nuxt',
     '@vueuse/nuxt',
     '@nuxt/icon',
     '@nuxt/test-utils',
+    '@nuxt/fonts',
   ],
 
   css: ['@/assets/css/main.css'],
 
   build: {
     transpile: ['vue-toastification'],
+  },
+
+  fonts: {
+    provider: 'npm',
+    families: [{ name: 'Readex Pro', provider: 'npm', weights: [200, 300, 400, 500, 600, 700] }],
   },
 
   pwa: {
@@ -68,30 +75,9 @@ export default defineNuxtConfig({
     },
   },
 
-  unocss: {
-    icons: true,
-    attributify: true,
-    preflight: true,
-    theme: {
-      breakpoints: {
-        sm: '640px',
-        md: '768px',
-        lg: '1024px',
-        xl: '1280px',
-        '2xl': '1536px',
-      },
-    },
-    webFonts: {
-      fonts: {
-        ui: {
-          name: 'Readex Pro',
-          weights: [200, 300, 400, 500, 600, 700],
-        },
-      },
-    },
-    shortcuts: [],
-    rules: [],
+  compatibilityDate: '2026-03-09',
+  vite: {
+    // @ts-expect-error - Vite type mismatch
+    plugins: [tailwindcss()],
   },
-
-  compatibilityDate: '2025-01-18',
 })

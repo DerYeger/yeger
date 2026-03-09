@@ -19,7 +19,7 @@ const borderBreakpoints = [1, 3, 5] as const
 <template>
   <div
     :data-testid="level === 0 ? 'model-checker-trace-root' : 'model-checker-trace-child'"
-    class="bg-op-25 border-1 flex size-fit flex-col items-center justify-center rounded bg-stone-900 p-2 text-stone-100 shadow"
+    class="flex size-fit flex-col items-center justify-center rounded border bg-stone-900/25 p-2 text-stone-100 shadow"
     :class="{
       'border-stone-600': level < borderBreakpoints[0],
       'border-stone-700': level >= borderBreakpoints[0],
@@ -28,7 +28,7 @@ const borderBreakpoints = [1, 3, 5] as const
     }"
   >
     <code
-      class="flex select-none items-center gap-2 rounded px-2 py-1"
+      class="flex items-center gap-2 rounded px-2 py-1 select-none"
       :class="{
         'cursor-pointer': children.length > 0,
       }"
@@ -37,7 +37,7 @@ const borderBreakpoints = [1, 3, 5] as const
     >
       <Icon
         :name="trace.actual ? 'mdi:check-bold' : 'mdi:close-thick'"
-        class="text-1.25em"
+        class="text-[1.25em]"
         :class="{
           'text-green-500': !isMismatched,
           'text-red-500': isMismatched,

@@ -17,7 +17,7 @@ const borderBreakpoints = [1, 3, 5] as const
 <template>
   <div
     :data-testid="level === 0 ? 'fol-tree' : undefined"
-    class="bg-op-25 border-1 flex size-fit flex-col items-center justify-center rounded bg-stone-900 p-2 text-stone-100 shadow"
+    class="flex size-fit flex-col items-center justify-center rounded border bg-stone-900/25 p-2 text-stone-100 shadow"
     :class="{
       'border-stone-600': level < borderBreakpoints[0],
       'border-stone-700': level >= borderBreakpoints[0],
@@ -26,7 +26,7 @@ const borderBreakpoints = [1, 3, 5] as const
     }"
   >
     <code
-      class="select-none px-1"
+      class="px-1 select-none"
       :class="{ 'cursor-pointer': children.length > 0 }"
       style="white-space: nowrap"
       @click="expanded = !expanded"

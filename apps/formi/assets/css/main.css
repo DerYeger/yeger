@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 @import 'd3-graph-controller/default.css';
 @import 'vue-toastification/dist/index.css';
 
@@ -15,6 +16,10 @@ body,
   width: 100%;
   overflow-x: hidden;
   overflow-y: auto;
+}
+
+.font-ui {
+  font-family: 'Readex Pro', ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {

@@ -1,5 +1,5 @@
 <template>
-  <span class="absolute left-1 top-1 select-none text-xs text-stone-500">
+  <span class="absolute top-1 left-1 text-xs text-stone-500 select-none">
     <slot />
   </span>
 </template>

@@ -100,7 +100,7 @@ function resetGraphController(
     <div ref="el" />
     <IconButton
       name="system-uicons:reset"
-      class="absolute right-2 top-2"
+      class="absolute top-2 right-2"
       aria-label="Reset"
       @click="controller?.restart(0.5)"
     />

@@ -5,10 +5,10 @@ const { appLink, featuresLink } = useLinks()
 <template>
   <div
     v-once
-    class="space-between mx-auto flex max-w-none flex-col-reverse content-start gap-16 md:max-w-6xl md:flex-row"
+    class="mx-auto flex max-w-none flex-col-reverse content-start justify-between gap-16 md:max-w-6xl md:flex-row"
   >
-    <div class="md:w-50% flex flex-col gap-10">
-      <h2 class="text-lg font-bold uppercase text-stone-800 sm:text-2xl lg:text-3xl">
+    <div class="flex flex-col gap-10 md:w-1/2">
+      <h2 class="text-lg font-bold text-stone-800 uppercase sm:text-2xl lg:text-3xl">
         FOL Model Checking
       </h2>
       <h1 class="text-4xl font-black text-stone-800 sm:text-5xl lg:text-6xl">
@@ -30,13 +30,13 @@ const { appLink, featuresLink } = useLinks()
         <LinkButton
           :link="featuresLink"
           description="Learn more about the features of Formi."
-          class="border-1 border-stone-900 bg-transparent text-stone-900 hover:border-stone-700 hover:text-stone-100"
+          class="border border-stone-900 bg-transparent text-stone-900 hover:border-stone-700 hover:text-stone-100"
         >
           Read More
         </LinkButton>
       </div>
     </div>
-    <div class="mx-auto mt--16 max-w-full flex-1 md:mt-0">
+    <div class="mx-auto -mt-16 max-w-full flex-1 md:mt-0">
       <hero-image />
     </div>
   </div>

@@ -12,7 +12,7 @@ const { link, description } = toRefs(props)
     :aria-label="description ?? link.text"
     :title="link.text"
     :data-testid="`link-button-${link.to}`"
-    class="md:text-md rounded-7 font-300 flex select-none items-center bg-stone-900 px-12 py-4 text-sm text-stone-100 transition-all duration-500 hover:bg-stone-700 hover:shadow-2xl"
+    class="flex items-center rounded-[1.75rem] bg-stone-900 px-12 py-4 text-sm font-light text-stone-100 transition-all duration-500 select-none hover:bg-stone-700 hover:shadow-2xl md:text-base"
   >
     <slot />
     <span v-if="description" class="sr-only">{{ description }}</span>

@@ -39,7 +39,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
         </p>
       </FeatureParagraph>
       <DemoCard>
-        <ModelGraph :model="model" class="!md:h-96 !h-48 bg-white" />
+        <ModelGraph :model="model" class="h-48! bg-white md:h-96!" />
       </DemoCard>
     </FeatureSection>
     <FeatureSection title="Formulas" :number="3">
@@ -57,7 +57,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
           can be expanded and collapsed to reveal or hide sub-formulas respectively.
         </p>
       </FeatureParagraph>
-      <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">
+      <DemoCard class="mx-auto w-fit border-none bg-stone-400! shadow-none">
         <FOLTree :fragment="parsedFormula" :max-depth="parsedFormula.depth()" :level="0" />
       </DemoCard>
     </FeatureSection>
@@ -73,7 +73,7 @@ const trace = FOL.trace('lazy', true, model, parsedFormula).get()
           the expected result or not.
         </p>
       </FeatureParagraph>
-      <DemoCard class="mx-auto w-fit border-none !bg-stone-400 shadow-none">
+      <DemoCard class="mx-auto w-fit border-none bg-stone-400! shadow-none">
         <ModelCheckerTraceTree
           :trace="trace"
           :is-root-mismatched="trace.actual !== trace.expected"

@@ -4,13 +4,13 @@ const { homeLink } = useLinks()
 
 <template>
   <div
-    class="border-b-1 flex h-6 items-center border-stone-600 bg-stone-200 p-2 text-stone-900 md:h-8"
+    class="flex h-6 items-center border-b border-stone-600 bg-stone-200 p-2 text-stone-900 md:h-8"
   >
     <NuxtLink
       :to="homeLink.to"
       aria-label="Back to Home"
       title="Back to Home"
-      class="m--1 flex size-7 items-center rounded-3xl p-1 transition-colors hover:bg-stone-400"
+      class="-m-1 flex size-7 items-center rounded-3xl p-1 transition-colors hover:bg-stone-400"
     >
       <Icon name="carbon:arrow-left" class="ml-1" />
     </NuxtLink>

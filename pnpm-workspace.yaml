@@ -14,14 +14,17 @@ catalog:
   '@codemirror/legacy-modes': 6.5.2
   '@commitlint/cli': 20.4.3
   '@commitlint/config-conventional': 20.4.3
+  '@fontsource/readex-pro': 5.2.11
   '@iconify/react': 6.0.2
   '@manypkg/get-packages': 3.1.0
+  '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
   '@nuxt/test-utils': 4.0.0
   '@nuxtjs/robots': 5.7.1
   '@ohm-js/cli': 2.0.1
   '@playwright/test': 1.58.2
   '@tailwindcss/postcss': 4.2.1
+  '@tailwindcss/vite': 4.2.1
   '@tanstack/react-query': 5.90.21
   '@tanstack/vue-query': 5.92.9
   '@testing-library/react': 16.3.2
@@ -42,8 +45,6 @@ catalog:
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
-  '@unocss/nuxt': 66.6.5
-  '@unocss/reset': 66.6.5
   '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.4
   '@vitest/browser-playwright': 4.0.18

@@ -37,7 +37,7 @@ export function RunControls() {
   return (
     <Container>
       <div className="flex flex-col gap-2">
-        <div className="flex gap-2 justify-between">
+        <div className="flex justify-between gap-2">
           <div className="text-sm">Run</div>
           <div className="flex gap-2">
             <button
@@ -46,7 +46,7 @@ export function RunControls() {
               title="Abort run"
               onClick={onAbort}
               disabled={!isRunning}
-              className="inline-flex items-center rounded-md border border-white/30 bg-red-600 p-1.5 text-white hocus:enabled:bg-red-500 disabled:opacity-50 transition-all"
+              className="inline-flex items-center rounded-md border border-white/30 bg-red-600 p-1.5 text-white transition-all disabled:opacity-50 hocus:enabled:bg-red-500"
             >
               <Ban className="size-4" />
             </button>
@@ -56,7 +56,7 @@ export function RunControls() {
               title={canRun ? 'Run selected tasks' : 'Select tasks first'}
               onClick={onRun}
               disabled={!canRun}
-              className="inline-flex items-center rounded-md border border-white/30 bg-green-600 p-1.5 text-white hocus:enabled:bg-green-500 disabled:opacity-50 transition-all"
+              className="inline-flex items-center rounded-md border border-white/30 bg-green-600 p-1.5 text-white transition-all disabled:opacity-50 hocus:enabled:bg-green-500"
             >
               {isRunning ? (
                 <LoaderCircle className="size-4 animate-spin" />
@@ -159,7 +159,7 @@ export function TaskInput({ tasks }: TaskInputProps) {
         disabled={isRunning}
         className="font-mono text-xs"
       />
-      <div className="flex flex-col gap-2 p-2 -m-2 overflow-y-auto font-mono mask-[linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] mask-no-repeat mask-size-[100%_100%]">
+      <div className="-m-2 flex flex-col gap-2 overflow-y-auto mask-[linear-gradient(to_bottom,transparent,black_0.5rem,black_calc(100%-0.5rem),transparent)] mask-size-[100%_100%] mask-no-repeat p-2 font-mono">
         {!search ? (
           <Checkbox
             label="All"

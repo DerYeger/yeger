@@ -54,12 +54,12 @@ export function LogOutput({
       draggable={false}
     >
       {title ? (
-        <div className="mb-1 text-[10px] uppercase tracking-wide text-neutral-400">{title}</div>
+        <div className="mb-1 text-[10px] tracking-wide text-neutral-400 uppercase">{title}</div>
       ) : null}
       {items.length === 0 ? (
-        <span className="text-neutral-600 text-sm">{emptyText}</span>
+        <span className="text-sm text-neutral-600">{emptyText}</span>
       ) : (
-        <div className="font-mono text-sm pr-2">
+        <div className="pr-2 font-mono text-sm">
           {items.map((l) => (
             <div
               key={l.id}
