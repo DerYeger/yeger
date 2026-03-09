@@ -11,7 +11,7 @@
       "files": ["apps/formi/**/*.{ts,vue}"],
       "options": {
         "sortTailwindcss": {
-          "stylesheet": "apps/formi/assets/css/main.css"
+          "stylesheet": "apps/formi/app/assets/css/main.css"
         }
       }
     },
