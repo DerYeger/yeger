@@ -1,0 +1,36 @@
+{
+  "name": "alpvara",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "nuxt": "nuxt",
+    "postinstall": "nuxt prepare",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@iconify-json/hugeicons": "catalog:",
+    "@nuxt/ui": "catalog:",
+    "@nuxtjs/i18n": "catalog:",
+    "@pinia/colada-nuxt": "catalog:",
+    "@pinia/nuxt": "catalog:",
+    "@vueuse/nuxt": "catalog:",
+    "@yeger/streams": "workspace:*",
+    "key-hierarchy": "workspace:*",
+    "nuxt": "catalog:",
+    "nuxt-charts": "catalog:",
+    "openid-client": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:",
+    "vue": "catalog:",
+    "vue-tsc": "catalog:"
+  }
+}

@@ -17,6 +17,8 @@ jobs:
           node-version-file: .node-version
       - name: Build, Lint, Test, and Typecheck
         run: pnpm run ci
+        env:
+          NUXT_CLIENT_ID: ${{ secrets.NUXT_CLIENT_ID }}
       - name: Upload @yeger/debounce coverage
         uses: codecov/codecov-action@v5
         with:

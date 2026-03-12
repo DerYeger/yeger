@@ -1,0 +1,90 @@
+{
+  "common": {
+    "logout": "Logout",
+    "portfolio": "Portfolio",
+    "intro": "Alpvara is a free and open source Parqet integration for Austria-specific features. No data is stored by Alpvara.",
+    "copy-toast": "Copied to clipboard"
+  },
+  "navigation": {
+    "home": "Home",
+    "watchtower": "Watchtower",
+    "bav": "BaV Import"
+  },
+  "bav": {
+    "account": "Account",
+    "form": {
+      "first-year": "First insurance year",
+      "contributions": "Contributions",
+      "final-balance": "Final balance",
+      "year": "Year",
+      "submit": "Submit"
+    },
+    "help": {
+      "text": "The BaV function allows you to store the data of your company pension in Parqet.",
+      "steps": {
+        "portfolio": "Select the portfolio in which you want to store the BaV data.",
+        "account": "Select the account on which the BaV data should be stored.",
+        "history": "Enter the data of your first insurance year."
+      }
+    },
+    "history": {
+      "title": "History",
+      "help": "This history is an approximation and may differ from the actual quarterly data.",
+      "empty": {
+        "title": "No data available",
+        "description": "Store the data of your first insurance year."
+      },
+      "balance": "Balance",
+      "view-on-parqet": "View on Parqet"
+    },
+    "toast": {
+      "history": {
+        "saved": {
+          "title": "Data saved",
+          "description": "The data has been saved successfully."
+        },
+        "failed": {
+          "title": "Unable to save data"
+        }
+      },
+      "account": {
+        "created": {
+          "title": "Account created",
+          "description": "Account \"{name}\" was created successfully."
+        },
+        "failed": {
+          "title": "Failed to create account"
+        }
+      },
+      "portfolio": {
+        "created": {
+          "title": "Portfolio created",
+          "description": "Portfolio \"{name}\" was created successfully."
+        },
+        "failed": {
+          "title": "Failed to create portfolio"
+        }
+      }
+    }
+  },
+  "watchtower": {
+    "search-placeholder": "Search by name or ISIN...",
+    "include-sold": "Include sold",
+    "warning-filter": "Filter warnings...",
+    "no-warning": "No warning",
+    "help": "The watchtower shows possible risks in your portfolio. The watchtower is not financial advice, but rather a tool to indicate possible risks. Please carefully review all warnings, for example through OeKB. Incorrect information is not ruled out.",
+    "table": {
+      "name": "Name",
+      "isin": "ISIN",
+      "reit-bdc": "REIT / BDC",
+      "fund": "Fund",
+      "swap": "Swap Fund",
+      "links": "Links"
+    },
+    "warning": {
+      "reit-bdc": "If this is a REIT or BDC, tax disadvantages may arise.",
+      "fund": "If this is a non-reporting fund, tax disadvantages may arise. Check OeKB for further details.",
+      "swap": "This may be a swap-based product, which could result in tax disadvantages. Check OeKB for further details."
+    }
+  }
+}

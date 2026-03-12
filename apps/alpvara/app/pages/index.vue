@@ -1,0 +1,3 @@
+<template>
+  <IntroText />
+</template>

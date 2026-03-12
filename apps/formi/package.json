@@ -8,11 +8,11 @@
     "dev": "nuxt dev",
     "e2e": "playwright test",
     "generate": "nuxt generate",
-    "nuxi": "nuxi",
+    "nuxt": "nuxt",
     "postinstall": "nuxt prepare",
     "preview": "serve .output/public",
     "test": "vitest",
-    "typecheck": "nuxi typecheck"
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
     "@codemirror/language": "catalog:",

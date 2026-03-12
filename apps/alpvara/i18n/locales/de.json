@@ -1,0 +1,90 @@
+{
+  "common": {
+    "logout": "Abmelden",
+    "portfolio": "Portfolio",
+    "intro": "Alpvara ist eine kostenlose Open-Source Parqet-Integration für Österreich-spezifische Funktionen. Alpvara speichert keine Daten.",
+    "copy-toast": "In die Zwischenablage kopiert"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "watchtower": "Wachturm",
+    "bav": "BaV Import"
+  },
+  "bav": {
+    "account": "Konto",
+    "form": {
+      "first-year": "Erstes Versicherungsjahr",
+      "contributions": "Beiträge",
+      "final-balance": "Endguthaben",
+      "year": "Jahr",
+      "submit": "Hinzufügen"
+    },
+    "help": {
+      "text": "Die BaV-Funktion ermöglicht es dir, die Daten deiner betrieblichen Altersvorsorge in Parqet zu speichern.",
+      "steps": {
+        "portfolio": "Wähle das Portfolio aus, in dem du die BaV-Daten speichern möchtest.",
+        "account": "Wähle das Konto aus, auf dem die BaV-Daten gespeichert werden sollen.",
+        "history": "Gib die Daten deines ersten Versicherungsjahres ein."
+      }
+    },
+    "history": {
+      "title": "Verlauf",
+      "help": "Dieser Verlauf ist eine Näherung und kann von den tatsächlichen unterjährigen Daten abweichen.",
+      "empty": {
+        "title": "Keine Daten verfügbar",
+        "description": "Speicher die Daten deines ersten Versicherungsjahres."
+      },
+      "balance": "Guthaben",
+      "view-on-parqet": "In Parqet anzeigen"
+    },
+    "toast": {
+      "history": {
+        "saved": {
+          "title": "Daten gespeichert",
+          "description": "Die Daten wurden erfolgreich gespeichert."
+        },
+        "failed": {
+          "title": "Daten konnten nicht gespeichert werden"
+        }
+      },
+      "account": {
+        "created": {
+          "title": "Konto erstellt",
+          "description": "Konto \"{name}\" wurde erfolgreich erstellt."
+        },
+        "failed": {
+          "title": "Konto konnte nicht erstellt werden"
+        }
+      },
+      "portfolio": {
+        "created": {
+          "title": "Portfolio erstellt",
+          "description": "Portfolio \"{name}\" wurde erfolgreich erstellt."
+        },
+        "failed": {
+          "title": "Portfolio konnte nicht erstellt werden"
+        }
+      }
+    }
+  },
+  "watchtower": {
+    "search-placeholder": "Suche nach Name oder ISIN...",
+    "include-sold": "Verkaufte anzeigen",
+    "warning-filter": "Warnungen filtern...",
+    "no-warning": "Keine Warnung",
+    "help": "Der Wachturm zeigt mögliche Risiken in deinem Portfolio auf. Der Wachturm ist keine Beratung, sondern soll als Indikator für mögliche Risiken dienen. Bitte prüfe alle Warnungen sorgfältig, zum Beispiel über OeKB. Falsche Informationen sind nicht ausgeschlossen.",
+    "table": {
+      "name": "Name",
+      "isin": "ISIN",
+      "reit-bdc": "REIT / BDC",
+      "fund": "Fonds",
+      "swap": "Swap Fonds",
+      "links": "Links"
+    },
+    "warning": {
+      "reit-bdc": "Falls es sich um ein REIT oder BDC handelt, können Steuernachteile entstehen.",
+      "fund": "Falls es sich um einen nicht-Meldefonds handelt können Steuernachteile entstehen. Prüfe OeKB für weitere Details.",
+      "swap": "Es handelt sich möglicherweise um ein Swap-basiertes Produkt, wodurch Steuernachteile entstehen können. Prüfe OeKB für weitere Details."
+    }
+  }
+}

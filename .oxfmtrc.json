@@ -8,6 +8,14 @@
   },
   "overrides": [
     {
+      "files": ["apps/alpvara/**/*.{ts,vue}"],
+      "options": {
+        "sortTailwindcss": {
+          "stylesheet": "apps/alpvara/app/assets/css/main.css"
+        }
+      }
+    },
+    {
       "files": ["apps/formi/**/*.{ts,vue}"],
       "options": {
         "sortTailwindcss": {

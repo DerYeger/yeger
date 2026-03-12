@@ -1,0 +1,19 @@
+{
+  "$schema": "../../node_modules/turbo/schema.json",
+  "extends": ["//"],
+  "tasks": {
+    "build": {
+      "outputs": [".nuxt/**", ".output/**", "dist/**"],
+    },
+    "generate": {
+      "env": ["NUXT_CLIENT_ID", "NUXT_REDIRECT_URI"],
+    },
+    "test": {
+      "dependsOn": ["generate"],
+    },
+    "typecheck": {
+      // Prevents race conditions due to parallel executions, but dependency is not strictly required
+      "dependsOn": ["build", "generate"],
+    },
+  },
+}

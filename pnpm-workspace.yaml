@@ -15,13 +15,18 @@ catalog:
   '@commitlint/cli': 20.4.3
   '@commitlint/config-conventional': 20.4.3
   '@fontsource/readex-pro': 5.2.11
+  '@iconify-json/hugeicons': 1.2.23
   '@iconify/react': 6.0.2
   '@manypkg/get-packages': 3.1.0
   '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
   '@nuxt/test-utils': 4.0.0
+  '@nuxt/ui': 4.5.1
+  '@nuxtjs/i18n': 10.2.3
   '@nuxtjs/robots': 5.7.1
   '@ohm-js/cli': 2.0.1
+  '@pinia/colada-nuxt': 0.3.2
+  '@pinia/nuxt': 0.11.3
   '@playwright/test': 1.58.2
   '@tailwindcss/postcss': 4.2.1
   '@tailwindcss/vite': 4.2.1
@@ -78,8 +83,10 @@ catalog:
   next-seo: 7.2.0
   nuqs: 2.8.9
   nuxt: 4.3.1
+  nuxt-charts: 2.1.3
   ohm-js: 17.5.0
   open: 11.0.0
+  openid-client: 6.8.2
   oxfmt: 0.36.0
   oxlint: 1.51.0
   oxlint-tsgolint: 0.16.0
@@ -119,6 +126,9 @@ catalog:
 catalogMode: strict
 
 cleanupUnusedCatalogs: true
+
+ignoredBuiltDependencies:
+  - maplibre-gl
 
 minimumReleaseAge: 2880
 
