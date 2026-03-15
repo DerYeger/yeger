@@ -1,14 +1,19 @@
 <script setup lang="ts">
-const { ui = { content: '' } } = defineProps<{
+defineProps<{
   ui?: {
     content?: string
+    icon?: string
   }
 }>()
 </script>
 
 <template>
   <UPopover mode="hover">
-    <UIcon name="hugeicons:information-square" class="col-start-2 size-6 shrink-0 text-muted" />
+    <UIcon
+      name="hugeicons:information-square"
+      class="size-6 shrink-0 text-muted"
+      :class="{ [ui?.icon ?? '']: true }"
+    />
     <template #content>
       <div
         class="whitespace-wrap flex w-fit flex-col gap-2 p-2 text-center text-sm text-pretty"

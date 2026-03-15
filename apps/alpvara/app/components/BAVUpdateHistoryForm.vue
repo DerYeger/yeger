@@ -39,23 +39,33 @@ async function onSubmit(event: FormSubmitEvent<UpdateBAVHistoryRequest>) {
     })
   } catch (_) {}
 }
+
+const canYearBeEdited = computed(() => {
+  const currentYear = new Date().getFullYear()
+  return state.year < currentYear
+})
 </script>
 
 <template>
-  <UForm
-    v-if="state.year < new Date().getFullYear()"
-    :state="state"
-    :schema="UpdateBAVHistoryRequestSchema"
-    @submit="onSubmit"
-  >
-    <UCard class="w-fit" :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }">
+  <UForm :state="state" :schema="UpdateBAVHistoryRequestSchema" @submit="onSubmit">
+    <UCard
+      class="w-fit"
+      :ui="{
+        header: 'flex items-center justify-between ga-2',
+        body: 'flex flex-col gap-4',
+        footer: 'flex justify-end',
+      }"
+    >
       <template #header>
         {{ state.year }}
+        <span v-if="!canYearBeEdited" class="ml-auto text-muted">
+          {{ $t('bav.form.current-year') }}
+        </span>
       </template>
       <UFormField :label="$t('bav.form.contributions')">
         <UInputNumber
           v-model="state.contributions"
-          :disabled="isLoading"
+          :disabled="isLoading || !canYearBeEdited"
           :min="0"
           :step="0.01"
           :format-options="{
@@ -68,7 +78,7 @@ async function onSubmit(event: FormSubmitEvent<UpdateBAVHistoryRequest>) {
       <UFormField :label="$t('bav.form.final-balance')">
         <UInputNumber
           v-model="state.finalBalance"
-          :disabled="isLoading"
+          :disabled="isLoading || !canYearBeEdited"
           :min="0"
           :step="0.01"
           :format-options="{
@@ -79,7 +89,7 @@ async function onSubmit(event: FormSubmitEvent<UpdateBAVHistoryRequest>) {
         />
       </UFormField>
       <template #footer>
-        <UButton type="submit" :disabled="isLoading">
+        <UButton type="submit" :disabled="isLoading || !canYearBeEdited">
           {{ $t('bav.form.submit') }}
         </UButton>
       </template>

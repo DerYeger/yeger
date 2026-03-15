@@ -2,7 +2,6 @@
   "common": {
     "logout": "Logout",
     "portfolio": "Portfolio",
-    "intro": "Alpvara is a free and open source Parqet integration for Austria-specific features. No data is stored by Alpvara.",
     "copy-toast": "Copied to clipboard"
   },
   "navigation": {
@@ -10,10 +9,36 @@
     "watchtower": "Watchtower",
     "bav": "BaV Import"
   },
+  "hero": {
+    "title": "Austria-specific features for your Parqet account",
+    "subtitle": "With Alpvara, you can spot potential tax risks and import company pension data with minimal effort.",
+    "disclaimer": "Alpvara does not store any data. All data is kept only in your Parqet account. No investment advice.",
+    "cards": {
+      "watchtower": {
+        "description": "Find holdings that may require additional tax review in Austria.",
+        "features": {
+          "reit-bdc": "Highlights possible REIT / BDC positions.",
+          "fund": "Flags potential non-reporting funds.",
+          "swap": "Marks possibly swap-based products."
+        },
+        "cta": "Open Watchtower"
+      },
+      "bav": {
+        "description": "Import company pension data as a custom insurance in Parqet.",
+        "features": {
+          "import": "Guides you through portfolio, account, and data entry.",
+          "approximation": "Approximates monthly values from yearly contributions and final balance."
+        },
+        "cta": "Open BaV Import"
+      }
+    },
+    "github": "View source on GitHub"
+  },
   "bav": {
     "account": "Account",
     "form": {
       "first-year": "First insurance year",
+      "current-year": "Not yet available",
       "contributions": "Contributions",
       "final-balance": "Final balance",
       "year": "Year",

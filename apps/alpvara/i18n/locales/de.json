@@ -2,7 +2,6 @@
   "common": {
     "logout": "Abmelden",
     "portfolio": "Portfolio",
-    "intro": "Alpvara ist eine kostenlose Open-Source Parqet-Integration für Österreich-spezifische Funktionen. Alpvara speichert keine Daten.",
     "copy-toast": "In die Zwischenablage kopiert"
   },
   "navigation": {
@@ -10,10 +9,36 @@
     "watchtower": "Wachturm",
     "bav": "BaV Import"
   },
+  "hero": {
+    "title": "Österreich-spezifische Funktionen für dein Parqet-Konto",
+    "subtitle": "Mit Alpvara kannst du potenzielle Steuerrisiken erkennen und BaV-Daten mit wenig Aufwand importieren.",
+    "disclaimer": "Alpvara speichert keine Daten. Alle Daten bleiben ausschließlich in deinem Parqet-Konto. Keine Anlageberatung.",
+    "cards": {
+      "watchtower": {
+        "description": "Finde Positionen, die in Österreich Steuernachteile mit sich bringen könnten.",
+        "features": {
+          "reit-bdc": "Hebt mögliche REIT-/BDC-Positionen hervor.",
+          "fund": "Markiert potenzielle Nicht-Meldefonds.",
+          "swap": "Kennzeichnet möglicherweise Swap-basierte Produkte."
+        },
+        "cta": "Wachturm öffnen"
+      },
+      "bav": {
+        "description": "Importiere Daten deiner betrieblichen Altersvorsorge als individuelle Versicherung in Parqet.",
+        "features": {
+          "import": "Führt dich durch Portfolio-, Konto- und Daten-Eingabe.",
+          "approximation": "Nähert monatliche Werte aus Jahresbeiträgen und Endguthaben an."
+        },
+        "cta": "BaV Import öffnen"
+      }
+    },
+    "github": "Quellcode auf GitHub"
+  },
   "bav": {
     "account": "Konto",
     "form": {
       "first-year": "Erstes Versicherungsjahr",
+      "current-year": "Noch nicht verfügbar",
       "contributions": "Beiträge",
       "final-balance": "Endguthaben",
       "year": "Jahr",

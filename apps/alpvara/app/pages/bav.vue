@@ -88,7 +88,8 @@ const activeStep = computed(() => {
         <BAVHistoryChart v-if="accountHistory?.length" :activities="accountHistory" />
         <UEmpty
           v-else
-          class="grow drop-shadow"
+          class="grow"
+          variant="naked"
           :title="$t('bav.history.empty.title')"
           :description="$t('bav.history.empty.description')"
         />

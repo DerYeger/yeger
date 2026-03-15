@@ -17,5 +17,7 @@ function onClick() {
 </script>
 
 <template>
-  <UButton variant="ghost" color="neutral" class="text-muted" @click="onClick">{{ text }}</UButton>
+  <UButton variant="ghost" color="neutral" class="-mx-2.5 text-muted" @click="onClick">{{
+    text
+  }}</UButton>
 </template>

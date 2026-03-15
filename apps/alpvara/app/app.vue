@@ -3,6 +3,14 @@ import type { NavigationMenuItem } from '@nuxt/ui'
 import { de, en } from '@nuxt/ui/locale'
 
 const { locale, setLocale } = useI18n()
+const nuxtUILocale = computed(() => {
+  switch (locale.value) {
+    case 'en':
+      return en
+    case 'de':
+      return de
+  }
+})
 
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
@@ -17,52 +25,37 @@ useHead({
 })
 
 const title = 'Alpvara'
-const description = 'A Parqet integration for Austria-specific features'
 
 useSeoMeta({
   title,
-  description,
+  description: $t('hero.subtitle'),
   ogTitle: title,
-  ogDescription: description,
+  ogDescription: $t('hero.subtitle'),
 })
 
 const items = computed<NavigationMenuItem[]>(() => [
   {
     label: $t('navigation.home'),
     to: '/',
+    icon: 'hugeicons:home-03',
   },
   {
     label: $t('navigation.watchtower'),
     to: '/watchtower',
+    icon: 'hugeicons:airport-tower',
   },
   {
     label: $t('navigation.bav'),
     to: '/bav',
+    icon: 'hugeicons:folder-upload',
   },
 ])
 
-const { data, error, clear } = await useFetch('/api/user')
+const { data: userData, error, clear } = await useFetch('/api/user')
 
 if (error.value) {
   await navigateTo('/login')
 }
-
-async function logout() {
-  clear()
-  await $fetch('/api/logout', {
-    method: 'POST',
-  })
-  await navigateTo('/login')
-}
-
-const nuxtUILocale = computed(() => {
-  switch (locale.value) {
-    case 'en':
-      return en
-    case 'de':
-      return de
-  }
-})
 </script>
 
 <template>
@@ -73,9 +66,9 @@ const nuxtUILocale = computed(() => {
           Alpvara
         </h1>
       </template>
-      <UNavigationMenu v-if="data" :items="items" :ui="{ list: 'gap-6' }" />
+      <UNavigationMenu v-if="userData" :items="items" :ui="{ list: 'gap-6' }" />
       <template #body>
-        <UNavigationMenu v-if="data" :items="items" orientation="vertical" />
+        <UNavigationMenu v-if="userData" :items="items" orientation="vertical" />
       </template>
       <template #right>
         <div class="flex justify-end gap-2">
@@ -84,9 +77,8 @@ const nuxtUILocale = computed(() => {
             :locales="[de, en]"
             @update:model-value="setLocale($event as 'en' | 'de')"
           />
-          <UButton v-if="data" variant="subtle" @click="logout">
-            {{ $t('common.logout') }}
-          </UButton>
+          <LogoutButton v-if="userData" @logout="clear" />
+          <LoginButton v-else />
         </div>
       </template>
     </UHeader>

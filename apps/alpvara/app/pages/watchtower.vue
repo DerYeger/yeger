@@ -3,7 +3,7 @@ import type { TableColumn } from '@nuxt/ui'
 import * as s from '@yeger/streams/sync'
 import type { UnwrapRef } from 'vue'
 
-import CopyText from '~/components/CopyText.vue'
+import CopyButton from '~/components/CopyButton.vue'
 import WatchtowerLinks from '~/components/WatchtowerLinks.vue'
 import WatchtowerWarning from '~/components/WatchtowerWarning.vue'
 
@@ -90,7 +90,7 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
   { accessorKey: 'name', header: $t('watchtower.table.name') },
   {
     header: $t('watchtower.table.isin'),
-    cell: ({ row }) => h(CopyText, { text: row.original.isin }),
+    cell: ({ row }) => h(CopyButton, { text: row.original.isin }),
   },
   {
     id: 'fund',
@@ -163,12 +163,10 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
 
 <template>
   <div class="flex h-full flex-col">
-    <div class="grid grid-cols-[1fr_auto_auto_auto] items-center gap-8 p-4">
-      <UInput
-        :placeholder="$t('watchtower.search-placeholder')"
-        v-model="search"
-        class="col-span-4 max-w-sm flex-1 lg:col-span-1"
-      />
+    <div
+      class="grid max-w-full grid-cols-[1fr_auto_auto_auto] items-center gap-x-8 gap-y-4 p-4 max-lg:grid-cols-[1fr_auto]"
+    >
+      <UInput :placeholder="$t('watchtower.search-placeholder')" v-model="search" />
       <InfoTooltip :ui="{ content: 'max-w-sm text-justify' }">
         {{ $t('watchtower.help') }}
       </InfoTooltip>
@@ -182,13 +180,13 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
           { label: $t('watchtower.table.reit-bdc'), value: 'reitBdc' },
           { label: $t('watchtower.table.swap'), value: 'swap' },
         ]"
+        class="max-sm:col-span-2 max-sm:row-start-2"
         multiple
-        class="col-start-3"
       />
       <USwitch
         v-model="includeSold"
         :label="$t('watchtower.include-sold')"
-        class="col-start-4 whitespace-nowrap"
+        class="whitespace-nowrap max-sm:row-start-3"
       />
     </div>
     <UTable

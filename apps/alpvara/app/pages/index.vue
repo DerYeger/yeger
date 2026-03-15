@@ -1,3 +1,3 @@
 <template>
-  <IntroText />
+  <HeroSection is-logged-in />
 </template>
