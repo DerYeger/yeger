@@ -2,11 +2,17 @@
 import type { NavigationMenuItem } from '@nuxt/ui'
 import { de, en } from '@nuxt/ui/locale'
 
+const { locale, setLocale } = useI18n()
+
 useHead({
   meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-  link: [{ rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
+  link: [
+    { rel: 'icon', href: '/logo.ico', sizes: 'any' },
+    { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' },
+    { rel: 'apple-touch-icon', href: '/logo.png' },
+  ],
   htmlAttrs: {
-    lang: 'en',
+    lang: locale,
   },
 })
 
@@ -48,8 +54,6 @@ async function logout() {
   })
   await navigateTo('/login')
 }
-
-const { locale, setLocale } = useI18n()
 
 const nuxtUILocale = computed(() => {
   switch (locale.value) {
