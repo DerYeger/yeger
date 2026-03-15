@@ -42,12 +42,15 @@ async function onSubmit(event: FormSubmitEvent<UpdateBAVHistoryRequest>) {
 </script>
 
 <template>
-  <UForm :state="state" :schema="UpdateBAVHistoryRequestSchema" @submit="onSubmit">
+  <UForm
+    v-if="state.year < new Date().getFullYear()"
+    :state="state"
+    :schema="UpdateBAVHistoryRequestSchema"
+    @submit="onSubmit"
+  >
     <UCard class="w-fit" :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }">
       <template #header>
-        <h3>
-          {{ state.year }}
-        </h3>
+        {{ state.year }}
       </template>
       <UFormField :label="$t('bav.form.contributions')">
         <UInputNumber

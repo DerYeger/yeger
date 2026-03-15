@@ -19,8 +19,10 @@ watch(portfolios, (portfolios) => {
 const { mutateAsync } = useCreateBAVPortfolio()
 
 async function createPortfolio(name: string) {
-  const { id } = await mutateAsync(name)
-  model.value = id
+  try {
+    const { id } = await mutateAsync(name)
+    model.value = id
+  } catch (_) {}
 }
 </script>
 

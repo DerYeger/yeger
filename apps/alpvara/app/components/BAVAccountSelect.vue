@@ -28,11 +28,13 @@ async function createAccount(name: string) {
   if (!portfolioId) {
     return
   }
-  const response = await mutateAsync({
-    name,
-    portfolioId,
-  })
-  model.value = response.id
+  try {
+    const response = await mutateAsync({
+      name,
+      portfolioId,
+    })
+    model.value = response.id
+  } catch (_) {}
 }
 </script>
 
