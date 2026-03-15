@@ -16,7 +16,7 @@ describe('query-based mounting', () => {
   })
 
   describe('with explicit query imports', () => {
-    test('stubs all children and omits their imports', async ({ expect }) => {
+    test('stubs all children and omits their imports', ({ expect }) => {
       const wrapper = shallowMount(Parent)
 
       expect(wrapper.text()).toBe('Parent')
@@ -27,7 +27,7 @@ describe('query-based mounting', () => {
       expect(wrapper.findComponent({ name: 'Sibling' }).exists()).toBe(true)
     })
 
-    test('supports inference', async ({ expect }) => {
+    test('supports inference', ({ expect }) => {
       const wrapper = shallowMount(Parent, {
         props: { name: 'test-parent-name' },
       })
@@ -37,7 +37,7 @@ describe('query-based mounting', () => {
       expectTypeOf(name).toEqualTypeOf<string | undefined>()
     })
 
-    test('supports non-stubbed children', async ({ expect }) => {
+    test('supports non-stubbed children', ({ expect }) => {
       const wrapper = shallowMount(ParentWithSibling, {
         global: { stubs: { Sibling: false } },
       })
@@ -50,7 +50,7 @@ describe('query-based mounting', () => {
       expect(wrapper.findComponent({ name: 'Sibling' }).exists()).toBe(true)
     })
 
-    test('supports custom stubs', async ({ expect }) => {
+    test('supports custom stubs', ({ expect }) => {
       const wrapper = shallowMount(Parent, {
         global: {
           stubs: {
@@ -80,7 +80,7 @@ describe('query-based mounting', () => {
       expect(wrapper.emitted('update:modelValue')).toStrictEqual([['new-sibling-value']])
     })
 
-    test('supports props on stubbed children', async ({ expect }) => {
+    test('supports props on stubbed children', ({ expect }) => {
       const wrapper = shallowMount(Parent)
 
       const child = wrapper.findComponent({ name: 'MixedNamedChild' })
@@ -98,26 +98,26 @@ describe('query-based mounting', () => {
       expect(wrapper.emitted('update:modelValue')).toStrictEqual([['test-payload']])
     })
 
-    test('supports attributes on stubbed children', async ({ expect }) => {
+    test('supports attributes on stubbed children', ({ expect }) => {
       const wrapper = shallowMount(Parent)
 
       const child = wrapper.find('[data-testid="aliased-barrel-child"]')
       expect(child.exists()).toBe(true)
     })
 
-    test('does not render default slots on stubbed children by default', async ({ expect }) => {
+    test('does not render default slots on stubbed children by default', ({ expect }) => {
       const wrapper = shallowMount(Parent)
       expect(wrapper.text()).not.toContain('default-slot')
     })
 
-    test('can render default slots on stubbed children by local config', async ({ expect }) => {
+    test('can render default slots on stubbed children by local config', ({ expect }) => {
       const wrapper = shallowMount(Parent, {
         global: { renderStubDefaultSlot: true },
       })
       expect(wrapper.text()).toContain('default-slot')
     })
 
-    test('can render default slots on stubbed children by global config', async ({
+    test('can render default slots on stubbed children by global config', ({
       expect,
       onTestFinished,
     }) => {
@@ -130,7 +130,7 @@ describe('query-based mounting', () => {
       expect(wrapper.text()).toContain('default-slot')
     })
 
-    test('maintains boolean prop shorthands', async ({ expect }) => {
+    test('maintains boolean prop shorthands', ({ expect }) => {
       const wrapper = shallowMount(Parent)
 
       const aliasedBarrelChild = wrapper.findComponent({ name: 'AliasedBarrelChild' })

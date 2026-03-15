@@ -153,7 +153,7 @@ async function buildResponseFromArgs(
   })
 }
 
-export async function GET(req: NextRequest) {
+export function GET(req: NextRequest) {
   const url = new URL(req.url)
   // Accept both comma-separated and repeated parameters
   const tasksParam = url.searchParams.getAll('tasks')

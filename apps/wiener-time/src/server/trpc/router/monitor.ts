@@ -6,7 +6,7 @@ import { t } from '../utils'
 export const monitorRouter = t.router({
   getAllByStopIds: t.procedure
     .input(z.object({ stopIds: z.array(z.number()) }))
-    .query(async ({ input }) => {
+    .query(({ input }) => {
       return lib.fetchMonitorData(input.stopIds)
     }),
 })

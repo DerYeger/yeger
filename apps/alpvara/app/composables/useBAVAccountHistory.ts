@@ -26,7 +26,7 @@ function useBAVAccountHistoryMutation<T extends BAVHistoryRequest>() {
   const { t } = useI18n()
   const queryCache = useQueryCache()
   return useMutation({
-    mutation: async (request: T & { portfolioId: string; accountId: string }) =>
+    mutation: (request: T & { portfolioId: string; accountId: string }) =>
       $fetch(`/api/bav/${request.portfolioId}/accounts/${request.accountId}/history`, {
         method: 'POST',
         body: request,

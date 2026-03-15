@@ -40,7 +40,7 @@ const activeStep = computed(() => {
 </script>
 
 <template>
-  <UContainer class="mx-auto my-4 space-y-8">
+  <UContainer class="mx-auto my-4 space-y-4">
     <div class="flex items-center gap-4">
       <BAVPortfolioSelect v-model="selectedPortfolioId" />
       <BAVAccountSelect
@@ -48,7 +48,7 @@ const activeStep = computed(() => {
         :portfolio-id="selectedPortfolioId"
         :accounts="accounts"
       />
-      <InfoTooltip class="mt-6">
+      <InfoTooltip class="mt-4">
         {{ $t('bav.help.text') }}
         <UStepper
           :model-value="activeStep"
@@ -58,7 +58,10 @@ const activeStep = computed(() => {
         />
       </InfoTooltip>
     </div>
-    <div v-if="selectedPortfolioId && selectedAccount" class="flex gap-4 max-md:flex-wrap">
+    <div
+      v-if="selectedPortfolioId && selectedAccount"
+      class="grid grid-cols-[auto] gap-4 max-md:flex-wrap md:grid-cols-[auto_1fr]"
+    >
       <BAVCreateHistoryForm
         v-if="!selectedAccount?.position.shares"
         :portfolio-id="selectedPortfolioId"

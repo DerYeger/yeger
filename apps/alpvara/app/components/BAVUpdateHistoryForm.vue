@@ -49,7 +49,7 @@ const canYearBeEdited = computed(() => {
 <template>
   <UForm :state="state" :schema="UpdateBAVHistoryRequestSchema" @submit="onSubmit">
     <UCard
-      class="w-fit"
+      class="md:w-fit"
       :ui="{
         header: 'flex items-center justify-between ga-2',
         body: 'flex flex-col gap-4',
@@ -89,7 +89,7 @@ const canYearBeEdited = computed(() => {
         />
       </UFormField>
       <template #footer>
-        <UButton type="submit" :disabled="isLoading || !canYearBeEdited">
+        <UButton type="submit" class="-my-1" :disabled="isLoading || !canYearBeEdited">
           {{ $t('bav.form.submit') }}
         </UButton>
       </template>

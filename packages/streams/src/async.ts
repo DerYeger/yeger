@@ -777,8 +777,8 @@ export async function sum<T>(
   fn?: AsyncProcessor<T, number>,
 ): Promise<number> {
   return fn
-    ? reduce(source, async (acc, value, index) => acc + (await fn(value, index)), 0)
-    : reduce(source as MaybeAsyncIterable<number>, (acc, value) => acc + value, 0)
+    ? await reduce(source, async (acc, value, index) => acc + (await fn(value, index)), 0)
+    : await reduce(source as MaybeAsyncIterable<number>, (acc, value) => acc + value, 0)
 }
 
 /**

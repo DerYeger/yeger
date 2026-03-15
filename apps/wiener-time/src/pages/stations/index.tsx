@@ -8,7 +8,7 @@ import stations from '../../stations'
 
 export const getStaticProps: GetStaticProps<{
   stations: string[]
-}> = async () => {
+}> = () => {
   return {
     props: {
       stations: stations.getAll().map((station) => station.name),

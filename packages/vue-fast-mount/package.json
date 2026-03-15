@@ -49,8 +49,6 @@
     "@babel/generator": "catalog:",
     "@babel/traverse": "catalog:",
     "@babel/types": "catalog:",
-    "@vue/compiler-dom": "catalog:",
-    "@vue/server-renderer": "catalog:",
     "@yeger/streams": "workspace:*"
   },
   "devDependencies": {
@@ -60,6 +58,8 @@
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vitest/ui": "catalog:",
+    "@vue/compiler-dom": "catalog:",
+    "@vue/server-renderer": "catalog:",
     "@vue/test-utils": "catalog:",
     "@yeger/tsconfig": "workspace:*",
     "@yeger/vitest-utils": "workspace:*",
@@ -72,6 +72,8 @@
     "vue-tsc": "catalog:"
   },
   "peerDependencies": {
+    "@vue/compiler-dom": "^3.2.13",
+    "@vue/server-renderer": "^3.2.13",
     "vite": ">=7",
     "vue": "^3.2.13"
   }

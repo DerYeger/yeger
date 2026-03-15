@@ -30,7 +30,7 @@ async function onSubmit(event: FormSubmitEvent<CreateBAVHistoryRequest>) {
 
 <template>
   <UForm :state="state" :schema="CreateBAVHistoryRequestSchema" @submit="onSubmit">
-    <UCard class="w-fit" :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }">
+    <UCard class="md:w-fit" :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }">
       <template #header>
         {{ $t('bav.form.first-year') }}
       </template>
@@ -72,7 +72,7 @@ async function onSubmit(event: FormSubmitEvent<CreateBAVHistoryRequest>) {
         />
       </UFormField>
       <template #footer>
-        <UButton type="submit" :disabled="isLoading">
+        <UButton type="submit" class="-my-1" :disabled="isLoading">
           {{ $t('bav.form.submit') }}
         </UButton>
       </template>

@@ -7,7 +7,7 @@ import ParentFastMount from './Parent.vue' with { vfm: 'true' }
 vi.mock('./forbiddenModule.ts', () => ({}))
 
 describe('compatibility', () => {
-  test('shallowMount produces the expected html', async ({ expect }) => {
+  test('shallowMount produces the expected html', ({ expect }) => {
     expect(shallowMount(Parent).html()).toMatchInlineSnapshot(`
       "<div>
         <div>Parent</div>
@@ -22,7 +22,7 @@ describe('compatibility', () => {
     `)
   })
 
-  test('vfm import attributes produce the expected html', async ({ expect }) => {
+  test('vfm import attributes produce the expected html', ({ expect }) => {
     expect(shallowMount(ParentFastMount).html()).toMatchInlineSnapshot(`
       "<div>
         <div>Parent</div>
@@ -37,7 +37,7 @@ describe('compatibility', () => {
     `)
   })
 
-  test('shallowMount baseline selectors', async ({ expect }) => {
+  test('shallowMount baseline selectors', ({ expect }) => {
     const wrapper = shallowMount(Parent)
     expect(wrapper.findAllComponents({ name: 'Child' })).toHaveLength(6)
   })

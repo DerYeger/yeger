@@ -1,4 +1,4 @@
-export default defineEventHandler(async (event) => {
+export default defineEventHandler((event) => {
   const accessToken = getCookie(event, 'access_token')
   if (!accessToken) {
     throw createError({ statusCode: 401, message: 'Not authenticated' })

@@ -38,7 +38,7 @@ let currentAbort: (() => void) | null = null
 function useRunState() {
   return useQuery<RunState>({
     queryKey: ['runStream'],
-    queryFn: async () => DEFAULT_STATE,
+    queryFn: () => DEFAULT_STATE,
     initialData: DEFAULT_STATE,
     staleTime: Infinity,
     refetchOnMount: false,

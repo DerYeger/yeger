@@ -9,6 +9,13 @@
       "isIgnored": true
     },
     {
+      "label": "Ignored Nuxt .output",
+      "packages": [
+        "*-prod"
+      ],
+      "isIgnored": true
+    },
+    {
       "label": "Local",
       "dependencies": [
         "@yeger/*",

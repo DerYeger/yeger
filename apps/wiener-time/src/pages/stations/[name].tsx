@@ -26,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps<{
   station: Station
-}> = async ({ params }) => {
+}> = ({ params }) => {
   const stationName = lib.decodeStationName(params?.name as string)
 
   const station = stations.getByName(stationName)

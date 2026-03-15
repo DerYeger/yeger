@@ -13,7 +13,7 @@ interface Options {
   filter?: string
 }
 
-async function run() {
+function run() {
   const source = path.dirname(import.meta.resolve('@yeger/turbo-graph-ui').replace('file://', ''))
   const hostname = 'localhost'
   const defaultPort = 29312
@@ -67,4 +67,4 @@ async function run() {
   }
 }
 
-void run()
+run()

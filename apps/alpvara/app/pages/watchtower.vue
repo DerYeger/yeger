@@ -15,11 +15,7 @@ const { data } = useQuery({
 })
 
 const search = useLocalStorage('watchtower-search', '')
-const warningFilterState = useLocalStorage<string[]>('watchtower-warning-filter', [
-  'fund',
-  'reitBdc',
-  'swap',
-])
+const warningFilterState = useLocalStorage<string[]>('watchtower-warning-filter', [])
 const warningFilter = computed({
   get: () => warningFilterState.value,
   set: (val) => {

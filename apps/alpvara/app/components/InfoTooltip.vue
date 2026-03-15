@@ -11,7 +11,7 @@ const { icon = 'hugeicons:information-square', color = 'neutral' } = defineProps
 </script>
 
 <template>
-  <div>
+  <div class="-m-2">
     <UPopover mode="click">
       <UButton :icon="icon" :color="color" variant="ghost" class="shrink-0" />
       <template #content>

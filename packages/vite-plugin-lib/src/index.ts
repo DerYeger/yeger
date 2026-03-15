@@ -140,7 +140,7 @@ function buildConfig({ entry, formats, manifest, name, bundle, verbose }: Librar
     name: 'vite-plugin-lib:build',
     enforce: 'pre',
     apply: 'build',
-    config: async (config) => {
+    config: (config) => {
       return {
         ...config,
         build: {
