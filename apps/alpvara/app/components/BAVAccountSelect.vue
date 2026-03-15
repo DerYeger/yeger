@@ -20,6 +20,7 @@ watch(
       model.value = accounts[0]?.id
     }
   },
+  { immediate: true },
 )
 
 const { mutateAsync } = useCreateBAVAccount()

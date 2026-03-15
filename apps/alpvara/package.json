@@ -16,6 +16,7 @@
     "@iconify-json/hugeicons": "catalog:",
     "@nuxt/ui": "catalog:",
     "@nuxtjs/i18n": "catalog:",
+    "@pinia/colada": "catalog:",
     "@pinia/colada-nuxt": "catalog:",
     "@pinia/nuxt": "catalog:",
     "@vueuse/nuxt": "catalog:",

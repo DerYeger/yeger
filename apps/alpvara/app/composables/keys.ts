@@ -12,4 +12,5 @@ export const queryKeys = defineKeyHierarchy((dynamic) => ({
       }),
     },
   },
+  watchtower: true,
 }))

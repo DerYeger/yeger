@@ -9,7 +9,10 @@ import WatchtowerWarning from '~/components/WatchtowerWarning.vue'
 
 const NO_WARNING = 'none'
 
-const { data } = useFetch('/api/watchtower', { lazy: true })
+const { data } = useQuery({
+  key: queryKeys.watchtower,
+  query: () => $fetch('/api/watchtower'),
+})
 
 const search = useLocalStorage('watchtower-search', '')
 const warningFilterState = useLocalStorage<string[]>('watchtower-warning-filter', [

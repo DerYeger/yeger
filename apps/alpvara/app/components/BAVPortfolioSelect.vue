@@ -3,18 +3,22 @@ const model = defineModel<string | undefined>({ required: true })
 
 const { data: portfolios } = useBAVPortfolios()
 
-watch(portfolios, (portfolios) => {
-  if (!portfolios?.length) {
-    // No portfolios available
-    model.value = undefined
-  } else if (!model.value && portfolios.length) {
-    // Set initial value to first portfolio if available
-    model.value = portfolios[0]?.id
-  } else if (model.value && !portfolios.some((p) => p.id === model.value)) {
-    // Portfolio was removed
-    model.value = portfolios[0]?.id
-  }
-})
+watch(
+  portfolios,
+  (portfolios) => {
+    if (!portfolios?.length) {
+      // No portfolios available
+      model.value = undefined
+    } else if (!model.value && portfolios.length) {
+      // Set initial value to first portfolio if available
+      model.value = portfolios[0]?.id
+    } else if (model.value && !portfolios.some((p) => p.id === model.value)) {
+      // Portfolio was removed
+      model.value = portfolios[0]?.id
+    }
+  },
+  { immediate: true },
+)
 
 const { mutateAsync } = useCreateBAVPortfolio()
 
