@@ -1,4 +1,6 @@
+import type { GeneratorResult } from '@babel/generator'
 import { default as babelTraverse } from '@babel/traverse'
+import type { TransformResult } from 'vite'
 import type { babelParse } from 'vue/compiler-sfc'
 
 export const traverse: typeof babelTraverse =
@@ -32,4 +34,16 @@ export function toPascalCase(name: string): string {
     .split(/[-_]/g)
     .map((part) => (part ? part[0]!.toUpperCase() + part.slice(1) : ''))
     .join('')
+}
+
+export function toSourceMap(
+  map: NonNullable<GeneratorResult['map']>,
+): NonNullable<TransformResult['map']> {
+  return {
+    ...map,
+    sourcesContent: map.sourcesContent ?? [],
+    toString: () => JSON.stringify(map),
+    toUrl: () =>
+      `data:application/json;charset=utf-8;base64,${Buffer.from(JSON.stringify(map)).toString('base64')}`,
+  }
 }

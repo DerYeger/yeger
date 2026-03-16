@@ -7,6 +7,7 @@ import {
   FAST_MOUNT_QUERY_KEY,
   FAST_MOUNT_QUERY_VALUE,
   FAST_MOUNT_UNSTUB_QUERY_KEY,
+  toSourceMap,
   traverse,
 } from './utils'
 
@@ -82,7 +83,7 @@ export function transformImportAttributes(code: string, id: string): TransformRe
 
   return {
     code: sfcCode.toString(),
-    map: sfcCode.generateMap({ hires: true, source: id, includeContent: true }),
+    map: toSourceMap(sfcCode.generateMap({ hires: true, source: id, includeContent: true })),
   }
 }
 

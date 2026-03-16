@@ -3,16 +3,12 @@
   "versionGroups": [
     {
       "label": "Ignored",
-      "dependencyTypes": [
-        "peer"
-      ],
+      "dependencyTypes": ["peer"],
       "isIgnored": true
     },
     {
       "label": "Ignored Nuxt .output",
-      "packages": [
-        "*-prod"
-      ],
+      "packages": ["*-prod"],
       "isIgnored": true
     },
     {
@@ -31,9 +27,13 @@
     },
     {
       "label": "Turbo",
-      "dependencies": [
-        "turbo"
-      ]
+      "dependencies": ["turbo"]
+    },
+    {
+      "label": "External (Vite 7)",
+      "packages": ["alpvara", "formi"],
+      "dependencies": ["vite"],
+      "pinVersion": "catalog:vite7"
     },
     {
       "label": "External",

@@ -77,7 +77,7 @@ const DepartureListItem: FC<{ departure: Departure }> = ({ departure }) => {
     <div className="flex h-10 items-center justify-between">
       <div className="flex flex-col">
         {departureTime()}
-        {delay !== 0 && (
+        {delay !== 0 && !Number.isNaN(delay) && (
           <span className="text-xs" style={{ color: delay > 0 ? 'red' : 'orange' }}>
             {formatDelay(delay)}
           </span>

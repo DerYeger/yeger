@@ -30,7 +30,7 @@
   "devDependencies": {
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
+    "vite": "catalog:vite7",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
   }

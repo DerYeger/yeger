@@ -48,7 +48,7 @@
     "serve": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
-    "vite": "catalog:",
+    "vite": "catalog:vite7",
     "vitest": "catalog:",
     "vue": "catalog:",
     "vue-tsc": "catalog:"

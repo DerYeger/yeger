@@ -9,6 +9,7 @@ import { getUnstubbedComponents } from './getUnstubbedComponent'
 import { insertComponentStubs } from './insertComponentStubs'
 import { removeStubbedComponentImports } from './removeStubbedComponentImports'
 import { shouldTransformSFC } from './shouldTransformSFC'
+import { toSourceMap } from './utils'
 
 export function transformCompiledComponent(code: string, id: string): TransformResult | null {
   const parsedId = parseCompiledScriptId(id)
@@ -52,17 +53,6 @@ export function transformCompiledComponent(code: string, id: string): TransformR
   return {
     code: output.code,
     map: output.map ? toSourceMap(output.map) : null,
-  }
-}
-
-function toSourceMap(
-  map: NonNullable<ReturnType<typeof generate>['map']>,
-): NonNullable<TransformResult['map']> {
-  return {
-    ...map,
-    toString: () => JSON.stringify(map),
-    toUrl: () =>
-      `data:application/json;charset=utf-8;base64,${Buffer.from(JSON.stringify(map)).toString('base64')}`,
   }
 }
 
