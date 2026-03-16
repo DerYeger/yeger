@@ -5,9 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <UTooltip arrow :text="tooltip">
-    <div class="flex items-center justify-center">
-      <UIcon name="hugeicons:alert-02" class="size-6 text-yellow-500" />
-    </div>
-  </UTooltip>
+  <InfoTooltip icon="hugeicons:alert-02" color="warning">
+    {{ tooltip }}
+  </InfoTooltip>
 </template>

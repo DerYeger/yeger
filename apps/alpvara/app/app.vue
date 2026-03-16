@@ -59,8 +59,8 @@ if (error.value) {
 </script>
 
 <template>
-  <UApp class="relative flex h-100 flex-col" :locale="nuxtUILocale">
-    <UHeader>
+  <UApp class="flex h-100 flex-col" :locale="nuxtUILocale">
+    <UHeader toggle-side="left" :toggle="userData !== undefined">
       <template #title>
         <h1 class="text-3xl font-black tracking-widest text-black uppercase max-sm:hidden">
           Alpvara
@@ -85,6 +85,5 @@ if (error.value) {
     <UMain class="flex h-[calc(100vh-var(--ui-header-height))] flex-col overflow-y-auto">
       <NuxtPage />
     </UMain>
-    <RWR />
   </UApp>
 </template>

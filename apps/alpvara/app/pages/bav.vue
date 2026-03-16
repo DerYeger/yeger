@@ -40,7 +40,7 @@ const activeStep = computed(() => {
 </script>
 
 <template>
-  <UContainer class="mx-auto space-y-8 py-4">
+  <UContainer class="mx-auto my-4 space-y-8">
     <div class="flex items-center gap-4">
       <BAVPortfolioSelect v-model="selectedPortfolioId" />
       <BAVAccountSelect

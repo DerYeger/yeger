@@ -203,7 +203,7 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
         swap: warningFilter.includes('swap') || warningFilter.length === 0,
       }"
       sticky
-      class="flex-1 pb-16"
+      class="flex-1"
     />
   </div>
 </template>

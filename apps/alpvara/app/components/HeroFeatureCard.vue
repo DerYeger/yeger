@@ -10,7 +10,10 @@ defineProps<{
 </script>
 
 <template>
-  <UCard class="h-full" :ui="{ body: 'space-y-4', footer: 'flex justify-end' }">
+  <UCard
+    class="h-full"
+    :ui="{ root: 'flex flex-col', body: 'flex flex-col gap-4 grow', footer: 'flex justify-end' }"
+  >
     <template #header>
       <h3 class="text-lg font-semibold">
         {{ title }}
