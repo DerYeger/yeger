@@ -1,5 +1,11 @@
 # vue-fast-mount
 
+## 0.4.1
+
+### Patch Changes
+
+- e9dd9cd: move @vue/compiler-dom and @vue/server-renderer to peerDependencies
+
 ## 0.4.0
 
 ### Minor Changes
