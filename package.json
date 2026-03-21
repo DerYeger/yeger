@@ -51,7 +51,7 @@
     "oxlint-tsgolint": "catalog:",
     "syncpack": "catalog:",
     "taze": "catalog:",
-    "turbo": "2.8.17",
+    "turbo": "2.8.19",
     "vitest": "catalog:"
   },
   "lint-staged": {

@@ -52,12 +52,12 @@ test('can open station details', async ({ page }) => {
   await expect(map.locator('.leaflet-marker-pane .leaflet-marker-icon')).toHaveCount(2)
 
   // The monitor information for the lines is shown
-  const firstLine = page.getByTestId('line-U4-HEILIGENSTADT')
+  const firstLine = page.getByTestId('line-U4-Heiligenstadt')
   await expect(firstLine).toBeVisible()
-  await expect(firstLine.getByTestId('line-header')).toHaveText('U4 HEILIGENSTADT')
-  const secondLine = page.getByTestId('line-U4-HÜTTELDORF')
+  await expect(firstLine.getByTestId('line-header')).toHaveText('U4 Heiligenstadt')
+  const secondLine = page.getByTestId('line-U4-Hütteldorf')
   await expect(secondLine).toBeVisible()
-  await expect(secondLine.getByTestId('line-header')).toHaveText('U4 HÜTTELDORF')
+  await expect(secondLine.getByTestId('line-header')).toHaveText('U4 Hütteldorf')
 })
 
 test('has a map for all stations', async ({ page }) => {
