@@ -88,7 +88,7 @@ catalog:
   ohm-js: 17.5.0
   open: 11.0.0
   openid-client: 6.8.2
-  oxfmt: 0.40.0
+  oxfmt: 0.41.0
   oxlint: 1.56.0
   oxlint-tsgolint: 0.17.0
   picocolors: 1.1.1
