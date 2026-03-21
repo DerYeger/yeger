@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     '@antfu/ni':
-      specifier: 28.3.0
-      version: 28.3.0
+      specifier: 29.0.0
+      version: 29.0.0
     '@babel/generator':
       specifier: 7.29.1
       version: 7.29.1
@@ -370,7 +370,7 @@ importers:
     devDependencies:
       '@antfu/ni':
         specifier: 'catalog:'
-        version: 28.3.0
+        version: 29.0.0
       '@changesets/cli':
         specifier: 'catalog:'
         version: 2.30.0(@types/node@25.5.0)
@@ -1605,6 +1605,11 @@ packages:
 
   '@antfu/ni@28.3.0':
     resolution: {integrity: sha512-JbRijiCNAGcQcyPfV0EXOJYwV27e/srXfTvETqzbbh4jzHBV2pDYiBz8rj5SyzX27aTbCK+qXR3x6g2WKokcrA==}
+    engines: {node: '>=20'}
+    hasBin: true
+
+  '@antfu/ni@29.0.0':
+    resolution: {integrity: sha512-JbKx3nSr2HRLtchKfg6RCBB6lwJvYZIeGFTO0fzjXdaekIFHPMN6gfnRUZU1raPvXTVF7EqGTWEreDnZVvrzwQ==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -11392,6 +11397,14 @@ snapshots:
       tinyexec: 1.0.4
 
   '@antfu/ni@28.3.0':
+    dependencies:
+      ansis: 4.2.0
+      fzf: 0.5.2
+      package-manager-detector: 1.6.0
+      tinyexec: 1.0.4
+      tinyglobby: 0.2.15
+
+  '@antfu/ni@29.0.0':
     dependencies:
       ansis: 4.2.0
       fzf: 0.5.2
