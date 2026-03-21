@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.7
+
+### Patch Changes
+
+- 7813ec1: bump next to v16.1.7
+
 ## 2.8.6
 
 ### Patch Changes
