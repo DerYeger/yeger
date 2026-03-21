@@ -19,6 +19,11 @@
     {
       "matchDatasources": ["npm"],
       "minimumReleaseAge": "2 days"
+    },
+    {
+      "matchDepTypes": ["pnpm.catalog.vite7"],
+      "matchPackageNames": ["vite"],
+      "allowedVersions": "<8"
     }
   ],
   "schedule": ["after 12am and before 7am on Saturday"],
