@@ -132,6 +132,17 @@ catalogs:
 
 cleanupUnusedCatalogs: true
 
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  maplibre-gl: false
+  sharp: false
+  vue-demi: false
+
+overrides:
+  'archiver-utils>glob': 13.0.6
+  'js-beautify>glob': 13.0.6
+
 minimumReleaseAge: 2880
 
 shellEmulator: true
