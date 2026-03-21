@@ -32,8 +32,8 @@ catalog:
   '@playwright/test': 1.58.2
   '@tailwindcss/postcss': 4.2.2
   '@tailwindcss/vite': 4.2.2
-  '@tanstack/react-query': 5.91.0
-  '@tanstack/vue-query': 5.92.10
+  '@tanstack/react-query': 5.91.2
+  '@tanstack/vue-query': 5.92.12
   '@testing-library/react': 16.3.2
   '@trpc/client': 11.13.4
   '@trpc/next': 11.13.4
@@ -53,7 +53,6 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
   '@vercel/config': 0.0.40
-  '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.5
   '@vitest/browser-playwright': 4.1.0
   '@vitest/coverage-v8': 4.1.0
@@ -66,7 +65,6 @@ catalog:
   cac: 7.0.0
   clsx: 2.1.1
   codemirror: 6.0.2
-  cross-env: 10.1.0
   csvtojson: 2.0.14
   d3-dag: 1.1.0
   d3-drag: 3.0.0
@@ -82,7 +80,7 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 16.4.0
   lucide-react: 0.577.0
-  next: 16.1.7
+  next: 16.2.0
   next-seo: 7.2.0
   nuqs: 2.8.9
   nuxt: 4.4.2
@@ -115,9 +113,9 @@ catalog:
   typescript: 5.9.3
   use-debounce: 10.1.0
   use-local-storage: 3.0.0
-  vite: 8.0.0
+  vite: 8.0.1
   vite-plugin-dts: 4.5.4
-  vitepress: 1.6.4
+  vitepress: 2.0.0-alpha.16
   vitest: 4.1.0
   vue: 3.5.30
   vue-codemirror: 6.1.1
@@ -134,17 +132,7 @@ catalogs:
 
 cleanupUnusedCatalogs: true
 
-ignoredBuiltDependencies:
-  - maplibre-gl
-
 minimumReleaseAge: 2880
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - '@tailwindcss/oxide'
-  - esbuild
-  - sharp
-  - vue-demi
 
 shellEmulator: true
 
@@ -152,6 +140,4 @@ trustPolicy: no-downgrade
 
 trustPolicyExclude:
   - chokidar@4.0.3
-  - rollup@2.80.0
-  - semver@5.7.2 || 6.3.1
-  - vite@5.4.21
+  - semver@6.3.1

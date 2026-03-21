@@ -37,7 +37,6 @@
     "@playwright/test": "catalog:",
     "@tailwindcss/vite": "catalog:",
     "@types/node": "catalog:",
-    "@vite-pwa/nuxt": "catalog:",
     "@vitest/browser-playwright": "catalog:",
     "@vitest/coverage-v8": "catalog:",
     "@vue/test-utils": "catalog:",

@@ -1,5 +1,4 @@
 <template>
-  <NuxtPwaManifest />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
