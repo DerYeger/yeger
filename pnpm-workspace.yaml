@@ -149,3 +149,6 @@ trustPolicyExclude:
   - rollup@2.80.0
   - semver@5.7.2 || 6.3.1
   - vite@5.4.21
+minimumReleaseAgeExclude:
+  # Renovate security update: next@16.1.7
+  - next@16.1.7
