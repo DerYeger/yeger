@@ -4,7 +4,7 @@ packages:
   - packages/*
 
 catalog:
-  '@antfu/ni': 28.3.0
+  '@antfu/ni': 29.0.0
   '@babel/generator': 7.29.1
   '@babel/traverse': 7.29.0
   '@babel/types': 7.29.0
