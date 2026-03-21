@@ -1,3 +1,4 @@
+// oxlint-disable no-console
 import { createServer } from 'node:http'
 import path from 'node:path'
 import process from 'node:process'

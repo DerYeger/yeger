@@ -1,3 +1,4 @@
+// oxlint-disable no-console
 import c from 'picocolors'
 
 export function log(text: string): void {

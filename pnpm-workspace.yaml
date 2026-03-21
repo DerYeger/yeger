@@ -14,6 +14,7 @@ catalog:
   '@codemirror/legacy-modes': 6.5.2
   '@commitlint/cli': 20.5.0
   '@commitlint/config-conventional': 20.5.0
+  '@commitlint/types': 20.5.0
   '@fontsource/readex-pro': 5.2.11
   '@iconify-json/hugeicons': 1.2.24
   '@iconify/react': 6.0.2
@@ -51,6 +52,7 @@ catalog:
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
+  '@vercel/config': 0.0.40
   '@vite-pwa/nuxt': 1.1.1
   '@vitejs/plugin-vue': 6.0.5
   '@vitest/browser-playwright': 4.1.0
@@ -124,11 +126,11 @@ catalog:
   yaml: 2.8.2
   zod: 4.3.6
 
+catalogMode: strict
+
 catalogs:
   vite7:
     vite: 7.3.1
-
-catalogMode: strict
 
 cleanupUnusedCatalogs: true
 

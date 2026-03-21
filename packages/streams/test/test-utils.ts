@@ -1,3 +1,4 @@
+// oxlint-disable no-console
 import * as as from '../src/async'
 import * as s from '../src/sync'
 
