@@ -3,6 +3,13 @@ packages:
   - docs/*
   - packages/*
 
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  maplibre-gl: false
+  sharp: false
+  vue-demi: false
+
 catalog:
   '@antfu/ni': 29.0.0
   '@babel/generator': 7.29.1
@@ -52,7 +59,6 @@ catalog:
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
-  '@vercel/config': 0.0.40
   '@vitejs/plugin-vue': 6.0.5
   '@vitest/browser-playwright': 4.1.0
   '@vitest/coverage-v8': 4.1.0
@@ -132,18 +138,11 @@ catalogs:
 
 cleanupUnusedCatalogs: true
 
-allowBuilds:
-  '@parcel/watcher': true
-  esbuild: true
-  maplibre-gl: false
-  sharp: false
-  vue-demi: false
+minimumReleaseAge: 2880
 
 overrides:
   'archiver-utils>glob': 13.0.6
   'js-beautify>glob': 13.0.6
-
-minimumReleaseAge: 2880
 
 shellEmulator: true
 

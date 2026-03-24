@@ -4,23 +4,24 @@ import type { ButtonProps } from '@nuxt/ui'
 const { icon = 'hugeicons:information-square', color = 'neutral' } = defineProps<{
   icon?: string
   color?: ButtonProps['color']
-  ui?: {
-    content?: string
-  }
 }>()
+
+const isTooltipOpen = ref(false)
 </script>
 
 <template>
-  <div class="-m-2">
-    <UPopover mode="click">
-      <UButton :icon="icon" :color="color" variant="ghost" class="shrink-0" />
+  <div class="-m-2 shrink-0">
+    <UPopover
+      v-model:open="isTooltipOpen"
+      mode="hover"
+      arrow
+      :ui="{
+        content: 'whitespace-wrap flex w-fit max-w-[80dvw] flex-col gap-2 p-2 text-sm text-pretty',
+      }"
+    >
+      <UButton :icon="icon" :color="color" variant="ghost" @click.stop="isTooltipOpen = true" />
       <template #content>
-        <div
-          class="whitespace-wrap flex w-fit flex-col gap-2 p-2 text-center text-sm text-pretty"
-          :class="{ [ui?.content ?? '']: true }"
-        >
-          <slot />
-        </div>
+        <slot />
       </template>
     </UPopover>
   </div>

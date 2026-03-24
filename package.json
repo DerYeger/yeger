@@ -42,7 +42,6 @@
     "@commitlint/config-conventional": "catalog:",
     "@commitlint/types": "catalog:",
     "@types/node": "catalog:",
-    "@vercel/config": "catalog:",
     "@yeger/scripts": "workspace:*",
     "@yeger/turbo-graph": "workspace:*",
     "husky": "catalog:",

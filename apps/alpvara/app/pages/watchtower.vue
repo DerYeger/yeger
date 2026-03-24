@@ -166,7 +166,7 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
       class="grid max-w-full grid-cols-[1fr_auto_auto_auto] items-center gap-x-8 gap-y-4 p-4 max-lg:grid-cols-[1fr_auto]"
     >
       <UInput :placeholder="$t('watchtower.search-placeholder')" v-model="search" />
-      <InfoTooltip :ui="{ content: 'max-w-sm text-justify' }">
+      <InfoTooltip>
         {{ $t('watchtower.help') }}
       </InfoTooltip>
       <USelect

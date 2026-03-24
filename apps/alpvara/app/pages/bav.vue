@@ -54,7 +54,7 @@ const activeStep = computed(() => {
           :model-value="activeStep"
           disabled
           :items="steps"
-          class="mx-auto mt-4 max-w-[80dvw]"
+          class="mx-auto mt-4 max-w-[80dvw] max-sm:hidden"
         />
       </InfoTooltip>
     </div>
