@@ -53,9 +53,22 @@ const items = computed<NavigationMenuItem[]>(() => [
 
 const { data: userData, error, clear } = await useFetch('/api/user')
 
+const router = useRouter()
+
 if (error.value) {
   await navigateTo('/login')
+} else if (router.currentRoute.value.path === '/login') {
+  await navigateTo('/')
 }
+
+router.beforeEach((to) => {
+  if (!userData.value && to.path !== '/login') {
+    return false
+  } else if (userData.value && to.path === '/login') {
+    return false
+  }
+  return true
+})
 </script>
 
 <template>
