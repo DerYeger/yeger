@@ -5,7 +5,7 @@ defineProps<{
 </script>
 
 <template>
-  <InfoTooltip icon="hugeicons:alert-02" color="warning" class="m-0">
+  <InfoTooltip icon="hugeicons:alert-02" color="warning" class="m-0 flex justify-center">
     {{ tooltip }}
   </InfoTooltip>
 </template>
