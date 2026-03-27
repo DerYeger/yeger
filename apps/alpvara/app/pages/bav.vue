@@ -40,7 +40,7 @@ const activeStep = computed(() => {
 </script>
 
 <template>
-  <UContainer class="mx-auto my-4 space-y-4">
+  <div class="flex min-h-full flex-col gap-4 px-6 py-4">
     <div class="flex items-center gap-4">
       <BAVPortfolioSelect v-model="selectedPortfolioId" />
       <BAVAccountSelect
@@ -60,7 +60,7 @@ const activeStep = computed(() => {
     </div>
     <div
       v-if="selectedPortfolioId && selectedAccount"
-      class="grid grid-cols-[auto] gap-4 max-md:flex-wrap md:grid-cols-[auto_1fr]"
+      class="flex-1 grid-cols-[auto_1fr] flex-col gap-4 max-md:flex md:grid"
     >
       <BAVCreateHistoryForm
         v-if="!selectedAccount?.position.shares"
@@ -105,5 +105,5 @@ const activeStep = computed(() => {
         </template>
       </UCard>
     </div>
-  </UContainer>
+  </div>
 </template>

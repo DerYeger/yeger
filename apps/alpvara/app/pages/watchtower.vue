@@ -9,10 +9,7 @@ import WatchtowerWarning from '~/components/WatchtowerWarning.vue'
 
 const NO_WARNING = 'none'
 
-const { data } = useQuery({
-  key: queryKeys.watchtower,
-  query: () => $fetch('/api/watchtower'),
-})
+const { data } = useWatchtower()
 
 const search = useLocalStorage('watchtower-search', '')
 const warningFilterState = useLocalStorage<string[]>('watchtower-warning-filter', [])
@@ -199,7 +196,8 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
         swap: warningFilter.includes('swap') || warningFilter.length === 0,
       }"
       sticky
-      class="flex-1"
+      class="flex-1 overscroll-none"
+      :ui="{ thead: 'bg-white' }"
     />
   </div>
 </template>

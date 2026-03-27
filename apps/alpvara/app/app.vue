@@ -33,6 +33,8 @@ useSeoMeta({
   ogDescription: $t('hero.subtitle'),
 })
 
+const watchtowerBadge = useWatchtowerBadge()
+
 const items = computed<NavigationMenuItem[]>(() => [
   {
     label: $t('navigation.home'),
@@ -43,6 +45,7 @@ const items = computed<NavigationMenuItem[]>(() => [
     label: $t('navigation.watchtower'),
     to: '/watchtower',
     icon: 'hugeicons:airport-tower',
+    badge: watchtowerBadge.value,
   },
   {
     label: $t('navigation.bav'),
@@ -69,34 +72,72 @@ router.beforeEach((to) => {
   }
   return true
 })
+
+const open = ref(true)
 </script>
 
 <template>
-  <UApp class="flex h-100 flex-col" :locale="nuxtUILocale">
-    <UHeader toggle-side="left" :toggle="userData !== undefined">
-      <template #title>
-        <h1 class="text-3xl font-black tracking-widest text-black uppercase max-sm:hidden">
-          Alpvara
-        </h1>
-      </template>
-      <UNavigationMenu v-if="userData" :items="items" :ui="{ list: 'gap-6' }" />
-      <template #body>
-        <UNavigationMenu v-if="userData" :items="items" orientation="vertical" />
-      </template>
-      <template #right>
-        <div class="flex justify-end gap-2">
+  <UApp class="flex h-svh" :locale="nuxtUILocale">
+    <div class="flex size-full flex-1 bg-neutral-100">
+      <USidebar
+        v-model:open="open"
+        variant="inset"
+        :ui="{
+          root: '[--sidebar-width:196px]',
+          container: 'h-full',
+        }"
+      >
+        <UNavigationMenu
+          v-if="userData"
+          :items="items"
+          orientation="vertical"
+          :ui="{ link: 'p-1.5 overflow-hidden' }"
+        />
+
+        <div>
           <ULocaleSelect
             :model-value="locale"
             :locales="[de, en]"
             @update:model-value="setLocale($event as 'en' | 'de')"
           />
-          <LogoutButton v-if="userData" @logout="clear" />
-          <LoginButton v-else />
         </div>
-      </template>
-    </UHeader>
-    <UMain class="flex h-[calc(100vh-var(--ui-header-height))] flex-col overflow-y-auto">
-      <NuxtPage />
-    </UMain>
+
+        <template v-if="userData" #footer>
+          <div>
+            <LogoutButton @logout="clear" />
+          </div>
+        </template>
+      </USidebar>
+      <div class="h-full flex-1 overflow-hidden lg:p-4" :class="{ 'lg:pl-0': open }">
+        <div
+          class="flex size-full flex-col overflow-hidden border-neutral-200 bg-white shadow-sm lg:rounded-lg lg:border"
+        >
+          <UHeader
+            toggle-side="left"
+            :toggle="userData !== undefined"
+            :ui="{ container: 'mx-0 max-w-none' }"
+          >
+            <template #title>
+              <h1 class="text-3xl font-black tracking-widest text-black uppercase max-lg:ml-2">
+                Alpvara
+              </h1>
+            </template>
+            <template #toggle>
+              <UButton
+                icon="hugeicons:sidebar-left-01"
+                color="neutral"
+                variant="ghost"
+                class="lg:hidden"
+                aria-label="Toggle sidebar"
+                @click="open = !open"
+              />
+            </template>
+          </UHeader>
+          <UMain class="min-h-0 flex-1 overflow-y-auto">
+            <NuxtPage />
+          </UMain>
+        </div>
+      </div>
+    </div>
   </UApp>
 </template>

@@ -44,20 +44,26 @@ function formatValue(value: number): string {
 function yFormatter(tick: number): string {
   return formatValue(tick)
 }
+
+const containerSize = useElementSize(useTemplateRef('container'))
 </script>
 
 <template>
-  <LineChart
-    :data="chartData"
-    :height="300"
-    :categories="categories"
-    :y-num-ticks="4"
-    :y-formatter="yFormatter"
-    :x-num-ticks="12"
-    :x-formatter="xFormatter"
-    :curve-type="CurveType.Step"
-    hide-legend
-    :y-grid-line="true"
-    :tooltip-title-formatter="({ month }) => formatMonth(month)"
-  />
+  <div ref="container" class="relative min-h-50 flex-1">
+    <div class="absolute inset-0">
+      <LineChart
+        :data="chartData"
+        :height="containerSize.height.value"
+        :categories="categories"
+        :y-num-ticks="4"
+        :y-formatter="yFormatter"
+        :x-num-ticks="12"
+        :x-formatter="xFormatter"
+        :curve-type="CurveType.Step"
+        hide-legend
+        :y-grid-line="true"
+        :tooltip-title-formatter="({ month }) => formatMonth(month)"
+      />
+    </div>
+  </div>
 </template>

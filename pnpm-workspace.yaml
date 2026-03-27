@@ -29,7 +29,7 @@ catalog:
   '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
   '@nuxt/test-utils': 4.0.0
-  '@nuxt/ui': 4.5.1
+  '@nuxt/ui': 4.6.0
   '@nuxtjs/i18n': 10.2.3
   '@nuxtjs/robots': 5.7.1
   '@ohm-js/cli': 2.0.1
@@ -60,9 +60,9 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
   '@vitejs/plugin-vue': 6.0.5
-  '@vitest/browser-playwright': 4.1.0
-  '@vitest/coverage-v8': 4.1.0
-  '@vitest/ui': 4.1.0
+  '@vitest/browser-playwright': 4.1.1
+  '@vitest/coverage-v8': 4.1.1
+  '@vitest/ui': 4.1.1
   '@vue/compiler-dom': 3.5.30
   '@vue/server-renderer': 3.5.30
   '@vue/test-utils': 2.4.6
@@ -122,7 +122,7 @@ catalog:
   vite: 8.0.1
   vite-plugin-dts: 4.5.4
   vitepress: 2.0.0-alpha.16
-  vitest: 4.1.0
+  vitest: 4.1.1
   vue: 3.5.30
   vue-codemirror: 6.1.1
   vue-toastification: 2.0.0-rc.5

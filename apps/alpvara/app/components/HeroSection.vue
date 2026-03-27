@@ -27,6 +27,8 @@ const bavFeatures = computed(() => [
         </p>
       </div>
 
+      <slot />
+
       <div class="grid gap-4 md:grid-cols-2">
         <HeroFeatureCard
           :title="$t('navigation.watchtower')"
