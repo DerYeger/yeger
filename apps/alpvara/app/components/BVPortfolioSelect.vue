@@ -31,7 +31,7 @@ async function createPortfolio(name: string) {
 </script>
 
 <template>
-  <UFormField :label="$t('common.portfolio')" :ui="{ root: 'w-72.75 max-w-full' }">
+  <UFormField :label="$t('common.portfolio')" :ui="{ root: 'w-full md:w-75 max-w-full' }">
     <UInputMenu
       v-model="model"
       class="w-full"

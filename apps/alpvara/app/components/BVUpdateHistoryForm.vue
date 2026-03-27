@@ -52,7 +52,7 @@ const canYearBeEdited = computed(() => {
 <template>
   <UForm :state="state" :schema="UpdateBVHistoryRequestSchema" @submit="onSubmit">
     <UCard
-      class="md:w-fit"
+      class="w-full max-w-full md:w-75"
       :ui="{
         header: 'flex items-center justify-between ga-2',
         body: 'flex flex-col gap-4',
@@ -81,7 +81,7 @@ const canYearBeEdited = computed(() => {
       <UFormField :label="$t('bv.form.administrative-costs')">
         <UInputNumber
           v-model="state.administrativeCosts"
-          :disabled="isLoading"
+          :disabled="isLoading || !canYearBeEdited"
           :min="0"
           :step="0.01"
           :format-options="{
@@ -94,7 +94,7 @@ const canYearBeEdited = computed(() => {
       <UFormField :label="$t('bv.form.social-security-fees')">
         <UInputNumber
           v-model="state.socialSecurityFees"
-          :disabled="isLoading"
+          :disabled="isLoading || !canYearBeEdited"
           :min="0"
           :step="0.01"
           :format-options="{

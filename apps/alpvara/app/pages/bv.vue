@@ -69,13 +69,15 @@ const refreshTimestamp = computed(() => {
     <Teleport v-if="isMounted" to="#header-right">
       <div class="flex items-center gap-4">
         <InfoTooltip class="m-0">
-          {{ $t('bv.help.text') }}
-          <UStepper
-            :model-value="activeStep"
-            disabled
-            :items="steps"
-            class="mx-auto mt-4 max-w-[80dvw] max-sm:hidden"
-          />
+          <div>
+            {{ $t('bv.help.text') }}
+            <ol class="list-decimal py-1 pl-7">
+              <li>{{ $t('bv.help.steps.portfolio') }}</li>
+              <li>{{ $t('bv.help.steps.account') }}</li>
+              <li>{{ $t('bv.help.steps.history') }}</li>
+            </ol>
+            {{ $t('bv.help.hint') }}
+          </div>
         </InfoTooltip>
         <RefreshButton :timestamp="refreshTimestamp" :loading="isRefreshing" @refresh="refresh" />
       </div>

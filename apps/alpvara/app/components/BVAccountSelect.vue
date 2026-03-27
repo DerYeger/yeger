@@ -40,7 +40,7 @@ async function createAccount(name: string) {
 </script>
 
 <template>
-  <UFormField :label="$t('bv.account')" :ui="{ root: 'w-72.75 max-w-full' }">
+  <UFormField :label="$t('bv.account')" :ui="{ root: 'w-full md:w-75 max-w-full' }">
     <UInputMenu
       v-model="model"
       class="w-full"

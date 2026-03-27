@@ -40,7 +40,7 @@
     "account": "Konto",
     "form": {
       "first-year": "Erstes Versicherungsjahr",
-      "current-year": "Noch nicht verfügbar",
+      "current-year": "Verfügbar nächstes Jahr",
       "contributions": "Beiträge",
       "administrative-costs": "Verwaltungskosten",
       "social-security-fees": "Gebühr der Sozialversicherungsträger",
@@ -53,8 +53,9 @@
       "steps": {
         "portfolio": "Wähle das Portfolio aus, in dem du die BV-Daten speichern möchtest.",
         "account": "Wähle das Konto aus, auf dem die BV-Daten gespeichert werden sollen.",
-        "history": "Gib die Daten deines ersten Versicherungsjahres ein."
-      }
+        "history": "Gib die Daten deines jährlichen Kontoauszuges ein, beginnend mit dem ersten Versicherungsjahr."
+      },
+      "hint": "Um falsche Eingaben zu korrigieren, kannst du das entsprechende Konto in Parqet löschen und neu importieren."
     },
     "history": {
       "title": "Verlauf",

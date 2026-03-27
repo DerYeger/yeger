@@ -40,7 +40,7 @@
     "account": "Account",
     "form": {
       "first-year": "Start",
-      "current-year": "Not yet available",
+      "current-year": "Available next year",
       "contributions": "Contributions",
       "administrative-costs": "Administrative costs",
       "social-security-fees": "Social security fees",
@@ -53,8 +53,9 @@
       "steps": {
         "portfolio": "Select the portfolio in which you want to store the BV data.",
         "account": "Select the account on which the BV data should be stored.",
-        "history": "Enter the data of your first insurance year."
-      }
+        "history": "Enter the data of your annual account statement, starting with the first insurance year."
+      },
+      "hint": "To adjust incorrect entries, you can delete the corresponding account in Parqet and import it again."
     },
     "history": {
       "title": "History",

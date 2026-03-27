@@ -9,7 +9,7 @@
     "generate": "nuxt generate",
     "nuxt": "nuxt",
     "postinstall": "nuxt prepare",
-    "preview": "nuxt preview",
+    "preview": "serve .output/public",
     "typecheck": "nuxt typecheck"
   },
   "dependencies": {
@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "catalog:",
+    "serve": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:vite7",

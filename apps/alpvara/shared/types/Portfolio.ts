@@ -30,4 +30,7 @@ export const CreateActivitiesResponseSchema = z.object({
       _id: z.string(),
     }),
   ),
+  notCreatedActivities: z.array(
+    z.object({ error: z.object({ code: z.string(), message: z.string() }) }),
+  ),
 })

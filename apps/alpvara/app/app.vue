@@ -63,12 +63,15 @@ const items = computed<NavigationMenuItem[]>(() => {
         label: $t('navigation.watchtower'),
         to: '/watchtower',
         icon: 'hugeicons:airport-tower',
-        badge: watchtowerBadge.value,
+        badge: watchtowerBadge.value
+          ? { label: watchtowerBadge.value, color: 'primary', variant: 'subtle' }
+          : undefined,
       },
       {
         label: $t('navigation.bv'),
         to: '/bv',
         icon: 'hugeicons:folder-upload',
+        badge: { label: 'Beta', color: 'info', variant: 'subtle' },
       },
       ...baseRoutes,
     ]

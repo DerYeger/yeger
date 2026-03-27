@@ -46,7 +46,10 @@ const calendarModel = computed<CalendarDate>({
 
 <template>
   <UForm :state="state" :schema="CreateBVHistoryRequestSchema" @submit="onSubmit">
-    <UCard class="md:w-fit" :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }">
+    <UCard
+      class="w-full max-w-full md:w-75"
+      :ui="{ body: 'flex flex-col gap-4', footer: 'flex justify-end' }"
+    >
       <template #header>
         {{ $t('bv.form.first-year') }}
       </template>

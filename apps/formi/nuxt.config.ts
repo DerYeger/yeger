@@ -43,6 +43,7 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
   vite: {
+    // @ts-expect-error vite version mismatch
     plugins: [tailwindcss()],
   },
 })
