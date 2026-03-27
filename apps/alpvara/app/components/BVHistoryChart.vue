@@ -7,6 +7,17 @@ defineOptions({
   tags: ['linecharts', 'singleline'],
 })
 
+function parseMonthIndex(month: string): number {
+  const [year, monthNumber] = month.split('-').map(Number)
+  return year! * 12 + (monthNumber! - 1)
+}
+
+function formatMonthIndex(monthIndex: number): string {
+  const year = Math.floor(monthIndex / 12)
+  const monthNumber = (monthIndex % 12) + 1
+  return `${year}-${String(monthNumber).padStart(2, '0')}`
+}
+
 const chartData = computed(() => {
   const data: { month: string; value: number }[] = []
   for (let i = activities.length - 1; i >= 0; i--) {
@@ -20,11 +31,25 @@ const chartData = computed(() => {
   for (let i = 1; i < data.length; i++) {
     data[i]!.value += data[i - 1]!.value
   }
-  if (data.length > 0) {
-    const firstMonth = data[0]!.month
-    const previousMonth = new Date(new Date(firstMonth + '-01').getTime() - 1)
-    data.unshift({ month: previousMonth.toISOString().slice(0, 7), value: 0 })
+  // Fill gaps for missing months
+  for (let i = data.length - 1; i > 0; i--) {
+    const currentMonthIndex = parseMonthIndex(data[i]!.month)
+    const previousMonthIndex = parseMonthIndex(data[i - 1]!.month)
+    const monthDiff = currentMonthIndex - previousMonthIndex
+    if (monthDiff > 1) {
+      // Insert in reverse so splice-at-i keeps chronological order.
+      for (let j = monthDiff - 1; j >= 1; j--) {
+        const missingMonthStr = formatMonthIndex(previousMonthIndex + j)
+        data.splice(i, 0, { month: missingMonthStr, value: data[i - 1]!.value })
+      }
+    }
   }
+  if (data.length > 0) {
+    // Add an initial point with 0 value one month before the first activity for better chart display
+    const firstMonthIndex = parseMonthIndex(data[0]!.month)
+    data.unshift({ month: formatMonthIndex(firstMonthIndex - 1), value: 0 })
+  }
+
   return data
 })
 
@@ -38,7 +63,8 @@ const monthFormat = computed(
   () => new Intl.DateTimeFormat(locale.value, { month: 'short', year: '2-digit' }),
 )
 function formatMonth(month: string) {
-  return monthFormat.value.format(new Date(month))
+  const [year, monthNumber] = month.split('-').map(Number)
+  return monthFormat.value.format(new Date(year!, monthNumber! - 1, 1))
 }
 
 function xFormatter(tick: number): string {
@@ -47,6 +73,10 @@ function xFormatter(tick: number): string {
     return ''
   }
   return formatMonth(month)
+}
+
+function tooltipTitleFormatter(point: { month: string }): string {
+  return formatMonth(point.month)
 }
 
 const valueFormat = computed(
@@ -77,7 +107,7 @@ const containerSize = useElementSize(useTemplateRef('container'))
         :curve-type="CurveType.Step"
         hide-legend
         :y-grid-line="true"
-        :tooltip-title-formatter="({ month }) => formatMonth(month)"
+        :tooltip-title-formatter="tooltipTitleFormatter"
       />
     </div>
   </div>
