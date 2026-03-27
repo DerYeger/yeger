@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const model = defineModel<string | undefined>({ required: true })
 
-const { data: portfolios } = useBAVPortfolios()
+const { data: portfolios } = useBVPortfolios()
 
 watch(
   portfolios,
@@ -20,7 +20,7 @@ watch(
   { immediate: true },
 )
 
-const { mutateAsync } = useCreateBAVPortfolio()
+const { mutateAsync } = useCreateBVPortfolio()
 
 async function createPortfolio(name: string) {
   try {
@@ -31,11 +31,13 @@ async function createPortfolio(name: string) {
 </script>
 
 <template>
-  <UFormField :label="$t('common.portfolio')">
+  <UFormField :label="$t('common.portfolio')" :ui="{ root: 'w-72.75 max-w-full' }">
     <UInputMenu
       v-model="model"
+      class="w-full"
       :items="portfolios ?? []"
       :disabled="!portfolios"
+      :placeholder="$t('bv.portfolio-placeholder')"
       value-key="id"
       label-key="name"
       create-item

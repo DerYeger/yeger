@@ -35,24 +35,45 @@ useSeoMeta({
 
 const watchtowerBadge = useWatchtowerBadge()
 
-const items = computed<NavigationMenuItem[]>(() => [
-  {
-    label: $t('navigation.home'),
-    to: '/',
-    icon: 'hugeicons:home-03',
-  },
-  {
-    label: $t('navigation.watchtower'),
-    to: '/watchtower',
-    icon: 'hugeicons:airport-tower',
-    badge: watchtowerBadge.value,
-  },
-  {
-    label: $t('navigation.bav'),
-    to: '/bav',
-    icon: 'hugeicons:folder-upload',
-  },
-])
+const items = computed<NavigationMenuItem[]>(() => {
+  const baseRoutes: NavigationMenuItem[] = [
+    {
+      label: $t('navigation.legal'),
+      to: '/legal',
+      icon: 'hugeicons:legal-hammer',
+    },
+  ]
+  if (!userData.value) {
+    return [
+      {
+        label: $t('navigation.home'),
+        to: '/login',
+        icon: 'hugeicons:home-03',
+      },
+      ...baseRoutes,
+    ]
+  } else {
+    return [
+      {
+        label: $t('navigation.home'),
+        to: '/',
+        icon: 'hugeicons:home-03',
+      },
+      {
+        label: $t('navigation.watchtower'),
+        to: '/watchtower',
+        icon: 'hugeicons:airport-tower',
+        badge: watchtowerBadge.value,
+      },
+      {
+        label: $t('navigation.bv'),
+        to: '/bv',
+        icon: 'hugeicons:folder-upload',
+      },
+      ...baseRoutes,
+    ]
+  }
+})
 
 const { data: userData, error, clear } = await useFetch('/api/user')
 
@@ -65,7 +86,9 @@ if (error.value) {
 }
 
 router.beforeEach((to) => {
-  if (!userData.value && to.path !== '/login') {
+  if (to.path === '/legal') {
+    return true
+  } else if (!userData.value && to.path !== '/login') {
     return false
   } else if (userData.value && to.path === '/login') {
     return false
@@ -88,37 +111,35 @@ const open = ref(true)
         }"
       >
         <UNavigationMenu
-          v-if="userData"
           :items="items"
           orientation="vertical"
           :ui="{ link: 'p-1.5 overflow-hidden' }"
         />
 
-        <div>
-          <ULocaleSelect
-            :model-value="locale"
-            :locales="[de, en]"
-            @update:model-value="setLocale($event as 'en' | 'de')"
-          />
-        </div>
-
         <template v-if="userData" #footer>
-          <div>
+          <div class="mx-auto flex justify-center gap-2 lg:flex-col">
+            <ULocaleSelect
+              :model-value="locale"
+              :locales="[de, en]"
+              @update:model-value="setLocale($event as 'en' | 'de')"
+            />
             <LogoutButton @logout="clear" />
           </div>
         </template>
       </USidebar>
-      <div class="h-full flex-1 overflow-hidden lg:p-4" :class="{ 'lg:pl-0': open }">
+      <div class="h-full flex-1 overflow-hidden lg:p-4" :class="{ 'lg:-ml-4': open }">
         <div
           class="flex size-full flex-col overflow-hidden border-neutral-200 bg-white shadow-sm lg:rounded-lg lg:border"
         >
           <UHeader
             toggle-side="left"
             :toggle="userData !== undefined"
-            :ui="{ container: 'mx-0 max-w-none' }"
+            :ui="{ container: 'mx-0 max-w-none pr-4!' }"
           >
             <template #title>
-              <h1 class="text-3xl font-black tracking-widest text-black uppercase max-lg:ml-2">
+              <h1
+                class="text-2xl font-black tracking-widest text-black uppercase max-lg:ml-2 sm:text-3xl"
+              >
                 Alpvara
               </h1>
             </template>
@@ -132,8 +153,11 @@ const open = ref(true)
                 @click="open = !open"
               />
             </template>
+            <template #right>
+              <div id="header-right"></div>
+            </template>
           </UHeader>
-          <UMain class="min-h-0 flex-1 overflow-y-auto">
+          <UMain class="min-h-0 flex-1 overflow-y-auto overscroll-none">
             <NuxtPage />
           </UMain>
         </div>

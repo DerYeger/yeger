@@ -27,9 +27,10 @@ export default defineNuxtConfig({
 
   icon: {
     clientBundle: {
-      scan: true,
+      scan: {
+        globInclude: ['app/**/*.{ts,vue}'],
+      },
     },
-    serverBundle: false,
   },
 
   runtimeConfig: {

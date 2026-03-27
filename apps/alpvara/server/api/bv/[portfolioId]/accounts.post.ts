@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, message: 'Missing portfolioId' })
   }
 
-  const body = CreateBAVAccountRequestSchema.safeParse(await readBody(event))
+  const body = CreateBVAccountRequestSchema.safeParse(await readBody(event))
   if (!body.success) {
     throw createError({ statusCode: 422, message: 'Invalid request body' })
   }
@@ -16,6 +16,6 @@ export default defineEventHandler(async (event) => {
     event,
     method: 'POST',
     body: JSON.stringify(body.data),
-    schema: CreateBAVAccountResponseSchema,
+    schema: CreateBVAccountResponseSchema,
   })
 })

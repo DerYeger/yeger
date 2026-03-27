@@ -14,10 +14,12 @@
   },
   "dependencies": {
     "@iconify-json/hugeicons": "catalog:",
+    "@internationalized/date": "catalog:",
     "@nuxt/ui": "catalog:",
     "@nuxtjs/i18n": "catalog:",
     "@pinia/colada": "catalog:",
     "@pinia/colada-nuxt": "catalog:",
+    "@pinia/colada-plugin-cache-persister": "catalog:",
     "@pinia/nuxt": "catalog:",
     "@vueuse/nuxt": "catalog:",
     "@yeger/streams": "workspace:*",
@@ -28,6 +30,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "catalog:",
     "tailwindcss": "catalog:",
     "typescript": "catalog:",
     "vite": "catalog:vite7",

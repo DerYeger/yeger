@@ -4,6 +4,7 @@ const emit = defineEmits<{
 }>()
 async function logout() {
   emit('logout')
+  localStorage.clear()
   await $fetch('/api/logout', {
     method: 'POST',
   })

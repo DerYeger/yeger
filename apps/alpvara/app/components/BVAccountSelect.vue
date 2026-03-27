@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { accounts, portfolioId } = defineProps<{
   portfolioId: string | undefined
-  accounts: BAVAccount[] | undefined
+  accounts: BVAccount[] | undefined
 }>()
 
 const model = defineModel<string | undefined>({ required: true })
@@ -23,7 +23,7 @@ watch(
   { immediate: true },
 )
 
-const { mutateAsync } = useCreateBAVAccount()
+const { mutateAsync } = useCreateBVAccount()
 
 async function createAccount(name: string) {
   if (!portfolioId) {
@@ -40,16 +40,17 @@ async function createAccount(name: string) {
 </script>
 
 <template>
-  <UFormField :label="$t('bav.account')">
+  <UFormField :label="$t('bv.account')" :ui="{ root: 'w-72.75 max-w-full' }">
     <UInputMenu
-      :key="accounts?.length"
       v-model="model"
+      class="w-full"
+      :key="accounts?.length"
       :items="accounts ?? []"
+      :placeholder="$t('bv.account-placeholder')"
       value-key="id"
       label-key="nickname"
       create-item
       :disabled="!portfolioId || !accounts"
-      class="w-full"
       @create="createAccount"
     />
   </UFormField>

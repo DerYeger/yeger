@@ -25,6 +25,7 @@ catalog:
   '@fontsource/readex-pro': 5.2.11
   '@iconify-json/hugeicons': 1.2.24
   '@iconify/react': 6.0.2
+  '@internationalized/date': 3.12.0
   '@manypkg/get-packages': 3.1.0
   '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
@@ -35,9 +36,11 @@ catalog:
   '@ohm-js/cli': 2.0.1
   '@pinia/colada': 1.0.0
   '@pinia/colada-nuxt': 0.3.2
+  '@pinia/colada-plugin-cache-persister': 0.1.4
   '@pinia/nuxt': 0.11.3
   '@playwright/test': 1.58.2
   '@tailwindcss/postcss': 4.2.2
+  '@tailwindcss/typography': 0.5.19
   '@tailwindcss/vite': 4.2.2
   '@tanstack/react-query': 5.91.2
   '@tanstack/vue-query': 5.92.12

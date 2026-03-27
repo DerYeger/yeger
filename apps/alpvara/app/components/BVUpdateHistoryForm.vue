@@ -3,13 +3,13 @@ import type { FormSubmitEvent } from '@nuxt/ui'
 
 const { portfolioId, account, history } = defineProps<{
   portfolioId: string
-  account: BAVAccount
-  history: BAVActivity[]
+  account: BVAccount
+  history: BVActivity[]
 }>()
 
 const state = reactive(getInitialStateFromAccountAndHistory())
 
-function getInitialStateFromAccountAndHistory(): UpdateBAVHistoryRequest {
+function getInitialStateFromAccountAndHistory(): UpdateBVHistoryRequest {
   const lastActivity = history[0]
   const nextYearToFill = lastActivity
     ? new Date(lastActivity.datetime).getFullYear() + 1
@@ -17,8 +17,11 @@ function getInitialStateFromAccountAndHistory(): UpdateBAVHistoryRequest {
   return {
     type: 'update',
     year: nextYearToFill,
+    month: 1,
     contributions: 0,
-    finalBalance: 0,
+    administrativeCosts: 0,
+    socialSecurityFees: 0,
+    performance: 0,
     lastQuote: account.quote.price,
     lastShares: account.position.shares,
   }
@@ -28,9 +31,9 @@ watch([() => account, () => history], () => {
   Object.assign(state, getInitialStateFromAccountAndHistory())
 })
 
-const { mutateAsync, isLoading } = useUpdateBAVAccountHistory()
+const { mutateAsync, isLoading } = useUpdateBVAccountHistory()
 
-async function onSubmit(event: FormSubmitEvent<UpdateBAVHistoryRequest>) {
+async function onSubmit(event: FormSubmitEvent<UpdateBVHistoryRequest>) {
   try {
     await mutateAsync({
       ...event.data,
@@ -47,7 +50,7 @@ const canYearBeEdited = computed(() => {
 </script>
 
 <template>
-  <UForm :state="state" :schema="UpdateBAVHistoryRequestSchema" @submit="onSubmit">
+  <UForm :state="state" :schema="UpdateBVHistoryRequestSchema" @submit="onSubmit">
     <UCard
       class="md:w-fit"
       :ui="{
@@ -59,10 +62,10 @@ const canYearBeEdited = computed(() => {
       <template #header>
         {{ state.year }}
         <span v-if="!canYearBeEdited" class="ml-auto text-muted">
-          {{ $t('bav.form.current-year') }}
+          {{ $t('bv.form.current-year') }}
         </span>
       </template>
-      <UFormField :label="$t('bav.form.contributions')">
+      <UFormField :label="$t('bv.form.contributions')">
         <UInputNumber
           v-model="state.contributions"
           :disabled="isLoading || !canYearBeEdited"
@@ -75,10 +78,10 @@ const canYearBeEdited = computed(() => {
           }"
         />
       </UFormField>
-      <UFormField :label="$t('bav.form.final-balance')">
+      <UFormField :label="$t('bv.form.administrative-costs')">
         <UInputNumber
-          v-model="state.finalBalance"
-          :disabled="isLoading || !canYearBeEdited"
+          v-model="state.administrativeCosts"
+          :disabled="isLoading"
           :min="0"
           :step="0.01"
           :format-options="{
@@ -88,9 +91,40 @@ const canYearBeEdited = computed(() => {
           }"
         />
       </UFormField>
+      <UFormField :label="$t('bv.form.social-security-fees')">
+        <UInputNumber
+          v-model="state.socialSecurityFees"
+          :disabled="isLoading"
+          :min="0"
+          :step="0.01"
+          :format-options="{
+            style: 'currency',
+            currency: 'EUR',
+            currencyDisplay: 'symbol',
+          }"
+        />
+      </UFormField>
+      <UFormField :label="$t('bv.form.performance')">
+        <UInputNumber
+          v-model="state.performance"
+          :disabled="isLoading || !canYearBeEdited"
+          :step="0.01"
+          :format-options="{
+            style: 'currency',
+            currency: 'EUR',
+            currencyDisplay: 'symbol',
+          }"
+        />
+      </UFormField>
       <template #footer>
-        <UButton type="submit" class="-my-1" :disabled="isLoading || !canYearBeEdited">
-          {{ $t('bav.form.submit') }}
+        <UButton
+          type="submit"
+          class="-my-1"
+          variant="subtle"
+          :color="canYearBeEdited ? 'primary' : 'neutral'"
+          :disabled="isLoading || !canYearBeEdited"
+        >
+          {{ $t('bv.form.submit') }}
         </UButton>
       </template>
     </UCard>

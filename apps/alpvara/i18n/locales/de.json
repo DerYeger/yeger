@@ -2,16 +2,18 @@
   "common": {
     "logout": "Abmelden",
     "portfolio": "Portfolio",
-    "copy-toast": "In die Zwischenablage kopiert"
+    "copy-toast": "In die Zwischenablage kopiert",
+    "refresh": "Aktualisieren"
   },
   "navigation": {
     "home": "Startseite",
     "watchtower": "Wachturm",
-    "bav": "BaV Import"
+    "bv": "BV Import",
+    "legal": "Rechtliches"
   },
   "hero": {
     "title": "Österreich-spezifische Funktionen für dein Parqet-Konto",
-    "subtitle": "Mit Alpvara kannst du potenzielle Steuerrisiken erkennen und BaV-Daten mit wenig Aufwand importieren.",
+    "subtitle": "Mit Alpvara kannst du potenzielle Steuerrisiken erkennen und BV-Daten mit wenig Aufwand importieren.",
     "disclaimer": "Alpvara speichert keine Daten. Alle Daten bleiben ausschließlich in deinem Parqet-Konto. Keine Anlageberatung.",
     "cards": {
       "watchtower": {
@@ -23,32 +25,34 @@
         },
         "cta": "Wachturm öffnen"
       },
-      "bav": {
-        "description": "Importiere Daten deiner betrieblichen Altersvorsorge als individuelle Versicherung in Parqet.",
+      "bv": {
+        "description": "Importiere Daten deiner betrieblichen Vorsorgekassen als Versicherungen in Parqet.",
         "features": {
           "import": "Führt dich durch Portfolio-, Konto- und Daten-Eingabe.",
           "approximation": "Nähert monatliche Werte aus Jahresbeiträgen und Endguthaben an."
         },
-        "cta": "BaV Import öffnen"
+        "cta": "BV Import öffnen"
       }
     },
     "github": "Quellcode auf GitHub"
   },
-  "bav": {
+  "bv": {
     "account": "Konto",
     "form": {
       "first-year": "Erstes Versicherungsjahr",
       "current-year": "Noch nicht verfügbar",
       "contributions": "Beiträge",
-      "final-balance": "Endguthaben",
-      "year": "Jahr",
+      "administrative-costs": "Verwaltungskosten",
+      "social-security-fees": "Gebühr der Sozialversicherungsträger",
+      "performance": "Veranlagungsergebnis",
+      "start": "Beginn der Beitragszahlungen",
       "submit": "Hinzufügen"
     },
     "help": {
-      "text": "Die BaV-Funktion ermöglicht es dir, die Daten deiner betrieblichen Altersvorsorge in Parqet zu speichern.",
+      "text": "Die BV-Funktion ermöglicht es dir, die Daten deiner betrieblichen Vorsorgekassen in Parqet zu speichern.",
       "steps": {
-        "portfolio": "Wähle das Portfolio aus, in dem du die BaV-Daten speichern möchtest.",
-        "account": "Wähle das Konto aus, auf dem die BaV-Daten gespeichert werden sollen.",
+        "portfolio": "Wähle das Portfolio aus, in dem du die BV-Daten speichern möchtest.",
+        "account": "Wähle das Konto aus, auf dem die BV-Daten gespeichert werden sollen.",
         "history": "Gib die Daten deines ersten Versicherungsjahres ein."
       }
     },
@@ -59,9 +63,11 @@
         "title": "Keine Daten verfügbar",
         "description": "Speicher die Daten deines ersten Versicherungsjahres."
       },
-      "balance": "Guthaben",
+      "contributions": "Beiträge",
       "view-on-parqet": "In Parqet anzeigen"
     },
+    "account-placeholder": "Konto auswählen oder erstellen...",
+    "portfolio-placeholder": "Portfolio auswählen oder erstellen...",
     "toast": {
       "history": {
         "saved": {
@@ -110,6 +116,29 @@
       "reit-bdc": "Falls es sich um ein REIT oder BDC handelt, können Steuernachteile entstehen.",
       "fund": "Falls es sich um einen nicht-Meldefonds handelt können Steuernachteile entstehen. Prüfe OeKB für weitere Details.",
       "swap": "Es handelt sich möglicherweise um ein Swap-basiertes Produkt, wodurch Steuernachteile entstehen können. Prüfe OeKB für weitere Details."
+    }
+  },
+  "legal": {
+    "title": "Rechtliches",
+    "privacy": {
+      "title": "Datenschutz",
+      "text": "Alpvara speichert keine personenbezogenen Daten auf eigenen Servern. Daten aus deinem Parqet-Konto werden ausschließlich lokal in deinem Browser verarbeitet."
+    },
+    "storage": {
+      "title": "Lokale Speicherung",
+      "text": "Zur schnelleren Anzeige können Daten temporär lokal im Browser gespeichert werden. Beim Abmelden werden diese Daten wieder gelöscht."
+    },
+    "purpose": {
+      "title": "Zweck der Verarbeitung",
+      "text": "Die Verarbeitung erfolgt ausschließlich zur Bereitstellung der Funktionen dieser Website und zur Darstellung deiner importierten Daten."
+    },
+    "liability": {
+      "title": "Haftungshinweis",
+      "text": "Alle Inhalte werden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der bereitgestellten Informationen wird jedoch keine Gewähr übernommen."
+    },
+    "links": {
+      "title": "Externe Links",
+      "text": "Diese Website kann Links zu externen Websites enthalten. Für deren Inhalte sind ausschließlich die jeweiligen Betreiber verantwortlich."
     }
   }
 }

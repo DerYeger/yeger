@@ -14,12 +14,13 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, message: 'Missing accountId' })
   }
 
-  const request = BAVHistoryRequestSchema.safeParse(await readBody(event))
+  const request = BVHistoryRequestSchema.safeParse(await readBody(event))
   if (!request.success) {
     throw createError({ statusCode: 422, message: 'Invalid request body' })
   }
 
   const { activities, totalShares } = processRequest(request.data, accountId)
+
   const response = await requestAuthenticated({
     endpoint: `/portfolios/${portfolioId}/activities`,
     event,
@@ -31,6 +32,8 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 500, message: 'Unexpected number of created activities' })
   }
 
+  const finalBalance = getFinalBalance(request.data)
+
   await requestAuthenticated({
     endpoint: `/portfolios/${portfolioId}/quotes/user-managed`,
     event,
@@ -41,7 +44,7 @@ export default defineEventHandler(async (event) => {
         {
           currency: 'EUR',
           datetime: `${request.data.year}-12-31T09:00:00.000Z`,
-          price: request.data.finalBalance / totalShares,
+          price: finalBalance / totalShares,
         },
       ],
     }),
@@ -49,34 +52,57 @@ export default defineEventHandler(async (event) => {
   })
 })
 
-const EXECUTION_DAYS = [
-  '01-31',
-  '02-28',
-  '03-31',
-  '04-30',
-  '05-31',
-  '06-30',
-  '07-31',
-  '08-31',
-  '09-30',
-  '10-31',
-  '11-30',
-  '12-31',
-] as const satisfies `${number}-${number}`[]
+const WEIGHTED_EXECUTION_DAYS = {
+  '01-31': 1,
+  '02-28': 1,
+  '03-31': 1,
+  '04-30': 1,
+  '05-31': 1,
+  '06-30': 2,
+  '07-31': 1,
+  '08-31': 1,
+  '09-30': 1,
+  '10-31': 1,
+  '11-30': 2,
+  '12-31': 1,
+} as const satisfies Record<`${number}-${number}`, number>
 
-function processRequest(request: BAVHistoryRequest, accountId: string) {
+function processRequest(request: BVHistoryRequest, accountId: string) {
   const lastPrice = request.type === 'create' ? INITIAL_VIRTUAL_PRICE : request.lastQuote
   const newShares = request.contributions / lastPrice
-  const sharesPerExecution = newShares / EXECUTION_DAYS.length
-  const activities = EXECUTION_DAYS.map((monthDay) => ({
+  const executionDays = Object.entries(WEIGHTED_EXECUTION_DAYS).slice(request.month - 1)
+  const totalExecutionWeight = executionDays.reduce((sum, [, weight]) => sum + weight, 0)
+  const sharesPerExecution = newShares / totalExecutionWeight
+  const totalFees = request.administrativeCosts + request.socialSecurityFees
+  const feePerExecution = totalFees / totalExecutionWeight
+  const activities = executionDays.map(([executionDay, weight]) => ({
     assetIdentifierType: 'custom_asset',
     currency: 'EUR',
-    datetime: `${request.year}-${monthDay}T08:00:00.000Z`,
+    datetime: `${request.year}-${executionDay}T08:00:00.000Z`,
     holding_id: accountId,
     price: lastPrice,
-    shares: sharesPerExecution,
+    shares: weight * sharesPerExecution,
     type: 'transfer_in',
+    fee: weight * feePerExecution,
   }))
   const totalShares = request.type === 'create' ? newShares : request.lastShares + newShares
   return { activities, totalShares }
+}
+
+function getFinalBalance(request: BVHistoryRequest) {
+  if (request.type === 'create') {
+    return (
+      request.contributions -
+      request.administrativeCosts -
+      request.socialSecurityFees +
+      request.performance
+    )
+  }
+  return (
+    request.lastShares * request.lastQuote +
+    request.contributions -
+    request.administrativeCosts -
+    request.socialSecurityFees +
+    request.performance
+  )
 }

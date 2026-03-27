@@ -12,5 +12,5 @@ All data is kept in your Parqet account.
   - REITs / BDCs,
   - non-reporting funds,
   - and Swap-based funds.
-- The BaV import enables you to easily enter company pensions as a custom insurance in Parqet.
+- The BV import enables you to easily enter company pensions as a custom insurance in Parqet.
   - Since most insurance companies only provide yearly reports with yearly contributions and final balance, the monthly contributions and gains are approximated.

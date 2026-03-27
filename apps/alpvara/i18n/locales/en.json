@@ -2,12 +2,14 @@
   "common": {
     "logout": "Logout",
     "portfolio": "Portfolio",
-    "copy-toast": "Copied to clipboard"
+    "copy-toast": "Copied to clipboard",
+    "refresh": "Refresh"
   },
   "navigation": {
     "home": "Home",
     "watchtower": "Watchtower",
-    "bav": "BaV Import"
+    "bv": "BV Import",
+    "legal": "Legal"
   },
   "hero": {
     "title": "Austria-specific features for your Parqet account",
@@ -23,32 +25,34 @@
         },
         "cta": "Open Watchtower"
       },
-      "bav": {
+      "bv": {
         "description": "Import company pension data as a custom insurance in Parqet.",
         "features": {
           "import": "Guides you through portfolio, account, and data entry.",
           "approximation": "Approximates monthly values from yearly contributions and final balance."
         },
-        "cta": "Open BaV Import"
+        "cta": "Open BV Import"
       }
     },
     "github": "View source on GitHub"
   },
-  "bav": {
+  "bv": {
     "account": "Account",
     "form": {
-      "first-year": "First insurance year",
+      "first-year": "Start",
       "current-year": "Not yet available",
       "contributions": "Contributions",
-      "final-balance": "Final balance",
-      "year": "Year",
+      "administrative-costs": "Administrative costs",
+      "social-security-fees": "Social security fees",
+      "performance": "Investment result",
+      "start": "Start of contributions",
       "submit": "Submit"
     },
     "help": {
-      "text": "The BaV function allows you to store the data of your company pension in Parqet.",
+      "text": "The BV function allows you to store the data of your company pension in Parqet.",
       "steps": {
-        "portfolio": "Select the portfolio in which you want to store the BaV data.",
-        "account": "Select the account on which the BaV data should be stored.",
+        "portfolio": "Select the portfolio in which you want to store the BV data.",
+        "account": "Select the account on which the BV data should be stored.",
         "history": "Enter the data of your first insurance year."
       }
     },
@@ -59,9 +63,11 @@
         "title": "No data available",
         "description": "Store the data of your first insurance year."
       },
-      "balance": "Balance",
+      "contributions": "Contributions",
       "view-on-parqet": "View on Parqet"
     },
+    "account-placeholder": "Select or create an account...",
+    "portfolio-placeholder": "Select or create a portfolio...",
     "toast": {
       "history": {
         "saved": {
@@ -110,6 +116,29 @@
       "reit-bdc": "If this is a REIT or BDC, tax disadvantages may arise.",
       "fund": "If this is a non-reporting fund, tax disadvantages may arise. Check OeKB for further details.",
       "swap": "This may be a swap-based product, which could result in tax disadvantages. Check OeKB for further details."
+    }
+  },
+  "legal": {
+    "title": "Legal",
+    "privacy": {
+      "title": "Privacy",
+      "text": "Alpvara does not store personal data on its own servers. Data from your Parqet account is processed only locally in your browser."
+    },
+    "storage": {
+      "title": "Local Storage",
+      "text": "For faster rendering, data may be stored temporarily in your browser. This data is deleted again when you log out."
+    },
+    "purpose": {
+      "title": "Purpose of Processing",
+      "text": "Processing is performed solely to provide this website's features and to display your imported data."
+    },
+    "liability": {
+      "title": "Disclaimer of Liability",
+      "text": "All content is prepared with great care. However, no guarantee is given for the accuracy, completeness, or timeliness of the provided information."
+    },
+    "links": {
+      "title": "External Links",
+      "text": "This website may contain links to external websites. Their respective operators are solely responsible for their content."
     }
   }
 }

@@ -9,7 +9,7 @@ import WatchtowerWarning from '~/components/WatchtowerWarning.vue'
 
 const NO_WARNING = 'none'
 
-const { data } = useWatchtower()
+const { data, isLoading, refetch } = useWatchtower()
 
 const search = useLocalStorage('watchtower-search', '')
 const warningFilterState = useLocalStorage<string[]>('watchtower-warning-filter', [])
@@ -29,27 +29,27 @@ const warningFilter = computed({
 })
 const includeSold = useLocalStorage('watchtower-include-sold', false)
 
-const securities = computed(() => {
+const holdings = computed(() => {
   if (!data.value) {
     return undefined
   }
   const warningFilterSet = new Set(warningFilter.value)
   return s.toArray(
     s.pipe(
-      data.value,
+      data.value.holdings,
       s.filter((s) => {
         if (includeSold.value) {
           return true
         }
         return !s.isSold
       }),
-      s.filter((security) => {
+      s.filter((holding) => {
         if (!warningFilterSet.size) {
           return true
         }
         const activeWarnings = s.toSet(
           s.pipe(
-            s.fromObject(security.warnings),
+            s.fromObject(holding.warnings),
             s.filter(([_, isActive]) => isActive),
             s.map(([name]) => name),
           ),
@@ -72,100 +72,114 @@ const securities = computed(() => {
   )
 })
 
-const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]>[]>(() => [
-  {
-    id: 'logo',
-    header: '',
-    meta: {
-      class: {
-        td: 'size-16',
+const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>['holdings'][number]>[]>(
+  () => [
+    {
+      id: 'logo',
+      header: '',
+      meta: {
+        class: {
+          td: 'size-16',
+        },
+      },
+      cell: ({ row }) => h(resolveComponent('UAvatar'), { src: row.original.logo }),
+    },
+    { accessorKey: 'name', header: $t('watchtower.table.name') },
+    {
+      header: $t('watchtower.table.isin'),
+      cell: ({ row }) => h(CopyButton, { text: row.original.isin }),
+    },
+    {
+      id: 'fund',
+      header: $t('watchtower.table.fund'),
+      meta: {
+        class: {
+          th: 'text-center',
+        },
+      },
+      cell: ({ row }) => {
+        if (!row.original.warnings.fund) {
+          return null
+        }
+        return h(WatchtowerWarning, {
+          tooltip: $t('watchtower.warning.fund'),
+        })
       },
     },
-    cell: ({ row }) => h(resolveComponent('UAvatar'), { src: row.original.logo }),
-  },
-  { accessorKey: 'name', header: $t('watchtower.table.name') },
-  {
-    header: $t('watchtower.table.isin'),
-    cell: ({ row }) => h(CopyButton, { text: row.original.isin }),
-  },
-  {
-    id: 'fund',
-    header: $t('watchtower.table.fund'),
-    meta: {
-      class: {
-        th: 'text-center',
+    {
+      id: 'reitBdc',
+      header: $t('watchtower.table.reit-bdc'),
+      meta: {
+        class: {
+          th: 'text-center whitespace-nowrap',
+        },
+      },
+      cell: ({ row }) => {
+        if (!row.original.warnings.reitBdc) {
+          return null
+        }
+        return h(WatchtowerWarning, {
+          tooltip: $t('watchtower.warning.reit-bdc'),
+        })
       },
     },
-    cell: ({ row }) => {
-      if (!row.original.warnings.fund) {
-        return null
-      }
-      return h(WatchtowerWarning, {
-        tooltip: $t('watchtower.warning.fund'),
-      })
-    },
-  },
-  {
-    id: 'reitBdc',
-    header: $t('watchtower.table.reit-bdc'),
-    meta: {
-      class: {
-        th: 'text-center whitespace-nowrap',
+    {
+      id: 'swap',
+      header: $t('watchtower.table.swap'),
+      meta: {
+        class: {
+          th: 'text-center',
+        },
+      },
+      cell: ({ row }) => {
+        if (!row.original.warnings.swap) {
+          return null
+        }
+        return h(WatchtowerWarning, {
+          tooltip: $t('watchtower.warning.swap'),
+        })
       },
     },
-    cell: ({ row }) => {
-      if (!row.original.warnings.reitBdc) {
-        return null
-      }
-      return h(WatchtowerWarning, {
-        tooltip: $t('watchtower.warning.reit-bdc'),
-      })
-    },
-  },
-  {
-    id: 'swap',
-    header: $t('watchtower.table.swap'),
-    meta: {
-      class: {
-        th: 'text-center',
+    {
+      header: $t('watchtower.table.links'),
+      meta: {
+        class: {
+          th: 'text-right',
+        },
       },
-    },
-    cell: ({ row }) => {
-      if (!row.original.warnings.swap) {
-        return null
-      }
-      return h(WatchtowerWarning, {
-        tooltip: $t('watchtower.warning.swap'),
-      })
-    },
-  },
-  {
-    header: $t('watchtower.table.links'),
-    meta: {
-      class: {
-        th: 'text-right',
-      },
-    },
 
-    cell: ({ row }) =>
-      h(WatchtowerLinks, {
-        name: row.original.name,
-        isin: row.original.isin,
-        fund: row.original.warnings.fund,
-      }),
-  },
-])
+      cell: ({ row }) =>
+        h(WatchtowerLinks, {
+          name: row.original.name,
+          isin: row.original.isin,
+          fund: row.original.warnings.fund,
+        }),
+    },
+  ],
+)
+
+const isMounted = useMounted()
 </script>
 
 <template>
   <div class="flex h-full flex-col">
+    <Teleport v-if="isMounted" to="#header-right">
+      <div class="flex items-center gap-4">
+        <InfoTooltip class="m-0">
+          {{ $t('watchtower.help') }}
+        </InfoTooltip>
+        <RefreshButton :timestamp="data?.timestamp" :loading="isLoading" @refresh="refetch" />
+      </div>
+    </Teleport>
     <div
-      class="grid max-w-full grid-cols-[1fr_auto_auto_auto] items-center gap-x-8 gap-y-4 p-4 max-lg:grid-cols-[1fr_auto]"
+      class="grid max-w-full grid-cols-[1fr_auto_auto] items-center gap-4 p-4 max-lg:grid-cols-[1fr_auto]"
     >
       <UInput :placeholder="$t('watchtower.search-placeholder')" v-model="search" />
-      <InfoTooltip>
-        {{ $t('watchtower.help') }}
-      </InfoTooltip>
+      <USwitch
+        v-model="includeSold"
+        :label="$t('watchtower.include-sold')"
+        class="whitespace-nowrap"
+      />
       <USelect
         v-model="warningFilter"
         icon="hugeicons:filter"
@@ -176,18 +190,13 @@ const columns = computed<TableColumn<NonNullable<UnwrapRef<typeof data>>[number]
           { label: $t('watchtower.table.reit-bdc'), value: 'reitBdc' },
           { label: $t('watchtower.table.swap'), value: 'swap' },
         ]"
-        class="max-sm:col-span-2 max-sm:row-start-2"
+        class="max-lg:col-span-2"
         multiple
-      />
-      <USwitch
-        v-model="includeSold"
-        :label="$t('watchtower.include-sold')"
-        class="whitespace-nowrap max-sm:row-start-3"
       />
     </div>
     <UTable
       :loading="!data"
-      :data="securities"
+      :data="holdings"
       :columns="columns"
       :column-pinning="{ left: ['logo'] }"
       :column-visibility="{

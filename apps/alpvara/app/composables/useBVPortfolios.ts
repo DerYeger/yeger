@@ -1,11 +1,11 @@
-export function useBAVPortfolios() {
+export function useBVPortfolios() {
   return useQuery({
-    key: queryKeys.portfolios.bav.all,
+    key: queryKeys.portfolios.bv.all,
     query: () => $fetch('/api/portfolios'),
   })
 }
 
-export function useCreateBAVPortfolio() {
+export function useCreateBVPortfolio() {
   const queryCache = useQueryCache()
   const toast = useToast()
   const { t } = useI18n()
@@ -17,16 +17,16 @@ export function useCreateBAVPortfolio() {
         body: { name } satisfies CreatePortfolioRequest,
       }),
     onSuccess: async (_, name) => {
-      await queryCache.invalidateQueries({ key: queryKeys.portfolios.bav.all })
+      await queryCache.invalidateQueries({ key: queryKeys.portfolios.bv.all })
       toast.add({
-        title: t('bav.toast.portfolio.created.title'),
-        description: t('bav.toast.portfolio.created.description', { name }),
+        title: t('bv.toast.portfolio.created.title'),
+        description: t('bv.toast.portfolio.created.description', { name }),
         color: 'success',
       })
     },
     onError: (error) => {
       toast.add({
-        title: t('bav.toast.portfolio.failed.title'),
+        title: t('bv.toast.portfolio.failed.title'),
         description: error.message,
         color: 'error',
       })

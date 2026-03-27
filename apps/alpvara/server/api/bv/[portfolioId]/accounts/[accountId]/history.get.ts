@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
     endpoint: `/portfolios/${portfolioId}/activities?activityType=transfer_in&assetType=custom&holdingId=${accountId}&max=500`,
     event,
     method: 'GET',
-    schema: BAVActivitiesResponseSchema,
+    schema: BVActivitiesResponseSchema,
   })
 
   return response.activities

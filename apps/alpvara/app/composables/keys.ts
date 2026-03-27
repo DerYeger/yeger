@@ -2,7 +2,7 @@ import { defineKeyHierarchy } from 'key-hierarchy'
 
 export const queryKeys = defineKeyHierarchy((dynamic) => ({
   portfolios: {
-    bav: {
+    bv: {
       all: true,
       byId: dynamic<string | undefined>().extend({
         accounts: true,

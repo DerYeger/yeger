@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { activities } = defineProps<{
-  activities: BAVActivity[]
+  activities: BVActivity[]
 }>()
 
 defineOptions({
@@ -20,25 +20,40 @@ const chartData = computed(() => {
   for (let i = 1; i < data.length; i++) {
     data[i]!.value += data[i - 1]!.value
   }
+  if (data.length > 0) {
+    const firstMonth = data[0]!.month
+    const previousMonth = new Date(new Date(firstMonth + '-01').getTime() - 1)
+    data.unshift({ month: previousMonth.toISOString().slice(0, 7), value: 0 })
+  }
   return data
 })
 
 const categories = computed<Record<string, BulletLegendItemInterface>>(() => ({
-  value: { name: $t('bav.history.balance'), color: '#22c55e' },
+  value: { name: $t('bv.history.contributions'), color: '#22c55e' },
 }))
 
-const MONTH_FORMAT = new Intl.DateTimeFormat(undefined, { month: 'short', year: '2-digit' })
+const { locale } = useI18n()
+
+const monthFormat = computed(
+  () => new Intl.DateTimeFormat(locale.value, { month: 'short', year: '2-digit' }),
+)
 function formatMonth(month: string) {
-  return MONTH_FORMAT.format(new Date(month))
+  return monthFormat.value.format(new Date(month))
 }
 
 function xFormatter(tick: number): string {
-  return formatMonth(chartData.value[tick]!.month)
+  const month = chartData.value[tick]?.month
+  if (!month) {
+    return ''
+  }
+  return formatMonth(month)
 }
 
-const VALUE_FORMAT = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'EUR' })
+const valueFormat = computed(
+  () => new Intl.NumberFormat(locale.value, { style: 'currency', currency: 'EUR' }),
+)
 function formatValue(value: number): string {
-  return VALUE_FORMAT.format(value)
+  return valueFormat.value.format(value)
 }
 
 function yFormatter(tick: number): string {
@@ -50,7 +65,7 @@ const containerSize = useElementSize(useTemplateRef('container'))
 
 <template>
   <div ref="container" class="relative min-h-50 flex-1">
-    <div class="absolute inset-0">
+    <div v-if="containerSize.height.value !== 0" class="absolute inset-0">
       <LineChart
         :data="chartData"
         :height="containerSize.height.value"

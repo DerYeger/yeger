@@ -17,7 +17,7 @@ export default defineEventHandler(async (event) => {
         value: '1d',
       },
     }),
-    schema: BAVAccountsResponseSchema,
+    schema: BVAccountsResponseSchema,
   })
 
   return accounts

@@ -1,10 +1,20 @@
 import type { PiniaColadaOptions } from '@pinia/colada'
+import { PiniaColadaCachePersister } from '@pinia/colada-plugin-cache-persister'
 
-export default {
+const SCHEMA_VERSION = 1
+
+const options: PiniaColadaOptions = {
+  plugins: [
+    PiniaColadaCachePersister({
+      key: `alpvara-colada-cache-v${SCHEMA_VERSION}`,
+    }),
+  ],
   queryOptions: {
     gcTime: false,
     refetchOnMount: false,
-    refetchOnWindowFocus: true,
+    refetchOnWindowFocus: false,
     staleTime: Infinity,
   },
-} satisfies PiniaColadaOptions
+}
+
+export default options
