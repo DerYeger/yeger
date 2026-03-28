@@ -1,4 +1,7 @@
 {
   "extends": "@yeger/tsconfig/base",
+  "compilerOptions": {
+    "types": ["node"]
+  },
   "include": ["src", "test", "./*.ts"]
 }

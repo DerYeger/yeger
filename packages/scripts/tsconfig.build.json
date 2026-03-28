@@ -1,4 +1,7 @@
 {
   "extends": "@yeger/tsconfig/build",
+  "compilerOptions": {
+    "types": ["node"]
+  },
   "include": ["src"]
 }
