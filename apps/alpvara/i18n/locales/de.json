@@ -41,7 +41,11 @@
     "form": {
       "first-year": "Erstes Versicherungsjahr",
       "current-year": "Nächstes Jahr verfügbar",
+      "year": "Jahr",
       "contributions": "Beiträge",
+      "contribution-months": "Beitragsmonate",
+      "selected-months-one": "{count} Monat ausgewählt",
+      "selected-months-other": "{count} Monate ausgewählt",
       "administrative-costs": "Verwaltungskosten",
       "social-security-fees": "Gebühr der Sozialversicherungsträger",
       "performance": "Veranlagungsergebnis",
@@ -65,6 +69,7 @@
         "description": "Speicher die Daten deines ersten Versicherungsjahres."
       },
       "contributions": "Beiträge",
+      "account-value": "Kontostand",
       "view-on-parqet": "In Parqet anzeigen"
     },
     "account-placeholder": "Konto auswählen oder erstellen...",

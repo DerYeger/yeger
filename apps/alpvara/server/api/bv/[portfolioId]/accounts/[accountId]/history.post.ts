@@ -59,11 +59,14 @@ const WEIGHTED_EXECUTION_DAYS = {
   '12-31': 1,
 } as const satisfies Record<`${number}-${number}`, number>
 
+const SYNTHETIC_SHARE_COUNT = 0.0000000001
+
 function processRequest(request: BVHistoryRequest, accountId: string) {
   const finalBalance = getFinalBalance(request)
   const lastPrice = request.type === 'create' ? INITIAL_VIRTUAL_PRICE : request.lastQuote
   const baseShares = request.type === 'create' ? 0 : request.lastShares
-  const executionDays = Object.entries(WEIGHTED_EXECUTION_DAYS).slice(request.month - 1)
+  const executionDays = Object.entries(WEIGHTED_EXECUTION_DAYS)
+  const selectedMonths = new Set(request.contributionMonths)
   const initialValue = baseShares * lastPrice
   const investedValue = initialValue + request.contributions
 
@@ -77,18 +80,30 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
     throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
   }
 
-  const totalExecutionWeight = executionDays.reduce((sum, [, weight]) => sum + weight, 0)
+  const selectedExecutionDays = executionDays.filter(([executionDay]) => {
+    const month = Number.parseInt(executionDay.split('-')[0]!, 10)
+    return selectedMonths.has(month)
+  })
+  const totalExecutionWeight = selectedExecutionDays.reduce((sum, [, weight]) => sum + weight, 0)
+
   const preliminaryExecutions = executionDays.map(([executionDay, weight], index) => {
+    const month = Number.parseInt(executionDay.split('-')[0]!, 10)
+    const isContributionMonth = selectedMonths.has(month)
     const monthEndStep = (index + 1) / executionDays.length
     const quotePrice = lastPrice + (finalSharePrice - lastPrice) * monthEndStep
     if (quotePrice <= 0) {
       throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
     }
 
-    const contribution = request.contributions * (weight / totalExecutionWeight)
+    const contribution =
+      isContributionMonth && totalExecutionWeight > 0
+        ? request.contributions * (weight / totalExecutionWeight)
+        : 0
+
     return {
       executionDay,
       weight,
+      isContributionMonth,
       quotePrice,
       contribution,
       referenceShares: contribution / quotePrice,
@@ -96,39 +111,35 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
   })
 
   if (request.contributions === 0) {
-    const syntheticExecutionDay = executionDays[executionDays.length - 1]?.[0]
-    const syntheticQuotePrice = preliminaryExecutions[preliminaryExecutions.length - 1]?.quotePrice
-
-    if (!syntheticExecutionDay || !syntheticQuotePrice) {
-      throw createError({ statusCode: 500, message: 'Failed to generate synthetic activity' })
-    }
-
     const quotes = preliminaryExecutions.map(({ executionDay, quotePrice }) => ({
       currency: 'EUR',
       datetime: `${request.year}-${executionDay}T08:00:00.000Z`,
       price: quotePrice,
     }))
-    const syntheticShareCount = 0.0000000001
-    const activities = [
-      {
-        assetIdentifierType: 'custom_asset',
-        currency: 'EUR',
-        datetime: `${request.year}-${syntheticExecutionDay}T08:00:00.000Z`,
-        holding_id: accountId,
-        price: syntheticQuotePrice,
-        shares: syntheticShareCount,
-        type: 'transfer_out' as const,
-      },
-      {
-        assetIdentifierType: 'custom_asset',
-        currency: 'EUR',
-        datetime: `${request.year}-${syntheticExecutionDay}T08:00:00.000Z`,
-        holding_id: accountId,
-        price: syntheticQuotePrice,
-        shares: syntheticShareCount,
-        type: 'transfer_in' as const,
-      },
-    ]
+    const activities = preliminaryExecutions.flatMap(({ executionDay, quotePrice }) => {
+      const datetime = `${request.year}-${executionDay}T08:00:00.000Z`
+      return [
+        {
+          assetIdentifierType: 'custom_asset',
+          currency: 'EUR',
+          datetime,
+          holding_id: accountId,
+          price: quotePrice,
+          shares: SYNTHETIC_SHARE_COUNT,
+          type: 'transfer_out' as const,
+        },
+        {
+          assetIdentifierType: 'custom_asset',
+          currency: 'EUR',
+          datetime,
+          holding_id: accountId,
+          price: quotePrice,
+          shares: SYNTHETIC_SHARE_COUNT,
+          type: 'transfer_in' as const,
+          description: `${quotePrice}`,
+        },
+      ]
+    })
 
     return { activities, quotes }
   }
@@ -149,7 +160,10 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
   }
 
   const monthlyExecutions = preliminaryExecutions.map((execution) => {
-    const executionPrice = execution.quotePrice * executionPriceMultiplier
+    const executionPrice =
+      execution.contribution > 0
+        ? execution.quotePrice * executionPriceMultiplier
+        : execution.quotePrice
     if (executionPrice <= 0) {
       throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
     }
@@ -166,15 +180,48 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
     datetime: `${request.year}-${executionDay}T08:00:00.000Z`,
     price: quotePrice,
   }))
-  const activities = monthlyExecutions.map(({ executionDay, executionPrice, shares }) => ({
-    assetIdentifierType: 'custom_asset',
-    currency: 'EUR',
-    datetime: `${request.year}-${executionDay}T08:00:00.000Z`,
-    holding_id: accountId,
-    price: executionPrice,
-    shares,
-    type: 'transfer_in',
-  }))
+  const activities = monthlyExecutions.flatMap(
+    ({ executionDay, executionPrice, quotePrice, shares, isContributionMonth }) => {
+      const datetime = `${request.year}-${executionDay}T08:00:00.000Z`
+
+      if (isContributionMonth && shares > 0) {
+        return [
+          {
+            assetIdentifierType: 'custom_asset',
+            currency: 'EUR',
+            datetime,
+            holding_id: accountId,
+            price: executionPrice,
+            shares,
+            type: 'transfer_in' as const,
+            description: `${quotePrice}`,
+          },
+        ]
+      }
+
+      return [
+        {
+          assetIdentifierType: 'custom_asset',
+          currency: 'EUR',
+          datetime,
+          holding_id: accountId,
+          price: quotePrice,
+          shares: SYNTHETIC_SHARE_COUNT,
+          type: 'transfer_out' as const,
+        },
+        {
+          assetIdentifierType: 'custom_asset',
+          currency: 'EUR',
+          datetime,
+          holding_id: accountId,
+          price: quotePrice,
+          shares: SYNTHETIC_SHARE_COUNT,
+          type: 'transfer_in' as const,
+          description: `${quotePrice}`,
+        },
+      ]
+    },
+  )
 
   return { activities, quotes }
 }

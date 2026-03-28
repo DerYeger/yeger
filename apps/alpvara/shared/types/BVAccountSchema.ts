@@ -6,6 +6,7 @@ const BVActivitySchema = z
     holdingId: z.string(),
     shares: z.float64(),
     price: z.float64(),
+    description: z.string().optional(),
     datetime: z.iso.datetime(),
   })
   .transform((data) => ({
@@ -66,18 +67,22 @@ const BaseBVHistoryRequestSchema = z.object({
   administrativeCosts: z.number().min(0, 'Administrative costs cannot be negative'),
   socialSecurityFees: z.number().min(0, 'Social security fees cannot be negative'),
   performance: z.number(),
+  contributionMonths: z
+    .array(z.int().min(1).max(12))
+    .min(1, 'At least one contribution month must be selected')
+    .refine((months) => new Set(months).size === months.length, {
+      message: 'Contribution months must be unique',
+    }),
 })
 
 export const CreateBVHistoryRequestSchema = BaseBVHistoryRequestSchema.extend({
   type: z.literal('create'),
-  month: z.number().min(1).max(12),
   contributions: z.number().min(1, 'Contributions must be positive'),
 })
 export type CreateBVHistoryRequest = z.infer<typeof CreateBVHistoryRequestSchema>
 
 export const UpdateBVHistoryRequestSchema = BaseBVHistoryRequestSchema.extend({
   type: z.literal('update'),
-  month: z.literal(1),
   contributions: z.number().min(0, 'Contributions cannot be negative'),
   lastQuote: z.number().min(0, 'Last quote must be positive'),
   lastShares: z.number().min(0, 'Last shares must be positive'),

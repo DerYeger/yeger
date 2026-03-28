@@ -24,10 +24,11 @@
     "@pinia/nuxt": "catalog:",
     "@vueuse/nuxt": "catalog:",
     "@yeger/streams": "workspace:*",
+    "echarts": "catalog:",
     "key-hierarchy": "workspace:*",
     "nuxt": "catalog:",
-    "nuxt-charts": "catalog:",
     "openid-client": "catalog:",
+    "vue-echarts": "catalog:",
     "zod": "catalog:"
   },
   "devDependencies": {

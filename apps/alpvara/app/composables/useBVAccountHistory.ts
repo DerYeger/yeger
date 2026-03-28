@@ -47,6 +47,7 @@ function useBVAccountHistoryMutation<T extends BVHistoryRequest>() {
         key: queryKeys.portfolios.bv.byId(request.portfolioId).accounts,
       })
       toast.add({
+        id: 'bv-history-success',
         color: 'success',
         title: t('bv.toast.history.saved.title'),
         description: t('bv.toast.history.saved.description'),
@@ -54,6 +55,7 @@ function useBVAccountHistoryMutation<T extends BVHistoryRequest>() {
     },
     onError: (error) => {
       toast.add({
+        id: 'bv-history-error',
         color: 'error',
         title: t('bv.toast.history.failed.title'),
         description: error.message,

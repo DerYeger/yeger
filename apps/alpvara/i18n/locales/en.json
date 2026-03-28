@@ -41,7 +41,11 @@
     "form": {
       "first-year": "Start",
       "current-year": "Available next year",
+      "year": "Year",
       "contributions": "Contributions",
+      "contribution-months": "Contribution months",
+      "selected-months-one": "{count} month selected",
+      "selected-months-other": "{count} months selected",
       "administrative-costs": "Administrative costs",
       "social-security-fees": "Social security fees",
       "performance": "Investment result",
@@ -65,6 +69,7 @@
         "description": "Store the data of your first insurance year."
       },
       "contributions": "Contributions",
+      "account-value": "Balance",
       "view-on-parqet": "View on Parqet"
     },
     "account-placeholder": "Select or create an account...",

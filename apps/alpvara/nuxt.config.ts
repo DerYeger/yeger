@@ -1,12 +1,5 @@
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/ui',
-    '@vueuse/nuxt',
-    '@nuxtjs/i18n',
-    '@pinia/colada-nuxt',
-    '@pinia/nuxt',
-    'nuxt-charts',
-  ],
+  modules: ['@nuxt/ui', '@vueuse/nuxt', '@nuxtjs/i18n', '@pinia/colada-nuxt', '@pinia/nuxt'],
 
   compatibilityDate: '2025-01-15',
 
