@@ -15,6 +15,7 @@
   "dependencies": {
     "@iconify-json/hugeicons": "catalog:",
     "@internationalized/date": "catalog:",
+    "@nuxt/fonts": "catalog:",
     "@nuxt/ui": "catalog:",
     "@nuxtjs/i18n": "catalog:",
     "@pinia/colada": "catalog:",
