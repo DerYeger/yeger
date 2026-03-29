@@ -121,13 +121,23 @@ async function makeAuthenticatedRequest<T>(options: AuthenticatedRequestOptions<
   )
 
   if (response.status === 401 && refreshToken) {
-    const tokens = await client.refreshTokenGrant(config, refreshToken)
-    saveTokens(event, tokens)
-    return await makeAuthenticatedRequest({
-      ...options,
-      accessToken: tokens.access_token,
-      refreshToken: tokens.refresh_token,
-    })
+    try {
+      const tokens = await client.refreshTokenGrant(config, refreshToken)
+      saveTokens(event, tokens)
+      return await makeAuthenticatedRequest({
+        ...options,
+        accessToken: tokens.access_token,
+        refreshToken: tokens.refresh_token,
+      })
+    } catch (error) {
+      if (IS_DEV) {
+        // oxlint-disable-next-line no-console
+        console.error('Failed to refresh token:', error)
+      }
+      deleteCookie(event, 'access_token')
+      deleteCookie(event, 'refresh_token')
+      throw createError({ statusCode: 401, message: 'Not authenticated' })
+    }
   }
 
   return response

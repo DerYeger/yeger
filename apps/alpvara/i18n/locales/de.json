@@ -72,6 +72,15 @@
       "account-value": "Kontostand",
       "view-on-parqet": "In Parqet anzeigen"
     },
+    "projection": {
+      "title": "Hochrechnung",
+      "years": "Jahre",
+      "annual-contribution": "Jährlicher Beitrag",
+      "annual-return": "Jährliche Rendite",
+      "expected": "Erwartet",
+      "optimistic": "Optimistisch",
+      "pessimistic": "Pessimistisch"
+    },
     "account-placeholder": "Konto auswählen oder erstellen...",
     "portfolio-placeholder": "Portfolio auswählen oder erstellen...",
     "toast": {

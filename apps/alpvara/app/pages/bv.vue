@@ -94,12 +94,15 @@ const refreshTimestamp = computed(() => {
       v-if="selectedPortfolioId && selectedAccount"
       class="flex-1 grid-cols-[auto_1fr] flex-col gap-4 max-md:flex md:grid"
     >
-      <BVHistoryForm
-        v-if="!selectedAccount.position.shares || accountHistory.data.value"
-        :portfolio-id="selectedPortfolioId"
-        :account="selectedAccount"
-        :history="accountHistory.data.value?.entries ?? []"
-      />
+      <div class="flex flex-col gap-4">
+        <BVHistoryForm
+          v-if="!selectedAccount.position.shares || accountHistory.data.value"
+          :portfolio-id="selectedPortfolioId"
+          :account="selectedAccount"
+          :history="accountHistory.data.value?.entries ?? []"
+        />
+        <BVProjectionForm />
+      </div>
       <UCard
         class="grow"
         :ui="{

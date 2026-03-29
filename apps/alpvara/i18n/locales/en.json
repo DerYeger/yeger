@@ -72,6 +72,15 @@
       "account-value": "Balance",
       "view-on-parqet": "View on Parqet"
     },
+    "projection": {
+      "title": "Projection",
+      "years": "Years",
+      "annual-contribution": "Annual contribution",
+      "annual-return": "Annual return",
+      "expected": "Expected",
+      "optimistic": "Optimistic",
+      "pessimistic": "Pessimistic"
+    },
     "account-placeholder": "Select or create an account...",
     "portfolio-placeholder": "Select or create a portfolio...",
     "toast": {

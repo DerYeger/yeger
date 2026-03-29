@@ -52,6 +52,84 @@ const chartData = computed(() => {
   return data
 })
 
+function parseMonthKey(month: string): Date {
+  const [year, monthNumber] = month.split('-').map(Number)
+  return new Date(Date.UTC(year!, monthNumber! - 1, 1))
+}
+
+function toMonthKey(date: Date): string {
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}`
+}
+
+function toMonthlyRate(annualRate: number): number {
+  return (1 + annualRate) ** (1 / 12) - 1
+}
+
+const projection = useBVProjection()
+
+type ProjectionData = {
+  month: string
+  contributions: number
+  expected: number
+  pessimistic: number
+  optimistic: number
+}
+
+const projectionData = computed<ProjectionData[]>(() => {
+  const state = projection.debouncedState.value
+  if (!state?.enabled || !chartData.value.length) {
+    return []
+  }
+
+  const years = state.years
+  const projectionMonths = years * 12
+  if (projectionMonths <= 0) {
+    return []
+  }
+
+  const expectedRate = state.annualReturn
+  const pessimisticRate = state.pessimisticAnnualReturn
+  const optimisticRate = state.optimisticAnnualReturn
+
+  const monthlyContribution = state.annualContribution / 12
+  const expectedMonthlyRate = toMonthlyRate(expectedRate)
+  const pessimisticMonthlyRate = toMonthlyRate(pessimisticRate)
+  const optimisticMonthlyRate = toMonthlyRate(optimisticRate)
+
+  const lastActual = chartData.value.at(-1)
+  if (!lastActual) {
+    return []
+  }
+
+  let expectedBalance = lastActual.balance
+  let pessimisticBalance = lastActual.balance
+  let optimisticBalance = lastActual.balance
+  let projectedContributions = lastActual.contributions
+
+  const baseDate = parseMonthKey(lastActual.month)
+  const points: ProjectionData[] = []
+
+  for (let i = 1; i <= projectionMonths; i++) {
+    const nextDate = new Date(baseDate)
+    nextDate.setUTCMonth(baseDate.getUTCMonth() + i)
+
+    projectedContributions += monthlyContribution
+    expectedBalance = (expectedBalance + monthlyContribution) * (1 + expectedMonthlyRate)
+    pessimisticBalance = (pessimisticBalance + monthlyContribution) * (1 + pessimisticMonthlyRate)
+    optimisticBalance = (optimisticBalance + monthlyContribution) * (1 + optimisticMonthlyRate)
+
+    points.push({
+      month: toMonthKey(nextDate),
+      contributions: projectedContributions,
+      expected: expectedBalance,
+      pessimistic: pessimisticBalance,
+      optimistic: optimisticBalance,
+    })
+  }
+
+  return points
+})
+
 const { locale } = useI18n()
 
 const monthFormat = computed(
@@ -85,16 +163,55 @@ function yFormatter(tick: number): string {
   return formatValue(tick)
 }
 
+const percentFormat = computed(
+  () =>
+    new Intl.NumberFormat(locale.value, {
+      style: 'percent',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    }),
+)
+
+function formatPercent(value: number): string {
+  return percentFormat.value.format(value)
+}
+
 const COLORS = {
   contributions: '#737373', // neutral 500
+  expectedProjection: '#3b82f6', // blue 500
   balancePositive: '#22c55e', // green 500
   balanceNegative: '#ef4444', // red 500
 }
 
 const chartOptions = computed<EChartsOption>(() => {
-  const months = chartData.value.map((point) => point.month)
+  const actualMonths = chartData.value.map((point) => point.month)
+  const projectionMonths = projectionData.value.map((point) => point.month)
+  const months = [...actualMonths, ...projectionMonths]
+  const projectionStartIndex = Math.max(0, chartData.value.length - 1)
   const contributions = chartData.value.map((point) => point.contributions)
   const balance = chartData.value.map((point) => point.balance)
+  const projectedContributions = Array.from<number | null>({ length: months.length }).fill(null)
+  const expectedProjection = Array.from<number | null>({ length: months.length }).fill(null)
+  const pessimisticProjection = Array.from<number | null>({ length: months.length }).fill(null)
+  const optimisticProjection = Array.from<number | null>({ length: months.length }).fill(null)
+
+  const lastActual = chartData.value.at(-1)
+  if (projectionData.value.length && lastActual) {
+    projectedContributions[projectionStartIndex] = lastActual.contributions
+    expectedProjection[projectionStartIndex] = lastActual.balance
+    pessimisticProjection[projectionStartIndex] = lastActual.balance
+    optimisticProjection[projectionStartIndex] = lastActual.balance
+
+    for (let i = 0; i < projectionData.value.length; i++) {
+      const point = projectionData.value[i]!
+      const monthIndex = projectionStartIndex + i + 1
+      projectedContributions[monthIndex] = point.contributions
+      expectedProjection[monthIndex] = point.expected
+      pessimisticProjection[monthIndex] = point.pessimistic
+      optimisticProjection[monthIndex] = point.optimistic
+    }
+  }
+
   const balanceSegments: SeriesOption[] = []
   for (let i = 1; i < chartData.value.length; i++) {
     const segmentData = Array.from<number | null>({ length: chartData.value.length }).fill(null)
@@ -108,24 +225,88 @@ const chartOptions = computed<EChartsOption>(() => {
 
     balanceSegments.push({
       type: 'line',
+      color: segmentColor,
       data: segmentData,
       connectNulls: false,
       showSymbol: false,
-      symbol: 'none',
       lineStyle: {
         width: 2,
         color: segmentColor,
       },
-      silent: true,
       tooltip: {
         show: false,
-      },
-      emphasis: {
-        disabled: true,
       },
       z: 3,
     })
   }
+
+  const state = projection.debouncedState.value
+
+  const expectedLabel = `${$t('bv.projection.expected')} (${formatPercent(state.annualReturn)})`
+  const optimisticLabel = `${$t('bv.projection.optimistic')} (${formatPercent(state.optimisticAnnualReturn)})`
+  const pessimisticLabel = `${$t('bv.projection.pessimistic')} (${formatPercent(state.pessimisticAnnualReturn)})`
+
+  const projectionSeries: SeriesOption[] =
+    projectionData.value.length > 0
+      ? [
+          {
+            name: expectedLabel,
+            type: 'line',
+            color: COLORS.expectedProjection,
+            data: expectedProjection,
+            showSymbol: false,
+            connectNulls: false,
+            lineStyle: {
+              width: 2,
+              type: 'dashed',
+              color: COLORS.expectedProjection,
+            },
+            z: 5,
+          },
+          {
+            name: optimisticLabel,
+            type: 'line',
+            color: COLORS.balancePositive,
+            data: optimisticProjection,
+            showSymbol: false,
+            connectNulls: false,
+            lineStyle: {
+              width: 2,
+              type: 'dashed',
+              color: COLORS.balancePositive,
+            },
+            z: 4,
+          },
+          {
+            name: pessimisticLabel,
+            type: 'line',
+            color: COLORS.balanceNegative,
+            data: pessimisticProjection,
+            showSymbol: false,
+            connectNulls: false,
+            lineStyle: {
+              width: 2,
+              type: 'dashed',
+              color: COLORS.balanceNegative,
+            },
+            z: 4,
+          },
+          {
+            name: $t('bv.history.contributions'),
+            type: 'line',
+            color: COLORS.contributions,
+            data: projectedContributions,
+            showSymbol: false,
+            connectNulls: false,
+            lineStyle: {
+              width: 2,
+              type: 'dashed',
+              color: COLORS.contributions,
+            },
+            z: 4,
+          },
+        ]
+      : []
 
   return {
     animation: false,
@@ -140,29 +321,82 @@ const chartOptions = computed<EChartsOption>(() => {
       appendTo: document.body,
       formatter: (params) => {
         const first = Array.isArray(params) ? params[0] : params
-        const month = String((first as any)?.axisValue ?? '')
-        const point = chartData.value.find((entry) => entry.month === month)
-        if (!point) {
+        const month = first?.name
+        if (!month) {
+          return ''
+        }
+        const historyPoint = chartData.value.find((entry) => entry.month === month)
+        const projectionPoint = projectionData.value.find((entry) => entry.month === month)
+        if (!historyPoint && !projectionPoint) {
           return ''
         }
 
-        const contributionsColor = COLORS.contributions
-        const balanceColor =
-          point.balance - point.contributions >= 0 ? COLORS.balancePositive : COLORS.balanceNegative
+        const rows: string[] = []
+
+        if (historyPoint) {
+          const contributionsColor = COLORS.contributions
+          const isPositiveBalance = historyPoint.balance >= historyPoint.contributions
+          const balanceColor = isPositiveBalance ? COLORS.balancePositive : COLORS.balanceNegative
+          const balanceRow = tooltipRow(
+            String($t('bv.history.contributions')),
+            formatValue(historyPoint.contributions),
+            contributionsColor,
+          )
+          const contributionsRow = tooltipRow(
+            String($t('bv.history.account-value')),
+            formatValue(historyPoint.balance),
+            balanceColor,
+          )
+          if (isPositiveBalance) {
+            rows.push(contributionsRow, balanceRow)
+          } else {
+            rows.push(balanceRow, contributionsRow)
+          }
+        }
+
+        if (projectionPoint) {
+          const rawRows: [number, string][] = [
+            [
+              projectionPoint.optimistic,
+              tooltipRow(
+                optimisticLabel,
+                formatValue(projectionPoint.optimistic),
+                COLORS.balancePositive,
+              ),
+            ],
+            [
+              projectionPoint.expected,
+              tooltipRow(
+                expectedLabel,
+                formatValue(projectionPoint.expected),
+                COLORS.expectedProjection,
+              ),
+            ],
+            [
+              projectionPoint.pessimistic,
+              tooltipRow(
+                pessimisticLabel,
+                formatValue(projectionPoint.pessimistic),
+                COLORS.balanceNegative,
+              ),
+            ],
+            [
+              projectionPoint.contributions,
+              tooltipRow(
+                String($t('bv.history.contributions')),
+                formatValue(projectionPoint.contributions),
+                COLORS.contributions,
+              ),
+            ],
+          ]
+          const sortedRows = rawRows.sort((a, b) => b[0] - a[0]).map((entry) => entry[1])
+          rows.push(...sortedRows)
+        }
 
         return [
-          `<div class="mb-2 text-xs font-semibold">${formatMonth(point.month)}</div>`,
+          `<div class="mb-2 text-xs font-semibold">${formatMonth(month)}</div>`,
           '<div class="flex flex-col gap-1">',
-          tooltipRow(
-            String($t('bv.history.contributions')),
-            formatValue(point.contributions),
-            contributionsColor,
-          ),
-          tooltipRow(
-            String($t('bv.history.account-value')),
-            formatValue(point.balance),
-            balanceColor,
-          ),
+          ...rows,
           '</div>',
         ].join('')
       },
@@ -193,6 +427,7 @@ const chartOptions = computed<EChartsOption>(() => {
       {
         name: $t('bv.history.contributions'),
         type: 'line',
+        color: COLORS.contributions,
         step: 'middle',
         showSymbol: false,
         lineStyle: {
@@ -203,10 +438,8 @@ const chartOptions = computed<EChartsOption>(() => {
         z: 2,
       },
       ...balanceSegments,
+      ...projectionSeries,
     ],
-    legend: {
-      show: false,
-    },
   }
 })
 </script>

@@ -83,6 +83,7 @@ const { data: userData, error, clear } = await useFetch('/api/user')
 const router = useRouter()
 
 if (error.value) {
+  localStorage.clear()
   await navigateTo('/login')
 } else if (router.currentRoute.value.path === '/login') {
   await navigateTo('/')

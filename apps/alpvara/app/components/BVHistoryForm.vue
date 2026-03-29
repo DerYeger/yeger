@@ -238,13 +238,13 @@ const selectedMonthsLabel = computed(() => {
         </span>
       </template>
 
-      <template #footer>
+      <template v-if="canYearBeEdited" #footer>
         <UButton
           type="submit"
           class="-my-1"
           variant="subtle"
           :color="canYearBeEdited ? 'primary' : 'neutral'"
-          :disabled="isLoading || !canYearBeEdited"
+          :disabled="isLoading"
         >
           {{ $t('bv.form.submit') }}
         </UButton>
