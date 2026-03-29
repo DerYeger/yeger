@@ -70,7 +70,7 @@ export async function requestAuthenticated<T extends z.ZodType>(
     }
     throw createError({
       statusCode: response.status,
-      message: responseBody,
+      statusMessage: responseBody,
     })
   }
   const parsed = await response.json()
@@ -103,7 +103,7 @@ interface AuthenticatedRequestOptions<T> extends Request<T> {
 async function makeAuthenticatedRequest<T>(options: AuthenticatedRequestOptions<T>) {
   const { accessToken, body, endpoint, event, method, refreshToken } = options
   if (!accessToken) {
-    throw createError({ statusCode: 401, message: 'Not authenticated' })
+    throw createError({ statusCode: 401, statusMessage: 'Not authenticated' })
   }
 
   const headers = new Headers()
@@ -120,25 +120,31 @@ async function makeAuthenticatedRequest<T>(options: AuthenticatedRequestOptions<
     headers,
   )
 
-  if (response.status === 401 && refreshToken) {
-    try {
-      const tokens = await client.refreshTokenGrant(config, refreshToken)
-      saveTokens(event, tokens)
-      return await makeAuthenticatedRequest({
-        ...options,
-        accessToken: tokens.access_token,
-        refreshToken: tokens.refresh_token,
-      })
-    } catch (error) {
-      if (IS_DEV) {
-        // oxlint-disable-next-line no-console
-        console.error('Failed to refresh token:', error)
-      }
-      deleteCookie(event, 'access_token')
-      deleteCookie(event, 'refresh_token')
-      throw createError({ statusCode: 401, message: 'Not authenticated' })
-    }
+  if (response.status !== 401 && response.status !== 403) {
+    return response
   }
 
-  return response
+  if (!refreshToken) {
+    deleteCookie(event, 'access_token')
+    deleteCookie(event, 'refresh_token')
+    throw createError({ statusCode: 401, statusMessage: 'Not authenticated' })
+  }
+
+  try {
+    const tokens = await client.refreshTokenGrant(config, refreshToken)
+    saveTokens(event, tokens)
+    return await makeAuthenticatedRequest({
+      ...options,
+      accessToken: tokens.access_token,
+      refreshToken: tokens.refresh_token,
+    })
+  } catch (error) {
+    if (IS_DEV) {
+      // oxlint-disable-next-line no-console
+      console.error('Failed to refresh token:', error)
+    }
+    deleteCookie(event, 'access_token')
+    deleteCookie(event, 'refresh_token')
+    throw createError({ statusCode: 401, statusMessage: 'Not authenticated' })
+  }
 }

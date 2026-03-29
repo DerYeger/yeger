@@ -1,5 +1,5 @@
 export function useBVAccounts(portfolioId: MaybeRefOrGetter<string | undefined>) {
-  return useQuery({
+  const query = useQuery({
     key: () => queryKeys.portfolios.bv.byId(toValue(portfolioId)).accounts,
     enabled: computed(() => !!toValue(portfolioId)),
     query: async () => {
@@ -9,6 +9,9 @@ export function useBVAccounts(portfolioId: MaybeRefOrGetter<string | undefined>)
       }
     },
   })
+  useErrorToast(query.error)
+  void useLogoutDetection(query.error)
+  return query
 }
 
 export function useCreateBVAccount() {
@@ -16,7 +19,7 @@ export function useCreateBVAccount() {
   const { t } = useI18n()
   const toast = useToast()
 
-  return useMutation({
+  const mutation = useMutation({
     mutation: ({ name, portfolioId }: { name: string; portfolioId: string }) =>
       $fetch(`/api/bv/${portfolioId}/accounts`, {
         method: 'POST',
@@ -43,4 +46,6 @@ export function useCreateBVAccount() {
       })
     },
   })
+  void useLogoutDetection(mutation.error)
+  return mutation
 }

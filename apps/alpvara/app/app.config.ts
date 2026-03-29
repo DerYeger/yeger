@@ -3,6 +3,11 @@ export default defineAppConfig({
     colors: {
       primary: 'red',
     },
+    card: {
+      slots: {
+        body: 'sm:py-4',
+      },
+    },
     icons: {
       arrowDown: 'hugeicons:arrow-down-02',
       arrowLeft: 'hugeicons:arrow-left-02',

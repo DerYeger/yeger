@@ -1,7 +1,7 @@
 export default defineEventHandler((event) => {
   const accessToken = getCookie(event, 'access_token')
   if (!accessToken) {
-    throw createError({ statusCode: 401, message: 'Not authenticated' })
+    throw createError({ statusCode: 401, statusMessage: 'Not authenticated' })
   }
 
   deleteCookie(event, 'access_token')

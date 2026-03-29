@@ -1,5 +1,5 @@
 export function useWatchtower() {
-  return useQuery({
+  const query = useQuery({
     key: queryKeys.watchtower,
     query: async () => {
       return {
@@ -8,6 +8,9 @@ export function useWatchtower() {
       }
     },
   })
+  useErrorToast(query.error)
+  void useLogoutDetection(query.error)
+  return query
 }
 
 export function useWatchtowerBadge() {

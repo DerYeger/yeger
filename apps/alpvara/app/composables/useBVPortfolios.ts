@@ -1,8 +1,11 @@
 export function useBVPortfolios() {
-  return useQuery({
+  const query = useQuery({
     key: queryKeys.portfolios.bv.all,
     query: () => $fetch('/api/portfolios'),
   })
+  useErrorToast(query.error)
+  void useLogoutDetection(query.error)
+  return query
 }
 
 export function useCreateBVPortfolio() {
@@ -10,7 +13,7 @@ export function useCreateBVPortfolio() {
   const toast = useToast()
   const { t } = useI18n()
 
-  return useMutation({
+  const mutation = useMutation({
     mutation: (name: string) =>
       $fetch('/api/portfolios', {
         method: 'POST',
@@ -32,4 +35,6 @@ export function useCreateBVPortfolio() {
       })
     },
   })
+  void useLogoutDetection(mutation.error)
+  return mutation
 }

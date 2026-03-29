@@ -1,5 +1,6 @@
 {
   "common": {
+    "error": "An error occurred",
     "logout": "Logout",
     "portfolio": "Portfolio",
     "copy-toast": "Copied to clipboard",

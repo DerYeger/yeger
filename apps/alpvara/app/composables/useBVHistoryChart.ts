@@ -54,7 +54,7 @@ export const useBVHistoryChart = createGlobalState(() => {
   })
 
   const projectionData = computed<ProjectionDataPoint[]>(() => {
-    const state = projection.debouncedState.value
+    const state = projection.state.value
     if (!state?.enabled || !chartData.value.length) {
       return []
     }
@@ -146,7 +146,7 @@ export const useBVHistoryChart = createGlobalState(() => {
       `<span class="h-2 w-2 shrink-0 rounded-full" style="background:${color}"></span>`,
       `<span class="text-xs text-neutral-600">${label}</span>`,
       '</div>',
-      `<span class="text-right text-xs font-bold tabular">${value}</span>`,
+      `<span class="text-right text-xs font-bold tabular-nums">${value}</span>`,
       '</div>',
     ].join('')
   }
@@ -208,7 +208,7 @@ export const useBVHistoryChart = createGlobalState(() => {
       })
     }
 
-    const state = projection.debouncedState.value
+    const state = projection.state.value
 
     const expectedLabel = `${t('bv.projection.expected')} (${formatPercent(state.annualReturn)})`
     const optimisticLabel = `${t('bv.projection.optimistic')} (${formatPercent(state.optimisticAnnualReturn)})`

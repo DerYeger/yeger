@@ -4,7 +4,7 @@ export interface UserBVAccountHistoryOptions {
 }
 
 export function useBVAccountHistory({ portfolioId, accountId }: UserBVAccountHistoryOptions) {
-  return useQuery({
+  const query = useQuery({
     key: () =>
       queryKeys.portfolios.bv.byId(toValue(portfolioId)).byAccountId(toValue(accountId)).history,
     enabled: () => !!toValue(portfolioId) && !!toValue(accountId),
@@ -18,6 +18,9 @@ export function useBVAccountHistory({ portfolioId, accountId }: UserBVAccountHis
       }
     },
   })
+  useErrorToast(query.error)
+  void useLogoutDetection(query.error)
+  return query
 }
 
 export function useCreateBVAccountHistory() {
@@ -32,7 +35,7 @@ function useBVAccountHistoryMutation<T extends BVHistoryRequest>() {
   const toast = useToast()
   const { t } = useI18n()
   const queryCache = useQueryCache()
-  return useMutation({
+  const mutation = useMutation({
     mutation: (request: T & { portfolioId: string; accountId: string }) =>
       $fetch(`/api/bv/${request.portfolioId}/accounts/${request.accountId}/history`, {
         method: 'POST',
@@ -62,4 +65,6 @@ function useBVAccountHistoryMutation<T extends BVHistoryRequest>() {
       })
     },
   })
+  void useLogoutDetection(mutation.error)
+  return mutation
 }

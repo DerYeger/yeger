@@ -3,12 +3,12 @@ import { requestAuthenticated } from '~~/server/utils/client'
 export default defineEventHandler(async (event) => {
   const portfolioId = getRouterParam(event, 'portfolioId')
   if (!portfolioId) {
-    throw createError({ statusCode: 400, message: 'Missing portfolioId' })
+    throw createError({ statusCode: 400, statusMessage: 'Missing portfolioId' })
   }
 
   const accountId = getRouterParam(event, 'accountId')
   if (!accountId) {
-    throw createError({ statusCode: 400, message: 'Missing accountId' })
+    throw createError({ statusCode: 400, statusMessage: 'Missing accountId' })
   }
 
   const response = await requestAuthenticated({

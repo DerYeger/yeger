@@ -15,7 +15,7 @@ const currencyFormat = useCurrencyFormat()
   <div class="text-sm">
     {{ label }}
   </div>
-  <div class="tabular text-right text-sm font-semibold">
+  <div class="text-right text-sm font-semibold tabular-nums">
     {{ currencyFormat.format(value) }}
   </div>
 </template>

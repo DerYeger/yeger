@@ -33,6 +33,8 @@ useSeoMeta({
   ogDescription: $t('hero.subtitle'),
 })
 
+const { isLoggedIn, logout } = await useUser()
+
 const watchtowerBadge = useWatchtowerBadge()
 
 const items = computed<NavigationMenuItem[]>(() => {
@@ -43,7 +45,7 @@ const items = computed<NavigationMenuItem[]>(() => {
       icon: 'hugeicons:legal-hammer',
     },
   ]
-  if (!userData.value) {
+  if (!isLoggedIn.value) {
     return [
       {
         label: $t('navigation.home'),
@@ -78,28 +80,6 @@ const items = computed<NavigationMenuItem[]>(() => {
   }
 })
 
-const { data: userData, error, clear } = await useFetch('/api/user')
-
-const router = useRouter()
-
-if (error.value) {
-  localStorage.clear()
-  await navigateTo('/login')
-} else if (router.currentRoute.value.path === '/login') {
-  await navigateTo('/')
-}
-
-router.beforeEach((to) => {
-  if (to.path === '/legal') {
-    return true
-  } else if (!userData.value && to.path !== '/login') {
-    return false
-  } else if (userData.value && to.path === '/login') {
-    return false
-  }
-  return true
-})
-
 const open = ref(true)
 </script>
 
@@ -120,14 +100,16 @@ const open = ref(true)
           :ui="{ link: 'p-1.5 overflow-hidden' }"
         />
 
-        <template v-if="userData" #footer>
+        <template v-if="isLoggedIn" #footer>
           <div class="mx-auto flex justify-center gap-2 lg:flex-col">
             <ULocaleSelect
               :model-value="locale"
               :locales="[de, en]"
               @update:model-value="setLocale($event as 'en' | 'de')"
             />
-            <LogoutButton @logout="clear" />
+            <UButton variant="subtle" icon="hugeicons:logout-square-02" @click="logout">
+              {{ $t('common.logout') }}
+            </UButton>
           </div>
         </template>
       </USidebar>
@@ -135,11 +117,7 @@ const open = ref(true)
         <div
           class="flex size-full flex-col overflow-hidden border-neutral-200 bg-white shadow-sm lg:rounded-lg lg:border"
         >
-          <UHeader
-            toggle-side="left"
-            :toggle="userData !== undefined"
-            :ui="{ container: 'mx-0 max-w-none pr-4!' }"
-          >
+          <UHeader toggle-side="left" :ui="{ container: 'mx-0 max-w-none pr-4!' }">
             <template #title>
               <h1
                 class="text-2xl font-black tracking-widest text-black uppercase max-lg:ml-2 sm:text-3xl"

@@ -6,17 +6,17 @@ const INITIAL_VIRTUAL_PRICE = 100
 export default defineEventHandler(async (event) => {
   const portfolioId = getRouterParam(event, 'portfolioId')
   if (!portfolioId) {
-    throw createError({ statusCode: 400, message: 'Missing portfolioId' })
+    throw createError({ statusCode: 400, statusMessage: 'Missing portfolioId' })
   }
 
   const accountId = getRouterParam(event, 'accountId')
   if (!accountId) {
-    throw createError({ statusCode: 400, message: 'Missing accountId' })
+    throw createError({ statusCode: 400, statusMessage: 'Missing accountId' })
   }
 
   const request = BVHistoryRequestSchema.safeParse(await readBody(event))
   if (!request.success) {
-    throw createError({ statusCode: 422, message: 'Invalid request body' })
+    throw createError({ statusCode: 422, statusMessage: 'Invalid request body' })
   }
 
   const { activities, quotes } = processRequest(request.data, accountId)
@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     schema: CreateActivitiesResponseSchema,
   })
   if (response.createdActivities.length !== activities.length) {
-    throw createError({ statusCode: 500, message: 'Unexpected number of created activities' })
+    throw createError({ statusCode: 500, statusMessage: 'Unexpected number of created activities' })
   }
 
   await requestAuthenticated({
@@ -71,13 +71,19 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
   const investedValue = initialValue + request.contributions
 
   if (finalBalance <= 0 || investedValue <= 0 || lastPrice <= 0) {
-    throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
+    throw createError({
+      statusCode: 422,
+      statusMessage: 'Calculated prices must be strictly positive',
+    })
   }
 
   // Use annual value ratio for end quote to avoid overly pessimistic end prices.
   const finalSharePrice = lastPrice * (finalBalance / investedValue)
   if (finalSharePrice <= 0) {
-    throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
+    throw createError({
+      statusCode: 422,
+      statusMessage: 'Calculated prices must be strictly positive',
+    })
   }
 
   const selectedExecutionDays = executionDays.filter(([executionDay]) => {
@@ -92,7 +98,10 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
     const monthEndStep = (index + 1) / executionDays.length
     const quotePrice = lastPrice + (finalSharePrice - lastPrice) * monthEndStep
     if (quotePrice <= 0) {
-      throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
+      throw createError({
+        statusCode: 422,
+        statusMessage: 'Calculated prices must be strictly positive',
+      })
     }
 
     const contribution =
@@ -156,7 +165,10 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
     !Number.isFinite(executionPriceMultiplier) ||
     executionPriceMultiplier <= 0
   ) {
-    throw createError({ statusCode: 422, message: 'Calculated shares must be strictly positive' })
+    throw createError({
+      statusCode: 422,
+      statusMessage: 'Calculated shares must be strictly positive',
+    })
   }
 
   const monthlyExecutions = preliminaryExecutions.map((execution) => {
@@ -165,7 +177,10 @@ function processRequest(request: BVHistoryRequest, accountId: string) {
         ? execution.quotePrice * executionPriceMultiplier
         : execution.quotePrice
     if (executionPrice <= 0) {
-      throw createError({ statusCode: 422, message: 'Calculated prices must be strictly positive' })
+      throw createError({
+        statusCode: 422,
+        statusMessage: 'Calculated prices must be strictly positive',
+      })
     }
 
     return {

@@ -20,34 +20,32 @@ const formattedDiff = computed(() => {
 </script>
 
 <template>
-  <UCard v-if="latestData" :ui="{ body: 'hidden' }">
+  <UCard v-if="latestData">
     <template #header>
       {{ monthFormat.format(new Date(latestData.month)) }}
     </template>
-    <template #footer>
-      <BVValueGrid
-        :values="[
-          {
-            color:
-              latestData.balance >= latestData.contributions
-                ? ('success' as const)
-                : ('error' as const),
-            label: $t('bv.history.balance'),
-            value: latestData.balance,
-          },
-          {
-            color: 'neutral' as const,
-            label: $t('bv.history.contributions'),
-            value: latestData.contributions,
-          },
-        ]"
-      >
-        <template v-if="formattedDiff">
-          <div class="tabular col-span-3 text-right text-sm font-semibold whitespace-pre">
-            {{ formattedDiff }}
-          </div>
-        </template>
-      </BVValueGrid>
-    </template>
+    <BVValueGrid
+      :values="[
+        {
+          color:
+            latestData.balance >= latestData.contributions
+              ? ('success' as const)
+              : ('error' as const),
+          label: $t('bv.history.balance'),
+          value: latestData.balance,
+        },
+        {
+          color: 'neutral' as const,
+          label: $t('bv.history.contributions'),
+          value: latestData.contributions,
+        },
+      ]"
+    >
+      <template v-if="formattedDiff">
+        <div class="col-span-3 text-right text-sm font-semibold whitespace-pre tabular-nums">
+          {{ formattedDiff }}
+        </div>
+      </template>
+    </BVValueGrid>
   </UCard>
 </template>
