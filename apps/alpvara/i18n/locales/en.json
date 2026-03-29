@@ -69,7 +69,7 @@
         "description": "Store the data of your first insurance year."
       },
       "contributions": "Contributions",
-      "account-value": "Balance",
+      "balance": "Balance",
       "view-on-parqet": "View on Parqet"
     },
     "projection": {

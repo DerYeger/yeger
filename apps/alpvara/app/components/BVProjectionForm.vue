@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const { enabled, years, annualContribution, annualReturn } = useBVProjection()
+
+const { projectionData } = useBVHistoryChart()
 </script>
 
 <template>
-  <UCard
-    :ui="{ header: enabled ? undefined : 'border-b-0!', body: enabled ? undefined : 'hidden' }"
-  >
+  <UCard :ui="{ header: enabled ? undefined : 'border-b-0', body: enabled ? undefined : 'hidden' }">
     <template #header>
       <div class="flex items-center justify-between gap-2">
         <span>
@@ -40,5 +40,31 @@ const { enabled, years, annualContribution, annualReturn } = useBVProjection()
         />
       </UFormField>
     </div>
+    <template v-if="enabled && projectionData.length" #footer>
+      <BVValueGrid
+        :values="[
+          {
+            color: 'success',
+            label: $t('bv.projection.optimistic'),
+            value: projectionData.at(-1)!.optimistic,
+          },
+          {
+            color: 'info',
+            label: $t('bv.projection.expected'),
+            value: projectionData.at(-1)!.expected,
+          },
+          {
+            color: 'error',
+            label: $t('bv.projection.pessimistic'),
+            value: projectionData.at(-1)!.pessimistic,
+          },
+          {
+            color: 'neutral',
+            label: $t('bv.history.contributions'),
+            value: projectionData.at(-1)!.contributions,
+          },
+        ]"
+      />
+    </template>
   </UCard>
 </template>

@@ -69,7 +69,7 @@
         "description": "Speicher die Daten deines ersten Versicherungsjahres."
       },
       "contributions": "Beiträge",
-      "account-value": "Kontostand",
+      "balance": "Kontostand",
       "view-on-parqet": "In Parqet anzeigen"
     },
     "projection": {

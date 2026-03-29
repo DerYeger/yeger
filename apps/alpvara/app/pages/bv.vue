@@ -62,6 +62,12 @@ const refreshTimestamp = computed(() => {
   }
   return timestamps.sort((a, b) => a.localeCompare(b)).at(-1)
 })
+
+const { chartOptions, setActivities } = useBVHistoryChart()
+
+watchEffect(() => {
+  setActivities(accountHistory.data.value?.entries ?? [])
+})
 </script>
 
 <template>
@@ -95,13 +101,14 @@ const refreshTimestamp = computed(() => {
       class="flex-1 grid-cols-[auto_1fr] flex-col gap-4 max-md:flex md:grid"
     >
       <div class="flex flex-col gap-4">
+        <BVValueCard />
+        <BVProjectionForm />
         <BVHistoryForm
           v-if="!selectedAccount.position.shares || accountHistory.data.value"
           :portfolio-id="selectedPortfolioId"
           :account="selectedAccount"
           :history="accountHistory.data.value?.entries ?? []"
         />
-        <BVProjectionForm />
       </div>
       <UCard
         class="grow"
@@ -118,10 +125,7 @@ const refreshTimestamp = computed(() => {
             {{ $t('bv.history.help') }}
           </InfoTooltip>
         </template>
-        <BVHistoryChart
-          v-if="accountHistory.data.value?.entries.length"
-          :activities="accountHistory.data.value.entries"
-        />
+        <BVHistoryChart v-if="accountHistory.data.value?.entries.length" />
         <UEmpty
           v-else
           class="grow"
