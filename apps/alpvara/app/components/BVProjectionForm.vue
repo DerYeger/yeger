@@ -34,7 +34,7 @@ const { projectionData } = useBVHistoryChart()
           :disabled="!enabled"
           :min="-1"
           :max="1"
-          :step="0.01"
+          :step="0.0001"
           class="w-full"
           :format-options="{ style: 'percent', minimumFractionDigits: 2 }"
         />
