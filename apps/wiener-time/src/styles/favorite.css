@@ -1,19 +1,31 @@
 .favorite-toggle {
   --animation-duration: 480ms;
+  --width: 1.75rem;
+  --height: 1.5rem;
   position: relative;
   display: inline-flex;
+  width: var(--width);
+  height: var(--height);
+  flex: 0 0 var(--width);
   align-items: center;
   justify-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 1;
 }
 
 .favorite-heart {
   position: relative;
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   color: rgb(239 68 68);
   isolation: isolate;
 }
 
 .favorite-heart svg {
+  display: block;
   position: relative;
   z-index: 2;
   transform-origin: center;

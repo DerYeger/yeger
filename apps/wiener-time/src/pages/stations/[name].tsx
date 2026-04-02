@@ -67,7 +67,7 @@ const DepartureListItem: FC<{ departure: Departure }> = ({ departure }) => {
     if (departure.departureTime.countdown === 0) {
       return <span>Now</span>
     }
-    if (departure.departureTime.countdown === undefined) {
+    if (typeof departure.departureTime.countdown !== 'number') {
       return <></>
     }
     return <span>{formatMinutes(departure.departureTime.countdown)}</span>
