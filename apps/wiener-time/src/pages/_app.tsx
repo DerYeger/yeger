@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/favorite.css'
 import '../styles/spinner.css'
 import { generateDefaultSeo } from 'next-seo/pages'
 import type { AppType } from 'next/dist/shared/lib/utils'

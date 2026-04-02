@@ -165,7 +165,7 @@ const StationPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <>
       <Head>{generateNextSeo({ title: station.name })}</Head>
       <main className="flex flex-1 flex-col">
-        <div className="m-4 flex items-center justify-between">
+        <div className="m-4 mx-auto flex items-center justify-between gap-4 md:justify-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl" data-testid="station-name">
             {station.name}
           </h1>

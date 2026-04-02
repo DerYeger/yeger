@@ -1,0 +1,115 @@
+.favorite-toggle {
+  --animation-duration: 480ms;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-heart {
+  position: relative;
+  display: inline-flex;
+  color: rgb(239 68 68);
+  isolation: isolate;
+}
+
+.favorite-heart svg {
+  position: relative;
+  z-index: 2;
+  transform-origin: center;
+  transition: transform 160ms ease;
+}
+
+.favorite-heart::before,
+.favorite-heart::after {
+  content: '';
+  position: absolute;
+  inset: -0.55rem;
+  border-radius: 9999px;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.favorite-heart.is-favorite.is-animating svg {
+  animation: heart-pop var(--animation-duration) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.favorite-heart.is-favorite.is-animating::before {
+  border: 2px solid rgb(251 113 133 / 65%);
+  animation: ring-burst var(--animation-duration) ease-out;
+}
+
+.favorite-heart.is-favorite.is-animating::after {
+  inset: -0.38rem;
+  background:
+    radial-gradient(circle, rgb(59 130 246) 18%, transparent 21%) 100% 0 / 42% 42%,
+    radial-gradient(circle, rgb(236 72 153) 18%, transparent 21%) 0 0 / 38% 38%,
+    radial-gradient(circle, rgb(250 204 21) 18%, transparent 21%) 100% 100% / 40% 40%,
+    radial-gradient(circle, rgb(34 197 94) 18%, transparent 21%) 0 100% / 36% 36%,
+    radial-gradient(circle, rgb(96 165 250) 16%, transparent 19%) 70% 18% / 28% 28%,
+    radial-gradient(circle, rgb(244 114 182) 16%, transparent 19%) 22% 74% / 30% 30%,
+    radial-gradient(circle, rgb(253 224 71) 16%, transparent 19%) 20% 30% / 26% 26%,
+    radial-gradient(circle, rgb(74 222 128) 16%, transparent 19%) 78% 82% / 26% 26%;
+  animation: spark-burst var(--animation-duration) ease-out;
+}
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(0.82);
+  }
+
+  62% {
+    transform: scale(1.28);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ring-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.25);
+  }
+
+  25% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+@keyframes spark-burst {
+  0% {
+    opacity: 0;
+    transform: scale(0.2) rotate(0deg);
+  }
+
+  30% {
+    opacity: 0.95;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.25) rotate(12deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .favorite-heart svg,
+  .favorite-heart.is-favorite.is-animating svg,
+  .favorite-heart.is-favorite.is-animating::before,
+  .favorite-heart.is-favorite.is-animating::after {
+    animation: none;
+    transition: none;
+  }
+}
