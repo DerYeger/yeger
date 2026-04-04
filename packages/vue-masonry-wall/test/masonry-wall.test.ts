@@ -5,12 +5,12 @@ import MasonryWall from '../src/masonry-wall.vue' with { vfm: 'true' }
 
 const mocks = vi.hoisted(() => ({
   ResizeObserver: {
-    disconnect: vi.fn(),
-    observe: vi.fn(),
-    unobserve: vi.fn(),
+    disconnect: vi.fn<ResizeObserver['disconnect']>(),
+    observe: vi.fn<ResizeObserver['observe']>(),
+    unobserve: vi.fn<ResizeObserver['unobserve']>(),
   },
   window: {
-    scrollTo: vi.fn(),
+    scrollTo: vi.fn<typeof window.scrollTo>(),
   },
 }))
 
@@ -32,7 +32,7 @@ describe('MasonryWall', () => {
 
   beforeEach(() => {
     vi.stubGlobal('ResizeObserver', MockResizeObserver)
-    window.scrollTo = mocks.window.scrollTo
+    vi.spyOn(window, 'scrollTo').mockImplementation(mocks.window.scrollTo)
   })
 
   test('creates SSR columns', async ({ expect }) => {

@@ -159,7 +159,7 @@ describe('async streams', () => {
     })
 
     test('can run side effects', async ({ expect }) => {
-      const sideEffect = vi.fn(() => Promise.resolve())
+      const sideEffect = vi.fn<() => Promise<void>>(() => Promise.resolve())
       const streamResult = await as.toArray(
         as.pipe(
           [1, 2, 3],
@@ -279,7 +279,7 @@ describe('async streams', () => {
   })
 
   test('can run a callback on each value', async ({ expect }) => {
-    const callback = vi.fn()
+    const callback = vi.fn<() => Promise<void>>()
     await as.forEach([1, 2, 3], callback)
     expect(callback).toHaveBeenCalledTimes(3)
     expect(callback).toHaveBeenNthCalledWith(1, 1, 0)

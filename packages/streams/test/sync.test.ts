@@ -140,7 +140,7 @@ describe('sync streams', () => {
     })
 
     test('can run side effects', ({ expect }) => {
-      const sideEffect = vi.fn()
+      const sideEffect = vi.fn<() => void>()
       const streamResult = s.toArray(
         s.pipe(
           [1, 2, 3],
@@ -257,7 +257,7 @@ describe('sync streams', () => {
   })
 
   test('can run a callback on each value', ({ expect }) => {
-    const callback = vi.fn()
+    const callback = vi.fn<() => void>()
     s.forEach([1, 2, 3], callback)
     expect(callback).toHaveBeenCalledTimes(3)
     expect(callback).toHaveBeenNthCalledWith(1, 1, 0)

@@ -13,17 +13,17 @@ function withPx(value: number) {
 }
 
 const mocks = vi.hoisted(() => ({
-  loadMarmoset: vi.fn(),
+  loadMarmoset: vi.fn<() => Promise<void>>(),
   ResizeObserver: {
-    disconnect: vi.fn(),
-    observe: vi.fn(),
-    unobserve: vi.fn(),
+    disconnect: vi.fn<ResizeObserver['disconnect']>(),
+    observe: vi.fn<ResizeObserver['observe']>(),
+    unobserve: vi.fn<ResizeObserver['unobserve']>(),
   },
   WebViewer: {
-    create: vi.fn(),
-    unload: vi.fn(),
-    resize: vi.fn(),
-    loadScene: vi.fn(),
+    create: vi.fn<(width: number, height: number, src: string) => void>(),
+    unload: vi.fn<() => void>(),
+    resize: vi.fn<(width: number, height: number) => void>(),
+    loadScene: vi.fn<() => void>(),
   },
 }))
 
@@ -70,7 +70,7 @@ describe('MarmosetViewer', () => {
   beforeEach(() => {
     vi.clearAllMocks()
     MockResizeObserver.callback = undefined
-    mocks.loadMarmoset.mockResolvedValue(
+    mocks.loadMarmoset.mockReturnValue(
       new Promise<void>((resolve) => {
         vi.stubGlobal('marmoset', {
           WebViewer: MockWebViewer,

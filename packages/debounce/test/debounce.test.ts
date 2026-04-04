@@ -8,7 +8,7 @@ function flushTimeouts(delay?: number) {
 
 describe('debounce', () => {
   test('invokes the callback', async ({ expect }) => {
-    const callback = vi.fn()
+    const callback = vi.fn<() => void>()
     debounce(callback)()
 
     await flushTimeouts()
@@ -19,7 +19,7 @@ describe('debounce', () => {
   test('cancels previous invocations', async ({ expect }) => {
     vi.useFakeTimers()
 
-    const callback = vi.fn()
+    const callback = vi.fn<() => void>()
     const debounced = debounce(callback, 100)
 
     debounced()

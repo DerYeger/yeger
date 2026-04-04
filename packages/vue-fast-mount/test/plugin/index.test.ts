@@ -10,8 +10,8 @@ import {
 } from '../../src/utils'
 
 const mocks = vi.hoisted(() => ({
-  transformCompiledComponent: vi.fn((_code: string): TransformResult | null => null),
-  transformImportAttributes: vi.fn((_code: string): TransformResult | null => null),
+  transformCompiledComponent: vi.fn<(code: string) => TransformResult | null>(() => null),
+  transformImportAttributes: vi.fn<(code: string) => TransformResult | null>(() => null),
 }))
 
 vi.mock('../../src/transformCompiledComponent', () => ({
