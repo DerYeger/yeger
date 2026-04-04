@@ -20,77 +20,77 @@ jobs:
         env:
           NUXT_CLIENT_ID: ${{ secrets.NUXT_CLIENT_ID }}
       - name: Upload @yeger/debounce coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/debounce/coverage/coverage-final.json
           flags: debounce
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/fol coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/fol/coverage/coverage-final.json
           flags: fol
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/html-diff coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/html-diff/coverage/coverage-final.json
           flags: html-diff
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/streams coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/streams/coverage/coverage-final.json
           flags: streams
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload @yeger/vue-masonry-wall coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/vue-masonry-wall/coverage/coverage-final.json
           flags: vue-masonry-wall
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload d3-graph-controller coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/d3-graph-controller/coverage/coverage-final.json
           flags: d3-graph-controller
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload key-hierarchy coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/key-hierarchy/coverage/coverage-final.json
           flags: key-hierarchy
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload resumon coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/resumon/coverage/coverage-final.json
           flags: resumon
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vecti coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/vecti/coverage/coverage-final.json
           flags: vecti
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-fast-mount coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/vue-fast-mount/coverage/coverage-final.json
           flags: vue-fast-mount
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Upload vue-marmoset-viewer coverage
-        uses: codecov/codecov-action@v5
+        uses: codecov/codecov-action@v6
         with:
           disable_search: true
           files: packages/vue-marmoset-viewer/coverage/coverage-final.json
