@@ -1,4 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/build",
-  "include": ["src"]
-}

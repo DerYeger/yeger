@@ -17,7 +17,6 @@
     "@yeger/tsconfig": "workspace:*",
     "typescript": "catalog:",
     "vite": "catalog:",
-    "vite-plugin-lib": "workspace:*",
     "vue": "catalog:",
     "vue-tsc": "catalog:"
   }

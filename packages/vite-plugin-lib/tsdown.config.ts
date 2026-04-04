@@ -1,7 +1,0 @@
-import { defineConfig } from 'tsdown'
-
-export default defineConfig({
-  dts: {
-    tsconfig: './tsconfig.build.json',
-  },
-})

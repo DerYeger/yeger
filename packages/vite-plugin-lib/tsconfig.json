@@ -1,7 +1,0 @@
-{
-  "extends": "@yeger/tsconfig/base",
-  "compilerOptions": {
-    "exactOptionalPropertyTypes": false
-  },
-  "include": ["src", "test", "./*.ts"]
-}

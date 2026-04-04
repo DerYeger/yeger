@@ -20,7 +20,6 @@ const config: RcFile = {
         'key-hierarchy',
         'resumon',
         'vecti',
-        'vite-plugin-lib',
         'vue-fast-mount',
         'vue-marmoset-viewer',
       ],
