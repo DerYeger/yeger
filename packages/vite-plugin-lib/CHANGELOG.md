@@ -1,5 +1,11 @@
 # vite-plugin-lib
 
+## 4.0.3
+
+### Patch Changes
+
+- d3a3756: extend vite peerDependency range to include vite 8
+
 ## 4.0.2
 
 ### Patch Changes
