@@ -30,7 +30,7 @@ catalog:
   '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
   '@nuxt/test-utils': 4.0.0
-  '@nuxt/ui': 4.6.0
+  '@nuxt/ui': 4.6.1
   '@nuxtjs/i18n': 10.2.4
   '@nuxtjs/robots': 6.0.6
   '@ohm-js/cli': 2.0.1
@@ -42,8 +42,8 @@ catalog:
   '@tailwindcss/postcss': 4.2.2
   '@tailwindcss/typography': 0.5.19
   '@tailwindcss/vite': 4.2.2
-  '@tanstack/react-query': 5.96.1
-  '@tanstack/vue-query': 5.96.1
+  '@tanstack/react-query': 5.96.2
+  '@tanstack/vue-query': 5.96.2
   '@testing-library/react': 16.3.2
   '@trpc/client': 11.16.0
   '@trpc/next': 11.16.0
@@ -58,7 +58,7 @@ catalog:
   '@types/d3-selection': 3.0.11
   '@types/d3-zoom': 3.0.8
   '@types/leaflet': 1.9.21
-  '@types/node': 25.5.0
+  '@types/node': 25.5.2
   '@types/react': 19.2.14
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
@@ -66,8 +66,8 @@ catalog:
   '@vitest/browser-playwright': 4.1.2
   '@vitest/coverage-v8': 4.1.2
   '@vitest/ui': 4.1.2
-  '@vue/compiler-dom': 3.5.31
-  '@vue/server-renderer': 3.5.31
+  '@vue/compiler-dom': 3.5.32
+  '@vue/server-renderer': 3.5.32
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1
@@ -125,7 +125,7 @@ catalog:
   vite: 8.0.3
   vitepress: 2.0.0-alpha.17
   vitest: 4.1.2
-  vue: 3.5.31
+  vue: 3.5.32
   vue-codemirror: 6.1.1
   vue-echarts: 8.0.1
   vue-toastification: 2.0.0-rc.5
