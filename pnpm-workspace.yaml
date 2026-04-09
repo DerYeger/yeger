@@ -137,7 +137,7 @@ catalogMode: strict
 
 catalogs:
   vite7:
-    vite: 7.3.1
+    vite: 7.3.2
 
 cleanupUnusedCatalogs: true
 
@@ -155,5 +155,5 @@ trustPolicyExclude:
   - chokidar@4.0.3
   - semver@6.3.1
 minimumReleaseAgeExclude:
-  # Renovate security update: vite@8.0.5
-  - vite@8.0.5
+  # Renovate security update: vite@8.0.5 || 7.3.2
+  - vite@8.0.5 || 7.3.2
