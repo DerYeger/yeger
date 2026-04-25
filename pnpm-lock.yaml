@@ -79,8 +79,8 @@ catalogs:
       specifier: 1.1.0
       version: 1.1.0
     '@pinia/colada-nuxt':
-      specifier: 0.3.2
-      version: 0.3.2
+      specifier: 1.0.0
+      version: 1.0.0
     '@pinia/colada-plugin-cache-persister':
       specifier: 0.1.4
       version: 0.1.4
@@ -459,7 +459,7 @@ importers:
         version: 1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
       '@pinia/colada-nuxt':
         specifier: 'catalog:'
-        version: 0.3.2(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))(magicast@0.5.2)
+        version: 1.0.0(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))(magicast@0.5.2)
       '@pinia/colada-plugin-cache-persister':
         specifier: 'catalog:'
         version: 0.1.4(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))
@@ -3891,10 +3891,10 @@ packages:
     resolution: {integrity: sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ==}
     engines: {node: '>= 10.0.0'}
 
-  '@pinia/colada-nuxt@0.3.2':
-    resolution: {integrity: sha512-ICPbRZ03g43CPKYwxkWf3yFbW8iz7L7kF5QoJw7lok7k7fkz9t0tFc3SrOgjl7B8PEiw3syD7rRtu3CeGmuJeg==}
+  '@pinia/colada-nuxt@1.0.0':
+    resolution: {integrity: sha512-yxu6ZbzL4rjnue3jB8lxpv94FLF6CCzCsQvBdNu+MdMsFBVCCWsYRFcCIj0GIac3Zw7qrESCXUdi2qLqEYujMw==}
     peerDependencies:
-      '@pinia/colada': '>=0.21.6'
+      '@pinia/colada': '>=1.2.0'
 
   '@pinia/colada-plugin-cache-persister@0.1.4':
     resolution: {integrity: sha512-/8OOd66FqVfYOD9p3Xd1Nq4bVmf88hnsuAFUVIsKQXHKYElYm2Biu5Pm0lnCi+va8Mm2rVPcHtRH06kkTH283w==}
@@ -11941,7 +11941,7 @@ snapshots:
       '@parcel/watcher-win32-ia32': 2.5.6
       '@parcel/watcher-win32-x64': 2.5.6
 
-  '@pinia/colada-nuxt@0.3.2(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))(magicast@0.5.2)':
+  '@pinia/colada-nuxt@1.0.0(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))(magicast@0.5.2)':
     dependencies:
       '@nuxt/kit': 4.4.2(magicast@0.5.2)
       '@pinia/colada': 1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
