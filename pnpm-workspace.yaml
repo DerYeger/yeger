@@ -36,7 +36,7 @@ catalog:
   '@ohm-js/cli': 2.0.1
   '@pinia/colada': 1.1.0
   '@pinia/colada-nuxt': 0.3.2
-  '@pinia/colada-plugin-cache-persister': 0.1.4
+  '@pinia/colada-plugin-cache-persister': 1.0.0
   '@pinia/nuxt': 0.11.3
   '@playwright/test': 1.59.1
   '@tailwindcss/postcss': 4.2.2

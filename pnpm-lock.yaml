@@ -82,8 +82,8 @@ catalogs:
       specifier: 0.3.2
       version: 0.3.2
     '@pinia/colada-plugin-cache-persister':
-      specifier: 0.1.4
-      version: 0.1.4
+      specifier: 1.0.0
+      version: 1.0.0
     '@pinia/nuxt':
       specifier: 0.11.3
       version: 0.11.3
@@ -462,7 +462,7 @@ importers:
         version: 0.3.2(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))(magicast@0.5.2)
       '@pinia/colada-plugin-cache-persister':
         specifier: 'catalog:'
-        version: 0.1.4(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))
+        version: 1.0.0(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))
       '@pinia/nuxt':
         specifier: 'catalog:'
         version: 0.11.3(magicast@0.5.2)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))
@@ -3896,10 +3896,10 @@ packages:
     peerDependencies:
       '@pinia/colada': '>=0.21.6'
 
-  '@pinia/colada-plugin-cache-persister@0.1.4':
-    resolution: {integrity: sha512-/8OOd66FqVfYOD9p3Xd1Nq4bVmf88hnsuAFUVIsKQXHKYElYm2Biu5Pm0lnCi+va8Mm2rVPcHtRH06kkTH283w==}
+  '@pinia/colada-plugin-cache-persister@1.0.0':
+    resolution: {integrity: sha512-39USRxHEJIFgL203wAn2vOjtoQf+IlDeQN2o333tKP0hMeIM5Bce0Txed63vIt/psJy4PWDAlWxXuMZq5lKeqw==}
     peerDependencies:
-      '@pinia/colada': '>=1.0.0'
+      '@pinia/colada': '>=1.2.0'
 
   '@pinia/colada@1.1.0':
     resolution: {integrity: sha512-GoTOlaDuQuF+9Lj5MbY2oOOZeJSP/I0U9/+Ugo5nfCymlWSyjFFjE7QcHageNL7tQr+tfepb13ks8+qO6uSV/A==}
@@ -11948,7 +11948,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@pinia/colada-plugin-cache-persister@0.1.4(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))':
+  '@pinia/colada-plugin-cache-persister@1.0.0(@pinia/colada@1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2)))':
     dependencies:
       '@pinia/colada': 1.1.0(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
 
