@@ -11,12 +11,12 @@ allowBuilds:
   vue-demi: false
 
 catalog:
-  '@antfu/ni': 30.0.0
+  '@antfu/ni': 30.1.0
   '@babel/generator': 7.29.1
   '@babel/traverse': 7.29.0
   '@babel/types': 7.29.0
-  '@changesets/cli': 2.30.0
-  '@changesets/config': 3.1.3
+  '@changesets/cli': 2.31.0
+  '@changesets/config': 3.1.4
   '@codemirror/language': 6.12.3
   '@codemirror/legacy-modes': 6.5.2
   '@commitlint/cli': 20.5.0
@@ -34,16 +34,16 @@ catalog:
   '@nuxtjs/i18n': 10.2.4
   '@nuxtjs/robots': 6.0.7
   '@ohm-js/cli': 2.0.1
-  '@pinia/colada': 1.1.0
+  '@pinia/colada': 1.2.0
   '@pinia/colada-nuxt': 0.3.2
   '@pinia/colada-plugin-cache-persister': 0.1.4
   '@pinia/nuxt': 0.11.3
   '@playwright/test': 1.59.1
-  '@tailwindcss/postcss': 4.2.2
+  '@tailwindcss/postcss': 4.2.4
   '@tailwindcss/typography': 0.5.19
-  '@tailwindcss/vite': 4.2.2
-  '@tanstack/react-query': 5.99.0
-  '@tanstack/vue-query': 5.99.0
+  '@tailwindcss/vite': 4.2.4
+  '@tanstack/react-query': 5.99.2
+  '@tanstack/vue-query': 5.99.2
   '@testing-library/react': 16.3.2
   '@trpc/client': 11.16.0
   '@trpc/next': 11.16.0
@@ -63,11 +63,11 @@ catalog:
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
   '@vitejs/plugin-vue': 6.0.6
-  '@vitest/browser-playwright': 4.1.4
-  '@vitest/coverage-v8': 4.1.4
-  '@vitest/ui': 4.1.4
-  '@vue/compiler-dom': 3.5.32
-  '@vue/server-renderer': 3.5.32
+  '@vitest/browser-playwright': 4.1.5
+  '@vitest/coverage-v8': 4.1.5
+  '@vitest/ui': 4.1.5
+  '@vue/compiler-dom': 3.5.33
+  '@vue/server-renderer': 3.5.33
   '@vue/test-utils': 2.4.6
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1
@@ -97,9 +97,9 @@ catalog:
   ohm-js: 17.5.0
   open: 11.0.0
   openid-client: 6.8.3
-  oxfmt: 0.45.0
-  oxlint: 1.60.0
-  oxlint-tsgolint: 0.21.0
+  oxfmt: 0.46.0
+  oxlint: 1.61.0
+  oxlint-tsgolint: 0.21.1
   picocolors: 1.1.1
   postcss: 8.5.10
   publint: 0.3.18
@@ -114,22 +114,22 @@ catalog:
   superjson: 2.2.6
   syncpack: 14.3.0
   tailwind-merge: 3.5.0
-  tailwindcss: 4.2.2
+  tailwindcss: 4.2.4
   taze: 19.11.0
-  tsdown: 0.21.8
+  tsdown: 0.21.10
   tsx: 4.21.0
   tw-animate-css: 1.4.0
-  typescript: 6.0.2
+  typescript: 6.0.3
   use-debounce: 10.1.1
   use-local-storage: 3.0.0
-  vite: 8.0.8
+  vite: 8.0.9
   vitepress: 2.0.0-alpha.17
-  vitest: 4.1.4
-  vue: 3.5.32
+  vitest: 4.1.5
+  vue: 3.5.33
   vue-codemirror: 6.1.1
   vue-echarts: 8.0.1
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.2.6
+  vue-tsc: 3.2.7
   yaml: 2.8.3
   zod: 4.3.6
 
