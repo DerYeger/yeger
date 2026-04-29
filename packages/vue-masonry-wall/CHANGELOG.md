@@ -1,5 +1,11 @@
 # @yeger/vue-masonry-wall
 
+## 6.1.1
+
+### Patch Changes
+
+- 2374b65: bump peerDependency vue version
+
 ## 6.1.0
 
 ### Minor Changes
