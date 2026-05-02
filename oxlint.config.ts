@@ -27,6 +27,7 @@ export default defineConfig({
     'react-in-jsx-scope': 'off',
     'require-await': 'error',
     'valid-expect': 'off',
+    'vitest/valid-expect': 'off',
   },
   options: {
     typeAware: true,

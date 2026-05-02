@@ -19,7 +19,7 @@ catalog:
   '@changesets/config': 3.1.4
   '@codemirror/language': 6.12.3
   '@codemirror/legacy-modes': 6.5.2
-  '@commitlint/cli': 20.5.0
+  '@commitlint/cli': 20.5.2
   '@commitlint/config-conventional': 20.5.0
   '@commitlint/types': 20.5.0
   '@fontsource/readex-pro': 5.2.11
@@ -29,12 +29,12 @@ catalog:
   '@manypkg/get-packages': 3.1.0
   '@nuxt/fonts': 0.14.0
   '@nuxt/icon': 2.2.1
-  '@nuxt/test-utils': 4.0.2
-  '@nuxt/ui': 4.6.1
-  '@nuxtjs/i18n': 10.2.4
-  '@nuxtjs/robots': 6.0.7
+  '@nuxt/test-utils': 4.0.3
+  '@nuxt/ui': 4.7.1
+  '@nuxtjs/i18n': 10.3.0
+  '@nuxtjs/robots': 6.0.8
   '@ohm-js/cli': 2.0.1
-  '@pinia/colada': 1.2.0
+  '@pinia/colada': 1.2.1
   '@pinia/colada-nuxt': 1.0.0
   '@pinia/colada-plugin-cache-persister': 1.0.0
   '@pinia/nuxt': 0.11.3
@@ -42,13 +42,13 @@ catalog:
   '@tailwindcss/postcss': 4.2.4
   '@tailwindcss/typography': 0.5.19
   '@tailwindcss/vite': 4.2.4
-  '@tanstack/react-query': 5.99.2
-  '@tanstack/vue-query': 5.99.2
+  '@tanstack/react-query': 5.100.6
+  '@tanstack/vue-query': 5.100.6
   '@testing-library/react': 16.3.2
-  '@trpc/client': 11.16.0
-  '@trpc/next': 11.16.0
-  '@trpc/react-query': 11.16.0
-  '@trpc/server': 11.16.0
+  '@trpc/client': 11.17.0
+  '@trpc/next': 11.17.0
+  '@trpc/react-query': 11.17.0
+  '@trpc/server': 11.17.0
   '@types/babel__generator': 7.27.0
   '@types/babel__traverse': 7.28.0
   '@types/d3-drag': 3.0.7
@@ -68,7 +68,7 @@ catalog:
   '@vitest/ui': 4.1.5
   '@vue/compiler-dom': 3.5.33
   '@vue/server-renderer': 3.5.33
-  '@vue/test-utils': 2.4.6
+  '@vue/test-utils': 2.4.9
   '@vueuse/core': 14.2.1
   '@vueuse/nuxt': 14.2.1
   cac: 7.0.0
@@ -89,19 +89,19 @@ catalog:
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
   lint-staged: 16.4.0
-  lucide-react: 1.8.0
+  lucide-react: 1.14.0
   next: 16.2.4
   next-seo: 7.2.0
   nuqs: 2.8.9
-  nuxt: 4.4.2
+  nuxt: 4.4.4
   ohm-js: 17.5.0
   open: 11.0.0
-  openid-client: 6.8.3
-  oxfmt: 0.46.0
-  oxlint: 1.61.0
-  oxlint-tsgolint: 0.21.1
+  openid-client: 6.8.4
+  oxfmt: 0.47.0
+  oxlint: 1.62.0
+  oxlint-tsgolint: 0.22.1
   picocolors: 1.1.1
-  postcss: 8.5.10
+  postcss: 8.5.12
   publint: 0.3.18
   react: 19.2.5
   react-dom: 19.2.5
@@ -112,7 +112,7 @@ catalog:
   serve: 14.2.6
   splitpanes: 4.0.4
   superjson: 2.2.6
-  syncpack: 14.3.0
+  syncpack: 14.3.1
   tailwind-merge: 3.5.0
   tailwindcss: 4.2.4
   taze: 19.11.0
@@ -131,7 +131,7 @@ catalog:
   vue-toastification: 2.0.0-rc.5
   vue-tsc: 3.2.7
   yaml: 2.8.3
-  zod: 4.3.6
+  zod: 4.4.1
 
 catalogMode: strict
 
