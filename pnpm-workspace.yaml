@@ -19,8 +19,8 @@ catalog:
   '@changesets/config': 3.1.4
   '@codemirror/language': 6.12.3
   '@codemirror/legacy-modes': 6.5.2
-  '@commitlint/cli': 20.5.2
-  '@commitlint/config-conventional': 20.5.0
+  '@commitlint/cli': 20.5.3
+  '@commitlint/config-conventional': 20.5.3
   '@commitlint/types': 20.5.0
   '@fontsource/readex-pro': 5.2.11
   '@iconify-json/hugeicons': 1.2.26
@@ -42,8 +42,8 @@ catalog:
   '@tailwindcss/postcss': 4.2.4
   '@tailwindcss/typography': 0.5.19
   '@tailwindcss/vite': 4.2.4
-  '@tanstack/react-query': 5.100.6
-  '@tanstack/vue-query': 5.100.6
+  '@tanstack/react-query': 5.100.7
+  '@tanstack/vue-query': 5.100.7
   '@testing-library/react': 16.3.2
   '@trpc/client': 11.17.0
   '@trpc/next': 11.17.0
@@ -68,9 +68,9 @@ catalog:
   '@vitest/ui': 4.1.5
   '@vue/compiler-dom': 3.5.33
   '@vue/server-renderer': 3.5.33
-  '@vue/test-utils': 2.4.9
-  '@vueuse/core': 14.2.1
-  '@vueuse/nuxt': 14.2.1
+  '@vue/test-utils': 2.4.10
+  '@vueuse/core': 14.3.0
+  '@vueuse/nuxt': 14.3.0
   cac: 7.0.0
   clsx: 2.1.1
   codemirror: 6.0.2
@@ -101,7 +101,7 @@ catalog:
   oxlint: 1.62.0
   oxlint-tsgolint: 0.22.1
   picocolors: 1.1.1
-  postcss: 8.5.12
+  postcss: 8.5.13
   publint: 0.3.18
   react: 19.2.5
   react-dom: 19.2.5
