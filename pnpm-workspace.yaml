@@ -23,12 +23,12 @@ catalog:
   '@commitlint/config-conventional': 20.5.3
   '@commitlint/types': 20.5.0
   '@fontsource/readex-pro': 5.2.11
-  '@iconify-json/hugeicons': 1.2.26
+  '@iconify-json/hugeicons': 1.2.27
   '@iconify/react': 6.0.2
   '@internationalized/date': 3.12.1
   '@manypkg/get-packages': 3.1.0
   '@nuxt/fonts': 0.14.0
-  '@nuxt/icon': 2.2.1
+  '@nuxt/icon': 2.2.2
   '@nuxt/test-utils': 4.0.3
   '@nuxt/ui': 4.7.1
   '@nuxtjs/i18n': 10.3.0
@@ -42,8 +42,8 @@ catalog:
   '@tailwindcss/postcss': 4.2.4
   '@tailwindcss/typography': 0.5.19
   '@tailwindcss/vite': 4.2.4
-  '@tanstack/react-query': 5.100.7
-  '@tanstack/vue-query': 5.100.7
+  '@tanstack/react-query': 5.100.9
+  '@tanstack/vue-query': 5.100.9
   '@testing-library/react': 16.3.2
   '@trpc/client': 11.17.0
   '@trpc/next': 11.17.0
@@ -66,8 +66,8 @@ catalog:
   '@vitest/browser-playwright': 4.1.5
   '@vitest/coverage-v8': 4.1.5
   '@vitest/ui': 4.1.5
-  '@vue/compiler-dom': 3.5.33
-  '@vue/server-renderer': 3.5.33
+  '@vue/compiler-dom': 3.5.34
+  '@vue/server-renderer': 3.5.34
   '@vue/test-utils': 2.4.10
   '@vueuse/core': 14.3.0
   '@vueuse/nuxt': 14.3.0
@@ -90,21 +90,21 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 16.4.0
   lucide-react: 1.14.0
-  next: 16.2.4
+  next: 16.2.5
   next-seo: 7.2.0
   nuqs: 2.8.9
   nuxt: 4.4.4
   ohm-js: 17.5.0
   open: 11.0.0
   openid-client: 6.8.4
-  oxfmt: 0.47.0
-  oxlint: 1.62.0
+  oxfmt: 0.48.0
+  oxlint: 1.63.0
   oxlint-tsgolint: 0.22.1
   picocolors: 1.1.1
-  postcss: 8.5.13
-  publint: 0.3.18
-  react: 19.2.5
-  react-dom: 19.2.5
+  postcss: 8.5.14
+  publint: 0.3.19
+  react: 19.2.6
+  react-dom: 19.2.6
   react-leaflet: 5.0.0
   react-leaflet-markercluster: 5.0.0-rc.0
   react-viewport-list: 7.1.2
@@ -125,13 +125,13 @@ catalog:
   vite: 8.0.10
   vitepress: 2.0.0-alpha.17
   vitest: 4.1.5
-  vue: 3.5.33
+  vue: 3.5.34
   vue-codemirror: 6.1.1
   vue-echarts: 8.0.1
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.2.7
-  yaml: 2.8.3
-  zod: 4.4.1
+  vue-tsc: 3.2.8
+  yaml: 2.8.4
+  zod: 4.4.3
 
 catalogMode: strict
 
