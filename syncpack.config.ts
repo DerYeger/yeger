@@ -14,16 +14,13 @@ const config: RcFile = {
     },
     {
       label: 'Local',
-      dependencies: [
-        '@yeger/*',
-        'd3-graph-controller',
-        'key-hierarchy',
-        'resumon',
-        'vecti',
-        'vue-fast-mount',
-        'vue-marmoset-viewer',
-      ],
+      dependencies: ['$LOCAL'],
       pinVersion: 'workspace:*',
+    },
+    {
+      label: 'Overrides',
+      dependencyTypes: ['pnpmOverrides'],
+      isIgnored: true,
     },
     {
       label: 'Turbo',
@@ -37,7 +34,7 @@ const config: RcFile = {
     },
     {
       label: 'External',
-      pinVersion: 'catalog:',
+      policy: 'catalog',
     },
   ],
 }
