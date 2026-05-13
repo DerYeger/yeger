@@ -90,7 +90,7 @@ catalog:
   leaflet.markercluster: 1.5.3
   lint-staged: 17.0.2
   lucide-react: 1.14.0
-  next: 16.2.5
+  next: 16.2.6
   next-seo: 7.2.0
   nuqs: 2.8.9
   nuxt: 4.4.4
@@ -149,3 +149,6 @@ overrides:
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
+minimumReleaseAgeExclude:
+  # Renovate security update: next@16.2.6
+  - next@16.2.6
