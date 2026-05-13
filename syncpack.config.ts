@@ -23,10 +23,6 @@ const config: RcFile = {
       isIgnored: true,
     },
     {
-      label: 'Turbo',
-      dependencies: ['turbo'],
-    },
-    {
       label: 'External (Vite 7)',
       packages: ['alpvara', 'formi'],
       dependencies: ['vite'],
