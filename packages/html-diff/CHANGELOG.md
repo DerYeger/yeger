@@ -1,5 +1,11 @@
 # @yeger/html-diff
 
+## 1.0.2
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 1.0.1
 
 ### Patch Changes

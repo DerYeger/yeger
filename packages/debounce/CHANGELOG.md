@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 2.0.19
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 2.0.18
 
 ### Patch Changes

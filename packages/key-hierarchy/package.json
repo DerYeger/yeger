@@ -1,6 +1,6 @@
 {
   "name": "key-hierarchy",
-  "version": "3.0.10",
+  "version": "3.0.11",
   "description": "A tiny TypeScript library for managing key hierarchies. The perfect companion for TanStack Query.",
   "keywords": [
     "hierarchy",

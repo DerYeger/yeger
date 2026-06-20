@@ -1,5 +1,11 @@
 # @yeger/vitest-utils
 
+## 1.2.4
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 1.2.3
 
 ### Patch Changes

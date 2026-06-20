@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.7
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 3.1.6
 
 ### Patch Changes

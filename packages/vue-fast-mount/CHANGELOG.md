@@ -1,5 +1,13 @@
 # vue-fast-mount
 
+## 0.4.3
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+- Updated dependencies [444c474]
+  - @yeger/streams@3.5.2
+
 ## 0.4.2
 
 ### Patch Changes

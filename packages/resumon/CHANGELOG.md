@@ -1,5 +1,11 @@
 # resumon
 
+## 2.1.6
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 2.1.5
 
 ### Patch Changes

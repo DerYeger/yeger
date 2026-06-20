@@ -1,5 +1,13 @@
 # alpvara
 
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [444c474]
+  - key-hierarchy@3.0.11
+  - @yeger/streams@3.5.2
+
 ## 0.0.1
 
 ### Patch Changes
