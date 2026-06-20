@@ -100,11 +100,12 @@ jobs:
         uses: changesets/action@v1
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
-          version: pnpm run version
-          publish: pnpm exec changeset publish
+          version: pnpm run changeset:version
+          publish: pnpm run changeset:publish
           commit: 'chore: release'
           title: 'chore: release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          PNPM_CONFIG_PROVENANCE: true

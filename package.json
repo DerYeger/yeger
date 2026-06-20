@@ -10,6 +10,8 @@
   "scripts": {
     "build": "nr turbo run build",
     "changeset": "changeset",
+    "changeset:publish": "changeset publish",
+    "changeset:version": "changeset version && pnpm install --no-frozen-lockfile",
     "ci": "nr build && COVERAGE=true nr turbo run publint typecheck e2e generate quality syncpack:lint test",
     "codegen": "nr turbo run codegen",
     "dev": "nr turbo run dev --parallel",
@@ -31,7 +33,6 @@
     "turbo": "CI=true FORCE_COLOR=1 turbo",
     "typecheck": "nr turbo run typecheck",
     "update": "taze",
-    "version": "changeset version && pnpm install --no-frozen-lockfile",
     "watch": "nr turbo watch"
   },
   "devDependencies": {
