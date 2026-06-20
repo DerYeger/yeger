@@ -1,5 +1,11 @@
 # @yeger/tsconfig
 
+## 2.1.3
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 2.1.2
 
 ### Patch Changes

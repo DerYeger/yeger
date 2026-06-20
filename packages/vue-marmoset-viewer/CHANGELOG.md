@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 5.0.1
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - @yeger/debounce@2.0.18
+
 ## 5.0.0
 
 ### Major Changes

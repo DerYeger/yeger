@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.10
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 2.8.9
 
 ## 2.8.8

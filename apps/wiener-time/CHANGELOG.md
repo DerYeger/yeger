@@ -1,5 +1,11 @@
 # wiener-time
 
+## 1.1.4
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 1.1.3
 
 ### Patch Changes

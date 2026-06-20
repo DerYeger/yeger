@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.5
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - resumon@2.1.5
+
 ## 1.1.4
 
 ### Patch Changes

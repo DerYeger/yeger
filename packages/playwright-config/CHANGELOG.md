@@ -1,5 +1,11 @@
 # @yeger/playwright-config
 
+## 0.0.4
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 0.0.3
 
 ### Patch Changes

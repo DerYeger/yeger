@@ -1,5 +1,15 @@
 # Formi
 
+## 0.2.19
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - d3-graph-controller@3.1.10
+  - @yeger/fol@1.1.5
+  - resumon@2.1.5
+
 ## 0.2.18
 
 ### Patch Changes
