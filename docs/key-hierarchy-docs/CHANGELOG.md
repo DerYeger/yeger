@@ -1,5 +1,12 @@
 # key-hierarchy-docs
 
+## 3.0.11
+
+### Patch Changes
+
+- Updated dependencies [444c474]
+  - key-hierarchy@3.0.11
+
 ## 3.0.10
 
 ### Patch Changes

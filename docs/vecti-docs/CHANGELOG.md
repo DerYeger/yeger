@@ -1,5 +1,12 @@
 # vecti-docs
 
+## 3.1.7
+
+### Patch Changes
+
+- Updated dependencies [444c474]
+  - vecti@3.1.7
+
 ## 3.1.6
 
 ### Patch Changes

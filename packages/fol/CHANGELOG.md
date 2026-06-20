@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.6
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+- Updated dependencies [444c474]
+  - resumon@2.1.6
+
 ## 1.1.5
 
 ### Patch Changes

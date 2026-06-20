@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.5.2
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 3.5.1
 
 ### Patch Changes

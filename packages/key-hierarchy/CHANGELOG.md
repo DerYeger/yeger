@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.11
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 3.0.10
 
 ### Patch Changes

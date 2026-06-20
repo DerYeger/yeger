@@ -1,5 +1,14 @@
 # d3-graph-controller
 
+## 3.1.11
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+- Updated dependencies [444c474]
+  - @yeger/debounce@2.0.19
+  - vecti@3.1.7
+
 ## 3.1.10
 
 ### Patch Changes

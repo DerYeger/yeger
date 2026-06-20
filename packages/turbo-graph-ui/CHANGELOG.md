@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.11
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 2.8.10
 
 ### Patch Changes

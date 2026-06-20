@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 5.0.2
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+- Updated dependencies [444c474]
+  - @yeger/debounce@2.0.19
+
 ## 5.0.1
 
 ### Patch Changes

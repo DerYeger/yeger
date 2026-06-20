@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.18
+
+### Patch Changes
+
+- 444c474: re-publish with provenance enabled (again)
+
 ## 1.0.17
 
 ### Patch Changes
