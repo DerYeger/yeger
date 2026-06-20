@@ -1,5 +1,12 @@
 # @yeger/turbo-graph
 
+## 2.8.9
+
+### Patch Changes
+
+- a6c41db: only listen on localhost
+  - @yeger/turbo-graph-ui@2.8.9
+
 ## 2.8.8
 
 ### Patch Changes
