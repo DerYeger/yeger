@@ -32,7 +32,7 @@ function run() {
   cli.parse()
 
   function startServer(tasks: string[], options: Options) {
-    const app = next({ dev: false, dir: source, port: options.port })
+    const app = next({ dev: false, dir: source, hostname, port: options.port })
     const handle = app.getRequestHandler()
 
     void app.prepare().then(() => {
@@ -41,7 +41,7 @@ function run() {
           console.error(err)
           process.exit(1)
         })
-        .listen(options.port, () => {
+        .listen(options.port, hostname, () => {
           const url = `http://${hostname}:${options.port}`
           console.log(`${c.green('turbo-graph:')} Listening on ${c.cyan(url)}`)
           if (options.open) {
