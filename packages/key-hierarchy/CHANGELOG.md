@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.12
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 3.0.11
 
 ### Patch Changes

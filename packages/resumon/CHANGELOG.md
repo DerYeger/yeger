@@ -1,5 +1,11 @@
 # resumon
 
+## 2.1.7
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 2.1.6
 
 ### Patch Changes

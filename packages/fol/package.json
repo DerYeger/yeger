@@ -1,6 +1,6 @@
 {
   "name": "@yeger/fol",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "FOL grammar and parser.",
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/fol",
   "bugs": {

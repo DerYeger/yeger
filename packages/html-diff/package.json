@@ -1,6 +1,6 @@
 {
   "name": "@yeger/html-diff",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Dependency-free HTML diffing library written in TypeScript.",
   "homepage": "https://github.com/DerYeger/yeger/tree/main/packages/html-diff",
   "bugs": {

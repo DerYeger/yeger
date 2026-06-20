@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 6.1.4
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+- Updated dependencies [d4fd11c]
+  - @yeger/debounce@2.0.20
+
 ## 6.1.3
 
 ### Patch Changes

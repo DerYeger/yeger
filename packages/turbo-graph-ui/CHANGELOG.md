@@ -1,5 +1,11 @@
 # @yeger/turbo-graph-ui
 
+## 2.8.12
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 2.8.11
 
 ### Patch Changes

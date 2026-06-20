@@ -1,5 +1,11 @@
 # @yeger/html-diff
 
+## 1.0.3
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 1.0.2
 
 ### Patch Changes
