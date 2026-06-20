@@ -1,5 +1,13 @@
 # d3-graph-controller-docs
 
+## 3.1.10
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - d3-graph-controller@3.1.10
+
 ## 3.1.9
 
 ### Patch Changes

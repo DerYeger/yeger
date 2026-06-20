@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.6
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 3.1.5
 
 ### Patch Changes

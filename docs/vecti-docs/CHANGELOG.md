@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 3.1.6
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - vecti@3.1.6
+
 ## 2.0.19
 
 ### Patch Changes

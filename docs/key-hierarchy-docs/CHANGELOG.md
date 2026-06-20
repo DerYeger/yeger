@@ -1,5 +1,13 @@
 # key-hierarchy-docs
 
+## 3.0.10
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - key-hierarchy@3.0.10
+
 ## 3.0.9
 
 ### Patch Changes

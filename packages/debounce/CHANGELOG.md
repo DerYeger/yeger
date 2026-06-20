@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 2.0.18
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 2.0.17
 
 ### Patch Changes

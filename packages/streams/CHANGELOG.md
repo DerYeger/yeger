@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.5.1
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 3.5.0
 
 ### Minor Changes

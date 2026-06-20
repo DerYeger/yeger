@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall-docs
 
+## 6.1.2
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+- Updated dependencies [db3a949]
+  - @yeger/vue-masonry-wall@6.1.2
+
 ## 6.1.1
 
 ### Patch Changes

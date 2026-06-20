@@ -1,5 +1,11 @@
 # @yeger/vitest-utils
 
+## 1.2.3
+
+### Patch Changes
+
+- db3a949: re-publish with provenance enabled
+
 ## 1.2.2
 
 ### Patch Changes
