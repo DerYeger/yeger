@@ -9,6 +9,12 @@ const config: RcFile = {
       isIgnored: true,
     },
     {
+      label: 'Turborepo',
+      packages: ['yeger-monorepo'],
+      dependencies: ['turbo'],
+      isIgnored: true,
+    },
+    {
       label: 'Ignored Nuxt .output',
       packages: ['*-prod'],
       isIgnored: true,

@@ -327,9 +327,6 @@ catalogs:
     tsx:
       specifier: 4.22.4
       version: 4.22.4
-    turbo:
-      specifier: 2.9.18
-      version: 2.9.18
     tw-animate-css:
       specifier: 1.4.0
       version: 1.4.0
@@ -434,7 +431,7 @@ importers:
         specifier: 'catalog:'
         version: 19.14.1
       turbo:
-        specifier: 'catalog:'
+        specifier: 2.9.18
         version: 2.9.18
       vitest:
         specifier: 'catalog:'
