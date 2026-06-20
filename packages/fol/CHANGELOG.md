@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.7
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+- Updated dependencies [d4fd11c]
+  - resumon@2.1.7
+
 ## 1.1.6
 
 ### Patch Changes

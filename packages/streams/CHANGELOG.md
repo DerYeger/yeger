@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.5.3
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 3.5.2
 
 ### Patch Changes

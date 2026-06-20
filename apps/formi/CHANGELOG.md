@@ -1,5 +1,14 @@
 # Formi
 
+## 0.2.21
+
+### Patch Changes
+
+- Updated dependencies [d4fd11c]
+  - d3-graph-controller@3.1.12
+  - resumon@2.1.7
+  - @yeger/fol@1.1.7
+
 ## 0.2.20
 
 ### Patch Changes

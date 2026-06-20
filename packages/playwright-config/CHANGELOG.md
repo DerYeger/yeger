@@ -1,5 +1,11 @@
 # @yeger/playwright-config
 
+## 0.0.5
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 0.0.4
 
 ### Patch Changes

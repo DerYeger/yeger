@@ -1,5 +1,11 @@
 # @yeger/vitest-utils
 
+## 1.2.5
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 1.2.4
 
 ### Patch Changes

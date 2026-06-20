@@ -1,5 +1,11 @@
 # vecti
 
+## 3.1.8
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+
 ## 3.1.7
 
 ### Patch Changes

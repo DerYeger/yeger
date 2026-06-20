@@ -1,5 +1,13 @@
 # vue-fast-mount
 
+## 0.4.4
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+- Updated dependencies [d4fd11c]
+  - @yeger/streams@3.5.3
+
 ## 0.4.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 5.0.3
+
+### Patch Changes
+
+- d4fd11c: try provenance publishing again
+- Updated dependencies [d4fd11c]
+  - @yeger/debounce@2.0.20
+
 ## 5.0.2
 
 ### Patch Changes
