@@ -16,8 +16,8 @@ catalogs:
       specifier: 7.29.7
       version: 7.29.7
     '@babel/types':
-      specifier: 7.29.7
-      version: 7.29.7
+      specifier: 8.0.0
+      version: 8.0.0
     '@changesets/cli':
       specifier: 2.31.0
       version: 2.31.0
@@ -1349,7 +1349,7 @@ importers:
         version: 7.29.7
       '@babel/types':
         specifier: 'catalog:'
-        version: 7.29.7
+        version: 8.0.0
       '@yeger/streams':
         specifier: workspace:*
         version: link:../streams
