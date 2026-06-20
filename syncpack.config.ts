@@ -1,10 +1,11 @@
 import type { RcFile } from 'syncpack'
 
 const config: RcFile = {
+  strict: true,
   versionGroups: [
     {
       label: 'Ignored',
-      dependencyTypes: ['peer'],
+      dependencyTypes: ['local', 'peer'],
       isIgnored: true,
     },
     {

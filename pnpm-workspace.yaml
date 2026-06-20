@@ -12,43 +12,43 @@ allowBuilds:
 
 catalog:
   '@antfu/ni': 30.1.0
-  '@babel/generator': 7.29.1
-  '@babel/traverse': 7.29.0
-  '@babel/types': 7.29.0
+  '@babel/generator': 7.29.7
+  '@babel/traverse': 7.29.7
+  '@babel/types': 7.29.7
   '@changesets/cli': 2.31.0
   '@changesets/config': 3.1.4
   '@codemirror/language': 6.12.3
-  '@codemirror/legacy-modes': 6.5.2
-  '@commitlint/cli': 21.0.0
-  '@commitlint/config-conventional': 21.0.0
-  '@commitlint/types': 21.0.0
+  '@codemirror/legacy-modes': 6.5.3
+  '@commitlint/cli': 21.0.2
+  '@commitlint/config-conventional': 21.0.2
+  '@commitlint/types': 21.0.1
   '@fontsource/readex-pro': 5.2.11
-  '@iconify-json/hugeicons': 1.2.27
+  '@iconify-json/hugeicons': 1.2.29
   '@iconify/react': 6.0.2
-  '@internationalized/date': 3.12.1
+  '@internationalized/date': 3.12.2
   '@manypkg/get-packages': 3.1.0
   '@nuxt/fonts': 0.14.0
-  '@nuxt/icon': 2.2.2
+  '@nuxt/icon': 2.2.3
   '@nuxt/test-utils': 4.0.3
-  '@nuxt/ui': 4.7.1
-  '@nuxtjs/i18n': 10.3.0
-  '@nuxtjs/robots': 6.0.8
+  '@nuxt/ui': 4.9.0
+  '@nuxtjs/i18n': 10.4.0
+  '@nuxtjs/robots': 6.1.1
   '@ohm-js/cli': 2.0.1
-  '@pinia/colada': 1.3.0
+  '@pinia/colada': 1.3.1
   '@pinia/colada-nuxt': 1.0.1
   '@pinia/colada-plugin-cache-persister': 1.0.0
   '@pinia/nuxt': 0.11.3
-  '@playwright/test': 1.59.1
-  '@tailwindcss/postcss': 4.3.0
-  '@tailwindcss/typography': 0.5.19
-  '@tailwindcss/vite': 4.3.0
-  '@tanstack/react-query': 5.100.10
-  '@tanstack/vue-query': 5.100.10
+  '@playwright/test': 1.61.0
+  '@tailwindcss/postcss': 4.3.1
+  '@tailwindcss/typography': 0.5.20
+  '@tailwindcss/vite': 4.3.1
+  '@tanstack/react-query': 5.101.0
+  '@tanstack/vue-query': 5.101.0
   '@testing-library/react': 16.3.2
-  '@trpc/client': 11.17.0
-  '@trpc/next': 11.17.0
-  '@trpc/react-query': 11.17.0
-  '@trpc/server': 11.17.0
+  '@trpc/client': 11.18.0
+  '@trpc/next': 11.18.0
+  '@trpc/react-query': 11.18.0
+  '@trpc/server': 11.18.0
   '@types/babel__generator': 7.27.0
   '@types/babel__traverse': 7.28.0
   '@types/d3-drag': 3.0.7
@@ -58,17 +58,17 @@ catalog:
   '@types/d3-selection': 3.0.11
   '@types/d3-zoom': 3.0.8
   '@types/leaflet': 1.9.21
-  '@types/node': 25.6.2
-  '@types/react': 19.2.14
+  '@types/node': 25.9.3
+  '@types/react': 19.2.17
   '@types/react-dom': 19.2.3
   '@types/resize-observer-browser': 0.1.11
-  '@vitejs/plugin-vue': 6.0.6
-  '@vitest/browser-playwright': 4.1.6
-  '@vitest/coverage-v8': 4.1.6
-  '@vitest/ui': 4.1.6
-  '@vue/compiler-dom': 3.5.34
-  '@vue/server-renderer': 3.5.34
-  '@vue/test-utils': 2.4.10
+  '@vitejs/plugin-vue': 6.0.7
+  '@vitest/browser-playwright': 4.1.9
+  '@vitest/coverage-v8': 4.1.9
+  '@vitest/ui': 4.1.9
+  '@vue/compiler-dom': 3.5.38
+  '@vue/server-renderer': 3.5.38
+  '@vue/test-utils': 2.4.11
   '@vueuse/core': 14.3.0
   '@vueuse/nuxt': 14.3.0
   cac: 7.0.0
@@ -82,55 +82,55 @@ catalog:
   d3-selection: 3.0.0
   d3-zoom: 3.0.0
   deepmerge: 4.3.1
-  echarts: 6.0.0
+  echarts: 6.1.0
   execa: 9.6.1
   husky: 9.1.7
   jsonc-parser: 3.3.1
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lint-staged: 17.0.4
-  lucide-react: 1.14.0
-  next: 16.2.6
+  lucide-react: 1.20.0
+  lint-staged: 17.0.7
+  next: 16.2.9
   next-seo: 7.2.0
   nuqs: 2.8.9
-  nuxt: 4.4.5
+  nuxt: 4.4.8
   ohm-js: 17.5.0
   open: 11.0.0
   openid-client: 6.8.4
-  oxfmt: 0.48.0
-  oxlint: 1.63.0
-  oxlint-tsgolint: 0.22.1
+  oxfmt: 0.55.0
+  oxlint: 1.70.0
+  oxlint-tsgolint: 0.23.0
   picocolors: 1.1.1
-  postcss: 8.5.14
-  publint: 0.3.20
-  react: 19.2.6
-  react-dom: 19.2.6
+  postcss: 8.5.15
+  publint: 0.3.21
+  react: 19.2.7
+  react-dom: 19.2.7
   react-leaflet: 5.0.0
   react-leaflet-markercluster: 5.0.0-rc.0
   react-viewport-list: 7.1.2
   reactflow: 11.11.4
   serve: 14.2.6
-  splitpanes: 4.0.4
+  splitpanes: 4.1.2
   superjson: 2.2.6
-  syncpack: 15.1.2
+  syncpack: 15.3.2
   tailwind-merge: 3.6.0
-  tailwindcss: 4.3.0
-  taze: 19.11.0
-  tsdown: 0.22.0
-  tsx: 4.21.0
-  turbo: 2.9.12
+  tailwindcss: 4.3.1
+  taze: 19.14.1
+  tsdown: 0.22.3
+  tsx: 4.22.4
+  turbo: 2.9.18
   tw-animate-css: 1.4.0
   typescript: 6.0.3
   use-debounce: 10.1.1
   use-local-storage: 3.0.0
   vite: 8.0.12
   vitepress: 2.0.0-alpha.17
-  vitest: 4.1.6
-  vue: 3.5.34
+  vitest: 4.1.9
+  vue: 3.5.38
   vue-codemirror: 6.1.1
   vue-echarts: 8.0.1
   vue-toastification: 2.0.0-rc.5
-  vue-tsc: 3.2.8
+  vue-tsc: 3.3.5
   yaml: 2.9.0
   zod: 4.4.3
 
@@ -138,7 +138,7 @@ catalogMode: strict
 
 catalogs:
   vite7:
-    vite: 7.3.2
+    vite: 7.3.5
 
 cleanupUnusedCatalogs: true
 
