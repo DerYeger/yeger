@@ -78,6 +78,7 @@ describe('Vector', () => {
       const normalized = new Vector(0, 0).normalize()
       expect(normalized.x).toEqual(0)
       expect(normalized.y).toEqual(0)
+      expect(normalized.length()).toEqual(0)
     })
 
     describe('rotate vectors', () => {
