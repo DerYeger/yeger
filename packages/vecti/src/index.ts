@@ -98,6 +98,15 @@ export class Vector {
   }
 
   /**
+   * Calculate the distance between the vector and another vector using the L2 norm.
+   * @param other - The other vector.
+   * @returns The distance between the two vectors.
+   */
+  public distance(other: Vector): number {
+    return this.subtract(other).length()
+  }
+
+  /**
    * Normalize the vector using the L2 norm.
    * @returns The normalized vector.
    */
