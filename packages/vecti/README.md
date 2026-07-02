@@ -33,7 +33,7 @@
 
 - 🧮 Addition, subtraction, multiplication and division
 - ✨ Dot, cross and Hadamard product
-- 📏 Length and normalization
+- 📏 Length, distance, and normalization
 - 📐 Rotation by radians and degrees
 - 🪨 Immutable data structure encourages chaining
 - 💾 Tiny and typed
@@ -157,6 +157,19 @@ a.length() // == 1
 const b = new Vector(-3, 4)
 
 b.length() // == 5
+```
+
+### Distance
+
+The distance between two vectors can be calculated using the `distance` method.
+
+Distance is defined as the **L2 norm** of the difference between the two vectors.
+
+```ts
+const a = new Vector(0, 0)
+const b = new Vector(3, 4)
+
+a.distance(b) // == 5
 ```
 
 ### Normalization
