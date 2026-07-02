@@ -74,6 +74,12 @@ describe('Vector', () => {
       expect(normalized.length()).toEqual(1)
     })
 
+    test('normalize the zero vector to the zero vector', ({ expect }) => {
+      const normalized = new Vector(0, 0).normalize()
+      expect(normalized.x).toEqual(0)
+      expect(normalized.y).toEqual(0)
+    })
+
     describe('rotate vectors', () => {
       test('by radians', ({ expect }) => {
         const vector = new Vector(1, 0).rotateByRadians(Math.PI * 0.5)
