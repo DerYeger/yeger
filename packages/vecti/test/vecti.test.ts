@@ -72,6 +72,11 @@ describe('Vector', () => {
       expect(distance).toEqual(5)
     })
 
+    test('calculate distance as an absolute value', ({ expect }) => {
+      const distance = new Vector(-3, -4).distance(new Vector(0, 0))
+      expect(distance).toEqual(5)
+    })
+
     test('calculate distance from a vector to itself as zero', ({ expect }) => {
       const distance = new Vector(42, 7).distance(new Vector(42, 7))
       expect(distance).toEqual(0)
