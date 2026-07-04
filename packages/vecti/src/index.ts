@@ -98,11 +98,14 @@ export class Vector {
   }
 
   /**
-   * Normalize the vector using the L2 norm.
+   * Normalize the vector using the L2 norm. Returns the zero vector if the vector has zero length.
    * @returns The normalized vector.
    */
   public normalize(): Vector {
     const length = this.length()
+    if (length === 0) {
+      return new Vector(0, 0)
+    }
     return new Vector(this.x / length, this.y / length)
   }
 
