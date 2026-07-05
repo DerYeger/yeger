@@ -66,7 +66,11 @@ const items = computed<NavigationMenuItem[]>(() => {
         to: '/watchtower',
         icon: 'hugeicons:airport-tower',
         badge: watchtowerBadge.value
-          ? { label: watchtowerBadge.value, color: 'primary', variant: 'subtle' }
+          ? {
+              label: watchtowerBadge.value,
+              color: 'primary',
+              variant: 'subtle',
+            }
           : undefined,
       },
       {
@@ -81,6 +85,10 @@ const items = computed<NavigationMenuItem[]>(() => {
 })
 
 const open = ref(true)
+
+function toggleSidebar() {
+  open.value = !open.value
+}
 </script>
 
 <template>
@@ -132,7 +140,7 @@ const open = ref(true)
                 variant="ghost"
                 class="lg:hidden"
                 aria-label="Toggle sidebar"
-                @click="open = !open"
+                @click="toggleSidebar()"
               />
             </template>
             <template #right>

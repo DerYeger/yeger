@@ -7,6 +7,10 @@ const { icon = 'hugeicons:information-square', color = 'neutral' } = defineProps
 }>()
 
 const isTooltipOpen = ref(false)
+
+function openTooltip() {
+  isTooltipOpen.value = true
+}
 </script>
 
 <template>
@@ -19,7 +23,7 @@ const isTooltipOpen = ref(false)
         content: 'whitespace-wrap flex w-fit max-w-[80dvw] flex-col gap-2 p-2 text-sm text-pretty',
       }"
     >
-      <UButton :icon="icon" :color="color" variant="ghost" @click.stop="isTooltipOpen = true" />
+      <UButton :icon="icon" :color="color" variant="ghost" @click.stop="openTooltip()" />
       <template #content>
         <slot />
       </template>
