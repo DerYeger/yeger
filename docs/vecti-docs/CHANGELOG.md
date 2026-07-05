@@ -1,5 +1,13 @@
 # vecti-docs
 
+## 3.2.0
+
+### Patch Changes
+
+- Updated dependencies [17e991a]
+- Updated dependencies [2bdd57d]
+  - vecti@3.2.0
+
 ## 3.1.8
 
 ### Patch Changes
