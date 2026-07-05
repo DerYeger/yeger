@@ -67,6 +67,27 @@ describe('Vector', () => {
       expect(length).toEqual(5)
     })
 
+    test('calculate distance between two vectors', ({ expect }) => {
+      const distance = new Vector(0, 0).distance(new Vector(3, 4))
+      expect(distance).toEqual(5)
+    })
+
+    test('calculate distance as an absolute value', ({ expect }) => {
+      const distance = new Vector(-3, -4).distance(new Vector(0, 0))
+      expect(distance).toEqual(5)
+    })
+
+    test('calculate distance from a vector to itself as zero', ({ expect }) => {
+      const distance = new Vector(42, 7).distance(new Vector(42, 7))
+      expect(distance).toEqual(0)
+    })
+
+    test('calculate distance symmetrically', ({ expect }) => {
+      const a = new Vector(1, 2)
+      const b = new Vector(-3, 4)
+      expect(a.distance(b)).toEqual(b.distance(a))
+    })
+
     test('normalize vectors', ({ expect }) => {
       const normalized = new Vector(-5, 0).normalize()
       expect(normalized.x).toEqual(-1)
@@ -116,6 +137,7 @@ describe('Vector', () => {
       vector.dot(other)
       vector.cross(other)
       vector.hadamard(other)
+      vector.distance(other)
       vector.rotateByRadians(Math.PI * 0.5)
       vector.rotateByDegrees(180)
       expect(vector).toEqual(new Vector(1, 1))

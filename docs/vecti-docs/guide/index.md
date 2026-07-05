@@ -142,6 +142,21 @@ const b = new Vector(-3, 4)
 console.log(b.length()) // == 5
 ```
 
+### Distance
+
+The distance between two vectors can be calculated using the `distance` method.
+
+::: tip
+Distance is defined as the **L2 norm** of the difference between the two vectors.
+:::
+
+```ts
+const a = new Vector(0, 0)
+const b = new Vector(3, 4)
+
+console.log(a.distance(b)) // == 5
+```
+
 ### Normalization
 
 A normalized version of a vector can be calculated using the `normalize` method.
