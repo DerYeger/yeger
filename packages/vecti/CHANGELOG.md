@@ -1,5 +1,15 @@
 # vecti
 
+## 3.2.0
+
+### Minor Changes
+
+- 17e991a: add distance method
+
+### Patch Changes
+
+- 2bdd57d: fix nan on zero-length normalize
+
 ## 3.1.8
 
 ### Patch Changes
