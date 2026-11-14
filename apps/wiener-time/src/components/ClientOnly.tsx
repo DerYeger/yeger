@@ -10,6 +10,7 @@ export default function ClientOnly({ children }: ClientOnlyProps) {
   const [hasMounted, setHasMounted] = useState(false)
 
   useEffect(() => {
+    // oxlint-disable-next-line react/set-state-in-effect
     setHasMounted(true)
   }, [])
 

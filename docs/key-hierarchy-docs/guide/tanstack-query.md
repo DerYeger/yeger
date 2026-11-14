@@ -5,8 +5,8 @@
 ## React
 
 ```typescript
-import { defineKeyHierarchy } from 'key-hierarchy'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { defineKeyHierarchy } from 'key-hierarchy'
 
 // Define your key hierarchy
 const keys = defineKeyHierarchy((dynamic) => ({
@@ -43,8 +43,8 @@ function useUserQueries(userId: number) {
 ## Vue
 
 ```typescript
-import { defineKeyHierarchy } from 'key-hierarchy'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/vue-query'
+import { defineKeyHierarchy } from 'key-hierarchy'
 import { MaybeRefOrGetter, toValue } from 'vue'
 
 // Define your key hierarchy

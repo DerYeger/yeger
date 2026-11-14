@@ -23,7 +23,7 @@ import {
 const semantics: FOLSemantics = grammar
   .createSemantics()
   .addOperation<string>('parseString()', {
-    ident(_) {
+    ident(_node) {
       return this.sourceString
     },
   })
@@ -101,10 +101,10 @@ const semantics: FOLSemantics = grammar
         secondTerm.parseTerm(this.args.boundVariables),
       )
     },
-    True(_) {
+    True(_node) {
       return BooleanLiteral.True
     },
-    False(_) {
+    False(_node) {
       return BooleanLiteral.False
     },
   })

@@ -11,7 +11,7 @@ allowBuilds:
   vue-demi: false
 
 catalog:
-  '@antfu/ni': 30.2.0
+  '@antfu/ni': 30.6.0
   '@babel/generator': 7.29.7
   '@babel/traverse': 7.29.7
   '@babel/types': 7.29.7
@@ -19,9 +19,9 @@ catalog:
   '@changesets/config': 3.1.4
   '@codemirror/language': 6.12.4
   '@codemirror/legacy-modes': 6.5.3
-  '@commitlint/cli': 21.2.1
-  '@commitlint/config-conventional': 21.2.0
-  '@commitlint/types': 21.2.0
+  '@commitlint/cli': 21.2.4
+  '@commitlint/config-conventional': 21.2.4
+  '@commitlint/types': 21.2.3
   '@fontsource/readex-pro': 5.2.11
   '@iconify-json/hugeicons': 1.2.30
   '@iconify/react': 6.0.2
@@ -89,7 +89,7 @@ catalog:
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
   lucide-react: 1.23.0
-  lint-staged: 17.0.8
+  lint-staged: 17.6.0
   next: 16.3.3
   next-seo: 7.2.0
   nuqs: 2.9.0
@@ -97,8 +97,8 @@ catalog:
   ohm-js: 17.5.0
   open: 11.0.0
   openid-client: 6.8.4
-  oxfmt: 0.55.0
-  oxlint: 1.73.0
+  oxfmt: 0.78.0
+  oxlint: 1.93.0
   oxlint-tsgolint: 0.23.0
   picocolors: 1.1.1
   postcss: 8.5.23
@@ -112,7 +112,7 @@ catalog:
   serve: 14.2.6
   splitpanes: 4.1.2
   superjson: 2.2.6
-  syncpack: 15.3.2
+  syncpack: 15.3.3
   tailwind-merge: 3.6.0
   tailwindcss: 4.3.2
   taze: 19.14.1
@@ -132,6 +132,7 @@ catalog:
   vue-tsc: 3.3.7
   yaml: 2.9.0
   zod: 4.4.3
+  turbo: 2.11.11
 
 catalogMode: strict
 

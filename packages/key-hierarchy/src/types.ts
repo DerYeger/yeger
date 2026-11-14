@@ -3,11 +3,9 @@
  * Dynamically derived based on a provided {@link KeyHierarchyConfig}.
  */
 export type KeyHierarchy<T, Path extends readonly unknown[] = []> = {
-  readonly [K in keyof T as K extends InternalKeys
-    ? never
-    : K extends number
-      ? `${K}`
-      : K]: T[K] extends DynamicExtendedSegment<infer Arg, infer U> // 1) dynamic *extend*: property is a function that accepts Arg and returns a nested hierarchy
+  readonly [
+    K in keyof T as K extends InternalKeys ? never : K extends number ? `${K}` : K
+  ]: T[K] extends DynamicExtendedSegment<infer Arg, infer U> // 1) dynamic *extend*: property is a function that accepts Arg and returns a nested hierarchy
     ? (arg: Arg) => KeyHierarchy<
         U,
         readonly [...Path, readonly [K extends number ? `${K}` : K, DeepReadonly<Arg>]]

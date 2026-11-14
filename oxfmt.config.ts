@@ -7,6 +7,7 @@ export default defineConfig({
   sortPackageJson: {
     sortScripts: true,
   },
+  ignorePatterns: ['docs/d3-graph-controller-docs/api/samples/*'],
   overrides: [
     {
       files: ['apps/alpvara/**/*.{ts,vue}'],

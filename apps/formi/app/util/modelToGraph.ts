@@ -76,8 +76,8 @@ function makeNodeLabel(element: number, model: Model): string {
     .filter((rel) => rel.arity === 1 && rel.includes(element))
     .map((rel) => rel.name)
   const constants = Object.entries(model.constants)
-    .filter(([_, el]) => el === element)
-    .map(([name, _]) => name)
+    .filter(([_name, el]) => el === element)
+    .map(([name, _el]) => name)
   const attributes = [...constants, ...relations]
   if (attributes.length === 0) {
     return element.toString()

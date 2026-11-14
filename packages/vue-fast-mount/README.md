@@ -48,8 +48,9 @@ export default defineConfig({
 Then, within tests, add the import attribute `with { vfm: 'true' }` on static `.vue` imports:
 
 ```ts
-import { describe, expect, test } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
+import { describe, expect, test } from 'vitest'
+
 import MyComponent from './MyComponent.vue' with { vfm: 'true' }
 
 describe('MyComponent', () => {

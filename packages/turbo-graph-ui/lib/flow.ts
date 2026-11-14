@@ -68,19 +68,17 @@ function createFlowGraph(
   const nodes = s.toArray(
     s.pipe(
       hierarchy.nodes(),
-      s.map(
-        (node): Node<FlowNode> => ({
-          id: node.data.id,
-          data: {
-            ...node.data,
-            isTerminal: node.nchildren() === 0,
-            isOrigin: node.nparents() === 0,
-          },
-          focusable: false,
-          position: { x: node.x, y: node.y },
-          type: 'task',
-        }),
-      ),
+      s.map((node): Node<FlowNode> => ({
+        id: node.data.id,
+        data: {
+          ...node.data,
+          isTerminal: node.nchildren() === 0,
+          isOrigin: node.nparents() === 0,
+        },
+        focusable: false,
+        position: { x: node.x, y: node.y },
+        type: 'task',
+      })),
     ),
   )
   const edges = turboEdges.map<Edge<TurboEdge>>((edge) => ({
