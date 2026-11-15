@@ -30,12 +30,6 @@ const config: RcFile = {
       isIgnored: true,
     },
     {
-      label: 'External (Vite 7)',
-      packages: ['alpvara', 'formi'],
-      dependencies: ['vite'],
-      pinVersion: 'catalog:vite7',
-    },
-    {
       label: 'External',
       policy: 'catalog',
     },
