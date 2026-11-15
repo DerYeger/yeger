@@ -109,7 +109,7 @@ catalog:
   react-leaflet-markercluster: 5.0.0-rc.0
   react-viewport-list: 7.1.2
   reactflow: 11.11.4
-  serve: 14.2.7
+  serve: 14.2.8
   splitpanes: 4.1.2
   superjson: 2.2.6
   syncpack: 15.3.3
