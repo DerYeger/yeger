@@ -15,8 +15,8 @@ catalog:
   '@babel/generator': 7.29.7
   '@babel/traverse': 7.29.7
   '@babel/types': 7.29.7
-  '@changesets/cli': 2.31.0
-  '@changesets/config': 3.1.4
+  '@changesets/cli': 3.0.3
+  '@changesets/config': 4.0.1
   '@codemirror/language': 6.12.4
   '@codemirror/legacy-modes': 6.5.3
   '@commitlint/cli': 21.2.4
