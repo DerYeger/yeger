@@ -10,11 +10,23 @@ import { err, ok } from 'resumon'
 
 import { getChildProcessEnv } from './auth'
 
+/**
+ * Tasks are passed to turbo as positional arguments, so a task starting with `-` would be parsed as a flag (e.g., `--graph=<file>`).
+ * Returns the first invalid task, if any.
+ */
+export function findInvalidTask(tasks: string[]): string | undefined {
+  return tasks.find((task) => task.startsWith('-'))
+}
+
 export async function getGraph(
   tasks: string[],
   filter?: string,
 ): Promise<Result<TurboGraph, Error>> {
   const filteredTasks = tasks.filter(Boolean)
+  const invalidTask = findInvalidTask(filteredTasks)
+  if (invalidTask !== undefined) {
+    return err(new Error(`Invalid task: ${invalidTask}`))
+  }
   if (filteredTasks.length === 0) {
     const emptyGraph: TurboGraph = { nodes: [], edges: [] }
     return ok(emptyGraph)

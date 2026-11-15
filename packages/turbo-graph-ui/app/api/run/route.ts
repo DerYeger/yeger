@@ -4,7 +4,7 @@ import path from 'node:path'
 import type { NextRequest } from 'next/server'
 
 import { getChildProcessEnv, isAuthorizedApiRequest, unauthorizedResponse } from '../../../lib/auth'
-import { findRootTurboConfig } from '../../../lib/turbo'
+import { findInvalidTask, findRootTurboConfig } from '../../../lib/turbo'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
@@ -175,6 +175,10 @@ export function GET(req: NextRequest) {
   const force = ['1', 'true', 'yes'].includes((url.searchParams.get('force') ?? '').toLowerCase())
   if (tasks.length === 0) {
     return new Response('Missing tasks', { status: 400 })
+  }
+  const invalidTask = findInvalidTask(tasks)
+  if (invalidTask !== undefined) {
+    return new Response(`Invalid task: ${invalidTask}`, { status: 400 })
   }
   return buildResponseFromArgs(tasks, filter, req.signal, { force })
 }
