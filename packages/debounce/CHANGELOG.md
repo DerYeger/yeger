@@ -1,5 +1,11 @@
 # @yeger/debounce
 
+## 2.0.21
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 2.0.20
 
 ### Patch Changes

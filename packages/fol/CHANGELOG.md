@@ -1,5 +1,13 @@
 # @yeger/fol
 
+## 1.1.8
+
+### Patch Changes
+
+- 82e6af0: bump deps
+- Updated dependencies [82e6af0]
+  - resumon@2.1.8
+
 ## 1.1.7
 
 ### Patch Changes

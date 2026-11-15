@@ -1,5 +1,16 @@
 # @yeger/turbo-graph-ui
 
+## 3.0.0
+
+### Major Changes
+
+- 50e2590: implement authentication
+
+### Patch Changes
+
+- ce4a748: reject task names that would be parsed as turbo flags
+- 82e6af0: bump deps
+
 ## 2.8.12
 
 ### Patch Changes

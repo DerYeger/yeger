@@ -1,5 +1,11 @@
 # @yeger/vitest-utils
 
+## 1.2.6
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 1.2.5
 
 ### Patch Changes

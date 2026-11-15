@@ -1,5 +1,11 @@
 # @yeger/streams
 
+## 3.5.4
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 3.5.3
 
 ### Patch Changes
