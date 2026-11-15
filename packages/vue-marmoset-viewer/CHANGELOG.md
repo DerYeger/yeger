@@ -1,5 +1,13 @@
 # vue-marmoset-viewer
 
+## 5.0.4
+
+### Patch Changes
+
+- 82e6af0: bump deps
+- Updated dependencies [82e6af0]
+  - @yeger/debounce@2.0.21
+
 ## 5.0.3
 
 ### Patch Changes

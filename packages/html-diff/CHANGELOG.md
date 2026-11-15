@@ -1,5 +1,11 @@
 # @yeger/html-diff
 
+## 1.0.4
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 1.0.3
 
 ### Patch Changes

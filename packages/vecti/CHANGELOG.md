@@ -1,5 +1,11 @@
 # vecti
 
+## 3.2.1
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 3.2.0
 
 ### Minor Changes

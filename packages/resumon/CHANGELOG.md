@@ -1,5 +1,11 @@
 # resumon
 
+## 2.1.8
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 2.1.7
 
 ### Patch Changes

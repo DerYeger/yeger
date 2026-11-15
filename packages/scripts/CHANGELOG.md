@@ -1,5 +1,11 @@
 # @yeger/scripts
 
+## 1.0.20
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 1.0.19
 
 ### Patch Changes

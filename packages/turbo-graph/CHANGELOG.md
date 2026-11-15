@@ -1,5 +1,19 @@
 # @yeger/turbo-graph
 
+## 3.0.0
+
+### Major Changes
+
+- 50e2590: implement authentication
+
+### Patch Changes
+
+- 82e6af0: bump deps
+- Updated dependencies [50e2590]
+- Updated dependencies [ce4a748]
+- Updated dependencies [82e6af0]
+  - @yeger/turbo-graph-ui@3.0.0
+
 ## 2.8.12
 
 ### Patch Changes

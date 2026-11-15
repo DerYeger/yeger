@@ -1,5 +1,13 @@
 # vue-fast-mount
 
+## 0.4.5
+
+### Patch Changes
+
+- 82e6af0: bump deps
+- Updated dependencies [82e6af0]
+  - @yeger/streams@3.5.4
+
 ## 0.4.4
 
 ### Patch Changes

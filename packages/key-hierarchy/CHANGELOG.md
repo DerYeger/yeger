@@ -1,5 +1,11 @@
 # key-hierarchy
 
+## 3.0.13
+
+### Patch Changes
+
+- 82e6af0: bump deps
+
 ## 3.0.12
 
 ### Patch Changes

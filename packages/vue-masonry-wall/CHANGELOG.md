@@ -1,5 +1,13 @@
 # @yeger/vue-masonry-wall
 
+## 6.1.5
+
+### Patch Changes
+
+- 82e6af0: bump deps
+- Updated dependencies [82e6af0]
+  - @yeger/debounce@2.0.21
+
 ## 6.1.4
 
 ### Patch Changes
