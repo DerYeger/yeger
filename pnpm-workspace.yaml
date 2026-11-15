@@ -64,7 +64,7 @@ catalog:
   '@types/resize-observer-browser': 0.1.11
   '@vitejs/plugin-vue': 6.0.7
   '@vitest/browser-playwright': 4.1.10
-  '@vitest/coverage-v8': 4.1.10
+  '@vitest/coverage-v8': 5.1.0
   '@vitest/ui': 5.1.0
   '@vue/compiler-dom': 3.5.39
   '@vue/server-renderer': 3.5.39
