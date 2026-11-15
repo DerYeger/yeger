@@ -90,7 +90,7 @@ catalog:
   leaflet.markercluster: 1.5.3
   lucide-react: 1.72.0
   lint-staged: 17.6.0
-  next: 16.3.3
+  next: 16.4.1
   next-seo: 7.3.0
   nuqs: 2.10.3
   nuxt: 4.4.8
@@ -153,8 +153,8 @@ trustPolicyIgnoreAfter: 2880
 minimumReleaseAgeExclude:
   # Renovate security update: postcss@8.5.23
   - postcss@8.5.23
-  # Renovate security update: next@16.3.3
-  - next@16.3.3
+  # Renovate security update: next@16.3.3 || 16.4.1
+  - next@16.3.3 || 16.4.1
   # Renovate security update: vite@8.1.6 || 7.3.7
   - vite@8.1.6 || 7.3.7
   # Renovate security update: vitest@4.1.11
