@@ -67,7 +67,7 @@ catalog:
   '@vitest/coverage-v8': 5.1.0
   '@vitest/ui': 5.1.0
   '@vue/compiler-dom': 3.5.45
-  '@vue/server-renderer': 3.5.39
+  '@vue/server-renderer': 3.5.42
   '@vue/test-utils': 2.5.1
   '@vueuse/core': 15.0.0
   '@vueuse/nuxt': 15.0.0
@@ -146,3 +146,6 @@ overrides:
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
+minimumReleaseAgeExclude:
+  # Renovate security update: @vue/server-renderer@3.5.42
+  - "@vue/server-renderer@3.5.42"
