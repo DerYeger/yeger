@@ -96,6 +96,11 @@ jobs:
           files: packages/vue-marmoset-viewer/coverage/coverage-final.json
           flags: vue-marmoset-viewer
           token: ${{ secrets.CODECOV_TOKEN }}
+      - name: Configure npm auth
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ~/.npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Release
         uses: changesets/action@v2.1.2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -107,5 +112,4 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         env:
           NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           PNPM_CONFIG_PROVENANCE: true
