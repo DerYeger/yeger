@@ -97,7 +97,7 @@ jobs:
           flags: vue-marmoset-viewer
           token: ${{ secrets.CODECOV_TOKEN }}
       - name: Release
-        uses: changesets/action@v2
+        uses: changesets/action@v2.1.2
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           version-script: pnpm run changeset:version

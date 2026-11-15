@@ -67,7 +67,7 @@ catalog:
   '@vitest/coverage-v8': 5.1.0
   '@vitest/ui': 5.1.0
   '@vue/compiler-dom': 3.5.45
-  '@vue/server-renderer': 3.5.39
+  '@vue/server-renderer': 3.5.45
   '@vue/test-utils': 2.5.1
   '@vueuse/core': 15.0.0
   '@vueuse/nuxt': 15.0.0
@@ -90,7 +90,7 @@ catalog:
   leaflet.markercluster: 1.5.3
   lucide-react: 1.72.0
   lint-staged: 17.6.0
-  next: 16.3.3
+  next: 16.4.6
   next-seo: 7.3.0
   nuqs: 2.10.3
   nuxt: 4.6.4
@@ -99,7 +99,7 @@ catalog:
   openid-client: 6.8.9
   oxfmt: 0.78.0
   oxlint: 1.93.0
-  oxlint-tsgolint: 0.25.0
+  oxlint-tsgolint: 7.0.2007
   picocolors: 1.1.1
   postcss: 8.5.32
   publint: 0.3.25
@@ -131,7 +131,7 @@ catalog:
   vue-toastification: 2.0.0-rc.5
   vue-tsc: 3.3.14
   yaml: 2.9.1
-  zod: 4.4.3
+  zod: 4.6.7
   turbo: 2.11.11
 
 catalogMode: strict
@@ -139,10 +139,6 @@ catalogMode: strict
 cleanupUnusedCatalogs: true
 
 minimumReleaseAge: 2880
-
-overrides:
-  'archiver-utils>glob': 13.0.6
-  'js-beautify>glob': 13.0.6
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
