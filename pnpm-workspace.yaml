@@ -27,7 +27,7 @@ catalog:
   '@iconify/react': 6.0.4
   '@internationalized/date': 3.12.4
   '@manypkg/get-packages': 3.1.0
-  '@nuxt/fonts': 0.14.0
+  '@nuxt/fonts': 1.2.0
   '@nuxt/icon': 2.6.2
   '@nuxt/test-utils': 4.4.0
   '@nuxt/ui': 4.12.0
