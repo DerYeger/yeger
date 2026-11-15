@@ -348,8 +348,8 @@ catalogs:
       specifier: 2.5.1
       version: 2.5.1
     '@vueuse/core':
-      specifier: 14.4.0
-      version: 14.4.0
+      specifier: 15.0.0
+      version: 15.0.0
     '@vueuse/nuxt':
       specifier: 14.4.0
       version: 14.4.0
@@ -696,7 +696,7 @@ importers:
         version: 6.5.5
       '@vueuse/core':
         specifier: 'catalog:'
-        version: 14.4.0(vue@3.5.45(typescript@6.0.3))
+        version: 15.0.0(vue@3.5.45(typescript@6.0.3))
       '@yeger/fol':
         specifier: workspace:*
         version: link:../../packages/fol

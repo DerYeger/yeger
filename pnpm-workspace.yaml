@@ -69,7 +69,7 @@ catalog:
   '@vue/compiler-dom': 3.5.45
   '@vue/server-renderer': 3.5.39
   '@vue/test-utils': 2.5.1
-  '@vueuse/core': 14.4.0
+  '@vueuse/core': 15.0.0
   '@vueuse/nuxt': 14.4.0
   cac: 7.1.0
   clsx: 2.1.1
