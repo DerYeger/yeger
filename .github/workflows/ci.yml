@@ -11,11 +11,11 @@ jobs:
       TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
     permissions: write-all
     steps:
+      - name: Checkout
+        uses: actions/checkout@v7
       - name: Setup
-        uses: DerYeger/pnpm-setup-action@master
-        with:
-          node-version-file: .node-version
-      - name: Build, Lint, Test, and Typecheck
+        uses: pnpm/setup@v3
+      - name: Checks
         run: pnpm run ci
         env:
           NUXT_CLIENT_ID: ${{ secrets.NUXT_CLIENT_ID }}
