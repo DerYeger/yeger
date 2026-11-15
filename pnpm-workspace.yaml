@@ -99,7 +99,7 @@ catalog:
   openid-client: 6.8.9
   oxfmt: 0.78.0
   oxlint: 1.93.0
-  oxlint-tsgolint: 0.25.0
+  oxlint-tsgolint: 7.0.2007
   picocolors: 1.1.1
   postcss: 8.5.32
   publint: 0.3.25
