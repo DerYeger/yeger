@@ -7,7 +7,7 @@ export interface DefineCanvasParams {
   readonly applyZoom: boolean
   readonly container: GraphHost
   readonly offset: [number, number]
-  readonly onDoubleClick?: (event: PointerEvent) => void
+  readonly onDoubleClick?: (event: MouseEvent) => void
   readonly onPointerMoved?: (event: PointerEvent) => void
   readonly onPointerUp?: (event: PointerEvent) => void
   readonly scale: number
@@ -31,15 +31,18 @@ export function defineCanvas({
     .attr('width', '100%')
     .call(zoom)
     .on('contextmenu', (event: MouseEvent) => terminateEvent(event))
-    .on('dblclick', (event: PointerEvent) => onDoubleClick?.(event))
+    .on('dblclick', (event: MouseEvent) => onDoubleClick?.(event))
     .on('dblclick.zoom', null)
     .on('pointermove', (event: PointerEvent) => onPointerMoved?.(event))
     .on('pointerup', (event: PointerEvent) => onPointerUp?.(event))
     .style('cursor', 'grab')
 
   if (applyZoom) {
-    // oxlint-disable-next-line typescript/unbound-method
-    svg.call(zoom.transform, zoomIdentity.translate(xOffset, yOffset).scale(scale))
+    svg.call(
+      // oxlint-disable-next-line typescript/unbound-method
+      zoom.transform,
+      zoomIdentity.translate(xOffset, yOffset).scale(scale),
+    )
   }
 
   return svg.append('g')
