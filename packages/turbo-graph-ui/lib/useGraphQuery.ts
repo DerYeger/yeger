@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 
+import { authFetch } from './authClient'
 import type { TurboGraph } from './turbo'
 
 export function useGraphQuery(params: { tasks: string[]; filter?: string | undefined }) {
@@ -10,7 +11,7 @@ export function useGraphQuery(params: { tasks: string[]; filter?: string | undef
     staleTime: 0,
     retry: false,
     queryFn: async () => {
-      const res = await fetch('/api/graph', {
+      const res = await authFetch('/api/graph', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ tasks, filter }),

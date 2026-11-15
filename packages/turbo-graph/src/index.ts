@@ -1,4 +1,5 @@
 // oxlint-disable no-console
+import { randomBytes } from 'node:crypto'
 import { createServer } from 'node:http'
 import path from 'node:path'
 import process from 'node:process'
@@ -32,6 +33,10 @@ function run() {
   cli.parse()
 
   function startServer(tasks: string[], options: Options) {
+    const authCode = randomBytes(18).toString('base64url')
+    // Must be set before the Next.js server starts, as its route handlers read it at request time
+    process.env.TURBO_GRAPH_AUTH_CODE = authCode
+
     const app = next({ dev: false, dir: source, hostname, port: options.port })
     const handle = app.getRequestHandler()
 
@@ -43,19 +48,18 @@ function run() {
         })
         .listen(options.port, hostname, () => {
           const url = `http://${hostname}:${options.port}`
+          const params = new URLSearchParams({ code: authCode })
           console.log(`${c.green('turbo-graph:')} Listening on ${c.cyan(url)}`)
+          console.log(`${c.green('turbo-graph:')} Auth code: ${c.bold(authCode)}`)
+          console.log(`${c.green('turbo-graph:')} Open ${c.cyan(`${url}/?${params}`)}`)
           if (options.open) {
-            let urlToOpen = `${url}/?`
-            if (tasks.length > 0) {
-              urlToOpen = `${urlToOpen}${tasks.map((task) => `task=${task}`).join('&')}`
+            for (const task of tasks) {
+              params.append('task', task)
             }
             if (options.filter) {
-              if (tasks.length > 0) {
-                urlToOpen = `${urlToOpen}&`
-              }
-              urlToOpen = `${urlToOpen}filter=${options.filter}`
+              params.set('filter', options.filter)
             }
-            void open(urlToOpen)
+            void open(`${url}/?${params}`)
           } else if (tasks.length > 0 || options.filter) {
             console.log(
               `${c.yellow('turbo-graph:')} Use ${c.cyan(

@@ -1,11 +1,15 @@
 import type { NextRequest } from 'next/server'
 
+import { isAuthorizedRequest, unauthorizedResponse } from '../../../lib/auth'
 import { getGraph } from '../../../lib/turbo'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
 
 export async function POST(req: NextRequest) {
+  if (!isAuthorizedRequest(req)) {
+    return unauthorizedResponse()
+  }
   try {
     const body = (await req.json().catch(() => ({}))) as { tasks?: string[]; filter?: string }
     const tasks = (body.tasks ?? []).filter(Boolean)

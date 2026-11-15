@@ -1,9 +1,9 @@
 import { spawn } from 'node:child_process'
 import path from 'node:path'
-import process from 'node:process'
 
 import type { NextRequest } from 'next/server'
 
+import { getChildProcessEnv, isAuthorizedApiRequest, unauthorizedResponse } from '../../../lib/auth'
 import { findRootTurboConfig } from '../../../lib/turbo'
 
 export const runtime = 'nodejs'
@@ -31,7 +31,7 @@ async function buildResponseFromArgs(
     args.push('--force')
   }
   const turboBin = `node_modules${path.sep}.bin${path.sep}turbo`
-  const child = spawn(turboBin, args, { cwd: dir, env: { ...process.env, CI: 'true' } })
+  const child = spawn(turboBin, args, { cwd: dir, env: { ...getChildProcessEnv(), CI: 'true' } })
 
   const encoder = new TextEncoder()
   const { readable, writable } = new TransformStream<Uint8Array>()
@@ -154,6 +154,9 @@ async function buildResponseFromArgs(
 }
 
 export function GET(req: NextRequest) {
+  if (!isAuthorizedApiRequest(req)) {
+    return unauthorizedResponse()
+  }
   const url = new URL(req.url)
   // Accept both comma-separated and repeated parameters
   const tasksParam = url.searchParams.getAll('tasks')

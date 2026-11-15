@@ -39,7 +39,7 @@
   },
   "scripts": {
     "build": "next build",
-    "dev": "next dev",
+    "dev": "node scripts/dev.mjs",
     "preview": "next start",
     "publint": "publint run --strict",
     "typecheck": "tsc"

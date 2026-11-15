@@ -1,6 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useCallback, useRef } from 'react'
 
+import { getStoredAuthCode } from './authClient'
+import { AUTH_QUERY_PARAM } from './authConstants'
+
 export interface TaskLogLine {
   id: number
   raw: string
@@ -88,7 +91,13 @@ export function useRunTasks() {
       if (force) {
         url.searchParams.set('force', '1')
       }
+      // `EventSource` cannot send an `Authorization` header, so this route accepts the code as a query parameter
+      const code = getStoredAuthCode()
+      if (code) {
+        url.searchParams.set(AUTH_QUERY_PARAM, code)
+      }
 
+      // Note: `EventSource` reconnects automatically, which would start the run again. `onerror` must therefore always close it.
       const es = new EventSource(url.toString())
       esRef.current = es
       let ended = false

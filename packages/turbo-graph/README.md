@@ -39,6 +39,14 @@ Like the `--filter` option listed below, this only applies if the `--open` open 
 - `-p, --port <port>`: Port of the visualizer. (default: 29312)
 - `-h, --help`: Display help message
 
+### Authentication
+
+On startup, the CLI generates and prints a random auth code.
+Open the UI with this code via the `code` query parameter, or enter it on the prompt shown by the UI.
+The UI stores the code in `localStorage` (scoped to its origin, including the port), removes it from the URL, and sends it to the API in an `Authorization` header.
+No cookies are used, as browsers would send them to every other server on `localhost`. The API rejects all requests without a valid code.
+With `--open`, the code is added to the opened URL automatically.
+
 ### Controls
 
 By double-clicking a task node, its package is used as the filter.

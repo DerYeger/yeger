@@ -8,6 +8,8 @@ import { parse as parseJSONC } from 'jsonc-parser'
 import type { Result } from 'resumon'
 import { err, ok } from 'resumon'
 
+import { getChildProcessEnv } from './auth'
+
 export async function getGraph(
   tasks: string[],
   filter?: string,
@@ -41,6 +43,8 @@ async function executeCommand(
     }
     const { stdout } = await execa(`node_modules${path.sep}.bin${path.sep}turbo`, args, {
       cwd: dir,
+      env: getChildProcessEnv(),
+      extendEnv: false,
     })
     return ok(stdout)
   } catch (error) {
