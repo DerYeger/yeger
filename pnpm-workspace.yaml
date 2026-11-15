@@ -142,7 +142,10 @@ minimumReleaseAge: 2880
 
 overrides:
   'archiver-utils>glob': 13.0.6
-  'js-beautify>glob': 13.0.6
+  'js-beautify>glob': 14.0.2
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
+minimumReleaseAgeExclude:
+  # Renovate security update: glob@14.0.2
+  - glob@14.0.2
