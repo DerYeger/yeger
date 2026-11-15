@@ -141,8 +141,11 @@ cleanupUnusedCatalogs: true
 minimumReleaseAge: 2880
 
 overrides:
-  'archiver-utils>glob': 13.0.6
+  'archiver-utils>glob': 14.0.2
   'js-beautify>glob': 13.0.6
 
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 2880
+minimumReleaseAgeExclude:
+  # Renovate security update: glob@14.0.2
+  - glob@14.0.2

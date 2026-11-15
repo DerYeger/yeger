@@ -541,7 +541,7 @@ catalogs:
       version: 4.4.3
 
 overrides:
-  archiver-utils>glob: 13.0.6
+  archiver-utils>glob: 14.0.2
   js-beautify>glob: 13.0.6
 
 importers:
