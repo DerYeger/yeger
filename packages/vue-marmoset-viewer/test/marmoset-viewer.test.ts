@@ -103,17 +103,19 @@ describe('MarmosetViewer', () => {
   })
 
   test('unloads the MarmosetViewer', async ({ expect }) => {
+    const onUnload = vi.fn<() => void>()
     const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
+        onUnload,
       },
     })
     await flushPromises()
     expect(mocks.WebViewer.unload).not.toHaveBeenCalled()
-    expect(wrapper.emitted().unload).toBeUndefined()
+    expect(onUnload).not.toHaveBeenCalled()
     wrapper.unmount()
     expect(mocks.WebViewer.unload).toHaveBeenCalledOnce()
-    expect(wrapper.emitted().unload?.length).toBe(1)
+    expect(onUnload).toHaveBeenCalledOnce()
   })
 
   test('can be responsive', async ({ expect }) => {
@@ -151,19 +153,21 @@ describe('MarmosetViewer', () => {
 
   test('unobserves the ResizeObserver', async ({ expect }) => {
     expect(mocks.ResizeObserver.observe).not.toHaveBeenCalled()
+    const onUnload = vi.fn<() => void>()
     const wrapper = shallowMount(MarmosetViewer, {
       props: {
         src: TEST_FILE_NAME,
         responsive: true,
+        onUnload,
       },
     })
     await flushPromises()
     expect(mocks.ResizeObserver.observe).toHaveBeenCalledOnce()
     expect(mocks.ResizeObserver.unobserve).not.toHaveBeenCalled()
-    expect(wrapper.emitted().unload).toBeUndefined()
+    expect(onUnload).not.toHaveBeenCalled()
     wrapper.unmount()
     expect(mocks.ResizeObserver.unobserve).toHaveBeenCalledOnce()
-    expect(wrapper.emitted().unload?.length).toBe(1)
+    expect(onUnload).toHaveBeenCalledOnce()
   })
 
   test('supports autostart', async ({ expect }) => {
