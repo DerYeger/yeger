@@ -267,11 +267,11 @@ catalogs:
       specifier: 4.3.5
       version: 4.3.5
     '@tanstack/react-query':
-      specifier: 5.108.0
-      version: 5.108.0
+      specifier: 5.108.1
+      version: 5.108.1
     '@tanstack/vue-query':
-      specifier: 5.108.0
-      version: 5.108.0
+      specifier: 5.108.1
+      version: 5.108.1
     '@testing-library/react':
       specifier: 16.3.3
       version: 16.3.3
@@ -480,8 +480,8 @@ catalogs:
       specifier: 15.3.3
       version: 15.3.3
     tailwind-merge:
-      specifier: 3.7.0
-      version: 3.7.0
+      specifier: 3.7.1
+      version: 3.7.1
     tailwindcss:
       specifier: 4.3.5
       version: 4.3.5
@@ -788,16 +788,16 @@ importers:
     dependencies:
       '@tanstack/react-query':
         specifier: 'catalog:'
-        version: 5.108.0(@types/react@19.3.0)(react@19.3.1)
+        version: 5.108.1(@types/react@19.3.0)(react@19.3.1)
       '@trpc/client':
         specifier: 'catalog:'
         version: 11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3)
       '@trpc/next':
         specifier: 'catalog:'
-        version: 11.29.5(b6850a0ae20aaf928b8f8bb07e8b4bf5)
+        version: 11.29.5(5d3b3c58c221cc15a53ba7cf4a4aa2f4)
       '@trpc/react-query':
         specifier: 'catalog:'
-        version: 11.29.5(@tanstack/react-query@5.108.0(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)
+        version: 11.29.5(@tanstack/react-query@5.108.1(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)
       '@trpc/server':
         specifier: 'catalog:'
         version: 11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3)
@@ -1171,10 +1171,10 @@ importers:
     devDependencies:
       '@tanstack/react-query':
         specifier: 'catalog:'
-        version: 5.108.0(@types/react@19.3.0)(react@19.3.1)
+        version: 5.108.1(@types/react@19.3.0)(react@19.3.1)
       '@tanstack/vue-query':
         specifier: 'catalog:'
-        version: 5.108.0(vue@3.5.45(typescript@6.0.3))
+        version: 5.108.1(vue@3.5.45(typescript@6.0.3))
       '@testing-library/react':
         specifier: 'catalog:'
         version: 16.3.3(@testing-library/dom@10.4.2)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
@@ -1372,7 +1372,7 @@ importers:
         version: 4.3.5
       '@tanstack/react-query':
         specifier: 'catalog:'
-        version: 5.108.0(@types/react@19.3.0)(react@19.3.1)
+        version: 5.108.1(@types/react@19.3.0)(react@19.3.1)
       '@types/d3-scale':
         specifier: 'catalog:'
         version: 4.0.9
@@ -1441,7 +1441,7 @@ importers:
         version: link:../resumon
       tailwind-merge:
         specifier: 'catalog:'
-        version: 3.7.0
+        version: 3.7.1
       tailwindcss:
         specifier: 'catalog:'
         version: 4.3.5
@@ -4357,11 +4357,11 @@ packages:
     resolution: {integrity: sha512-DIpUSOhPfQ7u/qfUi/Wgm0wBO56MyBYXGvnlI0NcauDRPqdBUlAZZjW2Dxm92m+k1UWVhKw8YJ4f47+75Aujyw==}
     engines: {node: '>=20'}
 
-  '@tanstack/query-core@5.108.0':
-    resolution: {integrity: sha512-X9zJUtEV/0D2q9pmGS/Bza8S4bNovSBhZOtdhtu0fzsHwizC6C+Eh/q5CX3MQBchsRMrirWVQmv7Fp4OStzV9g==}
+  '@tanstack/query-core@5.108.1':
+    resolution: {integrity: sha512-GBX6Xsc9E+9eVLLxuM7orQNbssQjpruOCbocBYwT78MjxOWT5I+CWdvEo0N+UM6+oCZEKxuSud1oFLvE3OEmIg==}
 
-  '@tanstack/react-query@5.108.0':
-    resolution: {integrity: sha512-DpMbB8pVorEZcsHRa0Z13KQGfmndqvJbuLy9h+xfP8XpuEZBOxzq+QfXGonQ0fAgRSWhc+QsfoRETSTWxAEAVw==}
+  '@tanstack/react-query@5.108.1':
+    resolution: {integrity: sha512-8/p7fpIdmUiKIukQ5ddAMUUSKC7Z8CcgUOBR2r3WqRvMg9Lzc4CXeoFchjfATKvqi23SyYFvesDdOULrvyunNg==}
     peerDependencies:
       '@types/react': ^18 || ^19
       react: ^18 || ^19
@@ -4376,8 +4376,8 @@ packages:
   '@tanstack/virtual-core@3.19.11':
     resolution: {integrity: sha512-/5iHb0RHBvj8Di59FDs4ESNm45jls33aZAi4zccVXZjc/6ZvwQP6nzEYeT6weXjTf9E6/vrp2JhYWRyO+ZP13A==}
 
-  '@tanstack/vue-query@5.108.0':
-    resolution: {integrity: sha512-Phv8VCKrKVTDyQjREwUwCFTemCOpup1n7Dzom5ql5hAoNfzmdPfdvBpJIht7W56nufRYeV3pxURcRjZTFRSIVw==}
+  '@tanstack/vue-query@5.108.1':
+    resolution: {integrity: sha512-dkBQ9rEPmQ353xLiWixKJh6FBf91CuoiE2XIad9iecCo7se5SN2CCr+sA0zU4SMlkzz1B9fiDchszNM2RAF4pg==}
     peerDependencies:
       '@vue/composition-api': ^1.1.2
       vue: ^2.6.0 || ^3.3.0
@@ -8168,8 +8168,8 @@ packages:
     resolution: {integrity: sha512-yEFYrVhod+hdNyx7g5Bnkkb0G6si8HJurOoOEgC8B/O0uXLHlaey/65KRv6cuWBNhBgHKAROVpc7QyYqE5gFng==}
     engines: {node: '>=20'}
 
-  tailwind-merge@3.7.0:
-    resolution: {integrity: sha512-XPPUyAc+cvspz3lHTcR/QgPfW2A0lv/xQNIjX3HGhLR+Nq2lHaLq5MtTesHn8GUr3W3DguT2KT5x3NVgRtYwmA==}
+  tailwind-merge@3.7.1:
+    resolution: {integrity: sha512-v7y4BV4FUlO8exj/4M5UXKeoowDiuugVUg3tkMNIyOUCOHy5xp8+5aWQeXCtZ2491sUV1YPsVeM9EveZ6/xuZQ==}
 
   tailwind-variants@3.2.2:
     resolution: {integrity: sha512-Mi4kHeMTLvKlM98XPnK+7HoBPmf4gygdFmqQPaDivc3DpYS6aIY6KiG/PgThrGvii5YZJqRsPz0aPyhoFzmZgg==}
@@ -11049,8 +11049,8 @@ snapshots:
       pathe: 2.0.3
       reka-ui: 2.11.0(vue@3.5.45(typescript@6.0.3))
       scule: 1.3.0
-      tailwind-merge: 3.7.0
-      tailwind-variants: 3.2.2(tailwind-merge@3.7.0)(tailwindcss@4.3.5)
+      tailwind-merge: 3.7.1
+      tailwind-variants: 3.2.2(tailwind-merge@3.7.1)(tailwindcss@4.3.5)
       tailwindcss: 4.3.5
       tinyglobby: 0.2.17
       typescript: 6.0.3
@@ -12287,11 +12287,11 @@ snapshots:
     dependencies:
       remove-accents: 0.5.0
 
-  '@tanstack/query-core@5.108.0': {}
+  '@tanstack/query-core@5.108.1': {}
 
-  '@tanstack/react-query@5.108.0(@types/react@19.3.0)(react@19.3.1)':
+  '@tanstack/react-query@5.108.1(@types/react@19.3.0)(react@19.3.1)':
     dependencies:
-      '@tanstack/query-core': 5.108.0
+      '@tanstack/query-core': 5.108.1
       react: 19.3.1
     optionalDependencies:
       '@types/react': 19.3.0
@@ -12300,10 +12300,10 @@ snapshots:
 
   '@tanstack/virtual-core@3.19.11': {}
 
-  '@tanstack/vue-query@5.108.0(vue@3.5.45(typescript@6.0.3))':
+  '@tanstack/vue-query@5.108.1(vue@3.5.45(typescript@6.0.3))':
     dependencies:
       '@tanstack/match-sorter-utils': 9.2.6
-      '@tanstack/query-core': 5.108.0
+      '@tanstack/query-core': 5.108.1
       '@vue/devtools-api': 6.6.4
       vue: 3.5.45(typescript@6.0.3)
       vue-demi: 0.14.10(vue@3.5.45(typescript@6.0.3))
@@ -12572,7 +12572,7 @@ snapshots:
       '@trpc/server': 11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3)
       typescript: 6.0.3
 
-  '@trpc/next@11.29.5(b6850a0ae20aaf928b8f8bb07e8b4bf5)':
+  '@trpc/next@11.29.5(5d3b3c58c221cc15a53ba7cf4a4aa2f4)':
     dependencies:
       '@trpc/client': 11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3)
       '@trpc/server': 11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3)
@@ -12581,12 +12581,12 @@ snapshots:
       react-dom: 19.3.1(react@19.3.1)
       typescript: 6.0.3
     optionalDependencies:
-      '@tanstack/react-query': 5.108.0(@types/react@19.3.0)(react@19.3.1)
-      '@trpc/react-query': 11.29.5(@tanstack/react-query@5.108.0(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)
+      '@tanstack/react-query': 5.108.1(@types/react@19.3.0)(react@19.3.1)
+      '@trpc/react-query': 11.29.5(@tanstack/react-query@5.108.1(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)
 
-  '@trpc/react-query@11.29.5(@tanstack/react-query@5.108.0(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)':
+  '@trpc/react-query@11.29.5(@tanstack/react-query@5.108.1(@types/react@19.3.0)(react@19.3.1))(@trpc/client@11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3))(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(react@19.3.1)(typescript@6.0.3)':
     dependencies:
-      '@tanstack/react-query': 5.108.0(@types/react@19.3.0)(react@19.3.1)
+      '@tanstack/react-query': 5.108.1(@types/react@19.3.0)(react@19.3.1)
       '@trpc/client': 11.29.5(@trpc/server@11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3))(typescript@6.0.3)
       '@trpc/server': 11.29.5(next@16.4.6(@babel/core@7.29.13(supports-color@10.2.2))(@playwright/test@1.65.1)(@types/node@26.6.6)(react-dom@19.3.1(react@19.3.1))(react@19.3.1))(typescript@6.0.3)
       react: 19.3.1
@@ -16462,13 +16462,13 @@ snapshots:
 
   tagged-tag@1.0.0: {}
 
-  tailwind-merge@3.7.0: {}
+  tailwind-merge@3.7.1: {}
 
-  tailwind-variants@3.2.2(tailwind-merge@3.7.0)(tailwindcss@4.3.5):
+  tailwind-variants@3.2.2(tailwind-merge@3.7.1)(tailwindcss@4.3.5):
     dependencies:
       tailwindcss: 4.3.5
     optionalDependencies:
-      tailwind-merge: 3.7.0
+      tailwind-merge: 3.7.1
 
   tailwindcss@4.3.5: {}
 
