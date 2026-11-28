@@ -87,7 +87,7 @@ catalog:
   husky: 9.1.7
   jsonc-parser: 3.3.1
   leaflet: 1.9.4
-  leaflet.markercluster: 1.5.3
+  leaflet.markercluster: 2.0.0
   lucide-react: 1.76.0
   lint-staged: 17.6.1
   next: 16.4.6
