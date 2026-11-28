@@ -12,9 +12,9 @@ allowBuilds:
 
 catalog:
   '@antfu/ni': 30.6.0
-  '@babel/generator': 7.29.14
-  '@babel/traverse': 7.29.14
-  '@babel/types': 7.29.14
+  '@babel/generator': 7.29.15
+  '@babel/traverse': 7.29.15
+  '@babel/types': 7.29.15
   '@changesets/cli': 3.0.3
   '@changesets/config': 4.0.1
   '@codemirror/language': 6.13.1
@@ -27,12 +27,12 @@ catalog:
   '@iconify/react': 6.0.4
   '@internationalized/date': 3.12.4
   '@manypkg/get-packages': 3.1.0
-  '@nuxt/fonts': 1.2.0
+  '@nuxt/fonts': 1.2.1
   '@nuxt/icon': 2.6.3
   '@nuxt/test-utils': 4.4.0
-  '@nuxt/ui': 4.13.0
-  '@nuxtjs/i18n': 10.6.0
-  '@nuxtjs/robots': 7.0.2
+  '@nuxt/ui': 4.13.1
+  '@nuxtjs/i18n': 10.7.0
+  '@nuxtjs/robots': 7.1.0
   '@ohm-js/cli': 2.0.1
   '@pinia/colada': 1.4.9
   '@pinia/colada-nuxt': 1.2.1
@@ -42,36 +42,36 @@ catalog:
   '@tailwindcss/postcss': 4.3.5
   '@tailwindcss/typography': 0.5.20
   '@tailwindcss/vite': 4.3.5
-  '@tanstack/react-query': 5.108.1
-  '@tanstack/vue-query': 5.108.1
+  '@tanstack/react-query': 5.108.4
+  '@tanstack/vue-query': 5.108.4
   '@testing-library/react': 16.3.3
-  '@trpc/client': 11.29.5
-  '@trpc/next': 11.29.5
-  '@trpc/react-query': 11.29.5
-  '@trpc/server': 11.29.5
+  '@trpc/client': 11.31.3
+  '@trpc/next': 11.31.3
+  '@trpc/react-query': 11.31.3
+  '@trpc/server': 11.31.3
   '@types/babel__generator': 7.27.0
   '@types/babel__traverse': 7.28.0
   '@types/d3-drag': 3.0.7
   '@types/d3-force': 3.0.10
   '@types/d3-scale': 4.0.9
   '@types/d3-scale-chromatic': 3.1.0
-  '@types/d3-selection': 3.0.12
+  '@types/d3-selection': 3.0.13
   '@types/d3-zoom': 3.0.9
-  '@types/leaflet': 1.9.22
-  '@types/node': 26.6.6
-  '@types/react': 19.3.0
+  '@types/leaflet': 1.9.23
+  '@types/node': 26.6.11
+  '@types/react': 19.3.3
   '@types/react-dom': 19.3.0
   '@types/resize-observer-browser': 0.1.11
   '@vitejs/plugin-vue': 6.0.11
-  '@vitest/browser-playwright': 5.1.1
-  '@vitest/coverage-v8': 5.1.1
-  '@vitest/ui': 5.1.1
-  '@vue/compiler-dom': 3.5.45
-  '@vue/server-renderer': 3.5.45
+  '@vitest/browser-playwright': 5.1.2
+  '@vitest/coverage-v8': 5.1.2
+  '@vitest/ui': 5.1.2
+  '@vue/compiler-dom': 3.5.46
+  '@vue/server-renderer': 3.5.46
   '@vue/test-utils': 2.6.0
-  '@vueuse/core': 15.0.0
-  '@vueuse/nuxt': 15.0.0
-  cac: 7.1.0
+  '@vueuse/core': 15.1.0
+  '@vueuse/nuxt': 15.1.0
+  cac: 7.1.1
   clsx: 2.1.1
   codemirror: 6.0.2
   csvtojson: 2.0.14
@@ -88,18 +88,18 @@ catalog:
   jsonc-parser: 3.3.1
   leaflet: 1.9.4
   leaflet.markercluster: 1.5.3
-  lucide-react: 1.76.0
-  lint-staged: 17.6.1
+  lucide-react: 1.81.0
+  lint-staged: 17.6.2
   next: 16.4.6
   next-seo: 7.3.0
   nuqs: 2.10.3
-  nuxt: 4.6.4
+  nuxt: 4.7.0
   ohm-js: 17.5.0
   open: 11.0.4
-  openid-client: 6.9.0
-  oxfmt: 0.79.0
-  oxlint: 1.94.0
-  oxlint-tsgolint: 7.0.2007
+  openid-client: 6.9.1
+  oxfmt: 0.80.0
+  oxlint: 1.95.0
+  oxlint-tsgolint: 7.0.2009
   picocolors: 1.1.1
   postcss: 8.5.33
   publint: 0.3.25
@@ -111,8 +111,8 @@ catalog:
   reactflow: 11.11.4
   serve: 14.2.8
   splitpanes: 4.1.2
-  superjson: 2.2.6
-  syncpack: 15.3.3
+  superjson: 2.2.7
+  syncpack: 15.3.4
   tailwind-merge: 3.7.1
   tailwindcss: 4.3.5
   taze: 21.3.0
@@ -122,10 +122,10 @@ catalog:
   typescript: 6.0.3
   use-debounce: 10.1.1
   use-local-storage: 3.0.0
-  vite: 8.3.8
+  vite: 8.4.0
   vitepress: 2.0.0-alpha.21
-  vitest: 5.1.1
-  vue: 3.5.45
+  vitest: 5.1.2
+  vue: 3.5.46
   vue-codemirror: 6.1.1
   vue-echarts: 8.3.2
   vue-toastification: 2.0.0-rc.5
